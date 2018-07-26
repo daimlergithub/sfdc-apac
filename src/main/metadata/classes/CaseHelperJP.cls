@@ -3,6 +3,8 @@ public class CaseHelperJP
     
     public Id caseInquiryRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
     public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
+     public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+     public static Id Case_InqRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
@@ -459,18 +461,39 @@ List<Account> accUpdLst = new List<Account>();
  */
  public static void SendEmailToNotifyDealer(List<Case> caseList,map<id,Case> OldcaseList)
     {
-    Set<ID> dealerID=new Set<Id>();
-    Set<ID> dealerName=new Set<Id>();
-    List<User> lstUser=new List<User>();
+         Id caseMBFInquiry = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_FinanceInquriy);
+        Id caseMBFComplaint = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_Complaint);
+        Id caseMBFContract = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_ContractClosing);
+        Id caseMBFRequest = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_CustomerRequest);
+        Id caseMBFQuotation = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MBF_FinanceQuotation);
+        Set<ID> dealerID=new Set<Id>();
+        Set<ID> dealerName=new Set<Id>();
+        Boolean escaltdcheck;
+        Set<ID> Escalationdealer=new Set<Id>();
+        List<User> lstUser=new List<User>();
     
         for(Case cs:caseList)
         {
-        dealerID.add(cs.Case_Dealer__c);
-        dealerName.add(cs.Case_Dealer__r.name);
+            if(cs.RecordTypeId ==caseMBFInquiry ||  cs.RecordTypeId ==caseMBFComplaint || cs.RecordTypeId ==caseMBFContract || cs.RecordTypeId ==caseMBFRequest || cs.RecordTypeId ==caseMBFQuotation)
+            {
+                Escalationdealer.add(cs.Case_Dealer_User__c);
+                escaltdcheck=true;
+            }
+            else
+            {
+            dealerID.add(cs.Case_Dealer__c);
+            dealerName.add(cs.Case_Dealer__r.name);
+                 escaltdcheck=false;
+            }
+      
         }
-        if(dealerID!=null && !dealerID.isempty())
+        if(Escalationdealer !=null && escaltdcheck==true)
         {
-        lstUser=[Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:dealerID AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ];
+            lstUser=[Select id,profile.name,email,contactId,contact.AccountId from User where Id=:Escalationdealer and Isactive = true];
+        }
+        if(dealerID!=null && !dealerID.isempty() && escaltdcheck==false)
+        {
+        lstUser=[Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:dealerID AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) and Isactive = true];
        System.debug('sent lstUser '+lstUser);
        }
        EmailTemplate et=[Select id,DeveloperName from EmailTemplate where DeveloperName=:'Notify_to_Dealer'];  
@@ -482,13 +505,30 @@ List<Account> accUpdLst = new List<Account>();
              for(User u:lstUser)
              {
                  System.debug('user details');
-                 if(u.profile.Name=='Japan Dealer Sales Manager' || u.profile.Name=='Japan Dealer Service Manager')
-                 {
+                 //if(u.profile.Name=='Japan Dealer Sales Manager' || u.profile.Name=='Japan Dealer Service Manager')
+                // {
                  
                  System.debug('sent lstUser  caseList'+caseList);
                      for(Case c:caseList)
                      {
-                             if(c.Case_Dealer__c !=null )
+                         if((c.Case_Dealer__c !=null) && (u.profile.Name=='Japan Dealer Sales Manager' || u.profile.Name=='Japan Dealer Service Manager') && ((c.RecordTypeId !=caseMBFInquiry) && c.RecordTypeId !=caseMBFComplaint && c.RecordTypeId !=caseMBFContract && c.RecordTypeId !=caseMBFRequest && c.RecordTypeId !=caseMBFQuotation))
+                             {
+                             System.debug('user email details');
+                              if((trigger.isInsert && c.Retail_Case_Notice_Dealer_Flag__c  ==true) || (trigger.isUpdate && c.Retail_Case_Notice_Dealer_Flag__c  != OldcaseList.get(c.id).Retail_Case_Notice_Dealer_Flag__c  && c.Retail_Case_Notice_Dealer_Flag__c  ==true) )
+                              {
+                               Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+                            mail.setTargetObjectId(u.id);  
+                            mail.setUseSignature(false);  
+                            mail.setBccSender(false); 
+                            mail.setTemplateId(et.id); 
+                            mail.setSaveAsActivity(false); 
+                            mail.setWhatID(c.id);
+                            mailList.add(mail);
+                             
+                            }
+                             }
+                         
+                         if((c.Case_Dealer_User__c !=null) && (c.RecordTypeId ==caseMBFInquiry ||  c.RecordTypeId ==caseMBFComplaint || c.RecordTypeId ==caseMBFContract || c.RecordTypeId ==caseMBFRequest || c.RecordTypeId ==caseMBFQuotation))
                              {
                              System.debug('user email details');
                               if((trigger.isInsert && c.Retail_Case_Notice_Dealer_Flag__c  ==true) || (trigger.isUpdate && c.Retail_Case_Notice_Dealer_Flag__c  != OldcaseList.get(c.id).Retail_Case_Notice_Dealer_Flag__c  && c.Retail_Case_Notice_Dealer_Flag__c  ==true) )
@@ -505,7 +545,7 @@ List<Account> accUpdLst = new List<Account>();
                             }
                              }
                      }
-                 }
+                // }
                }
                if(mailList!=null && !mailList.isempty())
                {
@@ -650,7 +690,7 @@ List<Account> accUpdLst = new List<Account>();
       System.debug('@@@@@@ userId venky'+userId);
       if(userId!=null)
       {
-      pUser=[Select Id,Name,Dealer_GC_Code__c,contactId,isactive,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and isactive=true and (profile.Name='Japan Dealer Company Manager' or profile.Name='Japan Dealer Sales Manager' OR profile.Name='Japan Dealer Service Manager')];
+      pUser=[Select Id,Name,Dealer_GC_Code__c,contactId,isactive,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and isactive=true and (profile.Name='Japan Dealer Company Manager' or profile.Name='Japan Dealer Sales Manager' OR profile.Name='Japan Dealer Service Manager' OR Profile.Name = 'Japan Dealer Sales Representative')];
       } 
         if(!Dealername.isempty() && Dealername != null)
         {
@@ -946,8 +986,8 @@ List<Account> accUpdLst = new List<Account>();
         }
         TriggerCaseTriggerHandlerKR.recurssionCheckafter = true;
     }
-	// SFDCKR-1424
-	public static void assignCasestoqueues(List<case> dealerCaseList, Map<id,Case> caseOldMap, string action){
+    // SFDCKR-1424
+    public static void assignCasestoqueues(List<case> dealerCaseList, Map<id,Case> caseOldMap, string action){
          if(dealerCaseList.size()>0 && UserInfo.getUserType() != 'PowerPartner'){
                 map<id, id> casetogrpidmap = new map<id, id>();
                 map<id, Group> queuemap = new map<id, Group>([select id, name from Group where type = 'Queue' and (Name Like '%Inquiry' or Name Like '%MB Complaints')]);
@@ -962,7 +1002,7 @@ List<Account> accUpdLst = new List<Account>();
                 }
             
               map<id, Account> accmap = new map<id, Account>([select id, Dealer_ND_Code__c, Dealer_Type__c from Account where id in: dealerIds and RecordType.Name = 'Dealer' and Dealer_Type__c = 'Company']);
-			  if(!accmap.isEmpty()){
+              if(!accmap.isEmpty()){
                 for(case cse: [select id, ownerId, RecordType.Name,Case_Dealer__c from case where id in: dealerCaseList and Case_Dealer__c != null]){
                     if(action == 'update'){
                         if(cse.Case_Dealer__c != caseOldMap.get(cse.id).Case_Dealer__c){
@@ -989,7 +1029,7 @@ List<Account> accUpdLst = new List<Account>();
                             }
                     }
                 }
-			  }	
+              } 
                     if(casetogrpidmap.size()>0){
                         updateCaseowner(casetogrpidmap);
                     }
@@ -999,7 +1039,7 @@ List<Account> accUpdLst = new List<Account>();
 
      public static void updateCaseowner(map <id,id> inids){
             List<case> casetoupd = new List<case>();
-			//The below code is added to trigger email to queue
+            //The below code is added to trigger email to queue
             Database.DMLOptions dlo = new Database.DMLOptions();
             dlo.EmailHeader.triggerUserEmail = true;
             for(case cse: [select id, ownerId, RecordType.Name,Case_Dealer__c from case where id in:inids.keyset()]){
@@ -1010,8 +1050,67 @@ List<Account> accUpdLst = new List<Account>();
             if(casetoupd.size()>0){
                     TriggerCaseTriggerHandlerKR.recurssioncheckafterownerupdate = true;
                     //update casetoupd;
-					 database.update(casetoupd, dlo);
+                     database.update(casetoupd, dlo);
             }
         
     }
+    
+     /*
+     * This method is created as part of changes related to SFDCJP-3392
+  */
+    public static void CreateRetailCopy(List<Case> caselist)
+    {
+        set<Id> fromRoleId=new set<ID>();
+        set<Id> ToRoleId=new set<ID>();
+        List<Account_LInk__c> listAlk=new List<Account_LInk__c>();
+         List<Account_Link__c> accountLinkInsert = new List<Account_Link__C>();
+    if(caselist !=null)
+        {
+            for(Case cas:caselist)
+            {
+                if((cas.RecordTypeId ==Case_InqRecordTypeId) && (cas.Dealer_Contact__c =='Yes')  && (cas.status  == 'Final approval done') && (cas.Case_Dealer__c !=null) && (cas.AccountId !=null)) 
+                {
+                    fromRoleId.add(cas.Case_Dealer__c);
+                    ToRoleId.add(cas.AccountId);
+                }
+            }
+            System.debug('$%$%$%$%$%$%$%$ fromRoleId'+fromRoleId);
+             System.debug('$%$%$%$%$%$%$%$ ToRoleId '+ToRoleId );
+            if(fromRoleId !=null && ToRoleId !=null)
+            {
+                listAlk=[Select id,toRole__c,fromRole__c from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and ((toRole__c=:ToRoleId and fromRole__c=:fromRoleId) )];
+            }
+             System.debug('$%$%$%$%$%$%$%$ listAlk '+listAlk);
+               System.debug('$%$%$%$%$%$%$%$ listAlk '+listAlk.size());
+            if(listAlk.size() >0 && listAlk!=null)
+            {
+                
+            }
+            if(listAlk.size() ==0)
+            {
+                for(Case caserec:caselist)
+                {
+                    if((caserec.RecordTypeId ==Case_InqRecordTypeId) && (caserec.Dealer_Contact__c =='Yes') && (caserec.status  == 'Final approval done') && (caserec.Case_Dealer__c !=null) && (caserec.AccountId !=null)) 
+                    {
+                         accountLinkInsert.add(new Account_Link__c(Name = caserec.id,RecordTypeId = alkPerson_RecordTypeId , fromRole__c = caserec.Case_Dealer__c, toRole__c = caserec.AccountId));
+            
+                    }
+                   
+                }
+            }
+            
+        }
+        System.debug('$%$%$%$%$%$%$%$ accountLinkInsert'+accountLinkInsert);
+         try{
+            if(accountLinkInsert != NULL && !accountLinkInsert.isEmpty()){
+               // database.insert(accountLinkInsert, false);
+               insert accountLinkInsert;
+                System.debug('^&^&^&^&^&^&^&&^accountLinkInsert'+accountLinkInsert);
+            }
+        }
+        catch(exception e){
+            System.debug('Role is Same');
+        }
+    }
+    
  }

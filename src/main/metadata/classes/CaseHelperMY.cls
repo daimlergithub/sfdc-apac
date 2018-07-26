@@ -48,6 +48,11 @@ public class CaseHelperMY {
     public void ShareRecordswithDealers(List<case> cases, boolean isUpdate, String market){
         caseHelperBaseInstance.ShareRecordswithDealers(cases, isUpdate, market);
     }
+	
+	public void callCaseUpdateInformaticaURL(Map<Id,sObject> newCaseMap){
+        caseHelperBaseInstance.callCaseUpdateInformaticaURL(newCaseMap);
+    }
+	
 	 public void beforeInsertUpdateVehicleInfo(List<Case> lcase){
         for(Case cs : lcase){
         if(cs.vehicle__c != NULL && cs.Current_Vehicle_1__c == NULL)

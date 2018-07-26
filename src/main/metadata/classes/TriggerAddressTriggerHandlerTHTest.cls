@@ -57,7 +57,7 @@ static testMethod void testAccAssignment() {
             
         insert address;
         address.Address_Type__c='Business';
-        
+        TriggerRecursiveCheck.run = true;
         Update address; 
         
         map<id,address__c> newmap=new  map<id,address__c>();

@@ -22,7 +22,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     
       String OrganizationId = UserInfo.getOrganizationId();
       String MarketDiscriminator= Usr.Market__c;
-		List<lead__c> lead=[select id,StouchLeadID__c from Lead__c where id=:LeadId and StouchLeadID__c!=null];
+        List<lead__c> lead=[select id,StouchLeadID__c from Lead__c where id=:LeadId and StouchLeadID__c!=null];
         system.debug('MarketDiscriminator'+MarketDiscriminator);
         if(usr.profile.name=='IntegrationAPI' && usr.Alias=='iinf' &&lead.size()>0 ){
             List<Account> dealracc=[select id,md__c from Account where id=:DealerID];
@@ -53,7 +53,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     
       String OrganizationId = UserInfo.getOrganizationId();
          String MarketDiscriminator= Usr.Market__c;
-		List<Account_link__c> acl=[select id,toRole__r.StouchUniqueId__c from Account_link__c where id=:RTCustomerId and toRole__r.StouchUniqueId__c!=null];
+        List<Account_link__c> acl=[select id,toRole__r.StouchUniqueId__c from Account_link__c where id=:RTCustomerId and toRole__r.StouchUniqueId__c!=null];
         if(usr.profile.name=='IntegrationAPI' && usr.Alias=='iinf' && acl.size()>0 ){
             List<Account> dealracc=[select id,md__c from Account where id=:DealerID];
             if(!dealracc.isEmpty())
@@ -84,7 +84,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
       System.debug('%^%%^%^%^% response'+response); 
        return src;
     }
-	//Recall Check SFDCKR-1719
+    //Recall Check SFDCKR-1719
     webservice static string RecallNotify(String DealerID,String VehicleId)
     {  
     User  Usr = [SELECT Market__c, Id,profile.name,Alias FROM User WHERE Id = : UserInfo.getUserId()];
@@ -379,8 +379,8 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         SendingAddress.HouseNumber = address.HouseNumber__c;
         SendingAddress.Block = address.Block__c;
         SendingAddress.City = address.City__c;
-        SendingAddress.District = address.District__c;	
-        SendingAddress.Province = address.Province__c;		
+        SendingAddress.District = address.District__c;  
+        SendingAddress.Province = address.Province__c;      
         }
         
         crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType request = new crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType();
@@ -472,6 +472,8 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ;         
         sendingCustomerDetails.Vin = accountDetails.VIN__c; 
+         sendingCustomerDetails.Allow_Data_Sharing2_xc = accountDetails.Allow_Data_Sharing2__c;
+        sendingCustomerDetails.MB_Customer_Info_Remove_xc=  accountDetails.MB_Customer_Info_Remove__c;
         sendingCustomerDetails.Company_Name_xc= accountDetails.Company_Name__c; 
         sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c;         
          sendingCustomerDetails.Foundation_date_xc=  string.valueOf(accountDetails.Foundation_date__c);
@@ -542,6 +544,8 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c; 
         sendingCustomerDetails.Foundation_date_xc=  string.valueOf(accountDetails.Foundation_date__c);
         sendingCustomerDetails.Commercial_reg_no_xc= accountDetails.Commercial_reg_no__c; 
+         sendingCustomerDetails.Allow_Data_Sharing2_xc = accountDetails.Allow_Data_Sharing2__c;
+        sendingCustomerDetails.MB_Customer_Info_Remove_xc=  accountDetails.MB_Customer_Info_Remove__c;
         
         addrValues.Address_Code_xc=AddressObj.Address_Code__c;
         addrValues.Address_Line_1_xc=AddressObj.Address_Line_1__c;

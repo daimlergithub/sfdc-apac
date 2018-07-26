@@ -15,7 +15,8 @@ public class AccountHelperJP
     public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
    // public static Id VehicleRelRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
     
-    static User usr = [Select id, LanguageLocaleKey,Market__c,ContactId,Contact.Account.Dealer_Rollout_Status__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
+	//updated query to get username- JYS-442 for Informatica YA Step-2
+    static User usr = [Select id, LanguageLocaleKey,Market__c,ContactId,Contact.Account.Dealer_Rollout_Status__c,ProfileId,Profile.Name,Username from User WHERE ID = : UserInfo.getUserId()]; 
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are inserted.
 **  Created By: Sudhir 
 **  Date: 2015-12-22
@@ -629,7 +630,30 @@ public class AccountHelperJP
         CustomLogUtil.DebugLogInsert();
         
     }
-    /** To generate UCID value based on Record type.
+    
+	/** Upadte Account fields by Informatica for JP YA-Step-2.
+     ** Created By: REETESH 
+     ** Date: 2018-06-22 
+     **/
+public static void updateAccountFieldsBeforeUpdateByInformatica(list<Account> listNewAccounts,map<id,Account> OldMap,boolean isUpdate)
+    {
+		
+		boolean flag=false;
+		if(Label.isInformaticaUserJP == 'true'){
+		  flag=true;
+		}
+        String usrName=usr.Username;
+		String infuser=Label.InfomraticaUserLabel;
+		
+		if(usr.Profile.Name=='IntegrationAPI' && flag && usrName.contains(infuser)){			
+			updateAccountFieldsBeforeUpdate(listNewAccounts,OldMap,isUpdate);
+		}		
+	}
+	
+	
+	
+	
+	/** To generate UCID value based on Record type.
 ** To Create Account link Record.
 ** Created By: Sreeram
 ** Date: 2016-01-10 
@@ -1121,10 +1145,10 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
             }
             system.debug('insrtaccids>>>>' + insrtaccids);
         }
-		if(!updateAclnkids.isEmpty() && updateAclnkids != null){
+		/*if(!updateAclnkids.isEmpty() && updateAclnkids != null){
             createUpdateRetailCopy.UpdateRetailCopyAddress(updateAclnkids,updateAccountMap);
         
-        }
+        }*/
         if(!insrtaccids.isEmpty() && insrtaccids != null)
         {
             system.debug('INsretddsadasd>>>>>');

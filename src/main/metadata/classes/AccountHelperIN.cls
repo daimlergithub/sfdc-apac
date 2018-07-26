@@ -10,6 +10,14 @@ public class AccountHelperIN{
         AccountHelperBase.updateAccountFieldsBeforeInsert(listNewAccounts,isInsert);
         AccountHelperBase.updateMarketingFields(listNewAccounts);
     }
+	//To populate standard email based on custom email value
+    public static void updateStandardEmail(list<Account> listAcc){
+        for(Account acc: listAcc){
+            if(acc.RecordTypeId == AccountHelperBase.accPerson_RecordTypeId){
+                acc.PersonEmail = acc.Email__c;
+            }
+        }
+    }
     //to set country default to India for new inserted records
     public static void updateAccountCountry(list<Account> listNewAccounts,boolean isInsert){
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null && isInsert == true){

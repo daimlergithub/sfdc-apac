@@ -3,6 +3,10 @@
     <active>true</active>
     <allowRecall>false</allowRecall>
     <allowedSubmitters>
+        <submitter>THUsers</submitter>
+        <type>group</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
         <type>owner</type>
     </allowedSubmitters>
     <approvalPageFields>
@@ -23,7 +27,7 @@
     </approvalStep>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <formula>Approver__c !=null&amp;&amp; MD__c =&apos;TH&apos;</formula>
+        <formula>Approver__c !=null&amp;&amp; MD__c =&apos;TH&apos;&amp;&amp;  RecordType.Name =&apos;Planning &amp; Design Campaign&apos;</formula>
     </entryCriteria>
     <finalApprovalActions>
         <action>

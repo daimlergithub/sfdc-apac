@@ -1,0 +1,22 @@
+<apex:component controller="MultiselectAutoCompleteCtrl">
+ <apex:stylesheet value="{!URLFOR($Resource.SLDS104, '/styles/salesforce-lightning-design-system.min.css')}" />
+    <apex:attribute name="AvailableOptions" description="Options list for left listbox." type="SelectOption[]" required="true"  assignTo="{!leftOptions}"/>
+    <apex:attribute name="SelectedOptions" description="Options list for right listbox." type="SelectOption[]" required="true"  assignTo="{!rightOptions}"/>
+	<apex:attribute name="PrepopulateOption" description="Prepopulate Options list for right listbox." type="SelectOption[]" required="false"  assignTo="{!prePopulateOptions}"/>
+    
+    <apex:includeScript value="{!URLFOR($Resource.multiSelectAutoComplete, 'js/jquery.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.multiSelectAutoComplete, 'js/jquery.tokeninput.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.multiSelectAutoComplete, 'css/token-input-facebook.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.multiSelectAutoComplete, 'css/token-input-listStyle.css')}" />
+    <script>
+            $(document).ready(function() {
+                  $("#myAutocomplete").tokenInput({!MultiselectOptions},{prePopulate : {!PrepopulatedData}, tokenLimit : 5, preventDuplicates : true});
+            });
+    </script>
+    <div class="slds">
+        <apex:inputHidden value="{!strSelectedOptions}" id="hiddenInputId" />
+        <input type="text" id="myAutocomplete" style="width:100px; !imp"  
+               onchange="$('[id$=hiddenInputId]').val($('#myAutocomplete').val());AF();"/>
+        <apex:actionFunction name="AF" action="{!assignToSelectedOption}" rerender="DummyIdForRerender"/>
+    </div>
+</apex:component>

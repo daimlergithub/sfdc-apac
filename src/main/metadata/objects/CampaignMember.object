@@ -17,7 +17,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Create_Opportunity</actionName>
+        <actionName>CreateOpportunity</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -609,7 +609,8 @@
 		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 		IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 		IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
-		IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
+  IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+		IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -625,7 +626,9 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -662,6 +665,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                     <fullName>MY</fullName>
                     <default>false</default>
                     <label>MY</label>
+                </value>
+                <value>
+                    <fullName>IN</fullName>
+                    <default>false</default>
+                    <label>IN</label>
+                </value>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                    <label>TR</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -929,6 +942,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <label>isTestRunning</label>
         <type>Checkbox</type>
     </fields>
+    <sharingModel>ControlledByCampaign</sharingModel>
+    <validationRules>
+        <fullName>Campaign_Member_MD_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>MD field of Campaign Member should be same as user's Market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) !=(MD__c) ,$Profile.Name != 'IntegrationAPI',  $Permission.INGeneric, NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>MD__c</errorDisplayField>
+        <errorMessage>You are allowed to create or edit records for your home market only</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Campaign_Member_Market_Cannot_be_Changed</fullName>
         <active>true</active>

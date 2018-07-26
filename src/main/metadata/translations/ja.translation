@@ -1435,6 +1435,18 @@
     <customLabels>
         <label><!-- Detailed Model Name --></label>
         <name>DetailedModelName</name>
+    </customLabels>	
+    <customLabels>
+        <label>自拠点にサービス入庫した顧客への出庫後調子伺いDM発送等</label>
+        <name>Description_1</name>
+    </customLabels>
+    <customLabels>
+        <label>自拠点管理のEクラス保有歴のある顧客へのDM発送等</label>
+        <name>Description_2</name>
+    </customLabels>
+    <customLabels>
+        <label>メンテナンスやファイナンス契約を条件にしたDM発送等</label>
+        <name>Description_3</name>
     </customLabels>
     <customLabels>
         <label>お客様から入会申込書を受領した場合のみ、実施してください</label>
@@ -1725,6 +1737,10 @@
     <customLabels>
         <label>等しい</label>
         <name>Equals</name>
+    </customLabels>
+	<customLabels>
+        <label>均等割当</label>
+        <name>Evenly_Location</name>
     </customLabels>
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
@@ -2650,7 +2666,7 @@
         <name>Mass_Assign_Recall_Tasks_Apply_Filters</name>
     </customLabels>
     <customLabels>
-        <label><!-- Mass Assign Recall Tasks Assign Rules --></label>
+        <label>割当条件</label>
         <name>Mass_Assign_Recall_Tasks_Assign_Rules</name>
     </customLabels>
     <customLabels>
@@ -2662,7 +2678,7 @@
         <name>Mass_Assign_Recall_Tasks_Close_Tasks</name>
     </customLabels>
     <customLabels>
-        <label><!-- Mass Assign Recall Tasks Define Filters --></label>
+        <label>条件指定</label>
         <name>Mass_Assign_Recall_Tasks_Define_Filters</name>
     </customLabels>
     <customLabels>
@@ -2937,6 +2953,10 @@
         <label>入力した条件では該当顧客は見つかりませんでした。条件を増やして再検索するか、このまま新規登録してください。</label>
         <name>No_Match_Found</name>
     </customLabels>
+	<customLabels>
+        <label>該当顧客は見つかりませんでした。</label>
+        <name>No_matched_customer_found</name>
+    </customLabels>
     <customLabels>
         <label><!-- No Result Found --></label>
         <name>No_Result_Found</name>
@@ -3033,6 +3053,22 @@
     <customLabels>
         <label><!-- One --></label>
         <name>One</name>
+    </customLabels>
+	    <customLabels>
+        <label>購入済み</label>
+        <name>Purchased_Only_Non_BDC</name>
+    </customLabels>
+	    <customLabels>
+        <label>受注</label>
+        <name>Order_Placed</name>
+    </customLabels>
+	    <customLabels>
+        <label>進行中</label>
+        <name>On_going</name>
+    </customLabels>
+	    <customLabels>
+        <label>未開始</label>
+        <name>Not_Started</name>
     </customLabels>
     <customLabels>
         <label><!-- Online Dedup callout failure --></label>
@@ -4655,6 +4691,18 @@
     <customLabels>
         <label><!-- Select Option None --></label>
         <name>Select_Option_None</name>
+    </customLabels>	
+    <customLabels>
+        <label>入力補助1:車両単位</label>
+        <name>Select_Template_1</name>
+    </customLabels>
+    <customLabels>
+        <label>入力補助2:顧客単位</label>
+        <name>Select_Template_2</name>
+    </customLabels>
+    <customLabels>
+        <label>入力補助3:契約単位</label>
+        <name>Select_Template_3</name>
     </customLabels>
     <customLabels>
         <label><!-- Select User --></label>

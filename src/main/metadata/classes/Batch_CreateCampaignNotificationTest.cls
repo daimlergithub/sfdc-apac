@@ -46,6 +46,7 @@ public class Batch_CreateCampaignNotificationTest
     List<Retail_Campaign__c> listretcam=new List<Retail_Campaign__c>();
       Map<Id,Retail_campaign__c> retCamp = new Map<Id,Retail_campaign__c>();
       Set<id>cempId = new Set<id>();
+       Set<id> retCampid = new Set<id>();
       Account   DealerAccount= new Account();
         DealerAccount.RecordtypeId=DealerAccRecordTypeId;
         DealerAccount.Name='Test Person 1st';
@@ -82,7 +83,7 @@ public class Batch_CreateCampaignNotificationTest
     
     
     insert campobj;
-    
+     retCampid.add(campobj.id);
      Retail_Campaign__c campobj1= new Retail_Campaign__c();
     campobj1.RecordTypeId = RetailcentmarcampRecordTypeId;
     campobj1.Name = 'camptest1';
@@ -105,12 +106,25 @@ public class Batch_CreateCampaignNotificationTest
     cm.Status__c = 'Ready';
     cm.Preferred_Dealer__c = DealerAccount.id;
     cm.Campaign_ID__c = top.id;
+    cm.Cross_point_month_and_year__c='2019';
+    cm.Outstanding_Balance_amount__c='200';
+    cm.Proto_Market_Value_amount__c='21';
+    cm.Final_GAP_Amount__c='21';
+    cm.Evaluation_Result_P1_P2_Blank__c='31';
+    cm.NextInspectionDate__c=system.today();
+    cm.NextServiceDate__c=system.today()+1;
+    cm.LastInspectionDate__c=system.today()+3;
+    cm.LastServiceDate__c=system.today()-5;
+    cm.LastWorkDate__c=system.today()+100;
+    cm.OptOutContact_Reason__c ='Fair';
     //cm.contact_Id__c = accobj.Id;   
     insert cm;   
     test.starttest();
     retCamp.put(DealerAccount.id,campobj);
-    Batch_CampaignmemberInsertion batcher = new Batch_CampaignmemberInsertion(retCamp,cempId,listretcam);
+    Batch_CampaignmemberInsertion batcher = new Batch_CampaignmemberInsertion(retCamp,cempId,listretcam,retCampid);
        Database.executeBatch(batcher, 300);
+    //    Batch_RetailCampaignNotification batchern = new Batch_RetailCampaignNotification(retCampid);
+      // Database.executeBatch(batchern, 1);
      test.stoptest();
     }
 }

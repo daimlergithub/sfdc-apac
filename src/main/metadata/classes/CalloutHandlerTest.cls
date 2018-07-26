@@ -22,13 +22,14 @@ public class CalloutHandlerTest {
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',
-                                    Mobile__c ='012345678',Allow_Data_Sharing_Comment__c='Comments',RecordTypeId=accPerson_RecordTypeId);
+                                    Allow_Data_Sharing_Comment__c='Comments',RecordTypeId=accPerson_RecordTypeId);
         insert a;
         system.runAs(u){
             String method = 'GET';
             String endpoint = 'http://api.salesforce.com/foo/bar'; 
             Integer timeout= null;
             Integer timeout1=12000;  
+			String market='TH';
             Map<String,String> headerKeyByValue =new Map<String,String>();            
             headerKeyByValue.put('Content-Type', 'application/json');
             headerKeyByValue.put('Accept', 'application/json');  
@@ -47,7 +48,7 @@ public class CalloutHandlerTest {
             
             res = CalloutHandlerService.sendCallout(method,endpoint,timeout1,headerKeyByValue,status);
             
-            res = CalloutHandlerService.sendCalloutForPost(method,endpoint,timeout1,headerKeyByValue,status,body);
+            res = CalloutHandlerService.sendCalloutForPost(method,endpoint,timeout1,headerKeyByValue,status,body,market);
             
             String resString = CalloutHandlerService.processCalloutResponse(res, null);            
             res = CalloutHandlerService.sendCallout(method,null, timeout,headerKeyByValue,status);

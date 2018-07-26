@@ -649,4 +649,22 @@ global without sharing class VehiclePickerForCaseControllerMY {
     public class BrandClasses{
         public Map<String, String> name {get;set;}
     }
+	
+	//Namitha 05082018 Added to redirect to IN specific INline Vehicle pick page.
+	public PageReference goToMarketSpecificPage() {
+	String vfpage = '';
+	String market = [select market__c from User where id =:UserInfo.getUserId()].market__c;
+      system.debug('market :' + market);
+        if (market != null && market != '' && (market == Label.IN || market == Label.TR)){
+            vfpage = 'CaseInlineVehiclePage';
+        }
+        system.debug('vfpage :' + vfpage);
+		if (vfpage != null && vfpage != ''){
+			PageReference vehPage = new PageReference('/apex/'+ vfpage);
+            vehPage.getParameters().put('id', currentRecordId);
+			vehPage.setRedirect(true);
+			return vehPage;
+		}
+	return null;
+    }
 }

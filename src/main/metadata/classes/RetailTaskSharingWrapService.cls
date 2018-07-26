@@ -80,12 +80,12 @@ public with sharing class RetailTaskSharingWrapService {
 	 * @see   wrapRetailTasks
 	 */
     public List<SharingWrapper> wrapServices(List<Retail_Task__c> services) {
-        User loggedInUser = [select Id, Market__c from User where Id = :UserInfo.getUserId()];
-        if(loggedInUser.Market__c=='TH')
-        {
-            return wrapRetailTasksTH(Schema.Retail_Task__Share.RowCause.Service_Share__c, services,UtilConstant.edit_Access);
-        }
         return wrapRetailTasks(Schema.Retail_Task__Share.RowCause.Service_Share__c, services,UtilConstant.read_Access);
+    }
+	
+    public List<SharingWrapper> wrapServicesTH(List<Retail_Task__c> services)
+    {
+        return wrapRetailTasksTH(Schema.Retail_Task__Share.RowCause.Service_Share__c, services,UtilConstant.edit_Access);
     }
 	
     
@@ -155,7 +155,7 @@ public with sharing class RetailTaskSharingWrapService {
         }
         if(services!=null && services.size()>0)
         {
-            wrappers.addAll(wrapServices(services));
+            wrappers.addAll(wrapServicesTH(services));
         }
         return wrappers;
     }

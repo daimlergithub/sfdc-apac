@@ -5,5 +5,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>MBIndia Management</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Daimler_APAC</parentRole>
+    <parentRole>MBIndia</parentRole>
 </Role>

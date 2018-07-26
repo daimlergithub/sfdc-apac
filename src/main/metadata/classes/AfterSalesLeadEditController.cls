@@ -21,6 +21,7 @@ public with sharing class AfterSalesLeadEditController {
     public Opportunity opp {get;set;}
     public Integer intPreferredCount{get;set;}
     public Integer compPreferredCount{get;set;}
+    public String userMarket {get;set;}
     list<Lead_Details__c> tradeVehc = new list<Lead_Details__c>();
     // Constructor
     public AfterSalesLeadEditController(ApexPages.StandardController controller) {
@@ -31,6 +32,7 @@ public with sharing class AfterSalesLeadEditController {
         intPreferredCount = 0;
         compPreferredCount = 0;
 		//Sada added New Fields as per usMBANZ-157,158
+		//Madhu added New Fileds as per usMBANZ-384
         opp=[SELECT id,Name ,RecordType.Name,StageName,Case__c,CreatedDate,Campaign.Name,Visited_Showroom_Date_Time__c,Market__c, Type_of_Sale__c,
              Lead_Additional_Service__c,Pickup_Date_Time__c,Order_Placed_Date__c,Quotation_Date__c,Quotation_Amount__c,Order_No__c, Lost_To_Competitor_Name__c,
              Order_Print_Date__c,Order_Confirmation_Date__c,Registration_No__c,Network_Registration_Date__c,Bought_Vehicle_Brand__c,Next_Contact_Customer_Date__c,
@@ -42,10 +44,14 @@ public with sharing class AfterSalesLeadEditController {
              CAC_Lost_Reason__c,Lead_DataSubSource__c,Lost_Reason_text__c,Lead_Desired_Service__c,Last_Successful_Call__c, Lost_to_Co_Dealer_Name__c,Current_Vehicle_1_Text__c,Current_Vehicle_2_Text__c,
              Lead_Source__c,Lead_Priority__c,Lost_To__c,Lost_Situation__c,Lead_No__c,Allow_Data_Sharing__c,OwnerId,Is_Active__c,LeadSource,AccountId,Payment_Mode__c,Lost_Date__c,CreatedById,LastModifiedById,Service_Requested_date__c,Quotation_No_History__c,
              WIP_Number__c,WIP_Created_Date__c,Job_Card_Number__c,Job_Card_Date__c,Check_In_Date__c,Check_Out_Date__c,Needs_Check_Date__c,Product_Proposal_Date__c,Finance_Proposal_Date__c,Insurance_Proposal_Date__c,Service_Program_Proposal_Date__c,Simple_Estimation_Date__c,
-             Finance_Product_Name__c,Trade_in_Date__c,Finance_Quotation_No_History__c,Finance_Quotation_Date__c,Finance_Quotation_No__c,CA_Updated_Date__c,Quotation_Model__c,Average_Driving__c,Service_date__c,Preferred_Delivery_Date__c,Express_Service__c,Form_Title__c,Entity__c,Assigned_Service_Parts_Advisor__c,Lost_Sub_Type__c FROM opportunity WHERE Id =: ApexPages.currentPage().getParameters().get('id')];
+             company_account__c,Pick_up_Time__c ,Lost_Dealer_Date__c ,Policy_Inception_Date__c ,Existing_Contract__c ,Drop_off_Time__c ,Vehicle_Need__c ,Vehicle_Year_Current__c ,VIN__c,First_Contact_Customer_Date_Time__c ,Lost_Dealer_Date_Time__c ,CAC_Lead_Status__c ,Deposit__c ,Deposit_Payment_Date__c ,Compared_Vehicle__c ,New_Insurance_Policy_Number__c,Lost_CAC_Date__c,Price_Range_From__c,Price_Range_To__c ,Assigned_to_Dealer_Directly__c ,Dealer_Owner_Email__c ,Dealer_Aftersales_Manager_Email__c ,Dealer_Lead_Status__c ,Finance_Product_Name__c,Trade_in_Date__c,Portal_Request_ID__c,Contact_Timing__c ,Lost_CAC_Date_Time__c ,Contact_Failed_For_3_Days_Date_Time__c ,CommissionNumber__c ,Finance_Quotation_No_History__c,Finance_Quotation_Date__c,Finance_Quotation_No__c,CA_Updated_Date__c,Quotation_Model__c,Average_Driving__c,Service_date__c,Preferred_Delivery_Date__c,Express_Service__c,Form_Title__c,Entity__c,Assigned_Service_Parts_Advisor__c,Lost_Sub_Type__c,ZipCode__c,Lead_eMail__c,Lead_Mobile__c,Aftersales_Vehicle_Relationship__c, Year__c,  Preferred_Pick_up_times__c,  Preferred_drop_off__c,  VIN_number__c,  Registration_number__c,  Km_service_due__c,  Wholesale_Comment__c, Pickup_Date__c FROM opportunity WHERE Id =: ApexPages.currentPage().getParameters().get('id')];
+        
+        if (opp != null){
+            userMarket = opp.Market__c;
+        }
                
         currentVehicleList = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
-        for(Lead_Details__c ld : [Select Id, recordTypeId, Car_Model_Competitor__c, Brand__c, Car_Model__c, Class__c, Color__c, Market__c, Mileage__c, Preferred__c, Related_Lead__c, Trade_In_Vehicle__c, Trim__c, Type__c, Vehicle_Model_Type__c, Year_of_Manufacture__c From Lead_Details__c Where Related_Lead__c =: ApexPages.currentPage().getParameters().get('id')]){
+        for(Lead_Details__c ld : [Select Id, recordTypeId, Car_Model_Competitor__c, Brand__c, Car_Model__c, Class__c, Color__c, Market__c, Mileage__c, Preferred__c, Related_Lead__c, Trade_In_Vehicle__c, Trim__c, Type__c, Vehicle_Model_Type__c, Year_of_Manufacture__c,brand_picklist__c,class_picklist__c From Lead_Details__c Where Related_Lead__c =: ApexPages.currentPage().getParameters().get('id')]){
             // Add vehicles separately
             String leadDetailRecordTypeName = UtilRecordType.getRecordTypeNameById('Lead_Details__c', ld.RecordTypeId);
             if(!allVehiclesMap.isEmpty() && allVehiclesMap.containsKey(leadDetailRecordTypeName)){
@@ -89,6 +95,7 @@ public with sharing class AfterSalesLeadEditController {
         Lead_Details__c led = new Lead_Details__c();
         led.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Interested_Record_Type);
         led.Related_Lead__c = opp.Id;
+        led.Market__c = opp.Market__c;
         intVehicleList.add(led);
         return null;
     }
@@ -98,6 +105,7 @@ public with sharing class AfterSalesLeadEditController {
         Lead_Details__c led = new Lead_Details__c();
         led.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
         led.Related_Lead__c = opp.Id;
+        led.Market__c = opp.Market__c;
         compVehicleList.add(led);
         return null;
     }
@@ -105,11 +113,11 @@ public with sharing class AfterSalesLeadEditController {
     // To auto populate various field values of the lead details record
     public void UpdateModInfoCtrl(){
         for(Lead_Details__c ledInt : intVehicleList){
-            if(ledInt.Car_Model__c != null && !allVehiclesList.contains(ledInt))
+            if((ledInt.Car_Model__c != null || ledInt.Brand_Picklist__c != null || ledInt.Class_Picklist__c != null) && !allVehiclesList.contains(ledInt))
                 allVehiclesList.add(ledInt);
         }
         for(Lead_Details__c ledComp : compVehicleList){
-            if(ledComp.Car_Model_Competitor__c != null && !allVehiclesList.contains(ledComp))
+            if((ledComp.Car_Model_Competitor__c != null || ledComp.Brand_Picklist__c != null || ledComp.Class_Picklist__c != null) && !allVehiclesList.contains(ledComp))
                 allVehiclesList.add(ledComp);
         }
         for(Lead_Details__c ledDet : tradeVehc){
@@ -131,6 +139,8 @@ public with sharing class AfterSalesLeadEditController {
                    ld.Class__c = cmMap.get(ld.Car_Model__c).Series__c;
                    ld.color__c = cmMap.get(ld.Car_Model__c).colour__c;
                    ld.trim__C = cmMap.get(ld.Car_Model__c).trim__c;
+                   ld.Brand_Picklist__c = cmMap.get(ld.Car_Model__c).brand__C;
+                   ld.Class_Picklist__c = cmMap.get(ld.Car_Model__c).Series__c;
                }
             else if(ld.RecordTypeId == UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type) 
                     && cmMap.containsKey(ld.Car_Model_Competitor__c)){
@@ -141,6 +151,8 @@ public with sharing class AfterSalesLeadEditController {
                         ld.Class__c = cmMap.get(ld.Car_Model_Competitor__c).Series__c;
                         ld.color__c = cmMap.get(ld.Car_Model_Competitor__c).colour__c;
                         ld.trim__C = cmMap.get(ld.Car_Model_Competitor__c).trim__c;
+                   		ld.Brand_Picklist__c = cmMap.get(ld.Car_Model_Competitor__c).brand__C;
+                   		ld.Class_Picklist__c = cmMap.get(ld.Car_Model_Competitor__c).Series__c;
                     }
         }
     }
@@ -172,13 +184,23 @@ public with sharing class AfterSalesLeadEditController {
         UpdateModInfoCtrl();
         List<Lead_Details__c> finalAllVehicleList = new List<Lead_Details__c>();
         for(Lead_Details__c ledDet : allVehiclesList){
-            if(!(ledDet.Car_Model__c == null && ledDet.Car_Model_Competitor__c == null && ledDet.RecordTypeId != UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_TradeIn_Record_Type)))
+            if(!(ledDet.Car_Model__c == null && ledDet.Car_Model_Competitor__c == null && ledDet.Brand_Picklist__c == null && ledDet.Class_Picklist__c == null && ledDet.RecordTypeId != UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_TradeIn_Record_Type)))
                 finalAllVehicleList.add(ledDet);
         }
         if(intPreferredCount < 2 && compPreferredCount < 2){
             try{
-                upsert finalAllVehicleList;
+                if(finalAllVehicleList != null && finalAllVehicleList.size() != 0){
+                    //rajesh 6/22/2018 - added set logic below to prevent duplicate error while upsert
+                    Set<Lead_Details__c> setFinalLeadDetails = new Set<Lead_Details__c>();
+                    setFinalLeadDetails.addAll(finalAllVehicleList);
+                    List<Lead_Details__c> lstToUpsertLeadDetails = new List<Lead_Details__c>();
+                    lstToUpsertLeadDetails.addAll(setFinalLeadDetails);
+                    upsert lstToUpsertLeadDetails;
+                    //Update opp;
+                }
+                // upsert finalAllVehicleList;
                 Update opp;
+
             }
             catch(DmlException de){
                 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,de.getDMLMessage(0)));      

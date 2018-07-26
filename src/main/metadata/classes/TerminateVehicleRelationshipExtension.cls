@@ -5,7 +5,7 @@
 ** Date: 2015-10-11
 **/
 
-public  class TerminateVehicleRelationshipExtension   
+public with sharing class TerminateVehicleRelationshipExtension   
 {
     //Variable Declaration 
     public Vehicle__c vehiclerec{get;set;}

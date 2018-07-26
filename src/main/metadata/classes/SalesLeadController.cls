@@ -15,6 +15,13 @@ public with sharing class SalesLeadController {
     public string rec {get;set;}
     public boolean isHide {get;set;}
     public boolean isHidecomp {get;set;}
+    
+   	public List<SelectOption> lstAvailableOptions {get;set;}
+    public List<SelectOption> lstSelectedOptions {get;set;}
+    private List<Car_Model__c> lstSelectedCarModel;
+	public Boolean addRecommendation{get;set;}
+      List<String> carSearchFormat;
+    
     public integer prefcount;
     public integer prefcountcomp;
     public integer i;
@@ -31,8 +38,12 @@ public with sharing class SalesLeadController {
     //This is used for Trad in vehicle
     public list<Lead_Details__c> tradeVehc {get;set;}
     public list<Lead_Details__c> allVehicles = new list<Lead_Details__c>();
+	private map<Id,Car_Model__c> mapCarModel;
     public list<Vehicle_Relationship__c> vehRel {get;set;}
+    public String userMarket{get;set;}
+    
     ApexPages.StandardController stdController;
+    User uObj;
     public SalesLeadController(ApexPages.StandardController controller) {
         if(chk != 1)isHide = true;
         if(chkcomp != 1)isHidecomp = true;
@@ -41,7 +52,8 @@ public with sharing class SalesLeadController {
         if(accID.length() != 0)
             opp.accountId = accID; 
         recTypeId = UtilRecordType.getRecordTypeIdByName('Opportunity', System.Label.Sales_Lead);
-        User uObj = [SELECT Id,Market__c  FROM User WHERE Id=:UserInfo.getUserId()] ;
+        uObj = [SELECT Id,Market__c  FROM User WHERE Id=:UserInfo.getUserId()] ;
+        userMarket = uObj.Market__c;
         opp.RecordTypeId = recTypeId;
         opp.market__c = uObj.Market__c;
         opp.StageName = 'New';
@@ -59,14 +71,29 @@ public with sharing class SalesLeadController {
             Date dueDate = System.today() +90;  
                   opp.CloseDate =dueDate ;
             }
+			
+			
+         if(Opp.Market__c == 'AU' || Opp.Market__c == 'NZ')
+         {
+            addRecommendation = false;
+
+
+            lstSelectedOptions = new List<SelectOption>();
+            carSearchFormat = ((String)System.label.CarSearchFormatCriteria).split(',');
+            mapCarModel = SalesLeadUtility.populateCarModel(Opp);
+            lstAvailableOptions = SalesLeadUtility.populateOptions(mapCarModel,null,true);
+
+         }
+
     }
-    
+   
         //To add more records for Interested Vehicle
         public PageReference AddIntRecord() {
         Lead_Details__c ld = new Lead_Details__c();
         ld.type__c = 'Interested';
         leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Interested_Record_Type);
         ld.RecordTypeId = leadrecTypeId;
+        ld.Market__c = uObj.Market__c;
         intVehicle.add(ld);
         return null;
         }
@@ -78,6 +105,7 @@ public with sharing class SalesLeadController {
         leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
         cld.RecordTypeId = leadrecTypeId;
         compVehc.add(cld);
+        cld.Market__c = uObj.market__c;
         return null;
         }
     
@@ -98,6 +126,8 @@ public with sharing class SalesLeadController {
                     l.Class__c = cm.series__c;
                     l.color__c = cm.colour__c;
                     l.trim__C = cm.trim__c;
+                    l.Brand_Picklist__c = cm.Brand__c;
+                    l.Class_Picklist__c = cm.Series__c;
                 }
             }
         }
@@ -170,28 +200,52 @@ public with sharing class SalesLeadController {
                 isHidecomp = false;
                 valSuccess = false;
             }
+
         }
-    }
+    }    
     
     public pageReference saveOpp(){
-        Vehmake();
+        Vehmake();     
+        
+               
+        if(Opp.Market__c == 'AU' || Opp.Market__c == 'NZ')
+        {	if(addRecommendation)
+       	 {SalesLeadUtility.updateSelectedCarModel(Opp,mapCarModel,lstSelectedOptions);}
+        }
+
+
         system.debug('valSuccess: '+valSuccess);
         if(valSuccess) {
+            //added errFlag to prevent functionality around save of lead details
+           Boolean oppErrFlag = false;
             try{
                 DMLManagerService.insertAsSystem(opp);
              }
             catch (DmlException e){
+				valSuccess = false ; 		
+                oppErrFlag = true;
                 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
             }
+
+            if (oppErrFlag == true){
+                return null;
+            }
+			
+			//Sada added if condition as part of defect DF -272 on 2018/june/22
+			if(valSuccess) {
             allVehicles = new list<Lead_Details__c>();
             //added for loops so that lead detail is not inserted if user oest not pick any model
             for(integer i=0;i<intVehicle.size();i++){
                 system.debug('intmodel:' + intVehicle[i].Car_Model__c);
-                if(intVehicle[i].Car_Model__c != null) allVehicles.add(intVehicle[i]);
+                if(intVehicle[i].Car_Model__c != null || intVehicle[i].brand_picklist__c != null || intVehicle[i].class_picklist__c !=null) {
+                    allVehicles.add(intVehicle[i]);
+                }
             }
             for(integer i=0;i<compVehc.size();i++){
                 system.debug('comptmodel:' + compVehc[i].Car_Model__c);
-                if(compVehc[i].Car_Model_Competitor__c != null) allVehicles.add(compVehc[i]);
+                if(compVehc[i].Car_Model_Competitor__c != null || compVehc[i].brand_picklist__c != null || compVehc[i].class_picklist__c !=null) {
+                    allVehicles.add(compVehc[i]);
+                }
             }
             system.debug('trade size' + tradeVehc.size());
             for(integer i=0;i<tradeVehc.size();i++){
@@ -201,7 +255,10 @@ public with sharing class SalesLeadController {
             
             for(Lead_Details__c l :allVehicles){
                 l.Related_Lead__c = opp.id;
-            }
+            }				
+            
+            if(Opp.Market__c == 'AU' || Opp.Market__c == 'NZ')
+         	   SalesLeadUtility.createLeadDetails(Opp, lstSelectedOptions, mapCarModel);
 
             try{
                 Insert allVehicles;
@@ -209,7 +266,7 @@ public with sharing class SalesLeadController {
             catch(DmlException e){
                 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
             }
-
+			}
         }    
         PageReference oppPage = new ApexPages.StandardController(opp).view();
         oppPage.setRedirect(true);

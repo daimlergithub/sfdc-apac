@@ -477,19 +477,6 @@
         <fields>Related_Vehicle__c</fields>
         <fields>ApplicationDate__c</fields>
         <fields>ContractNumber__c</fields>
-        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Type__c</fields>
-        <fields>Product_Name__c</fields>
-        <fields>Status__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>VIN_Link__c</fields>
-        <fields>Related_Vehicle__c</fields>
-        <fields>ApplicationDate__c</fields>
-        <fields>ContractNumber__c</fields>
         <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -505,6 +492,21 @@
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Vehicle__c.Related_contact__c</relatedList>
         <sortField>Related_From__c</sortField>
+        <sortOrder>Desc</sortOrder>
+    </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Lead_Desired_Service__c</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>Sales_Consultant__c</fields>
+        <fields>Service_Advisor__c</fields>
+        <fields>CAC_Lead_Status__c</fields>
+        <fields>Source_Campaign__c</fields>
+        <fields>Lead_DataSource__c</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <relatedList>Lead__c.Contact__c</relatedList>
+		<sortField>NAME</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
@@ -547,18 +549,19 @@
         <sortField>CAMPAIGN.CAMPAIGN_TYPE</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
-    <relatedLists>
+	<relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Lead_Desired_Service__c</fields>
-        <fields>Assigned_Dealer__c</fields>
-        <fields>Sales_Consultant__c</fields>
-        <fields>Service_Advisor__c</fields>
-        <fields>CAC_Lead_Status__c</fields>
-        <fields>Source_Campaign__c</fields>
-        <fields>Lead_DataSource__c</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <relatedList>Lead__c.Contact__c</relatedList>
+        <fields>MessageName__c</fields>
+        <fields>MessageText__c</fields>
+        <fields>MessageType__c</fields>
+        <fields>MobileNumber__c</fields>
+        <fields>Status__c</fields>
+        <fields>Date__c</fields>
+        <fields>CampaignName__c</fields>
+        <relatedList>SMS_Result__c.Account__c</relatedList>
+        <sortField>Date__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <customButtons>New_DM_Request</customButtons>
@@ -576,6 +579,19 @@
         <relatedList>DM_Request__c.Customer_Name__c</relatedList>
         <sortField>CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
+    </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>Type__c</fields>
+        <fields>Product_Name__c</fields>
+        <fields>Status__c</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>VIN_Link__c</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>ApplicationDate__c</fields>
+        <fields>ContractNumber__c</fields>
+        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

@@ -5,8 +5,7 @@
     <label>MBTR Sales</label>
     <tab>standard-Chatter</tab>
     <tab>standard-Campaign</tab>
-    <tab>standard-Lead</tab>
-    <tab>standard-Account</tab>
+       <tab>standard-Account</tab>
     <tab>standard-Contact</tab>
     <tab>standard-Opportunity</tab>
     <tab>standard-Forecasting3</tab>

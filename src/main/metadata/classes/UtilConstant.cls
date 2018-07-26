@@ -1,5 +1,7 @@
 Global with sharing class UtilConstant {
     public final static String EMAILSUB='Lead assigned to dealer is untouched for 24 Hrs';
+    public final static String EMAILSUB_1hr='Lead assigned to dealer is untouched for 1 Hr';
+    public final static String EMAILSUB_30m='Lead assigned to dealer is untouched for 30 Minutes';
     private static Map<String, Id> roleMap;
     public final static String MBF_FinanceInquriy='MBF Finance Inquiry Case';
     public final static String MBF_Complaint='MBF Complaint Management Case';
@@ -11,9 +13,11 @@ Global with sharing class UtilConstant {
     public final static String DEALER_DELEGATE_ADMIN = 'Dealer Delegate Admin';
     public final static String DEALER_COMMUNITY_USER = 'Dealer Community User';
     public final static String SALES_LEADS = 'Sales Leads';
+    public final static String SALES_LEADS_OPP = 'Sales Lead';
     public final static String DEALER_SALES_LEADS_READONLY = 'Dealer Sales leads ReadOnly';
     public final static String DEALER_AFTERSALES_LEADS_READONLY = 'Dealer Aftersales Leads ReadOnly';
     public final static String AFTER_SALES_LEADS = 'Aftersales Leads';
+    public final static String AFTER_SALES_LEADS_OPP = 'Aftersales Lead';
     public final static String FS_LEAD = 'Finance Lead';
     public final static String RETAIL_SALES_LEADS = 'Retail Sales Leads';
     public final static String AS_RETAIL_CAMPAIGN = 'AS Retail Campaign';
@@ -37,6 +41,8 @@ Global with sharing class UtilConstant {
     public final static String MBDA_COMPLAINT = 'MBDA Complaint';
     public final static String RETAIL_CAMPAIGN = 'Retail Campaign';
     //Case Rec Type
+    public final static String FS_INQUIRY = 'FS Inquiry';
+    public final static String FS_COMPLAINT= 'FS Complaint';
     public final static String INQUIRY = 'Inquiry';
     public final static String OTHERS = 'Others';
     public final static String COMPLAINT = 'Complaint';
@@ -62,6 +68,7 @@ Global with sharing class UtilConstant {
     public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
     public final static String Contact2Contact ='Contact2Contact';
     public final static String Account_Link='Account_Link__c';
+    public final static String FS_Account_Link='Finance Services';
     //Varibale is being used in contactHelper class
     public final static String Empty='';
     public final static String leadOwnerStartWith='00G';
@@ -95,7 +102,8 @@ Global with sharing class UtilConstant {
     public final String VEHICLE_TYPE = 'VehicleType';
     public final String VEHICLE_PRODUCT = 'Vehicle Product';
     public final String SELF_REGISTERED = 'Self Registered';
-        
+    public static Boolean RETAIL_MATCH_MERGE = false;
+    
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {
             roleMap = new Map<String, Id>();

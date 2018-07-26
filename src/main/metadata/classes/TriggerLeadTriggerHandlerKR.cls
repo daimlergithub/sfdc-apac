@@ -110,7 +110,7 @@ public class TriggerLeadTriggerHandlerKR
                 LeadHelperKR.leadsharehierarchy(stouchLeads);
             	LeadHelperKR.handleAfterInsertOrUpdate(stouchLeads,stouchOldMap);
             }
-			LeadHelperKR.leadsharehierarchy(trigger.new);
+			//LeadHelperKR.leadsharehierarchy(trigger.new);
         }
     }
 

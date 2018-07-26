@@ -10,7 +10,7 @@ global void Execute(Database.BatchableContext bc,List<Retail_Campaign__c> retail
     List<Account> acctoupdate=new List<Account>();
     for(Retail_Campaign__c retcamp:retailCampaign){
         for(Campaign_member__c campmember:retcamp.campaign_members__r){
-            campmember.status__c='Execution';
+            campmember.status__c='Executed';
             campmembertoupdate.add(campmember);
         }
     }

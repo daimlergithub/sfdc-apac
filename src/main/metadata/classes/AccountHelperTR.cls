@@ -8,7 +8,8 @@
 
 public class AccountHelperTR{
     
-    
+    static Profile ProfileMarketing = [SELECT Id, Name FROM Profile WHERE Id=:userinfo.getProfileId() LIMIT 1];
+    public static String MyProfileName = ProfileMarketing.Name;
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert){
         AccountHelperBase.updateAccountFieldsBeforeInsert(listNewAccounts,isInsert);
         AccountHelperBase.updateMarketingFields(listNewAccounts);
@@ -61,6 +62,39 @@ public class AccountHelperTR{
        }
     }
     
+    //Validate Province and City codes
+    public static void validateProvinceCodes(list<Account> listNewAccounts){
+        set<string> codes = new set<string>();
+        for(PhoneAreaCode__c pc: [select id,name,Country_Code__c,Phone_Area_Code__c from PhoneAreaCode__c where Country_Code__c=:Label.TRPhoneCountryCode])
+        {
+            codes.add(pc.Phone_Area_Code__c);
+        }
+        for(account ac :listNewAccounts)
+        {
+            //system.debug(ac.Individual_Home_Phone__c+';'+ac.Individual_Home_Phone__c.substring(3,6) +' --->');
+            if(!string.isblank(ac.Individual_Home_Phone__c) && ac.Individual_Home_Phone__c.startswith(Label.TRPhoneCountryCode) && !codes.contains(ac.Individual_Home_Phone__c.substring(3,6)))
+            {   
+                ac.addError(Label.Invalid_City_Code);
+            }
+            /*else if(!string.isblank(ac.Mobile__c) && ac.Mobile__c.startswith(Label.TRPhoneCountryCode) && !codes.contains(ac.Mobile__c.substring(3,3)))
+            {   
+                ac.addError(Label.Invalid_City_Code);
+            }*/
+            else if(!string.isblank(ac.Work_Phone__c) && ac.Work_Phone__c.startswith(Label.TRPhoneCountryCode) && !codes.contains(ac.Work_Phone__c.substring(3,6)))
+            {   
+                ac.addError(Label.Invalid_City_Code);
+            }
+            else if ((!string.isblank(ac.Individual_Home_Phone__c) && !Pattern.Matches('^\\+[0-9]*$',ac.Individual_Home_Phone__c) && ac.Individual_Home_Phone__c.substring(0,3) != '+90') || 
+            (!string.isblank(ac.Mobile__c) && !Pattern.Matches('^\\+[0-9]*$',ac.Mobile__c) && ac.Mobile__c.substring(0,3) != '+90') || 
+            (!string.isblank(ac.Work_Phone__c) && !Pattern.Matches('^\\+[0-9]*$',ac.Work_Phone__c) && ac.Work_Phone__c.substring(0,3) != '+90')){
+                    ac.addError(Label.NumericContact);
+                    
+            }
+            
+        }
+        
+    }
+    
     // Updating sms opt in value when sms opt out checkbox is selected.
     public static void updateOnSMSoptout(list<Account> listNewAccounts){
         
@@ -105,7 +139,20 @@ public class AccountHelperTR{
     }
     }
     }
-    
+    //Hildaa: Throw error message for DoC permissions MT 41 / 43
+    public static void errorOnDOCPermissions(list<Account> listNewAccounts){
+    String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+        for(Account acc: listNewAccounts){
+          if(acc.recordtypeId == PersonAccountRecordTypeID ){
+            if(!string.isBlank(acc.Email__c) && acc.personal_agreement__c != 'Yes' && !acc.Opt_In_Email__c && MyProfileName != 'Marketing Administrator')
+                acc.addError(Label.TRSMS);
+            else if((!string.isBlank(acc.Mobile__c) || !string.isBlank(acc.Individual_Home_Phone__c) || !string.isBlank(acc.Work_Phone__c)) && acc.personal_agreement__c != 'Yes' && (!acc.Opt_In_Mobile__c && !acc.Opt_In_SMS__c))
+                acc.addError(Label.TRPhone);
+            else if (string.isBlank(acc.Mobile__c) && string.isBlank(acc.Email__c))
+                acc.addError(Label.Email_Mobile_Mandatory);
+            }
+        }
+    }
     public static void updateAgeRange(list<Account> listNewAccounts){
         AccountHelperBase.updateAgeRange(listNewAccounts);
         for(account acc : listNewAccounts ){
@@ -141,22 +188,30 @@ public class AccountHelperTR{
     public static void UpdateKVKFields(list<Account> accLst){
         for(Account acc : accLst){
                if(acc.Market__c == 'TR' && acc.Personal_Agreement__c != 'Yes' && acc.status__c != 'Customer') {
-                    acc.Gender__c = '';
-                    acc.Occupation__c = '';
-                    acc.PersonBirthdate = null;
-                    acc.Hobby__c = '';
-                    acc.Marital_Status__c = '';
-                    acc.Age_Range__c = '';
-                    acc.Gov_Background__c = false;
-                    acc.Contact_Background__c = '';
-                    acc.Education__c = '';
-                    acc.Behavioural_Group__c = '';
-                    acc.Allmakes_Offered_Service__c = '';
-                    acc.Newspaper__c = '';
-                    acc.job__c = '';
-                    acc.Alliance_Offered_Service__c = '';
-                    acc.Agreement_to_commit_info_processing__c = '';
-                    acc.Fuso_Offered_Service__c = '';
+                    if(
+                    acc.Gender__c != null ||
+                    acc.PersonBirthdate != null||
+                    acc.Hobby__c != null||
+                    (acc.Marital_Status__c != 'Unknown' &&
+		    acc.Marital_Status__c != null) ||
+                    acc.Age_Range__c != null||
+                    acc.Gov_Background__c != false||
+                    acc.Contact_Background__c != null||
+                    acc.Education__c != null||
+                    acc.Behavioural_Group__c != null||
+                    acc.Allmakes_Offered_Service__c != null||
+                    acc.Newspaper__c != null||
+                    acc.job__c != null||
+                    acc.Alliance_Offered_Service__c != null||
+                    acc.Agreement_to_commit_info_processing__c != null||
+                    acc.Fuso_Offered_Service__c != null||
+                    acc.Working_Status__c != null||
+                    acc.Occupation_TR__c != null||
+                    acc.Industry__c != null||
+                    acc.Vacation_Preference__c != null||
+                    acc.Average_car_usage_period__c != null)
+                        acc.addError(Label.PersonalInfo);
+                
                 }
                         
             }
@@ -178,15 +233,18 @@ public class AccountHelperTR{
             }
         }
     }*/
-    
+    //Made changes on May 8 2018
     //Added by Veena for Social ID and VAT number validation after edit
-    public static boolean validateSocialIdTR(Account acc) {
+    public static boolean validateSocialIdTR(Account acc,String val) {
         list<Account> accountlist = new list<Account>();
         boolean flag=false;
         Integer x1 = 0, x2 = 0, x3 = 0, x4 = 0, x5 = 0, x6 = 0, x7 = 0, x8 = 0, x9 = 0, x10 = 0, x11 = 0;
         If( acc != Null){
-            String socId = String.valueof(acc.social_id__c);
-           
+            String socId;
+            if(val =='SocId')
+                socId = String.valueof(acc.social_id__c);
+            else
+                socId = String.valueof(acc.vat_no__c);
                 if (socId != null && socId != '' && string.valueof(socId).length() == 11 && string.valueof(socId).isNumeric()) {
                     x1 = Integer.valueOf(socId.mid(0, 1));
                     x2 = Integer.valueOf(socId.mid(1, 1));
@@ -201,10 +259,10 @@ public class AccountHelperTR{
                     x11 = Integer.valueOf(socId.mid(10, 1));
                     Integer temp1 = ((x1 + x3 + x5 + x7 + x9) * 7) - (x2 + x4 + x6 + x8);
                     Integer temp2 = math.mod(temp1, 10);
-                    Integer temp3 = (x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x9 + x10 + x11);
+                    Integer temp3 = (x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10);
                     Integer temp4 = math.mod(temp3, 10);
                     if (x10 == temp2 && x11 == temp4) {
-                        accountlist.add(acc);
+                       // accountlist.add(acc);
                         flag= true;
                     } 
                     else 
@@ -214,9 +272,9 @@ public class AccountHelperTR{
                           
             
         }
-        if(accountlist.size()>0){
+       /* if(accountlist.size()>0){
             DMLManagerService.updateAsSystem(accountlist);
-        }
+        }*/
         return flag;
     }
     

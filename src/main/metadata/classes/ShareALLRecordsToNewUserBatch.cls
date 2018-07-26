@@ -12,11 +12,12 @@ global ShareALLRecordsToNewUserBatch (List<ID> userIdLst,String sobjectNameStr,s
     dealerCodeGrpIdMap=new Map<String,Id>();
     Set<String> grpNamesLst=new Set<String>();
     dealerCodeLst=new Set<String>();
-	market=md;
+    market=md;
+    
     for(User usr:usrLst)
     {
         //String grpName=usr.contact.account.Dealer_Nd_code__c;
-		String grpName=Market+usr.contact.account.Dealer_Nd_code__c;
+        String grpName=Market+usr.contact.account.Dealer_Nd_code__c;
         grpNamesLst.add(grpName);
         dealerCodeLst.add(usr.contact.account.Dealer_Nd_code__c);
     }
@@ -41,40 +42,66 @@ global ShareALLRecordsToNewUserBatch (List<ID> userIdLst,String sobjectNameStr,s
 global Database.QueryLocator start(Database.BatchableContext BC)
     {
         String query = 'SELECT {0} FROM {1} WHERE {2} and {3}';
-         List<String> condition = new List<String>();
+        List<String> condition = new List<String>();
+        Integer noOfHours;
+        datetime myDateTime = datetime.now();
+        DateTimeForShareBatch__c dt = DateTimeForShareBatch__c.getValues('RetailMatchMergeBatchMY');
+            
+        if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL){
+            query += ' and {4}';
+            noOfHours = Integer.valueOf(dt.noOfHours__c) * (-1);
+            myDateTime = myDateTime.addHours(noOfHours);
+        }
+        
         if ('Account_Link__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c,fromRole__c,fromRole__r.recordTypeID,recordTypeID');
             condition.add('Account_Link__c');
             condition.add('Md__c=:market');
             condition.add('(toRole__c!=null or fromRole__c!=null) AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false');
+            if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
+                condition.add('SystemModStamp >=:myDateTime'); 
+            }
         } else if ('Lead__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Assigned_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Lead__c');
             condition.add('Md__c=:market');
             condition.add('Assigned_Dealer__c!=null and Assigned_Dealer__r.Dealer_ND_Code__c IN:dealerCodeLst');
+            if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
+                condition.add('SystemModStamp >=:myDateTime'); 
+            }
         } else if ('Case'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Case_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Case');
             condition.add('Md__c=:market');
             condition.add('Case_Dealer__c!=null and Case_Dealer__r.Dealer_ND_Code__c IN:dealerCodeLst');
+            if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
+                condition.add('SystemModStamp >=:myDateTime'); 
+            }
         }else if('Vehicle_Relationship__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Owner_Dealer_ND_Code__c,Vehicle_ID__c,Vehicle_ID__r.Car_Model__c');
             condition.add('Vehicle_Relationship__c');
             condition.add('Md__c=:market');
-            condition.add('Owner_Dealer__c!=null and Owner_Dealer_ND_Code__c IN:dealerCodeLst');
-          
+            condition.add('Owner_Dealer__c!=null and Owner_Dealer_ND_Code__c IN:dealerCodeLst and To_Be_Deleted__c = false');
+            if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
+                condition.add('SystemModStamp >=:myDateTime'); 
+            }
         }else if('User'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Dealer_ND_Code__c');
             condition.add('User');
             condition.add('Market__c=:market');
             condition.add('Dealer_ND_Code__c!=null and Dealer_ND_Code__c IN:dealerCodeLst');
-          
+            if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
+                condition.add('SystemModStamp >=:myDateTime'); 
+            }
         }
-		else if('Retail_Task__c'.equalsIgnoreCase(sobjectName)){
+        else if('Retail_Task__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Service_Dealer__r.Dealer_ND_Code__c,MD__c');
             condition.add('Retail_Task__c');
             condition.add('MD__c=:market');
             condition.add('Service_Dealer__c!=null and Service_Dealer__r.Dealer_ND_Code__c IN:dealerCodeLst and recordtype.name=\'Service\'');          
+            if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
+                condition.add('SystemModStamp >=:myDateTime'); 
+            }
         }
         
         return Database.getQueryLocator(String.format(query, condition));
@@ -85,13 +112,13 @@ global Database.QueryLocator start(Database.BatchableContext BC)
         if ('Account_Link__c'.equalsIgnoreCase(sobjectName)) {
             Map<String,List<Account_Link__c>> DealerCodeAccountLinkMap=new Map<String,List<Account_Link__c>>();
             Map<Id,Id> accLinkIdToRoleIdMap=new Map<Id,Id>();
-			Map<Id,Set<String>> accLinkIdDealerCodeMap=new Map<Id,Set<String>>();
+      Map<Id,Set<String>> accLinkIdDealerCodeMap=new Map<Id,Set<String>>();
             Map<Id,String> accLinkIdDealerCodeForAccountMap=new Map<Id,String>();
             Id dealerAccountRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
             Id contact2contactAccountLinkRecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
             Map<Id,Id> c2cAccLinkIdfromRoleIdMap=new Map<Id,Id>();
-            Map<Id,Id> c2cAccLinkIdToRoleIdMap=new Map<Id,Id>();																	 
-			
+            Map<Id,Id> c2cAccLinkIdToRoleIdMap=new Map<Id,Id>();                                   
+      
             for(sObject sObj:scope)
             {  
                 Account_Link__c alObj=(Account_Link__c)sObj;
@@ -337,13 +364,13 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                      vrShare.RowCause = Schema.Vehicle_Relationship__share.RowCause.Manual;
                      insertVRShare.add(vrShare);
                     
-					if(vrObj.Vehicle_ID__c!=null){
-						Vehicle__share vehShare = new Vehicle__share();
-						vehShare.AccessLevel = 'READ';
-						vehShare.parentId = vrObj.Vehicle_ID__c;
-						vehShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
-						vehShare.RowCause = Schema.Vehicle__share.RowCause.Manual;
-						insertVehShare.add(vehShare);
+          if(vrObj.Vehicle_ID__c!=null){
+            Vehicle__share vehShare = new Vehicle__share();
+            vehShare.AccessLevel = 'READ';
+            vehShare.parentId = vrObj.Vehicle_ID__c;
+            vehShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
+            vehShare.RowCause = Schema.Vehicle__share.RowCause.Manual;
+            insertVehShare.add(vehShare);
                     }
                 }
             }
@@ -395,7 +422,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             if(insertUserShare!=null && insertUserShare.size()>0)
              DMLManagerService.insertAsSystem(insertUserShare); 
         }            
-		else if('Retail_Task__c'.equalsIgnoreCase(sobjectName))
+    else if('Retail_Task__c'.equalsIgnoreCase(sobjectName))
       {
             Map<String,List<Retail_Task__c>> DealerCodeRTMap=new Map<String,List<Retail_Task__c>>();
             for(sObject sObj:scope)
@@ -439,7 +466,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
     }
     global void finish(Database.BatchableContext BC)
     {
-		Id dealerAccountRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
+    Id dealerAccountRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
         List<Account> dealerAccountLst=[Select Id,Dealer_ND_Code__c from account where recordTypeId=:dealerAccountRecordTypeId];
         Map<Id,String> accIdDealerCodeMap=new Map<Id,String>();
         List<AccountShare> insertaccShare=new List<AccountShare>();
@@ -473,6 +500,5 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             }
             
         }
-    }																																		 
-  
+    }                                                                     
 }

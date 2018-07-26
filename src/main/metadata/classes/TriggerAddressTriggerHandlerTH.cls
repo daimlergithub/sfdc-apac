@@ -39,6 +39,7 @@ public class TriggerAddressTriggerHandlerTH implements TriggerHandlerIf
             if ((Trigger.isAfter && Trigger.isUpdate)){
                 AddressHelperTH.updateAcclinkAddress(trigger.new);
                 AddressHelperTH.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
+                AddressHelperBase.updateAddressRetailCopies((map<id,Address__c>)Trigger.Newmap,'TH');
             }
             
              if ((Trigger.isAfter && Trigger.isDelete)){
@@ -60,13 +61,26 @@ public class TriggerAddressTriggerHandlerTH implements TriggerHandlerIf
     }
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)        
-    {                
-        //Integration related code to be added here.
-		if(isAfter && isinsert){
-            if(TriggerRecursiveCheck.run){
-                TriggerRecursiveCheck.runOnce();
-                AddressHelperTH.updateSalesAddressAccount((map<id,Address__c>)trigger.newMap);
-            }
-        }
+    {   
+		//Integration related code to be added here.
+		List < Address__c > addresslist = Trigger.new;
+        List < Address__c > addressNewList = new List < Address__c > ();
+        if(!isDelete) 
+		{
+			for (Address__c aTH: addresslist) {
+					if (aTH.MD__c == 'TH' && isAfter && isinsert) 
+					{
+						addressNewList.add(aTH);
+					}
+			}
+			if (addressNewList != null && addressNewList.size() > 0) {
+				if(isAfter && isinsert){
+					if(TriggerRecursiveCheck.run){
+						TriggerRecursiveCheck.runOnce();
+						AddressHelperTH.updateSalesAddressAccount((map<id,Address__c>)trigger.newMap);
+					}
+				}
+			}
+		}
     }  
 }

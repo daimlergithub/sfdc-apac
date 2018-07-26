@@ -436,7 +436,7 @@ insert campMemShareList;
         system.debug('%^%^%^%^^%^%^% mapCheckingType'+mapCheckingType);
         system.debug('++++++++++++++'+mapCheckingType.keySet());
         system.debug('++++++++++++++'+mapCheckingType.keySet().size());
-        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:mapCheckingType.keySet() LIMIT 1000];
+        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:mapCheckingType.keySet() LIMIT 1000];
          system.debug('%^%^%^%^^%^%^% ListAlk '+ListAlk );
         for(Account_Link__c alk:ListAlk) {
             DealerAccId.add(alk.fromRole__c);

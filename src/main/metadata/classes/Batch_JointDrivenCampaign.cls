@@ -4,7 +4,10 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
     global final List<Campaign> NewCamList;
     global final List<Campaign> ParentCamList;
     global  final List<Retail_Campaign__c> retailCampaign = New List<Retail_Campaign__c>();
-	global  final List<Retail_Campaign__c> lstretailCampaign = New List<Retail_Campaign__c>();
+    global   List<Retail_Campaign__c> lstretailCampaign = New List<Retail_Campaign__c>();
+    global  List<Retail_Campaign__c> retailCamParentList = New List<Retail_Campaign__c>();
+    global  List<Retail_Campaign__c> ret   = New List<Retail_Campaign__c>();
+    global  set<id> retailcampNewid=new  set<Id>();
     
     global Batch_JointDrivenCampaign (set<id> exeId, List<Campaign> camList,List<Campaign> parentList){
     
@@ -60,13 +63,14 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
             
             ret.add(newChildRetail);
             retailCampaign.add(newChildRetail);
-			lstretailCampaign.add(newChildRetail);
+           // lstretailCampaign.add(newChildRetail);
          }
          } 
          }
          }
          if(ret.size() > 0){
          insert ret;
+        
          }
          For(Participating_Dealer__c par : scope ){
          for(Campaign cam : NewCamList   ){
@@ -92,7 +96,7 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
         newRetail.RecordTypeId = planningRecordRetailId;
       
         retailCamParentList.add(newRetail);
-		lstretailCampaign.add(newRetail);
+        lstretailCampaign.add(newRetail);
         }
         }
         }
@@ -107,7 +111,7 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
      integer i=0;
      for(Database.SaveResult sr :srList){
      if(sr.isSuccess()){
-     
+     retailcampNewid.add(sr.id);
      ret[i].Parent_Campaign1__c = sr.getId();
      i++;
      } 
@@ -118,7 +122,7 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
      
     integer k=0;
     for(Retail_Campaign__c  cam : ret){
-    
+    retailcampNewid.add(cam.id);
     cam.Parent_Campaign1__c = ret[k].Parent_Campaign1__c ;
     k++;
     system.debug('++++++++++++'+cam.Parent_Campaign1__c );
@@ -126,28 +130,38 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
     
     }
     
-    
-    
+    System.debug('@@@@@@@@@@@@@@@@@ ret  retailcampNewid'+retailcampNewid);
+     System.debug('@@@@@@@@@@@@@@@@@ ret  ret '+ret);
+          System.debug('@@@@@@@@@@@@@@@@@ retailCamParentList'+retailCamParentList);
+           System.debug('@@@@@@@@@@@@@@@@@ ret  ret '+ret.size());
+          System.debug('@@@@@@@@@@@@@@@@@ retailCamParentList'+retailCamParentList.size());
         
     }
     
     global void finish(Database.BatchableContext BC){
     
      Set<id> retailId = New Set<id>();
+     Set<id> retailsId = New Set<id>();
        Map<Id,Retail_Campaign__c> maplist = New Map<Id,Retail_Campaign__c>();
        
+       if(retailCampaign !=null)
+       {
        For(Retail_Campaign__c remain : retailCampaign){
        
           retailId.add(remain.id);
           maplist.put(remain.Dealer_Name__c,remain);
        
-       }   
-       if(!Test.isRunningTest()){
-       if(lstretailCampaign !=null)
-       {
-       Batch_CampaignmemberInsertion   batcher = new Batch_CampaignmemberInsertion (maplist,campid,lstretailCampaign);
-            Database.executeBatch(batcher,1);  
+       } 
        }
+         
+         system.debug('@@@@@@@@@@@@@@@@@@'+retailcampNewid);
+       if(!Test.isRunningTest()){
+       if(retailcampNewid!=null && campid !=null)
+       {
+       Batch_CampaignmemberInsertion   batcher = new Batch_CampaignmemberInsertion (maplist,campid,lstretailCampaign,retailcampNewid);
+          Database.executeBatch(batcher,1);  
+       }
+       
      
     
     }

@@ -1,0 +1,12 @@
+<apex:page standardcontroller="Lead__c" extensions="sendLeadInfoToAutoLine" showHeader="false" >
+    <apex:form id="formId">
+        <b>
+            <center style="margin-top:19%; margin-bottom:19%;">
+                 <apex:pageMessages id="errorMessage"/>
+                 <apex:outputPanel rendered="{!showHideButtons }">{!$Label.Are_you_sure_want_to_send_information_to_Auto_Line_interface} </apex:outputPanel><BR/>
+                 <apex:commandButton value="{!$Label.Yes}"  action="{!callInformaticaService}" reRender="formId" rendered="{!showHideButtons }"/>
+                 <apex:commandButton value="{!$Label.Cancel}"  action="{!doCancel}" />
+            </center> 
+        </b>
+    </apex:form>
+</apex:page>

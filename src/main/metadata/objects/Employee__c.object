@@ -54,6 +54,32 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>AllReFerralsWonCreated__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Total Number of Referrals Won in this Quarter.</description>
+        <externalId>false</externalId>
+        <label>AllReFerralsWonCreated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AllReferralsCreated__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Total Number of Referrals Created in this Quarter</description>
+        <externalId>false</externalId>
+        <label>AllReferralsCreated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Company__c</fullName>
         <externalId>false</externalId>
         <label>Company</label>
@@ -64,19 +90,19 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>MBJ</fullName>
+                    <fullName>Mercedes Benz Japan</fullName>
                     <default>false</default>
-                    <label>MBJ</label>
+                    <label>Mercedes Benz Japan</label>
                 </value>
                 <value>
-                    <fullName>MBF</fullName>
+                    <fullName>Mercedes Benz Finance</fullName>
                     <default>false</default>
-                    <label>MBF</label>
+                    <label>Mercedes Benz Finance</label>
                 </value>
                 <value>
-                    <fullName>IDSJ</fullName>
+                    <fullName>Daimler Insurance Services Japan</fullName>
                     <default>false</default>
-                    <label>IDSJ</label>
+                    <label>Daimler Insurance Services Japan</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -224,6 +250,34 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Other_Employee_s_Number_of_Generated_Lea__c</fullName>
+        <description>Total Number of Referrals Created by other Employees in this quarter</description>
+        <externalId>false</externalId>
+        <formula>AllReferralsCreated__c -  No_of_referral__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Other Employee’s Number of Generated Lea</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Employee_s_Sales_Amount__c</fullName>
+        <description>Total Number of Referrals Won Created by other Employees in this quarter</description>
+        <externalId>false</externalId>
+        <formula>AllReFerralsWonCreated__c -  No_of_closed_Won__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Other Employee’s Sales Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Phone__c</fullName>
         <externalId>false</externalId>
         <label>Phone</label>
@@ -318,7 +372,6 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Last_Name__c</columns>
         <columns>Email__c</columns>
         <columns>Market__c</columns>
         <columns>Rank__c</columns>

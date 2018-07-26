@@ -3,6 +3,7 @@
 ** Description: Test Class for salesLeadEditController
 ** Created By: Sravanthi Gudibandi
 ** Date: 10-April-2018
+** Updated By: Madhusudhan CS - 24-05-2018
 **/
 
 @IsTest
@@ -19,6 +20,8 @@ public class SalesLeadEditControllerTest {
     public static List<Car_Model__c> carModelList;
     public static List<Lead_Details__c> ledDetList;
     
+      @TestSetup
+    
     public static void initData(){
         Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
         user usr = new User(Alias = 'standt', Email='testUser@testorg.com', 
@@ -29,7 +32,7 @@ public class SalesLeadEditControllerTest {
         System.runAs(usr){
             companyAcc = TestUtils.createGenericAccount(usr, '123456', companyAccRecordTypeId, '1234567890');
             oppSales = TestUtils.createGenericOpportunity(usr, companyAcc, salesLeadRecordTypeId, 'IN');
-            carModelList = TestUtils.createBulkCarModel(7);
+            carModelList = createBulkCarModel(7);
             ledDetList = TestUtils.createBulkLeadDetails(oppSales, carModelList);
         }
     }
@@ -41,11 +44,21 @@ public class SalesLeadEditControllerTest {
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name From Account limit 1];
-            Opportunity oppty = [select Id, Name From Opportunity];
+           // Opportunity oppty = [select Id, Name From Opportunity];
+        Opportunity opp = new Opportunity();
+        opp.AccountId =  companyAcc.Id;
+        opp.StageName = 'New';
+        opp.Market__c = 'IN';
+        opp.Name = 'Generic Opportunity';
+        opp.RecordTypeId = salesLeadRecordTypeId;
+        opp.CloseDate = Date.newInstance(2018, 4, 17);
+        opp.Selected_Car_Model__c ='CLA;A-Class'; 
+        insert opp;   
             List<Car_Model__c> cmlList = [Select Id, Name From Car_Model__c limit 14];
-            List<Lead_Details__c> ldList = [Select Id, Name From Lead_Details__c Where Related_Lead__c =: oppty.Id];
-            ApexPages.currentPage().getParameters().put('id', oppty.Id);
-            ApexPages.StandardController objsc = new ApexPages.StandardController(oppty);
+            List<Lead_Details__c> ldList = [Select Id, Name From Lead_Details__c Where Related_Lead__c =: opp.Id];
+            ApexPages.currentPage().getParameters().put('id', opp.Id);
+            ApexPages.StandardController objsc = new ApexPages.StandardController(opp);
+
             SalesLeadEditController slec = new SalesLeadEditController(objsc);
             PageReference pageRef = Page.SalesLeadEditPage;
             slec.getTradeInVehicles();
@@ -66,9 +79,18 @@ public class SalesLeadEditControllerTest {
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name From Account limit 1];
-            Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
-            ApexPages.currentPage().getParameters().put('id', oppty.Id);
-            ApexPages.StandardController objsc = new ApexPages.StandardController(oppty);
+           // Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
+        Opportunity opp = new Opportunity();
+        opp.AccountId =  companyAcc.Id;
+        opp.StageName = 'New';
+        opp.Market__c = 'IN';
+        opp.Name = 'Generic Opportunity';
+        opp.RecordTypeId = salesLeadRecordTypeId;
+        opp.CloseDate = Date.newInstance(2018, 4, 17);
+        opp.Selected_Car_Model__c ='CLA;A-Class'; 
+        insert opp;   
+            ApexPages.currentPage().getParameters().put('id', opp.Id);
+            ApexPages.StandardController objsc = new ApexPages.StandardController(opp);
             SalesLeadEditController slec = new SalesLeadEditController(objsc);
             PageReference pageRef = Page.SalesLeadEditPage;
             
@@ -78,7 +100,7 @@ public class SalesLeadEditControllerTest {
                 Lead_Details__c lDet = new Lead_Details__c();
                 if(cm.Status__c == 'Own Sellable'){
                     lDet.Car_Model__c = cm.Id;
-                    lDet.Related_Lead__c = oppty.Id;
+                    lDet.Related_Lead__c = opp.Id;
                     lDet.Brand__c = cm.Brand__c;
                     lDet.Color__c = cm.Colour__c;
                     lDet.Trim__c = cm.Trim__c;
@@ -88,7 +110,7 @@ public class SalesLeadEditControllerTest {
                 }
                 else if(cm.Status__c == 'Competitor'){
                     lDet.Car_Model_Competitor__c = cm.Id;
-                    lDet.Related_Lead__c = oppty.Id;
+                    lDet.Related_Lead__c = opp.Id;
                     lDet.Brand__c = cm.Brand__c;
                     lDet.Color__c = cm.Colour__c;
                     lDet.Trim__c = cm.Trim__c;
@@ -99,7 +121,7 @@ public class SalesLeadEditControllerTest {
             }
             Lead_Details__c lDet1 = new Lead_Details__c();
             lDet1.Trade_In_Vehicle__c = 'Trade In Vehicle';
-            lDet1.Related_Lead__c = oppty.Id;
+            lDet1.Related_Lead__c = opp.Id;
             lDet1.Trim__c = 'Medium';
             lDet1.Mileage__c = '40';
             lDet1.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
@@ -123,10 +145,19 @@ public class SalesLeadEditControllerTest {
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name From Account limit 1];
-            Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
-            System.debug('oppty==>' + oppty);
-            ApexPages.currentPage().getParameters().put('id', oppty.Id);
-            ApexPages.StandardController objsc = new ApexPages.StandardController(oppty);
+            //Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
+        Opportunity opp = new Opportunity();
+        opp.AccountId =  companyAcc.Id;
+        opp.StageName = 'New';
+        opp.Market__c = 'IN';
+        opp.Name = 'Generic Opportunity';
+        opp.RecordTypeId = salesLeadRecordTypeId;
+        opp.CloseDate = Date.newInstance(2018, 4, 17);
+        opp.Selected_Car_Model__c ='CLA;A-Class'; 
+        insert opp;   
+            System.debug('oppty==>' + opp);
+            ApexPages.currentPage().getParameters().put('id', opp.Id);
+            ApexPages.StandardController objsc = new ApexPages.StandardController(opp);
             SalesLeadEditController slec = new SalesLeadEditController(objsc);
             PageReference pageRef = Page.SalesLeadEditPage;
             
@@ -136,7 +167,7 @@ public class SalesLeadEditControllerTest {
                 Lead_Details__c lDet = new Lead_Details__c();
                 if(cm.Status__c == 'Own Sellable'){
                     lDet.Car_Model__c = cm.Id;
-                    lDet.Related_Lead__c = oppty.Id;
+                    lDet.Related_Lead__c = opp.Id;
                     lDet.Brand__c = cm.Brand__c;
                     lDet.Color__c = cm.Colour__c;
                     lDet.Trim__c = cm.Trim__c;
@@ -147,7 +178,7 @@ public class SalesLeadEditControllerTest {
                 }
                 else if(cm.Status__c == 'Competitor'){
                     lDet.Car_Model_Competitor__c = cm.Id;
-                    lDet.Related_Lead__c = oppty.Id;
+                    lDet.Related_Lead__c = opp.Id;
                     lDet.Brand__c = cm.Brand__c;
                     lDet.Color__c = cm.Colour__c;
                     lDet.Preferred__c = true;
@@ -159,7 +190,7 @@ public class SalesLeadEditControllerTest {
             }
             Lead_Details__c lDet1 = new Lead_Details__c();
             lDet1.Trade_In_Vehicle__c = 'Trade In Vehicle';
-            lDet1.Related_Lead__c = oppty.Id;
+            lDet1.Related_Lead__c = opp.Id;
             lDet1.Trim__c = 'Medium';
             lDet1.Mileage__c = '40';
             lDet1.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
@@ -175,6 +206,39 @@ public class SalesLeadEditControllerTest {
             slec.saveOpp();
         }
         test.stopTest();
+    }  
+     public static List<Car_Model__c> createBulkCarModel(Integer n){
+        List<Car_Model__c> cModelList = new List<Car_Model__c>();
+        for(Integer i=0; i<5; i++){
+            Car_Model__c cm = new Car_Model__c();
+            cm.Name = 'Mercedes-Benz' + i;
+            cm.Brand__c = 'Mercedes-Benz';
+            cm.Series__c = 'A' + 1;
+            cm.Status__c = 'Own Sellable';
+            cm.Colour__c = 'Blue';
+            cm.Trim__c = 'Small';
+            cm.Variant__c = 'abc';
+            cm.Market__c ='IN';
+            cm.DFE_Marker__c ='Y';
+            cm.Marketing_Class__c = 'CLA';
+            cModelList.add(cm);
+        }
+        for(Integer i=0; i<5; i++){
+            Car_Model__c cm = new Car_Model__c();
+            cm.Name = 'BMW GT Series' + i;
+            cm.Brand__c = 'BMW';
+            cm.Series__c = 'GT' + 1;
+            cm.Status__c = 'Competitor';
+            cm.Colour__c = 'Blue';
+            cm.Variant__c = 'abc';
+            cm.Trim__c = 'Small';
+            cm.Market__c ='IN';
+            cm.DFE_Marker__c ='Y';
+            cm.Marketing_Class__c = 'A-Class';
+            cModelList.add(cm);
+        }
+        insert cModelList;
+        return cModelList;
     }
     
 }

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>JP_MarketRetail_Task_Readable_to_MBJ_Dealers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>View all records of Retail Task with MD__c = &apos;JP&apos; for all Dealer User Roles used in Japan</description>
+        <name>JP_MarketRetail Task_Readable_to_MBJ_Dealers</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_MarketRetail_Task_Readable_to_MBJ_IT_Dept</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <name>JP_MarketRetail Task_Readable_to_MBJ_IT_Dept</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_Retail_Task_Readable_to_MBJ_Dealers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>JP Retail Task Readable to MBJ Dealers</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Retail_Task_Service_Records</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Retail Task Service Records</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBIN_Service_history_records_share_to_all_MPC_users</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>MBIN Service history records share to all MPC users with Read access.</description>
+        <name>MBIN Service history records share to all MPC users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBIndiaFS_Service_history_records_sharing_rule</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBIndiaFS_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>MBFS Service history records share to all FS users with Read access.</description>
+        <name>MBIndiaFS Service history records sharing rule</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>ShareWithMBTH</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share the retail task with users having MBTH role.</description>
+        <name>ShareWithMBTH</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MBMY_Service_history_records_share_to_all_MY_users</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>MBMY Service history records share to all MY users with Read access.</description>
+        <name>MBMY Service history records share to all MY users</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MBFS_Service_history_records_sharing_rule</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBFS_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>MBFS Service history records share to all FS users with Read access.</description>
+        <name>MBFS Service history records sharing rule</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Contract_Service_with_Region</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contract,Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Share Contract/Service with Region</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Contract_and_Service_with_Central</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contract,Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Share  Contract and Service with Central</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Read_Write_with_CAC_users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contract</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Contract Read/Write with CAC users</description>
+        <name>Share Read/Write with CAC users</name>
+    </criteriaBasedRules>
+	    <criteriaBasedRules>
+        <fullName>Share_Retail_Task_c_to_Tracking_User_MBJ</fullName>
+        <sharedTo>
+            <group>MBJ_MC_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Retail_Task__c to Tracking User-MBJ</description>
+        <name>Share Retail_Task__c to Tracking User-MBJ</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_readonly_retail_task_to_CAC</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail Activity,Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>ShareRetail Activity,Service  Retail task to CAC</description>
+        <name>Share Readonly Retail task to CAC</name>
+    </criteriaBasedRules>
+</CustomObjectSharingRules>

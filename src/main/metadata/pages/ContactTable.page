@@ -777,7 +777,7 @@
                 <!--Added Table Block section as part of Userstories 2/3 on 23rd march 2018-->
 
 
-               <apex:pageBlock id="myTableANZ"  rendered="{!If(OR(ISPICKVAL($User.Market__c,'AU'),ISPICKVAL($User.Market__c,'NZ')) ,true,false)}">      
+                              <apex:pageBlock id="myTablePerANZ"  rendered="{!If(AND(OR(ISPICKVAL($User.Market__c,'AU'),ISPICKVAL($User.Market__c,'NZ')), ParAcc.RecordType.Name='Person Account') ,true,false)}">      
                     
                 <table style="width:100%" border="1">                       
                    <tr>             
@@ -939,7 +939,183 @@
              </apex:pageBlock>  
              
 
-
+               <apex:pageBlock id="myTableANZ"  rendered="{!If( AND(OR(ISPICKVAL($User.Market__c,'AU'),ISPICKVAL($User.Market__c,'NZ')), ParAcc.RecordType.Name='Company') ,true,false)}">      
+                    
+                <table style="width:100%" border="1">                       
+                   <tr>             
+                       <td></td>        
+                       <td></td>        
+                       <th>{!$Label.Status}</th>                
+                       <th>{!$Label.Last_Modified_By}</th>              
+                       <th>{!$Label.Last_Modified_Date}</th>            
+                   </tr>        
+                   <!--Sarath added extra row to display market over page-->        
+                   <tr>        
+                       <th style="text-align: Right;">{!$ObjectType.Account.fields.Market__c.label}</th>        
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>
+                       </td>                           
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                   </tr>  
+                   <!--Display market Lines end here-->     
+                        
+                   <tr>             
+                       <th style="text-align: Right;">{!$Label.Mobile}</th>             
+                       <td>     
+         
+                        <apex:inputText value="{!mbCountryCode}" id="slMBCountryCode" rendered="{!editMode}" style="width:30px"/>                       
+                         <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber" rendered="{!editMode}" style="width:120px"/>       
+                                
+                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');       
+                             javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile__c} </a>       
+                       </apex:outputPanel>          
+                       </td>        
+                       <td><apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>     
+                           <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!NOT(editMode)}"/>       
+                       </td>            
+                       <td>         
+                       <apex:outputField value="{!ParAcc.SMS_Last_Modified_By__c}"/>                
+                       </td>                
+                       <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_Date__c}"/></td>         
+                   </tr>                    
+                   <tr>             
+                       <th style="text-align: Right;">{!$Label.Home_Phone}</th>             
+                       <td>     
+      
+                         <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" rendered="{!editMode}" style="width:30px"/>
+                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" rendered="{!editMode}" style="width:30px"/>       
+                         <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" rendered="{!editMode}" style="width:120px"/>       
+                                
+                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');        
+                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c}</a>        
+                   </apex:outputPanel>          
+                       </td>        
+                       <td><apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>      
+                           <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>        
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_By__c}" />        
+                                                    
+                       </td>                            
+                            
+                       <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_Date__c}"/></td>                  
+                   </tr>        
+                   <tr>             
+                       <th style="text-align: Right;">{!$Label.Work_Phone} </th>                        
+                       <td>     
+   
+                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" rendered="{!editMode}" style="width:30px"/>
+                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" rendered="{!editMode}" style="width:30px"/>       
+                        <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" rendered="{!editMode}" style="width:120px"/>        
+                                
+                       <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');     
+                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Work_Phone__c} </a>         
+                       </apex:outputPanel>          
+                                                           
+                       </td>        
+                       <td>    <!-- Soumya Removed status as per Defect DF-19  on 2018/April/16-->
+                       </td>       
+                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />        
+                                                    
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>              
+                   </tr>        
+                   <tr>             
+                       <th style="text-align: Right;">Email</th>                
+                       <td><apex:inputField value="{!ParAcc.Email__c}"  rendered="{!editMode}"/>        
+                           <apex:outputField value="{!ParAcc.Email__c}"  rendered="{!!editMode}"/>      
+                       </td>                                
+                       <td><apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>      
+                           <apex:outputField value="{!ParAcc.Email_Status__c}" rendered="{!!editMode}"/>        
+                       </td>        
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By__c}" />     
+                                                    
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date__c}"/></td>               
+                   </tr>        
+                   <!-- SN20170909 Business email 2 is not part of MY-->        
+                   <tr>             
+                       <th style="text-align: Right;">{!$Label.Secondary_Email}</th>              
+                       <td><apex:inputField value="{!ParAcc.Secondary_Email__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Secondary_Email__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td>      
+                       </td>        
+                       <td>                         
+                       </td>            
+                       <td></td>              
+                   </tr>        
+                   <!-- 2018/April/6 Soumya W added as part of MBANZ-199 Start --> 
+                     <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_Email}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_Email__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Opt_In_Email__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td>      
+                       </td>        
+                       <td>
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.Email_Opt_IN_Last_Update_date__c}"/></td>              
+                   </tr>  
+                   
+                     <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_Phone}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_Phone__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Opt_In_Phone__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td>     
+                       </td>        
+                       <td>                      
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.Phone_Opt_IN_Last_Update_date__c}"/></td>              
+                   </tr>  
+                   
+                     <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_SMS}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_SMS3__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Opt_In_SMS3__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td>      
+                       </td>        
+                       <td>
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.SMS_Opt_IN_Last_Update_date__c}"/></td>              
+                   </tr>  
+                   
+                     <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_Mail}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_Mail__c}"  rendered="{!editMode}"/>       
+                          <apex:outputField value="{!ParAcc.Opt_In_Mail__c}"  rendered="{!!editMode}"/>
+                       </td>                                
+                       <td>     
+                       </td>        
+                       <td>
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.Mail_Opt_IN_Last_Update_date__c}"/></td>              
+                   </tr>  
+                    <tr>                
+                       <th style="text-align: Right;">{!$Label.Fax}</th>            
+                       <td>     
+                         <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" rendered="{!if(editMode && faxCountryCode != null, true,false)}" style="width:30px"/>     
+                         <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber" rendered="{!editMode}" style="width:120px"/>     
+                                
+                            <apex:outputField value="{!ParAcc.Fax}" rendered="{!!editMode}"/>  
+       
+                       </td>        
+                       <td>     
+                       </td>            
+                       <td>         
+                       </td>                
+                       <td> </td>           
+                   </tr>                   
+                   <!-- 2018/April/6 Soumya W added as part of MBANZ-199 End -->    
+                        
+            
+               </table>         
+             </apex:pageBlock> 
+             
+	 
                  <!-- MT20170909 - This code is to view the Contact related date-->     
                 <apex:pageBlock id="myTableMY" rendered="{!If(($Permission.MYGeneric),true,false)}">      
                     
@@ -1235,7 +1411,7 @@
                    <!--Sarath added extra row to display market over page-->        
                    <tr>        
                        <th style="text-align: Right;">{!$ObjectType.Account.fields.Market__c.label}</th>        
-                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}"/>
+                       <td><apex:inputField value="{!ParAcc.Market__c}" rendered="{!editMode}" html-disabled="true"/>
                            <apex:outputField value="{!ParAcc.Market__c}" rendered="{!!editMode}"/>
                        </td>                           
                        <td></td>
@@ -1306,7 +1482,7 @@
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>              
                    </tr>        
                    <tr>             
-                       <th style="text-align: Right;">Email</th>                
+                       <th style="text-align: Right;">{!$Label.Email}</th>                
                        <td><apex:inputField value="{!ParAcc.Email__c}"  rendered="{!editMode}"/>        
                            <apex:outputField value="{!ParAcc.Email__c}"  rendered="{!!editMode}"/>      
                        </td>                                
@@ -1319,7 +1495,7 @@
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date__c}"/></td>               
                    </tr>        
                    
-                   <tr>             
+                  <!-- <tr>             
                        <th style="text-align: Right;">{!$Label.Business_Email}</th>             
                        <td><apex:inputField value="{!ParAcc.Email2__c}"  rendered="{!editMode}"/>       
                            <apex:outputField value="{!ParAcc.Email2__c}"  rendered="{!!editMode}"/>     
@@ -1331,10 +1507,54 @@
                                                     
                        </td>            
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date2__c}"/></td>              
-                   </tr>        
+                   </tr>        -->
                         
-                        
-                        
+                    <!-- Doc Fields Addition Start-->
+                    <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_Email}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_Email__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Opt_In_Email__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td>      
+                       </td>        
+                       <td>
+                       </td>            
+                       <td></td>              
+                   </tr>    
+                    <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_Phone}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_Mobile__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Opt_In_Mobile__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td>      
+                       </td>        
+                       <td>
+                       </td>            
+                       <td></td>              
+                   </tr> 
+                    <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_SMS}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_SMS__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Opt_In_SMS__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td>      
+                       </td>        
+                       <td>
+                       </td>            
+                       <td></td>              
+                   </tr> 
+                    <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_Mail}</th>              
+                       <td><apex:inputField value="{!ParAcc.Postal_Opt_In__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Postal_Opt_In__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td>      
+                       </td>        
+                       <td>
+                       </td>            
+                       <td></td>              
+                   </tr> 
+                   <!-- Doc Fields Addition End-->
                </table>         
              </apex:pageBlock>  
             <!-- Turkey Contact Table END -->            
@@ -1342,13 +1562,13 @@
                    <apex:outputPanel rendered="{!if(disableButtons==true,true,false)}">
                        <center>
                        <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!editMode1}" rerender="myTableJP,myTableKR,myTableTH,myTableMY,Block,myTableTR"  />
-                       <apex:commandbutton value="{!$Label.Cancel_Button}"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,myTableTH,myTableANZ,Block,redirectPanel,showmsg,myTableTR" immediate="true"/>
+                       <apex:commandbutton value="{!$Label.Cancel_Button}"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,myTableTH,myTableANZ,myTablePerANZ,Block,redirectPanel,showmsg,myTableTR" immediate="true"/>
               
                     
              <!-- <apex:pageBlockButtons location="bottom" style="align:left;"  >-->
                   <!-- <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!if(profilename==TRUE,(!editMode),TRUE)}" rerender="myTableJP,myTableKR,Block"  />
                    -->
-                   <apex:commandbutton value="{!$Label.Save_Button}"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,Block,redirectPanel,myTableTH,myTableMY,myTableANZ,showmsg,myTableTR" />
+                   <apex:commandbutton value="{!$Label.Save_Button}"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,Block,redirectPanel,myTableTH,myTableMY,myTableANZ,myTablePerANZ,showmsg,myTableTR" />
                    <apex:outputPanel id="redirectPanel">                   
                         <apex:outputText rendered="{!refreshPage}">
                             <script type="text/javascript">                            

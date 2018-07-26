@@ -37,6 +37,8 @@ public class AccountlinkhelperINTest {
             aclist.put(acclnk.id,acclnk);
             AccountlinkhelperIN alh = new AccountlinkhelperIN();
             alh.ValidateC2CAfterUpdateInsert(acclinklist,Label.IN,true,true,aclist);
+            alh.afterInsertEventShareRetailCopy(acclinklist);//Start 07132018 : Namitha added to invoke share retailcopy and Account as part of ph2.
+            alh.afterInsertEventShareAccount(acclinklist);//Start 07132018 : Namitha added to invoke share retailcopy and Account as part of ph2.
             AccountLinkHelperBase.validateC2C(acclinklist,Label.IN,true,true,aclist);
             test.stopTest();
     

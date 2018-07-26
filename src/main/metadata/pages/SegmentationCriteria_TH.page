@@ -806,9 +806,6 @@
                         <tr id="firstInterestRow">
                             <td>{!$Label.Interest}</td>
                             <td> <select onchange="showCriteria(this);">
-                                    <option value="CAC_Lead_Status__c">
-                                        {!$ObjectType.Lead__c.Fields.CAC_Lead_Status__c.Label}
-                                    </option>
                                     <option value="Expected_Registration_Date__c">
                                         {!$ObjectType.Lead__c.Fields.Expected_Registration_Date__c.Label}
                                     </option>
@@ -827,12 +824,14 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
-                                <apex:inputField value="{!lead.CAC_Lead_Status__c}" styleClass="CAC_Lead_Status__c" style="display:block;"/>
+                                
                                 <input class="dateInput" id="LeadTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                             </td>
                             <td class="logic"></td>
-                            <td></td>
+                            <td>
+                            
+                            </td>
                         </tr>
                     </table>
                     <div class="criteriaLink">
@@ -857,10 +856,10 @@
                             <td>{!$ObjectType.Vehicle__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                   <option value="Brand__c">{!$ObjectType.Vehicle__c.Fields.Brand__c.Label}</option> 
-                                   <option value="Class__c">{!$ObjectType.Vehicle__c.Fields.Class__c.Label}</option>                                                                     
+                                   <!--<option value="Brand__c">{!$ObjectType.Vehicle__c.Fields.Brand__c.Label}</option> -->
+                                   <!--<option value="Class__c">{!$ObjectType.Vehicle__c.Fields.Class__c.Label}</option> -->                                                                    
                                    <option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>   
-                                   <option value="Model__c">{!$ObjectType.Vehicle__c.Fields.Model__c.Label}</option>                                                                     
+                                  <!-- <option value="Model__c">{!$ObjectType.Vehicle__c.Fields.Model__c.Label}</option>  -->                                                                   
                                     <option value="FirstRegistrationDate__c">{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}</option>
                                     <option value="Handover_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Handover_Date__c.Label}</option>
                                     <option value="Recall__c">{!$ObjectType.Vehicle__c.Fields.Recall__c.Label}</option> 
@@ -876,10 +875,10 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text" style="display:block;"/>
-                                <apex:inputField value="{!vehicle.Brand__c}" styleClass="Brand__c"/>
+                                <!--<apex:inputField value="{!vehicle.Brand__c}" styleClass="Brand__c"/>-->
                                 <apex:inputField value="{!vehicle.Range__c}" styleClass="Range__c"/>
-                                <apex:inputField value="{!vehicle.Class__c}" styleClass="Class__c"/>
-                                <apex:inputField value="{!vehicle.Model__c}" styleClass="Model__c"/>
+                                <!--<apex:inputField value="{!vehicle.Class__c}" styleClass="Class__c"/>-->
+                                <!--<apex:inputField value="{!vehicle.Model__c}" styleClass="Model__c"/>-->
                                 
                                  <input class="dateInput" id="vehicleTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
@@ -914,7 +913,7 @@
                                     <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>
                                     <option value="End_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}</option>    
                                     <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->
-                                    <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>                                                                 
+                                    <!--<option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>  -->                                                               -->
                                 </select>
                             </td>
                             <td>
@@ -928,7 +927,7 @@
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
                                   <apex:inputField value="{!vehicleRel.New_Used__c}" styleClass="New_Used__c" style="display:block;"/> 
-                                  <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>
+                                  <!--<apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>-->
                                 <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/> 
                             </td>

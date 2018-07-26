@@ -55,6 +55,7 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
 					CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
 				   }
                CaseHelperMYInstance.calculateComplaintAmount(trigger.new,market);
+			   CaseHelperMYInstance.callCaseUpdateInformaticaURL(Trigger.newMap);
             }
         }
         //share Record start

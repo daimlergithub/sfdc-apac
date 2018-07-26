@@ -1,12 +1,15 @@
 Public class RetailtaskInlineEditControllerGeneric{
     public Retail_Task__c retailtask{get;set;}
     public Boolean ShowAmountMY{get;set;}
+    public Boolean ShowAmountIN{get;set;}
     public Boolean MBMY{get;set;}
+    public Boolean MBIN{get;set;}
     public Boolean MBTH{get;set;}
     public RetailtaskInlineEditControllerGeneric(ApexPages.StandardController sc){
         ShowAmountMY=false;
         MBMY=false;   
-        MBTH=false;  
+        MBTH=false;
+        MBIN=false;
         Id id = ApexPages.currentPage().getParameters().get('id');
         
         if(id!=null){
@@ -20,6 +23,12 @@ Public class RetailtaskInlineEditControllerGeneric{
                 MBMY=true;
                 if((Util_GetPermissionList.checkAccessOnUser(Label.MYDealer) && (us.Dealer_ND_Code__c == retailtask.Related_Dealer__r.Dealer_ND_Code__c))||Userinfo.getUserType()!='PowerPartner'||us.profile.name=='System Administrator' || us.profile.name=='IntegrationAPI'){
                     ShowAmountMY=true;
+                }
+            }
+            if(us.market__c==Label.MarketIN){
+                MBIN=true;
+                if((Util_GetPermissionList.checkAccessOnUser(Label.INRetail) && (us.Dealer_ND_Code__c == retailtask.Related_Dealer__r.Dealer_ND_Code__c))||Userinfo.getUserType()!='PowerPartner'||us.profile.name=='System Administrator' || us.profile.name=='IntegrationAPI'){
+                    ShowAmountIN=true;
                 }
             }
         }

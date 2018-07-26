@@ -1835,6 +1835,21 @@
                     <default>false</default>
                     <label>Trade-in</label>
                 </value>
+                <value>
+                    <fullName>FollowUp1</fullName>
+                    <default>false</default>
+                    <label>FollowUp1</label>
+                </value>
+                <value>
+                    <fullName>FollowUp2</fullName>
+                    <default>false</default>
+                    <label>FollowUp2</label>
+                </value>
+                <value>
+                    <fullName>FollowUp3</fullName>
+                    <default>false</default>
+                    <label>FollowUp3</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1859,7 +1874,9 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR','NA'))))))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -2546,8 +2563,22 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     </fields>
     <listViews>
         <fullName>AllActivities</fullName>
-        <filterScope>Team</filterScope>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <operation>equals</operation>
+        </filters>
         <label>All Activities</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>All_Un_assinged_OB_Task</fullName>
@@ -3128,9 +3159,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <searchLayouts>
-        <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
-        <listViewButtons>Bulk_Assign</listViewButtons>
+        <excludedStandardButtons>NewTask</excludedStandardButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>

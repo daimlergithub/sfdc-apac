@@ -118,6 +118,7 @@ Modify Reason:
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>MB</valueName>
             </valueSettings>
             <valueSettings>
@@ -129,6 +130,7 @@ Modify Reason:
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Smart</valueName>
             </valueSettings>
         </valueSet>
@@ -351,8 +353,9 @@ Modify Reason:
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',										  
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -369,7 +372,9 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',									  
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -408,6 +413,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                     <fullName>MY</fullName>
                     <default>false</default>
                     <label>MY</label>
+                </value>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                    <label>TR</label>
+                </value>
+                <value>
+                    <fullName>IN</fullName>
+                    <default>false</default>
+                    <label>IN</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2403,6 +2418,41 @@ Modify Reason:
                     <default>false</default>
                     <label>Random Act of Kindness</label>
                 </value>
+                <value>
+                    <fullName>Brochure</fullName>
+                    <default>false</default>
+                    <label>Brochure</label>
+                </value>
+                <value>
+                    <fullName>Kit</fullName>
+                    <default>false</default>
+                    <label>Kit</label>
+                </value>
+                <value>
+                    <fullName>Magazine</fullName>
+                    <default>false</default>
+                    <label>Magazine</label>
+                </value>
+                <value>
+                    <fullName>Letter</fullName>
+                    <default>false</default>
+                    <label>Letter</label>
+                </value>
+                <value>
+                    <fullName>Envelope</fullName>
+                    <default>false</default>
+                    <label>Envelope</label>
+                </value>
+                <value>
+                    <fullName>Ticket</fullName>
+                    <default>false</default>
+                    <label>Ticket</label>
+                </value>
+                <value>
+                    <fullName>Present</fullName>
+                    <default>false</default>
+                    <label>Present</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
@@ -2467,6 +2517,34 @@ Modify Reason:
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <valueName>Random Act of Kindness</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Brochure</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Kit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Magazine</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Letter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Envelope</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Ticket</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Present</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -2817,7 +2895,10 @@ Modify Reason:
     <validationRules>
         <fullName>LabelPrint_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c ='JP',MD__c ='KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,
+    OR(MD__c ='JP', MD__c ='KR', if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),	if(AND(MD__c=='IN',$Permission.INGeneric),true,false)),
+    $Profile.Name != 'IntegrationAPI'
+   )</errorConditionFormula>
         <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
         <errorMessage>Label Printing Name should be less than or equal to 23 letters.</errorMessage>
     </validationRules>

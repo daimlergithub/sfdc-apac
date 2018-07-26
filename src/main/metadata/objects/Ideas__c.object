@@ -367,7 +367,6 @@ IMAGE('/rugcollaboration/resource/Rug_low', "Low")))</formula>
             <value>Open</value>
         </filters>
         <label>Open Ideas</label>
-        <language>en_US</language>
     </listViews>
     <nameField>
         <label>Idea Title</label>

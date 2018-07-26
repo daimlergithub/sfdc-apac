@@ -1,26 +1,42 @@
 public class UserHelperTH{
-    public static void shareRecordsAfterInsertAndUpdate(List<User> triggerUserLst)
+    public static void shareRecordsAfterInsertAndUpdate(Map<Id,sObject> newUserId2UserObjMap,Map<Id,sObject>oldUserId2UserObjMap)
     {
         List<User> usersWithDNClst=new List<User>();
         List<Id> userIdLst=new List<Id>();
         Set<String> THDealerCodesLst=new Set<String>();
         List<Id> triggerUserIdLst=new List<Id>();
-        for(User usr:triggerUserLst)
+        for(Id usrId:newUserId2UserObjMap.keySet())
         {
-            triggerUserIdLst.add(usr.Id);
-        }
-        List<User> userLst=[select Id,ContactId,Contact.Account.Dealer_Nd_code__c,Market__c,UserType from User where Id IN:triggerUserIdLst];
-        List<Group> grpLst=[select Id,Name from Group where Name='THUsers'];
-        for(User usr:userLst)
-        {
-            //user who have dealer code and market is TH
-            if(usr.ContactId!=null && usr.Contact.Account.Dealer_Nd_code__c!=null && usr.Market__c=='TH')
+            user newUser=(User)newUserId2UserObjMap.get(usrId);
+            user oldUser;
+            if(oldUserId2UserObjMap!=null)
             {
-                String dealerCode='TH'+usr.Contact.Account.Dealer_Nd_code__c;
-                THDealerCodesLst.add(dealerCode);
-                usersWithDNClst.add(usr);
-                userIdLst.add(usr.Id);
-                
+                oldUser=(User)oldUserId2UserObjMap.get(usrId);
+            }
+            if(oldUser==null||(oldUser!=null && (newUser.Market__c!=oldUser.Market__c)||(newUser.Dealer_ND_Code__c!=oldUser.Dealer_ND_Code__c)||(newUser.UserRole!=oldUser.UserRole)))
+            	triggerUserIdLst.add(usrId);
+        }
+        List<User> userLst;
+        List<Group> grpLst;
+        if(triggerUserIdLst!=null && triggerUserIdLst.size()>0)
+        {
+            userLst=[select Id,ContactId,Contact.Account.Dealer_Nd_code__c,Market__c,UserType from User where Id IN:triggerUserIdLst];
+        	grpLst=[select Id,Name from Group where Name='THUsers'];
+        }
+        	
+        if(userLst!=null && userLst.size()>0)
+        {
+            for(User usr:userLst)
+            {
+                //user who have dealer code and market is TH
+                if(usr.ContactId!=null && usr.Contact.Account.Dealer_Nd_code__c!=null && usr.Market__c=='TH')
+                {
+                    String dealerCode='TH'+usr.Contact.Account.Dealer_Nd_code__c;
+                    THDealerCodesLst.add(dealerCode);
+                    usersWithDNClst.add(usr);
+                    userIdLst.add(usr.Id);
+                    
+                }
             }
         }
         if(userIdLst!=null && userIdLst.size()>0)
@@ -362,5 +378,47 @@ public class UserHelperTH{
         }
         return [select id,name from group where name IN : dealerndcode];
         }*/
+	/*public static void AddUserstoPGsTH(Map<Id,sObject> newUserId2UserObjMap,Map<Id,sObject>oldUserId2UserObjMap)
+    {
+        Map<string, Profile> PrMap = new Map<string, Profile>();
+        for(Profile p: [select id,name from profile where name in ('Thailand System Admin','Thailand Dealer Delegate admin')])
+        {
+            PrMap.put(p.name, p);
+        }
+        System.debug(Prmap);
+        Map<String, Group> grpLst = new Map<String, Group>();
+        for(Group g: [select id,name from group where name like '%TH%' limit 1000])
+        {
+            grpLst.put(g.name, g);
+        }
+        System.debug(grpLst );
+        List<GroupMember> grpMemberLst=new List<GroupMember>();
 
+        for(User u: (List<User>)newUserId2UserObjMap.values())
+        {
+            user oldUser;
+            if(oldUserId2UserObjMap!=null)
+            {
+                oldUser=(User)oldUserId2UserObjMap.get(u.Id);
+            }
+            if( oldUser==null || ( oldUser!=null && (u.profileId != oldUser.profileId)) && u.isActive == true)
+            {
+                System.debug(u.profileId + u.Dealer_DMS_Retailer_ID__c);
+                if(u.profileId == PrMap.get('Thailand System Admin').Id)
+                {
+                    String groupName='TH_System_Admin';
+                    grpMemberLst.add(new GroupMember(GroupId=grpLst.get(groupName).Id,UserOrGroupId = u.id));
+                }
+                else if(u.profileId == PrMap.get('Thailand Dealer Delegate Admin').Id && (u.Dealer_DMS_Retailer_ID__c!= '' || u.Dealer_DMS_Retailer_ID__c!= null))
+                {
+                    String groupName='Delegate' + u.Dealer_DMS_Retailer_ID__c;
+                    grpMemberLst.add(new GroupMember(GroupId=grpLst.get(groupName).Id,UserOrGroupId = u.id));
+                }
+            }
+        }
+        if(grpMemberLst!=null && grpMemberLst.size()>0)
+        {
+            DMLManagerService.insertassystem(grpMemberLst);
+        }
+    }*/
 }

@@ -12,9 +12,9 @@ Usages       : Test class for code coverage related to EmailNotificationSchedule
 @isTest
 private class EmailNotificationSchedulerClassTest 
 {
-	static testMethod void testDataPreparation() 
+    static testMethod void testDataPreparation() 
     {
-    	Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         Id personAccountRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         Id salesLeadRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
         Id afterSalesLeadRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
@@ -40,49 +40,49 @@ private class EmailNotificationSchedulerClassTest
         
         for(integer i=5; i<=10; i++)
         {
-        	Lead__c leadobj = new Lead__c();
-	        leadobj.Contact__c = personAccount.Id;
-	        leadobj.RecordTypeId = salesLeadRecordTypeId;
-	        leadobj.Dealer_Lead_Status__c='Not Started';
-	        leadobj.Lead_Type__c = 'Used Car';
-	        leadobj.Lead_Sub_Type__c = 'Demo Car';
-	        leadobj.Assigned_dealer__c = dlrAcc.Id;
-	        leadobj.Dealer_Assigned_Date_Time__c = system.Today()-i;
-	        leadobjList.add(leadobj);
+            Lead__c leadobj = new Lead__c();
+            leadobj.Contact__c = personAccount.Id;
+            leadobj.RecordTypeId = salesLeadRecordTypeId;
+            leadobj.Dealer_Lead_Status__c='Not Started';
+            leadobj.Lead_Type__c = 'Used Car';
+            leadobj.Lead_Sub_Type__c = 'Demo Car';
+            leadobj.Assigned_dealer__c = dlrAcc.Id;
+            leadobj.Dealer_Assigned_Date_Time__c = system.Today()-i;
+            leadobjList.add(leadobj);
         }
         for(integer i=10; i<=15; i++)
         {
-        	Lead__c leadobj = new Lead__c();
-	        leadobj.Contact__c = personAccount.Id;
-	        leadobj.RecordTypeId = afterSalesLeadRecordTypeId;
-	        leadobj.Dealer_Lead_Status__c='Not Started';
-	        leadobj.Lead_Type__c = 'Used Car';
-	        leadobj.Lead_Sub_Type__c = 'Demo Car';
-	        leadobj.Assigned_dealer__c = dlrAcc.Id;
-	        leadobj.Dealer_Assigned_Date_Time__c = system.today()-i;
-	        leadobjList.add(leadobj);
+            Lead__c leadobj = new Lead__c();
+            leadobj.Contact__c = personAccount.Id;
+            leadobj.RecordTypeId = afterSalesLeadRecordTypeId;
+            leadobj.Dealer_Lead_Status__c='Not Started';
+            leadobj.Lead_Type__c = 'Used Car';
+            leadobj.Lead_Sub_Type__c = 'Demo Car';
+            leadobj.Assigned_dealer__c = dlrAcc.Id;
+            leadobj.Dealer_Assigned_Date_Time__c = system.today()-i;
+            leadobjList.add(leadobj);
         }
         for(integer i=15; i<=25; i++)
         {
-        	Lead__c leadobj = new Lead__c();
-	        leadobj.Contact__c = personAccount.Id;
-	        leadobj.RecordTypeId = salesLeadRecordTypeId;
-	        leadobj.Dealer_Lead_Status__c='Not Started';
-	        leadobj.Lead_Type__c = 'Used Car';
-	        leadobj.Lead_Sub_Type__c = 'Demo Car';
-	        leadobj.Assigned_dealer__c = dlrAcc.Id;
-	        leadobj.Dealer_Assigned_Date_Time__c = system.today()-i;
-	        leadobjList.add(leadobj);
+            Lead__c leadobj = new Lead__c();
+            leadobj.Contact__c = personAccount.Id;
+            leadobj.RecordTypeId = salesLeadRecordTypeId;
+            leadobj.Dealer_Lead_Status__c='Not Started';
+            leadobj.Lead_Type__c = 'Used Car';
+            leadobj.Lead_Sub_Type__c = 'Demo Car';
+            leadobj.Assigned_dealer__c = dlrAcc.Id;
+            leadobj.Dealer_Assigned_Date_Time__c = system.today()-i;
+            leadobjList.add(leadobj);
         }
         
         insert leadobjList;
     }
     static testMethod void scheduleNotificationTest() 
     {
-    	Test.startTest();
-    	testDataPreparation();
+        Test.startTest();
+        testDataPreparation();
         string strSchedule = '0 0 4 ? *  MON-FRI';
-		System.schedule('EmailNotificationfor5days10days15days', strSchedule, new EmailNotificationSchedulerClass());
+        System.schedule('EmailNotificationfor5days10days15daysSampleTest', strSchedule, new EmailNotificationSchedulerClass());
         Test.stopTest();
     }
 }

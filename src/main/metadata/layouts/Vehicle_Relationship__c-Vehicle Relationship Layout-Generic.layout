@@ -53,6 +53,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+		<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Vehicle_ID__c</field>
@@ -131,6 +135,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Vehicle_Range__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Total_Loss__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

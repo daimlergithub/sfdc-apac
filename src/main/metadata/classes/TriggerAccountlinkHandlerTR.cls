@@ -14,9 +14,9 @@ public class TriggerAccountlinkHandlerTR implements TriggerHandlerIf {
         }
         if (Trigger.isBefore && (Trigger.isupdate || Trigger.isInsert)) {
             if(Util_GetPermissionList.checkAccessOnUser(Label.TRGeneric)){ 
-             AccountlinkhelperTR.updateOnPostalOptout(trigger.new);  
-                AccountlinkhelperTR.updateOnEmailOptout(trigger.new);                 
-                AccountlinkhelperTR.updateOnPhoneSMSoptout(trigger.new);
+               // AccountlinkhelperTR.updateOnPostalOptout(trigger.new);  
+               // AccountlinkhelperTR.updateOnEmailOptout(trigger.new);                 
+                //AccountlinkhelperTR.updateOnPhoneSMSoptout(trigger.new);
             }
         }
         
@@ -31,9 +31,9 @@ public class TriggerAccountlinkHandlerTR implements TriggerHandlerIf {
                if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
                    AccountlinkhelperTR acchelper = new AccountlinkhelperTR();
                    acchelper.ValidateC2CAfterUpdateInsert(trigger.new, Label.TR,Trigger.isinsert,Trigger.isupdate,trigger.oldMap);
-                   AccountlinkhelperTR.updateOnPostalOptout(trigger.new); 
-                   AccountlinkhelperTR.updateOnEmailOptout(trigger.new);                
-                   AccountlinkhelperTR.updateOnPhoneSMSoptout(trigger.new);
+                  // AccountlinkhelperTR.updateOnPostalOptout(trigger.new); 
+                   //AccountlinkhelperTR.updateOnEmailOptout(trigger.new);                
+               //    AccountlinkhelperTR.updateOnPhoneSMSoptout(trigger.new);
                }
                
            }

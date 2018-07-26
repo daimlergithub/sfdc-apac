@@ -271,7 +271,7 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                          }
                      }
                      if(accLinkId.size()>0){
-                        List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c,fromRole__r.Dealer_Rollout_Status__c,recordTypeID from Account_Link__c where id IN: accLinkId];
+                        List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c,fromRole__r.Dealer_Rollout_Status__c,recordTypeID from Account_Link__c where (id IN: accLinkId) and (Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false) ];
                             for (Account_Link__c accrec: acclinkr) {
                             if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId) && (string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false))
                                 acclids.add(accrec.id);
@@ -290,7 +290,7 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                          }
                      }
                     if(accLinkId.size()>0){
-                    List < Account_Link__c > acclinkr = [Select Id,Retail_DMS_Customer_ID__c ,toRole__r.UCID__c,recordTypeID,fromRole__r.Dealer_Rollout_Status__c from Account_Link__c where id IN: allist];
+                    List < Account_Link__c > acclinkr = [Select Id,Retail_DMS_Customer_ID__c ,toRole__r.UCID__c,recordTypeID,fromRole__r.Dealer_Rollout_Status__c from Account_Link__c where id IN: allist and (Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false) ];
                     for (Account_Link__c accrec: acclinkr) {
                            if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId)&&(string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false) && (string.isnotblank(accrec.Retail_DMS_Customer_ID__c)?MagicNumber.contains(accrec.Retail_DMS_Customer_ID__c)?false:true:true))
                             {

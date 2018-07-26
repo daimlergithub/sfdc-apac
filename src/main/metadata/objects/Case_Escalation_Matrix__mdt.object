@@ -50,6 +50,16 @@
                     <default>false</default>
                     <label>MB_Complaint</label>
                 </value>
+                <value>
+                    <fullName>FS_Inquiry</fullName>
+                    <default>false</default>
+                    <label>FS_Inquiry</label>
+                </value>
+                <value>
+                    <fullName>FS_Complaint</fullName>
+                    <default>false</default>
+                    <label>FS_Complaint</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>

@@ -1,4 +1,4 @@
-public class AddressDisplayInlineEditController { 
+public class  AddressDisplayInlineEditController { 
     public boolean openPanal{get;set;}
 
   
@@ -28,14 +28,17 @@ public class AddressDisplayInlineEditController {
     public String subdistrict {get;set;}
     public String zip {get;set;}
     public String province {get;set;}
+    public boolean editmode {get;set;}
     public String LanguageSelected{get; set;}
     public boolean IsForeignNational{get; set;}
+        public Account objAccount{get;set;}
   public Boolean AutoFill {get;set;}
     public Boolean DisplayAutoFill {get;set;}
     public User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;  
     AutoFill = false;     
+    editmode = false;
         aid = ApexPages.currentPage().getParameters().get('id');
         Address_Validated_Flag = false;
         IsForeignNational=false;
@@ -43,12 +46,12 @@ public class AddressDisplayInlineEditController {
         //SN20170911 -- Added address Line 3 in the query           
             adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,Country__c,Sub_District__c,Language__c,Foreign_Nationals__c,
                     Address_Line_2__c , Address_Line_3__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,        
-                    Address_Line_1_Native__c,Address_Line_2_Native__c,State_City__c from Address__c where Customer__c =: aid and Account_Link__c=null and FS_Contract__c=null Limit 10];        
+                    Address_Line_1_Native__c,Address_Line_2_Native__c,State_City__c,Suburb__c from Address__c where Customer__c =: aid and Account_Link__c=null and FS_Contract__c=null Limit 10];        
            
         }                     
         /*Intitializing address object*/
         addressobj = new Address__c();
-        
+            objAccount = new Account();
         market = u.Market__c;
         AddressObj.Market__c=market; 
         openPanal = true;
@@ -227,13 +230,22 @@ public class AddressDisplayInlineEditController {
                 zip='';
                 
             }
+	    //fix for MT-44
+            else if(AddressObj.Foreign_Nationals__c == true){
+                IsForeignNational=true;
+                city='';
+                district='';
+                province='';
+                zip='';
+                
+            }
             else
                 IsForeignNational=false;
         }
       }
       
     public void updateHidefields(){
-        if(market == System.Label.TH)
+        if(market == System.Label.TH || market == System.Label.TR)
        {  
             if(AddressObj.Foreign_Nationals__c==true)
                 IsForeignNational=true;
@@ -309,7 +321,7 @@ public class AddressDisplayInlineEditController {
             //SN20170911 -- Added address Line 3 in the query 
         adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
                 Address_Line_2__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,       
-                Address_Line_2_Native__c,Foreign_Nationals__c,Language__c,Country__c,Sub_District__c,State_City__c  from Address__c where Customer__c =: aid and Account_Link__c=null and FS_Contract__c=null];
+                Address_Line_2_Native__c,Foreign_Nationals__c,Language__c,Country__c,Sub_District__c,State_City__c,Suburb__c  from Address__c where Customer__c =: aid and Account_Link__c=null and FS_Contract__c=null];
     }
     
     /**    
@@ -344,9 +356,9 @@ public class AddressDisplayInlineEditController {
     
     public void addEditOptions(){    
     //SN20170911 -- Added address Line 3 in the query 
-        Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+            Account acc=[select id,name,recordtype.Name,personal_agreement__c,postal_opt_in__c from Account where id=:ApexPages.currentPage().getParameters().get('id')];
         adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,Sub_District__c,
-               Address_Line_2__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c,Language__c,Country__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Foreign_Nationals__c,State_City__c from Address__c where Customer__c=:acc.id Limit 10];
+               customer__r.postal_opt_in__c,Address_Line_2__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c,Language__c,Country__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Foreign_Nationals__c,State_City__c,Suburb__c from Address__c where Customer__c=:acc.id and Account_Link__c=null and FS_Contract__c=null Limit 10];
         if(adds.size()>=5){
             ShowpageBlockFlag=false;
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,system.label.Account_cannot_have_more_than_5_Address));
@@ -368,6 +380,7 @@ public class AddressDisplayInlineEditController {
             //Added for TR Market
             if(market == 'TR')
             {
+                    objAccount = acc;
                 addressobj.Country__c='Turkey';
                 LoadCity();
                 LoadProvince();
@@ -389,7 +402,7 @@ public class AddressDisplayInlineEditController {
         //SN20170911 -- Added address Line 3 in the query 
         if (editaddressId != null){
             editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-                        Address_Line_2__c,Market__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Country__c,Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Sub_District__c,Language__c,Foreign_Nationals__c,State_City__c from Address__c where Id =: editaddressId Limit 10];
+                            customer__c,customer__r.postal_opt_in__c,customer__r.Personal_Agreement__c,customer__r.recordtype.Name,Address_Line_2__c,Market__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Country__c,Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Sub_District__c,Language__c,Foreign_Nationals__c,State_City__c,Suburb__c from Address__c where Id =: editaddressId and Account_Link__c=null and FS_Contract__c=null Limit 10];
             // if for any reason we are missing the reference           
         }
         
@@ -406,6 +419,7 @@ public class AddressDisplayInlineEditController {
             provincepicklist = editadds.Province__c;
             addressobj.City__c = editadds.City__c;
             addressobj.District__c =editadds.District__c;
+            addressobj.country__c =editadds.country__c;
             addressobj.Block__c =editadds.Block__c;
             addressobj.Address_Line_1__c =editadds.Address_Line_1__c;
             addressobj.Address_Line_2__c =editadds.Address_Line_2__c;
@@ -429,10 +443,15 @@ public class AddressDisplayInlineEditController {
             addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;        
             addressobj.Address_Line_2_Native__c = editadds.Address_Line_2_Native__c;
             addressobj.Country__c=editadds.Country__c;
+            addressobj.State_City__c=editadds.State_City__c;
+              addressobj.Suburb__c=editadds.Suburb__c;
+ 
             addressobj.Foreign_Nationals__c=editadds.Foreign_Nationals__c;
             zip=editadds.ZipCode__c;
             province=editadds.Province__c;
             district=editadds.District__c;
+            city=editadds.city__c;
+            
             subdistrict=editadds.Sub_District__c;
              LanguageSelected=editadds.Language__c;
              //03192018 Namitha Added to load only State Picklist for India Market
@@ -454,10 +473,16 @@ public class AddressDisplayInlineEditController {
              //Added for TR Market
              if(market == 'TR')
             {
+                system.debug(editadds + 'values');
+                    if(editadds.customer__c != null) {
+                        objAccount =[select id,Name,recordtype.Name,postal_opt_in__c,Personal_Agreement__c from account where id =: editadds.customer__c];
+                    }
+                    system.debug('----> line 480 '+objAccount);
                 LoadCity();
                 LoadProvince();
                 LoadDistrict();
                 updateHidefields();
+                 editmode = true;
             }
             if(market=='TH' || Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
              { 
@@ -605,8 +630,11 @@ public class AddressDisplayInlineEditController {
             if (addresspicklist != null)
                 addressobj.Address_Type__c = addresspicklist;
             string accountid = ApexPages.currentPage().getParameters().get('id');
-            List < address__c > objAddresses = [select id, preferred__c from address__c where Customer__c =: accountid and preferred__c = true LIMIT 100];
-
+            List < address__c > objAddresses = [select id, preferred__c from address__c where Customer__c =: accountid and Account_Link__c=null and FS_Contract__c=null LIMIT 100];
+			if(!(objAddresses.size() > 0))
+            {
+                addressobj.preferred__c = true;
+            }
       
             //commented by Tej on 12-6-2017 to implement new preferred logic
             /*for(address__c add:objAddresses)
@@ -721,17 +749,31 @@ public class AddressDisplayInlineEditController {
         {       
             Validation=false;   
       boolean countPre=false;
-      if(province!='' && province!=System.Label.SelectPicklist)      
+      if(addressobj.Market__c == Label.MY) {
+        if(province!='' && province!=System.Label.SelectPicklist)      
                 addressobj.Province__c=province;        
             if(district!='' && district!=System.Label.SelectPicklist)      
                 addressobj.District__c=district;        
+            if(city!='' && city!=System.Label.SelectPicklist)      
+                addressobj.city__c=city; 
             if(zip!=null || zip!='')        
                 addressobj.ZipCode__c=zip;      
             if(addresspicklist!=null)       
-                addressobj.Address_Type__c = addresspicklist;           
+                addressobj.Address_Type__c = addresspicklist;   
+      }
+      //fix for MT-36
+      else if(addressobj.Market__c == Label.TR){
+          addressobj.Province__c=province;
+          addressobj.District__c=district;
+          addressobj.city__c=city; 
+          addressobj.ZipCode__c=zip;
+            
+      }
             string accountid=ApexPages.currentPage().getParameters().get('id');     
             List<address__c> objAddresses=[select id,preferred__c,Address_Type__c from address__c where Customer__c=:accountid LIMIT 100];        
-             
+            
+            AggregateResult[] addresList = [select count(id) cnt from Address__c where Customer__c =:accountId group by Customer__c];
+                
       if(addressobj.preferred__c == true) countPre=true;
         
             for(address__c add:objAddresses)        
@@ -741,60 +783,94 @@ public class AddressDisplayInlineEditController {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.OnePreferredError));         
                     Validation = true;          
                 }  
-                
+            }
+            for(address__c add:objAddresses){
                 if(add.id!=addressobj.id && addressobj.Address_Type__c==add.Address_Type__c)      
                 {                       
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressTypeError));         
                     Validation = true;          
                 }                       
-            } 
+            }
+            if(addresList != null && !addresList.isEmpty() && addresList[0].get('cnt') == 2 && addressobj != null && addressobj.Market__c == Label.TR && addressobj.id == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_Limit));  
+                Validation = true; 
+            }
       
-            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
+            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)) && addressobj.Market__c != Label.TR)      
             {       
-                 if(market != label.TR)
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));  
-                 else if(market == label.TR)
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRZipCode));  
+               ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));  
+               Validation = true;                             
+            } 
+            //fix for MT - 40
+            if(!(string.isblank(addressobj.ZipCode__c)) && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)) && addressobj.Market__c == Label.TR && !addressobj.foreign_nationals__c)      
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRZipCode));  
                  Validation = true;                             
-            }       
-            if(addressobj.Address_Line_1__c == null)        
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline1Mandatory));       
+            } 
+                /*//fix for MT - 43 
+            if((!string.isBlank(addressobj.Address_Line_1__c) || !string.isBlank(addressobj.Address_Line_2__c)) && addressobj.Market__c == Label.TR && addressobj.customer__c != null && addressobj.customer__r.postal_opt_in__c != null &&  !addressobj.customer__r.postal_opt_in__c){       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRAddressMandatory));       
                 Validation = true;                              
+                }*/
+            //fix for MT-28
+            if((addressobj.Address_Line_1__c == null && addressobj.Market__c == Label.MY) || (string.isBlank(addressobj.Address_Line_1__c) && addressobj.Market__c == Label.TR && 
+            (!string.isBlank(addressobj.Address_Line_2__c) || (!String.isBlank(addressobj.Province__c) && addressobj.Province__c != '--Select')|| (!String.isBlank(addressobj.District__c) && addressobj.District__c != '--Select'))))        
+            {       
+                    system.debug(addressobj.Address_Line_2__c+';'+addressobj.Address_Line_1__c+';'+objAccount+';'+objAccount.Postal_Opt_In__c+';'+objAccount.Personal_Agreement__c+';'+objAccount.recordType.Name);
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline1Mandatory));       
+                    Validation = true;                              
+                }    
+                
+                if ((!string.isBlank(addressobj.Address_Line_2__c) || !string.isBlank(addressobj.Address_Line_1__c)) && objAccount.Id != null && !(objAccount.Postal_Opt_In__c) && objAccount.Personal_Agreement__c !='Yes' && objAccount.recordType.Name != label.Company) {
+                    system.debug(addressobj.Address_Line_2__c+';'+addressobj.Address_Line_1__c+';'+objAccount.Id+';'+objAccount.Postal_Opt_In__c+';'+objAccount.Personal_Agreement__c+';'+objAccount.recordType.Name);
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.TRAddressMandatory));
+                    Validation = true;
             }       
             else        
             {                   
-                if(addressobj.Address_Line_1__c.length()>100)       
+                if(addressobj.Address_Line_1__c != null && addressobj.Address_Line_1__c.length()>100)       
                 {       
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddressline1Length));        
                     Validation = true;                              
                 }       
-            }       
-            if(addressobj.Province__c == null)      
+            }      //Fix for MT-40
+            if((addressobj.Province__c == null && addressobj.Market__c == Label.MY) || ((String.isBlank(addressobj.Province__c) || addressobj.Province__c == '--Select--') && addressobj.Market__c == Label.TR && !IsForeignNational && !string.isBlank(addressobj.Address_Line_1__c)))
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.StateProvError));        
             }       
-            if(addressobj.District__c == null )     
+            if(addressobj.District__c == null && addressobj.market__c == Label.MY)     
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CityError));         
                 Validation = TRUE;                              
             }       
-                    
-            if(addressobj.Address_Line_2__c == null )       
+            if((String.isblank(addressobj.City__c) || addressobj.City__c == System.Label.SelectPicklist) && addressobj.market__c == Label.TR)     
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CityError));         
+                Validation = TRUE;                              
+            }
+            //fix for MT-40
+            if((String.isblank(addressobj.District__c) || addressobj.District__c == System.Label.SelectPicklist) && addressobj.market__c == Label.TR && !IsForeignNational && !string.isBlank(addressobj.Address_Line_1__c))     
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.DistrictError));         
+                Validation = TRUE;                              
+            }        
+            system.debug(']]]]]'+addressobj.Address_Line_2__c);         
+            if(string.isBlank(addressobj.Address_Line_2__c) && addressobj.market__c == Label.MY)       
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline2));       
                 Validation = TRUE;                              
             }       
             else        
             {                   
-                if(addressobj.Address_Line_2__c.length()>100)       
+                if(!string.isBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)       
                 {       
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddresslinelen2Length));        
                     Validation = true;                              
                 }       
             }       
-            //added by veena to check addresstype check when address line 1 and 2 are given by user  
-            if(Market == Label.TR && (!String.isBlank(addressobj.Address_Line_1__c) || String.isBlank(addressobj.Address_Line_2__c))&&(addressobj.Address_Type__c == null)){
+             //added by veena to check addresstype check when address line 1 and 2 are given by user  
+            if(!String.isBlank(addressobj.Address_Line_1__c) &&(addressobj.Address_Type__c == null)){
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation)); 
                     Validation = true;
                 
@@ -1420,6 +1496,11 @@ If the user is Saving  same address which matches the fields returned by toleran
                     Validation = true;          
                 }                       
             } 
+      		if(addressobj.ZipCode__c == null)      
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.PostalCodeMandatoryANZ));        
+                 Validation = true;                             
+            }  
       
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{3,4}',addressobj.ZipCode__c)))      
             {       
@@ -1441,7 +1522,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }       
             if(addressobj.State_City__c == null)      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateMandatoryANZ));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateMandatoryANZ)); 
+                 Validation = true;        
             }       
     
              if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)

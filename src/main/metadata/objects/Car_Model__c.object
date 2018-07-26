@@ -50,7 +50,7 @@
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -224,6 +224,36 @@
                     <default>false</default>
                     <label>CAB-CHASSIS</label>
                 </value>
+                <value>
+                    <fullName>VAN</fullName>
+                    <default>false</default>
+                    <label>VAN</label>
+                </value>
+                <value>
+                    <fullName>PEOPLE MOVER</fullName>
+                    <default>false</default>
+                    <label>PEOPLE MOVER</label>
+                </value>
+                <value>
+                    <fullName>CAB CHASSIS</fullName>
+                    <default>false</default>
+                    <label>CAB CHASSIS</label>
+                </value>
+                <value>
+                    <fullName>TRANSFER MINIBUS</fullName>
+                    <default>false</default>
+                    <label>TRANSFER MINIBUS</label>
+                </value>
+                <value>
+                    <fullName>CREW CAB</fullName>
+                    <default>false</default>
+                    <label>CREW CAB</label>
+                </value>
+                <value>
+                    <fullName>UTE</fullName>
+                    <default>false</default>
+                    <label>UTE</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>AU</controllingFieldValue>
@@ -308,6 +338,36 @@
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>CAB-CHASSIS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>VAN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>PEOPLE MOVER</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>CAB CHASSIS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>TRANSFER MINIBUS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>CREW CAB</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>UTE</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -1140,12 +1200,24 @@
                 </value>
             </valueSetDefinition>
             <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Mercedes-Benz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>Smart</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -1154,14 +1226,6 @@
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Maybach</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>KR</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>Smart</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -2296,6 +2360,31 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>DFE_Marker__c</fullName>
+        <description>Indicates the DFE Marker of vehicle for ANZ Market</description>
+        <externalId>false</externalId>
+        <label>DFE Marker</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Y</fullName>
+                    <default>false</default>
+                    <label>Y</label>
+                </value>
+                <value>
+                    <fullName>N</fullName>
+                    <default>false</default>
+                    <label>N</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Description__c</fullName>
         <externalId>false</externalId>
         <label>Description</label>
@@ -2305,6 +2394,41 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fuel_Type__c</fullName>
+        <description>Indicates the Fuel type of vehicle for ANZ Market</description>
+        <externalId>false</externalId>
+        <label>Fuel Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Diesel</fullName>
+                    <default>false</default>
+                    <label>Diesel</label>
+                </value>
+                <value>
+                    <fullName>Petrol</fullName>
+                    <default>false</default>
+                    <label>Petrol</label>
+                </value>
+                <value>
+                    <fullName>Electric</fullName>
+                    <default>false</default>
+                    <label>Electric</label>
+                </value>
+                <value>
+                    <fullName>PHEV</fullName>
+                    <default>false</default>
+                    <label>PHEV</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Life_Cycle_Cluster__c</fullName>
@@ -2348,11 +2472,12 @@
     <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU', 
+IF(ISPICKVAL($User.Market__c, 'NZ'),'NZ', 
 IF(ISPICKVAL($User.Market__c, 'CN'),'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'),'JP',
 IF(ISPICKVAL($User.Market__c, 'MY'),'MY',
 IF(ISPICKVAL($User.Market__c, 'TH'),'TH',
-IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -2365,13 +2490,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))))</defaultValue>
     <fields>
         <fullName>Market__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'IN') ,'IN',
+IF(ISPICKVAL($User.Market__c, 'TR') ,'TR',
 IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ',
 IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -2420,6 +2546,331 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                     <fullName>NZ</fullName>
                     <default>false</default>
                     <label>NZ</label>
+                </value>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                    <label>TR</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Marketing_Body_Type__c</fullName>
+        <description>Indicates the Body type of vehicle for ANZ Market</description>
+        <externalId>false</externalId>
+        <label>Marketing Body Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hatch</fullName>
+                    <default>false</default>
+                    <label>Hatch</label>
+                </value>
+                <value>
+                    <fullName>Sports Tourer</fullName>
+                    <default>false</default>
+                    <label>Sports Tourer</label>
+                </value>
+                <value>
+                    <fullName>Sedan</fullName>
+                    <default>false</default>
+                    <label>Sedan</label>
+                </value>
+                <value>
+                    <fullName>Estate</fullName>
+                    <default>false</default>
+                    <label>Estate</label>
+                </value>
+                <value>
+                    <fullName>Coupé</fullName>
+                    <default>false</default>
+                    <label>Coupé</label>
+                </value>
+                <value>
+                    <fullName>Cabriolet</fullName>
+                    <default>false</default>
+                    <label>Cabriolet</label>
+                </value>
+                <value>
+                    <fullName>Shooting Brake</fullName>
+                    <default>false</default>
+                    <label>Shooting Brake</label>
+                </value>
+                <value>
+                    <fullName>Saloon</fullName>
+                    <default>false</default>
+                    <label>Saloon</label>
+                </value>
+                <value>
+                    <fullName>All-Terrain</fullName>
+                    <default>false</default>
+                    <label>All-Terrain</label>
+                </value>
+                <value>
+                    <fullName>SUV</fullName>
+                    <default>false</default>
+                    <label>SUV</label>
+                </value>
+                <value>
+                    <fullName>Wagon</fullName>
+                    <default>false</default>
+                    <label>Wagon</label>
+                </value>
+                <value>
+                    <fullName>Roadster</fullName>
+                    <default>false</default>
+                    <label>Roadster</label>
+                </value>
+                <value>
+                    <fullName>Van</fullName>
+                    <default>false</default>
+                    <label>Van</label>
+                </value>
+                <value>
+                    <fullName>Transfer Minibus</fullName>
+                    <default>false</default>
+                    <label>Transfer Minibus</label>
+                </value>
+                <value>
+                    <fullName>People Mover</fullName>
+                    <default>false</default>
+                    <label>People Mover</label>
+                </value>
+                <value>
+                    <fullName>Crew Cab</fullName>
+                    <default>false</default>
+                    <label>Crew Cab</label>
+                </value>
+                <value>
+                    <fullName>Valente</fullName>
+                    <default>false</default>
+                    <label>Valente</label>
+                </value>
+                <value>
+                    <fullName>Marco polo Activity</fullName>
+                    <default>false</default>
+                    <label>Marco polo Activity</label>
+                </value>
+                <value>
+                    <fullName>UTE</fullName>
+                    <default>false</default>
+                    <label>UTE</label>
+                </value>
+                <value>
+                    <fullName>Cab Chassis</fullName>
+                    <default>false</default>
+                    <label>Cab Chassis</label>
+                </value>
+                <value>
+                    <fullName>ACTIVITY</fullName>
+                    <default>false</default>
+                    <label>ACTIVITY</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Marketing_Class__c</fullName>
+        <description>Indicates the Cclass of vehicle for ANZ Market</description>
+        <externalId>false</externalId>
+        <label>Marketing Class</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A-Class</fullName>
+                    <default>false</default>
+                    <label>A-Class</label>
+                </value>
+                <value>
+                    <fullName>B-Class</fullName>
+                    <default>false</default>
+                    <label>B-Class</label>
+                </value>
+                <value>
+                    <fullName>C-Class</fullName>
+                    <default>false</default>
+                    <label>C-Class</label>
+                </value>
+                <value>
+                    <fullName>CLA</fullName>
+                    <default>false</default>
+                    <label>CLA</label>
+                </value>
+                <value>
+                    <fullName>CLS</fullName>
+                    <default>false</default>
+                    <label>CLS</label>
+                </value>
+                <value>
+                    <fullName>E-Class</fullName>
+                    <default>false</default>
+                    <label>E-Class</label>
+                </value>
+                <value>
+                    <fullName>GLA</fullName>
+                    <default>false</default>
+                    <label>GLA</label>
+                </value>
+                <value>
+                    <fullName>GLC</fullName>
+                    <default>false</default>
+                    <label>GLC</label>
+                </value>
+                <value>
+                    <fullName>GLE</fullName>
+                    <default>false</default>
+                    <label>GLE</label>
+                </value>
+                <value>
+                    <fullName>GLS</fullName>
+                    <default>false</default>
+                    <label>GLS</label>
+                </value>
+                <value>
+                    <fullName>G-Class</fullName>
+                    <default>false</default>
+                    <label>G-Class</label>
+                </value>
+                <value>
+                    <fullName>G-Professional</fullName>
+                    <default>false</default>
+                    <label>G-Professional</label>
+                </value>
+                <value>
+                    <fullName>SL</fullName>
+                    <default>false</default>
+                    <label>SL</label>
+                </value>
+                <value>
+                    <fullName>SLC</fullName>
+                    <default>false</default>
+                    <label>SLC</label>
+                </value>
+                <value>
+                    <fullName>S-Class</fullName>
+                    <default>false</default>
+                    <label>S-Class</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-AMG GT</fullName>
+                    <default>false</default>
+                    <label>Mercedes-AMG GT</label>
+                </value>
+                <value>
+                    <fullName>Maybach</fullName>
+                    <default>false</default>
+                    <label>Maybach</label>
+                </value>
+                <value>
+                    <fullName>Sprinter</fullName>
+                    <default>false</default>
+                    <label>Sprinter</label>
+                </value>
+                <value>
+                    <fullName>V-Class</fullName>
+                    <default>false</default>
+                    <label>V-Class</label>
+                </value>
+                <value>
+                    <fullName>Vito</fullName>
+                    <default>false</default>
+                    <label>Vito</label>
+                </value>
+                <value>
+                    <fullName>Valente</fullName>
+                    <default>false</default>
+                    <label>Valente</label>
+                </value>
+                <value>
+                    <fullName>Marco Polo</fullName>
+                    <default>false</default>
+                    <label>Marco Polo</label>
+                </value>
+                <value>
+                    <fullName>X-Class</fullName>
+                    <default>false</default>
+                    <label>X-Class</label>
+                </value>
+                <value>
+                    <fullName>ML-CLASS</fullName>
+                    <default>false</default>
+                    <label>ML-CLASS</label>
+                </value>
+                <value>
+                    <fullName>GL-CLASS</fullName>
+                    <default>false</default>
+                    <label>GL-CLASS</label>
+                </value>
+                <value>
+                    <fullName>CITAN</fullName>
+                    <default>false</default>
+                    <label>CITAN</label>
+                </value>
+                <value>
+                    <fullName>SMART</fullName>
+                    <default>false</default>
+                    <label>SMART</label>
+                </value>
+                <value>
+                    <fullName>VIANO</fullName>
+                    <default>false</default>
+                    <label>VIANO</label>
+                </value>
+                <value>
+                    <fullName>VARIO</fullName>
+                    <default>false</default>
+                    <label>VARIO</label>
+                </value>
+                <value>
+                    <fullName>ML</fullName>
+                    <default>false</default>
+                    <label>ML</label>
+                </value>
+                <value>
+                    <fullName>GL</fullName>
+                    <default>false</default>
+                    <label>GL</label>
+                </value>
+                <value>
+                    <fullName>SLK</fullName>
+                    <default>false</default>
+                    <label>SLK</label>
+                </value>
+                <value>
+                    <fullName>SLS AMG</fullName>
+                    <default>false</default>
+                    <label>SLS AMG</label>
+                </value>
+                <value>
+                    <fullName>CLK</fullName>
+                    <default>false</default>
+                    <label>CLK</label>
+                </value>
+                <value>
+                    <fullName>CL-Class</fullName>
+                    <default>false</default>
+                    <label>CL-Class</label>
+                </value>
+                <value>
+                    <fullName>R-Class</fullName>
+                    <default>false</default>
+                    <label>R-Class</label>
+                </value>
+                <value>
+                    <fullName>G-Prof</fullName>
+                    <default>false</default>
+                    <label>G-Prof</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -3885,103 +4336,312 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                     <default>false</default>
                     <label>Unknown</label>
                 </value>
+                <value>
+                    <fullName>CLA</fullName>
+                    <default>false</default>
+                    <label>CLA</label>
+                </value>
+                <value>
+                    <fullName>CLS</fullName>
+                    <default>false</default>
+                    <label>CLS</label>
+                </value>
+                <value>
+                    <fullName>E-Cab</fullName>
+                    <default>false</default>
+                    <label>E-Cab</label>
+                </value>
+                <value>
+                    <fullName>GL</fullName>
+                    <default>false</default>
+                    <label>GL</label>
+                </value>
+                <value>
+                    <fullName>GLA</fullName>
+                    <default>false</default>
+                    <label>GLA</label>
+                </value>
+                <value>
+                    <fullName>GLC</fullName>
+                    <default>false</default>
+                    <label>GLC</label>
+                </value>
+                <value>
+                    <fullName>GLE</fullName>
+                    <default>false</default>
+                    <label>GLE</label>
+                </value>
+                <value>
+                    <fullName>GLS</fullName>
+                    <default>false</default>
+                    <label>GLS</label>
+                </value>
+                <value>
+                    <fullName>GTS</fullName>
+                    <default>false</default>
+                    <label>GTS</label>
+                </value>
+                <value>
+                    <fullName>MB</fullName>
+                    <default>false</default>
+                    <label>MB</label>
+                </value>
+                <value>
+                    <fullName>ML</fullName>
+                    <default>false</default>
+                    <label>ML</label>
+                </value>
+                <value>
+                    <fullName>S-Cab</fullName>
+                    <default>false</default>
+                    <label>S-Cab</label>
+                </value>
+                <value>
+                    <fullName>SLC</fullName>
+                    <default>false</default>
+                    <label>SLC</label>
+                </value>
+                <value>
+                    <fullName>SLK</fullName>
+                    <default>false</default>
+                    <label>SLK</label>
+                </value>
+                <value>
+                    <fullName>SLS</fullName>
+                    <default>false</default>
+                    <label>SLS</label>
+                </value>
+                <value>
+                    <fullName>ML-Class</fullName>
+                    <default>false</default>
+                    <label>ML-Class</label>
+                </value>
+                <value>
+                    <fullName>Sprinter</fullName>
+                    <default>false</default>
+                    <label>Sprinter</label>
+                </value>
+                <value>
+                    <fullName>X-Class</fullName>
+                    <default>false</default>
+                    <label>X-Class</label>
+                </value>
+                <value>
+                    <fullName>CITAN</fullName>
+                    <default>false</default>
+                    <label>CITAN</label>
+                </value>
+                <value>
+                    <fullName>MB100</fullName>
+                    <default>false</default>
+                    <label>MB100</label>
+                </value>
+                <value>
+                    <fullName>VARIO</fullName>
+                    <default>false</default>
+                    <label>VARIO</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>A-Class</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>B-Class</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>C-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>E-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>G-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>GL-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>R-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>S-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>VANEO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>V-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>VIANO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>VITO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>Maybach</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>smart</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>ML-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>Sprinter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>X-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>CITAN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>MB100</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>VARIO</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>CL-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>CLK-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>CLS-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>E-Class</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>G-Class</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>GL-Class</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>GLA-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>GLC-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>GLE-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>GLK-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>GLS-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -3995,85 +4655,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>R-Class</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>S-Class</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>SL-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>SLC-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>SLK-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>SLR-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>SLS-Class</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>VANEO</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>V-Class</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>VITO</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>Maybach</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>smart</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -4114,7 +4720,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>CLA-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4125,10 +4730,64 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <valueName>Unknown</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>TH</controllingFieldValue>
-                <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>VIANO</valueName>
+                <valueName>CLA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>CLS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>E-Cab</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>GL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>GLA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>GLC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>GLE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>GLS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>GTS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>MB</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>ML</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>S-Cab</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>SLC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>SLK</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>SLS</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -4439,6 +5098,48 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_MBAU_CarModels</fullName>
+        <columns>NAME</columns>
+        <columns>Model_ShortName__c</columns>
+        <columns>Series_Description__c</columns>
+        <columns>Model_Code__c</columns>
+        <columns>DFE_Marker__c</columns>
+        <columns>Marketing_Class__c</columns>
+        <columns>Marketing_Body_Type__c</columns>
+        <columns>Variant__c</columns>
+        <columns>Fuel_Type__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </filters>
+        <label>All MBAU CarModels</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_MBNZ_Car_Models</fullName>
+        <columns>NAME</columns>
+        <columns>Model_ShortName__c</columns>
+        <columns>Series_Description__c</columns>
+        <columns>Model_Code__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </filters>
+        <label>All MBNZ Car Models</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_MBTH_Car_Models</fullName>

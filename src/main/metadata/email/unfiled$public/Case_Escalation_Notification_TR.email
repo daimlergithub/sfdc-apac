@@ -1,0 +1,12 @@
+Dear Manager,   
+
+Since no action has been taken by {!Case.OwnerFullName} within the stipulated deadlines and case is still open, please follow up and take the necessary actions to close the case.
+
+Case no. : {!Case.CaseNumber} 
+Customer : {!Case.Contact} 
+Chassis no. / Registration Plate no. : {!Case.Registration_Number__c} 
+Date : {!Case.CreatedDate} 
+Message : {!Case.MPC_Internal_Notes__c} 
+
+Best regards, 
+Customer Contact Center, Mercedes-Benz

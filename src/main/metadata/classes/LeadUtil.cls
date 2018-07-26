@@ -30,4 +30,6 @@ public class LeadUtil {
     public static boolean convert2leads=true;
     public static boolean recurssionchecksendmaillead = true;
     public static boolean testadd=true;
+	public static integer count=0;
+
 }

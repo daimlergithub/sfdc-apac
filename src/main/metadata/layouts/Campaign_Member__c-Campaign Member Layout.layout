@@ -29,6 +29,14 @@
                 <behavior>Edit</behavior>
                 <field>Convert_To_Lead_Flag__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Missing_Flag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Status__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -52,8 +60,8 @@
                 <field>Participate_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status__c</field>
+                <behavior>Edit</behavior>
+                <field>Convert_By_Others__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -99,7 +107,7 @@
                 <behavior>Edit</behavior>
                 <field>Vehicle__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Copy__c</field>
             </layoutItems>
@@ -126,6 +134,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastServiceDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Postal_OptOut__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_OptOut__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -162,7 +178,7 @@
                 <behavior>Edit</behavior>
                 <field>Vehicle_Relationship__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vehicle_ExternalLink__c</field>
             </layoutItems>
@@ -189,6 +205,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>NextServiceDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>OptOutContact_Reason__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -290,7 +310,7 @@
         <editHeading>true</editHeading>
         <label>MBF Crosspoint Information</label>
         <layoutColumns>
-		  <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Cross_point_month_and_year__c</field>
             </layoutItems>
@@ -298,7 +318,7 @@
                 <behavior>Edit</behavior>
                 <field>Proto_Market_Value_amount__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Evaluation_Result_P1_P2_Blank__c</field>
             </layoutItems>
@@ -314,7 +334,7 @@
                 <behavior>Edit</behavior>
                 <field>Total_Vehicle_Price_without_tax__c</field>
             </layoutItems>
-			            <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Product_Name__c</field>
             </layoutItems>
@@ -326,7 +346,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-		 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Outstanding_Balance_amount__c</field>
             </layoutItems>
@@ -334,7 +354,7 @@
                 <behavior>Edit</behavior>
                 <field>Final_GAP_Amount__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
@@ -357,7 +377,7 @@
                 <behavior>Edit</behavior>
                 <field>RV_Ballon__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
         </layoutColumns>
@@ -566,10 +586,10 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
-			<layoutItems>
-				<behavior>Edit</behavior>
-				<field>Market__c</field>
-			</layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -583,6 +603,17 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Lead__c</fields>
+		<fields>Lead_RecordType__c</fields>
+		<fields>Lead_DealerLeadStatus__c</fields>
+		<fields>Lead_AssignedDateTime__c</fields>
+        <fields>Campaign__c</fields>
+        <fields>Retail_Campaign__c</fields>
+        <fields>CREATED_DATE</fields>
+        <relatedList>Campaign_Lead__c.Campaign_Member__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

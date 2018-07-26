@@ -64,7 +64,9 @@ public class LeadHelperAccountLinkCreateJP {
         set < String > actlnkids = new set < String > ();
         set < String > dealerId = new set < String > ();
         set < String > AcclinkContactId = new set < String > ();
+		set < String > AcclinkCompanyAccountId = new set < String > ();
         set < String > CompanyId = new set < String > ();
+		List<Address__c> ListAddress=new List<Address__c>();
         Map < Id, Lead__c > leadupdate = new Map < Id, Lead__C > ();
         List < Lead__c > leadLst = [select Id, Retail_Contact__c, Company_Account__c, Contact__c, Assigned_Dealer__c, Contact__r.LastName, Contact__r.FirstName, Contact__r.LastName_Native_1__c,Contact__r.ID_Type__c,Contact__r.ID_Number__c,contact__r.country__c,
             Contact__r.FirstName_Native_1__c, Contact__r.PersonBirthdate, Contact__r.Special_Care__c, Contact__r.Individual_Home_Phone__c, Contact__r.Work_Phone__c, Contact__r.Primary_Address_Reference__r.Sub_District__c,
@@ -76,7 +78,7 @@ public class LeadHelperAccountLinkCreateJP {
             Contact__r.Special_Needs_Class__c, Contact__r.Allow_Data_Sharing2__c, Contact__r.Primary_Address_Reference__r.Address_Type__c,
             Contact__r.Primary_Address_Reference__r.Province__c, Contact__r.Preferred_Contact_Method__c, MD__c,
             Contact__r.UCID__c,Contact__r.Salutation__c, Contact__r.RecordtypeId, Contact__r.Name, Contact__r.Company_Name_Native_1__c, Contact__r.Foundation_Date__c,Contact__r.Primary_Address_Reference__r.Foreign_Nationals__c,
-            Contact__r.Website, Contact__r.Vat_No__c, Contact__r.DMS_Customer_ID__c, Contact__r.Complaint_Amount__c, Contact__r.Sales_Sanction__c, Contact__r.Allow_Data_Sharing__c, Contact__r.PersonEmail, Contact__r.PersonHasOptedOutOfEmail, Contact__r.PersonHasOptedOutOfFax, Contact__r.Primary_Phone_Display__c, Contact__r.PersonDoNotCall, Contact__r.Postal_Opt_Out__c, Contact__r.Job__c, Contact__r.Personal_Agreement__c, Contact__r.Personal_Information_Third_Party_Release__c, Contact__r.Personal_Abroad_Agreement__c, Contact__r.Agreement_to_commit_info_processing__c, Contact__r.Commercial_Reg_No__c, Contact__r.Company_Name__c, Contact__r.Visit_Opt_Out__c
+            Contact__r.Website, Contact__r.Vat_No__c, Contact__r.DMS_Customer_ID__c, Contact__r.Complaint_Amount__c, Contact__r.Sales_Sanction__c, Contact__r.Allow_Data_Sharing__c, Contact__r.PersonEmail, Contact__r.PersonHasOptedOutOfEmail, Contact__r.PersonHasOptedOutOfFax, Contact__r.Primary_Phone_Display__c, Contact__r.PersonDoNotCall, Contact__r.Postal_Opt_Out__c, Contact__r.Job__c, Contact__r.Personal_Agreement__c, Contact__r.Personal_Information_Third_Party_Release__c, Contact__r.Personal_Abroad_Agreement__c, Contact__r.Agreement_to_commit_info_processing__c, Contact__r.Commercial_Reg_No__c, Contact__r.Company_Name__c, Contact__r.Visit_Opt_Out__c,Company_Account__r.RecordTypeId,Company_Account__r.UCID__c
             from Lead__c WHERE id IN: contactId
         ];
         List < Account_Link__c > accLst = new List < Account_Link__c > ();
@@ -86,6 +88,8 @@ public class LeadHelperAccountLinkCreateJP {
                 dealerId.add(dealerLead.Assigned_Dealer__c);
             if (dealerLead.Contact__c != null)
                 AcclinkContactId.add(dealerLead.Contact__c);
+			if (dealerLead.Company_Account__c != null)
+                AcclinkCompanyAccountId.add(dealerLead.Company_Account__c);	
 
         }
 
@@ -94,14 +98,17 @@ public class LeadHelperAccountLinkCreateJP {
         System.debug('@#$%%%%%% leadLst' + leadLst);
         List < Account_Link__c > dealercount = [select id from Account_Link__c WHERE fromRole__c IN: dealerId AND(toRole__c IN: AcclinkContactId OR toRole__c IN: CompanyId) AND(RecordTypeId =: alkCompanyRecordTypeId OR RecordTypeId =: alkpersonRecordTypeId) AND(Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false)];
         system.debug('########' + dealercount);
+		List < Account_Link__c > retailcompanycopy = [select id from Account_Link__c WHERE fromRole__c IN: dealerId AND toRole__c IN: AcclinkCompanyAccountId AND RecordTypeId =: alkCompanyRecordTypeId AND(Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false)];
+        system.debug('########retailcompanycopy' + retailcompanycopy);
         for (Lead__c led: leadlst) {
-            if (led.Assigned_Dealer__c != null && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0)) {
-                Account_Link__c acclnk = new Account_Link__c(RecordTypeId = alkContactSectorRecordTypeId, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
-                //accLst.add(acclnk);
-                if (led.Contact__r.RecordTypeId == PersonRecordTypeId) {
+            if (led.Assigned_Dealer__c != null && ((dealercount.isEmpty() || dealercount == null || dealercount.size() == 0)||(retailcompanycopy.isEmpty() || retailcompanycopy== null || retailcompanycopy.size() == 0))) {
+               // Account_Link__c acclnk = new Account_Link__c(RecordTypeId = alkContactSectorRecordTypeId, toRole__c = //led.Contact__c, fromRole__c = led.Assigned_Dealer__c); 
+				Account_Link__c acclnk = new Account_Link__c(); 
+                //accLst.add(acclnk); 
+                if (led.Contact__r.RecordTypeId == PersonRecordTypeId && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0)) {
 
                     acclnk = new Account_Link__c(RecordTypeId = alkpersonRecordTypeId, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
-                    if (led.MD__c == 'TH') {
+                    /*if (led.MD__c == 'TH') {
                         if (led.Contact__r.Primary_Address_Reference__c != null) {
                             acclnk.Retail_Province__c = led.Contact__r.Primary_Address_Reference__r.Province__c;
                             acclnk.Retail_City__c = led.Contact__r.Primary_Address_Reference__r.Sub_District__c;
@@ -166,11 +173,12 @@ public class LeadHelperAccountLinkCreateJP {
                         acclnk.Retail_Vat_No__c = led.Contact__r.Vat_No__c;
 						if(led.Contact__r.Foundation_Date__c != null)
 						 acclnk.Retail_Foundation_Month__c = String.valueOf(led.Contact__r.Foundation_Date__c.year()) + (String.ValueOf(led.Contact__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.month())) :String.ValueOf(led.Contact__r.Foundation_Date__c.month()))  +(String.ValueOf(led.Contact__r.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.day())) :String.ValueOf(led.Contact__r.Foundation_Date__c.day()));
-                    }
+                    }*/
+					 accLst.add(acclnk);
                 } else if (led.Contact__r.RecordTypeId == AccountCompanyId) {
 
                     acclnk = new Account_Link__c(RecordTypeId = alkCompanyRecordTypeId, Name = led.Contact__r.UCID__c, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
-                    if (led.MD__c == 'TH') {
+                    /*if (led.MD__c == 'TH') {
                         if (led.Contact__r.Primary_Address_Reference__c != null) {
                             acclnk.Retail_Province__c = led.Contact__r.Primary_Address_Reference__r.Province__c;
                             acclnk.Retail_City__c = led.Contact__r.Primary_Address_Reference__r.Sub_District__c;
@@ -210,10 +218,25 @@ public class LeadHelperAccountLinkCreateJP {
                         acclnk.Retail_Agreement_Info_Processing__c = led.Contact__r.Agreement_to_commit_info_processing__c;
 						if(led.Contact__r.Foundation_Date__c != null)
 						 acclnk.Retail_Foundation_Month__c = String.valueOf(led.Contact__r.Foundation_Date__c.year()) + (String.ValueOf(led.Contact__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.month())) :String.ValueOf(led.Contact__r.Foundation_Date__c.month()))  +(String.ValueOf(led.Contact__r.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.day())) :String.ValueOf(led.Contact__r.Foundation_Date__c.day()));
-                    }
+                    }*/
 
                 }
+				 if (led.Company_Account__r.RecordTypeId == AccountCompanyId && led.MD__c =='KR' && (retailcompanycopy.isEmpty() || retailcompanycopy== null || retailcompanycopy.size() == 0)) {
 
+                    acclnk = new Account_Link__c(RecordTypeId = alkCompanyRecordTypeId, toRole__c = led.Company_Account__c, fromRole__c = led.Assigned_Dealer__c);
+					ListAddress= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City__c,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c, Preferred__c  FROM  Address__c where Preferred__c=true and Customer__c =:led.Company_Account__c limit 1];
+                     if(ListAddress.size() >0){
+					 acclnk.Retail_Address_Reference__c = ListAddress.size()>0 ? ListAddress[0].id:'';
+                     acclnk.Retail_Address_Type__c = ListAddress.size()>0 ? ListAddress[0].Address_Type__c:'';
+                     acclnk.Retail_ZipCode__c = ListAddress.size()>0 ? ListAddress[0].ZipCode__c:'';
+                     acclnk.Retail_Province__c = ListAddress.size()>0 ? ListAddress[0].Province__c:'';
+                     acclnk.Retail_City__c = ListAddress.size()>0 ? ListAddress[0].City__c:'';
+                     acclnk.Retail_Distinct__c = ListAddress.size()>0 ? ListAddress[0].District__c:'';
+                     acclnk.Retail_Address_Line_1__c = ListAddress.size()>0 ? ListAddress[0].Address_Line_1__c:'';
+                     acclnk.Retail_Address_Line_2__c = ListAddress.size()>0 ? ListAddress[0].Address_Line_2__c:'';
+					 }
+                     accLst.add(acclnk);
+                }
                 if (led.MD__c == Label.MarketKR) {
                     acclnk.Retail_Country__c = 'Korea';
                 } else if (led.MD__c == Label.MarketJP) {
@@ -226,7 +249,9 @@ public class LeadHelperAccountLinkCreateJP {
                     acclnk.Retail_Address_Reference__c = led.Contact__r.Primary_Address_Reference__c;
 
                 }
-                accLst.add(acclnk);
+                 if( accLst.isEmpty()){
+                   accLst.add(acclnk);
+               }
             }
         }
         system.debug('$%%$%$%$$$%' + accLst);

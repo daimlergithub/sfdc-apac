@@ -58,7 +58,8 @@
                     
                     <!-- ADD START CHAOS CR-000136 2013/12/5 -->
                     <apex:outputPanel style="margin-left:145px">
-                        <apex:outputLabel value="CSR" />
+                       <!-- <apex:outputLabel value="CSR" />  -->
+                       <apex:outputLabel value="{!$ObjectType.OB_Task_Handing__c.fields.CSR__c.Label}" />
                         <apex:inputfield value="{!th.CSR__c}" id="owners" style="margin-left:20px"/>
                         <a href="#" onclick="gotoCSRLooking('owner');return false;">
                         <img src="/s.gif" alt="search" class="lookupIcon" 
@@ -117,16 +118,23 @@
                             title="search"/>
                         </a>
                         <apex:inputHidden value="{!csrIds}" id="csrIds"/>
-                    </apex:outputPanel>                   
-                    <apex:inputfield value="{!th.Evenly_Location__c}" > 
-                        <apex:actionSupport event="onclick" action="{!displayByNum}" rerender="checkBx"/>
-                    </apex:inputfield>
-                    <apex:outputPanel id="checkBx" style="margin-left:115px">
-                        <apex:outputPanel rendered="{!(if(canByNum==true, true, false))}">
-                            <apex:outputLabel value="{!$ObjectType.OB_Task_Handing__c.fields.By_Number__c.Label}" />
-                            <apex:inputfield value="{!th.By_Number__c}" style="margin-left:20px"/>  
-                        </apex:outputPanel> 
-                    </apex:outputPanel>                
+                    </apex:outputPanel> 
+                    <apex:outputPanel id="checkBox"  style="margin-left:115px" >
+                          <apex:outputPanel rendered="{!(if(byAccount ==true, true, false))}">                
+                            {!$Label.Evenly_Location}<apex:inputfield value="{!th.Evenly_Location__c}"> 
+                                <apex:actionSupport event="onclick" action="{!displayByNum}" rerender="checkBx"/>
+                            </apex:inputfield>
+                            <apex:outputPanel id="checkBx" style="margin-left:115px">
+                                <apex:outputPanel rendered="{!(if(canByNum==true, true, false))}">
+                                    <apex:outputLabel value="{!$ObjectType.OB_Task_Handing__c.fields.By_Number__c.Label}" />
+                                    <apex:inputfield value="{!th.By_Number__c}" style="margin-left:20px"/>  
+                                </apex:outputPanel> 
+                            </apex:outputPanel>
+                         </apex:outputPanel>
+                    </apex:outputPanel>
+                    <apex:inputfield value="{!th.By_Account__c}" > 
+                        <apex:actionSupport event="onclick" action="{!displayByAccount}" rerender="checkBox"/>
+                    </apex:inputfield>               
                 </apex:pageBlockSection>
             </apex:outputPanel>
             <apex:pageMessages Id="message"/>

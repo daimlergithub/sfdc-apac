@@ -524,6 +524,392 @@ function survey5(){
     }
 }
 
+function survey1_TY(){ 
+    
+    var SurveyName="Carecall calls for complaint cases"; 
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2, SQ3, SQ4, SQ5; 
+
+    var url = '/flow/Carecall_Calls_for_Cases?CaseID=';  
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No Carecall calls for complaint cases Survey"); 
+    }else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2){ 
+                SQ2=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==3){ 
+                SQ3=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==4){ 
+                SQ4=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==5){ 
+                SQ5=SurveyQuestionRecords[i].Id; 
+            } 
+        } 
+        
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Case id found
+        var id = "{!Task.What.Id}";
+       
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5; 
+        window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+    }
+}
+
+function survey2_TY(){ 
+    
+    var SurveyName="Carecall calls for inquiry cases"; 
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2, SQ3, SQ4, SQ5; 
+
+    var url = '/flow/Carecall_Calls_for_Cases?CaseID='; 
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No Carecall calls for inquiry cases Survey"); 
+    }else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2){ 
+                SQ2=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==3){ 
+                SQ3=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==4){ 
+                SQ4=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==5){ 
+                SQ5=SurveyQuestionRecords[i].Id; 
+            } 
+        } 
+        
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Case id found
+        var id = "{!Task.What.Id}";
+        
+       
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5; 
+        window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+    }
+}
+
+function survey3_TY(){ 
+    
+    
+    var SurveyName="Lead confirmation/ Sales"; 
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2, SQ3, SQ4, SQ5; 
+
+    var url = '/flow/Lead_Confirmation?OppID='; 
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No Lead confirmation/ Sales Survey"); 
+    }else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2){ 
+                SQ2=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==3){ 
+                SQ3=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==4){ 
+                SQ4=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==5){ 
+                SQ5=SurveyQuestionRecords[i].Id; 
+            } 
+        } 
+        
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Case id found
+        var id = "{!Task.What.Id}";
+        
+       //alert(id);
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q2_ID_1='+SQ3+'&Q3_ID='+SQ4+'&Q4_ID='+SQ5; 
+        window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+    }
+}
+
+function survey4_TY(){ 
+    var SurveyName="Lead confirmation/ After Sales"; 
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2, SQ3, SQ4, SQ5; 
+
+    var url = '/flow/Lead_Confirmation?OppID='; 
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No Lead confirmation/ After Sales Survey"); 
+    }else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2){ 
+                SQ2=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==3){ 
+                SQ3=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==4){ 
+                SQ4=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==5){ 
+                SQ5=SurveyQuestionRecords[i].Id; 
+            } 
+        } 
+        
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Case id found
+        var id = "{!Task.What.Id}";
+        //alert(id);
+       
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q2_ID_1='+SQ3+'&Q3_ID='+SQ4+'&Q4_ID='+SQ5; 
+        window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+    }
+}
+
+
+function survey5_TY(){ 
+//alert('Inside platinum survey')
+    var SurveyName="Platinum Data Updates"; 
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2, SQ3, SQ4, SQ5; 
+
+    var url = '/flow/Platinum_Customer_Data_Updates?AccountID='; 
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No Platinum Data Updates Survey"); 
+    }else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2){ 
+                SQ2=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==3){ 
+                SQ3=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==4){ 
+                SQ4=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==5){ 
+                SQ5=SurveyQuestionRecords[i].Id; 
+            } 
+        } 
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Account id found
+        var id = "{!Task.What.Id}";
+        
+       
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5; 
+        window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+    }
+}
+
+
+function survey6_TY(){ 
+    
+    var SurveyName="Customer Data Updates"; 
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2, SQ3 ; 
+
+    var url = '/flow/Platinum_Customer_Data_Updates?AccountID='; 
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No Customer Data Updates Survey"); 
+    }else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2){ 
+                SQ2=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==3){ 
+                SQ3=SurveyQuestionRecords[i].Id; 
+            } 
+        } 
+        
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Account id found
+        var id = "{!Task.What.Id}";
+        
+       
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3; 
+        window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+    }
+}
+
+function survey7_TY(){ 
+   // alert("Inside event survey")
+    var SurveyName="Event satisfaction evaluations"; 
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2; 
+
+    var url = '/flow/Event_satisfaction_evaluations?CampaignID='; 
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No Event satisfaction evaluations Survey"); 
+    }else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2){ 
+                SQ2=SurveyQuestionRecords[i].Id; 
+            } 
+        } 
+        //alert('ques fetched');
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Account id found
+        var id = "{!Task.What.Id}";
+          //alert('id recieved');
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2; 
+        window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+    }
+}
+function survey8_TY(){ 
+    //alert("Inside event survey")
+    var SurveyName="Lost Sales Management Survey"; 
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2, SQ3 ,SQ4,SQ5,SQ6,SQ7,SQ8,SQ9,SQ10,SQ11,SQ12;
+
+    var url = '/flow/Lost_Sales_Management_Survey?LeadID='; 
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No Lost Sales Management Survey"); 
+    }else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2) 
+                SQ2=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==3) 
+                SQ3=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==4) 
+                SQ4=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==5) 
+                SQ5=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==6) 
+                SQ6=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==7) 
+                SQ7=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==8) 
+                SQ8=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==9) 
+                SQ9=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==10)
+                SQ10=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==11) 
+                SQ11=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==12) 
+                SQ12=SurveyQuestionRecords[i].Id;
+            } 
+        } 
+        //alert('ques fetched');
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Lead id found
+        var id = "{!Task.What.Id}";
+          //alert('id recieved');
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5+'&Q6_ID='+SQ6+'&Q7_ID='+SQ7+'&Q8_ID='+SQ8+'&Q9_ID='+SQ9+'&Q10_ID='+SQ10+'&Q11_ID='+SQ11+'&Q12_ID='+SQ12; 
+        window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+    }
+
+
+
 </script>
 <apex:form >
     <apex:pageBlock title="SURVEYS" rendered="{!TEXT($User.Market__c) =='TH'}">
@@ -542,6 +928,29 @@ function survey5(){
     </apex:pageBlock>
 	<apex:pageBlock rendered="{!TEXT($User.Market__c) =='MY'}">
         <apex:outputLabel>Sorry! We do not have surveys for Malaysia!</apex:outputLabel>
+    </apex:pageBlock>
+    <apex:pageBlock title="SURVEYS" rendered="{!TEXT($User.Market__c) =='TR'}">
+        
+            <apex:pageBlockSection rendered="{!Task.What.Type == 'Case'}" columns="1">
+                <apex:outputLink onclick="survey1_TY();" >Carecall calls for complaint cases</apex:outputLink>   
+                <apex:outputLink onclick="survey2_TY();" >Carecall calls for inquiry cases</apex:outputLink>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection rendered="{!Task.What.Type == 'Opportunity'}" columns="1">
+                <apex:outputLink onclick="survey3_TY();" >Lead confirmation/ Sales</apex:outputLink>
+                <apex:outputLink onclick="survey4_TY();" >Lead confirmation/ After Sales</apex:outputLink>
+                 <apex:outputLink onclick="survey8_TY();" >Lost Sales Management Survey</apex:outputLink>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection rendered="{!Task.What.Type == 'Account'}" columns="1">
+                <apex:outputLink onclick="survey5_TY();" >Platinum data updates</apex:outputLink>
+                <apex:outputLink onclick="survey6_TY();" >Customer data updates</apex:outputLink>            
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection rendered="{!Task.What.Type == 'Campaign'}" >
+                <apex:outputLink onclick="survey7_TY();" >Event satisfaction evaluations</apex:outputLink>
+            </apex:pageBlockSection>      
+        
     </apex:pageBlock>
 </apex:form>
 </apex:page>

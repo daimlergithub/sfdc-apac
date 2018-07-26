@@ -16,6 +16,7 @@ History:
     Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
     Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in CDM   
     Sanjay Nandi(SN20171028)    2017/10/28            //SN20171028- Added code to resolve issues related to search of CUstomer without address                                                                                                                                        
+	Dheeraj/Vinod               2018/07/13            //changes related to switch to CDM page. Changes done in GOTOMARKETSPECIFIC method.																																	 
 **/
 public class AddressSearchValidationController
 {
@@ -140,6 +141,8 @@ public class AddressSearchValidationController
         Public static String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
         public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
     
+		/* JP Track related changed */
+        public Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();
         public AddressSearchValidationController(ApexPages.StandardController controller){
         AutoFill = false;
         objAccount= new Account();
@@ -208,7 +211,7 @@ public class AddressSearchValidationController
         //Introduced for TH market      
          if(market==Label.TH)
         {
-            firstsave = true;  
+            //firstsave = true;  
             
             
             secondsave = false;
@@ -2136,6 +2139,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.Firstname=response.CustomerIdentificationResponseMessage[0].Customer.Firstname;
                     }
+					/*if(response.CustomerIdentificationResponseMessage[0].Customer.UCID__c !=null)
+                    {
+                        objAccountDeDup.UCID__c=response.CustomerIdentificationResponseMessage[0].Customer.UCID__c;
+                    }*/
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
@@ -2153,6 +2160,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
                     {
                         objAccountDeDup.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    }
+                     if(response.CustomerIdentificationResponseMessage[0].Customer.Allow_Data_Sharing2_xc !=null)
+                    {
+                        objAccountDeDup.Allow_Data_Sharing2__c=response.CustomerIdentificationResponseMessage[0].Customer.Allow_Data_Sharing2_xc ;
                     }
                     // if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
                     // {
@@ -2351,6 +2362,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
                     {
                         objAccountDeDup.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Allow_Data_Sharing2_xc !=null)
+                    {
+                        objAccountDeDup.Allow_Data_Sharing2__c=response.CustomerIdentificationResponseMessage[0].Customer.Allow_Data_Sharing2_xc ;
                     }
                     // if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
                     // {
@@ -2918,7 +2933,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             else if(recordType == 'Company'){
                  endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
                  endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
-                 endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+				if(Market != 'AU' && Market != 'NZ')	
+					endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
                  endUrl+='&ip_BusinessEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
                  endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
                   if(Market == 'TH')
@@ -2943,6 +2959,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                      endUrl+='&ip_SubUrbValue='+(string.isnotblank(AddressObj.Suburb__c)?EncodingUtil.URLENCODE(AddressObj.Suburb__c,'UTF-8'):'');
                      endUrl+='&ip_ZipPostalCode='+(string.isnotblank(zip)?EncodingUtil.URLENCODE(zip,'UTF-8'):'');
                      endUrl+='&ip_Country='+(String.isnotblank(AddressObj.Country__c)?EncodingUtil.URLENCODE(AddressObj.Country__c,'UTF-8'):'');
+					 endUrl+='&ip_geographicalRegion='+(String.isnotblank(Market)?EncodingUtil.URLENCODE(Market,'UTF-8'):'');
                  }
         System.debug('Endurl*** ' + endUrl);
         return endUrl;
@@ -3294,93 +3311,138 @@ If the user is Saving  same address which matches the fields returned by toleran
     
     /* *PR20170918- CustomerSearch in CDM* */
     public Object onLineDeduplicationCDMTH() {
-        
-        Map<String, String> addtrmapUpdate1 = UtilAddressTranslation.addtrmap;
-        List<Account>   lstAcc = New List<Account>();
-        DedupAccountList= new list<account>();
-        Continuation con=null;
-        
-        if(objAccount.LastName !=null || objAccount.Name !=null) {
-            
+
+        Map  < String, String > addtrmapUpdate1 = UtilAddressTranslation.addtrmap;
+        List < Account > lstAcc = New List < Account > ();
+        DedupAccountList = new list < account > ();
+        Continuation con = null;
+        boolean saveommit = true;
+        boolean mandatoryFlag = true;
+        boolean recordCheck = true;
+        boolean salestelb = true;
+
             companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
             PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
-            
-            if(recordType !=null && recordType=='Company')
-            {
-                objAccount.Recordtypeid=companyRecordTypeId;
-            }            
-            if(recordType !=null && recordType== 'Person Account')
-            {             
-                objAccount.Recordtypeid=PersonAccountRecordTypeID ;
-            }
-            if(market == System.Label.TH)
-            {
-                        //phone number format started
-            
-            if(!String.isBlank(hmphoneNumber)){
-                string phnumber=validatephonenumber(hmphoneNumber);
-                 if(!Pattern.matches('[0-9]{8}',phnumber)){
-                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Invalid Home Phone Number  should be 11 digits including +66 or 8 digits without +66'));
-                        return null;
-                    }
-                    else{
-                        objAccount.Individual_Home_Phone__c =hmCountryCode+ phnumber;
-                    }
-                }
-            else{
-                objAccount.Individual_Home_Phone__c = '';
-            }
-            
-            if(!String.isBlank(wkphoneNumber)){
-                 string phnumber=validatephonenumber(wkphoneNumber);
-                 if(!Pattern.matches('[0-9]{8}',phnumber)){
-                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'work Phone Number should be 11 digits including +66 or 8 digits without +66'));
-                        return null;
-                    }
-                    else{
-                        objAccount.Work_Phone__c = wkCountryCode+ phnumber;
-                    }
-                }
-            else{
-                objAccount.Work_Phone__c = '';
-            }
-           if(!String.isBlank(mbphoneNumber)){
-                 string phnumber=validatephonenumber(mbphoneNumber);
-                 if(!Pattern.matches('[0-9]{9}',phnumber)){
-                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'mobile Number  should be 12 digits including +66 or 9 digits without +66'));
-                        return null;
-                    }
-                    else{
-                        objAccount.Mobile__c=mbCountryCode+ phnumber;
-                    }
-                }
-            else{
-               objAccount.Mobile__c = '';
-            }
-            if(!String.isBlank(faxphoneNumber)){
-                 string phnumber=validatephonenumber(faxphoneNumber);
-                 if(!Pattern.matches('[0-9]{8}',phnumber)){
-                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'FAX Number  should be 11 digits including +66 or 8 digits without +66'));
-                        return null;
-                    }
-                    else{
-                       objAccount.fax=faxCountryCode+phnumber;
-                    }
-                }
-            else{
-              objAccount.fax = '';
-            }
 
-            }         
-            
-           String endUrl=generateCDMEndPointURL();
-            con = new Continuation(120);            
-            con.continuationMethod='processResponse';
-            this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(endUrl,con);
-        }
-     return con;
+            if (recordType != null && recordType == 'Company') {
+                objAccount.Recordtypeid = companyRecordTypeId;
+            }
+            if (recordType != null && recordType == 'Person Account') {
+                objAccount.Recordtypeid = PersonAccountRecordTypeID;
+            }
+            if (market == System.Label.TH) {
+                //phone number format started
+                if (Recordtype != Label.PersonAccount && Recordtype != Label.Company) {
+                    recordCheck = false;
+                    System.debug('##1');
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.RecordTypeError));
+                    salestelb = false;
+                }
+                
+                if (recordCheck && Recordtype == Label.PersonAccount ?  string.isblank(objAccount.Lastname) : false) {
+                    mandatoryFlag = false;
+                    System.debug('##2');
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Customer Search Last Name and any of the contact information is required'));
+                }
+                if (recordCheck && mandatoryFlag && Recordtype == Label.Company ? string.isblank(objAccount.name) : false) {
+                    mandatoryFlag = false;
+                    System.debug('##3');
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'For Customer Search Name and any of the contact information is required'));
+                }
+                if (recordCheck && mandatoryFlag) {
+                    System.debug('##4');
+                    if (Recordtype == Label.PersonAccount && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && (objAccount.Email__c == null || objAccount.Email__c == '') ) {
+                        System.debug('##5');
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Enter Atleast one contact Information'));
+                        saveommit = false;
+                    }
+
+                    //SN20171120- the following is being removed objAccount.Email__c
+                    if (Recordtype == Label.Company && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber)) {
+                        System.debug('##6');
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Enter Atleast one contact Information'));
+                        saveommit = false;
+                    }
+                }
+                if (!String.isBlank(hmphoneNumber)) {
+                    string phnumber = validatephonenumber(hmphoneNumber);
+                    if (!Pattern.matches('[0-9]{8}', phnumber)) {
+                        saveommit = false;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Invalid Home Phone Number  should be 11 digits including +66 or 8 digits without +66'));
+                        return null;
+                    } else {
+                        objAccount.Individual_Home_Phone__c = hmCountryCode + phnumber;
+                        
+                    }
+                } else {
+                    objAccount.Individual_Home_Phone__c = '';
+                    
+                }
+
+                if (!String.isBlank(wkphoneNumber)) {
+                    string phnumber = validatephonenumber(wkphoneNumber);
+                    if (!Pattern.matches('[0-9]{8}', phnumber)) {
+                        saveommit = false;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'work Phone Number should be 11 digits including +66 or 8 digits without +66'));
+                        return null;
+                    } else {
+                        objAccount.Work_Phone__c = wkCountryCode + phnumber;
+                        
+                    }
+                } else {
+                    objAccount.Work_Phone__c = '';
+                    
+                }
+                if (!String.isBlank(mbphoneNumber)) {
+                    string phnumber = validatephonenumber(mbphoneNumber);
+                    if (!Pattern.matches('[0-9]{9}', phnumber)) {
+                        saveommit = false;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'mobile Number  should be 12 digits including +66 or 9 digits without +66'));
+                        return null;
+                    } else {
+                        objAccount.Mobile__c = mbCountryCode + phnumber;
+                        
+                    }
+                } else {
+                    objAccount.Mobile__c = '';
+                    
+                }
+                if (!String.isBlank(faxphoneNumber)) {
+                    string phnumber = validatephonenumber(faxphoneNumber);
+                    if (!Pattern.matches('[0-9]{8}', phnumber)) {
+                        saveommit = false;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'FAX Number  should be 11 digits including +66 or 8 digits without +66'));
+                        return null;
+                    } else {
+                        objAccount.fax = faxCountryCode + phnumber;
+                        
+                    }
+                } else {
+                    objAccount.fax = '';
+                    
+                }
+                if( salestelb && (objAccount.Primary_Phone__c == null ||  objAccount.Primary_Phone__c == ''))
+                {
+                    saveommit = false;
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please enter Sales tel'));
+                    return null;
+                }
+                if((objAccount.Primary_Phone__c == 'Home Phone' && String.isBlank(hmphoneNumber)) || (objAccount.Primary_Phone__c == 'Work Phone' && String.isBlank(wkphoneNumber)) || (objAccount.Primary_Phone__c == 'Mobile' && String.isBlank(mbphoneNumber)))
+                {
+                    saveommit = false;
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'No value entered in Phone field for selected value in Sales Tel'));
+                }
+            }
+            if(saveommit  && mandatoryFlag && recordCheck){
+                firstsave = true;
+                String endUrl = generateCDMEndPointURL();
+                con = new Continuation(120);
+                con.continuationMethod = 'processResponse';
+                this.requestLabel = CalloutHandlerService.onLineDeduplicationCDMCallout(endUrl, con);
+            }
+        
+        return con;
     }
-
     
     public Object processResponse() {
         HttpResponse res = Continuation.getResponse(this.requestLabel);
@@ -3422,8 +3484,17 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
                 querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') ORDER BY Lastmodifieddate DESC limit ' +label.limitsize;
                 for(account acc :database.query(querytxt)){
-                    if(acc.Recordtype.name == 'Person Account' || acc.Recordtype.name == 'Company')
-                    DedupAccountList.add(acc);
+                    //May 24, 2018 ANZ Market Hiding VIP customer for Retail Users
+                    if((market == 'AU' || market == 'NZ') && Userinfo.getUserType() == 'PowerPartner')
+                    {
+                            if((acc.Recordtype.name == 'Person Account' || acc.Recordtype.name == 'Company') && !acc.VIP__c ) //vip is null
+                            DedupAccountList.add(acc);                  
+                    }
+                    else 
+                    {
+                        if(acc.Recordtype.name == 'Person Account' || acc.Recordtype.name == 'Company')
+                        DedupAccountList.add(acc);
+                    }
                 }
                 last=false;     
                 previous=false;     
@@ -3596,7 +3667,13 @@ public pagereference saveAccountTH()
                     sum=sum+(integer.valueOf(objAccount.ID_Number__c.substring(i, i+1)))*(13-i);
                 }
                 remainder=11-(math.mod(sum,11));
-                if(remainder!=integer.valueOf(objAccount.ID_Number__c.substring(12,13))){
+                if(remainder==11){
+                            if (integer.valueOf(objAccount.ID_Number__c.substring(12, 13))!=1) {
+                            objAccount.ID_Number__c.addError('ID Number: Invalid National id');
+                                return null;	
+                        }
+                        }
+                else if(remainder!=integer.valueOf(objAccount.ID_Number__c.substring(12,13))){
                 objAccount.ID_Number__c.addError('Invalid National id');
                 return null;
              
@@ -4271,7 +4348,12 @@ public pagereference saveAccountTH()
     }
 
 //Added for India Redirect
+//Added for JP CDM Also				   
 public PageReference goToMarketSpecificPage() {
+		Boolean jpSwitchEnabledFlag = false;
+        if(!jpSwitchMap.isEmpty() && jpSwitchMap.containsKey('Customer Deduplication')){
+            jpSwitchEnabledFlag = jpSwitchMap.get('Customer Deduplication').Enable_Flag__c;
+        }
         String vfpage = '';
         CreateAccountVFSetting__mdt pageSetting;
         String market = [select market__c from User where id =:UserInfo.getUserId()].market__c;
@@ -4286,6 +4368,15 @@ public PageReference goToMarketSpecificPage() {
         }
         else if(market != null && market != '' && market == Label.TR){
             List<CreateAccountVFSetting__mdt> lstpageSetting = [select VFPageName__c from CreateAccountVFSetting__mdt where market__c = :Label.TR limit 1];
+            if (lstpageSetting.size() > 0){
+                pageSetting = lstpageSetting[0];
+            }
+            if (pageSetting != null){
+                vfpage = pageSetting.VFPageName__c;
+            }
+        }
+		else if(market != null && market != '' && market == Label.JP && jpSwitchEnabledFlag){
+            List<CreateAccountVFSetting__mdt> lstpageSetting = [select VFPageName__c from CreateAccountVFSetting__mdt where market__c = :Label.JP limit 1];
             if (lstpageSetting.size() > 0){
                 pageSetting = lstpageSetting[0];
             }

@@ -5,7 +5,6 @@
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
-	<excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -20,10 +19,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_DMS_Customer_ID__c</field>
-            </layoutItems>
-			<layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Salutation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -56,10 +51,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction__c</field>
-            </layoutItems>
-			<layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contract_Count__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -101,6 +92,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction_Comment__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Missing_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -227,10 +222,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Opt_In_Mobile__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Phone_OptOut__c</field>
@@ -361,17 +352,29 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <excludeButtons>NewEvent</excludeButtons>
-		<fields>TASK.SUBJECT</fields>
+   <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>SentTime__c</fields>
+        <fields>Activity_Date__c</fields>
+        <fields>Intention_Status__c</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>TASK.CREATED_DATE</fields>
+        <fields>TASK.LAST_UPDATE_DATE_ONLY</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>MailMerge</excludeButtons>
-        <excludeButtons>RequestUpdate</excludeButtons>
-        <excludeButtons>SendEmail</excludeButtons>
-        <excludeButtons>ViewAll</excludeButtons>
-		<fields>TASK.SUBJECT</fields>
+        <excludeButtons>LogCall</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>SentTime__c</fields>
+        <fields>Activity_Date__c</fields>
+        <fields>Intention_Status__c</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>TASK.CREATED_DATE</fields>
+        <fields>TASK.LAST_UPDATE_DATE_ONLY</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

@@ -115,7 +115,7 @@ public with sharing class VehicleRelationshipHelperJP
         IgnoredAccounts();
                 
         for (Vehicle_Relationship__c vr : vehicleRelNewRecords){
-            if(vr.Contact__c!=Null && (!setIgnoredAccounts.contains(vr.Contact__c)) && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && vr.Validity__c.equalsIgnoreCase(System.label.Yes))
+            if(vr.Contact__c!=Null && (!setIgnoredAccounts.contains(vr.Contact__c)) && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && vr.Validity__c.equalsIgnoreCase(System.label.Yes) && vr.RecordTypeId == vehicleRelationship_VRRecordTypeId &&  vr.RecordTypeId != vehicleRelationship_VRRRecordTypeId)
             {              
                 ContactIds.add(vr.Contact__c);                          
             } 
@@ -128,7 +128,8 @@ public with sharing class VehicleRelationshipHelperJP
                 }
             } 
            
-            if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+      //  if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+          if(vr.Contact__c!=Null && vr.RecordTypeId == vehicleRelationship_VRRecordTypeId &&  vr.RecordTypeId != vehicleRelationship_VRRRecordTypeId && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){ 
                 ContactIdsforValidity.add(vr.Contact__c); 
           }
         }  
@@ -146,7 +147,7 @@ public with sharing class VehicleRelationshipHelperJP
         Set<Id> contactIdofVehicleRelationship=new Set<Id>(); 
         IgnoredAccounts();
         for (Vehicle_Relationship__c vr : newVehicleRelRecords){
-            if(vr.Contact__c!=Null  && (!setIgnoredAccounts.contains(vr.Contact__c)) && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes)))
+            if(vr.Contact__c!=Null  && (!setIgnoredAccounts.contains(vr.Contact__c)) && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes)) && vr.RecordTypeId == vehicleRelationship_VRRecordTypeId &&  vr.RecordTypeId != vehicleRelationship_VRRRecordTypeId)
             {                 
                 ContactIds.add(vr.Contact__c);
                 if(oldMapVR.get(vr.id).Contact__c!=vr.Contact__c){
@@ -167,7 +168,8 @@ public with sharing class VehicleRelationshipHelperJP
            System.debug('^&&^&^&^&^&^&^&^&^&^&^'+VehicleIds);
             System.debug('^&&^&^&^&^&^&^&^&^&^&^VehicleRelationshipIds'+VehicleRelationshipIds);
             System.debug('^&&^&^&^&^&^&^&^&^&^&^contactIdofVehicleRelationship'+contactIdofVehicleRelationship);
-            if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+       //   if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+            if(vr.Contact__c!=Null && vr.RecordTypeId == vehicleRelationship_VRRecordTypeId &&  vr.RecordTypeId != vehicleRelationship_VRRRecordTypeId && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){
                ContactIdsforValidity.add(vr.Contact__c); 
             }  
         }                          
@@ -182,7 +184,7 @@ public with sharing class VehicleRelationshipHelperJP
         Set<Id> VehicleIds=new Set<Id>();     
         IgnoredAccounts();            
         for (Vehicle_Relationship__c vr : oldVehicleRelRecords){
-            if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes) && (!setIgnoredAccounts.contains(vr.Contact__c)))
+            if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes) && (!setIgnoredAccounts.contains(vr.Contact__c)) && vr.RecordTypeId == vehicleRelationship_VRRecordTypeId &&  vr.RecordTypeId != vehicleRelationship_VRRRecordTypeId)
             {              
                 ContactIds.add(vr.Contact__c);
                 VehicleIds.add(vr.Vehicle_ID__c);
@@ -224,7 +226,7 @@ public with sharing class VehicleRelationshipHelperJP
         system.debug('ContactIds>>>>'+ContactIds.size());      
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
         IgnoredAccounts();     
-        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=:Null AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000])
+        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=:Null AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts)  and (RecordTypeId =:vehicleRelationship_VRRecordTypeId) LIMIT 50000])
         {
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Contact__c)) { 
                 set<Id> setVehicleIds=mapVehRel.get(vr.Contact__c);  

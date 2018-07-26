@@ -1,0 +1,17 @@
+Greetings,
+
+A new Lead has been brought in.
+
+Please expedite the Lead.
+
+Customer Name: {! Opportunity.Account}
+Contact dealer: {! Opportunity.Assigned_Dealer__c}
+Lead number: {! Opportunity.Lead_No__c}
+
+Lead Type : {! Opportunity.Lead_Type__c}
+
+You can find more information about this Opportunity through the link below.
+
+{! Opportunity.Link}
+
+- MBTR Customer Center -

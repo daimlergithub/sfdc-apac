@@ -41,7 +41,7 @@ public with sharing class  DMRequestHelperBase {
         UtilAddressTranslation.gettranslatedvalues(str);
         }
                 //query for arelated addresses and create a nested map
-                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Address_Line_3__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
+                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,Country__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Address_Line_3__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
                 {
                     admap.put(addrlst.Address_Type__c, addrlst);
                     addressMap.put(addrlst.Customer__c, admap);
@@ -65,7 +65,13 @@ public with sharing class  DMRequestHelperBase {
                                     {
                                        province = addtrmapUpdate.get(address.Province__c);
                                     }
-                                    lstDMR.Province__c = province;
+                                    if(usr.Market__c == Label.TR){
+                                        lstDMR.Province__c = address.Province__c;
+					lstDMR.Address__c = lstDMR.Address__c+' '+address.country__c;
+                                    }else {
+                                        lstDMR.Province__c = province;
+                                    }
+              
                                 }
                                 else{
                                     lstDMR.adderror(Label.DMRequest_validation_error);
@@ -121,9 +127,10 @@ public with sharing class  DMRequestHelperBase {
               }
                
                String str;
-               for(Account s:[select id,MD__c From Account Where id =:CustomerId] )
+        	   String recortTypeID;
+               for(Account s:[select id,MD__c,RecordTypeID From Account Where id =:CustomerId] )
                {
-               
+               recortTypeID = s.RecordTypeID;
                str = s.MD__c;
                }
                 if(!test.isrunningtest() && Usr.Profile.Name == 'IntegrationAPI' && usr.Market__c ==null && str!=null)
@@ -131,7 +138,7 @@ public with sharing class  DMRequestHelperBase {
         UtilAddressTranslation.gettranslatedvalues(str);
         }
                 //query for arelated addresses and create a nested map
-                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Address_Line_3__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
+                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Country__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Address_Line_3__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
                 {
                     admap.put(addrlst.Address_Type__c, addrlst);
                     addressMap.put(addrlst.Customer__c, admap);
@@ -149,12 +156,28 @@ public with sharing class  DMRequestHelperBase {
                                     lstDMR.Zip_Code__c=address.ZipCode__c;
                                     lstDMR.Address__c=address.Address_Line_1__c+' '+address.Address_Line_2__c+' '+address.Address_Line_3__c+' '+address.city__c+' '+address.District__c+' '+address.Province__c+' '+address.zipcode__c;
                                     lstDMR.Attention__c=address.Company_Name__c;
-                                    lstDMR.TitleOfHonor__c=address.TitleOfHonor__c;
+                                    if(usr.Market__c == Label.TR){
+                                        system.debug('@@@@@@ CRTID '+recortTypeID);
+                                        system.debug('@@@@@@ VRTID '+RecordTypeAccessService.getRecordTypeId('Account','Company'));
+                                        if(recortTypeID ==RecordTypeAccessService.getRecordTypeId('Account','Company')){
+                                            lstDMR.TitleOfHonor__c='To Company';
+                                        }else{
+                                            lstDMR.TitleOfHonor__c='To Person';
+                                        }
+                                    }else {
+                                        lstDMR.TitleOfHonor__c=address.TitleOfHonor__c;
+                                    }
+                                    
                                     if(addtrmapInsert.containsKey(address.Province__c))
                                     {
                                        province = addtrmapInsert.get(address.Province__c);
                                     }
-                                    lstDMR.Province__c = province;
+                                    if(usr.Market__c == Label.TR){
+                                        lstDMR.Province__c = address.Province__c;
+					lstDMR.Address__c= lstDMR.Address__c+' '+address.country__c;
+                                    }else {
+                                        lstDMR.Province__c = province;
+                                    }
                                 }
                                 else{
                                     lstDMR.adderror(Label.DMRequest_validation_error);

@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CampaignSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>Allow_Only_to_special_users</fullName>
+        <sharedTo>
+            <role>Manager</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Central Marketing Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Published</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Allow Only to special users</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_MY_MBFS</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share Campaign With Roles and Subordinates MBFS of MY</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Allow_Only_to_special_users_MY</fullName>
+        <sharedTo>
+            <role>MY_Manager</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Published</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Allow Only to special users MY</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CAC_CRM_Campaign_Share_with_CAC</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CAC CRM Campaign</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>CAC CRM Campaign Share with CAC</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CAC_CRM_share_to_CRM_Manager_CAC_Data_Mgt</fullName>
+        <sharedTo>
+            <role>Central_Sales_Marketing</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution - Simple,CAC CRM Campaign,CAC Campaign,Campaign Execution - Complex,Central Marketing Campaign,CAS Marketing Campaign</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>CAC CRM share to CRM Manager - CAC &amp; Data Mgt</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CAS_Marketing_Campaign_Share_with_CAC</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CAS Marketing Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Confirmed</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>CAS Marketing Campaign Share with CAC</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CMP_Confirmed_Status_Share_with_CAC_Data_CRM_Manager</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central_Sales_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed,Confirmed,Approved,Started</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Central Marketing Campaign</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>CMP Confirmed Status Share with CAC Data CRM Manager</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CMP_Confirmed_Status_Share_with_Central_After_Sales</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central_Aftersales</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Confirmed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CAS Marketing Campaign</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>CMP Confirmed Status Share with Central After-Sales</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CMP_Confirmed_Status_Share_with_Sales_Marketing</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central_Sales_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Confirmed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CAS Marketing Campaign</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>CMP Confirmed Status Share with Sales &amp; Marketing</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Campaign_Execution_Share_to_CAC</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution - Simple,CAC Campaign,Campaign Execution - Complex</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>Campaign Execution Share to CAC</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Campaign_Permission_TR</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Campaign Permission TR</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Campaign_Share_with_Data_Service_Specialist</fullName>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution - Simple,CAC CRM Campaign,CAC Campaign,Campaign Execution - Complex,CAS Marketing Campaign</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Campaign Share with Data Service Specialist</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Central_Campaign_share_to_CAC</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Central Marketing Campaign,CAS Marketing Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed,Approved,Started</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>Central Campaign share to CAC</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IN_Campaign_Share_to_India_Mgmt</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <description>Created by IN market, this sharing rule will ensure all wholesale members can see the campaign. To provide write access, campaign owner will have to use the Sharing button.</description>
+        <name>IN Campaign Share to India Mgmt</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+	    <fullName>IN_Campaign_Share_to_MBIndiaFS_Management</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <description>Created by IN market, this sharing rule will ensure all wholesale members can see the campaign. To provide write access, campaign owner will have to use the Sharing button.</description>
+        <name>IN Campaign Share to MBIndiaFS Management</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_Campaign_Readable_to_MBJ_Dealers_Central</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Share_Campaign_Participation_Flag__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>JP Campaign Readable to MBJ Dealers Central</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_Campaign_Readable_to_MBJ_Dealers_IT</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Share_Campaign_Participation_Flag__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>JP Campaign Readable to MBJ Dealers IT</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_MarketCampaign_Readable_to_MBJ_IT_Dept</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <campaignAccessLevel>All</campaignAccessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <name>JP_MarketCampaign_Readable_to_MBJ_IT_Dept</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_AS_Campaign_with_Region_E</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Regional_AS_Retail_Marketing</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Eastern</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share AS Campaign with Region-E</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_AS_Campaign_with_Region_N</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Northern</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share AS Campaign with Region-N</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_AS_Campaign_with_Region_S</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Regional_AS_Retail_Marketing</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Southern</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share AS Campaign with Region-S</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_AS_Campaign_with_Region_W</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Regional_AS_Retail_Marketing</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Western</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share AS Campaign with Region-W</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_AS_Campaign_with_Retail_AS_Marketing</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Retail_AS_Marketing_Assistant_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>notEqual</operation>
+            <value>Closed,Published</value>
+        </criteriaItems>
+        <booleanFilter>1 OR ( 2 AND 3)</booleanFilter>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share AS Campaign with Retail AS Marketing</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_KR_v1</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share Campaign With Roles and Subordinates KR v1</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_MY_V2</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share Campaign With Roles and Subordinates MY</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Published_MB_BP_with_Central</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed,Published</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>Share Published MB BP with Central</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Published_MB_BP_with_Central_AS</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Retail_AS_Marketing_Assistant_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed,Published</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>Share Published MB BP with Central-AS</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Published_MB_BP_with_Region</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed,Published</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>Share Published MB BP with Region</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_S_M_Campaign_with_CRM_Mgr</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Media Central Campaign,S&amp;M Event Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>notEqual</operation>
+            <value>Closed,Published</value>
+        </criteriaItems>
+        <booleanFilter>1 OR (2 AND 3)</booleanFilter>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share S&amp;M Campaign with CRM Mgr</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_S_M_Campaign_with_Region_N</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Media Central Campaign,S&amp;M Event Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Northern</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share S&amp;M Campaign with Region-N</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_S_M_Campaign_with_Region_S</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Regional_AS_Retail_Marketing</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Media Central Campaign,S&amp;M Event Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Southern</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share S&amp;M Campaign with Region-S</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_S_M_Campaign_with_Region_W</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Media Central Campaign,S&amp;M Event Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Western</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share S&amp;M Campaign with Region-W</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_S_M_Event_Central_Campaign_to_Call_Center</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Central Campaign,S&amp;M Media Central Campaign,S&amp;M Event Central Campaign</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share S&amp;M Event Central Campaign to Call Center</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_S_M_with_Region_E</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Media Central Campaign,S&amp;M Event Central Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Eastern</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share S&amp;M Campaign with Region-E</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_with_CAC_Data_Service_Mgr</fullName>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Central Marketing Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed,Confirmed,Approved,Started</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>Share with CAC Data Service Mgr</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Thailand_Campaign_Sharing_records_to_other_TH_Users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User_Type__c</field>
+            <operation>equals</operation>
+            <value>TH-MPC</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <name>Thailand Campaign Sharing records to other TH Users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Thailand_campaign_sharing_FS</fullName>
+        <sharedTo>
+            <role>MBLT</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User_Type__c</field>
+            <operation>equals</operation>
+            <value>TH-FS</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <description>This sharing rule will used for sharing the FS campaign records to FS users only.</description>
+        <name>Thailand campaign sharing FS</name>
+    </criteriaBasedRules>
+    <ownerRules>
+        <fullName>Share_Campaign_to_AS_Region</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share Campaign to AS Region</name>
+    </ownerRules>
+</CampaignSharingRules>

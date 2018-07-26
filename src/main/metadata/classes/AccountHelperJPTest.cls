@@ -147,6 +147,56 @@ public with sharing class AccountHelperJPTest
         AccountHelperJP.handleAfterInsertEvent(dealeraccountlist);
         Test.Stoptest();           
     } 
+	Public static testmethod void testUpdateAccountFieldsBeforeUpdateByInformatica()
+    {
+        createTestData(); 
+		Profile integrationProfile=[Select id from Profile where Profile.Name='IntegrationAPI'];
+		con=[Select id from Contact limit 1];
+		User u=new User(Username = 'integration.inf@infosys.com.test',
+                FirstName = 'IntegrationAPI',
+                ProfileId = integrationProfile.Id,            
+                Alias = 'test1234',
+                Email = 'test123456@test.com',
+                EmailEncodingKey = 'UTF-8',
+                LastName = 'Inf',
+                CommunityNickname = System.now().millisecond() + 'test12345',
+                TimeZoneSidKey = 'America/Los_Angeles',
+                LocaleSidKey = 'en_US',
+                LanguageLocaleKey = 'en_US' );
+        
+        Test.Starttest(); 
+        System.runAs(u){
+       Trigger__c AccountTriggerJp= new Trigger__c(Name='TriggerAccountJP',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+       insert AccountTriggerJp;
+        personAcc.Mobile__c = '054323424';
+        personAcc.Mobile2__c = '054234423';
+        personAcc.Individual_Home_Phone__c = '06585855';
+        personAcc.Home_Phone_2__c = '06742354';
+        personAcc.Work_Phone__c = '04564785';
+        personAcc.Phone = '02346643';
+        personAcc.Email__c = 'test123@test.com';
+        personAcc.Email2__c = 'testemail222@test.com';
+        personAcc.Email3__c = 'testemail333@test.com';
+        personAcc.Primary_Fax__c = 'FAX1';
+        personAcc.Primary_Email__c = 'Email2';
+        personAcc.Primary_Phone__c = 'Work Mobile'; 
+        personAcc.Mobile_3__c	= '02346645';
+        personAcc.Fax ='0123456759';
+		personAcc.Fax2__c='0123456789';
+		personAcc.Data_Source__c= 'Dealer Outlet';	
+        personAcc.Acquisition_Objective_Method__c='Others';
+        personAcc.Details_of_Acquisition__c='Yanase';
+        
+        List<Account> listpersonAcc= new List<Account>();
+        listpersonAcc.add(personAcc);
+        Map<Id,Account> oldMap = new Map<Id,Account>();
+        for(Account a:listpersonAcc){
+            oldMap.put(a.Id,a);
+        }         
+        update listpersonAcc;
+        AccountHelperJP.updateAccountFieldsBeforeUpdateByInformatica(listpersonAcc,OldMap,true);                 
+    } 
+    }
     public static testmethod void testUpdatePrimaryContactInformationBeforeUpdate()
     {  
         createTestData(); 

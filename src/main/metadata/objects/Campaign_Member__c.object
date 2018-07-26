@@ -420,6 +420,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Convert_By_Others__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Convert By Others</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Convert_To_Lead_Flag__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -603,6 +611,14 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Email_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Email OptOut</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Evaluation_Result_P1_P2_Blank__c</fullName>
@@ -983,8 +999,9 @@
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -1023,6 +1040,11 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                     <default>false</default>
                     <label>MY</label>
                 </value>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                    <label>TR</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1035,6 +1057,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Missing_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Missing Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Model_Description__c</fullName>
@@ -1704,6 +1734,11 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                     <default>false</default>
                     <label>Not Responded</label>
                 </value>
+                <value>
+                    <fullName>No Lead</fullName>
+                    <default>false</default>
+                    <label>No Lead</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -2142,7 +2177,7 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLeadMY?CampaignId={!IF( ISBLA
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 
-var campaignMember = sforce.connection.query("SELECT id from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}' AND Status__c='Responded'");
+var campaignMember = sforce.connection.query("SELECT id from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}'");
 
 
 var qrerecords = campaignMember.getArray("records");
@@ -2167,7 +2202,7 @@ else
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>var campaignName = '{!Campaign.Name}';
-window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEk?pv0="+campaignName);</url>
+window.open("{!URLFOR($Site.Prefix)}/CAMPAIGN_MEMBER_REPORT_ID?pv0="+campaignName);</url>
     </webLinks>
     <webLinks>
         <fullName>New_Campaign_Member</fullName>
@@ -2181,7 +2216,7 @@ window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEk?pv0="+campaignName);</url>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}"; 
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) { 
-window.open("{!URLFOR($Site.Prefix)}/a1K/e?CF00N2800000IkqWk={!Campaign.Name}&amp;CF00N2800000IkqWk_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_ID={!Campaign.Name}&amp;OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_ID_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}"); 
 }else 
 { 
 alert('You cannot create campaign members for this campaign status'); 
@@ -2200,7 +2235,7 @@ alert('You cannot create campaign members for this campaign status');
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-window.open("{!URLFOR($Site.Prefix)}/a1K/e?CF00N2800000IkqXw={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqXw_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID_lkid																																  ={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
@@ -2265,10 +2300,10 @@ else
 {
  var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
 if(marketusr){
-window.open("{!URLFOR($Site.Prefix)}/00O0I00000AS3UX?pv0="+RetailcampaignName);
+window.open("{!URLFOR($Site.Prefix)}/RETAIL_CAMPAIGN_MEMBER_REPORT_ID_TH?pv0="+RetailcampaignName);
 }
 else{
-  window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEl?pv0="+RetailcampaignName);
+  window.open("{!URLFOR($Site.Prefix)}/RETAIL_CAMPAIGN_MEMBER_REPORT_ID?pv0="+RetailcampaignName);
 }
 }</url>
     </webLinks>

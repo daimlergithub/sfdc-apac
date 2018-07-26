@@ -34,6 +34,10 @@
                 <behavior>Edit</behavior>
                 <field>Sent_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Return_Date__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -46,6 +50,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Customer_Name__c</field>
+            </layoutItems>
+	    <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Mobile__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -102,6 +110,26 @@
                 <behavior>Edit</behavior>
                 <field>Actual_DM_Material1__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sent_Date_1__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_DM_Material2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sent_Date_2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_DM_Material3__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sent_Date_3__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -133,9 +161,17 @@
                 <behavior>Edit</behavior>
                 <field>Lead__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Opportunity__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Comment__c</field>
+            </layoutItems>
+	     <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

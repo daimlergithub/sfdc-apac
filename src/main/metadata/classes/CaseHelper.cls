@@ -738,16 +738,16 @@ public with sharing  class  CaseHelper{
                 // Check the Others email address
                 if (C_MB_RECORD_TYPE == caseNew.RecordTypeId){
                     // if the email address of the manager is blank, it can't be the recipient.
-                    if (caseNew.Notice_AS__c && (caseNew.Aftersales_Manager__c == null ||!String.isBlank( caseNew.Aftersales_Manager__c.trim()))) {
+                    if (caseNew.Notice_AS__c && (caseNew.Aftersales_Manager__c == null ||String.isBlank( caseNew.Aftersales_Manager__c.trim()))) {
                         caseNew.Notice_AS__c = false;
                     }
-                    if (caseNew.Notice_CRM__c && (caseNew.CRM_Manager__c == null || !String.isBlank( caseNew.CRM_Manager__c.trim()))) {
+                    if (caseNew.Notice_CRM__c && (caseNew.CRM_Manager__c == null || String.isBlank( caseNew.CRM_Manager__c.trim()))) {
                         caseNew.Notice_CRM__c = false;
                     }
-                    if (caseNew.Notice_GM__c && (caseNew.General_Manager__c == null || !String.isBlank( caseNew.General_Manager__c.trim()))) {
+                    if (caseNew.Notice_GM__c && (caseNew.General_Manager__c == null || String.isBlank( caseNew.General_Manager__c.trim()))) {
                         caseNew.Notice_GM__c = false;
                     }
-                    if (caseNew.Notice_SM__c && (caseNew.Sales_Manager__c == null || !String.isBlank( caseNew.Sales_Manager__c.trim()))) {
+                    if (caseNew.Notice_SM__c && (caseNew.Sales_Manager__c == null || String.isBlank( caseNew.Sales_Manager__c.trim()))) {
                         caseNew.Notice_SM__c = false;
                     }
                         
@@ -1180,7 +1180,37 @@ public with sharing  class  CaseHelper{
                         IsReminderSet = true
                         ));
                 }
+				//Added for TR Market
+				if (caseNew.CheckFlag_24H__c && !caseOld.CheckFlag_24H__c && caseNew.Customer_Care_Owner__c != null && caseNew.Market__c==Label.TR) {
+                    taskListOf72H.add(new Task(
+                        Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == yesString ? 'After 24 hours, please check whether the dealer gives FP' : 'After 24 hours, please check whether the Distributor/area/Center FP is given, and in reply to end customers within 24 hours'),
+                        RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
+                        OwnerId = caseNew.Customer_Care_Owner__c,
+                        Status = 'Open',
+                        WhoId = caseNew.Account.id,
+                        WhatId = caseNew.id,
+                        ActivityDate = date.today(),
+                        ReminderDateTime = DateTime.now(),
+                        IsReminderSet = true
+                        ));
+                }
+				if (caseNew.CheckFlag_96H__c && !caseOld.CheckFlag_96H__c && caseNew.Customer_Care_Owner__c != null && caseNew.Market__c==Label.TR) {
+                    taskListOf72H.add(new Task(
+                        Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == yesString ? 'After 96 hours, please check whether the dealer gives FP' : 'After 96 hours, please check whether the Distributor/area/Center FP is given, and in reply to end customers within 24 hours'),
+                        RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
+                        OwnerId = caseNew.Customer_Care_Owner__c,
+                        Status = 'Open',
+                        WhoId = caseNew.Account.id,
+                        WhatId = caseNew.id,
+                        ActivityDate = date.today(),
+                        ReminderDateTime = DateTime.now(),
+                        IsReminderSet = true
+                        ));
+                }
                 if (caseNew.CheckFlag_48H__c) caseNew.CheckFlag_48H__c = false;
+				//Added for TR Market
+				if (caseNew.CheckFlag_24H__c) caseNew.CheckFlag_24H__c = false;
+				if (caseNew.CheckFlag_96H__c) caseNew.CheckFlag_96H__c = false;
                 if (caseNew.CheckFlag_72H__c) caseNew.CheckFlag_72H__c = false;
                 // Add End - Release 1.3 - Added by Cyril
                 

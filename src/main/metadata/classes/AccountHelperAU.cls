@@ -4,7 +4,7 @@
 * Created Date : 2018-03-23
 *History:
     Author                         Date                    Description
-* test comment    
+    
     
 */
 
@@ -87,7 +87,7 @@ public class AccountHelperAU{
             
     */
     public static void createAccountLinkCDM(list<Account> listNewAccounts,map<id,Account> accountOldMap){
-        AccountHelperBase.DealerCommAccountlinkcreatecdm(listNewAccounts,accountOldMap);        
+      //  AccountHelperBase.DealerCommAccountlinkcreatecdm(listNewAccounts,accountOldMap);        
     }
      @future(callout=true)
     public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject){

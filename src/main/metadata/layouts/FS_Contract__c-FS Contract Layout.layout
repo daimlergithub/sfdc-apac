@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>Edit</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -7,9 +9,6 @@
         <editHeading>true</editHeading>
         <label>Information</label>
         <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Borrower__c</field>
@@ -58,7 +57,7 @@
         <label>Contract Details</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
@@ -87,9 +86,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Financial_Product_Group__c</field>
@@ -307,7 +303,7 @@
         <fields>Debit__c</fields>
         <fields>Transaction_Date__c</fields>
         <fields>Transaction_Type__c</fields>
-        <fields>Transction_Description__c</fields>
+        <fields>Transaction_Description__c</fields>
         <relatedList>Account_Statement__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -319,6 +315,7 @@
         <relatedList>Asset_Invoice__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Building_name__c</fields>
         <fields>Unit_No__c</fields>
@@ -326,19 +323,10 @@
         <fields>Street_Name__c</fields>
         <fields>Sub_District__c</fields>
         <fields>FS_District__c</fields>
-        <fields>ZipCode__c</fields>
         <fields>City__c</fields>
-        <fields>State__c</fields>
+        <fields>Mailing_Address__c</fields>
+        <fields>Registration_Address__c</fields>
         <relatedList>Address__c.FS_Contract__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Receivable_Charges__c</fields>
-        <relatedList>Charge_Receivable__c.FS_Contract__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Contract_Asset__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -355,50 +343,81 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Account_No__c</fields>
+        <fields>Receipt_Date__c</fields>
+        <fields>Receipt_Amt__c</fields>
+        <fields>Payment_Mode__c</fields>
+        <fields>Cheque_No__c</fields>
+        <fields>Customer__c</fields>
         <fields>Bank__c</fields>
         <fields>Branch_Name__c</fields>
-        <fields>Cheque_No__c</fields>
-        <fields>Comments__c</fields>
-        <fields>DescriptionDrawer_Name__c</fields>
-        <fields>Receipt_No__c</fields>
-        <fields>Payment_Mode__c</fields>
-        <fields>User__c</fields>
+        <fields>Account_No__c</fields>
+        <fields>Status__c</fields>
         <relatedList>Recievables_Paid__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Interest_Amount__c</fields>
-        <fields>Principal_Amount__c</fields>
-        <relatedList>Rental_Amount__c.FS_Contract__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
+        <fields>CREATED_DATE</fields>
         <fields>Gross_Outstanding__c</fields>
         <fields>Interest_Outstanding__c</fields>
         <fields>Principal_Outstanding__c</fields>
-        <fields>Receivable_Rental_Overdue_Interest__c</fields>
         <fields>Total_Outstanding__c</fields>
         <fields>VATGST_on_Rentals__c</fields>
-        <relatedList>Rental_OverDue__c.FS_Contract__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Receivable_Rentals__c</fields>
-        <relatedList>Rental_Receivable__c.FS_Contract__c</relatedList>
+        <relatedList>Receivable__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Due_Date__c</fields>
-        <fields>FID_Amount__c</fields>
-        <fields>Gross_Amount_Paid__c</fields>
-        <fields>Insurance_Amount__c</fields>
-        <fields>Net_Rental_Amount__c</fields>
+        <fields>Rental_ID__c</fields>
         <fields>Principle_Balance_Oustanding__c</fields>
+        <fields>Interest_Amount__c</fields>
+        <fields>Net_Rental_Amount__c</fields>
         <fields>Registration_Amount__c</fields>
+        <fields>VAT_on_Rental__c</fields>
         <fields>Rental_Amount_Gross__c</fields>
-        <fields>Rental_No__c</fields>
+        <fields>Gross_Amount_Paid__c</fields>
         <relatedList>Re_Payment_Plan__c.FS_Contract__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Account_No__c</fields>
+        <fields>Account_Type__c</fields>
+        <fields>Bank_Name__c</fields>
+        <fields>Bank_Reg_No__c</fields>
+        <fields>Borrower__c</fields>
+        <fields>Default_bank__c</fields>
+        <fields>ID_Number__c</fields>
+        <fields>ID_Type__c</fields>
+        <fields>Passport_No__c</fields>
+        <relatedList>Customer_Key_Credential__c.FS_Contract__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Receivable_Charges__c</fields>
+        <fields>Receivable_Rental_Overdue_Interest__c</fields>
+        <fields>Receivable_Rentals__c</fields>
+        <relatedList>Current_Due__c.FS_Contract__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.CREATED_DATE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>Vehicle__c</fields>
+        <relatedList>Case.FS_Contract_Number__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Contact__c</fields>
+        <fields>Dealer_Lead_Status__c</fields>
+        <fields>Lead_Latest_Phase__c</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>Service_Advisor__c</fields>
+        <fields>AfterSales_VIN__c</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>Expected_Registration_Date__c</fields>
+        <relatedList>Lead__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
@@ -411,6 +430,10 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
+        <excludeButtons>SendEmail</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>

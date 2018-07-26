@@ -560,7 +560,7 @@
           // this was added since there was a seperation made for colour
           $scope.saveInterestedVehicleDetail = function (vehicleType, operation) {
               $scope.brands.sort();
-              $scope.relatedClasses.sort();
+              
               $scope.models.sort();
               if($scope.realtedColours != undefined){
                 $scope.realtedColours.sort();
@@ -853,7 +853,7 @@
                     <td>{!$label.Brand}</td>
                     <td><select id="brandItems" ng-model="selectedBrand" ng-change="setSelectedValue(selectedBrand);setSelectedColour(selectedColour)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedClasses" ng-blur="setModelValue(selectedClasses+selectedBrand)" ng-change="setModelValue(selectedClasses+selectedBrand);setSelectedColour(selectedColour)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
+                    <td><select id="classItems" ng-model="selectedClasses" ng-blur="setModelValue(selectedClasses+selectedBrand)" ng-change="setModelValue(selectedClasses+selectedBrand);setSelectedColour(selectedColour)" ng-options="classes for classes in relatedClasses | orderBy:'classes'"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Model}</td>

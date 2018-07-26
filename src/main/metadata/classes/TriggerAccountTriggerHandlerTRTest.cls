@@ -45,104 +45,105 @@ public static User user_Obj;
                           LocaleSidKey='en_US', ProfileId = p.Id, Market__c='TR',
                           TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
         DMLManagerService.insertAsSystem(us1);
-  
-  personAcc1 = new Account(Dealer_Default_Flag__c=false,
-                               Dealer_DMS_SR_Code__c='test code 2',
-                               //Individual_Home_Phone__c = '02-202-2456',
-                               Home_Phone_2__c = '02-202-2457',Work_Phone__c = '+601212378978',
-                               Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
-                               City__c='Beijing',
-                               Gender__c = 'Male',
-                               Phone = '0801801110',
-                               Area_code__c = '03',
-                               MD__c = 'TR',
-                 Market__c = 'TR',
-                                 Data_Source__c = 'Past Data',
-                              LastName = 'galaxy1',
-                              FirstName = 'First Name',
-                              Salutation = 'Unknown',
-                               Postal_Opt_Out__c=True,     
-                               Province__c = 'Shanghai',
-                               ZipCode__c= '32703',
-                               //Mobile__c = '918197597651',
-                               //Mobile2__c = '918197597651',
-                               Primary_Email__c = 'Email1',
-                               Primary_Fax__c = 'FAX2',
-                               Primary_Phone__c ='Other2',
-                               PersonDoNotCall=True,
-                              // ownerid=user1.id,
-                               PersonHasOptedOutOfEmail=True,
-                               Opt_In_Email__c=true,
-                               //owner=user1,
-                               //PersonBirthdate=date.today(),
-                               
-                           RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
-   
-   accountList.add(personAcc1); 
-   
-   for(Account a:accountList){
-       accountMap.put(a.Id,a);
-   }
-
-     system.runAs(us1)
-     {
-        ps = new PermissionSet();
-        ps.Name = 'Test';
-        ps.Label = 'Test';
-insert ps;  
-CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.TRGeneric ];
-    
-SetupEntityAccess sea = new SetupEntityAccess();
-sea.ParentId = ps.Id;
-sea.SetupEntityId = cps.id;
-insert sea;  
-     }
-   market_Obj = new Market__c(Market_Code__c = 'TR', Market__c = 'Turkey');
-    Insert market_Obj; 
-    functionality_access_master_Obj = new Functionality_Access_Master__c(Description__c = '12', Module_Name__c = 'Modul230', PermissionSet_Ids__c = ps.id, Permission_Sets__c = ps.name);
-    Insert functionality_access_master_Obj; 
-    persona_Obj = new Persona__c(Market_Access__c = market_Obj.id, Functionality_Access__c = functionality_access_master_Obj.id, Active__c = true, PersonaName__c = 'IntegrationPerso111', ProfileId__c = p.id , Profiles__c = p.name);
-    Insert persona_Obj; 
-    user_Obj = new User(Username = 'TestUser77769201709210833TR@codecoverage.com', LastName = 'LastName527', Email = 'Email22@test.com', EmailPreferencesAutoBcc = false, EmailPreferencesAutoBccStayInTouch = false, EmailPreferencesStayInTouchReminder = false, Alias = 'Alias474', CommunityNickname = 'null', IsActive = true, TimeZoneSidKey = 'Pacific/Kiritimati', LocaleSidKey = 'sq_AL', ReceivesInfoEmails = false, ReceivesAdminInfoEmails = false, EmailEncodingKey = 'UTF-8', ProfileId = '00e28000000qHycAAE', LanguageLocaleKey = 'en_US', UserPermissionsMarketingUser = false, UserPermissionsOfflineUser = false, UserPermissionsAvantgoUser = false, UserPermissionsCallCenterAutoLogin = false, UserPermissionsMobileUser = false, UserPermissionsSFContentUser = false, UserPermissionsKnowledgeUser = false, UserPermissionsInteractionUser = false, 
-                        UserPermissionsSupportUser = false, UserPermissionsChatterAnswersUser = false, ForecastEnabled = false, UserPreferencesActivityRemindersPopup = false, UserPreferencesEventRemindersCheckboxDefault = false, UserPreferencesTaskRemindersCheckboxDefault = false, UserPreferencesReminderSoundOff = false, 
-                        UserPreferencesDisableAllFeedsEmail = false, UserPreferencesDisableFollowersEmail = false, UserPreferencesDisableProfilePostEmail = false, UserPreferencesDisableChangeCommentEmail = false, UserPreferencesDisableLaterCommentEmail = false, UserPreferencesDisProfPostCommentEmail = false, UserPreferencesContentNoEmail = false, UserPreferencesContentEmailAsAndWhen = false, UserPreferencesApexPagesDeveloperMode = false, UserPreferencesHideCSNGetChatterMobileTask = false, UserPreferencesDisableMentionsPostEmail = false, UserPreferencesDisMentionsCommentEmail = false, UserPreferencesHideCSNDesktopTask = false, UserPreferencesHideChatterOnboardingSplash = false, UserPreferencesHideSecondChatterOnboardingSplash = false, UserPreferencesDisCommentAfterLikeEmail = false, UserPreferencesDisableLikeEmail = false, UserPreferencesSortFeedByComment = false, 
-                        UserPreferencesDisableMessageEmail = false, UserPreferencesDisableBookmarkEmail = false, UserPreferencesDisableSharePostEmail = false, UserPreferencesEnableAutoSubForFeeds = false, UserPreferencesDisableFileShareNotificationsForApi = false, UserPreferencesShowTitleToExternalUsers = false, UserPreferencesShowManagerToExternalUsers = false, UserPreferencesShowEmailToExternalUsers = false, UserPreferencesShowWorkPhoneToExternalUsers = false, UserPreferencesShowMobilePhoneToExternalUsers = false, UserPreferencesShowFaxToExternalUsers = false, UserPreferencesShowStreetAddressToExternalUsers = false, UserPreferencesShowCityToExternalUsers = false, UserPreferencesShowStateToExternalUsers = false, UserPreferencesShowPostalCodeToExternalUsers = false, UserPreferencesShowCountryToExternalUsers = false, UserPreferencesShowProfilePicToGuestUsers = false, UserPreferencesShowTitleToGuestUsers = false, 
-                        Market__c='TR',UserPreferencesShowCityToGuestUsers = false, UserPreferencesShowStateToGuestUsers = false, UserPreferencesShowPostalCodeToGuestUsers = false, UserPreferencesShowCountryToGuestUsers = false, UserPreferencesHideS1BrowserUI = false, UserPreferencesDisableEndorsementEmail = false, UserPreferencesPathAssistantCollapsed = false, UserPreferencesCacheDiagnostics = false, UserPreferencesShowEmailToGuestUsers = false, UserPreferencesShowManagerToGuestUsers = false, UserPreferencesShowWorkPhoneToGuestUsers = false, UserPreferencesShowMobilePhoneToGuestUsers = false, UserPreferencesShowFaxToGuestUsers = false, UserPreferencesShowStreetAddressToGuestUsers = false, UserPreferencesLightningExperiencePreferred = false, UserPreferencesPreviewLightning = false, UserPreferencesHideEndUserOnboardingAssistantModal = false, UserPreferencesHideLightningMigrationModal = false, UserPreferencesHideSfxWelcomeMat = false, UserPreferencesHideBiggerPhotoCallout = false, UserPreferencesGlobalNavBarWTShown = false, UserPreferencesGlobalNavGridMenuWTShown = false, UserPreferencesCreateLEXAppsWTShown = false, UserPreferencesFavoritesWTShown = false, IsPortalSelfRegistered = false, DigestFrequency = 'D', DefaultGroupNotificationFrequency = 'P', Active_Permission_Set__c = false, Active__c = false, Notification_Account_Finance_Update__c = false, Notification_Retail_Copy_Created__c = false, ChangesMadeInAssignedPersona__c = true, Persona_Assigned__c = 'IntegrationPerso111');
- 
- }
- 
- public static testMethod void testHandleTriggerInsert(){
-  List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
-      insert updatecustomsettings;
-    prepareTestData('');
-     system.runAs(user_Obj ){
-
-    insert accountList;}
- } 
- 
- public static testMethod void testHandleTriggerUpdate(){
-     List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
-    insert updatecustomsettings;
-    prepareTestData('');
-      system.runAs(user_Obj ){
-    
-    insert accountList;
-  TriggerRecursiveCheck.run = true;                 
-    update accountList; 
+        
+        personAcc1 = new Account(Dealer_Default_Flag__c=false,
+                                 Dealer_DMS_SR_Code__c='test code 2',
+                                 //Individual_Home_Phone__c = '02-202-2456',
+                                 Home_Phone_2__c = '02-202-2457',Work_Phone__c = '+601212378978',
+                                 Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                 City__c='Beijing',
+                                 Gender__c = 'Male',
+                                 Phone = '0801801110',
+                                 Area_code__c = '03',
+                                 MD__c = 'TR',
+                                 Market__c = 'TR',
+                                 Data_Source__c = 'MBT Event',
+                                 LastName = 'galaxy1',
+                                 FirstName = 'First Name',
+                                 Salutation = 'Unknown',
+				 Personal_Agreement__c = 'YES',
+                                 Postal_Opt_Out__c=True,     
+                                 Province__c = 'Shanghai',
+                                 ZipCode__c= '32703',
+                                 //Mobile__c = '918197597651',
+                                 //Mobile2__c = '918197597651',
+                                 Primary_Email__c = 'Email1',
+                                 Primary_Fax__c = 'FAX2',
+                                 Primary_Phone__c ='Other2',
+                                 PersonDoNotCall=True,
+                                 // ownerid=user1.id,
+                                 PersonHasOptedOutOfEmail=True,
+                                 Opt_In_Email__c=true,
+                                 //owner=user1,
+                                 //PersonBirthdate=date.today(),
+                                 
+                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
+        
+        accountList.add(personAcc1); 
+        
+        for(Account a:accountList){
+            accountMap.put(a.Id,a);
+        }
+        
+        system.runAs(us1)
+        {
+            ps = new PermissionSet();
+            ps.Name = 'Test';
+            ps.Label = 'Test';
+            insert ps;  
+            CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.TRGeneric ];
+            
+            SetupEntityAccess sea = new SetupEntityAccess();
+            sea.ParentId = ps.Id;
+            sea.SetupEntityId = cps.id;
+            insert sea;  
+        }
+        market_Obj = new Market__c(Market_Code__c = 'TR', Market__c = 'Turkey');
+        Insert market_Obj; 
+        functionality_access_master_Obj = new Functionality_Access_Master__c(Description__c = '12', Module_Name__c = 'Modul230', PermissionSet_Ids__c = ps.id, Permission_Sets__c = ps.name);
+        Insert functionality_access_master_Obj; 
+        persona_Obj = new Persona__c(Market_Access__c = market_Obj.id, Functionality_Access__c = functionality_access_master_Obj.id, Active__c = true, PersonaName__c = 'IntegrationPerso111', ProfileId__c = p.id , Profiles__c = p.name);
+        Insert persona_Obj; 
+        user_Obj = new User(Username = 'TestUser77769201709210833TR@codecoverage.com', LastName = 'LastName527', Email = 'Email22@test.com', EmailPreferencesAutoBcc = false, EmailPreferencesAutoBccStayInTouch = false, EmailPreferencesStayInTouchReminder = false, Alias = 'Alias474', CommunityNickname = 'null', IsActive = true, TimeZoneSidKey = 'Pacific/Kiritimati', LocaleSidKey = 'sq_AL', ReceivesInfoEmails = false, ReceivesAdminInfoEmails = false, EmailEncodingKey = 'UTF-8', ProfileId = '00e28000000qHycAAE', LanguageLocaleKey = 'en_US', UserPermissionsMarketingUser = false, UserPermissionsOfflineUser = false, UserPermissionsAvantgoUser = false, UserPermissionsCallCenterAutoLogin = false, UserPermissionsMobileUser = false, UserPermissionsSFContentUser = false, UserPermissionsKnowledgeUser = false, UserPermissionsInteractionUser = false, 
+                            UserPermissionsSupportUser = false, UserPermissionsChatterAnswersUser = false, ForecastEnabled = false, UserPreferencesActivityRemindersPopup = false, UserPreferencesEventRemindersCheckboxDefault = false, UserPreferencesTaskRemindersCheckboxDefault = false, UserPreferencesReminderSoundOff = false, 
+                            UserPreferencesDisableAllFeedsEmail = false, UserPreferencesDisableFollowersEmail = false, UserPreferencesDisableProfilePostEmail = false, UserPreferencesDisableChangeCommentEmail = false, UserPreferencesDisableLaterCommentEmail = false, UserPreferencesDisProfPostCommentEmail = false, UserPreferencesContentNoEmail = false, UserPreferencesContentEmailAsAndWhen = false, UserPreferencesApexPagesDeveloperMode = false, UserPreferencesHideCSNGetChatterMobileTask = false, UserPreferencesDisableMentionsPostEmail = false, UserPreferencesDisMentionsCommentEmail = false, UserPreferencesHideCSNDesktopTask = false, UserPreferencesHideChatterOnboardingSplash = false, UserPreferencesHideSecondChatterOnboardingSplash = false, UserPreferencesDisCommentAfterLikeEmail = false, UserPreferencesDisableLikeEmail = false, UserPreferencesSortFeedByComment = false, 
+                            UserPreferencesDisableMessageEmail = false, UserPreferencesDisableBookmarkEmail = false, UserPreferencesDisableSharePostEmail = false, UserPreferencesEnableAutoSubForFeeds = false, UserPreferencesDisableFileShareNotificationsForApi = false, UserPreferencesShowTitleToExternalUsers = false, UserPreferencesShowManagerToExternalUsers = false, UserPreferencesShowEmailToExternalUsers = false, UserPreferencesShowWorkPhoneToExternalUsers = false, UserPreferencesShowMobilePhoneToExternalUsers = false, UserPreferencesShowFaxToExternalUsers = false, UserPreferencesShowStreetAddressToExternalUsers = false, UserPreferencesShowCityToExternalUsers = false, UserPreferencesShowStateToExternalUsers = false, UserPreferencesShowPostalCodeToExternalUsers = false, UserPreferencesShowCountryToExternalUsers = false, UserPreferencesShowProfilePicToGuestUsers = false, UserPreferencesShowTitleToGuestUsers = false, 
+                            Market__c='TR',UserPreferencesShowCityToGuestUsers = false, UserPreferencesShowStateToGuestUsers = false, UserPreferencesShowPostalCodeToGuestUsers = false, UserPreferencesShowCountryToGuestUsers = false, UserPreferencesHideS1BrowserUI = false, UserPreferencesDisableEndorsementEmail = false, UserPreferencesPathAssistantCollapsed = false, UserPreferencesCacheDiagnostics = false, UserPreferencesShowEmailToGuestUsers = false, UserPreferencesShowManagerToGuestUsers = false, UserPreferencesShowWorkPhoneToGuestUsers = false, UserPreferencesShowMobilePhoneToGuestUsers = false, UserPreferencesShowFaxToGuestUsers = false, UserPreferencesShowStreetAddressToGuestUsers = false, UserPreferencesLightningExperiencePreferred = false, UserPreferencesPreviewLightning = false, UserPreferencesHideEndUserOnboardingAssistantModal = false, UserPreferencesHideLightningMigrationModal = false, UserPreferencesHideSfxWelcomeMat = false, UserPreferencesHideBiggerPhotoCallout = false, UserPreferencesGlobalNavBarWTShown = false, UserPreferencesGlobalNavGridMenuWTShown = false, UserPreferencesCreateLEXAppsWTShown = false, UserPreferencesFavoritesWTShown = false, IsPortalSelfRegistered = false, DigestFrequency = 'D', DefaultGroupNotificationFrequency = 'P', Active_Permission_Set__c = false, Active__c = false, Notification_Account_Finance_Update__c = false, Notification_Retail_Copy_Created__c = false, ChangesMadeInAssignedPersona__c = true, Persona_Assigned__c = 'IntegrationPerso111');
+        
     }
- } 
- public static testMethod void testHandleTriggerDelete(){
- List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
-      insert updatecustomsettings;
-      
-    prepareTestData('');
-         system.runAs(user_Obj ){
-     
-    insert personAcc1;
-    List<Account> accList = [SELECT Id,Name FROM Account WHERE Id =:personAcc1.Id];
-    delete accList;
-    }
- } 
- 
-
+    
+    public static testMethod void testHandleTriggerInsert(){
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
+        insert updatecustomsettings;
+        prepareTestData('');
+        system.runAs(user_Obj ){
+            
+            insert accountList;}
+    } 
+    
+    public static testMethod void testHandleTriggerUpdate(){
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
+        insert updatecustomsettings;
+        prepareTestData('');
+        system.runAs(user_Obj ){
+            
+            insert accountList;
+            TriggerRecursiveCheck.run = true;                 
+            update accountList; 
+        }
+    } 
+    public static testMethod void testHandleTriggerDelete(){
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
+        insert updatecustomsettings;
+        
+        prepareTestData('');
+        system.runAs(user_Obj ){
+            
+            insert personAcc1;
+            List<Account> accList = [SELECT Id,Name FROM Account WHERE Id =:personAcc1.Id];
+            delete accList;
+        }
+    } 
+    
+    
 }

@@ -20,6 +20,15 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>THUpdate_Account_customer_modified_field</fullName>
+        <field>Customer_LastUpdatedDate__c</field>
+        <formula>LastModifiedDate</formula>
+        <name>Update Account customer modified field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Agreement_date_Update</fullName>
         <field>Agreement_Date_for_Contact_Method__c</field>
@@ -441,6 +450,17 @@
         <formula>AND(Special_Care__c != TEXT(Race__c), MD__c == &apos;MY&apos;,$Profile.Name != &apos;IntegrationAPI&apos;,$Permission.MYGeneric, RecordType.Name == 'Person Account'  )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+	    <rules>
+        <fullName>Update Account Customer LastUpdatedDate</fullName>
+        <actions>
+            <name>THUpdate_Account_customer_modified_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This Workflow is used to update the account customer date field based on last modified date field</description>
+        <formula>MD__c=&apos;TH&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number</fullName>
         <actions>
@@ -500,7 +520,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISPICKVAL(General_Personal_Information_Mandatory__c,&apos;&apos;)),NOT(ISPICKVAL(General_Personal_Information_Optional__c ,&apos;&apos;)),NOT(ISPICKVAL( Unique_Identification_Info_Mandatory__c,&apos;&apos;)),NOT(ISPICKVAL(General_Personal_InfoThirdParty_Optional__c,&apos;&apos;)),NOT(ISPICKVAL(Unique_Identity_Info_ThirdParty_Optional__c,&apos;&apos;)),NOT(ISPICKVAL(Targeted_Advertising_Info_Optional__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_CC_New__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <formula>AND(NOT(ISPICKVAL(General_Personal_Information_Mandatory__c,&apos;&apos;)),NOT(ISPICKVAL(General_Personal_Information_Optional__c ,&apos;&apos;)),NOT(ISPICKVAL( Unique_Identification_Info_Mandatory__c,&apos;&apos;)),NOT(ISPICKVAL(General_Personal_InfoThirdParty_Optional__c,&apos;&apos;)),NOT(ISPICKVAL(Unique_Identity_Info_ThirdParty_Optional__c,&apos;&apos;)),NOT(ISPICKVAL(Targeted_Advertising_Info_Optional__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_CC_New__c)) ,MD__c == &apos;KR&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -510,7 +530,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISPICKVAL(Personal_Agreement__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c ,&apos;&apos;)),NOT(ISPICKVAL( Agreement_to_commit_info_processing__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Abroad_Agreement__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Contact_Method__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <formula>AND(NOT(ISPICKVAL(Personal_Agreement__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c ,&apos;&apos;)),NOT(ISPICKVAL( Agreement_to_commit_info_processing__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Abroad_Agreement__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Contact_Method__c)) ,MD__c == &apos;KR&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -520,7 +540,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISPICKVAL(Personal_Agreement_CC_Old__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Info_Third_Party_Release_CC_Old__c,&apos;&apos;)),NOT(ISPICKVAL(Agreement_to_commit_info_proces_CC_Old__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Abroad_Agreement_CC_Old__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_CC_Old__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <formula>AND(NOT(ISPICKVAL(Personal_Agreement_CC_Old__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Info_Third_Party_Release_CC_Old__c,&apos;&apos;)),NOT(ISPICKVAL(Agreement_to_commit_info_proces_CC_Old__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Abroad_Agreement_CC_Old__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_CC_Old__c)) ,MD__c == &apos;KR&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -530,7 +550,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISPICKVAL(General_Personal_Info_Mandatory__c,&apos;&apos;)),NOT(ISPICKVAL(Person_Agree_Test_Driving_Optional__c ,&apos;&apos;)),NOT(ISPICKVAL( Person_Info_Custom_Service_Optional__c,&apos;&apos;)),NOT(ISPICKVAL(Targeted_Advert_Info_Optional_STCCC__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Marketing_Consent__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <formula>AND(NOT(ISPICKVAL(General_Personal_Info_Mandatory__c,&apos;&apos;)),NOT(ISPICKVAL(Person_Agree_Test_Driving_Optional__c ,&apos;&apos;)),NOT(ISPICKVAL( Person_Info_Custom_Service_Optional__c,&apos;&apos;)),NOT(ISPICKVAL(Targeted_Advert_Info_Optional_STCCC__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Marketing_Consent__c)) ,MD__c == &apos;KR&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -540,7 +560,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISPICKVAL(Personal_Agreement_Service_24h__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Service_24h_Consent__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <formula>AND(NOT(ISPICKVAL(Personal_Agreement_Service_24h__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Service_24h_Consent__c)) ,MD__c == &apos;KR&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 	<rules>
@@ -851,19 +871,19 @@
             <name>Update_Allow_Data_Sharing</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
-            <field>Account.Personal_Information_Third_Party_Release__c</field>
+            <field>Account.General_Personal_Info_Mandatory__c</field>
             <operation>equals</operation>
             <value>Yes</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Account.Personal_Agreement__c</field>
+            <field>Account.Person_Info_Custom_Service_Optional__c</field>
             <operation>equals</operation>
             <value>Yes</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Account.Agreement_to_commit_info_processing__c</field>
+            <field>Account.Person_Agree_Test_Driving_Optional__c</field>
             <operation>equals</operation>
             <value>Yes</value>
         </criteriaItems>
@@ -872,18 +892,23 @@
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Account.Targeted_Advert_Info_Optional_STCCC__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
         <description>Update Allow Data Sharing KR based on Agreement fields.</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Update Allow data sharing to %27No%27</fullName>
+       <fullName>Update Allow data sharing to %27No%27</fullName>
         <actions>
             <name>Allow_Data_Sharing_to_NO_for_KR</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <description>Update Allow data sharing to &apos;No&apos; for KR Market</description>
-        <formula>AND(MD__c=&quot;KR&quot;, OR (NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Personal_Agreement__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Agreement_to_commit_info_processing__c,&quot;Yes&quot;))))</formula>
+        <formula>AND(MD__c=&quot;KR&quot;, OR (NOT(ISPICKVAL(Personal_Info_Third_Party_Release_CC_Old__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Personal_Agreement_CC_Old__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Agreement_to_commit_info_proces_CC_Old__c,&quot;Yes&quot;))),OR (NOT(ISPICKVAL(Personal_Agreement__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c,&quot;Yes&quot;)) ,NOT(ISPICKVAL(Agreement_to_commit_info_processing__c,&quot;Yes&quot;))),OR (NOT(ISPICKVAL(General_Personal_Information_Mandatory__c,&quot;Yes&quot;)),NOT(ISPICKVAL(General_Personal_InfoThirdParty_Optional__c,&quot;Yes&quot;))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

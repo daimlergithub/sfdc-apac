@@ -1025,7 +1025,7 @@ id recId;
                                    }
              system.debug('++++++'+sid);
 
-List<Retail_Campaign__c> CamList = [Select Id,Name,Parent_Campaign1__c,Start_Date__c,Segmentation_Date__c,Child_Campaign_Status__c ,Execution_Start_Date__c From Retail_Campaign__c Where Parent_Campaign1__c=: sid];
+List<Retail_Campaign__c> CamList = [Select Id,Name,Parent_Campaign1__c,Start_Date__c,Segmentation_Date__c,Child_Campaign_Status__c ,Execution_Start_Date__c From Retail_Campaign__c Where CloneCampaign__c=: sid];
 system.debug('++++++'+CamList);
 For(Retail_Campaign__c came : campgn){
 For(Retail_Campaign__c camp : CamList ){

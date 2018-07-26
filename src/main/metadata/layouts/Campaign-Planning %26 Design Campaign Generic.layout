@@ -58,6 +58,14 @@
                 <behavior>Edit</behavior>
                 <field>RSVP__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Executer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Channels__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -69,8 +77,16 @@
                 <field>Status</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Status__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ActualCost</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>BudgetedCost</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -128,6 +144,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Model__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Class__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

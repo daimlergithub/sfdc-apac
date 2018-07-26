@@ -61,9 +61,9 @@
                 <field>Next_Contact__c</field>
             </layoutItems>
 			 <layoutItems>
-+                <behavior>Edit</behavior>
-+                <field>Lost_Status_Tracking__c</field>
-+            </layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lost_Status_Tracking__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -154,6 +154,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Lost_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>DMS_Sent_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

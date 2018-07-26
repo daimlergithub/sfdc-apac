@@ -66,7 +66,7 @@
                 <field>Successful_Call_Number__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Contact__c</field>
             </layoutItems>
             <layoutItems>
@@ -349,6 +349,10 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Sent_to_Autoline__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -404,6 +408,17 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Booking_ID__c</fields>
+        <fields>Booking_Type__c</fields>
+        <fields>Booking_Status__c</fields>
+        <fields>Assigned_Dealer_Outlet__c</fields>
+        <fields>Sales_Consultant_ID__c</fields>
+        <fields>Cancellation_Reason__c</fields>
+        <fields>More_info_for_Cancellation__c</fields>
+        <relatedList>Booking__c.Lead__c</relatedList>
+    </relatedLists>
+	<relatedLists>
         <fields>NAME</fields>
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>
     </relatedLists>

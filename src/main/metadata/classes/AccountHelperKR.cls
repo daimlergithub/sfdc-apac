@@ -181,7 +181,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
     {
      for(Account acc: listNewAccounts)
         { 
-           if(acc.MD__c == 'KR' && ((acc.Personal_Info_Third_Party_Release_CC_Old__c == 'Yes' && acc.Personal_Agreement_CC_Old__c == 'Yes' && acc.Agreement_to_commit_info_proces_CC_Old__c == 'Yes')||(acc.Personal_Agreement__c == 'Yes' && acc.Personal_Information_Third_Party_Release__c == 'Yes' && acc.Agreement_to_commit_info_processing__c == 'Yes')))
+           if(acc.MD__c == 'KR' && ((acc.Personal_Info_Third_Party_Release_CC_Old__c == 'Yes' && acc.Personal_Agreement_CC_Old__c == 'Yes' && acc.Agreement_to_commit_info_proces_CC_Old__c == 'Yes')||(acc.Personal_Agreement__c == 'Yes' && acc.Personal_Information_Third_Party_Release__c == 'Yes' && acc.Agreement_to_commit_info_processing__c == 'Yes')||(acc.General_Personal_Information_Mandatory__c=='Yes' && acc.General_Personal_InfoThirdParty_Optional__c=='Yes')))
             {
               acc.Allow_Data_Sharing2__c = 'Yes';
             }

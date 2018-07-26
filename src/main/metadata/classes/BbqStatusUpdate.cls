@@ -9,14 +9,14 @@ global class BbqStatusUpdate implements Schedulable,Database.Batchable<sObject> 
         Database.executeBatch(this);
     }
     global Database.QueryLocator start(Database.BatchableContext bc) {
-        string query ='SELECT Id,Lead_Status__c,Lead__c,ReferredEmployee__c,Status__c FROM Referral__c WHERE Lead_Status__c = \'Won\' OR Lead_Status__c = \'Lost\'';
+        string query ='SELECT Id,Lead_Status__c,Lead__c,ReferredEmployee__c,Status__c FROM Referral__c WHERE Lead_Status__c = \'Won\' OR Lead_Status__c = \'Purchased(Only Non BDC)\' OR Lead_Status__c = \'Lost\'';
         return database.getQueryLocator(query);
     }
     global void execute(Database.BatchableContext bc, List<Referral__c> referralList){
         system.debug('<<<referralList'+referralList.size());
         list<Referral__c> refUpdateList=new list<Referral__c>();
         for(Referral__c ref:referralList){
-            if(ref.Lead_Status__c=='Won' && ref.Status__c!='Won'){
+            if((ref.Lead_Status__c=='Won' && ref.Status__c!='Won') ||(ref.Lead_Status__c =='Purchased(Only Non BDC)' && ref.Status__c!='Won')){
                 system.debug('<<<refLeadStatusWon'+ref.Lead_Status__c);
                 ref.Status__c='Won';
                 refUpdateList.add(ref);

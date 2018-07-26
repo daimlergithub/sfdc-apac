@@ -9,6 +9,8 @@ public class MBJ_FS_Case_Inquiry_Controller{
     Public ID retailTaskID;
     Public id accid;
     Public ID caseOwnerID;
+    public Id SupportingDealer;
+    public Id relatedDealer;
       
     public MBJ_FS_Case_Inquiry_Controller(ApexPages.StandardController stdController) {
         this.inquiryCase = (Case)stdController.getrecord();
@@ -25,6 +27,16 @@ public class MBJ_FS_Case_Inquiry_Controller{
             inquiryCase.Recordtypeid = RecordTypeid;
             
             accountId = ApexPages.currentPage().getParameters().get('accountId');
+             SupportingDealer = ApexPages.currentPage().getParameters().get('SupportingDealer');
+                relatedDealer = ApexPages.currentPage().getParameters().get('relatedDealer');
+                if(SupportingDealer !=null)
+                {
+                inquiryCase.Case_Dealer__c=SupportingDealer;
+                }
+                if(SupportingDealer ==null && relatedDealer !=null)
+                {
+                inquiryCase.Case_Dealer__c=relatedDealer;
+                }
             if(accountId != null)
                 //inquiryCase.Case_Complainant__c = accountId;
                 inquiryCase.accountid=accountId;
@@ -238,4 +250,5 @@ public class MBJ_FS_Case_Inquiry_Controller{
         return null;
     }
     
+	
 }

@@ -261,12 +261,14 @@
     </relatedLists>
     <relatedLists>
         <customButtons>Task.Mass_Assign</customButtons>
+		<customButtons>Task.Bulk_Assign</customButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
         <fields>TASK.STATUS</fields>
         <fields>TASK.PRIORITY</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
+		 <fields>TASK.WHO_NAME</fields>
+		<fields>CORE.USERS.FULL_NAME</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>

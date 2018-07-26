@@ -6,23 +6,23 @@
 */
 public without sharing class AddressHelperBase {
 
-	public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
+    public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
     public static Id dealer_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Dealer');
     public static Id retailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
     public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
-	
+    
     // @Description: Updates Primary Address related details on account once Preferred__c is checked.
     public static void updateAddressOnAccount(list<Address__c> listNewAddress){           
         Set<Id> AccIdSet = new Set<Id>();
         map<Id,Account> updateAccntMap = new map<Id,Account>();
         list<Account> updateAccntList = new list<Account>();
-		List<Account> accList= new List<account>();
+        List<Account> accList= new List<account>();
         for(Address__c addr : listNewAddress){
             if(addr.preferred__c){
                 if(string.isnotblank(addr.Customer__c)) AccIdSet.add(addr.Customer__c);
-				if(string.isnotblank(addr.Customer__c)) acclist.add(new account(id=addr.Customer__c));
-				}
+                if(string.isnotblank(addr.Customer__c)) acclist.add(new account(id=addr.Customer__c));
+                }
         } 
         if(AccIdSet!=null && !AccIdSet.isEmpty()){
            // List<Account> accList = [select id,Primary_Address__c,Primary_Address_Reference__c from Account where id in : AccIdSet Limit 10];     
@@ -34,7 +34,7 @@ public without sharing class AddressHelperBase {
                                 acc.Primary_Address__c = addr.Address_Line_1__c;
                             if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
                                 acc.Primary_Address__c +=' '+ addr.Address_Line_2__c;
-							 if(addr.Address_Line_3__c!=null && addr.Address_Line_3__c!='')  
+                             if(addr.Address_Line_3__c!=null && addr.Address_Line_3__c!='')  
                                 acc.Primary_Address__c +=' '+ addr.Address_Line_3__c;
                             if(addr.District__c!=null && addr.District__c!='')
                                 acc.Primary_Address__c +=' '+ addr.District__c;
@@ -44,8 +44,8 @@ public without sharing class AddressHelperBase {
                                 acc.Primary_Address__c +=' '+ addr.Country__c;
                             if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
                                 acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
-								acc.Primary_Address_Display__c=acc.Primary_Address__c;	
-								acc.Primary_Address_Reference__c= addr.id;
+                                acc.Primary_Address_Display__c=acc.Primary_Address__c;  
+                                acc.Primary_Address_Reference__c= addr.id;
                             updateAccntMap.put(acc.Id, acc);
                         }
                     } 
@@ -103,23 +103,23 @@ public without sharing class AddressHelperBase {
     public static void updatePrimaryAddressOnAccount(map<ID,Address__c> newMap){
         set<id> accountId = new set<id>();  
         Map<id,Account> accountList = new Map<id,Account>();
-		Map<id,id> PreferredMap= new Map<id,id>();
+        Map<id,id> PreferredMap= new Map<id,id>();
         //get the related accountIds
         for(Address__c add:newMap.values()){
             accountId.add(add.Customer__c);
-			if(add.preferred__c) PreferredMap.put(add.customer__c,add.id);
+            if(add.preferred__c) PreferredMap.put(add.customer__c,add.id);
         } 
         for(Account acc:[select id,Primary_Address_Reference__c,Primary_Address_Display__c,Primary_Address__c from Account where id IN:accountId]){
             if(((acc.Primary_Address_Reference__c!=null)&&(newMap.containsKey(acc.Primary_Address_Reference__c))) || PreferredMap.containsKey(acc.id)){
                 if(PreferredMap.containsKey(acc.id)?true : newMap.get(acc.Primary_Address_Reference__c).Customer__c==acc.id){
                     Address__c addr = PreferredMap.containsKey(acc.id)?  newMap.get(PreferredMap.get(acc.id)):newMap.get(acc.Primary_Address_Reference__c);
                     //acc.Primary_Address_Display__c=add.ZipCode__c+add.Province__c+add.City__c+add.District__c+add.Block__c+add.Address_Line_1__c+add.Address_Line_2__c+add.Address_Line_3__c;
-					//acc.Primary_Address__c=acc.Primary_Address_Display__c
-							if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
+                    //acc.Primary_Address__c=acc.Primary_Address_Display__c
+                            if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
                                 acc.Primary_Address__c = addr.Address_Line_1__c;
                             if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
                                 acc.Primary_Address__c +=' '+ addr.Address_Line_2__c;
-							if(addr.Address_Line_3__c!=null && addr.Address_Line_3__c!='')  
+                            if(addr.Address_Line_3__c!=null && addr.Address_Line_3__c!='')  
                                 acc.Primary_Address__c +=' '+ addr.Address_Line_3__c;
                             if(addr.District__c!=null && addr.District__c!='')
                                 acc.Primary_Address__c +=' '+ addr.District__c;
@@ -129,15 +129,15 @@ public without sharing class AddressHelperBase {
                                 acc.Primary_Address__c +=' '+ addr.Country__c;
                             if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
                                 acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
-								acc.Primary_Address_Display__c=acc.Primary_Address__c;	
-								acc.Primary_Address_Reference__c=addr.id;
-							accountList.put(acc.id,acc);
+                                acc.Primary_Address_Display__c=acc.Primary_Address__c;  
+                                acc.Primary_Address_Reference__c=addr.id;
+                            accountList.put(acc.id,acc);
                 }
             }
-			
+            
         } 
-		
-		
+        
+        
         if(!accountList.isEmpty()||accountList!=null){
             DMLManagerService.updateAsSystem(accountList.values());  
             //update accountList; 
@@ -177,13 +177,13 @@ public without sharing class AddressHelperBase {
             try{
                 set<ID> accids=new set<ID>();
                 for(Account accrec:accountlist){
-					if(accrec.RecordTypeID==accPerson_RecordTypeId || accrec.RecordTypeID==accCompany_RecordTypeId){
-						accids.add(accrec.id);
-					}
+                    if(accrec.RecordTypeID==accPerson_RecordTypeId || accrec.RecordTypeID==accCompany_RecordTypeId){
+                        accids.add(accrec.id);
+                    }
                 } 
-				if (accids.size()>0){				
-					CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
-				}
+                if (accids.size()>0){               
+                    CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+                }
             }Catch(exception e){
                 CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
             }
@@ -199,18 +199,44 @@ public without sharing class AddressHelperBase {
                       }  
                   }       
         }
-		
-	 public static void updateAddressRetailCopies(Map<id,Address__c> newMap, string MarketDiscriminator){         
+        
+    /* Update Unnormalized Address */
+        public static void updateUnnormalizedAddress(List<Address__c> addList){        
+            
+                   for(Address__c addr : addList)
+                   {
+                       if(addr.Address_Line_1__c !='' && addr.Address_Line_1__c !=NULL)
+                       {
+                             string FullAddr = addr.Address_Line_1__c + ';' ;
+                             if(addr.Address_Line_2__c != '' && addr.Address_Line_2__c != NULL)
+                             FullAddr = FullAddr + addr.Address_Line_2__c + ';' ;
+                             if(addr.Address_Line_3__c != '' && addr.Address_Line_3__c != NULL)
+                             FullAddr = FullAddr + addr.Address_Line_3__c + ';' ;
+                             if(addr.Country__c != '' && addr.Country__c != NULL)
+                             FullAddr = FullAddr + addr.Country__c  + ';' ;
+                             if(addr.State_City__c != '' && addr.State_City__c != NULL)
+                             FullAddr = FullAddr + addr.State_City__c + ';' ;
+                             if(addr.Suburb__c != '' && addr.Suburb__c != NULL)
+                             FullAddr = FullAddr + addr.Suburb__c + ';' ; 
+                             if(addr.ZipCode__c != '' && addr.ZipCode__c != NULL)
+                             FullAddr = FullAddr + addr.ZipCode__c + ';' ;
+                             addr.Temp_Address__c = FullAddr.left(254);
+
+                      }  
+                  }       
+        }
+        
+     public static void updateAddressRetailCopies(Map<id,Address__c> newMap, string MarketDiscriminator){         
         Map<id,id> PreferredMap= new Map<id,id>();
         for(Address__c add:newMap.values()){            
-			if(!add.preferred__c) PreferredMap.put(add.customer__c,add.id);
+            if(!add.preferred__c) PreferredMap.put(add.customer__c,add.id);
         }  
         if (PreferredMap.size()>0){
-			List<account_Link__c> UpdateRetailCopy= new List<Account_Link__c>();
-			for(account_Link__c al: [select id,Retail_Address_Type__c,Retail_Address_Reference__c,Retail_City__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,
-			Retail_Address_Line_3__c,Retail_Province__c,Retail_Distinct__c,Retail_ZipCode__c,Retail_Address_CreatedDate__c,Retail_Address_LastModifiedDate__c
-			from Account_Link__c where Retail_Address_Reference__c in :PreferredMap.values()]){
-				   al.Retail_Address_Type__c = newMap.get(al.Retail_Address_Reference__c).Address_Type__c;
+            List<account_Link__c> UpdateRetailCopy= new List<Account_Link__c>();
+            for(account_Link__c al: [select id,Retail_Address_Type__c,Retail_Address_Reference__c,Retail_City__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,
+            Retail_Address_Line_3__c,Retail_Province__c,Retail_Distinct__c,Retail_ZipCode__c,Retail_Address_CreatedDate__c,Retail_Address_LastModifiedDate__c,md__c
+            from Account_Link__c where (Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false) and Retail_Address_Reference__c in :PreferredMap.values()]){
+                   al.Retail_Address_Type__c = newMap.get(al.Retail_Address_Reference__c).Address_Type__c;
                     al.Retail_Province__c =(newMap.get(al.Retail_Address_Reference__c).Province__c !=null ?(newMap.get(al.Retail_Address_Reference__c).Province__c): '') ;
                     al.Retail_City__c = (newMap.get(al.Retail_Address_Reference__c).District__c != null ? newMap.get(al.Retail_Address_Reference__c).District__c:'').left(35);
                     al.Retail_Distinct__c = ((newMap.get(al.Retail_Address_Reference__c).District__c!=null ? newMap.get(al.Retail_Address_Reference__c).District__c : '')+' '+(newMap.get(al.Retail_Address_Reference__c).Block__c!= null ?newMap.get(al.Retail_Address_Reference__c).Block__c : '')).left(35);
@@ -220,10 +246,13 @@ public without sharing class AddressHelperBase {
                     al.Retail_ZipCode__c = (newMap.get(al.Retail_Address_Reference__c).ZipCode__c!=null ? newMap.get(al.Retail_Address_Reference__c).ZipCode__c : '' );
                     al.Retail_Address_CreatedDate__c = Date.ValueOf(newMap.get(al.Retail_Address_Reference__c).CreatedDate);
                     al.Retail_Address_LastModifiedDate__c = Date.ValueOf(newMap.get(al.Retail_Address_Reference__c).LastModifiedDate);
+                    //TH Change on 6th May
+                    if(al.md__c=='TH')
+                        al.Retail_City__c = (newMap.get(al.Retail_Address_Reference__c).Sub_District__c != null ? newMap.get(al.Retail_Address_Reference__c).Sub_District__c :'').left(35);
                 
-				UpdateRetailCopy.add(al);
-			}
-			DMLManagerService.updateAsSystem(UpdateRetailCopy);  
-		}
+                UpdateRetailCopy.add(al);
+            }
+            DMLManagerService.updateAsSystem(UpdateRetailCopy);  
+        }
     }
 }

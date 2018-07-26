@@ -3,7 +3,7 @@ public  with sharing class coverttolead1controller
 
     private  String campaignMemberId = ApexPages.currentPage().getParameters().get('CampaignMemberId');
     public string recordtypevalue {set; get;}
-      Public User usr{get;set;}
+    Public User usr{get;set;}
       
     public String leadRT {get; set;}
     public String interstmodel {get; set;}
@@ -45,8 +45,8 @@ public  with sharing class coverttolead1controller
         if(String.isNotBlank(campaignMemberId)) 
         {
             objectAPIName = (Id.valueOf(campaignMemberId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT  Id, Name,Contract_Number__c,Source_of_CM_Response__c,Contract__r.Finance_Contractor__r.RecordType.Name,Contact_Id__r.Name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Campaign_ID__r.Name,Campaign_ID__r.OwnerId,UsVIN__c,Model__c,Vehicle__c,Campaign_ID__c ,Retail_Campaign_Id__c ,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Finance_Product_Name__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
-            query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Id =: campaignMemberId  AND Convert_To_Lead_Flag__c = false';
+            String query = 'SELECT  Id, Name,Contract_Number__c,Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c,Source_of_CM_Response__c,Contract__r.Finance_Contractor__r.RecordType.Name,Contact_Id__r.Name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Campaign_ID__r.Name,Campaign_ID__r.OwnerId,UsVIN__c,Model__c,Vehicle__c,Campaign_ID__c ,Retail_Campaign_Id__c ,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Finance_Product_Name__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            query += ' FROM Campaign_Member__c WHERE Id =: campaignMemberId  AND Convert_To_Lead_Flag__c = false';
             List<Campaign_Member__c> campaignMemberList = Database.query(query);
             campaignMembers = new List<Campaign_Member__c>();
             for(Campaign_Member__c campaignMemberRec : campaignMemberList) 
@@ -77,13 +77,13 @@ public  with sharing class coverttolead1controller
              if(campaignMemberObj.Campaign_ID__c != null)
              {
                  
-                 existingLeadList = [Select Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
+                 existingLeadList = [Select Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c,Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
                                         from Lead__c where Source_Campaign__c =: campaignMemberObj.Campaign_ID__c]; 
                   CampaingCheck =false;           
              }
              else if(campaignMemberObj.Retail_Campaign_Id__c != null)
              {
-                 existingLeadList = [Select Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
+                 existingLeadList = [Select Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c, Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
                                         from Lead__c where Source_Campaign__c =: campaignMemberObj.Retail_Campaign_Id__c];
                RetailCheck = false;
              }
@@ -109,7 +109,7 @@ public  with sharing class coverttolead1controller
             {
                     leadList.add(duplicateLeadRec);
             }
-               
+               campaignMemberObj.Status__c = 'Responded' ;
            campaignMemberObj.Convert_To_Lead_Flag__c = true; 
            CamMemMapToUpdate.add(campaignMemberObj);
         }
@@ -174,7 +174,8 @@ public  with sharing class coverttolead1controller
         if(campaignMember.Campaign_ID__c != null) 
         {
             leadRec.Source_Campaign__c = campaignMember.Campaign_ID__c;
-            leadRec.OwnerId = campaignMember.Campaign_ID__r.OwnerId;
+           // leadRec.OwnerId = campaignMember.Campaign_ID__r.OwnerId; Commented as part of 0043627773
+		   leadRec.OwnerId = UserInfo.getUserId(); 
         } else if(campaignMember.Retail_Campaign_Id__c != null) 
         {
             leadRec.Retail_Campaign_Name__c = campaignMember.Retail_Campaign_Id__c;
@@ -191,6 +192,11 @@ public  with sharing class coverttolead1controller
         }
        
         leadRec.Contact__c = campaignMember.Contact_Id__c;
+        leadRec.Cross_point_month_and_year__c= campaignMember.Cross_point_month_and_year__c;
+       leadRec.Evaluation_Result_P1_P2_Blank__c = campaignMember.Evaluation_Result_P1_P2_Blank__c;
+       leadRec.Final_GAP_Amount__c = campaignMember.Final_GAP_Amount__c;
+       leadRec.Outstanding_Balance_amount__c = campaignMember.Outstanding_Balance_amount__c;
+       leadRec.Proto_Market_Value_amount__c = campaignMember.Proto_Market_Value_amount__c;
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
         leadRec.Lead_Sub_Type__c = campaignMember.Lead_Sub_Type__c;
         leadRec.Existing_Contract__c=campaignMember.Contract__c;

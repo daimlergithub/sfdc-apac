@@ -9,13 +9,21 @@
         <apex:pageBlock title="Sales Lead" mode="edit">
     
         <!--------------  Lead Info Section -------------->
-            <apex:pageBlockSection title="Lead Information" columns="2">
+        <!--Sada Commented for ANZ Market as per Defect DF-217-->
+            <apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_LeadInfo}"  var="f">
                     <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"  rendered="{!IF(AND(f.label != 'Lead Record Type',f.label != 'Lead Owner'),true,false)}"/>
                     <apex:outputField value="{!opp[f.fieldPath]}" rendered="{!IF(OR(f.label == 'Lead Record Type',f.label == 'Lead Owner'),true,false)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
-            
+
+            <apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.ANZSales_LeadInfo}"  var="f">
+                    <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"  rendered="{!IF(AND(f.label != 'Lead Record Type',f.label != 'Lead Owner'),true,false)}"/>
+                    <apex:outputField value="{!opp[f.fieldPath]}" rendered="{!IF(OR(f.label == 'Lead Record Type',f.label == 'Lead Owner'),true,false)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+                        
         <!--------------  Dealer Info Section -------------->
             <apex:pageBlockSection title="Dealer Information" columns="2">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DealerInfo}"  var="f">
@@ -23,6 +31,14 @@
                 </apex:repeat>
             </apex:pageBlockSection>
 
+            <!--Sada Commented for ANZ Market as per Defect DF-217-->
+             <!--------------  Lead Lost Info Section -------------->
+            <apex:pageBlockSection title="Lead Lost Information" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.ANZsales_LostInfo}"  var="f">
+                            <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+     
         <!--------------  Lead Customer Info Section -------------->
             <apex:pageBlockSection title="Lead Customer Information" columns="2">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_CustomerInfo}"  var="f">
@@ -44,18 +60,32 @@
                 <apex:inputField value="{!opp.Description}" required="false"/>
                 <apex:inputField value="{!opp.Current_Vehicle_2_Text__c}" required="false"/>
                 <apex:inputField value="{!opp.Purchased_Vehicle__c}" required="false"/>
+                
+                
             </apex:pageBlockSection>                             
 
         <!--------------  Lead Processing Info Section -------------->      
-        <apex:pageBlockSection title="Lead Processing Information" columns="2">
+        <!--Sada Commented for ANZ Market as per Defect DF-217-->  
+        <apex:pageBlockSection title="Lead Processing Information" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
             <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_ProcessInfo}"  var="f">
                 <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
             </apex:repeat>
         </apex:pageBlockSection> 
-            
+
+       <apex:pageBlockSection title="Lead Processing Information" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+            <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.ANZsales_LeadProces}"  var="f">
+                <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
+            </apex:repeat>
+        </apex:pageBlockSection> 
+                
+      
         <!--------------  Date Info Section -------------->     
             <apex:pageBlockSection title="Date Information" columns="2">
                 <apex:inputField value="{!opp.Visited_Showroom_Date_Time__c}" required="false"/>
+                <apex:inputField value="{!opp.First_Contact_Customer_Date_Time__c}" required="false" rendered="{!(userMarket == 'TR')}"/>
+                
+                <!----Sada 2018/June/18 added as per defect DF-232-->
+                <apex:inputField value="{!opp.Test_Drive_Date__c}" required="false" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric ),true,false)}"/>                
             </apex:pageBlockSection>    
 
         <!--------------  System Info Section -------------->     
@@ -68,93 +98,123 @@
         
             <br></br>
             
-            <apex:pageBlockSection title="Interested Vehicle Information" columns="1">
+            <apex:pageBlockSection title="{!$Label.IntVehicle}" columns="1">
                 <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
+				<span style="font-size:10px">Search Format ({!$Label.CarSearchFormatText}) </span>
                 <apex:pageMessages id="pgmsg"/>
-                <apex:commandButton value=" Add Interested Vehicle" action="{!addIntRecord}" reRender="pb1,pgmsg"/>
-                <apex:pageBlockTable id="pb1" value="{!intVehicleList}"  var="item" title="Vehicle Information">
-                    <apex:column headerValue="Car Model">
+                <c:MultiselectAutocompleteComponent AvailableOptions="{!lstAvailableOptions}" SelectedOptions="{!lstSelectedOptions}" PrepopulateOption="{!lstPrepopulateOptions}" rendered="{!If(OR(opp.Market__c =='NZ',opp.Market__c =='AU'),true,false)}"/>
+                <apex:commandButton value=" {!$Label.AddIntVehicle}" action="{!addIntRecord}" reRender="pb1,pgmsg" rendered="{!If(AND(opp.Market__c !='NZ',opp.Market__c !='AU'),true,false)}"/>
+                <apex:pageBlockTable id="pb1" value="{!intVehicleList}"  var="item" title="{!$Label.Vehicle_Information}" rendered="{!If(AND(opp.Market__c !='NZ',opp.Market__c !='AU'),true,false)}">
+                    <apex:column headerValue="{!$Label.CarModel}">
                         <apex:inputField value="{!item.Car_Model__c}" onchange="UpdateModInfo(this)"/>
                     </apex:column>
-                    <apex:column headerValue="Brand">
+                    <apex:column headerValue="{!$Label.Brand}"   rendered="{!(userMarket != 'IN')}">
                         <apex:outputLabel value="{!item.Brand__c}" />
                     </apex:column>
-                    <apex:column headerValue="Class">
-                        <apex:outputLabel value="{!item.Class__c}" />
+                    <apex:column headerValue="{!$Label.Class}">
+                        <apex:outputLabel value="{!item.Class__c}"   rendered="{!(userMarket != 'IN')}"/>
                     </apex:column>
-                    <apex:column headerValue="Color">
-                        <apex:outputLabel value="{!item.Color__c}" />
+                    <apex:column headerValue="{!$Label.Brand}"   rendered="{!(userMarket == 'IN')}">
+                        <apex:inputField value="{!item.Brand_Picklist__c}"  rendered="{!!(item.Car_Model__c != null)}" />
+                        <apex:outputLabel value="{!item.Brand_Picklist__c}" rendered="{!(item.Car_Model__c != null)}"/>
                     </apex:column>
-                    <apex:column headerValue="Preferred">
+                    <apex:column headerValue="{!$Label.Class}"   rendered="{!(userMarket == 'IN')}">
+                        <apex:inputField value="{!item.Class_Picklist__c}"  rendered="{!!(item.Car_Model__c != null)}" />
+						<apex:outputLabel value="{!item.Class_Picklist__c}" rendered="{!(item.Car_Model__c != null)}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$Label.Color}"   rendered="{!(userMarket == 'IN')}">
+                        <apex:inputField value="{!item.Color__c}" rendered="{!!(item.Car_Model__c != null)}" />
+						<apex:outputLabel value="{!item.Color__c}" rendered="{!(item.Car_Model__c != null)}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$Label.Color}"    rendered="{!(userMarket != 'IN')}">
+                        <apex:outputLabel value="{!item.Color__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$Label.Preferred}">
                         <apex:inputfield value="{!item.Preferred__c}" onchange="checkIntVehiclePreferred(this)"/>
                     </apex:column>
-                    
+                    <apex:column headerValue="{!$Label.MarketLabel}"   rendered="{!(userMarket == 'IN')}">
+                        <apex:inputField value="{!item.Market__c}" />
+                    </apex:column>
                 </apex:pageBlockTable>       
             </apex:pageBlockSection>
             
             <br></br>
             
-            <apex:pageBlockSection title="Competitor Vehicle Information" columns="1">
+            <apex:pageBlockSection title="{!$Label.CompVehicle}" columns="1">
                 <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
                 <apex:pageMessages id="pgmsg1"/>
-                <apex:commandButton value=" Add Competitor Vehicle" action="{!addCompRecord}" reRender="pb2,pgmsg1"/>
+                <apex:commandButton value=" {!$Label.AddCompVehicle}" action="{!addCompRecord}" reRender="pb2,pgmsg1"/>
                 <apex:pageBlockTable id="pb2" value="{!compVehicleList}"  var="item" title="Vehicle Information">
-                    <apex:column headerValue="Car Model">
+                    <apex:column headerValue="{!$Label.CarModel}">
                         <apex:inputField value="{!item.Car_Model_Competitor__c}" onchange="UpdateModInfo(this)"/>
                     </apex:column>
-                    <apex:column headerValue="Brand">
+                    <apex:column headerValue="{!$Label.Brand}"   rendered="{!(userMarket != 'IN')}">
                         <apex:outputLabel value="{!item.Brand__c}" />
                     </apex:column>
-                    <apex:column headerValue="Class">
+                    <apex:column headerValue="{!$Label.Class}"   rendered="{!(userMarket != 'IN')}">
                         <apex:outputLabel value="{!item.Class__c}" />
                     </apex:column>
-                    <apex:column headerValue="Color">
-                        <apex:outputLabel value="{!item.Color__c}" />
+                    <apex:column headerValue="{!$Label.Brand}"   rendered="{!(userMarket == 'IN')}"> 
+                        <apex:inputField value="{!item.Brand_Picklist__c}" rendered="{!!(item.Car_Model_Competitor__c != null)}"/>
+                        <apex:outputLabel value="{!item.Brand_Picklist__c}" rendered="{!(item.Car_Model_Competitor__c != null)}"/>
                     </apex:column>
-                    <apex:column headerValue="Preferred">
+                    <apex:column headerValue="{!$Label.Class}"   rendered="{!(userMarket == 'IN')}">
+                        <apex:inputField value="{!item.Class_Picklist__c}"  rendered="{!!(item.Car_Model_Competitor__c != null)}" />
+						<apex:outputLabel value="{!item.Class_Picklist__c}" rendered="{!(item.Car_Model_Competitor__c != null)}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$Label.Color}"   rendered="{!(userMarket == 'IN')}">
+                        <apex:inputField value="{!item.Color__c}" rendered="{!!(item.Car_Model_Competitor__c != null)}" />
+						<apex:outputLabel value="{!item.Color__c}" rendered="{!(item.Car_Model_Competitor__c != null)}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$Label.Color}"    rendered="{!(userMarket != 'IN')}">
+                        <apex:outputLabel value="{!item.Color__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$Label.Preferred}">
                         <apex:inputfield value="{!item.Preferred__c}" onchange="checkCompVehiclePreferred(this)"/>
                     </apex:column>
-                    
+                    <apex:column headerValue="{!$Label.MarketLabel}"   rendered="{!(userMarket == 'IN')}">
+                        <apex:inputField value="{!item.Market__c}" />
+                    </apex:column>
                 </apex:pageBlockTable>       
             </apex:pageBlockSection>
             
             <br></br>
             
-            <apex:pageBlockSection title="Trade-In Vehicle Information" columns="1">
+            <apex:pageBlockSection title="{!$Label.TradeIn}" columns="1">
                 <apex:pageBlockTable id="pb3" value="{!tradeInVehicles}"  var="item" title="Vehicle Information">
-                    <apex:column headerValue="Trade-In Vehicle">
+                    <apex:column headerValue="{!$Label.TradeInVeh}">
                         <apex:inputField value="{!item.Trade_In_Vehicle__c}"/>
                     </apex:column>
 
-                    <apex:column headerValue="Year of Manufacture">
+                    <apex:column headerValue="{!$Label.Year_Manufacture}">
                         <apex:inputField value="{!item.Year_of_Manufacture__c}" />
                     </apex:column>
                     
-                    <apex:column headerValue="Mileage">
+                    <apex:column headerValue="{!$Label.Mileage}">
                         <apex:inputField value="{!item.Mileage__c}"/>
                     </apex:column>
-                    <apex:column headerValue="Trim">
+                    <apex:column headerValue="{!$Label.Trim}">
                         <apex:inputField value="{!item.Trim__c}"/>
                     </apex:column>
                     
                 </apex:pageBlockTable>       
             </apex:pageBlockSection>
             
-            <apex:pageBlockSection title="Current Vehicles" columns="1">
+            <apex:pageBlockSection title="{!$Label.CurrVehicle}" columns="1">
                 <apex:pageBlockTable id="pb4" value="{!currentVehicleList}"  var="item" title="Vehicle Information">
-                    <apex:column headerValue="Car Model">
+                    <apex:column headerValue="{!$Label.CarModel}">
                         <apex:outputLabel value="{!item.Vehicle_Model__c}" />
                     </apex:column>
-                    <apex:column headerValue="Brand">
+                    <apex:column headerValue="{!$Label.Brand}">
                         <apex:outputLabel value="{!item.Vehicle_Brand__c}" />
                     </apex:column>
-                    <apex:column headerValue="Class">
+                    <apex:column headerValue="{!$Label.Class}">
                         <apex:outputLabel value="{!item.Vehicle_Class__c}" />
                     </apex:column>
-                    <apex:column headerValue="Mileage Start">
+                    <apex:column headerValue="{!$Label.Mileage_Start}">
                         <apex:outputLabel value="{!item.Mileage_start__c}" />
                     </apex:column>
-                    <apex:column headerValue="Mileage">
+                    <apex:column headerValue="{!$Label.Mileage}">
                         <apex:outputLabel value="{!item.Mileage_End__c}" />
                     </apex:column>
                 </apex:pageBlockTable>       
@@ -168,8 +228,8 @@
             </apex:actionFunction>
             
             <apex:pageBlockButtons >
-                <apex:commandButton value=" Save " action="{!saveOpp}" reRender="errmsg,msg1"/>
-                <apex:commandButton value=" Cancel" action="{!Cancel}" />
+                <apex:commandButton value=" {!$Label.Save_Button} " action="{!saveOpp}" reRender="errmsg,msg1"/>
+                <apex:commandButton value=" {!$Label.Cancel}" action="{!Cancel}" />
             </apex:pageBlockButtons> 
     </apex:pageblock> 
     

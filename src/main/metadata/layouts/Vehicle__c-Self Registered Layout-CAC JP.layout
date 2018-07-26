@@ -62,6 +62,36 @@
                 <behavior>Readonly</behavior>
                 <field>Grey_Vehicle__c</field>
             </layoutItems>
+			<!-- SWT new fields -->
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>ColorCode__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Color2Code__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Color2CodeDescription__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>GrossVehicleWeight__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>InteriorCode__c</field>
+            </layoutItems>			
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>SpecificationNumber__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>OptionDescription__c</field>
+            </layoutItems>	
+          <!-- SWT new fields ENDS-->
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

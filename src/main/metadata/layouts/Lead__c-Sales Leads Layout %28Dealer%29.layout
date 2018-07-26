@@ -3,7 +3,7 @@
     <customButtons>Assign_to_Leads</customButtons>
     <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
-    <customButtons>Print_PDF</customButtons>
+    <customButtons>OPROARTS_LA_01_process_sheet</customButtons>
     <customButtons>Merge</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
@@ -74,9 +74,9 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Possibility_text__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>Expected_Close_Date__c</field>
+                <field>Lead_Possibility_List__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -139,11 +139,9 @@
                 <behavior>Edit</behavior>
                 <field>Next_Contact_Contents__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
+             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Expected_Close_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -228,14 +226,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Quotation_Model__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Order_Placed_Date__c</field>
-            </layoutItems>
+            </layoutItems>            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Order_Print_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_Placed_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -252,6 +250,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Handover_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Delivery_Followup_Date1__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Delivery_Followup_Date3__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -317,10 +323,13 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Invoice_Amount__c</field>
-            </layoutItems>
+            </layoutItems>           
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>Invoice_Amount_History__c</field>
+                <field>Delivery_Followup_Date2__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -331,6 +340,18 @@
         <editHeading>true</editHeading>
         <label>Cross-point information</label>
         <layoutColumns>
+		<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cross_point_month_and_year__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Proto_Market_Value_amount__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Evaluation_Result_P1_P2_Blank__c</field>
+            </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
@@ -348,6 +369,17 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+		<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Outstanding_Balance_amount__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Final_GAP_Amount__c</field>
+            </layoutItems>
+			<layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Cross_Point_Model__c</field>
@@ -565,6 +597,10 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Items__c</field>
             </layoutItems>
+				            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Wholesale_Comment__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
@@ -725,18 +761,29 @@
         <fields>Participate__c</fields>
         <relatedList>Campaign_Lead__c.Lead__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <excludeButtons>NewEvent</excludeButtons>
+   <relatedLists>
         <fields>TASK.SUBJECT</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>SentTime__c</fields>
+        <fields>Activity_Date__c</fields>
+        <fields>Intention_Status__c</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>TASK.CREATED_DATE</fields>
+        <fields>TASK.LAST_UPDATE_DATE_ONLY</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>LogCall</excludeButtons>
-        <excludeButtons>MailMerge</excludeButtons>
-        <excludeButtons>RequestUpdate</excludeButtons>
-        <excludeButtons>SendEmail</excludeButtons>
-        <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>SentTime__c</fields>
+        <fields>Activity_Date__c</fields>
+        <fields>Intention_Status__c</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>TASK.CREATED_DATE</fields>
+        <fields>TASK.LAST_UPDATE_DATE_ONLY</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
