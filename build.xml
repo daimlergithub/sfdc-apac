@@ -115,7 +115,7 @@
 				</deploy>
 			</target>
 			<target name="deploy02">
-				<deploy transformations="transformations29.xml" testLevel="${sfdc.testLevel}" runTest="${sfdc.runTests}">
+				<deploy transformations="transformations29.xml" testLevel="RunLocalTests" runTest="${sfdc.runTests}">
 				    <sf:typeset name="customPermissions" force="true"/>
 					<sf:typeset name="letterhead" force="true"/>					
 					<sf:typeset name="groups"/>
