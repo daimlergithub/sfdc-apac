@@ -6,9 +6,9 @@
   </taskdef>
   <!-- Add the target -->
   <target name="proxy">
-        <property name="sfdc.proxy.host" value="${sfdc.proxy.host}"/>
-        <property name="sfdc.proxy.port" value="${sfdc.proxy.port}"/>
-        <!--<setproxy proxyhost="53.90.36.56" proxyport="3128" /> -->
+        <property name="http.proxyHost" value="${http.proxyHost}"/>
+        <property name="http.proxyPort" value="${http.proxyPort}"/>
+        <setproxy proxyhost="${http.proxyHost}" proxyport="${http.proxyPort}" /> 
      </target>
   <target name="sonar" depends="proxy">
     
