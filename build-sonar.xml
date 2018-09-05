@@ -8,7 +8,7 @@
   <target name="proxy">
         <property name="http.proxyHost" value="${http.proxyHost}"/>
         <property name="http.proxyPort" value="${http.proxyPort}"/>
-        <!--<setproxy proxyhost="${http.proxyHost}" proxyport="${http.proxyPort}" /> -->
+        <setproxy proxyhost="${http.proxyHost}" proxyport="${http.proxyPort}" />
      </target>
   <target name="sonar" depends="proxy">
     
