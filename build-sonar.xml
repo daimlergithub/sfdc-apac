@@ -5,7 +5,13 @@
     <classpath path="sonar-ant-task-2.2.jar" />
   </taskdef>
   <!-- Add the target -->
-  <target name="sonar">
+  <target name="proxy">
+        <property name="sfdc.proxy.host" value="${sfdc.proxy.host}"/>
+        <property name="sfdc.proxy.port" value="${sfdc.proxy.port}"/>
+        <setproxy proxyhost="${sfdc.proxy.host}" proxyport="${sfdc.proxy.port}" />
+     </target>
+  <target name="sonar" depends="proxy">
+    
     <!-- to be set by Jenkins or manually -->
 	<!--
 	sonar.host.url
