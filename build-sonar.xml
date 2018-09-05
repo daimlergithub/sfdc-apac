@@ -8,7 +8,7 @@
   <target name="proxy">
         <property name="sfdc.proxy.host" value="${sfdc.proxy.host}"/>
         <property name="sfdc.proxy.port" value="${sfdc.proxy.port}"/>
-        <!--<setproxy proxyhost="${sfdc.proxy.host}" proxyport="${sfdc.proxy.port}" /> -->
+        <setproxy proxyhost="${bamboo.http.proxyHost}" proxyport="${bamboo.http.proxyPort}" /> 
      </target>
   <target name="sonar" depends="proxy">
     
