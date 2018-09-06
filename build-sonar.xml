@@ -6,8 +6,8 @@
   </taskdef>
   <!-- Add the target -->
   <target name="proxy">
-        <property name="https.proxyHost" value="${https.proxyHost}"/>
-        <property name="https.proxyPort" value="${https.proxyPort}"/>
+        <property name="https.proxyHost" value="53.90.36.56"/>
+        <property name="https.proxyPort" value="3128"/>
         <!--<setproxy proxyhost="${https.proxyHost}" proxyport="${https.proxyPort}" />-->
      </target>
   <target name="sonar" depends="proxy">
