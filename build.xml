@@ -17,7 +17,7 @@
 <presetdef name="loadData">
 			<sf:loadData
 				debug="${sfdc.debug}"
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}"
+				username="${sfdc.debug}" password="${sfdc.password}" serverurl="${sfdc.serverurl}"
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 				dataRoot="src/main/resources/data" logDir="logs"/>
 </presetdef>
