@@ -2,7 +2,7 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>Access Management</label>
-    <tab>Market__c</tab>
+    <tab>MD__c</tab>
     <tab>Functionality_Access_Master__c</tab>
     <tab>Persona__c</tab>
     <tab>ListOfFeatures</tab>
