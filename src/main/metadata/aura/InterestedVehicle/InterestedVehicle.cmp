@@ -1,0 +1,183 @@
+<!-- File Name   : IntrestedVehicle -->
+<!-- Description : IntrestedVehicle Lightning component for adding Interested Vehicles -->
+<!-- Copyright   : Daimler -->
+<!-- @author     : Infosys -->
+<!-- Author Modification & Ver.Date : Harshit & 31/08/2018 -->
+<aura:component controller="IntrestedVehicleLCController" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" access="global" >
+    <aura:attribute name="intVehiclesList" type="Lead_Details__c[]"/>
+    <aura:attribute name="intVehiclesListForCancel" type="Lead_Details__c[]"/>
+    <aura:attribute name="currentrecord" type="String"/>
+    <aura:attribute name="rowindex" type="Integer" />
+    <aura:attribute name="preferredrowindex" type="Integer" />
+    <aura:attribute name="editableMode" type="Boolean" default="false"/>
+    <aura:attribute name="recId" type="Id" default="{!v.recordId}"/>
+    <aura:attribute name="responsewrapper" type="object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="fieldList" type="string[]" default="Car_Model__c"/>
+    <aura:attribute name="isDuplicate" type="boolean" default="false"/>
+    <aura:attribute name="message" type="String" />
+    <!-- Model box Edit design-->
+    <aura:attribute name="tableAction" type="String"/>
+    <aura:attribute name="brand" type="String"/>
+    <aura:attribute name="tempValue" type="String"/>
+    <aura:attribute name="color" type="String" />
+    <aura:attribute name="class" type="String" />
+    <aura:attribute name="Preferred" type="boolean" />
+    <aura:attribute name="leadDetail" type="Lead_Details__c" />
+    <aura:attribute name="carmodellist" type="Lead_Details__c[]" />
+     <aura:attribute name="Index" type="Integer" />
+    <aura:attribute name="OppId" type="Id"/>
+	<!-- EVENT -->
+    <aura:handler event="c:SaveVehiclePicker" action="{!c.getId}"/>
+     <!--Design attributes-->
+    <aura:attribute name="displayType" type="String" default="Card" access="global"/>
+    
+    <center>
+        <lightning:notificationsLibrary aura:id="notifLib" />
+    </center>
+    <div class="slds-card__body">
+        <!-- Section for Interested Vehicle Information starts -->
+        <lightning:card variant="Narrow" title="Interested Vehicle Information" iconName="standard:record" >
+            <aura:set attribute="actions">
+                <lightning:buttonIcon  variant="border-filled" alternativeText="Add Interested Vehicle" iconName="utility:add" onclick="{!c.addIntVehicleRow}" /> 
+               <!-- <lightning:buttonIcon  variant="border-filled" alternativeText="Edit Interested Vehicle" iconName="utility:edit" onclick="{!c.enableDisableEditableMode}" /> -->
+            </aura:set>
+            
+            <aura:if isTrue="{!v.isOpen}">            
+                <!--###### MODAL BOX Start######--> 
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <!-- ###### MODAL BOX HEADER Start ######-->
+                        <header class="slds-modal__header">
+                             <lightning:buttonIcon iconName="utility:close"
+                                                  onclick="{! c.closeModel }"
+                                                  alternativeText="close"
+                                                  variant="bare-inverse"
+                                                  class="slds-modal__close"/>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Interested Vehicle</h2>
+                        </header>
+                        <!--###### MODAL BOX BODY Part Start######-->
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                             <aura:if isTrue="{! v.isDuplicate}">
+                              <center><div class="slds-text-body_small slds-text-color_error">{!v.message} </div> </center>   
+                             </aura:if>
+							<lightning:layout multipleRows="true" horizontalAlign="space" >
+                               <lightning:layoutItem padding="around-small">
+                               <div class="header-column">    
+                               <p class="field-title" title="Field 1">Preferred</p>
+                               <p><ui:inputRadio aura:id="r0" label="{!i}" name="others" labelClass="uiLabel-right uiLabel slds-hide" value="{!v.Preferred}" change="{!c.radioSelectedAdd}"/></p>	
+                               </div>
+                               </lightning:layoutItem>     
+                               
+                               <lightning:layoutItem padding="around-small">
+                               <div class="header-column">    
+                               <p class="field-title" title="Field 2">Car Model</p></div>
+                               <p>     
+                                                                                     <c:strike_lookup object="Car_Model__c" 
+                                                                                     aura:id="prodlookup11" 
+                                                                                     searchField="Name" 
+                                                                                     placeholder="Select an option" 
+                                                                                     iconName="custom:custom31" 
+                                                                                     order="Name" limit="5" 
+                                                                                     value="{!v.tempValue}" 
+                                                                                     loadingMessage="Loading..." 
+                                                                                     errorMessage="Invalid input" 
+                                                                                     rowindex="{!i}" 
+                                                                                     selectedId="{!v.leadDetail.Car_Model__c}"
+                                                                                     SelectedLabel="{!v.leadDetail.Car_Model__c}" 
+                                                                                     onchange="{!c.carModelChangeSC}" 
+                                                                                     filter="Status__c='Own Sellable'"/></p></lightning:layoutItem>
+                                
+                               <lightning:layoutItem padding="around-small">
+                               <div class="header-column">    
+                                   <p class="field-title" title="Field 3">Class</p><p>{!v.class}</p>	
+                               </div>
+                               </lightning:layoutItem>
+                               <lightning:layoutItem padding="around-small">
+                               <div class="header-column">    
+                               <p class="field-title" title="Field 4">Brand</p><p>{!v.brand}</p>	
+                               </div>
+                               </lightning:layoutItem>
+                               <lightning:layoutItem padding="around-small">
+                               <div class="header-column">    
+                               <p class="field-title" title="Field 5">Color</p><p>{!v.color}</p>	
+                               </div>
+                               </lightning:layoutItem> 
+                               </lightning:layout> 
+                                <lightning:layout horizontalAlign="center" class="slds-m-top_large">
+                                    <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.cancel}" />
+                                    <lightning:button variant="brand" label="Submit" title="Submit" type="submit" disabled="{! v.isDuplicate}" onclick="{!c.commitIntrestedVehicles}"/>
+                                </lightning:layout>
+                        </div>
+                        <!--###### MODAL BOX FOOTER Part Start ######-->
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+                <!--###### MODAL BOX Part END Here ######-->            
+            </aura:if>            
+             <lightning:overlayLibrary aura:id="overlayLib"/>
+            <aura:if isTrue="{!v.displayType=='Table'}"> 
+            <lightning:datatable data="{! v.intVehiclesList }"
+                                 columns="{! v.mycolumns }"
+                                 keyField="Id"  
+                                 hideCheckboxColumn="true"    
+                                 showRowNumberColumn="false"
+                                 onsave="{! c.commitTradeInVehicles }"
+                                 onrowaction="{! c.handleRowAction}"/>
+            </aura:if>   
+            
+            <!-- card layout below -->
+			<div class="slds-scrollable" style="height: 200px; width: 380px;">
+            <aura:if isTrue="{!not(v.displayType == 'Table')}"> 
+             <aura:iteration items="{!v.intVehiclesList}" var="item" indexVar="row">  
+                <ul class="slds-has-dividers_around-space">
+                    <li class="slds-item">
+                         <lightning:tile>    
+                         <div class="slds-col slds-float_right" style="text-align: right;">
+                         <lightning:buttonIcon iconName="utility:edit" class="slds-col--bump-left" variant="bare" alternativeText="{!row}" title="Edit Record" onclick="{!c.editRecord}" aura:id="EditCard"/>
+                             
+                         </div>   
+                            <dl class="slds-dl_horizontal">
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Vehicle Model">Preferred:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Vehicle Model">{!item.Preferred__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Vehicle Brand">Car Model:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Vehicle Brand">{!item.RModel}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Vehicle Class">Brand:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Vehicle Class">{!item.Brand__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Mileage Start">Class:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Mileage Start">{!item.Class__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Mileage Start">Color:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Mileage Start">{!item.Color__c}</p>
+                                </dd>                                
+                            </dl>
+                        </lightning:tile>
+                    </li>
+                </ul>
+            </aura:iteration>
+         </aura:if> 
+		 </div>
+        </lightning:card>
+    </div>
+
+</aura:component>

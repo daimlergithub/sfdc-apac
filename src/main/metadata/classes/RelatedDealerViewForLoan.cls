@@ -253,7 +253,7 @@ public class RelatedDealerViewForLoan
                     {
                         G2birthdate=DealerLoan.Guarantor2_BirthDate__c.format();
                     }
-                    if(DealerLoan.Guarantor2_BirthDate__c != null)
+                    if(DealerLoan.Guarantor3_BirthDate__c != null)
                     {
                         G3birthdate=DealerLoan.Guarantor3_BirthDate__c.format();
                     }

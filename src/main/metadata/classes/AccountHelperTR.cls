@@ -3,13 +3,16 @@
 * Author: Hildaa
 * Created Date : 2018-02-28
 
-
 */
 
 public class AccountHelperTR{
     
     static Profile ProfileMarketing = [SELECT Id, Name FROM Profile WHERE Id=:userinfo.getProfileId() LIMIT 1];
     public static String MyProfileName = ProfileMarketing.Name;
+    public  static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+    public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+    public  static Id Account_PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id Account_CompanyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert){
         AccountHelperBase.updateAccountFieldsBeforeInsert(listNewAccounts,isInsert);
         AccountHelperBase.updateMarketingFields(listNewAccounts);
@@ -32,7 +35,45 @@ public class AccountHelperTR{
     }
     
     public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate,map<id,Account> accountOldMap){
-        AccountHelperBase.updatePrimaryAddressdisplay(listNewAccounts,isUpdate,accountOldMap);
+        Map<String,string> countryMap = new map<string,string>();
+         Map<Id,Address__c> addr;
+         for(CountryTranslation__mdt cmdt: [select id, Country__c,Country_Translation__c,Market__c from CountryTranslation__mdt where Market__c=:Label.TR])
+         {
+             countryMap.put(cmdt.Country__c,cmdt.Country_Translation__c);
+         }
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
+            string regexForNullValue ='null';
+            string nullValue ='';
+            set<id> addressid = new set<id>();                  
+            String province;
+            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+            For(Account a:listNewAccounts){    
+                Account OldAcc = accountOldMap.get(a.id);
+               if(string.isnotblank(a.Primary_Address_Reference__c) && (a.Primary_Address_Reference__c!=OldAcc.Primary_Address_Reference__c)) addressid.add(a.Primary_Address_Reference__c);
+            }
+            
+            If(addressid.size()>0){   
+                addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Address_Line_3__c,Sub_District__c,ZipCode__c,Country__c from Address__c where id In : addressid]);            
+            }
+            For(Account acc:listNewAccounts){      //MT20170913- Added market Descrminator MY
+                If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null){              
+                    Address__c add = addr.get(acc.Primary_Address_Reference__c);
+                    if(addtrmap1.containsKey(add.Province__c)){
+                        province = addtrmap1.get(add.Province__c);
+                    }
+                    //Added for TR Market May 9 2018
+                    if(add.Country__c != null && countryMap != null && countryMap.containskey(add.Country__c))
+                        acc.Primary_Address_Display__c = add.Address_Line_1__c + ' ' + add.Address_Line_2__c+' '+add.City__c+' '+add.Province__c + ' ' +add.District__c+' '+add.Zipcode__c+' '+countryMap.get(add.Country__c);  
+                    else
+                        acc.Primary_Address_Display__c = add.Address_Line_1__c + ' ' + add.Address_Line_2__c+' '+add.City__c+' '+add.Province__c + ' ' +add.District__c+' '+add.Zipcode__c+' ' +add.Country__c;  
+                   
+                    acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);                        
+                }
+                else if(acc.Primary_Address_Reference__c ==Null){
+                    acc.Primary_Address_Display__c ='';
+                }
+            }     
+        }    
     } 
     
     public static void updateOnDoNotCall(list<Account> listNewAccounts){
@@ -80,7 +121,7 @@ public class AccountHelperTR{
             {   
                 ac.addError(Label.Invalid_City_Code);
             }*/
-            else if(!string.isblank(ac.Work_Phone__c) && ac.Work_Phone__c.startswith(Label.TRPhoneCountryCode) && !codes.contains(ac.Work_Phone__c.substring(3,6)))
+            else if(!string.isblank(ac.Work_Phone__c) && ac.Work_Phone__c.startswith(Label.TRPhoneCountryCode) && !codes.contains(ac.Work_Phone__c.substring(3,6)) && ac.Work_Phone__c.substring(3,4) != '5')
             {   
                 ac.addError(Label.Invalid_City_Code);
             }
@@ -140,32 +181,138 @@ public class AccountHelperTR{
     }
     }
     //Hildaa: Throw error message for DoC permissions MT 41 / 43
-    public static void errorOnDOCPermissions(list<Account> listNewAccounts){
+    public static void errorOnDOCPermissions(list<Account> listNewAccounts,boolean isUpdate){
     String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+    Boolean EmailOptIn = false, PostalOptIn = false, MobileOptIn = false, SMSOptIn = false;
+    set<id> accId = new set<Id>();
+    if(isUpdate){
+        for(Account a : listNewAccounts){
+            accId.add(a.Id);
+        }
+    }
+    system.debug('acc ids '+ accId);
+    if(!isUpdate || (isUpdate && userInfo.getUserType() != 'PowerPartner')){
+        for(Account_link__c  Acclink : [select id,torole__c,Retail_Email_OptIn__c,Market__c,Retail_Phone_OptIn__c,Retail_Postal_OptIn__c,Retail_SMS_OptIn__c,fromRole__r.Dealer_GC_Code__c,fromRole__r.Market__c,Retail_Delete_Flag__c,fromRole__r.Dealer_nd_Code__c,fromRole__r.MD__c from Account_link__c  where toRole__c!=null and Market__c='TR' and torole__r.Id IN :accId AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId) limit 10000])
+          {
+            if(!EmailOptIn && Acclink.Retail_Email_OptIn__c)
+                EmailOptIn = true;
+            if(!PostalOptIn && Acclink.Retail_Postal_OptIn__c)
+                PostalOptIn = true;
+            if(!MobileOptIn && Acclink.Retail_Phone_OptIn__c)
+                MobileOptIn = true;
+            if(!SMSOptIn && Acclink.Retail_SMS_OptIn__c)
+                SMSOptIn = true;
+          }
         for(Account acc: listNewAccounts){
           if(acc.recordtypeId == PersonAccountRecordTypeID ){
-            if(!string.isBlank(acc.Email__c) && acc.personal_agreement__c != 'Yes' && !acc.Opt_In_Email__c && MyProfileName != 'Marketing Administrator')
+            if(!string.isBlank(acc.Email__c) && acc.personal_agreement__c != 'Yes' && !acc.Opt_In_Email__c && !EmailOptIn && MyProfileName != 'Marketing Administrator')
                 acc.addError(Label.TRSMS);
-            else if((!string.isBlank(acc.Mobile__c) || !string.isBlank(acc.Individual_Home_Phone__c) || !string.isBlank(acc.Work_Phone__c)) && acc.personal_agreement__c != 'Yes' && (!acc.Opt_In_Mobile__c && !acc.Opt_In_SMS__c))
+            else if((!string.isBlank(acc.Mobile__c) || !string.isBlank(acc.Individual_Home_Phone__c) || !string.isBlank(acc.Work_Phone__c)) && acc.personal_agreement__c != 'Yes' && (!acc.Opt_In_Mobile__c && !acc.Opt_In_SMS__c && !MobileOptIn && !SMSOptIn))
                 acc.addError(Label.TRPhone);
-            else if (string.isBlank(acc.Mobile__c) && string.isBlank(acc.Email__c))
+            else if (!acc.Opt_In_Email__c && !acc.Opt_In_Mobile__c && !acc.opt_in_sms__c && !acc.Postal_Opt_In__c && !EmailOptIn && !PostalOptIn && !MobileOptIn && !SMSOptIn && acc.personal_agreement__c != 'Yes')
                 acc.addError(Label.Email_Mobile_Mandatory);
             }
         }
+      }
+      else if(userInfo.getUserType() == 'PowerPartner' && isUpdate) {
+          User usr=[select id,Name,ContactId,contact.AccountId,Profile.UserLicense.Name,Contact.Account.Dealer_ND_Code__c,contact.Account.Dealer_Rollout_Status__c,Market__c from user where Id =: UserInfo.getUserId()];
+          Map<Id,Account_link__c> accLinkMap = new map<Id,Account_link__c>();
+          for(Account_link__c  Acclink : [select id,torole__c,Retail_Email_OptIn__c,Market__c,Retail_Phone_OptIn__c,Retail_Postal_OptIn__c,Retail_SMS_OptIn__c,fromRole__r.Dealer_GC_Code__c,fromRole__r.Market__c,Retail_Delete_Flag__c,fromRole__r.Dealer_nd_Code__c,fromRole__r.MD__c from Account_link__c  where fromRole__c!=null and fromrole__c = :usr.contact.AccountId AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)])
+          {
+            accLinkMap.put(AccLink.torole__c,AccLink);  
+          }
+          for(Account acc: listNewAccounts){
+          if(acc.recordtypeId == PersonAccountRecordTypeID ){
+            if(!string.isBlank(acc.Email__c) && acc.personal_agreement__c != 'Yes' && !acc.Opt_In_Email__c && accLinkMap != null && accLinkMap.containskey(acc.Id) && !accLinkMap.get(acc.Id).Retail_Email_OptIn__c)
+                acc.addError(Label.TRSMS);
+            else if((!string.isBlank(acc.Mobile__c) || !string.isBlank(acc.Individual_Home_Phone__c) || !string.isBlank(acc.Work_Phone__c)) && acc.personal_agreement__c != 'Yes' && (!acc.Opt_In_Mobile__c && !acc.Opt_In_SMS__c && accLinkMap != null && accLinkMap.containskey(acc.Id) && !accLinkMap.get(acc.Id).Retail_Phone_OptIn__c && !accLinkMap.get(acc.Id).Retail_SMS_OptIn__c))
+                acc.addError(Label.TRPhone);
+            else if (!acc.Opt_In_Email__c && !acc.Opt_In_Mobile__c && !acc.opt_in_sms__c && !acc.Postal_Opt_In__c && acc.personal_agreement__c != 'Yes' && accLinkMap != null && accLinkMap.containskey(acc.Id) && !accLinkMap.get(acc.Id).Retail_Phone_OptIn__c && !accLinkMap.get(acc.Id).Retail_SMS_OptIn__c && !accLinkMap.get(acc.Id).Retail_Email_OptIn__c && !accLinkMap.get(acc.Id).Retail_Postal_OptIn__c)
+                acc.addError(Label.Email_Mobile_Mandatory);
+            }
+        }
+       
+      }
     }
     public static void updateAgeRange(list<Account> listNewAccounts){
-        AccountHelperBase.updateAgeRange(listNewAccounts);
-        for(account acc : listNewAccounts ){
+        updateAgeRangeAllAccounts(listNewAccounts);
+        /*for(account acc : listNewAccounts ){
             if(string.isnotblank(acc.Age_Range__c)?acc.Age_Range__c=='Unknown':False)
-                acc.Age_Range__c = '0-17';
+                acc.Age_Range__c = '0-16';
             
+        }*/
+    }
+     public static void updateAgeRangeAllAccounts(list<Account> listNewAccounts){
+        for(Account acc:  listNewAccounts){
+            if(acc.PersonBirthdate != NULL){
+                Integer ageInt = (Integer.valueOf(System.today().year())-Integer.valueof(acc.PersonBirthdate.year()) );
+                acc.Age_Range__c = calculateAgeRange(ageInt); 
+            }
+        }
+    }
+
+    public static String calculateAgeRange(Integer ageInt){
+        if(16 <= ageInt && ageInt <= 25){
+            return '16-25';   
+        }
+        else if(26 <= ageInt && ageInt <= 35){
+            return '26-35';
+        }else if( 36 <= ageInt && ageInt <= 45){
+            return '36-45';
+        }else if( 46 <= ageInt && ageInt <= 55){
+            return '46-55';
+        }else if(56 <= ageInt && ageInt <= 65){
+            return '56-65';
+        }else if( 65 < ageInt){
+            return '65+';
+        }else {
+            return 'Unknown';
         }
     }
     
     
-    
     public static void createUCID(list<Account> TriggerNew,boolean isInsert){
-        AccountHelperBase.createUCID(TriggerNew,isInsert);    
+        try{
+            CustomLogUtil.CustomLoggingEntry(' Account Helper Class createUCID method '+'TriggerNew= ' + TriggerNew.size());
+            boolean accountflag;
+            string ucidsequence;            
+            integer checksum=0;
+            integer i;
+            String checksumSet = Label.checkSum;
+            integer mod = Math.mod(checksum, checksumSet.length());
+            list<Account> accountlist = new list<Account>();
+            list<Account> acclist = new list<Account>();
+            list<Account_Link__c> acclinklist = new list<Account_Link__c>();
+            set<id> AccIds = new set<id>();
+            Id accountinkIndividualCustomerExternalLinkId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Individual Customer External Link');
+            Id accountinkCompanyCustomerExternalLinkId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Company Customer External Link');
+            for(Account acc : TriggerNew){
+                 AccIds.add(acc.id);
+                 accountlist.add(acc);
+            }    
+            if(!AccIds.isEmpty() && AccIds != Null){
+              
+                    for(Account acc : accountlist){
+                        Account account = acc;
+                        Account_Link__c acclink = new Account_Link__c();
+                        acclink.Primary__c = true;
+                        acclink.Origin__c = account.Name;
+                        acclink.toRole__c = account.Id;
+                        acclink.System__c = 'UCID';
+                        if(acc.recordtypeId == Account_PersonRecordTypeId)
+                            acclink.RecordTypeId = accountinkIndividualCustomerExternalLinkId ;
+                        else if(acc.recordtypeId == Account_CompanyRecordTypeId)
+                            acclink.RecordTypeId = accountinkCompanyCustomerExternalLinkId ;
+                        acclink.Name = account.UCID__c;                        
+                        acclinklist.add(acclink);
+                    }
+                    DMLManagerService.InsertAsSystem(acclinklist);
+                }
+            }
+        catch(DMLException ex){
+            CustomLogUtil.DebugException(ex);
+        }
+        CustomLogUtil.DebugLogInsert();  
     }
     
     public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list <account> accountlist){
@@ -276,6 +423,27 @@ public class AccountHelperTR{
             DMLManagerService.updateAsSystem(accountlist);
         }*/
         return flag;
+    }
+    
+    public static void updateUcidRetailCopy(List<Account> accs)
+    {
+        Map<id,String> accId = new Map<Id,String>();
+        list<Account_link__c> accLinktoUpdate = new list<Account_Link__c>();
+        for(account ac :accs)
+        {
+            if(ac.UCID__c != null && ac.UCID__c != '')
+                accId.put(ac.Id,ac.UCID__c);
+        }
+        for(Account_link__c aclink : [select id,torole__c,retail_ucid__c from account_link__c where torole__c in :accId.keyset() and createdby.Alias =: Label.FormAssembly])
+        {
+            if(aclink.retail_ucid__c == null && accId.get(aclink.torole__c) != null){
+                aclink.retail_ucid__c = accId.get(aclink.torole__c);
+                accLinktoUpdate.add(aclink);
+            }
+        }
+        system.debug('to update ----> '+accLinktoUpdate);
+        if(!accLinktoUpdate.isEmpty())
+            update accLinktoUpdate;
     }
     
     //VAT No Validation for Turkey Market

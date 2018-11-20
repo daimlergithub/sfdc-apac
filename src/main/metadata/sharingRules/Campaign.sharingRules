@@ -170,6 +170,19 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>Campaign_Permission_TR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Campaign Permission TR</label>
+        <sharedTo>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>Campaign_Share_with_Data_Service_Specialist</fullName>
         <accessLevel>Edit</accessLevel>
         <label>Campaign Share with Data Service Specialist</label>
@@ -198,6 +211,48 @@
             <field>Status</field>
             <operation>equals</operation>
             <value>Closed,Approved,Started</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>IN_Campaign_Share_to_India_Mgmt</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Created by IN market, this sharing rule will ensure all wholesale members can see the campaign. To provide write access, campaign owner will have to use the Sharing button.</description>
+        <label>IN Campaign Share to India Mgmt</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>IN_Campaign_Share_to_MBIndiaFS_Management</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Created by IN market, this sharing rule will ensure all wholesale members can see the campaign. To provide write access, campaign owner will have to use the Sharing button.</description>
+        <label>IN Campaign Share to MBIndiaFS Management</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>IN_Campaign_Share_to_MPC_and_FS_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Created by IN market, this sharing rule will ensure all wholesale &amp; FS members can see the campaign. To provide write access, campaign owner will have to use the Sharing button.</description>
+        <label>IN Campaign Share to MPC and FS Users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -347,19 +402,6 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>Share_Campaign_With_Roles_and_Subordinates</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Share Campaign With Roles and Subordinates</label>
-        <sharedTo>
-            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
         <fullName>Share_Campaign_With_Roles_and_Subordinates_KR_v1</fullName>
         <accessLevel>Edit</accessLevel>
         <label>Share Campaign With Roles and Subordinates KR v1</label>
@@ -370,6 +412,19 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_MY_MBFS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Campaign With Roles and Subordinates MBFS of MY</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -578,7 +633,134 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>User_Type__c</field>
+            <operation>equals</operation>
+            <value>TH-MPC</value>
+        </criteriaItems>
     </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Thailand_campaign_sharing_FS</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>This sharing rule will used for sharing the FS campaign records to FS users only.</description>
+        <label>Thailand campaign sharing FS</label>
+        <sharedTo>
+            <role>MBLT</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User_Type__c</field>
+            <operation>equals</operation>
+            <value>TH-FS</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+<fullName>Share_Campaign_With_Roles_and_Subordinates_AR_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>sharing rule for Argentina</description>
+        <label>Share Campaign With Roles and Subordinates AR FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>AR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBAR</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_CO_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Campaign With Roles and Subordinates CO FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CO_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBCO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_EG_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>sharing rule for Egypt</description>
+        <label>Share Campaign With Roles and Subordinates EG FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>EG_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBEG</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_HU_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Campaign With Roles and Subordinates HU FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>HU_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBHU</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_ID_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Campaign With Roles and Subordinates ID FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>ID_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBID</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_RO_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>sharing rule for Romania</description>
+        <label>Share Campaign With Roles and Subordinates RO FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>RO_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBRO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_SG_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing rule for Singapore</description>
+        <label>Share Campaign With Roles and Subordinates SG FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>SG_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBSG</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_SK_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Campaign With Roles and Subordinates SK FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>SK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBSK</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_VN_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Campaign With Roles and Subordinates VN FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>VN_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBVN</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
     <sharingOwnerRules>
         <fullName>Share_Campaign_to_AS_Region</fullName>
         <accessLevel>Edit</accessLevel>

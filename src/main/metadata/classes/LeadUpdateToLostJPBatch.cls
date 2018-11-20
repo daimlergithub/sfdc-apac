@@ -22,10 +22,16 @@ global void execute(Database.BatchableContext BC, List<sObject> scope){
        leadLIst = (List<Lead__c>)scope;
     	system.debug('leadLIst.size()'+leadLIst.size());
        for(Lead__c lead :leadLIst){
+	        if(lead.Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' && lead.Dealer_Lead_Status__c != 'Lost'){
                lead.Dealer_Lead_Status__c='Lost';
                     lead.Dealer_Lost_Reason__c='Other reasons';
                     lead.Lost_Situation__c='Others';
+					lead.Lost_Comment__c ='YA自動失注処理';
+				    lead.Automatic_Lost_date__c = System.today();
+					lead.YA_Lead_Lost_Date__c =System.today();
+					lead.Auto_lost_trigger__c='Yanase';
                   leadLIstTemp.add(lead); 
+				  }
        }
        if(leadLIstTemp.size() >0)
        {

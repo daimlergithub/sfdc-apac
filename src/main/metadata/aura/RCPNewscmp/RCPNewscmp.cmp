@@ -1,0 +1,187 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created Date:24-Aug-2018
+* Modified Date : 17-Oct-2018
+* Company:Infosys Ltd
+* Description: Component to create News .			   
+* **********************************************************************************-->
+
+<aura:component implements="lightning:actionOverride,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="newsController" >    
+   
+    <aura:attribute name="recId" type="String"/>
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="isForm" type="boolean" default="true"/>
+    <aura:attribute name="isFile" type="boolean" default="false"/>
+    <aura:attribute name="isSave" type="boolean" default="false"/>
+    <aura:attribute name="message" type="String" />
+    <aura:attribute name="spinner" type="Boolean" default="true" />
+    <aura:attribute name="flag" type="boolean" default="false"/>
+    <aura:attribute name="cancelFileBtn" type="boolean" default="false"/>
+    <aura:attribute name="docField" type="boolean" default="false"/>
+    <aura:attribute name="files" type="ContentDocument[]"/>
+    <aura:if isTrue="{!v.spinner}">
+        <div class="backgroundInverse">
+            <lightning:spinner alternativeText="Loading" variant="brand" />
+        </div>
+    </aura:if> 
+    
+    <aura:if isTrue="{!!empty(v.message)}">
+        <ui:message title="Error!" severity="error" closable="true">
+            {!v.message}
+        </ui:message>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.isForm}">
+        <article class="slds-card">
+            <div class="slds-card__body slds-card__body_inner">
+                <lightning:recordEditForm aura:id="newsForm" recordId="{!v.recordId}" objectApiName="News__c" onload="{!c.handleloader}" onsuccess="{!c.handleSuccess}" onerror="{!c.handleError}">
+                   <!-- <lightning:messages/> -->
+                    <div class="slds-align_absolute-center">
+                        <lightning:card title="New News">                        
+                        </lightning:card>                    
+                    </div>
+                    <center>
+                        <lightning:notificationsLibrary aura:id="notifLib" />
+						<lightning:button variant="brand" aura:id="savebutton" label="Save" title="Submit" type="button" onclick="{!c.handleSave}" disabled="{!v.flag}"/>
+                        <lightning:button variant="brand" aura:id="saveandnextbutton" type="button" name="Save and Next" label="Save and Next" onclick="{!c.handleSave}" disabled="{!v.flag}"/>
+                        <lightning:button variant="brand" aura:id="cancelbutton" name="Cancel" label="Cancel" onclick="{!c.handleCancel}"/>
+                    </center><br/>
+                    <div class="slds-section-title--divider">
+                        <strong>Header</strong>
+                    </div>
+                    <fieldset class="slds-form--compound">
+                        <div class="slds-show slds-form-element_group">
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:inputField fieldName="Document_Status__c"  /> 
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--2-of-3">
+                                    <lightning:inputField fieldName="Title__c" aura:id="title" aura:label ="*Title"/>
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:inputField fieldName="Start_Date__c"  aura:id="startDate"/> 
+                                </div>
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:inputField fieldName="Expiration_Date__c" aura:id="endDate"/> 
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:inputField fieldName="Share_With_Groups__c" aura:id="shareWithGrps"/> 
+                                </div>
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:inputField fieldName="Category_Type__c" />
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:inputField fieldName="Save_As_Draft__c" aura:id="draft"/>
+                                </div>
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:outputField fieldName="Owner_Name__c" />
+                                </div>
+                                <div class="slds-hide  slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:inputField fieldName="DocStatus_FileUpload__c" aura:id="DocStatus_FileUpload__c" value="{!v.docField}" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="slds-section-title--divider">
+                        <strong>Content</strong>
+                    </div>
+                    <fieldset class="slds-form--compound">
+                        <div class="slds-show slds-form-element_group">
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--2-of-3">
+                                    <lightning:inputField fieldName="Description__c" aura:id="content" /> 
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--2-of-3">
+                                    <lightning:inputField fieldName="Remarks__c" /> 
+                                </div>                       
+                            </div>  
+                        </div>
+                    </fieldset>
+                    <div class="slds-section-title--divider">
+                        <strong>Approval Information</strong>
+                    </div>
+                    <fieldset class="slds-form--compound">
+                        <div class="slds-show slds-form-element_group">
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--2-of-3">
+                                    <lightning:inputField fieldName="Need_Approval__c" /> 
+                                </div>
+                            </div>
+                            <!-- Approval information alignment in News  -->
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:inputField fieldName="WorkFlow_Group__c" />
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row">
+                                <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-3">
+                                    <lightning:inputField fieldName="Approver_List__c" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset><br/>
+                    <center>
+						<lightning:button variant="brand" aura:id="savebutton" label="Save" title="Submit" type="button" onclick="{!c.handleSave}" disabled="{!v.flag}"/>
+                        <lightning:button variant="brand" aura:id="saveandnextbutton" type="button" name="Save and Next" label="Save and Next" onclick="{!c.handleSave}" disabled="{!v.flag}"/>
+                        <lightning:button variant="brand" aura:id="cancelbutton" name="Cancel" label="Cancel" onclick="{!c.handleCancel}"/>
+                    </center>
+                </lightning:recordEditForm>                       
+            </div>
+        </article>   
+    </aura:if>    
+    <aura:if isTrue="{!v.isFile}">
+        <lightning:card title="File Upload">  
+            <div class="slds-m-left--xx-large">
+                <lightning:fileUpload   label="Attach Files" multiple="true" recordId="{!v.recId}" onuploadfinished="{!c.handleUploadFinished}"  />
+                <aura:if isTrue="{!v.files.length > 0 }">
+                    <table class="slds-table slds-table_bordered slds-table--header-fixed">  
+                        <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Title">Title</div>                    
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Action">Action</div>                    
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>                    
+                            <aura:iteration items="{!v.files}" var="event">
+                                <tr>
+                                    <td >
+                                        <div class="slds-truncate" title="{!event.Title}">
+                                            <a class="outputLookupLink slds-truncate forceOutputLookup" target="_blank" href="{!'/'+ event.Id}" >
+                                                {!event.Title}
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="slds-truncate" title="{!event.Title}">
+                                            <button type="button" class="slds-button" id="{!event.Id}" label="Delete" title="Delete" onclick="{! c.deleteFile }">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                    </table>  
+                </aura:if>
+            </div>
+            <br/>
+            <center>
+                <lightning:button variant="brand" label="Save" onclick="{!c.DoneAction}" aura:id="donebutton" /> 
+                <lightning:button variant="brand" name="CancelFile" label="Save without File Upload" onclick="{!c.handleCancelFile}" aura:id="cancelFileButton" disabled = "{!v.cancelFileBtn}"/>
+            </center>   
+        </lightning:card> 
+    </aura:if>    
+    <!-- <c:relatedFilesCMP newsId="{!v.recordId}"/>-->   
+</aura:component>

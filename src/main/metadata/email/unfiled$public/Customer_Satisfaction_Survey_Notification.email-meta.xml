@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Test Drive - Customer Satisfaction Survey</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Daimler</letterhead>
+    <name>Customer Satisfaction Survey Notification</name>
+    <style>formalLetter</style>
+    <subject>Test Drive - Customer Satisfaction Survey</subject>
+    <textOnly>Thank you for completing test drive. Please share your valuable feedback through link shared in email
+
+&lt;a href=&quot;https://dsea.tfaforms.net/143?acctid={!Account.Id}&quot;&gt;Click Me&lt;/a&gt;</textOnly>
+    <type>html</type>
+</EmailTemplate>

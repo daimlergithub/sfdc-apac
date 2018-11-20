@@ -15,14 +15,17 @@ public class usernotificationsetting{
     public List<String> selectedUserIds { get; set; }
     public List<String> selectedUserIds2 { get; set; }
     public List<String> selectedUserIds3 { get; set; }
+    public List<String> selectedUserIds4 { get; set; }
     
     public List<String> removedUserIds { get; set; }
     public List<String> removedUserIds2 { get; set; }
     public List<String> removedUserIds3 { get; set; }
+     public List<String> removedUserIds4 { get; set; }
         
     private Map<Id, String> availableUsersMap;
     private Map<Id, String> availableUsersMap2;
     private Map<Id, String> availableUsersMap3;
+    private Map<Id, String> availableUsersMap4;
     
     //To populate already selected user in selected list
     private Map<Id, String> alreadySelectedUsersMap;
@@ -30,6 +33,7 @@ public class usernotificationsetting{
     private Map<Id, String> selectedUsersMap;
     private Map<Id, String> selectedUsersMap2;
     private Map<Id, String> selectedUsersMap3;
+    private Map<Id, String> selectedUsersMap4;
 
     private List<SelectOption> selectedUsers{set;get;}
 
@@ -37,12 +41,13 @@ public class usernotificationsetting{
     private Set<String> NotificationLeadDealerAssignmentSet ;
     private Set<String> NotificationLeadNotAssignedSet ;
     private Set<String> NotificationLeadNoUpdateSet ;
+     private Set<String> NotificationCampaignUpdateSet ;
     
     public usernotificationsetting(ApexPages.StandardController controller) {
         initializeCollections();
         uid = apexpages.currentpage().getparameters().get('id');
         dealeracctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        usertoUpdate=[select id,name,Dealer_GC_Code__c ,contactid,Notification_Lead_Dealer_Assignment__c,Notification_Lead_Not_Assigned__c,Notification_Lead_No_Update__c from user where id=:uid]; 
+        usertoUpdate=[select id,name,Dealer_GC_Code__c ,Notification_Campaign__c,contactid,Notification_Lead_Dealer_Assignment__c,Notification_Lead_Not_Assigned__c,Notification_Lead_No_Update__c from user where id=:uid]; 
         strname=usertoupdate.Dealer_GC_Code__c;
         if(usertoUpdate.Notification_Lead_Dealer_Assignment__c != NULL && !String.isBlank(usertoUpdate.Notification_Lead_Dealer_Assignment__c))
         for(String s : usertoUpdate.Notification_Lead_Dealer_Assignment__c.split(';')){
@@ -56,27 +61,41 @@ public class usernotificationsetting{
         for(String s : usertoUpdate.Notification_Lead_No_Update__c.split(';')){
             NotificationLeadNoUpdateSet.add(s);
         }
+         if(usertoUpdate.Notification_Campaign__c!= NULL && !String.isBlank(usertoUpdate.Notification_Campaign__c))
+        for(String s : usertoUpdate.Notification_Campaign__c.split(';')){
+            NotificationCampaignUpdateSet.add(s);
+        }
         getUsers();
     }
     
     private void initializeCollections() {
         selectedUserIds = new List<String>();
         selectedUserIds2 = new List<String>();
-        selectedUserIds3 = new List<String>();
+        selectedUserIds3 = new List<String>(); 
+        selectedUserIds4 = new List<String>();
+        
+        
         removedUserIds = new List<String>();
         removedUserIds2 = new List<String>();
         removedUserIds3 = new List<String>();
+        removedUserIds4 = new List<String>();
+        
         availableUsersMap = new Map<Id, String>();
         availableUsersMap2 = new Map<Id, String>();
         availableUsersMap3 = new Map<Id, String>();
+        availableUsersMap4 = new Map<Id, String>();
+        
         selectedUsersMap = new Map<Id, String>();
         selectedUsersMap2 = new Map<Id, String>();        
         selectedUsersMap3 = new Map<Id, String>(); 
+        selectedUsersMap4 = new Map<Id, String>(); 
+        
         selectedUsers = new List<SelectOption>();   
         alreadySelectedUsersMap = new Map<Id,String>();
         NotificationLeadDealerAssignmentSet = new Set<string>();
         NotificationLeadNotAssignedSet = new Set<string>();
         NotificationLeadNoUpdateSet = new Set<string>();
+        NotificationCampaignUpdateSet=new Set<string>();
     
     }
 
@@ -85,6 +104,7 @@ public class usernotificationsetting{
             availableUsersMap.put(u.Id, u.Name);
             availableUsersMap2.put(u.Id, u.Name);
             availableUsersMap3.put(u.Id, u.Name);
+            availableUsersMap4.put(u.Id, u.Name);
         }
        
         //For Notification Lead Dealer Assignment   
@@ -108,6 +128,13 @@ public class usernotificationsetting{
             if(NotificationLeadNoUpdateSet.contains(availableUsersMap3.get(curId))){
                  selectedUsersMap3.put(curId, availableUsersMap3.get(curId));
                  availableUsersMap3.remove(curId);
+            }
+        }
+         //For Notification Campaign No Update      
+        for(Id curId : availableUsersMap4.keySet()){
+            if(NotificationCampaignUpdateSet.contains(availableUsersMap4.get(curId))){
+                 selectedUsersMap4.put(curId, availableUsersMap4.get(curId));
+                 availableUsersMap4.remove(curId);
             }
         }
     }
@@ -219,15 +246,53 @@ public class usernotificationsetting{
         return selectedUsers3;
     }
     
+    
+    //For Notification Campaign No Update
+    public void add4() {    
+        if (!selectedUserIds4.isEmpty()) {
+            for (String userId : selectedUserIds4) {
+                selectedUsersMap4.put(userId, availableUsersMap4.get(userId));
+                availableUsersMap4.remove(userId);
+            }
+        }
+    }
+    
+    public void remove4() {
+        if (!removedUserIds4.isEmpty()) {
+            for (String userId : removedUserIds4) {
+                availableUsersMap4.put(userId, selectedUsersMap4.get(userId));
+                selectedUsersMap4.remove(userId);
+            }
+        }
+    }
+    
+    public List<SelectOption> getAvailableUsers4() {
+        List<SelectOption> availableUsers4 = new List<SelectOption>();
+        for (Id userId : availableUsersMap4.keySet()) {
+            availableUsers4.add(new SelectOption(userId, availableUsersMap4.get(userId)));
+        }
+        return availableUsers4;
+    }
+    
+    public List<SelectOption> getSelectedUsers4() {
+        List<SelectOption> selectedUsers4 = new List<SelectOption>();
+        for (String userId : selectedUsersMap4.keySet()) {
+            selectedUsers4.add(new SelectOption(userId, selectedUsersMap4.get(userId)));
+        }
+        return selectedUsers4;
+    }
     //updating fields in user object
     public void updateit()
     {
         String NotificationLeadDealerAssignment = String.join(selectedUsersMap.values(), ';');
         String NotificationLeadNotAssigned= String.join(selectedUsersMap2.values(), ';');
         String NotificationLeadNoUpdate = String.join(selectedUsersMap3.values(), ';');
+        String NotificationCampaignNoUpdate = String.join(selectedUsersMap4.values(), ';');
         usertoupdate.Notification_Lead_Dealer_Assignment__c = NotificationLeadDealerAssignment;          
         usertoupdate.Notification_Lead_Not_Assigned__c = NotificationLeadNotAssigned;          
         usertoupdate.Notification_Lead_No_Update__c  = NotificationLeadNoUpdate ;          
+        usertoupdate.Notification_Campaign__c  = NotificationCampaignNoUpdate ;          
         update usertoupdate;        
     }
 }
+

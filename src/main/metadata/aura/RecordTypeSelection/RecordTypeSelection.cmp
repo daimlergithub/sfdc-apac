@@ -1,0 +1,51 @@
+<aura:component>
+    <!-- Attributes -->
+    <aura:attribute name="availableMarketList" access="private" type="List" />
+    <aura:attribute name="availableMarkets" type="String" />
+    <aura:attribute name="componentReady" type="Boolean" default="false" access="private" />
+    <aura:attribute name="ObjName" type="Object" />
+    <aura:attribute name="options" type="List" />
+    <aura:attribute name="selectedMarket" type="String" access="private" />
+    <aura:attribute name="userMarket" type="String" />
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="ANZCheckValue" type="String" default="False" />
+    
+    <!-- EVENT -->
+    <aura:registerEvent name="RecordTypeSelected" type="c:RecordTypeSelected" />
+    <!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="slds-m-around_xx-large">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{! c.cancelNewMethod }" alternativeText="close" variant="bare-inverse" class="slds-modal__close" />
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">New {!v.ObjName}</h2>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <aura:if isTrue="{!v.componentReady}">
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="modal-dialog vertical-align-center">
+                            <lightning:layout multipleRows="true" horizontalAlign="space" verticalAlign="center">
+         
+                                <lightning:layoutItem size="12" padding="around-large">
+                                    <lightning:radioGroup name="radioGroupRequired" label="Select a RecordType" options="{! v.options }" value="{! v.value }" type="radio" required="true" class="customRadioCls" />
+                                    <aura:if isTrue ="{!v.ANZCheckValue =='True'}">
+                                    <lightning:radioGroup name="SelMarkets" label="Select Market" options="{! v.availableMarketList }" value="{! v.selectedMarket }" type="radio" required="true" class="customRadioCls" />
+                                	</aura:if>
+								</lightning:layoutItem>
+                            </lightning:layout>
+                        </div>
+                    </div>
+                </aura:if>
+                <!--###### MODAL BOX FOOTER Part Start ######-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{! c.cancelNewMethod }" />
+                    <lightning:button variant="brand" label="Next" title="Next" onclick="{! c.onChangeRec}" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </div>
+</aura:component>

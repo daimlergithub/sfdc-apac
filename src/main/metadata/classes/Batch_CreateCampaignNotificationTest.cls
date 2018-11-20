@@ -115,8 +115,7 @@ public class Batch_CreateCampaignNotificationTest
     cm.NextServiceDate__c=system.today()+1;
     cm.LastInspectionDate__c=system.today()+3;
     cm.LastServiceDate__c=system.today()-5;
-    cm.LastWorkDate__c=system.today()+100;
-    cm.OptOutContact_Reason__c ='Fair';
+    cm.LastWorkDate__c=system.today()+100; 
     //cm.contact_Id__c = accobj.Id;   
     insert cm;   
     test.starttest();

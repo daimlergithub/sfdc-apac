@@ -68,8 +68,9 @@
 			<sf:deployDestructiveChanges
 											dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="pre" debug="${sfdc.debug}"
 											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
+											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" testLevel="RunSpecifiedTests"
+											runTest="${sfdc.runTests}" deployRoot="src/main/destructive" destructiveFile="destructive.properties" 
+											checksums="${file.checksums.local}"/>
 </target>
 
 <target name="postDestructiveChanges">
@@ -80,13 +81,14 @@
 			<sf:deployDestructiveChanges
 											dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="post" debug="${sfdc.debug}"
 											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
+											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" testLevel="RunSpecifiedTests"
+											runTest="${sfdc.runTests}" deployRoot="src/main/destructive" destructiveFile="destructive.properties" 
+											checksums="${file.checksums.local}"/>
 </target>
 
 
 			<target name="deploy01">
-				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTests}">
+				<deploy testLevel="RunSpecifiedTests" runTest="${sfdc.runTests}">
 					<sf:typeset name="labels"/>
 					<sf:typeset name="staticresources">
 					<!-- the Checksums resource is handled by separate tasks -->
@@ -107,6 +109,11 @@
 						<sf:include name="False_Checkbox"/>
 						<sf:include name="True_Checkbox"/>
 						<sf:include name="angularSanitize"/>
+						<sf:include name="AURetailCopy"/>
+						<sf:include name="NZRetailCopy"/>
+						<sf:include name="AUAddressRetailCopy"/>
+						<sf:include name="NZAddressRetailCopy"/>
+						<sf:include name="CursorLoad"/>
 					</sf:typeset>
 					<sf:typeset name="remoteSiteSettings"/>
 					<sf:typeset name="roles"/>
@@ -115,11 +122,12 @@
 				</deploy>
 			</target>
 			<target name="deploy02">
-				<deploy transformations="transformations29.xml" testLevel="RunLocalTests" runTest="${sfdc.runTests}">
+				<deploy transformations="transformations29.xml" testLevel="${sfdc.testLevel}" runTest="${sfdc.runTests}">
 				    <sf:typeset name="customPermissions" force="true"/>
-					<sf:typeset name="letterhead" force="true"/>					
+					<sf:typeset name="letterhead" force="true"/>
 					<sf:typeset name="groups"/>
-					<sf:typeset name="objects"/> 
+					<sf:typeset name="objects"/>
+					<sf:typeset name="standardValueSets"/>
 					<sf:typeset name="customMetadata"/>
 					<sf:typeset name="queues"/>
 					<sf:typeset name="email"/>
@@ -134,17 +142,19 @@
 					<sf:typeset name="pages"/>
 					<sf:typeset name="triggers"/>	
 					<sf:typeset name="aura"/>
-					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
+					<sf:typeset name="quickActions"/>
+					<sf:typeset name="flexipages"/>
+					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>
 				</deploy>
 			</target>
 			<target name="deploy03">
-				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTests}">
+				<deploy testLevel="RunSpecifiedTests" runTest="${sfdc.runTests}">
 					<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
 						<sf:exclude name="selectAllChkBox"/>
 						<sf:exclude name="Retail_Campaigns"/>                                                 
 					</sf:typeset>                   
-					<sf:typeset name="layouts"/> 
+					<sf:typeset name="layouts"/>
 					<sf:typeset name="approvalProcesses"/>
 					<sf:typeset name="workflows"/>
 					<sf:typeset name="flows">
@@ -194,7 +204,7 @@
 				</deploy>
 			</target>
 			<target name="deploy04">
-				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTests}">                            
+				<deploy testLevel="RunSpecifiedTests" runTest="${sfdc.runTests}">                            
 					<sf:typeset name="profiles" force="true"/>
 				</deploy>
 			</target>           
@@ -216,9 +226,8 @@
 </target>
 
 <property name="typesets.circle">
-			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,CustomMetadata,Layout,CustomObjectTranslation,Translations,InstalledPackage,ReportType,Report,DataCategoryGroup,
-
-			Workflow,EmailTemplate,SharingRules,CustomApplication,AppMenu,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow,Dashboard,AuraDefinitionBundle
+			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,Layout,CustomObjectTranslation,Translations,InstalledPackage,ReportType,DataCategoryGroup,
+			Workflow,EmailTemplate,CustomApplication,AppMenu,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow,Dashboard,SharingRules,AuraDefinitionBundle,CustomObject,CustomMetadata,StandardValueSet,FlexiPage,QuickAction 
 </property>
 
 <property name="typesets.not-ready">

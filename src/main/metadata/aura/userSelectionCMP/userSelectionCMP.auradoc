@@ -1,0 +1,10 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:userSelectionCMP</code> 
+            component displays the file(s) upload option to user in the second step sharing option to the users and groups.
+            <br/>Component is responsive and size in <code>lightning:layout</code> controls the responsiveness based on the devices.
+            <br/><code>c:uploadFile</code> is a child component which is used to display file upload button.
+            <br/><code>c:shareCommunityFilesCMP</code> is a child component which is used to displays the users and groups selection.
+        </p>        
+    </aura:description>  
+</aura:documentation>

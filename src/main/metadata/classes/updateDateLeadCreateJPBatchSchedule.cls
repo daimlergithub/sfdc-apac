@@ -5,9 +5,10 @@ global class updateDateLeadCreateJPBatchSchedule implements Schedulable {
    }
    
     public void oneTimeScheduleBatch(){
-        //Run daily at 12 AM
-        String cronExp ='0 0 0 ? * * *';
-        System.schedule('Update Lead Assigned Date', cronExp, new updateDateLeadCreateJPBatchSchedule());        
+        //Run daily at 11 PM
+        String cronExp ='0 0 23 ? * *';
+		String jobName= 'Update Lead Assigned Date ' + System.today();
+        System.schedule(jobName, cronExp, new updateDateLeadCreateJPBatchSchedule());        
     }
     
 }

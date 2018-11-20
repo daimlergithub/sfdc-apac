@@ -687,6 +687,10 @@
                 <behavior>Edit</behavior>
                 <field>Lost_Dealer_Date_Time__c</field>
             </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Automatic_Lost_date__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

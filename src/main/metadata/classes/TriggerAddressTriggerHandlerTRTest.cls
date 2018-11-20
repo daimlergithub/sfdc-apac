@@ -10,7 +10,7 @@ public class TriggerAddressTriggerHandlerTRTest{
     public static testMethod void testTriggerAddressTriggerHandlerTRTest(){
         //create test data
         Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator' limit 1];
-        User user_Obj = new User(LastName='User'+System.Today(),Market__c='TR',country='Turkey',firstName='Test',ProfileId=p1.Id,Alias='Test',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Test@infosys.com',UserName='Test@infosys.com.asiadevty4');
+        User user_Obj = new User(LastName='User'+System.Today(),Market__c='TR',country='Turkey',firstName='Test',ProfileId=p1.Id,Alias='Test',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Test@infosys.com',UserName='Test@infosys.com.asiadevty4'+String.valueof(DateTime.now().getTime()));
         DMLManagerService.insertAsSystem(user_Obj);
         system.runAs(user_Obj)
         {

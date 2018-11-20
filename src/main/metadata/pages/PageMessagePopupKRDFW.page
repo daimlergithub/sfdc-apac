@@ -62,7 +62,7 @@
 				if(currentByte > 128) totalByte += 1;
 				else totalByte++;
 			}
-			$("#messagebyte").text(totalByte + " Chr");
+			$("#messagebyte").text(totalByte + " {!$Label.MBK_Page_Label_Chr}");
 			$("#byte").val(totalByte * 2);
 		}        
 		
@@ -106,7 +106,7 @@
 	<div id="wrapper">
     <apex:form id="mainform">
         <apex:PageMessages escape="false" id="msg"/>
-        <apex:sectionHeader title="MBK Message Service" />
+        <apex:sectionHeader title="{!$Label.MBK_Page_Label_MBK_Message_Service}" />
 		<apex:actionStatus onstart="showDialog();" onstop="hideDialog();"  id="IngStatus"/>
         <apex:actionFunction action="{!TypeOfTemplates}" name="Mytpe" status="IngStatus" >
             <apex:param name="type" value="" assignTo="{!Mytpe}"/>
@@ -115,105 +115,113 @@
           		             
         <apex:pageBlock >
             <apex:pageBlockButtons location="both">
-            	<apex:commandbutton action="{!SendingMessage}" value=" Send " status="IngStatus" rendered="{!actionType <> 'Edit' && doc=true && isBulk<>true && !IsSend}" />
-            	<apex:commandbutton action="{!updateMessage}" value=" Update " status="IngStatus" rendered="{!actionType == 'Edit' && doc=true && isBulk<>true && !IsSend}"/>
-            	<apex:commandbutton action="{!BulkSendingMessage}" value=" Bulk Send " status="IngStatus" rendered="{!isBulk=true && !IsSend}"/>
-            	<input type="button" class="btn" onclick="javascript:window.close();" value=" Close "/>
+            	<apex:commandbutton action="{!SendingMessage}" value=" {!$Label.MBK_Page_Label_Send} " status="IngStatus" rendered="{!actionType <> 'Edit' && doc=true && isBulk<>true && !IsSend}" />
+            	<apex:commandbutton action="{!updateMessage}" value=" {!$Label.MBK_Page_Label_Edit} " status="IngStatus" rendered="{!actionType == 'Edit' && doc=true && isBulk<>true && !IsSend}"/>
+            	<apex:commandbutton action="{!BulkSendingMessage}" value=" {!$Label.MBK_Page_Label_Mass_Send} " status="IngStatus" rendered="{!isBulk=true && !IsSend}"/>
+            	<input type="button" class="btn" onclick="javascript:window.close();" value=" {!$Label.MBK_Page_Label_Close} "/>
             	<input type="hidden" id="SendTemplate" value="{!SendTemplateId}" name="SendTemplate" class="SendTemplate"/>
 				<input type="hidden" id="byte" name="messagebyte" />
         	</apex:pageBlockButtons>
 			<!-- Lead, Contact, Case, Task -->
-        	<apex:pageBlockSection columns="2" title="Send Information" rendered="{!isBulk<>true}">
+        	<apex:pageBlockSection columns="2" title="{!$Label.MBK_Page_Label_Send_Information}" rendered="{!isBulk<>true}">
                 <apex:pageBlockSectionItem >
-                	<apex:outputText value="Send Type" />
+                	<apex:outputText value=" {!$Label.MBK_Page_Label_Send_Type} " />
 					<apex:selectList value="{!Mtype}" size="1" required="true" onchange="Mytpe(this);">
 						<apex:selectOption itemValue="SMS/MMS" itemLabel="SMS/MMS"/>
-            			<apex:selectOption itemValue="KaKao" itemLabel="KaKao"/>
+            			<apex:selectOption itemValue="KaKao" itemLabel="{!$Label.MBK_Page_Label_Kakao}"/>
 					</apex:selectList>
 				</apex:pageBlockSectionItem>
- 				
-				<apex:pageBlockSectionItem helpText="UCID" >
+
+                <apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Caller_ID}" >
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Caller_ID}" />
+                    <apex:selectList value="{!CallerId}" size="1" required="true" >
+                        <apex:selectOptions value="{!callerIds}" />
+                    </apex:selectList><!--callerIds-->
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem helpText="UCID" >
                     <apex:outputText value="UCID" />
                     <apex:outputField value="{!viewObject.UCID__c}" />
-                </apex:pageBlockSectionItem>				
+                </apex:pageBlockSectionItem>	
                  				
-				<apex:pageBlockSectionItem helpText="KaKaoTalk ID" >
-                    <apex:outputText value="KaKaoTalk ID" />
+				<apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Kakao_Talk_ID}" >
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Kakao_Talk_ID}" />
                     <apex:outputField value="{!viewObject.KaKaoTalk_ID__c}" />
                 </apex:pageBlockSectionItem>					
 
-				<apex:pageBlockSectionItem helpText="Recipient Name" >
-                    <apex:outputText value="Recipient Name" />
+				<apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Account_Name}" >
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Account_Name}" />
 					<apex:outputField value="{!viewObject.Account_Name__c}" />
                 </apex:pageBlockSectionItem>
 
-                <apex:pageBlockSectionItem helpText="Recipient Phone" >
-                    <apex:outputText value="Recipient Phone" />
+                <apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Recipient_Phone}" >
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Recipient_Phone}" />
                     <apex:outputField value="{!viewObject.phoneNum__c}" />
                 </apex:pageBlockSectionItem>
                 
-				<apex:pageBlockSectionItem helpText="Mobile OptIn" >
-					<apex:outputText value="Mobile OptIn" />
+				<apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Agreement_to_commit_info_processing}" >
+					<apex:outputText value="{!$Label.MBK_Page_Label_Agreement_to_commit_info_processing}" />
 					<apex:outputField value="{!viewObject.Opt_In_SMS__c}"/>
                 </apex:pageBlockSectionItem>
 
-				<apex:pageBlockSectionItem helpText="Personal Agreement" >
-					<apex:outputText value="Personal Agreement" />
+				<apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Reserved_Sending_Time}" >
+					<apex:outputText value="{!$Label.MBK_Page_Label_Reserved_Sending_Time}" />
 					<apex:outputField value="{!viewObject.Personal_Agreement__c}"/>
                 </apex:pageBlockSectionItem>
                 
-				<apex:pageBlockSectionItem helpText="Personal Information Third Party Release" >
-					<apex:outputText value="Personal Information Third Party Release" />
+				<apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Personal_Information_Third_Party_Release}" >
+					<apex:outputText value="{!$Label.MBK_Page_Label_Personal_Information_Third_Party_Release}" />
 					<apex:outputField value="{!viewObject.Personal_Information_Third_Party_Release__c}"/>
                 </apex:pageBlockSectionItem>
                 
-				<apex:pageBlockSectionItem helpText="Agreement to commit info processing" >
-					<apex:outputText value="Agreement to commit info processing" />
+				<apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Agreement_to_commit_info_processing}" >
+					<apex:outputText value="{!$Label.MBK_Page_Label_Agreement_to_commit_info_processing}" />
 					<apex:outputField value="{!viewObject.Agreement_to_commit_info_processing__c}"/>
                 </apex:pageBlockSectionItem>                                
             
-				<apex:pageBlockSectionItem helpText="Personal Abroad Agreement" >
-                    <apex:outputText value="Personal Abroad Agreement" />
+				<apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Personal_Abroad_Agreement}" >
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Personal_Abroad_Agreement}" />
 					<apex:outputField value="{!viewObject.Personal_Abroad_Agreement__c}" />
                 </apex:pageBlockSectionItem>            
 
-				<apex:pageBlockSectionItem helpText="Reserved Sending Time" >
-                    <apex:outputText value="Reserved Sending Time" />
+				<apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Reserved_Sending_Time}" >
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Reserved_Sending_Time}" />
 					<apex:inputField value="{!viewObject.Set_Sending_Time__c}" />
                 </apex:pageBlockSectionItem>     
-                            
-                <apex:pageBlockSectionItem helpText="Title" id="Subject">
-                    <apex:outputText value="Subject" />
-                    <apex:InputField value="{!viewObject.subject__c}" style="width:240px;" styleClass="subjectField"/>
-                </apex:pageBlockSectionItem>
-                
+
 				<apex:pageBlockSectionItem rendered="{!Mtype<>'SMS/MMS'}"/>
                 <apex:pageBlockSectionItem rendered="{!Mtype='SMS/MMS'}">
-                    <apex:outputText >MMS Images<br/>(Image Size 200KB Under)<br/>(*.jpg)</apex:outputText>
+                    <apex:outputText >{!$Label.MBK_Page_Label_MMS_Images}</apex:outputText>
                     <apex:outputPanel >
                     	<apex:inputFile styleClass="mmsfile" value="{!mmsFile1.body}" fileName="{!mmsFile1.Name}" onchange="fileCheck(this);" style="margin-bottom:3px;"/>
 						<apex:inputFile styleClass="mmsfile" value="{!mmsFile2.body}" fileName="{!mmsFile2.Name}" onchange="fileCheck(this);" style="margin-bottom:3px;"/>
 						<apex:inputFile styleClass="mmsfile" value="{!mmsFile3.body}" fileName="{!mmsFile3.Name}" onchange="fileCheck(this);" style="margin-bottom:3px;"/>
 					</apex:outputPanel>
-				</apex:pageBlockSectionItem>															
+				</apex:pageBlockSectionItem>
 
-                <apex:pageBlockSectionItem helpText="message" id="Message">
-                    <apex:outputText value="Message" />
+                <apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Subject}" id="Subject">
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Subject}" />
+                    <apex:InputField value="{!viewObject.subject__c}" style="width:240px;" styleClass="subjectField"/>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem />
+                <apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Message}" id="Message">
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Message}" />
                     <apex:inputTextarea id="messagebox" value="{!viewObject.message__c}" styleClass="messagebox" cols="40" rows="15" onKeyUp="checkByte(this.form);"/>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem />
 				<apex:outputPanel style="margin-left: 70%">
-					<span id="messagebyte" >0 Chr</span>
+					<span id="messagebyte" >0 {!$Label.MBK_Page_Label_Chr}</span>
 				</apex:outputPanel>
 			</apex:pageBlockSection>
 			
 			<!-- Bulk Send -->
-			<apex:pageBlockSection columns="2" title="Send Information" rendered="{!isBulk=true}">
+			<apex:pageBlockSection columns="2" title="{!$Label.MBK_Page_Label_Send_Information}" rendered="{!isBulk=true}">
                 <apex:pageBlockSectionItem >
-                	<apex:outputText value="Send Type" />
+                	<apex:outputText value="{!$Label.MBK_Page_Label_Send_Type}" />
 					<apex:selectList value="{!Mtype}" size="1" required="true" onchange="Mytpe(this);">
 						<apex:selectOption itemValue="SMS/MMS" itemLabel="SMS/MMS"/>
-            			<apex:selectOption itemValue="KaKao" itemLabel="KaKao"/>
+            			<apex:selectOption itemValue="KaKao" itemLabel="{!$Label.MBK_Page_Label_Kakao}"/>
 					</apex:selectList>
 				</apex:pageBlockSectionItem>
 				
@@ -222,19 +230,19 @@
 					<apex:outputText value="{!bulkSocName}({!TargetCount}명/{!MemberCount}명)" />					
  				</apex:pageBlockSectionItem>
 
-				<apex:pageBlockSectionItem helpText="Set Sending Time" >
-                    <apex:outputText value="Set Sending Time" />
+				<apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Reserved_Sending_Time}" >
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Reserved_Sending_Time}" />
 					<apex:InputField value="{!viewObject.Set_Sending_Time__c}" />
                 </apex:pageBlockSectionItem>            
                             
-                <apex:pageBlockSectionItem helpText="Title" id="Subject">
-                    <apex:outputText value="Subject" />
+                <apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Subject}" id="Subject">
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Subject}" />
                     <apex:InputField value="{!viewObject.subject__c}" style="width:240px;" styleClass="subjectField"/>
                 </apex:pageBlockSectionItem>
                 
 				<apex:pageBlockSectionItem rendered="{!Mtype<>'SMS/MMS'}"/>
-                <apex:pageBlockSectionItem helpText="MMS Images" rendered="{!Mtype='SMS/MMS'}">
-                    <apex:outputText value="MMS Images" />
+                <apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_MMS_Images}" rendered="{!Mtype='SMS/MMS'}">
+                    <apex:outputText >{!$Label.MBK_Page_Label_MMS_Images}</apex:outputText>
                     <apex:outputPanel >
                     	<apex:inputFile styleClass="mmsfile" value="{!mmsFile1.body}" fileName="{!mmsFile1.Name}" onchange="fileCheck(this);" style="margin-bottom:3px;"/>
 						<apex:inputFile styleClass="mmsfile" value="{!mmsFile2.body}" fileName="{!mmsFile2.Name}" onchange="fileCheck(this);" style="margin-bottom:3px;"/>
@@ -242,18 +250,18 @@
 					</apex:outputPanel>
 				</apex:pageBlockSectionItem>															
 
-                <apex:pageBlockSectionItem helpText="message" id="Message">
-                    <apex:outputText value="Message" />
+                <apex:pageBlockSectionItem helpText="{!$Label.MBK_Page_Label_Message}" id="Message">
+                    <apex:outputText value="{!$Label.MBK_Page_Label_Message}" />
                     <apex:inputTextarea id="messagebox" value="{!viewObject.message__c}" styleClass="messagebox" cols="40" rows="15" onKeyUp="checkByte(this.form);"/>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem />
 				<apex:outputPanel style="margin-left: 70%">
-					<span id="messagebyte" >0 Chr</span>
+					<span id="messagebyte" >0 {!$Label.MBK_Page_Label_Chr}</span>
 				</apex:outputPanel>
 			</apex:pageBlockSection>
 			<!-- Send block -->
 			
-			<apex:pageBlockSection columns="5" title="Template" id="TemplatePage">						
+			<apex:pageBlockSection columns="5" title="{!$Label.MBK_Page_Label_Template}" id="TemplatePage">
 				<apex:repeat value="{!MessageTemplatesOrg}" var="Template" id="MessageTemplates">
 					<apex:outputPanel >
 						<apex:inputText styleClass="subject" value="{!Template.Subject__c}" disabled="true"/>

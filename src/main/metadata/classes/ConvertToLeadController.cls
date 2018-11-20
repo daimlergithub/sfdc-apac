@@ -47,7 +47,7 @@ public class ConvertToLeadController
         if(String.isNotBlank(campaignId)) 
         {
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT Name,Contract_Number__c,Contact_Id__r.Name,Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c,Contract__r.Finance_Contractor__r.RecordType.Name,Retail_Campaign_Id__r.Child_Campaign_Status__c,Campaign__r.Child_Campaign_Status__c,Campaign_ID__r.Name,Retail_Campaign_Id__c, Campaign_ID__r.OwnerId,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Source_of_CM_Response__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Finance_Product_Name__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            String query = 'SELECT Name,Contract_Number__c,Status__c,Contact_Id__r.Name,Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c,Contract__r.Finance_Contractor__r.RecordType.Name,Retail_Campaign_Id__r.Child_Campaign_Status__c,Campaign__r.Child_Campaign_Status__c,Campaign_ID__r.Name,Retail_Campaign_Id__c, Campaign_ID__r.OwnerId,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Source_of_CM_Response__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Finance_Product_Name__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
             query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Convert_To_Lead_Flag__c = false AND';
             
             if(objectAPIName == 'Campaign') {
@@ -104,11 +104,11 @@ public class ConvertToLeadController
         
         List<Lead__c> existingLeadList;
         if(objectAPIName == 'Campaign') {
-            existingLeadList = [Select Source_Campaign__c, Contact__c,Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c  from Lead__c where Source_Campaign__c =: campaignId];
+            existingLeadList = [Select Source_Campaign__c,Campaign_Member__c,Contact__c,Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c  from Lead__c where Source_Campaign__c =: campaignId];
         } else if(objectAPIName == 'Retail_Campaign__c') {
-            existingLeadList = [Select Retail_Campaign_Name__c, Contact__c,Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c from Lead__c where Retail_Campaign_Name__c =: campaignId];
+            existingLeadList = [Select Retail_Campaign_Name__c,Campaign_Member__c, Contact__c,Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c from Lead__c where Retail_Campaign_Name__c =: campaignId];
         } else if(objectAPIName == 'Account') {
-            existingLeadList = [Select Retail_Campaign_Name__c,Source_Campaign__c, Contact__c,Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c from Lead__c where Contact__c =: campaignId];
+            existingLeadList = [Select Retail_Campaign_Name__c,Campaign_Member__c,Source_Campaign__c, Contact__c,Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c from Lead__c where Contact__c =: campaignId];
             
              
             
@@ -131,6 +131,7 @@ public class ConvertToLeadController
                            Campaign_Member__c cMember = new Campaign_Member__c();
                                  cMember.id=campaignMemberObj.campaignMember.id;
                                  cMember.Convert_To_Lead_Flag__c = true;
+                                 cMember.Status__c = 'Responded';
                                  camListToUpdate.add(cMember);
                         }
                         camIdCamMemMap.add(campaignMemberObj.campaignMember);
@@ -141,6 +142,7 @@ public class ConvertToLeadController
                            Campaign_Member__c cMember = new Campaign_Member__c();
                                  cMember.id=campaignMemberObj.campaignMember.id;
                                  cMember.Convert_To_Lead_Flag__c = true;
+                                 cMember.Status__c = 'Responded';
                                  camListToUpdate.add(cMember);
                         }
                         camIdCamMemMap.add(campaignMemberObj.campaignMember);
@@ -151,6 +153,7 @@ public class ConvertToLeadController
                            Campaign_Member__c cMember = new Campaign_Member__c();
                                  cMember.id=campaignMemberObj.campaignMember.id;
                                  cMember.Convert_To_Lead_Flag__c = true;
+                                 cMember.Status__c = 'Responded';
                                  camListToUpdate.add(cMember);
                         }
                         camIdCamMemMap.add(campaignMemberObj.campaignMember);
@@ -229,7 +232,7 @@ public class ConvertToLeadController
         if(objectAPIName == 'Campaign') {
             leadRec.Source_Campaign__c = campaignId;
            // leadRec.OwnerId = campaignMember.Campaign_ID__r.OwnerId;  Commented as part of 0043627773
-			leadRec.OwnerId = UserInfo.getUserId();                
+            leadRec.OwnerId = UserInfo.getUserId();                
         } else if(objectAPIName == 'Retail_Campaign__c') {
             leadRec.Retail_Campaign_Name__c = campaignId;
             //leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
@@ -259,7 +262,11 @@ public class ConvertToLeadController
        leadRec.Final_GAP_Amount__c = campaignMember.Final_GAP_Amount__c;
        leadRec.Outstanding_Balance_amount__c = campaignMember.Outstanding_Balance_amount__c;
        leadRec.Proto_Market_Value_amount__c = campaignMember.Proto_Market_Value_amount__c;
+        if(campaignMember.Lead_Type__c !=null){
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
+        } else {
+        leadRec.Lead_Type__c ='New Car';
+        }
         leadRec.Lead_Sub_Type__c = campaignMember.Lead_Sub_Type__c;
         leadRec.Existing_Contract__c=campaignMember.Contract__c;
         leadRec.Interested_Vehicle_Model__c = campaignMember.Interested_Model__c;
@@ -273,6 +280,7 @@ public class ConvertToLeadController
         leadRec.Finance_Total_V_Price_Tax__c=campaignMember.Total_Vehicle_Price_with_tax__c;
         leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
         leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
+        leadRec.Campaign_Member__c=campaignMember.id;
         if(campaignMember.Contract__c !=null && campaignMember.Contract__r.Finance_Contractor__r.RecordType.Name =='Company')
         {
          leadRec.Company_Account__c = campaignMember.Contract__r.Finance_Contractor__c;
@@ -318,6 +326,7 @@ public class ConvertToLeadController
     private Campaign_Lead__c setCampaignRec(Lead__c leadRec) {
         Campaign_Lead__c cLeadRec = new Campaign_Lead__c(); 
         cLeadRec.Lead__c = leadRec.Id;
+        cLeadRec.Campaign_member__c=leadRec.Campaign_Member__c;
         if(objectAPIName == 'Campaign') {
             cLeadRec.Campaign__c = leadRec.Source_Campaign__c;
         } else if(objectAPIName == 'Retail_Campaign__c') {

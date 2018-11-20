@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="displayMode" label="Display" datasource="Lightning Data Table,Card Table" />
+    <design:attribute name="componentHeading" label="Component Heading" description="Prefer more generic name" />
+</design:component>

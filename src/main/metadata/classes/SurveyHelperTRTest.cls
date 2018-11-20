@@ -9,6 +9,7 @@ public class SurveyHelperTRTest{
     public static Contact dlrContact;
     public static User usr;
     public static Group accGrp;
+    public static User user3 = TestUtils.IntegrationAPIUser();
     public static Id ContactRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByName().get('DealerStaff').getRecordTypeId();
     public static Id dlrAccRecordTypeId = Schema.SobjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
 public static testmethod  void handleInsertOrUpdateEventtest(){
@@ -20,6 +21,8 @@ public static testmethod  void handleInsertOrUpdateEventtest(){
     
      }
     static void createTestData(){
+        Trigger__c SurveyTriggerTR= new Trigger__c(Name='SurveyTriggerTR',Trigger_Name__c='TriggerSurvey',Trigger_Handler__c='TriggerSurveyTriggerHandlerTR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='TR');
+            insert SurveyTriggerTR;
      // Survey__c record
      SurveyList = new List<Survey__c>();
     testSurvey =new Survey__c(Name='Survey1');
@@ -58,8 +61,18 @@ public static testmethod  void handleInsertOrUpdateEventtest(){
         insert usr;  
     // Survey Taker Record
        svrTkrtest = new SurveyTaker__c(Survey__c=testSurvey.Id,Account__c=dlrAcc.Id); 
+       
         insert svrTkrtest;
         accGrp = new Group(Name='test dealer');
         insert accGrp;
+         system.runAs(user3) {
+            TriggerUtil.userCreate = false;
+            Survey__c  testSurvey1 =new Survey__c(Name='Survey1');
+    			insert testSurvey1;
+           SurveyTaker__c svrTkrtest1 = new SurveyTaker__c(Survey__c=testSurvey1.Id,Account__c=dlrAcc.Id); 
+       
+          insert svrTkrtest1;
+
+        }
     }
 }

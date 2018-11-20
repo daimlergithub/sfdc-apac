@@ -1,0 +1,54 @@
+<aura:documentation>
+    <aura:description>
+        This component makes use of  lightning:datatable to display fields.
+        <br/>
+        The parent component in which this child component is embedded must set the following parameters:
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered slds-table_stacked-horizontal">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="data">data</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Tablecolumns">Tablecolumns</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Allcolumns">Allcolumns</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="objectApiName">OBJECT API NAME</div>
+                    </th>                    
+                    <th scope="col">
+                        <div class="slds-truncate" title="Heading">Heading</div>
+                    </th>                                        
+                    <th scope="col">
+                        <div class="slds-truncate" title="iconName">iconName</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="data">
+                        <div class="slds-truncate" title="data">Array of data to be displayed</div>
+                    </td>
+                    <td data-label="Tablecolumns">
+                        <div class="slds-truncate" title="Tablecolumns">Array of fields API names to be displayed</div>
+                    </td>
+                    <td data-label="Allcolumns">
+                        <div class="slds-truncate" title="Allcolumns">Array of fields API names to be displayed in the modal box.The modal box will be displayed when 'Show More' button is selected</div>
+                    </td>
+                    <td data-label="objectApiName">
+                        <div class="slds-truncate" title="objectApiName">API name of the object whose fields are to be displayed.</div>
+                    </td>                    
+                    <td data-label="Heading">
+                        <div class="slds-truncate" title="Heading">Name of the Table Heading</div>
+                    </td>                                        
+                    <td data-label="iconName">
+                        <div class="slds-truncate" title="iconName">label of the icon to be displayed</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </aura:description>
+    
+</aura:documentation>

@@ -23045,7 +23045,7 @@
         <enabled>true</enabled>
         <name>ActivateContract</name>
     </userPermissions>
-    <userPermissions>
+	<userPermissions>
         <enabled>true</enabled>
         <name>ActivateOrder</name>
     </userPermissions>
@@ -23148,10 +23148,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>LightningExperienceUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageCssUsers</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

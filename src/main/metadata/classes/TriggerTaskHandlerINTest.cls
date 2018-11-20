@@ -71,7 +71,7 @@ public static void setupTestData(){
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
-            IsActive=true,
+            IsActive=false,
             EndDate = System.today(),
             RecordTypeId = parentCampRecordTypeId
         );

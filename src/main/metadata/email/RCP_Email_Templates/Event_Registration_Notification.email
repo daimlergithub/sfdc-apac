@@ -1,0 +1,10 @@
+Hello, <br/><br/>
+
+You are successfully registered for below Event<br/> <br/>
+
+Below are the Event Details:<br/> <br/>
+
+Event Name: {!Registration__c.Related_Event__c}<br/> 
+Start Time: {!Registration__c.00NO0000003Ys59}<br/> 
+End Time: {!Registration__c.00NO0000003Ys5E}<br/>
+Event Location : {!Registration__c.00NO0000003Ys5O}<br/><br/>

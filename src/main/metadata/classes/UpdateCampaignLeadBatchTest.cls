@@ -83,7 +83,7 @@ public static Id camIdExec= Schema.SObjectType.Campaign.getRecordTypeInfosByName
           Campaign camobj1 = new Campaign();
     camobj1.RecordTypeId = camIdExec;
     camobj1.ParentId=camobj2.id;
-    camobj1.Child_Campaign_Status__c='Execution';
+    camobj1.Child_Campaign_Status__c='Planning';
     camobj1.Name = 'camptest1';
     camobj1.Type = 'Other'; 
     camobj1.Segmentation_Date__c= System.today()+4;
@@ -95,7 +95,10 @@ public static Id camIdExec= Schema.SObjectType.Campaign.getRecordTypeInfosByName
     camobj1.Add_Sales_Staff__c=true;
     camobj1.Share_Campaign_Participation_Flag__c=true;
     camobj1.Segmentation_Base__c='Customer';
-    insert camobj1;
+    insert camobj1; 
+    camobj1.Child_Campaign_Status__c='Response collection';
+    
+    update camobj1;
          system.debug('@@@@@@@@@@@@@@camobj1@@cm'+camobj1);
        list<Campaign_Member__c> insertcm=new List<Campaign_Member__c>();
     Campaign_Member__c cm=new Campaign_Member__c();
@@ -104,10 +107,13 @@ public static Id camIdExec= Schema.SObjectType.Campaign.getRecordTypeInfosByName
     cm.Status__c = 'Ready';
     cm.contact_Id__c = personAcc.Id;   
   //  cm.Preferred_Dealer__c=DealerAccount.id;
-    insert cm;   
+    insert cm;    
          system.debug('@@@@@@@@@@@@@@@@cm'+cm.Campaign_ID__r.Child_Campaign_Status__c);
+          system.debug('@@@@@@@@@@@@@@@@cm'+cm.Campaign_ID__r.Execution_type__c);
+           system.debug('@@@@@@@@@@@@@@@@cm'+camobj1.Child_Campaign_Status__c); 
+             
          List<Campaign_member__c> listCamMember=new List<Campaign_member__c>();
-          listCamMember=[Select id,Campaign_ID__c,Campaign_ID__r.Segmentation_Base__c,Vehicle__c,Preferred_Dealer__r.Dealer_GC_Code__c,Contact_Id__c,Campaign_ID__r.Child_Campaign_Status__c,Campaign_ID__r.Execution_type__c ,Campaign__c,Campaign_ID__r.Parent.Campaign_Sub_Type__c,Campaign__r.Parent.Campaign_Sub_Type__c from Campaign_member__c where Campaign_ID__c !=null and Contact_Id__c=:personAcc.id and (Campaign_ID__r.Child_Campaign_Status__c='Execution' or Campaign_ID__r.Child_Campaign_Status__c='Response collection') ];
+          listCamMember=[Select id,Campaign_ID__c,Campaign_ID__r.Segmentation_Base__c,Vehicle__c,Preferred_Dealer__r.Dealer_GC_Code__c,Contact_Id__c,Campaign_ID__r.Child_Campaign_Status__c,Campaign_ID__r.Execution_type__c ,Campaign__c,Campaign_ID__r.Parent.Campaign_Sub_Type__c,Campaign__r.Parent.Campaign_Sub_Type__c from Campaign_member__c where Campaign_ID__c =:camobj1.id and Contact_Id__c=:personAcc.id ];
         //and (Campaign_ID__r.Child_Campaign_Status__c='Execution' or Campaign_ID__r.Child_Campaign_Status__c='Response collection') and (Campaign_ID__r.Execution_type__c !='My Mercedes' and Campaign_ID__r.Execution_type__c !='Lead' and Campaign_ID__r.Execution_type__c !='Survey')  and (Campaign_ID__r.Parent.Campaign_Sub_Type__c='Sales' OR Campaign_ID__r.Parent.Campaign_Sub_Type__c='Sales and After Sales') and (Campaign_ID__r.Segmentation_Base__c='Customer' OR Campaign_ID__r.Segmentation_Base__c='Vehicle')
         system.debug('@@@@@@@@@@@@@@@@'+listCamMember);
   /*  insertcm.add(cm);
@@ -187,7 +193,82 @@ public static Id camIdExec= Schema.SObjectType.Campaign.getRecordTypeInfosByName
         lead1.AfterSales_Vehicle__c=vehicleObj.id;
         insert lead1;
             
-        
+            
+            Campaign camobj2 = new Campaign();
+    camobj2.RecordTypeId = camIdPlan;
+    camobj2.Name = 'camptest1';
+    camobj2.Type = 'Other';
+    camobj2.Status = 'Draft';
+    camobj2.StartDate = System.today();
+    camobj2.EndDate = System.today()+30;
+    camobj2.Campaign_Objectives__c = 'camobjectives';
+    camobj2.Description = 'testdescrip';
+    camobj2.Campaign_Execution_Channels__c='eMail';
+    camobj2.Add_Sales_Staff__c=true; 
+        camobj2.Campaign_Sub_Type__c='Sales';
+    insert camobj2;
+    
+      Campaign camobj4 = new Campaign();
+    camobj4.RecordTypeId = camIdExec;
+    camobj4.ParentId=camobj2.id;
+    camobj4.Child_Campaign_Status__c='Planning';
+    camobj4.Name = 'camptest1';
+    camobj4.Type = 'Other'; 
+    camobj4.Segmentation_Date__c= System.today()+4;
+    camobj4.Execution_Start_Date__c = System.today()+10;
+    camobj4.Execution_Type__c= 'eMail';
+    camobj4.Description = 'testdescrip';
+    camobj4.Add_Service_Staff__c=true;
+    camobj4.Add_Campaign_Member_ID__c=true;
+    camobj4.Add_Sales_Staff__c=true;
+    camobj4.Share_Campaign_Participation_Flag__c=true;
+    camobj4.Segmentation_Base__c='Customer';
+    insert camobj4; 
+    
+         Retail_Campaign__c camobj = new Retail_Campaign__c();
+    camobj.RecordTypeId = parentRetailcentmarcampRecordTypeId;
+    camobj.Name = 'camptest1';
+    camobj.Campaign_Sub_Type__c= 'Sales';
+    camobj.Status__c= 'Draft';
+    camobj.Parent_Campaign__c=camobj4.id;
+    camobj.Response_Date__c = date.today();
+    camobj.Start_Date__c= System.today();
+    camobj.Close_Date__c= System.today()+30;
+    //camobj.Campaign_Executer__c='Retail';
+    camobj.Child_Campaign_Status__c='Response collection';
+   // camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description__c= 'testdescrip';
+    camobj.Campaign_Execution_Channels__c='eMail';
+    camobj.Campaign_Type__c = 'After Sales';
+    insert camobj;
+  
+  
+    
+        Retail_Campaign__c camobj1 = new Retail_Campaign__c();
+        camobj1.RecordTypeId = RetailcentmarcampRecordTypeId;
+        camobj1.Parent_Campaign1__c=camobj.id;
+        camobj1.Child_Campaign_Status__c='Planning';
+         camobj1.Response_Date__c = date.today();
+      
+        camobj1.MD__c='JP';
+        camobj1.Name = 'camptest1';
+        camobj1.Campaign_Type__c='After Sales';
+      //  camobj1.Type = 'Other';
+        camobj1.Segmentation_Date__c= System.today()+4;
+        camobj1.Execution_Start_Date__c = System.today()+10;
+        camobj1.Execution_Type__c= 'eMail';
+       // camobj1.Description = 'testdescrip';
+        insert camobj1;
+        camobj1.Child_Campaign_Status__c='Execution';
+        update camobj1;
+   
+    Campaign_Member__c camMem = New Campaign_Member__c();
+     camMem.Retail_Campaign_Id__c = camobj1.id;
+     camMem.Status__c = 'Bounced';
+     camMem.Contact_Id__c = personAcc.id;
+
+      insert camMem;
+      
         UpdateCampaignLeadBatch  db=new UpdateCampaignLeadBatch();
         database.executeBatch(db,1);
         test.stopTest();

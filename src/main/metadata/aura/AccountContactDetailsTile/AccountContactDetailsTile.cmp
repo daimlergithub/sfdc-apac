@@ -1,0 +1,76 @@
+<!-- File Name   : AccountContactDetailsTile -->
+<!-- Description : Tile Component for AccountContactTableLC -->
+<!-- iterates over Lables,Input Fields and Output fields to create respective Tiles-->
+<!-- Copyright   : Infosys Limited Copyright (c) 2018  -->
+<!-- @author     : Sarath Burra-->
+<!-- Author Modification & Ver.Date : Sarath & 10-July-2018  --> 
+<aura:component implements="force:appHostable,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:attribute name="tileHeading" type="String"/>
+    <aura:attribute name="inputFieldsMap" type="object"/>
+    <aura:attribute name="outputFieldsMap" type="object"/>
+    <aura:attribute name="labelMap" type="object"/>
+    <aura:attribute name="apiLabelMap" type="object"/> 
+    <aura:attribute name="iconMap" type="Map"/>
+    <aura:attribute name="edit" type="Boolean"/>
+    <aura:attribute name="iconName" type="String"/>
+    <aura:attribute name="labelName" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:tile label="{!v.tileHeading}">
+        <aura:set attribute="media">
+            <lightning:icon iconName="{!v.iconName}"/>            
+        </aura:set> 
+        <div class="slds-tile__detail">
+            <aura:iteration items="{!v.labelMap}" var="label">
+                
+                <aura:if isTrue="{!(label.key==v.tileHeading)}" >    
+                    <aura:iteration items="{!label.value}" var="inLabel">
+                        
+                        <dl class="slds-dl_horizontal">
+                            
+                               <p class="slds-truncate slds-form-element__static">{!inLabel}</p>
+                                
+                             
+                            <aura:iteration items="{!v.inputFieldsMap}" var="iField">
+                                
+                                <aura:if isTrue="{!(iField.key == v.tileHeading)}">
+                                    <aura:iteration items="{!iField.value}" var="ilField"> 
+                                         
+                                        <aura:iteration items="{!v.apiLabelMap}" var="apiLabel">
+                                             
+                                            <aura:if isTrue="{!and((ilField == apiLabel.key),(inLabel==apiLabel.value))}">
+                                                
+                                                    <p class="slds-wrap">
+                                                        <aura:if isTrue="{!v.edit}"><lightning:inputField fieldName="{!ilField}" variant="label-hidden"/>
+                                                        </aura:if>
+                                                    </p>
+                                                   <p class="slds-truncate ">
+                                                        <aura:if isTrue="{!!v.edit}"><lightning:outputField fieldName="{!ilField}" variant="label-hidden"/></aura:if> 
+                                                    </p>
+                                                
+                                            </aura:if>
+                                        </aura:iteration>
+                                    </aura:iteration>
+                                </aura:if>
+                            </aura:iteration>
+                            <aura:iteration items="{!v.outputFieldsMap}" var="oField">
+                                <aura:if isTrue="{!(oField.key == v.tileHeading)}">
+                                    <aura:iteration items="{!oField.value}" var="olField"> 
+                                        <aura:iteration items="{!v.apiLabelMap}" var="apiLabel">
+                                            <aura:if isTrue="{!and((olField == apiLabel.key),(inLabel==apiLabel.value))}">
+                                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                                    <p class="slds-truncate ">
+                                                        <aura:if isTrue="{!v.edit}"><lightning:outputField fieldName="{!olField}" variant="label-hidden"/></aura:if> 
+                                                    </p>
+                                                </dd>
+                                            </aura:if>
+                                        </aura:iteration>
+                                    </aura:iteration>
+                                </aura:if>
+                            </aura:iteration>
+                        </dl>
+                    </aura:iteration> 
+                </aura:if>
+            </aura:iteration>
+        </div>  
+    </lightning:tile>
+</aura:component>

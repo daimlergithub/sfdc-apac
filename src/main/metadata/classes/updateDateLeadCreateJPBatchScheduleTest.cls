@@ -65,7 +65,7 @@ public class updateDateLeadCreateJPBatchScheduleTest {
             leadobj.Lead_Type__c = 'New Car';
             leadobj.MD__c = 'JP';
             leadobj.Assigned_Dealer__c = accobj.Id; 
-            leadobj.CreatedDate=daysBack90;
+            //leadobj.CreatedDate=daysBack90;
             leadobj.Dealer_Lead_Status__c='On-Going';
             leadobj.Lead_DataSource__c='Dealer Outlet';
             if(i>0 && i<=3){

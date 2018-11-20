@@ -1,0 +1,7 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:uploadFile</code> 
+            component displays the file upload button to upload file(s).
+        </p>        
+    </aura:description>  
+</aura:documentation>

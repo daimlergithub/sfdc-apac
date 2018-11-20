@@ -85,7 +85,7 @@
                 <field>Warranty_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Warranty_End_Date__c</field>
             </layoutItems>
 			<layoutItems>

@@ -1,0 +1,7 @@
+.THIS.forceInputField {
+    display: none!important;
+}
+
+.THIS.slds-card__body_inner {
+    padding: 0px!important;
+}

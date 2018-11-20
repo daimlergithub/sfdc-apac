@@ -6,6 +6,7 @@
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
     <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
+	<!--<excludeButtons>Edit</excludeButtons>-->
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -94,6 +95,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Operating_System__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Operation_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -400,6 +405,14 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_NonWorkingDay_Service__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vans_Offered_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cars_Offered_Service__c</field>
+            </layoutItems>			
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -549,6 +562,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Marketing_Manager_Email__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FS_Gate_Keeper__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -763,24 +780,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <customButtons>New_DM_Request_TH_Account</customButtons>
-        <fields>NAME</fields>
-        <fields>Contact__c</fields>
-        <fields>Status__c</fields>
-        <fields>Expected_DM_Material1__c</fields>
-        <fields>Status1__c</fields>
-        <fields>Expected_DM_Material2__c</fields>
-        <fields>Status2__c</fields>
-        <fields>Expected_DM_Material3__c</fields>
-        <fields>Status3__c</fields>
-        <fields>Sent_Date__c</fields>
-        <relatedList>DM_Request__c.Customer_Name__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>

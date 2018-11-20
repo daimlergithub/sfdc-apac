@@ -1,0 +1,79 @@
+<!-- File Name   : CurrentVehicle -->
+<!-- Description : Lightning component to create/Edit CurrentVehicles -->
+<!-- Copyright   : Daimler -->
+<!-- @author     : Infosys -->
+<!-- Author Modification & Ver.Date : Sarath R & 24/08/2018  --> 
+<aura:component controller="CurrentVehicleLCController"  implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="currentVehicles" type="Vehicle_Relationship__c[]"/> 
+    <!--Design attributes-->
+    <aura:attribute name="displayType" type="String" default="Card" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="recId" type="Id" default="{!v.recordId}"/>
+     <aura:attribute name="accId" type="Id"/>
+    <!--DataTable-->
+    <aura:attribute name="mycolumns" type="List"/>
+    <!-- EVENT -->
+    <aura:handler event="c:GetAccountId" action="{!c.getId}"/>
+    
+    
+    <lightning:card variant="Narrow" title="Current Vehicle Information" iconName="standard:record" >
+        <!--<aura:set attribute="actions">
+               <lightning:buttonIcon  variant="border-filled" alternativeText="Edit Trade In vehicle info" iconName="utility:edit" onclick="{!c.enableDisableEditableMode}" />
+            </aura:set>-->
+       <aura:if isTrue="{!v.displayType=='Table'}">
+            <lightning:datatable data="{! v.currentVehicles}"
+                                 columns="{! v.mycolumns }"
+                                 keyField="Id"
+                                 hideCheckboxColumn="true"/>
+        </aura:if>
+		<div class="slds-scrollable" style="height: 200px; width: 380px;">
+        <aura:if isTrue="{!not(v.displayType == 'Table')}">  
+          <aura:iteration items="{!v.currentVehicles}" var="add"> 
+                <ul class="slds-has-dividers_around-space">
+                    <li class="slds-item">
+                        <!--<lightning:avatar initials="CV" fallbackIconName="standard:goals"  alternativeText="Current Vehicle" class="slds-m-right_small"/>-->
+                        <lightning:tile>
+                            <!--<aura:set attribute="media">
+                                <lightning:icon iconName="standard:goals"/>
+                            </aura:set> -->
+                            <dl class="slds-dl_horizontal">
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Vehicle Model">Vehicle Model:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Vehicle Model">{!add.Vehicle_Model__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Vehicle Brand">Vehicle Brand:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Vehicle Brand">{!add.Vehicle_Brand__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Vehicle Class">Vehicle Class:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Vehicle Class">{!add.Vehicle_Class__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Mileage Start">Mileage Start:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Mileage Start">{!add.Mileage_start__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Mileage End">Mileage End:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Mileage End">{!add.Mileage_End__c}</p>
+                                </dd>
+                            </dl>
+                        </lightning:tile>
+                    </li>
+                </ul>
+                &nbsp;&nbsp;&nbsp;              
+            </aura:iteration>
+        </aura:if>
+		</div>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is used for activation/deactivation of validation rules bases on market.</description>
+    <fields>
+        <fullName>Market__c</fullName>
+        <description>This field contain the Market values for which a particular validation rule should run.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Market</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sObject__c</fullName>
+        <description>It contains sObject Name.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>sObject</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Validation Parameterization FM</label>
+    <pluralLabel>Validation Parameterization FM</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

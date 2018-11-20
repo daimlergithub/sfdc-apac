@@ -81,8 +81,9 @@ public class TriggerAccountlinkTriggerHandlerINTest{
                            Phone = '0801801110',
                            Area_code__c = '03',
                            MD__c = 'IN',
-                           LastName = 'galaxy1',
-                           FirstName = 'First Name1',
+                           LastName = 'galaxy',
+
+                           FirstName = 'First Name',
                            Salutation = 'Unknown',
                            Postal_Opt_Out__c=True,     
                            Province__c = 'Shanghai',
@@ -116,6 +117,19 @@ public class TriggerAccountlinkTriggerHandlerINTest{
             sea.ParentId = ps.Id;
             sea.SetupEntityId = cps.id;
             insert sea;  
+            
+            CustomPermission cps1 = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.INRetail ];
+            SetupEntityAccess sea1 = new SetupEntityAccess();
+            sea1.ParentId = ps.Id;
+            sea1.SetupEntityId = cps1.id;
+            insert sea1;
+            
+            CustomPermission cps2 = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.addressupdateRT ];
+            SetupEntityAccess sea2 = new SetupEntityAccess();
+            sea2.ParentId = ps.Id;
+            sea2.SetupEntityId = cps2.id;
+            insert sea2;
+            
         }
         
         market_Obj = new Market__c(Market_Code__c ='IN', Market__c ='India');
@@ -166,7 +180,63 @@ public class TriggerAccountlinkTriggerHandlerINTest{
                                  Phone = '0801801119',
                                  Area_code__c = '03',
                                  MD__c = 'IN',
-                                 LastName = 'galaxy1',
+                                 LastName = 'galaxy',
+                                 FirstName = 'First Name',
+                                 Salutation = 'Unknown',
+                                 Postal_Opt_Out__c=True,     
+                                 Province__c = 'Shanghai',
+                                 ZipCode__c= '32703',
+                                 //Mobile__c = '918197597651',
+                                 //Mobile2__c = '918197597651',
+                                 Primary_Email__c = 'Email1',
+                                 Primary_Fax__c = 'FAX2',
+                                 Primary_Phone__c ='Other2',
+                                 PersonDoNotCall=True,
+                                 // ownerid=user1.id,
+                                 PersonHasOptedOutOfEmail=True,
+                                 Opt_In_Email__c=true,
+                                 //owner=user1,
+                                 PersonBirthdate=date.today(),
+                                 dealer_nd_code__c = '123456',
+                                 dealer_gc_code__c = '1234567',
+                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
+            insert acct2;
+            
+            List<Account_Link__c> listacclk1=new List<Account_Link__c>();
+            
+            al1= new Account_Link__c(Name='new al',Md__c='IN',toRole__c=acct1.id,fromrole__c=acct2.id,
+                                     RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(),
+                                     Market__c='IN', Dealer_ND_Code__c = '123456');
+            
+            
+            listacclk1.add(al1);
+           
+            List<Account_Link__c> updatelst=new List<Account_Link__c>();
+            al1.fromrole__c=acct2.id;
+			INTriggerRecursionCheck.inAccLinkvalC2C = false;
+            updatelst.add(al1);
+			system.assertEquals(al1.Market__c, 'IN');
+        }
+    }
+	public static testMethod void testTriggerUpdate(){
+        
+        prepareTestData('');
+        system.runAs(user_Obj1 ){
+            
+            insert accountList;
+            
+            acct2 =  new Account(Dealer_Default_Flag__c=false,
+                                 Dealer_DMS_SR_Code__c='test code 2',
+                                 //Individual_Home_Phone__c = '02-202-2456',
+                                 Home_Phone_2__c = '02-202-2457',Work_Phone__c = '+601212371111',
+                                 Status__c='NoCustomer',Email__c = 'testemail123@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                 City__c='Beijing',
+                                 Gender__c = 'Female',
+                                 Phone = '0801801119',
+                                 Area_code__c = '03',
+                                 MD__c = 'IN',
+                                 LastName = 'galaxy',
+
                                  FirstName = 'First Name',
                                  Salutation = 'Unknown',
                                  Postal_Opt_Out__c=True,     
@@ -200,7 +270,21 @@ public class TriggerAccountlinkTriggerHandlerINTest{
             List<Account_Link__c> updatelst=new List<Account_Link__c>();
             al1.fromrole__c=acct2.id;
             updatelst.add(al1);
+            insert updatelst;
 			system.assertEquals(al1.Market__c, 'IN');
+			List<Account_Link__c> acclinkUpdateList = new List<Account_Link__c>();
+            List<Account_Link__c> AcclinkList1 = [SELECT Id FROM Account_Link__c limit 10];
+            System.debug('AcclinkList1==>' + AcclinkList1);
+            for(Account_Link__c acclnk : AcclinkList1){
+                acclnk.name = 'testone';
+                acclinkUpdateList.add(acclnk);
+            }
+            INTriggerRecursionCheck.inAccLinkrevokesharing = false;
+            INTriggerRecursionCheck.inAccLinkrevokesharing = false;
+            System.debug('acclnkList=2=>' + acclinkUpdateList);
+            update acclinkUpdateList; 
+            List<Account_Link__c> acclnktyList2 = [SELECT Id, Name FROM Account_Link__c limit 10];
+            System.debug('acclnktyList2==>' + acclnktyList2);
         }
     }
 }

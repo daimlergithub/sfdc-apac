@@ -1,0 +1,10 @@
+<!-- File Name   : RecordTypeSelected -->
+<!-- Description : RecordTypeSelected Lightning event -->
+<!-- Copyright   : Daimler Copyright (c) 2018  -->
+<!-- @author     : Infosys -->
+<!-- Author Modification & Ver.Date : Harshit & 26-September-2018  -->
+<aura:event type="COMPONENT" description="Event template" >
+	<aura:attribute name="recordTypeName" type="String"/>
+    <aura:attribute name="selectedMarket" type="String" />
+    <aura:attribute name="isCancel" type="Boolean" default="false"/>
+</aura:event>

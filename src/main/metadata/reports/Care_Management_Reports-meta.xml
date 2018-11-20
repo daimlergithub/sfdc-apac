@@ -5,5 +5,5 @@
         <sharedTo>MBTR_Management</sharedTo>
         <sharedToType>RoleAndSubordinatesInternal</sharedToType>
     </folderShares>
-    <name>Care Management Reports</name>
+    <name>MBT Care Mgmt Reports</name>
 </ReportFolder>

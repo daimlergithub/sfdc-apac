@@ -3,7 +3,13 @@ public class CaseTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-       if(Trigger.isBefore && Trigger.isupdate)
+        Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();
+        Boolean jpSwitchEnabledFlag = false;
+        if(!jpSwitchMap.isEmpty() && jpSwitchMap.containsKey('Event Bulk Data 2')){
+            jpSwitchEnabledFlag = jpSwitchMap.get('Event Bulk Data 2').Enable_Flag__c;
+        }
+    
+        if(Trigger.isBefore && Trigger.isupdate)
         {
            CaseHelperBase.updatemarket(Trigger.New);
            CaseHelperJP.caseOwner(Trigger.New, (Map<Id,Case>) Trigger.OldMap);
@@ -15,14 +21,20 @@ public class CaseTriggerHandlerJP
             if (trigger.isInsert){
                 System.debug('$$$$$$@@@@'+trigger.new);
                 caseHelperJP.shareCaseWithDealers(trigger.new);
-				caseHelperJP.CreateRetailCopy(trigger.new);
+        caseHelperJP.CreateRetailCopy(trigger.new);
                 caseHelperJP.SendEmailToNotifyDealer(trigger.new,(Map<Id,Case>)Trigger.OldMap);
             }
             if (trigger.isUpdate){
                 System.debug('$$$$$$@@@@'+trigger.new);
                 caseHelperJP.shareCaseWithDealers(trigger.new);
-				caseHelperJP.CreateRetailCopy(trigger.new);
+        caseHelperJP.CreateRetailCopy(trigger.new);
                 caseHelperJP.SendEmailToNotifyDealer(trigger.new,(Map<Id,Case>)Trigger.OldMap);
+                if(jpSwitchEnabledFlag){
+                    if (TriggerRecursiveCheck.copyAttachmentOnLoadJP) {
+                        TriggerRecursiveCheck.copyAttachmentOnLoadCheckJP();
+                        caseHelperJP.copyAttachmentOnLoadJP((Map<Id,Case>)Trigger.NewMap, (Map<Id,Case>)Trigger.OldMap);
+                    }
+                }
             }
         } 
         system.debug('Entered handler...JP handler');

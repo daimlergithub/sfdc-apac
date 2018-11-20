@@ -13,7 +13,7 @@ demo_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.demo
 # Asia Test Sandbox
 dev_sb_asia_Test=deployment.user.ntt@asia.daimler-apac.com.test,sukumar.rajashekaran.ntt@mbj.daimler-apac.com.test
 dev_sb_asia_TestKorea=arun.iyer.ntt@mbj.daimler-apac.com.testkorea
-dev_sb_asia_SIT=karthik.chakrapani@daimler.com.SIT
+
 
 # Asia Stage Sandbox
 dev_sb_asia_stage=deployment.user@mbj.daimler-apac.com.stage
@@ -92,9 +92,8 @@ dev_sb_asia_uatth=karthik_chakrapani@infosys.com.uatth
 dev_sb_asiaDevTh8=pavankumar_d01@infosys.com.asiadevth8
 dev_sb_AsiaDevTH7=bhushan_kulkarni03@infosys.com.asiadevth7
 dev_sb_asiadevth2=ashish.vashisht@infosys.com.asiadevth2
-dev_sb_AsiaDevTH3=prabhata_rath@infosys.com.asiadevth3
 dev_sb_asia_uatasia=karthik.chakrapani@daimler.com.uatasia
-dev_asiadevTh1=pavankumar_01@infosys.com.asiadevth1
+dev_AsiaDevTH1=prabhata_rath@infosys.com.asiadevth1
 dev_sb_asiaDevTh4=dhanamjaya.d@infosys.com.asiadevth4,prabhata_rath@infosys.com.asiadevth4
 dev_sb_asia_THX=tejbir.singh02@infosys.com.asiadevthx
 dev_sb_asiaDevThailand11=abhishek.mohanty01@infosys.com.thailand11
@@ -102,12 +101,15 @@ dev_sb_asiaDevThailand11=abhishek.mohanty01@infosys.com.thailand11
 dev_sb_asiaDevMY4=sanjay_nandi@infosys.com.asiadevmy4
 dev_sb_asiaDevMY8=laqshay.arora@infosys.com.asiadevmy8
 dev_sb_asiaDevMY9=mohammedtouseef.a@infosys.com.asiadevmy9
-dev_sb_asia_devcdm=karthik.chakrapani@daimler.com.asiadevcdm
-dev_sb_asia_cisummer17=karthik.chakrapani@daimler.com.cisummer17
 dev_sb_asiaDevMY7=pratyasha.mishra@infosys.com.asiadevmy7
 dev_sb_asia_i2max2=release.admin@daimler.com.asiai2max2
-dev_sb_asia_cispr18=karthik.chakrapani@daimler.com.cispr18
-dev_sb_asia_testspr18=karthik.chakrapani@daimler.com.testspr18
-dev_sb_asia_rm2=release.admin@daimler.com.rm2
-dev_sb_asia_asiadeven1=release.admin@daimler.com.asiadeven1
-dev_sb_asia_rm3=release.admin@daimler.com.rm3
+
+#CI-CD Environments
+dev_sb_asia_dev=deployment.user@mbj.daimler-apac.com.dev
+dev_sb_asia_devcdm=deployment.user@mbj.daimler-apac.com.asiadevcdm
+dev_sb_asia_SIT=deployment.user@mbj.daimler-apac.com.sit
+
+dev_sb_asia_ciKR=sravanthi.gudibandi@infosys.com.mbkrpreci
+dev_sb_asiadevjp6=sanjay_nandi@infosys.com.asiadevjp6
+dev_sb_asia_FModelDemo=deployment.user@mbj.daimler-apac.com.FModelDemo
+lightningpreci=abhishek.mohanty01@infosys.com.lightningpreci

@@ -1,0 +1,16 @@
+.THIS.slds-p-around_large slds-size_12-of-12 
+{
+  padding-left:250px;
+}
+.THIS.slds-radio lightning-radio-group_radio-group 
+{
+padding-top:10px;
+}
+.THIS .radio_grp
+{
+    padding-left:250px;
+}
+.THIS .customRadioCls {
+    padding-left:160px;
+    font-size:25px;
+}

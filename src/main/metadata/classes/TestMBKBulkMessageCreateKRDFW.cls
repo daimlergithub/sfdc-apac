@@ -95,6 +95,10 @@ private class TestMBKBulkMessageCreateKRDFW {
         //Campaign Bulk
 		contList = new list<Contact>();
 		campMembrList = new list<CampaignMember>();
+
+		Survey__c survey = new Survey__c();
+		survey.Name = '테스트설문';
+		insert survey;
 		
 		Campaign campPlng = new Campaign();
 	    campPlng.RecordTypeId = campPlngRecTypId;
@@ -108,6 +112,7 @@ private class TestMBKBulkMessageCreateKRDFW {
 	    campPlng.Description = 'Test Campaign Planning Description';
 	    campPlng.Campaign_Execution_Channels__c='eMail';
 	    campPlng.Campaign_Type__c = 'After Sales';
+		campPlng.Questionnaire__c = survey.Id;
 	    insert campPlng;
 	    
 	    Campaign campDsgn = new Campaign();
@@ -116,6 +121,7 @@ private class TestMBKBulkMessageCreateKRDFW {
 	    campDsgn.Repeat_From__c = System.today(); 
 	    campDsgn.Repeat_End__c = System.today()+30;           
 	    campDsgn.RecordTypeId = campDsgRecTypId;
+		campDsgn.Questionnaire__c = survey.Id;
 	    insert campDsgn;
 	    
 	    Campaign campExec = new Campaign();
@@ -126,6 +132,7 @@ private class TestMBKBulkMessageCreateKRDFW {
 	    campExec.StartDate = System.today(); 
 	    campExec.EndDate = System.today()+30;        
 	    campExec.RecordTypeId = campExcRecTypId;
+		campExec.Questionnaire__c = survey.Id;
 	    insert campExec;
 	    
 	    Account dealer = new Account();
@@ -271,6 +278,57 @@ private class TestMBKBulkMessageCreateKRDFW {
 		batch.batchType = 'Page';
 		Database.executeBatch(batch);
     }
+
+
+	static testMethod void myUnitTestCase() {
+		// TO DO: implement unit test
+		//Page Bulk
+		Account personAcc14 = new Account(Dealer_Default_Flag__c=false,
+				Dealer_DMS_SR_Code__c='test code 2',Work_Phone__c = '010-999-0000',
+				Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+				City__c='Beijing', Gender__c = 'Male', Phone = '0801801110', Area_code__c = '0101', LastName = 'galaxy1', FirstName = 'First Name',
+				Salutation = 'Unknown',Province__c = 'Shanghai',ZipCode__c= '1002347',Mobile__c = '010-999-0000',Mobile2__c = '035456232',
+				Primary_Email__c = 'Email1',Primary_Fax__c = 'FAX2',Fax='035456232',Primary_Phone__c ='Other2',Allow_Data_Sharing2__c='No Choice Yet',
+				MD__c = 'KR',Industry = 'Other',MBK_Data_Source__c='Circle of excellence ',Dealer_Rollout_Status__c ='Done',
+				Personal_Agreement__c = 'Yes', Personal_Information_Third_Party_Release__c = 'Yes', Personal_Abroad_Agreement__c = 'Yes',
+				Agreement_to_commit_info_processing__c = 'Yes' ,
+				RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+
+		insert personAcc14;
+
+		Contact cont = [SELECT Id FROM Contact WHERE AccountId =: personAcc14.Id limit 1];
+
+
+		Case myCase = new Case( ContactId = cont.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt');
+		insert myCase;
+
+		Case myCase2 = new Case( ContactId = cont.Id, RecordTypeId = CHRecordtypeid,Problem1__c='tt234234234234234234234t');
+		insert myCase2;
+
+		String pages = myCase.Id+','+myCase2.Id;
+
+		MBK_Bulk_Message__c temp = new MBK_Bulk_Message__c();
+		temp.channel__c = 'M';
+		temp.Message__c = '안녕하세요, 벤츠코리아 입니다.\n온라인회원으로 가입해주셔서 감사합니다.\n신차 정보 및 프로모션 정보\n많이 이용해 주세요.\n고맙습니다.\nMBK.....';
+		temp.PageSearchIDs__c = pages;
+		temp.Processed__c = false;
+		temp.Set_Sending_Time__c = system.now().addhours(1);
+		temp.Subject__c = '온라인 회원 가입을 환영 합니다.';
+		temp.Source_Object__c = 'Page';
+		insert temp;
+
+		Attachment attachment = new Attachment();
+		attachment.Body = Blob.valueOf('2lj2j3l23j4l3j24lk23j4l2k3j4l2kj34lkj');
+		attachment.Name = String.valueOf('test.jpg');
+		attachment.ParentId = temp.Id;
+		insert attachment;
+
+		MBKBulkMessageCreateKRDFWBatch batch = new MBKBulkMessageCreateKRDFWBatch();
+		batch.batchId = temp.Id;
+		batch.batchType = 'Page';
+		Database.executeBatch(batch);
+	}
+
 
 	static testMethod void myUnitTestTask() {
         // TO DO: implement unit test

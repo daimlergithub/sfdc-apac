@@ -13,6 +13,10 @@ Global with sharing class UtilConstant {
     public final static String DEALER_DELEGATE_ADMIN = 'Dealer Delegate Admin';
     public final static String DEALER_COMMUNITY_USER = 'Dealer Community User';
     public final static String SALES_LEADS = 'Sales Leads';
+/* Added by sravanthi gudibandi for KR Market booking object record types---start*/
+    public final static String Service_Booking = 'Service Booking';
+    public final static String Test_Drive= 'Test Drive';
+       /* Added by sravanthi gudibandi for KR Market---End*/
     public final static String SALES_LEADS_OPP = 'Sales Lead';
     public final static String DEALER_SALES_LEADS_READONLY = 'Dealer Sales leads ReadOnly';
     public final static String DEALER_AFTERSALES_LEADS_READONLY = 'Dealer Aftersales Leads ReadOnly';
@@ -69,6 +73,7 @@ Global with sharing class UtilConstant {
     public final static String Contact2Contact ='Contact2Contact';
     public final static String Account_Link='Account_Link__c';
     public final static String FS_Account_Link='Finance Services';
+    public final static String Thailand_SuperUser='TH_SU';
     //Varibale is being used in contactHelper class
     public final static String Empty='';
     public final static String leadOwnerStartWith='00G';

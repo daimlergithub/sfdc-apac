@@ -160,6 +160,10 @@
                 <behavior>Readonly</behavior>
                 <field>Related_Sales_Lead_Status__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Assigned_Dealer__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -170,16 +174,12 @@
         <label>Lead Customer Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>AccountId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Contact__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ContractId</field>
+                <field>FS_Contract__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -203,10 +203,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Contact_Time__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Test_Drive_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -335,8 +331,8 @@
         <label>All Vehicle Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>300</height>
-                <page>OpportunityInlineVehicle</page>
+                <height>200</height>
+                <page>OpportunityFSLeadVehiclePicker</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>

@@ -1,0 +1,8 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:reUsableMultiSelectLookup</code> 
+            Component which is used to get the 5 records based on the <code>Search</code> string and <code>Sobject</code>.            
+            <br/><code>c:reUsableMultiSelectLookupResult</code> is a child component to display the results(records).
+        </p>        
+    </aura:description>  
+</aura:documentation>

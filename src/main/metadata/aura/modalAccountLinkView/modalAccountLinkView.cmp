@@ -1,0 +1,120 @@
+<aura:component  implements="force:hasRecordId" access="global" >
+    <aura:attribute name="sObjectId" type="Id" description="A simplified view record object to be displayed"/>
+    <aura:attribute name="myObjectData" type="Object" access="global"/>
+    <aura:attribute name="displayAccountLinkField" type="String[]"/>    
+    <aura:attribute name="recordViewForm" type="boolean" />
+    <aura:attribute name="recordEditForm" type="boolean"/>
+    <aura:attribute name="headingName" type="String" />
+    <aura:attribute name="recordSaveError" type="String" />
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="saved" type="Boolean" default="false" />
+    <aura:attribute name="validationError" type="Boolean" default="false" />
+    
+    <aura:attribute name="accountEditComp" type="Boolean" default="false" />
+<!-- Stricktly to Account Link further development got stopped-->
+    <aura:attribute name="oldRecord" type="Account_Link__c" description="Old version of record before edit" default="{'sobjectType' : 'Account_Link__c'}"/>
+    <aura:attribute name="myObject" type="Account_Link__c" description="A simplified view record object to be displayed"/>
+    
+    <aura:attribute name="workingObject" type="String"/>
+    
+    
+ <!--   <aura:registerEvent name="appRefresh" type="c:retailPicker" /> -->
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Handler to catch the event fired when Contact Table modal is saved -->
+    <aura:handler name="saveMessage" event="c:RecordTypeSelected" action="{!c.getMessage}"/>
+    
+    
+    <aura:if isTrue="{!v.recordViewForm}">
+        
+        <force:recordData aura:id="recordLoader"
+                          recordId="{!v.sObjectId}"
+                          layoutType="FULL"
+                          fields="{!v.displayAccountLinkField}"
+                          targetFields="{!v.myObjectData}"
+                          targetError="{!v.recordError}"
+                          />
+        
+        <lightning:recordViewForm 
+                                  aura:id="recordViewForm" 
+                                  recordId="{!v.sObjectId}"
+                                  objectApiName="Account_Link__c">
+            <lightning:messages />
+            <div class="slds-media">
+                <div class="slds-media__body">
+                    <div aura:id="accLinkDetails" class="slds-m-top--small slds-m-left--large">
+                        <div class="slds-grid slds-gutters slds-wrap"> 
+                            
+                            <aura:iteration items="{!v.displayAccountLinkField}" var="item" >
+                                <div class="slds-size_1-of-2 slds-form-element_separator">
+                                    <lightning:outputField fieldName="{!item}" />   
+                                </div>
+                            </aura:iteration> 
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </lightning:recordViewForm>
+    </aura:if>
+    
+    
+    <aura:if isTrue="{!v.recordEditForm}">
+           <section role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            <div class="slds-modal__container">
+                
+                <lightning:recordEditForm 
+                                          aura:id="recordViewForm" 
+                                          recordId="{!v.sObjectId}"
+                                          objectApiName="Account_Link__c"
+                                          onsubmit="{!c.handleSubmit}"
+                                          onsuccess="{!c.handleSuccess}"
+                                          >
+                    
+                    
+                    <div class="slds-modal__header" style="height: 45px;">
+                        <h2 class="slds-text-heading--medium">Account Link Update</h2>                        
+                    </div>
+                    
+                    
+                    <div class="slds-modal__content slds-p-around--medium modalContainer" style="height: 350px;">
+                        <aura:iteration items="{!v.displayAccountLinkField}" var="item" >
+                            
+                            <lightning:inputField fieldName="{!item}"  />   
+                            
+                        </aura:iteration>
+                    </div>
+                    <footer class="slds-modal__footer slds-modal__footer_directional">
+                        <lightning:button variant="neutral" label="Cancel" title="Cancel" type="text" onclick="{!c.handleCancel}" />
+                        <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+                    </footer>
+                </lightning:recordEditForm>
+                
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+       
+    </aura:if>
+    <aura:if isTrue="{!v.accountEditComp}">
+         
+        <section role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open" >
+            
+               <div class="slds-modal__container" >
+                   <div class="slds-modal__content slds-p-around--medium">
+                        <c:AccountContactDetails aura:id="saveAccountRecord" recordId="{!v.sObjectId}"  objectType="{!v.workingObject}" EditEnabled="True"  hideEditButton="False"></c:AccountContactDetails>
+                   </div>
+                    <footer class="slds-modal__footer slds-modal__footer_directional">
+                        <lightning:button variant="neutral" label="Close" title="Close" type="text" onclick="{!c.handleCancel}" />
+                        <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save"  onclick="{!c.handleSave}"/>
+                    </footer>
+               </div>
+            
+            
+        </section>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+  
+</aura:component>

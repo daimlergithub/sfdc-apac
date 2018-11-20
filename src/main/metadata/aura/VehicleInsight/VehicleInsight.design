@@ -1,0 +1,4 @@
+<design:component>
+	 <design:attribute name="SurveyType" label="Survey Type" description="" />
+	 <design:attribute name="Context" label="Context" description="" />
+</design:component>

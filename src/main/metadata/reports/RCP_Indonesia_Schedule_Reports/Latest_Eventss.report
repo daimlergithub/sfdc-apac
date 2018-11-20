@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Events__c.Start_Time__c</field>
+    </columns>
+    <columns>
+        <field>Events__c.End_Time__c</field>
+    </columns>
+    <columns>
+        <field>Events__c.Location__c</field>
+    </columns>
+    <columns>
+        <field>Events__c.Community_Link__c</field>
+    </columns>
+    <description>This is used to get latest events and send to subscribed users on events</description>
+    <filter>
+        <criteriaItems>
+            <column>Events__c.Start_Time__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>TODAY</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Latest Events</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Events__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Events__c.Start_Time__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

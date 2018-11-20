@@ -29,7 +29,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(or(MD__c='MY',MD__c='TH'), OR( NOT(ISBLANK(Master_Customer__c )), NOT( ISBLANK( Duplicate_Customer__c ))), OR( ISBLANK(Duplicate_UCID__c) , ISBLANK(Master_UCID__c )) )</formula>
+        <formula>AND(or(MD__c='MY',MD__c='TH',MD__c='TR'), OR( NOT(ISBLANK(Master_Customer__c )), NOT( ISBLANK( Duplicate_Customer__c ))), OR( ISBLANK(Duplicate_UCID__c) , ISBLANK(Master_UCID__c )) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

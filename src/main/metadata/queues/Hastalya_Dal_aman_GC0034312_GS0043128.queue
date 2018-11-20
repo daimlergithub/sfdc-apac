@@ -2,7 +2,7 @@
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
     <email>behcet.sefkatlioglu@hastalya.com.tr.uat</email>
-    <name>Hastalya Dal`aman_GC0034312_GS0043128</name>
+    <name>MBTR Hastalya Dalaman</name>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>

@@ -1363,7 +1363,7 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2) AND 3 AND 4</booleanFilter>
+        <booleanFilter>((1 AND 5) OR 2) AND 3 AND 4</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
@@ -1384,6 +1384,11 @@ Purchased_Date_Time__c
             <operation>equals</operation>
             <value>Checkout</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.LastModifiedById</field>
+            <operation>equals</operation>
+            <value>Integration Inf</value>
+        </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1397,7 +1402,7 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>((1 or 2) AND (3 OR 7 OR 5) AND (6 OR 4)) OR (2 AND 5 AND 4)</booleanFilter>
+        <booleanFilter>(((1 AND 8) OR 2) AND (3 OR 7 OR 5) AND (6 OR 4)) OR (2 AND 5 AND 4)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
@@ -1432,6 +1437,11 @@ Purchased_Date_Time__c
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
             <value>Retail Sales Leads</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.LastModifiedById</field>
+            <operation>equals</operation>
+            <value>Integration Inf</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1485,7 +1495,7 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2) AND (3 OR 6) AND (4 OR 5)</booleanFilter>
+        <booleanFilter>((1 AND 7) OR 2) AND (3 OR 6) AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
@@ -1516,6 +1526,11 @@ Purchased_Date_Time__c
             <operation>equals</operation>
             <value>Retail Sales Leads</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.LastModifiedById</field>
+            <operation>equals</operation>
+            <value>Integration Inf</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -1529,7 +1544,7 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2) AND 4 AND (3 OR 5)</booleanFilter>
+        <booleanFilter>((1 AND 6) OR 2) AND 4 AND (3 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
@@ -1555,6 +1570,11 @@ Purchased_Date_Time__c
             <operation>equals</operation>
             <value>Retail Sales Leads</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.LastModifiedById</field>
+            <operation>equals</operation>
+            <value>Integration Inf</value>
+        </criteriaItems>
         <description>If lead latest phase is Quotation then dealer is ongoing and cac lead is Qualified</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1569,7 +1589,7 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 or 2) AND 3 AND ( 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>((1 AND 7) or 2) AND 3 AND ( 4 OR 5 OR 6)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
@@ -1599,6 +1619,11 @@ Purchased_Date_Time__c
             <field>Lead__c.Lead_Latest_Phase__c</field>
             <operation>equals</operation>
             <value>Estimation</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.LastModifiedById</field>
+            <operation>equals</operation>
+            <value>Integration Inf</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -1890,7 +1915,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISNEW()), MD__c = 'JP',    OR(AND(OR(ISPICKVAL( Lead_Latest_Phase__c,'Registration' ),ISPICKVAL( Lead_Latest_Phase__c,'Vehicle Registration' )),  RecordType.Name = 'Sales Leads')    ,AND(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced'), RecordType.Name = 'Aftersales Leads') ) )</formula>
+        <formula>AND( MD__c = 'JP',    OR(AND(OR(ISPICKVAL( Lead_Latest_Phase__c,'Registration' ),ISPICKVAL( Lead_Latest_Phase__c,'Vehicle Registration' )),  RecordType.Name = 'Sales Leads')    ,AND(OR(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced'),ISPICKVAL(Lead_Latest_Phase__c, 'Checkout')), RecordType.Name = 'Aftersales Leads') ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

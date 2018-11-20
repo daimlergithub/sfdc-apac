@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>
+        <p><code>c:RCPCalendarCMP</code> component to show Calendar on Portal Landing page.</p>
+        <p>This component uses <code>lightning:card</code> to display Calendar. It's path is set by using <code>aura:set</code></p>        
+    </aura:description>
+</aura:documentation>

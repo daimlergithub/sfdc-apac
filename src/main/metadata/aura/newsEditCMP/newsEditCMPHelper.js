@@ -1,0 +1,4 @@
+({
+	loadHelper : function(component) {		
+	}
+})

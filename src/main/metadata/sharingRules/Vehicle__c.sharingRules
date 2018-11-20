@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
+        <fullName>AU_Vehicle_Edit_to_ALL_MB_AU_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing vehicle records with all Dealers of AU</description>
+        <label>AU_Vehicle_Edit_to_ALL__MB_AU_VP</label>
+        <sharedTo>
+            <roleAndSubordinates>MB_AU_VP</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>IN_Vehicle_Readable_to_MPC_And_FS</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>IN_Vehicle_Readable_to_MPC_And_FS</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Competitor,MB</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>JP_MarketVehicle_Readable_to_MBJ_Dealers</fullName>
         <accessLevel>Read</accessLevel>
         <description>View all records of Vehicle with MD__c = &apos;JP&apos; for all Dealer User Roles used in Japan</description>
@@ -93,6 +130,25 @@
             <value>Competitor,MB,Vehicle Product</value>
         </criteriaItems>
     </sharingCriteriaRules>
+   <sharingCriteriaRules>
+        <fullName>NZ_Vehicle_Edit_to_ALL_MB_NZ_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing Vehicle records with all portal and internal subordinates</description>
+        <label>NZ_Vehicle_Edit_to_ALL_MB_NZ_VP</label>
+        <sharedTo>
+            <roleAndSubordinates>MB_NZ_VP</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB</value>
+        </criteriaItems>
+    </sharingCriteriaRules>	
     <sharingCriteriaRules>
         <fullName>READ_WRITE_for_Vehicle_to_CAC</fullName>
         <accessLevel>Edit</accessLevel>
@@ -157,6 +213,43 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>Vehicle_Permission_TR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Vehicle Permission TR</label>
+        <sharedTo>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Competitor,MB</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Vehicle_Sharing_FS</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Sharing of Vehicle to all FS Users.</description>
+        <label>Vehicle Sharing FS</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBLT</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Competitor,MB,Vehicle Product</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>Vehicle_Sharing_for_MBK</fullName>
         <accessLevel>Read</accessLevel>
         <label>Vehicle Sharing for MBK</label>
@@ -172,6 +265,25 @@
             <field>RecordTypeId</field>
             <operation>notEqual</operation>
             <value>Vehicle Soft Deleted</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Vehicle_to_be_shared_with_FS_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Sharing of Vehicle to all FS Users.</description>
+        <label>Vehicle to be shared with FS users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Competitor,MB,Vehicle Product</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>

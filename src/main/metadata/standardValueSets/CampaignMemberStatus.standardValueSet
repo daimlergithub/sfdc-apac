@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>true</sorted>
+    <standardValue>
+        <fullName>A</fullName>
+        <default>false</default>
+        <label>A</label>
+    </standardValue>
+    <standardValue>
+        <fullName>A-ALL</fullName>
+        <default>false</default>
+        <label>A-ALL</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Advisory did not apply</fullName>
+        <default>false</default>
+        <label>Advisory did not apply</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Again confirm the application successfully</fullName>
+        <default>false</default>
+        <label>Again confirm the application successfully</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Already purchased</fullName>
+        <default>false</default>
+        <label>Already purchased</label>
+    </standardValue>
+    <standardValue>
+        <fullName>A-Purifier&amp;Filter screen</fullName>
+        <default>false</default>
+        <label>A-Purifier&amp;Filter screen</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Attended the event</fullName>
+        <default>false</default>
+        <label>Attended the event</label>
+    </standardValue>
+    <standardValue>
+        <fullName>A-Voucher</fullName>
+        <default>false</default>
+        <label>A-Voucher</label>
+    </standardValue>
+    <standardValue>
+        <fullName>B</fullName>
+        <default>false</default>
+        <label>B</label>
+    </standardValue>
+    <standardValue>
+        <fullName>C</fullName>
+        <default>false</default>
+        <label>C</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Communication</fullName>
+        <default>false</default>
+        <label>Communication</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Confirm attendance</fullName>
+        <default>false</default>
+        <label>Confirm attendance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Confirmed not to attend</fullName>
+        <default>false</default>
+        <label>Confirmed not to attend</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Confirmed not to participate</fullName>
+        <default>false</default>
+        <label>Confirmed not to participate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Confirmed their attendance</fullName>
+        <default>false</default>
+        <label>Confirmed their attendance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Confirmed their participation</fullName>
+        <default>false</default>
+        <label>Confirmed their participation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Decline</fullName>
+        <default>false</default>
+        <label>Decline</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Determined not to attend</fullName>
+        <default>false</default>
+        <label>Determined not to attend</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Did not complete the questionnaire</fullName>
+        <default>false</default>
+        <label>Did not complete the questionnaire</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Did not pay the deposit</fullName>
+        <default>false</default>
+        <label>Did not pay the deposit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Did not receive text messages</fullName>
+        <default>false</default>
+        <label>Did not receive text messages</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Don&apos;t Participated</fullName>
+        <default>false</default>
+        <label>Don&apos;t Participated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Failed/No Response</fullName>
+        <default>false</default>
+        <label>Failed/No Response</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Has been added</fullName>
+        <default>false</default>
+        <label>Has been added</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Has been verified as the owner and enrolment</fullName>
+        <default>false</default>
+        <label>Has been verified as the owner and enrolment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Initial payment</fullName>
+        <default>false</default>
+        <label>Initial payment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lead</fullName>
+        <default>false</default>
+        <label>Lead</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New</fullName>
+        <default>false</default>
+        <label>New</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No communication</fullName>
+        <default>false</default>
+        <label>No communication</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No purchase</fullName>
+        <default>false</default>
+        <label>No purchase</label>
+    </standardValue>
+    <standardValue>
+        <fullName>No registration</fullName>
+        <default>false</default>
+        <label>No registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Not participated</fullName>
+        <default>false</default>
+        <label>Not participated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Not received</fullName>
+        <default>false</default>
+        <label>Not received</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Not Sent</fullName>
+        <default>false</default>
+        <label>Not Sent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Not Started</fullName>
+        <default>false</default>
+        <label>Not Started</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Participated</fullName>
+        <default>false</default>
+        <label>Participated</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pay the deposit</fullName>
+        <default>false</default>
+        <label>Pay the deposit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending</fullName>
+        <default>false</default>
+        <label>Pending</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Qualified owners</fullName>
+        <default>false</default>
+        <label>Qualified owners</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Questionnaire success</fullName>
+        <default>false</default>
+        <label>Questionnaire success</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Received</fullName>
+        <default>false</default>
+        <label>Received</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Receive SMS</fullName>
+        <default>false</default>
+        <label>Receive SMS</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Registered</fullName>
+        <default>false</default>
+        <label>Registered</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Success</fullName>
+        <default>false</default>
+        <label>Registration Success</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+        <label>Rejected</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Replied</fullName>
+        <default>false</default>
+        <label>Replied</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Responded</fullName>
+        <default>false</default>
+        <label>Responded</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sent</fullName>
+        <default>false</default>
+        <label>Sent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sent02</fullName>
+        <default>false</default>
+        <label>Sent02</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sign up</fullName>
+        <default>false</default>
+        <label>Sign up</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Started</fullName>
+        <default>false</default>
+        <label>Started</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Successful return visit</fullName>
+        <default>false</default>
+        <label>Successful return visit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Success invitation</fullName>
+        <default>false</default>
+        <label>Success invitation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>The dealer did not follow up</fullName>
+        <default>false</default>
+        <label>The dealer did not follow up</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unconfirmed</fullName>
+        <default>false</default>
+        <label>Unconfirmed</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unsent</fullName>
+        <default>false</default>
+        <label>Unsent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unsuccessful communication</fullName>
+        <default>false</default>
+        <label>Unsuccessful communication</label>
+    </standardValue>
+    <standardValue>
+        <fullName>レスポンスあり</fullName>
+        <default>false</default>
+        <label>レスポンスあり</label>
+    </standardValue>
+    <standardValue>
+        <fullName>送信</fullName>
+        <default>false</default>
+        <label>送信</label>
+    </standardValue>
+</StandardValueSet>

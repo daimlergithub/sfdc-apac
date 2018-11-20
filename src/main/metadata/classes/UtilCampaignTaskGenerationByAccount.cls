@@ -86,7 +86,7 @@ system.debug('&******************'+cpList);
                     Campaign.Parent.ParentId, Campaign.EndDate,Campaign.StartDate,
                     Campaign.Previous_Campaign_Execution__c,
                     Campaign.Template__c, Status, Campaign.OwnerId, Campaign.MD__c,Campaign.Campaign_Code__c, Campaign.OBSMSTemplate__c, 
-                    Campaign.OBSMSTemplate__r.Message_Detail__c, Campaign.OBSMSTemplate__r.Template_ID__c, Campaign.Questionnaire__c
+                    Campaign.OBSMSTemplate__r.Message_Detail__c, Campaign.OBSMSTemplate__r.Template_ID__c, Campaign.Questionnaire__c,Campaign.Market__c 
             from CampaignMember
             where CampaignId in :cpIdList and Task_Generated__c = false]); //FOR UPDATE]);
     } 
@@ -183,7 +183,7 @@ system.debug('&******************'+cpList);
                 tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c+' '+cpm.Contact.Name;
                 } 
                 tsk.RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId();
-                if(cpm.Campaign.MD__c=='TH'){
+                if(cpm.Campaign.MD__c=='TH' || cpm.Campaign.Market__c =='TR'){
                 tsk.RecordTypeId = taskRecordTypeMap.get('OB Call').getRecordTypeId();
                 }
         //SB2018

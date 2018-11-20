@@ -1,10 +1,15 @@
 global class Batch_DistributionDealer implements Database.Batchable<sObject> ,Database.stateful{
     global final String query;
+          global  Campaign camprec=new  Campaign();
       global Map<Id, String> errorMap {get; set;}
   global Map<Id, String> successMap {get; set;}
    global list<Id> successlist=new list<ID>();
   global Map<Id, SObject> IdToSObjectMap {get; set;}
+  
     global Batch_DistributionDealer (String q){
+        errorMap = new Map<Id, String>();
+successMap= new Map<Id, String>();
+IdToSObjectMap = new Map<Id, SObject>();
         query = q;
         system.debug('++++++++++++++++++'+query);
         
@@ -19,8 +24,8 @@ global class Batch_DistributionDealer implements Database.Batchable<sObject> ,Da
     Set<Id> camid = New Set<Id>();
     Map<Id, Id> dealerMap = New Map<Id,Id>();
     
-    List<Dealer_List_Member__c> dealerMainList = New List<Dealer_List_Member__c>();
-    
+  //  List<Dealer_List_Member__c> dealerMainList = New List<Dealer_List_Member__c>();
+    Map<id,Dealer_List_Member__c> dealerMainList = New Map<id,Dealer_List_Member__c>();
     For(Campaign_Member__c CamMem : Scope){
             
                    sid.add(camMem.Preferred_Dealer__c);
@@ -64,25 +69,58 @@ global class Batch_DistributionDealer implements Database.Batchable<sObject> ,Da
                       {
                       dlist.Retail_Copy__c=CamMem.Retail_Copy__c;
                       }
-                   dealerMainList.add(dlist);
-      
+                  // dealerMainList.add(dlist);
+      dealerMainList.put(CamMem.id,dlist);
     }
     
-    if(dealerMainList != null){
-    Database.insert(dealerMainList,false);
+   // if(dealerMainList != null){
+  //  Database.insert(dealerMainList,false);
     
+  //  }
+    
+               if(dealerMainList.size()>0)
+    {
+        List<Database.SaveResult> dsrs = Database.Insert(dealerMainList.Values(), false);
+            Integer index = 0;
+            for(Database.SaveResult dsr : dsrs){
+                if(dsr.issuccess())
+                {
+                successlist.add(dsr.id);            
+                }
+                if(!dsr.isSuccess()){
+                    for(Id key: dealerMainList.keySet())
+                    {
+                  String errMsg = dsr.getErrors()[0].getMessage();
+                    errorMap.put(key, errMsg);
+                    IdToSObjectMap.put(key, dealerMainList.values());                        
+                    }
+                    
+                }
+                index++;
+            }
     }
     
     }
     global void finish(Database.BatchableContext BC){
-    errorMap = new Map<Id, String>();
-successMap= new Map<Id, String>();
-IdToSObjectMap = new Map<Id, SObject>();
-    
+
+     
+       
+     List<Campaign> newcamlist = New List<campaign>();
+     List<Campaign> Camlist =[Select id,Distribution_is_completed__c From Campaign Where id =:query];
+     
+     For(Campaign cam :Camlist){
+     
+     cam.Distribution_is_completed__c = true;
+     
+     newcamlist.add(cam);
+     }
+     Update newcamlist;
+
+
     if(!errorMap.isEmpty() || !successlist.isempty())
      {
          AsyncApexJob a = [SELECT id, ApexClassId,JobItemsProcessed, TotalJobItems,NumberOfErrors, CreatedBy.Email FROM AsyncApexJob WHERE id = :BC.getJobId()];
-       
+        camprec=[Select id,name from campaign where id=:query Limit 1];
          String body = 'Your batch job '
              + 'Batch_DistributionDealer '
              + 'has finished. and' 
@@ -94,7 +132,8 @@ IdToSObjectMap = new Map<Id, SObject>();
          
          // Creating the CSV file
             String finalstr = 'Id, Name, Error \n';
-           String subject = 'Distribution Dealer for - Apex Batch Error List';
+          //   String subject = 'Campaign member Insertion for'+camprec.Name+' - Apex Batch Error List';
+           String subject = 'Distribution Dealer for'+camprec.Name+'  - Apex Batch Error List';
             String attName = 'Distribution Dealer.csv';
             for(Id id  : errorMap.keySet()){
                 string err = errorMap.get(id);
@@ -123,19 +162,6 @@ IdToSObjectMap = new Map<Id, SObject>();
                 Messaging.sendEmail(new Messaging.SingleEmailMessage[] {email});   
  
      }
-    
-       
-     List<Campaign> newcamlist = New List<campaign>();
-     List<Campaign> Camlist =[Select id,Distribution_is_completed__c From Campaign Where id =:query];
-     
-     For(Campaign cam :Camlist){
-     
-     cam.Distribution_is_completed__c = true;
-     
-     newcamlist.add(cam);
-     }
-     Update newcamlist;
-
 }
     
     

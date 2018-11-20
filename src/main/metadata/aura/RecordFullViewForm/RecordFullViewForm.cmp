@@ -1,0 +1,26 @@
+<aura:component>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="Fields" type="String[]"/>
+    <aura:attribute name="objectApiName" type="String"/>
+    <lightning:recordViewForm  
+                              aura:id="recordEditForm" 
+                              recordId="{!v.recordId}"
+                              objectApiName="{!v.objectApiName}">
+        
+        <div class="slds-media">
+            <div class="slds-media__body">
+                <div aura:id="Details" class="slds-m-top--small slds-m-left--large">
+                    <div class="slds-grid slds-gutters slds-wrap"> 
+                        <aura:iteration items="{!v.Fields}" var="item" >
+                            <div class="slds-size_1-of-2 slds-form-element_separator">
+                                <lightning:outputField fieldName="{!item}" />   
+                            </div>
+                        </aura:iteration> 
+                    </div> 
+                </div>
+            </div>
+        </div> 
+        
+    </lightning:recordViewForm>
+    
+</aura:component>

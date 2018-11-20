@@ -18,9 +18,18 @@ public class CaseHelperINTest {
     
     public static void testData(){
         u = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
-        //ps = new PermissionSet(Name = 'Test', Label = 'Test');
-        ps=[Select Id from PermissionSet where Name='India_Generic' limit 1];
-        //TestUtils.providePermissionsIN(u, ps, 'INGeneric');
+        ps = new PermissionSet(Name = 'Test', Label = 'Test');
+        insert ps;
+        CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.INGeneric];
+        SetupEntityAccess sea = new SetupEntityAccess();
+        sea.ParentId = ps.Id;
+        sea.SetupEntityId = cps.id;
+        insert sea;
+        CustomPermission cps1 = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.INRetail];
+        SetupEntityAccess sea1 = new SetupEntityAccess();
+        sea1.ParentId = ps.Id;
+        sea1.SetupEntityId = cps1.id;
+        insert sea1;
         PermissionSetAssignment psa = new PermissionSetAssignment(AssigneeId = u.Id,PermissionSetId = ps.Id);
         insert psa;
         RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();

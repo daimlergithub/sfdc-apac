@@ -32,11 +32,11 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>Case_Permission_TR</fullName>
+        <fullName>Case_Permission_TRK</fullName>
         <accessLevel>Edit</accessLevel>
-        <label>Case Permission TR</label>
+        <label>Case Permission TRK</label>
         <sharedTo>
-            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBTR_Management</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Market__c</field>
@@ -364,6 +364,44 @@
             <value>TH</value>
         </criteriaItems>
     </sharingCriteriaRules>
+	<sharingCriteriaRules>
+		<fullName>MBTH_Compass_case_sharing</fullName>
+		<accessLevel>Read</accessLevel>
+		<description>Sharing all the compass cases to the all users of Thailand with the role of MBTH and their subordinates</description>
+		<label>MBTH_Compass case_sharing</label>
+		<sharedTo>
+			<roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+		</sharedTo>
+		<criteriaItems>
+			<field>MD__c</field>
+			<operation>equals</operation>
+			<value>TH</value>
+		</criteriaItems>
+		<criteriaItems>
+			<field>RecordTypeId</field>
+			<operation>equals</operation>
+			<value>S24h - MMC</value>
+		</criteriaItems>
+	</sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBTR_Compass_case_share_with_WS</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>sharing of the compass cases with WS users from Turkey</description>
+        <label>MBTR Compass case share with WS</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S24h - MMC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
     <sharingCriteriaRules>
         <fullName>MPC_Cases_to_shared_with_MBFS_Management</fullName>
         <accessLevel>Read</accessLevel>
@@ -577,8 +615,8 @@
         </criteriaItems>
         <criteriaItems>
             <field>RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>FS Complaint,FS Inquiry</value>
+            <operation>equals</operation>
+            <value>Inquiry,MB Complaint</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingOwnerRules>
@@ -679,6 +717,105 @@
         </sharedTo>
         <sharedFrom>
             <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+	    <fullName>Share_Case_of_AR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Case of AR</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>AR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>AR_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Case_of_CO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Case of CO</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CO_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>CO_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Case_of_EG</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Case of EG</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>EG_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>EG_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Case_of_HU</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Case of HU</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>HU_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>HU_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Case_of_ID</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Case of ID</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>ID_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>ID_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Case_of_RO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Case of RO</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>RO_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>RO_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Case_of_SG</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Case of SG</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>SG_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>SG_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Case_of_SK</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Case of SK</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>SK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>SK_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_Case_of_VN</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Case of VN</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>VN_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>VN_Management</roleAndSubordinates>
         </sharedFrom>
     </sharingOwnerRules>
     <sharingOwnerRules>

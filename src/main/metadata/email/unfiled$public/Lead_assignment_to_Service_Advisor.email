@@ -1,4 +1,4 @@
-<messaging:emailTemplate subject="{!$Label.Email_LeadPersonAssignSubject}" recipientType="User" relatedToType="Lead__c" language="{!recipient.LanguageLocaleKey}">
+<messaging:emailTemplate subject="{!$Label.Email_LeadPersonAssignSubject}" recipientType="User" relatedToType="Lead__c" language="ja_JP">
 <messaging:htmlEmailBody > 
 
    <html>

@@ -437,15 +437,7 @@
         <apexClass>AddToRetailCampaignControllerTet</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>AddingMemberstoChatterGroup</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AddingMemberstoChatterGroup_test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
+<classAccesses>
         <apexClass>AddressDisplayInlineEditController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -4538,6 +4530,82 @@
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>ALAddressUpdate</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>AccCDM</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>AccountLinkAL</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>CDMAccountlinkContext</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>CDMAccountlinkContextGroup</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>CreateRetailCopy</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>ExportNotification</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>INGeneric</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>INRetail</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>LeadAL</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>LeadShareRecordswithDealers</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>PreferreddALKAddress</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>RSVP</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>addressupdateRT</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>createAccountLink</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>createUpdateCDMUCID</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>onLineDeduplication</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>updateAccountlinks</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>updateRetailCopy</name>
+    </customPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.ACN__c</field>
@@ -8069,9 +8137,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Link__c.Active__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -33212,7 +33280,7 @@
         <recordType>Account.Dealer1</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Company Account Generic</layout>
+        <layout>Account-FS Company Account Generic</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -33232,11 +33300,7 @@
         <layout>Account_Link__c-Account Link Layout</layout>
         <recordType>Account_Link__c.CPD_Copy</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Link__c-Account Link Layout</layout>
-        <recordType>Account_Link__c.Finance_Services</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
+	<layoutAssignments>
         <layout>Account_Link__c-Company Customer External Link</layout>
         <recordType>Account_Link__c.CompanyExternalLink</recordType>
     </layoutAssignments>
@@ -33251,6 +33315,10 @@
     <layoutAssignments>
         <layout>Account_Link__c-Contact2Contact Generic</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Link__c-FS Customer Layout</layout>
+        <recordType>Account_Link__c.Finance_Services</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Individual Customer External Link</layout>
@@ -33450,14 +33518,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
-        <recordType>Case.FS_Complaint</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Case Layout</layout>
-        <recordType>Case.FS_Inquiry</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Case Layout</layout>
         <recordType>Case.MBDA_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -33511,6 +33571,14 @@
     <layoutAssignments>
         <layout>Case-Complaint Layout Generic</layout>
         <recordType>Case.MB_Complaint</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-FS Case Generic Layout</layout>
+        <recordType>Case.FS_Complaint</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-FS Case Generic Layout</layout>
+        <recordType>Case.FS_Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Inquiry Layout Generic</layout>
@@ -33869,7 +33937,7 @@
         <recordType>Opportunity.Aftersales_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
+        <layout>Opportunity-FS Lead Generic</layout>
         <recordType>Opportunity.Finance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -33910,10 +33978,10 @@
     <layoutAssignments>
         <layout>PartnerMarketingBudget-Partner Marketing Budget Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-Person Account Generic</layout>
+	<layoutAssignments>
+        <layout>PersonAccount-FS Person Account Generic</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
-    </layoutAssignments>
+    </layoutAssignments> 
     <layoutAssignments>
         <layout>PersonAccount-Person Account Layout</layout>
         <recordType>PersonAccount.Person_Account_Manual_Merge</recordType>
@@ -35542,7 +35610,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Dealer</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -36146,7 +36214,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.OB_Task</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

@@ -1,0 +1,37 @@
+<aura:component >	
+    <aura:attribute name="fieldtype" type="String" default=""/>
+    <aura:attribute name="fieldName" type= "String" default = ""/>
+    <aura:attribute name="fieldlabel" type= "String" default = ""/>
+    <aura:attribute name="selectedAnswer" type = "String"/>
+    <aura:attribute name="IsInputbool" type= "boolean" default = "false"/>
+    <aura:attribute name="IsPicklistbool" type= "boolean" default = "false"/>
+    <aura:attribute name="IsMultiPicklistbool" type= "boolean" default = "false"/>
+    <aura:attribute name="IsformattedText" type= "boolean" default = "false"/>
+    <aura:attribute name="selectedOptions" type="List"/>
+    <aura:attribute name="options" type="List"/>
+    
+    <aura:handler name = "init" action="{!c.myAction}" value="{!this}"/>
+    
+    <aura:If isTrue = "{!v.IsInputbool}">
+        <lightning:input type = "{!v.fieldtype}" value="{!v.selectedAnswer}" label = "{!v.fieldlabel}" name = "{!v.fieldName}"/>
+    </aura:If>
+     <aura:If isTrue = "{!v.IsPicklistbool}">
+          <lightning:combobox name="{!v.fieldName}"  
+                              label="{!v.fieldlabel}" 
+                              value="{!v.selectedAnswer}" 
+                              options="{! v.options }" />
+    </aura:If>
+     <aura:If isTrue = "{!v.IsformattedText}">
+          <lightning:formattedText padding="around-small" value="{!v.fieldlabel}"/><br/>
+          <lightning:formattedText padding="around-small" value="{!v.selectedAnswer}"/> 
+    </aura:If>
+     <aura:If isTrue = "{!v.IsMultiPicklistbool}">
+         <lightning:dualListbox name="{!v.fieldName}"  
+                           label= "{!v.fieldlabel}"                          
+                           sourceLabel="Available" 
+                           selectedLabel="Selected" 
+                           options="{!v.options}"
+                           value = "{!v.selectedOptions}"/>
+    </aura:If>
+
+</aura:component>

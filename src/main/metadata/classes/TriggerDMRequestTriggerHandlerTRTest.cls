@@ -92,6 +92,7 @@ static testMethod void testTriggerDMRequestTriggerHandlerMY1() {
         AddressFieldsList[0].Market__c='TR';
         AddressFieldsList[0].ZipCode__c='12345';
         AddressFieldsList[0].Customer__c=AccountFieldsList[0].id;  
+		AddressFieldsList[0].country__c='Turkey';
         insert AddressFieldsList;
         List<String> DMReqFields=new List<String>();
         DMReqFields.add('Customer_Name__c');
@@ -205,6 +206,7 @@ static testMethod void testTriggerDMRequestTriggerHandlerTR2() {
         AddressFieldsList[0].Market__c='TR';
         AddressFieldsList[0].ZipCode__c='12345';
         AddressFieldsList[0].Customer__c=AccountFieldsList[0].id;  
+		AddressFieldsList[0].country__c='Turkey';
        // insert AddressFieldsList;
         AddressFieldsList[1].Address_Line_1__c='Lastname1';
         AddressFieldsList[1].Address_Line_2__c='+6003123654789';
@@ -215,6 +217,7 @@ static testMethod void testTriggerDMRequestTriggerHandlerTR2() {
         AddressFieldsList[1].Market__c='TR';
         AddressFieldsList[1].ZipCode__c='12345';
         AddressFieldsList[1].Customer__c=AccountFieldsList[0].id;  
+		AddressFieldsList[1].country__c='Turkey';
         insert AddressFieldsList;
         List<String> DMReqFields=new List<String>();
         DMReqFields.add('Customer_Name__c');
@@ -370,6 +373,7 @@ static testMethod void testTriggerDMRequestTriggerHandlerTY3() {
         AddressFieldsList[0].Market__c='TR';
         AddressFieldsList[0].ZipCode__c='12345';
         AddressFieldsList[0].Customer__c=AccountFieldsList[0].id;  
+        AddressFieldsList[0].Country__c='Turkey';  
         // insert AddressFieldsList;
         AddressFieldsList[1].Address_Line_1__c='Lastname1';
         AddressFieldsList[1].Address_Line_2__c='+6003123654789';
@@ -379,6 +383,7 @@ static testMethod void testTriggerDMRequestTriggerHandlerTY3() {
         AddressFieldsList[1].City__c='+609856321478';
         AddressFieldsList[1].Market__c='TR';
         AddressFieldsList[1].ZipCode__c='12345';
+        AddressFieldsList[1].Country__c='Turkey';  
         AddressFieldsList[1].Customer__c=AccountFieldsList[0].id;                          
         insert AddressFieldsList;
         List<String> DMReqFields=new List<String>();

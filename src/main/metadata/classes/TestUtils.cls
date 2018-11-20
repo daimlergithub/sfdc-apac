@@ -21,6 +21,11 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert u;
         return u;
     }
+    
+    public static User createFMUser(String Market){
+       User u = new User(LastName='UserFM',firstName='FM',Alias='ainFM123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='fmUsr@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = Market);
+       return u; 
+    }
     public static User createMYAdminUser(){               
         Profile p = [select id from profile where Name='System Administrator' limit 1];
         User u = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = 'MY');
@@ -30,7 +35,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     //Generic method to create an admin user with passed market value - added by India market
     public static User createGenericAdminUser(String sCountry, String sTimeszonekey, String sMarket){               
         Profile p = [select id from profile where Name='System Administrator' limit 1];
-        User u = new User(LastName='User',country=sCountry,firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey=sTimeszonekey,LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName='admusrIN01@daimler.com',Market__c = sMarket);
+        User u = new User(LastName='User',country=sCountry,firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey=sTimeszonekey,LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName= System.now().millisecond() + 'admusrIN01@daimler.com',Market__c = sMarket);
         insert u;
         return u;
     }
@@ -139,14 +144,15 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         opp.Market__c = market;
         opp.Name = 'Generic Opportunity';
         opp.RecordTypeId = oppRecordTypeId;
-        opp.CloseDate = Date.newInstance(2018, 4, 17);
+        opp.Type_of_Sale__c = 'Corporate';
+        opp.CloseDate = Date.today()+5;
         if(UtilRecordType.getRecordTypeNameById('Opportunity', oppRecordTypeId) == 'Sales Lead'){
-            opp.Lead_Type__c = 'Activities';
+            opp.Lead_Type__c = 'New Car';
             opp.Lead_Sub_Type__c = 'Test Drive';
             opp.Lead_DataSource__c = 'Event';
         }
         else{
-            opp.Lead_Type__c = 'Car Service';
+            opp.Lead_Type__c = 'Service';
             opp.Lead_Sub_Type__c = 'Others';
             opp.Lead_DataSource__c = 'Event';
         }
@@ -177,14 +183,15 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
             opp.Sales_Consultant__c = con.Id;
             opp.Assigned_Dealer__c = dealerAcc.Id;
             opp.Assigned_Service_Advisor__c = u.Id;
-            opp.CloseDate = Date.newInstance(2018, 4, 17);
+            opp.CloseDate = Date.Today()+5;
+            opp.Type_of_Sale__c = 'Corporate';
             if(UtilRecordType.getRecordTypeNameById('Opportunity', oppRecordTypeId) == 'Sales Lead'){
-                opp.Lead_Type__c = 'Activities';
+                opp.Lead_Type__c = 'New Car';
                 opp.Lead_Sub_Type__c = 'Test Drive';
                 opp.Lead_DataSource__c = 'Event';
             }
             else{
-                opp.Lead_Type__c = 'Car Service';
+                opp.Lead_Type__c = 'Service';
                 opp.Lead_Sub_Type__c = 'Others';
                 opp.Lead_DataSource__c = 'Event';
             }
@@ -265,6 +272,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         genericAccount.RecordtypeId = accRecordTypeId;
         if(accRecordTypeId == Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId()){
             genericAccount.Name = 'Test Generic Account';
+			genericAccount.Corporate_Category__c = 'Corporate Loyalty';
         }
         else{
             genericAccount.FirstName = 'Test Generic fName';
@@ -375,6 +383,8 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
 // Creation of a company account (B2B)
     public static Account createCompanyAccount(User U){             
         Account a = new Account(Name = u.LastName);
+        if(U.Market__c == 'IN' || U.Market__c == null)
+            a.Corporate_Category__c = 'Corporate Loyalty';
         a.Dealer_Default_Flag__c=false;
         a.Dealer_DMS_SR_Code__c='test code 2';
         a.Home_Phone_2__c = '02202123626';
@@ -404,7 +414,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         a.Foundation_Date__c=date.today()-1;
         a.RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
         a.ID_Type__c = 'National ID';
-        a.ID_Number__c='9999999993015';
+        a.ID_Number__c='3100504020220';
         insert a;
         return a;
     }
@@ -492,11 +502,32 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         address.preferred__c=True;
         address.Opt_In_Hardcopy__c=True;
         address.Market__c='TR';
+		address.country__c='Turkey';
         address.MD__c='TR';
         insert address;
         return address;
     }
     
+    // Creation of Address India
+    public static Address__c createAddressIN(Id AccId){                   
+        Address__c address=new Address__c();
+        address.Address_Type__c='Home';
+        address.Province__c='Bangalore';
+        address.City__c='TestCity';
+        address.District__c='testDist';
+        address.Block__c='testBlock';
+        address.Address_Line_1__c='testaddress1';
+        address.Address_Line_2__c='testaddress2';
+        address.ZipCode__c = '327034';
+        address.Customer__c=AccId;
+        address.TitleOfHonor__c ='To Person';  
+        address.preferred__c=True;
+        address.Market__c='IN';
+		address.country__c='India';
+        address.MD__c='IN';
+        insert address;
+        return address;
+    }
     
     public static Address__c createAddressMY(Id AccId){                   
         Address__c address=new Address__c();

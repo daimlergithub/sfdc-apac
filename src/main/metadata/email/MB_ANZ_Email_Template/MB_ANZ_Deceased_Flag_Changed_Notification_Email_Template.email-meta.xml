@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To Notify ID Data Team about the change in Deceased flag of customer</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Daimler</letterhead>
+    <name>MB ANZ Deceased Flag Changed Notification Email Template</name>
+    <style>freeForm</style>
+    <subject>Customer {!Account.MB_Online_Id__c} - Deceased flag modified in Salesforce</subject>
+    <textOnly>Hi, 
+Please note that the customer with the following details has the deceased flag modified. Please take appropriate action for updating the customer record. 
+
+MB Online Id 		        : {!Account.MB_Online_Id__c} 
+UCID 				: {!Account.UCID__c} 
+Title 				: {!Account.Title__c} 
+First Name 			: {!Account.FirstName} 
+Last Name 			: {!Account.LastName} 
+Deceased Flag 		: {!if(Account.Deceased__c,&quot;Yes&quot;,&quot;No&quot;)} 
+Last Modified By 	        : {!Account.LastModifiedBy} 
+Last Modified Date   	: {!Account.LastModifiedDate}
+
+
+Thanks
+Daimler Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

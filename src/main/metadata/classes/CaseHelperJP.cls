@@ -205,10 +205,11 @@ public class CaseHelperJP
     
     
      for(Case ca :CaseList){
-     
-     
+         
+         if(ca.Status != 'Waiting for Response approval' && Maplist.get(ca.id).Status != 'Final approval done' &&  Maplist.get(ca.id).Status != 'Final approval rejected'){
          
          aid.add(Maplist.get(ca.Id).OwnerId);
+         }
      }
       system.debug('+++++++++++++'+aid);
      
@@ -1113,4 +1114,91 @@ List<Account> accUpdLst = new List<Account>();
         }
     }
     
- }
+    /*VB19092018*/
+    public static void copyAttachmentOnLoadJP(Map<Id, Case> newCaseMap, Map<Id, Case> oldCaseMap){
+        Id caseRecId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('EventDataLoad').getRecordTypeId();
+        Map<Id, Attachment> caseIdToAttachmentMap = new Map<Id, Attachment>();
+        List<Attachment> attchmentsToBeCreated = new List<Attachment>();
+        List<Attachment> attchmentsToBeupdated = new List<Attachment>();
+        Map<Id, String> caseIdtoCaseNoMap = new Map<Id, String>();
+        Set<Id> caseIdSet = new Set<Id>();
+        Set<String> duplicateCheckSet = new Set<String>();
+        Map<Id, Attachment> caseIdToAttachmentValidationMap = new Map<Id, Attachment>();
+        List<Attachment> attachmentListValidation = new List<Attachment>();
+        Set<Id> caseIdSetValidation = new Set<Id>();
+        
+        for(Case oldCase : newCaseMap.values() ){
+            caseIdSetValidation.add(oldCase.Id);
+        }
+        
+        for(Attachment att : [SELECT ParentId, Name FROM Attachment WHERE ParentId IN :caseIdSetValidation]){
+            caseIdToAttachmentValidationMap.put(att.ParentId,att);
+        }
+        for(Case cs : newCaseMap.values()){
+            if(cs.recordtypeID == caseRecId && cs.Status == 'Uploaded' && oldCaseMap.get(cs.Id).Status!= 'Uploaded' ){
+                if(!caseIdToAttachmentValidationMap.containsKey(cs.Id)){
+                    cs.addError('Status cannot be changed to Uploaded !!! There are no Attachments for this case.');
+                }
+                caseIdSet.add(cs.Id);
+                caseIdtoCaseNoMap.put(cs.Id,cs.CaseNumber);
+            }
+        }
+        
+        if(caseIdSet.size()>0 && caseIdSet !=null){
+            List<Attachment> tempList = new List<Attachment>();
+            AggregateResult[] groupedResults = [SELECT ParentId, Count(Name) FROM Attachment GROUP BY ParentId];
+            for (AggregateResult ar : groupedResults)  {
+                if(Integer.valueOf(ar.get('expr0')) > 1)
+                    duplicateCheckSet.add(String.valueOf(ar.get('ParentId')));
+            }
+            try{
+                tempList = [SELECT Id, Body, ContentType, Name, ParentId FROM Attachment WHERE ParentId IN :caseIdSet AND ParentId NOT IN :duplicateCheckSet]; 
+            }
+            catch(Exception e){
+            }
+            if(tempList.size()>0 && tempList!=null){
+                for(Attachment attach : tempList){
+                    caseIdToAttachmentMap.put(attach.ParentId, attach);
+                }
+            }
+            if(!caseIdToAttachmentMap.isempty()){
+                for(Attachment att :  caseIdToAttachmentMap.values()){
+                        String fileextn =  att.Name.substring(att.Name.indexOfAny('.'), att.Name.length());
+                        Attachment successAtt = new Attachment();
+                        successAtt.Body = att.body;
+                        successAtt.ContentType = 'application/vnd.ms-excel';
+                        successAtt.Name = caseIdtoCaseNoMap.get(att.ParentId)+'_Success.csv';
+                        successAtt.ParentId = att.ParentId;
+                        
+                        Attachment errorAtt = new Attachment();
+                        errorAtt.Body = att.body;
+                        errorAtt.ContentType = 'application/vnd.ms-excel';
+                        errorAtt.Name = caseIdtoCaseNoMap.get(att.ParentId)+'_Error.csv';
+                        errorAtt.ParentId = att.ParentId;
+                            
+                        att.Name = caseIdtoCaseNoMap.get(att.ParentId)+fileextn;
+                        attchmentsToBeupdated.add(att);
+                        attchmentsToBeupdated.add(successAtt);
+                        attchmentsToBeupdated.add(errorAtt);
+                }
+            }
+            if(attchmentsToBeupdated.size() > 0 && attchmentsToBeupdated != null){
+                Database.UpsertResult[] urList = Database.upsert(attchmentsToBeupdated, true);
+                String errorsToBeLogged = '';
+                for (Database.UpsertResult sr : urList) {
+                    if (sr.isSuccess()) {
+                        //System.debug('Successfully inserted account. Account ID: ' + sr.getId());
+                    }
+                    else {
+                        errorsToBeLogged += sr.getErrors();
+                    }
+                }
+                if(errorsToBeLogged != ''){
+                     CustomLogUtil.CustomLoggingEntry(System.Label.Event_Data_Load_Case_JP+''+ errorsToBeLogged);
+                     CustomLogUtil.DebugLogInsert();
+                }
+            }
+        }
+    }
+    /*VB19092018*/
+}

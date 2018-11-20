@@ -159,7 +159,7 @@ public with sharing class AccountHelperJPTest
                 Email = 'test123456@test.com',
                 EmailEncodingKey = 'UTF-8',
                 LastName = 'Inf',
-                CommunityNickname = System.now().millisecond() + 'test12345',
+                CommunityNickname = System.now().millisecond() + 'testJP123',
                 TimeZoneSidKey = 'America/Los_Angeles',
                 LocaleSidKey = 'en_US',
                 LanguageLocaleKey = 'en_US' );

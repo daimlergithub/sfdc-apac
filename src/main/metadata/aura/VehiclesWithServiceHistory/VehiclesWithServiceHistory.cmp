@@ -1,0 +1,38 @@
+<aura:component controller = "ServiceHistoryController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,flexipage:availableForRecordHome,lightning:actionOverride,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >        
+    <aura:attribute name="data" type="Retail_Task__c[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="vehicleList" type="Vehicle_Relationship__c[]"/>
+    <aura:attribute name="Spinner" type="boolean" default="false" />
+    
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+    <aura:if isTrue="{!v.Spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
+    <h3 class="slds-section-title--divider"> Customer Vehicles</h3><br/>  
+    <aura:if isTrue="{!not(empty(v.vehicleList))}">
+        <lightning:accordion aura:id="accordion" activeSectionName="B" allowMultipleSectionsOpen="true">
+            <aura:iteration items="{!v.vehicleList}" var="vehicle" indexVar="veh">
+                <lightning:accordionSection name="{!veh}" label="{!vehicle.Car_Model__c}">
+                    <aura:set attribute="body">
+                        <div style="min-height: 100px">
+                            <c:ServiceHistoryComponent vehicleId= "{!vehicle.Vehicle_ID__c}"/>
+                        </div>
+                    </aura:set>
+                </lightning:accordionSection>
+            </aura:iteration>
+        </lightning:accordion>
+        <aura:set attribute="else">
+            <div class="slds-text-heading_small">Customer does not have any vehicles</div>
+        </aura:set>
+    </aura:if>
+</aura:component>

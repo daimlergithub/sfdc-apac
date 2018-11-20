@@ -1,0 +1,9 @@
+<aura:documentation>
+	<aura:description>
+        <p><code>c:EventReg</code> component to create registarion records against ecah Event and this component we have placed in Events Lightning record page.</p>
+        <p>This component uses <code>lightning:recordEditForm</code> to display input fields on the UI. These fields are fetched from <code>Registation__c</code> object.</p>        
+    </aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		Example Description
+	</aura:example>
+</aura:documentation>

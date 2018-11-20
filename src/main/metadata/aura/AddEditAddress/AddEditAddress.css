@@ -1,0 +1,24 @@
+@media (min-width: 320px) and (max-width: 480px) {  
+  .THIS .modalContainer {
+    max-height: 338px;
+  }
+  
+}
+
+@media (min-width: 992px) {
+ .THIS .modalContainer {
+    max-height: 480px;
+  }
+  .THIS .slds-dropdown {
+    overflow:auto;
+    max-height: 200px;
+    margin-bottom: 25px;
+  }
+}
+
+
+
+.THIS.slds-form{
+    margin: auto;
+    
+}

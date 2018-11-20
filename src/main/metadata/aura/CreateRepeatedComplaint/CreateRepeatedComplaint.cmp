@@ -1,0 +1,4 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickAction,force:hasSObjectName" controller="SObjectCloneCtrl">
+	    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+</aura:component>

@@ -911,16 +911,36 @@ public with sharing class VehicleRelationshipHelperJP
     @TestVisible private static List<Vehicle_Relationship__Share> createPersonOrCompanyAccountSharing(Map<Id, List<Id>> map_AccountIdAndListVCwithVRrecordtypeId,Set<Id> currentVrId){
      
         List<Account_Link__c> ListAlk=new List<Account_Link__c>();
-        Set<Id> DealerAccId=new Set<Id>();
+        Map<Id,Id> DealerAccId=new Map<Id,Id>();
         Set<Id> VrID=new Set<Id>();
-        
-        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:map_AccountIdAndListVCwithVRrecordtypeId.keySet() ];
+        Map<Id,List<String>> GCodeMapping = New Map<Id,List<String>>();
+        ListAlk = [select id,fromRole__c,fromRole__r.Name,toRole__c from Account_Link__c where toRole__c=:map_AccountIdAndListVCwithVRrecordtypeId.keySet() ];
         for(Account_Link__c alk:ListAlk) {
-            DealerAccId.add(alk.fromRole__c);
+            
+           if(alk.toRole__c !=null){ 
+            DealerAccId.put(alk.toRole__c,alk.fromRole__c);
+            //GCodeMapping.put(alk.toRole__c ,new List<Id>());
+        }
+       // GCodeMapping.get(alk.toRole__c).add(alk.fromRole__r.Name);
+        
         }
         DealerAccId.remove(null);
         
-        // Start: Share with all Dealer Account with same GC Code
+        List<Vehicle_RelationShip__c> vrMainList = [select id,Contact__c From Vehicle_Relationship__c Where id=:currentVrId];
+        
+        for(Vehicle_RelationShip__c vr : vrMainList ){
+        
+        for(Account dealerAccList:[select Name from Account where Id =: DealerAccId.get(vr.Contact__c)]){
+        
+          if(vr.Contact__c !=null){ 
+            
+            GCodeMapping.put(vr.Contact__c ,new List<String>());
+        }
+        GCodeMapping.get(vr.Contact__c).add(dealerAccList.Name); 
+        
+        }
+        }
+      /*  // Start: Share with all Dealer Account with same GC Code
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(DealerAccId);
         for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
             for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
@@ -937,23 +957,27 @@ public with sharing class VehicleRelationshipHelperJP
         for(Account dealerRec : dealerAccList) {
             dealerAccNameSet.add(dealerRec.Name);
             accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
-        }
+        }  */    
         
         
-        System.debug('DealerAccId  newList'+DealerAccId);
         
+       // List<Vehicle_RelationShip__c> vrMainList = [select id,Contact__c From Vehicle_Relationship__c Where id=:currentVrId];
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
-        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
-            if(currentVrId != null) {
-                for(Id ids:currentVrId) {
+        
+        
+            
+                for( Vehicle_RelationShip__c ids:vrMainList) {
+                if(GCodeMapping.get(ids.Contact__c) !=null){
+                for(Group groupRec : [select Id, Name, Type from Group where Name IN: GCodeMapping.get(ids.Contact__c)]) {
                     Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                     vehicleRelationShare.AccessLevel = 'Edit';
                     vehicleRelationShare.UserOrGroupId = groupRec.Id; 
-                    vehicleRelationShare.ParentId =ids; 
+                    vehicleRelationShare.ParentId =ids.id; 
                     vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
                     list_SharingRecord.add(vehicleRelationShare);
                 }
-            }
+                }
+            
         }  
         return list_SharingRecord;
     }
@@ -995,4 +1019,33 @@ public with sharing class VehicleRelationshipHelperJP
      
      }
  }   */
+    
+    /*
+        Created By: Dheeraj
+        Created Date: 11/10/2018
+        Description: This method is used to call the informatica service whenever the vehicle relationship record is created or updated.
+    */
+    
+    public static void sendVehicleRelationshipInfo(List<Vehicle_Relationship__c> vehicleRelationList, Map<Id, Vehicle_Relationship__c> oldMap, String market, Boolean isInsert, Boolean isUpdate){
+        Set<Id> vehicleRelationshipIdSet = new Set<Id>(); //holds the vehicle record ids.
+        for(Vehicle_Relationship__c vehRel : vehicleRelationList){
+            if(vehRel.recordTypeId == vehicleRelationship_VRRecordTypeId){
+                if(isUpdate){
+                    if(oldMap.get(vehRel.Id).End_Date__c == null){
+                        vehicleRelationshipIdSet.add(vehRel.Id); //adding the record ids to call the service.
+                    }
+                }else if(isInsert){
+                    vehicleRelationshipIdSet.add(vehRel.Id); //adding the record ids to call the service.
+                }
+            }//end of record type check
+        }//end of trigger list iteration
+        System.debug('VR id set size is ----------------------------------->'+vehicleRelationshipIdSet.size());
+        if(vehicleRelationshipIdSet.size()>0){
+            if(isInsert){
+                CDMInformatica_Services.sendVehicleRelationshipInfo(vehicleRelationshipIdSet, market, 'Insert');
+            }else if(isUpdate){
+                CDMInformatica_Services.sendVehicleRelationshipInfo(vehicleRelationshipIdSet, market, 'Update');
+            }
+        }//end of size check before call.
+    }//end of send vehicle relationship info method.
 }

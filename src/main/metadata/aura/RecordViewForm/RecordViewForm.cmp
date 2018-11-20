@@ -1,0 +1,94 @@
+<aura:component >
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object[]"/>
+    <aura:attribute name="index" type="Integer" />
+    <aura:attribute name="recordAlId" type="Id"/>
+    <aura:attribute name="Tablecolumns" type="List"/> 
+    <aura:attribute name="FocusRecordId" type="Id" />
+    <aura:attribute name="record" type="Sobject" />
+    <aura:attribute name="Allcolumns" type="List" />
+    <aura:attribute name="objectApiName" type="String" />
+    <aura:attribute name="Heading" type="String" />
+    <aura:attribute name="iconName" type="String" />
+    <aura:attribute name="viewAs" type="String"/>
+    <aura:attribute name="editIt" type="boolean"/>
+    <aura:attribute name="deleteIt" type="boolean"/>
+    <aura:attribute name="resizeable" type="boolean" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- LDS -->
+    <force:recordData aura:id="Record"                      
+                      recordId="{!v.recordAlId}"
+                      targetRecord="{!v.record}"
+                      layoutType="FULL" />
+    
+    <force:recordData aura:id="accnLinkRecord"
+                      layoutType="FULL"
+                      recordId="{!v.data.Id}"
+                      />
+    
+	
+    
+    <!-- Related List Component -->
+    <div class="container forceRelatedListSingleContainer"  data-aura-class="forceRelatedListSingleContainer">
+        <article class="slds-card slds-card_boundary forceRelatedListCardDesktop"  data-aura-class="forceRelatedListCardDesktop">
+            
+            <lightning:card iconName="{!v.iconName}">
+                <aura:set attribute="title">
+                    <div class="slds-media__body">
+                        <h2 id="header_1916:0" >
+                            <div class="slds-card__header-link baseCard__header-title-container">
+                                <span class="slds-text-heading--small slds-truncate slds-m-right--xx-small" title="Retail Tasks (Service Contact)" >
+                                    {!v.Heading}
+                                </span>
+                                <span class="slds-text-heading--small slds-shrink-none slds-m-right--xx-small" title="length">
+                                    ({!v.data.length})
+                                </span>
+                            </div>
+                        </h2>
+                    </div>
+                </aura:set>
+                <aura:if isTrue="{!v.data.length>0}">
+                    <div class="slds-border_top">
+                        <lightning:overlayLibrary aura:id="overlayLib"/>
+                        
+                        
+                        <lightning:datatable
+                                             keyField="Id"
+                                             data="{! v.data }"
+                                             columns="{! v.Tablecolumns }"
+                                             hideCheckboxColumn="true"
+                                             resizeColumnDisabled="{!c.resizeable}"
+                                             onrowaction="{! c.handleRowAction }"
+                                             />
+                        
+                    </div>
+                </aura:if>
+            </lightning:card>
+        </article>
+    </div>
+    <aura:if isTrue="{!v.editIt}">
+        <c:modalAccountLinkView sObjectId="{!v.recordAlId}" displayAccountLinkField="{!v.Allcolumns}" recordEditForm="{!v.editIt}" myObjectData="{!v.data}"/>
+    </aura:if>
+    <aura:if isTrue="{!v.deleteIt}">
+            <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        
+                        <h2 id="header99" class="slds-text-heading--medium">Confirmation for deletion</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <p><b>Do you want to Delete ?</b>
+                        </p>
+                    </div>
+                    
+                    <div class="slds-modal__footer">
+                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}" >Cancel</button>
+                        <button class="slds-button slds-button--brand" onclick="{!c.deleteRecord}">Confirm Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+        </aura:if>
+</aura:component>

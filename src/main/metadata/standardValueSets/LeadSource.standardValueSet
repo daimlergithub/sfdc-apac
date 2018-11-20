@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Online Registration</fullName>
+        <default>false</default>
+        <label>Online Registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dealer</fullName>
+        <default>false</default>
+        <label>Dealer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Data marketing</fullName>
+        <default>false</default>
+        <label>Data marketing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>IB</fullName>
+        <default>false</default>
+        <label>IB</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MB Magazine</fullName>
+        <default>false</default>
+        <label>MB Magazine</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partnership Event</fullName>
+        <default>false</default>
+        <label>Partnership Event</label>
+    </standardValue>
+    <standardValue>
+        <fullName>After-Sales Event</fullName>
+        <default>false</default>
+        <label>After-Sales Event</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Autoshow</fullName>
+        <default>false</default>
+        <label>Autoshow</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SMS</fullName>
+        <default>false</default>
+        <label>SMS</label>
+    </standardValue>
+    <standardValue>
+        <fullName>DM</fullName>
+        <default>false</default>
+        <label>DM</label>
+    </standardValue>
+</StandardValueSet>

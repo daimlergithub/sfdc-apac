@@ -36,7 +36,8 @@ public class TriggerAccountTriggerHandlerTR implements TriggerHandlerIf{
             if(Util_GetPermissionList.checkAccessOnUser(Label.TRGeneric)){
                 AccountHelperTR.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
                 AccountHelperBase.updatemarket(Trigger.New);
-               
+                AccountHelperTR.errorOnDOCPermissions(Trigger.new,false);
+                 AccountHelperTR.validateProvinceCodes(Trigger.new);
             }
         }
         
@@ -74,7 +75,7 @@ public class TriggerAccountTriggerHandlerTR implements TriggerHandlerIf{
             if(Util_GetPermissionList.checkAccessOnUser(Label.TRGeneric)){
                 AccountHelperTR.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
                 AccountHelperTR.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
-                 AccountHelperTR.errorOnDOCPermissions(Trigger.new);
+                 AccountHelperTR.errorOnDOCPermissions(Trigger.new,true);
                  AccountHelperTR.validateProvinceCodes(Trigger.new);
                 AccountHelperTR.updateOnDoNotCall(Trigger.new);
                 AccountHelperTR.updateOnPostalOptout(Trigger.new);
@@ -100,7 +101,7 @@ public class TriggerAccountTriggerHandlerTR implements TriggerHandlerIf{
         if(isAfter && isInsert )
         {
             
-            if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
+            if(Util_GetPermissionList.checkAccessOnUser('CreateRetailCopy')){
                 AccountHelperTR.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
             }                                                                               
         } 
@@ -145,6 +146,7 @@ public class TriggerAccountTriggerHandlerTR implements TriggerHandlerIf{
             if(isBefore && isInsert){
                 //AccountHelperTR.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
                 AccountHelperTR.updateAccountFieldsBeforeInsertInt(Trigger.new,trigger.isInsert);
+               // AccountHelperTR.validateProvinceCodes(Trigger.new);
             }
             
             if(isBefore && isUpdate){
@@ -152,11 +154,14 @@ public class TriggerAccountTriggerHandlerTR implements TriggerHandlerIf{
                 AccountHelperTR.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
                 AccountHelperTR.updateOnDoNotCall(Trigger.new);
                 AccountHelperTR.updateOnPostalOptout(Trigger.new);
-                 AccountHelperTR.validateProvinceCodes(Trigger.new);
+               //  AccountHelperTR.validateProvinceCodes(Trigger.new);
                 AccountHelperTR.updateOnEmailOptout(Trigger.new);
                 AccountHelperTR.updateOnSMSoptout(Trigger.new);
                 AccountHelperTR.updateOnPhoneoptout(Trigger.new);
                 AccountHelperTR.updateAgeRange(Trigger.new); 
+            }
+            if(isAfter && isUpdate){
+                AccountHelperTR.updateUcidRetailCopy(trigger.new);
             }
         }
     }

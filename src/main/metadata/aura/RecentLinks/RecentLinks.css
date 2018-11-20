@@ -1,0 +1,5 @@
+.THIS .slds-list__item {
+  /*his breaks the word wherever it is without a hyphen */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}

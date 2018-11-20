@@ -262,6 +262,7 @@
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>ESTATE</valueName>
             </valueSettings>
             <valueSettings>
@@ -271,6 +272,7 @@
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>ROADSTER</valueName>
             </valueSettings>
             <valueSettings>
@@ -280,6 +282,7 @@
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SEDAN</valueName>
             </valueSettings>
             <valueSettings>
@@ -289,14 +292,17 @@
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SHOOTING BRAKE</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SUV</valueName>
             </valueSettings>
             <valueSettings>
@@ -374,6 +380,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>4 DOOR COUPE</valueName>
             </valueSettings>
             <valueSettings>
@@ -381,6 +388,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>CABRIO</valueName>
             </valueSettings>
             <valueSettings>
@@ -388,6 +396,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>COUPE</valueName>
             </valueSettings>
             <valueSettings>
@@ -395,6 +404,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>HATCHBACK</valueName>
             </valueSettings>
             <valueSettings>
@@ -402,13 +412,16 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>SPORTCOUPE</valueName>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <valueName>MPV</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>MPV</valueName>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <valueName>SPORTCOUPE</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -1207,6 +1220,7 @@
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Mercedes-Benz</valueName>
             </valueSettings>
             <valueSettings>
@@ -1217,6 +1231,7 @@
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Smart</valueName>
             </valueSettings>
             <valueSettings>
@@ -1225,6 +1240,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Maybach</valueName>
             </valueSettings>
             <valueSettings>
@@ -1233,6 +1249,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>BMW</valueName>
             </valueSettings>
             <valueSettings>
@@ -1241,6 +1258,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Audi</valueName>
             </valueSettings>
             <valueSettings>
@@ -1249,6 +1267,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Volkswagen</valueName>
             </valueSettings>
             <valueSettings>
@@ -1257,6 +1276,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Lexus</valueName>
             </valueSettings>
             <valueSettings>
@@ -1264,6 +1284,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Abarth</valueName>
             </valueSettings>
             <valueSettings>
@@ -1272,6 +1293,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Alfa Romeo</valueName>
             </valueSettings>
             <valueSettings>
@@ -1279,6 +1301,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>AMC</valueName>
             </valueSettings>
             <valueSettings>
@@ -1286,6 +1309,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>AMC Jeep</valueName>
             </valueSettings>
             <valueSettings>
@@ -1293,6 +1317,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Apal</valueName>
             </valueSettings>
             <valueSettings>
@@ -1300,6 +1325,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Arutega</valueName>
             </valueSettings>
             <valueSettings>
@@ -1308,6 +1334,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Aston Martin</valueName>
             </valueSettings>
             <valueSettings>
@@ -1315,6 +1342,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Austin</valueName>
             </valueSettings>
             <valueSettings>
@@ -1322,6 +1350,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Autobianchi</valueName>
             </valueSettings>
             <valueSettings>
@@ -1329,6 +1358,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Avanti</valueName>
             </valueSettings>
             <valueSettings>
@@ -1336,6 +1366,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Bandenpura</valueName>
             </valueSettings>
             <valueSettings>
@@ -1344,6 +1375,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Bentley</valueName>
             </valueSettings>
             <valueSettings>
@@ -1351,6 +1383,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Bertone</valueName>
             </valueSettings>
             <valueSettings>
@@ -1358,6 +1391,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Birkin</valueName>
             </valueSettings>
             <valueSettings>
@@ -1365,6 +1399,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>BL</valueName>
             </valueSettings>
             <valueSettings>
@@ -1372,6 +1407,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>BMW Alpina</valueName>
             </valueSettings>
             <valueSettings>
@@ -1379,6 +1415,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Brabus</valueName>
             </valueSettings>
             <valueSettings>
@@ -1387,6 +1424,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Bugatti</valueName>
             </valueSettings>
             <valueSettings>
@@ -1395,6 +1433,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Buick</valueName>
             </valueSettings>
             <valueSettings>
@@ -1402,6 +1441,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Burstner</valueName>
             </valueSettings>
             <valueSettings>
@@ -1410,6 +1450,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Cadillac</valueName>
             </valueSettings>
             <valueSettings>
@@ -1417,6 +1458,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Canada Honda</valueName>
             </valueSettings>
             <valueSettings>
@@ -1424,6 +1466,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Carb Deeds</valueName>
             </valueSettings>
             <valueSettings>
@@ -1431,6 +1474,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Carlson</valueName>
             </valueSettings>
             <valueSettings>
@@ -1438,6 +1482,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Caterham</valueName>
             </valueSettings>
             <valueSettings>
@@ -1446,6 +1491,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Chevrolet</valueName>
             </valueSettings>
             <valueSettings>
@@ -1454,6 +1500,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Chrysler</valueName>
             </valueSettings>
             <valueSettings>
@@ -1462,6 +1509,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Citroen</valueName>
             </valueSettings>
             <valueSettings>
@@ -1469,6 +1517,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>CT&amp;T</valueName>
             </valueSettings>
             <valueSettings>
@@ -1476,6 +1525,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Daimler</valueName>
             </valueSettings>
             <valueSettings>
@@ -1483,6 +1533,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Detomaso</valueName>
             </valueSettings>
             <valueSettings>
@@ -1491,6 +1542,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Dodge</valueName>
             </valueSettings>
             <valueSettings>
@@ -1498,6 +1550,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Donkervoort</valueName>
             </valueSettings>
             <valueSettings>
@@ -1505,6 +1558,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Eagle</valueName>
             </valueSettings>
             <valueSettings>
@@ -1513,6 +1567,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Ferrari</valueName>
             </valueSettings>
             <valueSettings>
@@ -1521,6 +1576,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Fiat</valueName>
             </valueSettings>
             <valueSettings>
@@ -1529,6 +1585,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Fisker</valueName>
             </valueSettings>
             <valueSettings>
@@ -1537,6 +1594,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Ford</valueName>
             </valueSettings>
             <valueSettings>
@@ -1544,6 +1602,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Ginetta</valueName>
             </valueSettings>
             <valueSettings>
@@ -1551,6 +1610,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Gio</valueName>
             </valueSettings>
             <valueSettings>
@@ -1558,6 +1618,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GM Daewoo</valueName>
             </valueSettings>
             <valueSettings>
@@ -1565,6 +1626,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GM Matiz</valueName>
             </valueSettings>
             <valueSettings>
@@ -1573,6 +1635,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GMC</valueName>
             </valueSettings>
             <valueSettings>
@@ -1580,6 +1643,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Gumpert</valueName>
             </valueSettings>
             <valueSettings>
@@ -1587,6 +1651,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Healey</valueName>
             </valueSettings>
             <valueSettings>
@@ -1595,6 +1660,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Holden</valueName>
             </valueSettings>
             <valueSettings>
@@ -1603,6 +1669,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Hummer</valueName>
             </valueSettings>
             <valueSettings>
@@ -1611,6 +1678,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Hyundai</valueName>
             </valueSettings>
             <valueSettings>
@@ -1618,6 +1686,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Innocenti</valueName>
             </valueSettings>
             <valueSettings>
@@ -1626,6 +1695,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Jaguar</valueName>
             </valueSettings>
             <valueSettings>
@@ -1634,6 +1704,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Jeep</valueName>
             </valueSettings>
             <valueSettings>
@@ -1642,6 +1713,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Kia</valueName>
             </valueSettings>
             <valueSettings>
@@ -1650,6 +1722,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Koenigsegg</valueName>
             </valueSettings>
             <valueSettings>
@@ -1657,6 +1730,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>KTM</valueName>
             </valueSettings>
             <valueSettings>
@@ -1665,6 +1739,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Lamborghini</valueName>
             </valueSettings>
             <valueSettings>
@@ -1672,6 +1747,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Lancia</valueName>
             </valueSettings>
             <valueSettings>
@@ -1680,6 +1756,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Land Rover</valueName>
             </valueSettings>
             <valueSettings>
@@ -1688,6 +1765,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Lincoln</valueName>
             </valueSettings>
             <valueSettings>
@@ -1695,6 +1773,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>London taxi</valueName>
             </valueSettings>
             <valueSettings>
@@ -1703,6 +1782,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Lotus</valueName>
             </valueSettings>
             <valueSettings>
@@ -1710,6 +1790,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Marcos</valueName>
             </valueSettings>
             <valueSettings>
@@ -1717,6 +1798,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Martin</valueName>
             </valueSettings>
             <valueSettings>
@@ -1725,6 +1807,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Maserati</valueName>
             </valueSettings>
             <valueSettings>
@@ -1733,6 +1816,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Maurice</valueName>
             </valueSettings>
             <valueSettings>
@@ -1741,6 +1825,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Mclaren</valueName>
             </valueSettings>
             <valueSettings>
@@ -1749,6 +1834,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Mercury</valueName>
             </valueSettings>
             <valueSettings>
@@ -1756,6 +1842,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>MG</valueName>
             </valueSettings>
             <valueSettings>
@@ -1764,6 +1851,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Mini</valueName>
             </valueSettings>
             <valueSettings>
@@ -1771,6 +1859,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Moke</valueName>
             </valueSettings>
             <valueSettings>
@@ -1778,6 +1867,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Morgan</valueName>
             </valueSettings>
             <valueSettings>
@@ -1785,6 +1875,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Oldsmobile</valueName>
             </valueSettings>
             <valueSettings>
@@ -1792,6 +1883,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Opel</valueName>
             </valueSettings>
             <valueSettings>
@@ -1800,6 +1892,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Pagani</valueName>
             </valueSettings>
             <valueSettings>
@@ -1807,6 +1900,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Panther</valueName>
             </valueSettings>
             <valueSettings>
@@ -1815,6 +1909,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Peugeot</valueName>
             </valueSettings>
             <valueSettings>
@@ -1822,6 +1917,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>PGO</valueName>
             </valueSettings>
             <valueSettings>
@@ -1829,6 +1925,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Plymouth</valueName>
             </valueSettings>
             <valueSettings>
@@ -1836,6 +1933,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Pontiac</valueName>
             </valueSettings>
             <valueSettings>
@@ -1844,6 +1942,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Porsche</valueName>
             </valueSettings>
             <valueSettings>
@@ -1851,6 +1950,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Proton</valueName>
             </valueSettings>
             <valueSettings>
@@ -1858,6 +1958,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Rada</valueName>
             </valueSettings>
             <valueSettings>
@@ -1865,6 +1966,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Reliant</valueName>
             </valueSettings>
             <valueSettings>
@@ -1873,6 +1975,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Renault</valueName>
             </valueSettings>
             <valueSettings>
@@ -1880,6 +1983,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Riley</valueName>
             </valueSettings>
             <valueSettings>
@@ -1887,6 +1991,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Road Trek</valueName>
             </valueSettings>
             <valueSettings>
@@ -1895,6 +2000,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Rolls-Royce</valueName>
             </valueSettings>
             <valueSettings>
@@ -1902,6 +2008,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Rover</valueName>
             </valueSettings>
             <valueSettings>
@@ -1909,6 +2016,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Ruf</valueName>
             </valueSettings>
             <valueSettings>
@@ -1916,6 +2024,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Saab</valueName>
             </valueSettings>
             <valueSettings>
@@ -1923,6 +2032,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Saleen</valueName>
             </valueSettings>
             <valueSettings>
@@ -1930,6 +2040,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Saturn</valueName>
             </valueSettings>
             <valueSettings>
@@ -1938,6 +2049,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SEAT</valueName>
             </valueSettings>
             <valueSettings>
@@ -1945,6 +2057,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Spiker</valueName>
             </valueSettings>
             <valueSettings>
@@ -1953,6 +2066,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Ssangyong</valueName>
             </valueSettings>
             <valueSettings>
@@ -1960,6 +2074,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Starcraft</valueName>
             </valueSettings>
             <valueSettings>
@@ -1967,6 +2082,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Talbot</valueName>
             </valueSettings>
             <valueSettings>
@@ -1974,6 +2090,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Tata</valueName>
             </valueSettings>
             <valueSettings>
@@ -1981,6 +2098,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>TD</valueName>
             </valueSettings>
             <valueSettings>
@@ -1988,6 +2106,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Teilhol</valueName>
             </valueSettings>
             <valueSettings>
@@ -1996,6 +2115,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Tesla</valueName>
             </valueSettings>
             <valueSettings>
@@ -2003,6 +2123,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Tiara</valueName>
             </valueSettings>
             <valueSettings>
@@ -2010,6 +2131,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Triumph</valueName>
             </valueSettings>
             <valueSettings>
@@ -2017,6 +2139,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>TVR</valueName>
             </valueSettings>
             <valueSettings>
@@ -2024,6 +2147,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>UAZ</valueName>
             </valueSettings>
             <valueSettings>
@@ -2031,6 +2155,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Uzurei</valueName>
             </valueSettings>
             <valueSettings>
@@ -2038,6 +2163,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>vector</valueName>
             </valueSettings>
             <valueSettings>
@@ -2045,6 +2171,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Venturi Automobiles</valueName>
             </valueSettings>
             <valueSettings>
@@ -2053,6 +2180,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Volvo</valueName>
             </valueSettings>
             <valueSettings>
@@ -2060,6 +2188,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Westfield</valueName>
             </valueSettings>
             <valueSettings>
@@ -2067,6 +2196,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Winnebago</valueName>
             </valueSettings>
             <valueSettings>
@@ -2074,6 +2204,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>YES!</valueName>
             </valueSettings>
             <valueSettings>
@@ -2082,6 +2213,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Toyota</valueName>
             </valueSettings>
             <valueSettings>
@@ -2090,6 +2222,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Nissan</valueName>
             </valueSettings>
             <valueSettings>
@@ -2098,6 +2231,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Honda</valueName>
             </valueSettings>
             <valueSettings>
@@ -2105,6 +2239,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Mazda Motor Corporation</valueName>
             </valueSettings>
             <valueSettings>
@@ -2113,6 +2248,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Subaru</valueName>
             </valueSettings>
             <valueSettings>
@@ -2120,6 +2256,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Suzuki</valueName>
             </valueSettings>
             <valueSettings>
@@ -2128,6 +2265,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Mitsubishi</valueName>
             </valueSettings>
             <valueSettings>
@@ -2136,6 +2274,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Daihatsu</valueName>
             </valueSettings>
             <valueSettings>
@@ -2143,6 +2282,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Mitsuoka</valueName>
             </valueSettings>
             <valueSettings>
@@ -2150,6 +2290,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Thailand Toyota</valueName>
             </valueSettings>
             <valueSettings>
@@ -2157,6 +2298,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Tommykaira</valueName>
             </valueSettings>
             <valueSettings>
@@ -2164,6 +2306,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Zero Sports</valueName>
             </valueSettings>
             <valueSettings>
@@ -2171,6 +2314,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Hino Motors</valueName>
             </valueSettings>
             <valueSettings>
@@ -2179,6 +2323,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>UD Trucks</valueName>
             </valueSettings>
             <valueSettings>
@@ -2186,6 +2331,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Acura</valueName>
             </valueSettings>
             <valueSettings>
@@ -2193,6 +2339,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Honda</valueName>
             </valueSettings>
             <valueSettings>
@@ -2200,6 +2347,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Infiniti</valueName>
             </valueSettings>
             <valueSettings>
@@ -2207,6 +2355,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Lexus</valueName>
             </valueSettings>
             <valueSettings>
@@ -2214,6 +2363,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Mazda</valueName>
             </valueSettings>
             <valueSettings>
@@ -2221,6 +2371,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Mitsubishi</valueName>
             </valueSettings>
             <valueSettings>
@@ -2228,6 +2379,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Nissan</valueName>
             </valueSettings>
             <valueSettings>
@@ -2235,6 +2387,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Scion</valueName>
             </valueSettings>
             <valueSettings>
@@ -2242,6 +2395,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Subaru</valueName>
             </valueSettings>
             <valueSettings>
@@ -2249,6 +2403,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Suzuki</valueName>
             </valueSettings>
             <valueSettings>
@@ -2256,6 +2411,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>US Toyota</valueName>
             </valueSettings>
             <valueSettings>
@@ -2263,6 +2419,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Domestic car Other</valueName>
             </valueSettings>
             <valueSettings>
@@ -2270,6 +2427,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Other</valueName>
             </valueSettings>
             <valueSettings>
@@ -2277,30 +2435,35 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>AMG</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>DMC</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>MVS</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Imported car Other</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Isuzu</valueName>
             </valueSettings>
         </valueSet>
@@ -2496,8 +2659,17 @@ IF(ISPICKVAL($User.Market__c, 'AU') ,'AU',
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
+IF(ISPICKVAL($User.Market__c, 'ID'), 'ID',
+IF(ISPICKVAL($User.Market__c, 'RO'), 'RO',
+IF(ISPICKVAL($User.Market__c, 'SG'), 'SG',
+IF(ISPICKVAL($User.Market__c, 'VN'), 'VN',
+IF(ISPICKVAL($User.Market__c, 'HU'), 'HU',
+IF(ISPICKVAL($User.Market__c, 'SK'), 'SK',
+IF(ISPICKVAL($User.Market__c, 'AR'), 'AR',
+IF(ISPICKVAL($User.Market__c, 'CO'), 'CO',
+IF(ISPICKVAL($User.Market__c, 'EG'), 'EG', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))))))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -2551,6 +2723,51 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                     <fullName>TR</fullName>
                     <default>false</default>
                     <label>TR</label>
+                </value>
+                <value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                    <label>ID</label>
+                </value>
+                <value>
+                    <fullName>RO</fullName>
+                    <default>false</default>
+                    <label>RO</label>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>false</default>
+                    <label>SG</label>
+                </value>
+                <value>
+                    <fullName>VN</fullName>
+                    <default>false</default>
+                    <label>VN</label>
+                </value>
+                <value>
+                    <fullName>HU</fullName>
+                    <default>false</default>
+                    <label>HU</label>
+                </value>
+                <value>
+                    <fullName>SK</fullName>
+                    <default>false</default>
+                    <label>SK</label>
+                </value>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                    <label>AR</label>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                    <label>CO</label>
+                </value>
+                <value>
+                    <fullName>EG</fullName>
+                    <default>false</default>
+                    <label>EG</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -4449,6 +4666,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>A-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4458,6 +4676,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>B-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4467,6 +4686,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>C-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4476,6 +4696,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>E-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4485,6 +4706,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>G-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4493,6 +4715,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GL-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4502,6 +4725,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>R-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4511,6 +4735,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>S-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4520,6 +4745,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>VANEO</valueName>
             </valueSettings>
             <valueSettings>
@@ -4529,6 +4755,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>V-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4537,6 +4764,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>VIANO</valueName>
             </valueSettings>
             <valueSettings>
@@ -4546,6 +4774,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>VITO</valueName>
             </valueSettings>
             <valueSettings>
@@ -4555,6 +4784,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Maybach</valueName>
             </valueSettings>
             <valueSettings>
@@ -4564,84 +4794,99 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>smart</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>ML-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Sprinter</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>X-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>CITAN</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>MB100</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>VARIO</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>CL-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>CLK-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>CLS-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GLA-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GLC-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GLE-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GLK-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GLS-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4649,36 +4894,42 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>M-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SL-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SLC-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SLK-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SLR-Class</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SLS-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4686,6 +4937,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>smart fortwo</valueName>
             </valueSettings>
             <valueSettings>
@@ -4693,6 +4945,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>smart forfour</valueName>
             </valueSettings>
             <valueSettings>
@@ -4700,6 +4953,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>smart roadster</valueName>
             </valueSettings>
             <valueSettings>
@@ -4707,6 +4961,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>AMG GT</valueName>
             </valueSettings>
             <valueSettings>
@@ -4714,12 +4969,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Others</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>CLA-Class</valueName>
             </valueSettings>
             <valueSettings>
@@ -4727,66 +4984,82 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Unknown</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>CLA</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>CLS</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>E-Cab</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GL</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GLA</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GLC</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GLE</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GLS</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>GTS</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>MB</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>ML</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>S-Cab</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SLC</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SLK</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>SLS</valueName>
             </valueSettings>
         </valueSet>
@@ -4862,6 +5135,24 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Valid_From__c</fullName>
+        <externalId>false</externalId>
+        <label>Valid From</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Valid_to__c</fullName>
+        <externalId>false</externalId>
+        <label>Valid to</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Variant__c</fullName>
@@ -5120,7 +5411,8 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <label>All MBAU CarModels</label>
         <language>en_US</language>
         <sharedTo>
-            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+            <group>MBANZ_users</group>
+            <roleAndSubordinates>MB_AU_VP</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -5138,7 +5430,8 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <label>All MBNZ Car Models</label>
         <language>en_US</language>
         <sharedTo>
-            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+            <group>MBANZ_users</group>
+            <roleAndSubordinates>MB_NZ_VP</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -5154,7 +5447,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             <operation>equals</operation>
             <value>TH</value>
         </filters>
-        <label>All MBTH Car Models</label>
+        <label>All Car Models</label>
         <language>en_US</language>
         <sharedTo>
             <group>THUsers</group>
@@ -5216,7 +5509,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <fullName>Car_Model_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of Car Model should be same as user's Market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c),  if(AND(OR(TEXT( Market__c ) == 'AU',TEXT( Market__c ) == 'NZ' ), $Permission.ANZCrossMarket), false, true))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>

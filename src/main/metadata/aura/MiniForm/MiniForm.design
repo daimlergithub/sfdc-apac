@@ -1,0 +1,20 @@
+<design:component label="Mini Form">
+    <design:attribute name="layoutType"
+                      label="Fields from Layout"
+                      description="Shoud the fields from the full or compact layout be used"
+    				  default="Full"
+                      datasource="Empty,Full,Compact"/>
+    <design:attribute name="fieldList"
+                      label="additional Fields"
+                      description="Fields to be shown in addition to layout"
+                      default="Name,Id"/>
+    <design:attribute name="objectType"
+                      label="Object"
+                      description="Which object"
+                      default="Account"/>
+     <design:attribute name="columns"
+                       label="1/2 columns"
+                      description="one or two"
+                      default="1"
+                      datasource="1,2" />
+</design:component>

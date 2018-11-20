@@ -10,6 +10,10 @@ public with sharing class AddressHelperIN {
         AddressHelperBase.updateAddressOnAccount(listNewAddress);
     } 
 
+    public static void setPreferredFlag(list<Address__c> listNewAddress){
+        AddressHelperBase.setPreferredFlag(listNewAddress);
+    } 
+
     public static void validateSameAddressType(List<Address__c> triggerNew,map<id,Address__c> addressOldMap,boolean isInsert,boolean isUpdate){
         AddressHelperBase.validateSameAddressType(triggerNew,addressOldMap,isInsert,isUpdate,System.Label.MarketIN);
     } 

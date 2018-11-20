@@ -788,8 +788,9 @@ IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <fullName>Registration_Notes__c</fullName>
         <externalId>false</externalId>
         <label>Registration Notes</label>
-        <required>false</required>
-        <type>TextArea</type>
+        <length>50000</length>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>SSI_Score__c</fullName>
@@ -955,7 +956,7 @@ IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <fullName>Campaign_Member_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of Campaign Member should be same as user's Market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', $Profile.Name != 'Marketing Administrator', NOT(isTestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>

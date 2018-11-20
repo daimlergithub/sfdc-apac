@@ -71,6 +71,8 @@ public class AddressSearchValidationController
     public List<SelectOption> statusOptions { get;set; }
     public String addresspicklist{get;set;}
     public String provincepicklist{get;set;}
+ public Boolean sendAddress;
+       public Map<Id, String> accIdToAddressMap{get;set;}
     // KOREA related parameters - End
     Public boolean mbkdatasource {get;set;}
     Public boolean datasource {get;set;}
@@ -110,12 +112,26 @@ public class AddressSearchValidationController
     public String faxAreaCode{get;set;} 
     public static boolean phValidate;
     Public User u{get;set;}
-    
+    public Boolean nonContinuationResponse=true;
+      //sravanthi Gudibandi added  for switch
+    public Map<String,KR_Switch__c> KRSwitchMap = new Map<String,KR_Switch__c>();
+    public Boolean KRSwitchEnabledFlag {get; set;}
+    public Boolean KRSwitchOnlinededupFlag {get; set;}
+    public Boolean KRSwitchForAddressDoctor {get;set;}
+    Public Boolean KRSwitchCustomerSearch {get;set;}
+     // Sravani Koppaka added for username and password of webservice
+     public Map<String,AddressDoctorWebservice__c> AddDocCred = new Map<String,AddressDoctorWebservice__c>();
+     public String username {get; set;}
+     public String pwd {get;set;}    
     //PR20170918- Variable to hold JSON response from Informatica/CDM
     public JSON2ApexCustomerCDM custSearch{get;set;}
     public Boolean showCDM {get;set;}
     public Boolean one {get;set;}
-    
+    //MDK
+    private Boolean isAddressValidated = FALSE;
+    public List<AddressDTO> validatedAddressList { get; set; }
+    public Boolean isAddressDrValidated { get; set; }
+    public Boolean KrSwicthInvoke=false;
      /*     
     SN20170907      
     This variable are used to hold all the account list and display list and boolean variable are used to hide and enable the buttons in the section        
@@ -144,14 +160,39 @@ public class AddressSearchValidationController
 		/* JP Track related changed */
         public Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();
         public AddressSearchValidationController(ApexPages.StandardController controller){
+        sendAddress = false;
+        KRSwitchMap = KR_Switch__c.getAll();  
+        KRSwitchEnabledFlag = false;
+        KRSwitchOnlinededupFlag= false;
+        KRSwitchForAddressDoctor=false;
+        KRSwitchCustomerSearch=false;
+        if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('Call Flow Switch')){
+           KRSwitchEnabledFlag = KRSwitchMap.get('Call Flow Switch').Enable_Flag__c;
+        }
+        if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('AddressDoctor')){
+           KRSwitchForAddressDoctor = KRSwitchMap.get('AddressDoctor').Enable_Flag__c;
+        }
+        // Added to fetch username and wpd of webservice
+        AddDocCred=AddressDoctorWebservice__c.getAll();
+        if(!AddDocCred.isEmpty() && AddDocCred.containsKey('AddressDcotorCred')){
+            username=AddDocCred.get('AddressDcotorCred').Username__c;
+            pwd=AddDocCred.get('AddressDcotorCred').Password__c;
+        }
+        // Added for Online Deduplication by Sravani Koppaka
+        if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('CustomerSearchRuleKR')){
+            KRSwitchCustomerSearch = KRSwitchMap.get('CustomerSearchRuleKR').Enable_Flag__c;
+        }
         AutoFill = false;
+       
+      
+        isAddressDrValidated = FALSE;
         objAccount= new Account();
         objPersonAccount= new Account();
         objContact=new contact();
         AddressObj = new Address__c();
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
-        
+        validatedAddressList = new List<AddressDTO>();
         system.debug('>>>>>>@##Readonly'+Readonly);
         system.debug('<<<<<<<!@!#Editmode'+Editmode);
         
@@ -220,29 +261,33 @@ public class AddressSearchValidationController
             wkCountryCode='+66';
             faxCountryCode='+66';
         }
+         //Introduced for KR market and added switch
+         if(market==Label.KR)//Sravanthi Gudibandi
+        {
+         if(KRSwitchEnabledFlag){
+            mbCountryCode='+82';
+            hmCountryCode='+82';
+            wkCountryCode='+82';
+        }
+            
+            objAccount.Market__c=market;
+            LoadProvince();
+        }
+      
          else if(market=='AU') //  Sada US-2/3 2018/March/22 R1  
         {
            //   firstsave = true;   //sada - disabling save button initially 
             secondsave = false;// need to change later
-            mbCountryCode='+61';
-            hmCountryCode='+61';
-            wkCountryCode='+61';
-            faxCountryCode='+61';
-            AddressObj.Country__c='Australia';
+
             objAccount.Market__c=market;
-            LoadProvince();
+			LoadCountryCode();
         }   
       else if(market=='NZ') //  Sada US-2/3 2018/March/22 R1  
         {
              // firstsave = true;    //sada - disabling save button initially 
             secondsave = false;// need to change later
-            mbCountryCode='+64';
-            hmCountryCode='+64';
-            wkCountryCode='+64';
-            faxCountryCode='+64';
-            AddressObj.Country__c='New Zealand';
             objAccount.Market__c=market;
-            LoadProvince();
+            LoadCountryCode();
         } 
 
         
@@ -338,6 +383,36 @@ public class AddressSearchValidationController
         lstZip=new List<SelectOption>();
       }
       
+     //Fills Country Code
+      public void LoadCountryCode()
+      {
+
+        if( objAccount.Market__c=='AU') 
+        {
+
+            secondsave = false;// need to change later
+            mbCountryCode='+61';
+            hmCountryCode='+61';
+            wkCountryCode='+61';
+            faxCountryCode='+61';
+            AddressObj.Country__c='Australia';
+            AddressObj.market__c = objAccount.Market__c;
+        }   
+      else if(objAccount.Market__c=='NZ') 
+        {
+
+            secondsave = false;// need to change later
+            mbCountryCode='+64';
+            hmCountryCode='+64';
+            wkCountryCode='+64';
+            faxCountryCode='+64';
+            AddressObj.Country__c='New Zealand';
+            AddressObj.market__c = objAccount.Market__c;
+        } 
+        
+      }
+	  
+	  
       //Fills Subdistrict picklist based on District Selection
       public void LoadSubDistrict()
       {
@@ -409,7 +484,14 @@ public class AddressSearchValidationController
     public pagereference saveAccount(){    
         
         if( market == System.Label.KR){
-       onLineDeduplication();
+               
+ KR_Switch__c KRSwitchMap = KR_Switch__c.getValues('CustomerSearchRuleKR');
+         if(KRSwitchMap != null && KRSwitchMap.Enable_Flag__c == false){
+            
+            onLineDeduplication();
+       
+         }
+       //onLineDeduplication();
        if(MBKrefreshPage==true&& MBKNoMatch==false){
        System.debug('------entering Save3'); return null;
        }
@@ -462,7 +544,7 @@ public class AddressSearchValidationController
                         return PageRef;
                     }                   
                 }               
-                if(recordType == 'Person Account' )
+                if(recordType == 'Person Account' &&  market != System.Label.KR)
                 {                   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
@@ -506,6 +588,32 @@ public class AddressSearchValidationController
                     
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.Company).getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
+                  //for Call  flow changes  country code added by Sravanthi Gudibandi.
+                   system.debug('KRSwitchEnabledFlag:'+ KRSwitchEnabledFlag);
+                  if(KRSwitchEnabledFlag){
+                   if(hmCountryCode=='' && homePhoneAreaCodePart1== ' ' && homePhoneAreaCodePart2== '' && homePhoneAreaCodePart3== '')
+                  {    
+                                          
+                       objAccount.Individual_Home_Phone__c = '';
+                    }
+                    
+       else if((hmCountryCode!= ' ') &&(homePhoneAreaCodePart1 != ' ' ) && (homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 != ''))                    
+            {       
+                                       
+                        objAccount.Individual_Home_Phone__c =hmCountryCode+'-'+homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                        if(objAccount.Individual_Home_Phone__c.startsWith(' -'))
+                        {
+                            objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart(' -');
+                        }
+                    }              
+                    else
+                    {
+                       
+                         objAccount.Individual_Home_Phone__c = '';
+                    }
+               
+            }
+     else{
                     if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
                     {    
                                           
@@ -525,7 +633,29 @@ public class AddressSearchValidationController
                        
                         objAccount.Individual_Home_Phone__c = '';
                     }
-                    if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
+     }
+     
+               if(KRSwitchEnabledFlag){
+                    if(wkCountryCode=='' && workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
+                    {                      
+                        objAccount.Work_Phone__c = '';
+                    }
+                    else if((wkCountryCode != ' ') &&(workPhoneAreaCodePart1 != ' ') && (workPhoneAreaCodePart2 != '') && (workPhoneAreaCodePart3 != ''))
+                    {                         
+                        objAccount.Work_Phone__c =  wkCountryCode+'-'+workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                        if(objAccount.Work_Phone__c.startsWith(' -'))
+                        {
+                            objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart(' -');
+                        }
+                   }
+                    else
+                    {
+                         objAccount.Work_Phone__c = ''; 
+                    }
+                    
+                    }
+                     else{
+                       if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
                     {                      
                         objAccount.Work_Phone__c = '';
                     }
@@ -541,8 +671,29 @@ public class AddressSearchValidationController
                     {
                         objAccount.Work_Phone__c = '';
                     }
+                     }
           //1606 changes added by Monalisa
-          if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
+          if(KRSwitchEnabledFlag){
+          if(wkCountryCode=='' && workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
+                    {                      
+                         objAccount.Work_Phone_2__c = '';
+                    }
+                    else if((wkCountryCode != ' ') &&(workPhone2AreaCodePart1 != ' ') && (workPhone2AreaCodePart2 != '') && (workPhone2AreaCodePart3 != ''))
+                    {                         
+                        objAccount.Work_Phone_2__c =wkCountryCode+'-'+workPhone2AreaCodePart1+'-'+workPhone2AreaCodePart2+'-'+workPhone2AreaCodePart3;
+                        if(objAccount.Work_Phone_2__c.startsWith(' -'))
+                        {
+                            objAccount.Work_Phone_2__c = objAccount.Work_Phone_2__c.removeStart(' -');
+                        }
+                    }
+                    else
+                    {
+                        objAccount.Work_Phone_2__c = '';
+                    }
+                    }
+                    
+                     else{
+                       if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
                     {                      
                         objAccount.Work_Phone_2__c = '';
                     }
@@ -558,7 +709,28 @@ public class AddressSearchValidationController
                     {
                         objAccount.Work_Phone_2__c = '';
                     }
-                    if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
+                     }
+                      if(KRSwitchEnabledFlag){
+                    if(mbCountryCode==''&& mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
+                    {              
+                        objAccount.Mobile__c = '';
+                    }
+                    else if((mbCountryCode != '') &&(mobileAreaCode != ' ') && (mobileAreaCodePart2 != '') && (mobileAreaCodePart3 !=''))
+                    {              
+                        objAccount.Mobile__c=mbCountryCode+'-'+mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                        if(objAccount.Mobile__c.startsWith(' -'))
+                        {
+                            objAccount.Mobile__c = objAccount.Mobile__c.removeStart(' -');
+                        }
+                        
+                    }
+                    else
+                    {
+                        objAccount.Mobile__c = '';
+                    } 
+                    }
+                     else{
+                      if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
                     {              
                         objAccount.Mobile__c = '';
                     }
@@ -575,6 +747,7 @@ public class AddressSearchValidationController
                     {
                         objAccount.Mobile__c = '';
                     } 
+                     }
                     if(objAccount.Individual_Home_Phone__c == '' && objAccount.Mobile__c == '' && objAccount.Work_Phone__c == '' && objAccount.Email__c == null){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     
@@ -582,6 +755,20 @@ public class AddressSearchValidationController
                         //ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Enter Commercial Registration Number / Vat Registration Number'));
                     }
+                    //Added by Sravani Koppaka -- Start
+                     if(KRSwitchEnabledFlag){
+                    if(AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == Null || AddressObj.Address_Type__c == '--None--'){
+                        system.debug('Entered to address type validation-->>>');
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Type is Mandatory')); 
+                        
+                    }
+                    if(addressobj.Province__c == null || addressobj.Province__c == '' || addressobj.Province__c == '--None--'){
+                        system.debug('Entered to address province validation-->>>');
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Prefecture is Mandatory.'));
+                        
+                    }
+                    }
+                    //Added by Sravani Koppaka -- end
                     else{
                         refreshPage = true;                      
                         insert objAccount ;
@@ -594,7 +781,31 @@ public class AddressSearchValidationController
                     
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.PersonAccount).getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
-                    if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
+                    //for Call  flow changes  country code added by Sravanthi Gudibandi.
+      if(KRSwitchEnabledFlag){
+     if(hmCountryCode=='' && homePhoneAreaCodePart1== ' ' && homePhoneAreaCodePart2== '' && homePhoneAreaCodePart3== '')
+                  {    
+                                          
+                       objPersonAccount.Individual_Home_Phone__c = '';
+                    }
+                    
+       else if((hmCountryCode!= ' ') &&(homePhoneAreaCodePart1 != ' ' ) && (homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 != ''))                    
+            {       
+                                       
+                        objPersonAccount.Individual_Home_Phone__c =hmCountryCode+'-'+homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                        if(objPersonAccount.Individual_Home_Phone__c.startsWith(' -'))
+                        {
+                            objPersonAccount.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c.removeStart(' -');
+                        }
+                    }              
+                    else
+                    {
+                       
+                         objPersonAccount.Individual_Home_Phone__c = '';
+                    }
+                    }
+                    else{
+                     if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
                     {    
                                         
                         objPersonAccount.Individual_Home_Phone__c = '';
@@ -612,7 +823,28 @@ public class AddressSearchValidationController
                         
                         objPersonAccount.Individual_Home_Phone__c = '';
                     }
-                    if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
+                    }
+                    if(KRSwitchEnabledFlag){
+                    if(wkCountryCode=='' && workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
+                    {                      
+                        objPersonAccount.Work_Phone__c = '';
+                    }
+                    else if((wkCountryCode != ' ') &&(workPhoneAreaCodePart1 != ' ') && (workPhoneAreaCodePart2 != '') && (workPhoneAreaCodePart3 != ''))
+                    {                         
+                        objPersonAccount.Work_Phone__c =wkCountryCode+'-'+workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                        if(objPersonAccount.Work_Phone__c.startsWith(' -'))
+                        {
+                           objPersonAccount.Work_Phone__c = objPersonAccount.Work_Phone__c.removeStart(' -');
+                       }
+                   }
+                    else
+                    {
+                         objPersonAccount.Work_Phone__c = '';
+                    }
+                    }
+                    else
+                    {
+                     if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
                     {                      
                         objPersonAccount.Work_Phone__c = '';
                     }
@@ -628,7 +860,28 @@ public class AddressSearchValidationController
                     {
                         objPersonAccount.Work_Phone__c = '';
                     }
-                    if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
+                    }
+                    if(KRSwitchEnabledFlag){
+                    if(mbCountryCode=='' && mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
+                    {              
+                        objPersonAccount.Mobile__c = '';
+                    }
+                    else if((mbCountryCode != '') &&(mobileAreaCode != ' ') && (mobileAreaCodePart2 != '') && (mobileAreaCodePart3 !=''))
+                    {              
+                        objPersonAccount.Mobile__c=mbCountryCode+'-'+mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                        if(objPersonAccount.Mobile__c.startsWith(' -'))
+                        {
+                            objPersonAccount.Mobile__c = objPersonAccount.Mobile__c.removeStart(' -');
+                        }
+                    }
+                    else
+                    {
+                        objPersonAccount.Mobile__c = '';
+                    }
+                    }
+                     else
+                    {
+                       if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
                     {              
                         objPersonAccount.Mobile__c = '';
                     }
@@ -644,10 +897,25 @@ public class AddressSearchValidationController
                     {
                         objPersonAccount.Mobile__c = '';
                     }
+                    }
                     if(objPersonAccount.Individual_Home_Phone__c == '' && objPersonAccount.Mobile__c == '' && objPersonAccount.Work_Phone__c == '' && objPersonAccount.Email__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     }
+                    // Added by Sravani Koppaka -- Start
+                     if(KRSwitchEnabledFlag){
+                    if(AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == '--None--')
+                    {   system.debug('--Entered to else if of address type person account');
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Type is Mandatory')); 
+                        
+                    }
+                     if(addressobj.Province__c == null || addressobj.Province__c == '' || addressobj.Province__c == '--None--'){
+                        system.debug('Entered to address province validation-->>>');
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Prefecture is Mandatory.'));
+                        
+                    }
+                    }
+                    // Added by Sravani Koppaka -- End
                     else
                     {
                     refreshPage = true;                      
@@ -672,14 +940,39 @@ public class AddressSearchValidationController
                    objAccount.RecordTypeId = recordTypeId;                   
                     if(!Address_Validated_Flag)
                     {
+                        if(!KRSwitchForAddressDoctor){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                         Validation = true;
+                        }
                     }
                     if(AddressObj.Address_Type__c == null )
                     {   
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation)); 
                         Validation = true;
                     }
+		     if(KRSwitchEnabledFlag){
+		       if(AddressObj.Address_Type__c == null ||AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == '--None--' )
+                    {   
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation)); 
+                        Validation = true;
+                    }
+                   if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
+                        Validation = true;                      
+                    }
+                    if(addressobj.ZipCode__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
+                        Validation = true;
+                    }
+                    if(addressobj.Province__c == null || addressobj.Province__c=='' || addressobj.Province__c=='--None--')
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Prefecture is Mandatory.'));
+                        Validation = true;
+                    } 
+                    } 
+		    
                     /*if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
@@ -700,7 +993,33 @@ public class AddressSearchValidationController
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));
                         Validation = true;                      
                     }*/
-                    if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
+                       //for Call  flow changes  country code added by Sravanthi Gudibandi.
+                       if(KRSwitchEnabledFlag){
+         if(hmCountryCode=='' && homePhoneAreaCodePart1== ' ' && homePhoneAreaCodePart2== '' && homePhoneAreaCodePart3== '')
+
+                    {    
+                        system.debug('*$*$*$ Entered HOme Null scenario');                  
+                         objAccount.Individual_Home_Phone__c = '';
+                    }
+                           else if((hmCountryCode!= ' ') &&(homePhoneAreaCodePart1 != ' ' ) && (homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 != ''))                    
+
+                    {       
+                                       
+                        objAccount.Individual_Home_Phone__c =hmCountryCode+'-'+homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                        if(objAccount.Individual_Home_Phone__c.startsWith(' -'))
+                        {
+                            objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart(' -');
+                        }
+                    }                       
+                    else
+                    {
+                        system.debug('*$*$*$ Entered BLANK scenario'); 
+                        objAccount.Individual_Home_Phone__c = '';
+                    }
+                    }
+                    else
+                    {
+                     if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
                     {    
                         system.debug('*$*$*$ Entered HOme Null scenario');                  
                         objAccount.Individual_Home_Phone__c = '';
@@ -719,7 +1038,28 @@ public class AddressSearchValidationController
                         system.debug('*$*$*$ Entered BLANK scenario'); 
                         objAccount.Individual_Home_Phone__c = '';
                     }
-                    if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
+                    }
+                    if(KRSwitchEnabledFlag){
+                    if(wkCountryCode=='' && workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
+                    {                      
+                        objAccount.Work_Phone__c = '';
+                    }
+                    else if((wkCountryCode != ' ') &&(workPhoneAreaCodePart1 != ' ') && (workPhoneAreaCodePart2 != '') && (workPhoneAreaCodePart3 != ''))
+                    {                         
+                        objAccount.Work_Phone__c = wkCountryCode+'-'+workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                       if(objAccount.Work_Phone__c.startsWith(' -'))
+                        {
+                            objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart(' -');
+                        }
+                   }
+                    else
+                    {
+                        objAccount.Work_Phone__c = '';
+                    }
+                    }
+                     else
+                    {
+                     if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
                     {                      
                         objAccount.Work_Phone__c = '';
                     }
@@ -735,7 +1075,29 @@ public class AddressSearchValidationController
                     {
                         objAccount.Work_Phone__c = '';
                     }
-          if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
+                    }
+                      if(KRSwitchEnabledFlag){
+          if(wkCountryCode=='' &&workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
+                    {                      
+                        objAccount.Work_Phone_2__c = '';
+                    }
+                    else if((wkCountryCode != ' ') &&(workPhone2AreaCodePart1 != ' ') && (workPhone2AreaCodePart2 != '') && (workPhone2AreaCodePart3 != ''))
+                    {                         
+                        objAccount.Work_Phone_2__c = wkCountryCode+'-'+workPhone2AreaCodePart1+'-'+workPhone2AreaCodePart2+'-'+workPhone2AreaCodePart3;
+                        if(objAccount.Work_Phone_2__c.startsWith(' -'))
+                        {
+                           objAccount.Work_Phone_2__c = objAccount.Work_Phone_2__c.removeStart(' -');
+                       }
+                    }
+                    else
+                    {
+                        objAccount.Work_Phone_2__c = '';
+                    }
+                    }
+                     
+                     else
+                    {
+                     if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
                     {                      
                         objAccount.Work_Phone_2__c = '';
                     }
@@ -751,7 +1113,28 @@ public class AddressSearchValidationController
                     {
                         objAccount.Work_Phone_2__c = '';
                     }
-                    if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
+                    }
+                    if(KRSwitchEnabledFlag){
+                    if(mbCountryCode=='' &&mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
+                    {              
+                        objAccount.Mobile__c = '';
+                    }
+                    else if((mbCountryCode != '') &&(mobileAreaCode != ' ') && (mobileAreaCodePart2 != '') && (mobileAreaCodePart3 !=''))
+                    {              
+                        objAccount.Mobile__c= mbCountryCode+'-'+mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                        if(objAccount.Mobile__c.startsWith(' -'))
+                        {
+                            objAccount.Mobile__c = objAccount.Mobile__c.removeStart(' -');
+                        }
+                    }
+                    else
+                    {
+                        objAccount.Mobile__c = '';
+                    } 
+                    } 
+                     else
+                    {
+                     if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
                     {              
                         objAccount.Mobile__c = '';
                     }
@@ -767,6 +1150,7 @@ public class AddressSearchValidationController
                     {
                         objAccount.Mobile__c = '';
                     }  
+                    }
                     if(Validation == False){
                         refreshPage = true;
                         objAccount.id = null;
@@ -775,7 +1159,9 @@ public class AddressSearchValidationController
                         AddressObj.Preferred__c = true;
                         if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
                         {
+                            if(!KRSwitchForAddressDoctor){
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                              }
                         }
 
                         insert AddressObj;
@@ -810,7 +1196,9 @@ public class AddressSearchValidationController
                         }
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
+                        if(!KRSwitchForAddressDoctor){
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                            }
                         insert AddressObj;
                         PageReference pageRef = new PageReference('/'+objAccount.Id); 
                         return PageRef;
@@ -828,14 +1216,42 @@ public class AddressSearchValidationController
                     system.debug('mobileAreaCode >>:'+mobileAreaCode);  
                     if(!Address_Validated_Flag)
                     {
+                        if(!KRSwitchForAddressDoctor){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                         Validation = TRUE;
+                        }
                     }
                     if(AddressObj.Address_Type__c == null )
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
                         Validation = TRUE;
                     } 
+ if(KRSwitchEnabledFlag){
+   if(AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == '--None--')
+                    {
+                        system.debug('--address type');
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
+                        Validation = TRUE;
+                    } 
+                     if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+                    {
+                         system.debug('--address zip not null');    
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
+                        Validation = TRUE;
+                    }
+                    if(addressobj.ZipCode__c == null)
+                    {
+                         system.debug('--address zip null');    
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
+                        Validation = TRUE;
+                    }
+		     if(addressobj.Province__c == null || addressobj.Province__c == '' || addressobj.Province__c == '--None--')
+                    {
+                         system.debug('--address province');
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Prefecture is Mandatory.'));
+                        Validation = TRUE;
+                    }  
+                    }
                     /* if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
@@ -858,8 +1274,32 @@ public class AddressSearchValidationController
                     }  
                     */                 
                     if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
-                    {   
-                        if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
+                    {  
+                                      //for Call  flow changes  country code added by Sravanthi Gudibandi.
+       if(KRSwitchEnabledFlag){
+      if(hmCountryCode=='' && homePhoneAreaCodePart1== ' ' && homePhoneAreaCodePart2== '' && homePhoneAreaCodePart3== '')
+                        {    
+                                          
+                           objPersonAccount.Individual_Home_Phone__c = '';
+                        }
+       else if((hmCountryCode!= ' ') &&(homePhoneAreaCodePart1 != ' ' ) && (homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 != ''))                    
+                    {       
+                                       
+                        objPersonAccount.Individual_Home_Phone__c =hmCountryCode+'-'+homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                        if(objPersonAccount.Individual_Home_Phone__c.startsWith(' -'))
+                        {
+                            objPersonAccount.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c.removeStart(' -');
+                        }
+                    }                     
+                        else
+                        {
+                            
+                             objPersonAccount.Individual_Home_Phone__c = '';
+                        }
+                        }
+                        else
+                        {
+                         if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
                         {    
                                           
                             objPersonAccount.Individual_Home_Phone__c = '';
@@ -878,6 +1318,27 @@ public class AddressSearchValidationController
                             
                             objPersonAccount.Individual_Home_Phone__c = '';
                         }
+                            }
+                          if(KRSwitchEnabledFlag){  
+                        if(wkCountryCode=='' && workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
+                        {                      
+                             objPersonAccount.Work_Phone__c = '';
+                        }
+                    else if((wkCountryCode != ' ') &&(workPhoneAreaCodePart1 != ' ') && (workPhoneAreaCodePart2 != '') && (workPhoneAreaCodePart3 != ''))
+                       {                         
+                            objPersonAccount.Work_Phone__c = wkCountryCode+'-'+workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                           if(objPersonAccount.Work_Phone__c.startsWith(' -'))
+                           {
+                               objPersonAccount.Work_Phone__c = objPersonAccount.Work_Phone__c.removeStart(' -');
+                            }
+                        }
+                        else
+                        {
+                           objPersonAccount.Work_Phone__c = '';
+                        }
+                        }
+                        else
+                        {
                         if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
                         {                      
                             objPersonAccount.Work_Phone__c = '';
@@ -894,7 +1355,28 @@ public class AddressSearchValidationController
                         {
                             objPersonAccount.Work_Phone__c = '';
                         }
-                        if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
+                        }
+                         if(KRSwitchEnabledFlag){  
+                        if(mbCountryCode=='' && mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
+                        {              
+                            objPersonAccount.Mobile__c = '';
+                        }
+                        else if((mbCountryCode!= ' ') &&(mobileAreaCode != ' ' ) && (mobileAreaCodePart2 != '') && (mobileAreaCodePart3 !=''))
+                        {              
+                            objPersonAccount.Mobile__c= mbCountryCode+'-'+mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                            if(objPersonAccount.Mobile__c.startsWith(' -'))
+                           {
+                                objPersonAccount.Mobile__c = objPersonAccount.Mobile__c.removeStart(' -');
+                            }
+                        }
+                        else
+                        {
+                            objPersonAccount.Mobile__c = '';
+                        }  
+                        }
+                         else
+                        {
+                         if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
                         {              
                             objPersonAccount.Mobile__c = '';
                         }
@@ -910,7 +1392,8 @@ public class AddressSearchValidationController
                         {
                             objPersonAccount.Mobile__c = '';
                         }  
-                        
+                           }
+                        if(!KRSwitchEnabledFlag){  
                         if(Validation == false){
                             refreshPage = true;
                             objPersonAccount.Id = null;
@@ -919,7 +1402,31 @@ public class AddressSearchValidationController
                             AddressObj.Preferred__c = true;
                             if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
                             {
+                                if(!KRSwitchForAddressDoctor){
                             AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                                }
+                            }
+                            system.debug('Address Info for person-->>'+AddressObj);
+                           insert AddressObj;
+                            PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
+                            return PageRef;
+                        } 
+                        }
+                    }
+                    if(KRSwitchEnabledFlag){  
+                       if(Validation == false ){
+                            system.debug('validation false inside-->'+Validation);
+                            refreshPage = true;
+                            objPersonAccount.Id = null;
+                            insert objPersonAccount ;
+                            AddressObj.Customer__c = objPersonAccount.id;
+                            AddressObj.Preferred__c = true;
+                            if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
+                            {
+                                if(!KRSwitchForAddressDoctor){
+                                    AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                                }
+                            
                             }
                            insert AddressObj;
                             PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
@@ -977,7 +1484,9 @@ public class AddressSearchValidationController
                             if(AddressObj !=null && (Address_Validated_Flag )){
                             
                                 AddressObj.Customer__c = objPersonAccount.id;
+                                if(!KRSwitchForAddressDoctor){
                                 AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                                }
                                 
                                 insert AddressObj;
                             }
@@ -1186,6 +1695,15 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
             }
         }       
     }
+    /* *PR20180927- Switch Between EP and CDM For AddressDoctor by Sravani Koppaka* */
+    public void validateAddressDoctorSwitch(){
+        if(!KRSwitchForAddressDoctor){
+			validateAddressByZipCode();
+        }
+        else if(KRSwitchForAddressDoctor) {
+            validateAddressByAddressDoctor();
+        }
+    }
    
     /**  Address Validation based on Zip code.
 After Address is searched using Address Search button and if user enters additional address information, It sends information to
@@ -1197,7 +1715,11 @@ EP/Tolerant for Validation.
     {   system.debug('recordType 9:'+ objPersonAccount.Mobile__c);
         system.debug('mobileAreaCode 1 :'+mobileAreaCode);   
         if(Market ==Label.KR){
-            /*if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+            /* if(!isAddressValidated) {
+                 
+             } else {
+                 if(Market ==Label.KR){*/
+           /* if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
             {
                 addressobj.Address_Code__c = '';
                 addressobj.Address_Line_1__c = '';
@@ -1231,7 +1753,9 @@ EP/Tolerant for Validation.
                 ValidateAddressSearchCallout(AddressObj);
             }
             //} 
-        }
+			// }
+			//}
+		}
         if(Market !=Label.KR){
             System.debug('^^^^^^^^^^^^^^^^^^^^^^^'+addresspicklist);
             if(AddressObj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)  ))
@@ -1239,17 +1763,17 @@ EP/Tolerant for Validation.
                 AddressObj.Address_Code__c = '';
                 AddressObj.Address_Line_1__c = '';
                 AddressObj.Address_Line_2__c = '';
-                AddressObj.Block__c = '';
+                AddressObj.Block__c = '';  // commented as a part of sfdcjp-3433
                 AddressObj.City__c = '';
                 AddressObj.District__c = '';
-                AddressObj.Province__c = ''; 
+                AddressObj.Province__c = '';  
                 AddressObj.MD__c ='';
                 AddressObj.Block_Native__c = '';      
                 AddressObj.City_Native__c = '';        
                 AddressObj.Province_Native__c ='';        
                 AddressObj.District_Native__c = '';        
                 AddressObj.Address_Line_1_Native__c = '';        
-                AddressObj.Address_Line_2_Native__c = '';
+                AddressObj.Address_Line_2_Native__c = ''; 
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
             }
             else if( (addresspicklist ==null || addresspicklist =='--None--')    && market == System.Label.JP )
@@ -1296,8 +1820,161 @@ EP/Tolerant for Validation.
                 ValidateAddressSearchCallout(AddressObj);
             } 
         }     
+        //     }
+        // } 
     }
     
+    public void validateAddressByAddressDoctor() {        
+        try{
+        if(Market ==Label.KR) {
+            validatedAddressList = new List<AddressDTO>();
+            Integer interActModeErrors = 0; 
+            Integer fastCompletinoModeErrors = 0;
+            
+          /*1.  In case user input only Province + Building name(this is Address Line2 field in SFDC), Sending request has parameter like below
+                    <NS2:ProcessMode>FASTCOMPLETION</NS2:ProcessMode>
+            
+            2.  In case user input several field like Province, Locality, Street, Street No, BuildingName, Sending request has parameter like below
+                    <NS2:ProcessMode>INTERACTIVE</NS2:ProcessMode>*/
+            
+            // If fast complettion mode is not possible the check fields for interactive mode fields.            
+            
+                                
+            //Checking for interactive mode fields
+            if(String.isBlank(AddressObj.Address_Line_1__c)) {
+                interActModeErrors++;
+            } 
+            
+            if(String.isBlank(AddressObj.City__c)) {
+                interActModeErrors++;
+            } 
+            
+            if(String.isBlank(AddressObj.Address_Line_2__c)) {
+                if(interActModeErrors > 0) {
+                    if(String.isBlank(AddressObj.City__c))
+                        AddressObj.City__c.addError('City is required');
+                    if(String.isBlank(AddressObj.Address_Line_1__c))
+                        AddressObj.Address_Line_1__c.addError('Address Line 1 is required'); 
+                }
+                                
+                fastCompletinoModeErrors++; 
+            }
+                
+            if(interActModeErrors == 0 || fastCompletinoModeErrors == 0) {
+                validator5AddressdoctorComWebservice5.AddressValidationSoap vWS = new validator5AddressdoctorComWebservice5.AddressValidationSoap();
+                validator5AddressdoctorComWebservice5.Response xResp = new validator5AddressdoctorComWebservice5.Response();
+                
+                validator5AddressdoctorComWebservice5.Parameters par = new validator5AddressdoctorComWebservice5.Parameters();
+                par.ValidationParameters = new validator5AddressdoctorComWebservice5.ValidationParameters();
+                par.ValidationParameters.MatchingExtendedArchive = true;
+                validator5AddressdoctorComWebservice5.ArrayOfString sCountry = new validator5AddressdoctorComWebservice5.ArrayOfString();
+                validator5AddressdoctorComWebservice5.ArrayOfString sLocality = new validator5AddressdoctorComWebservice5.ArrayOfString();
+                validator5AddressdoctorComWebservice5.ArrayOfString sPostalCode = new validator5AddressdoctorComWebservice5.ArrayOfString();
+                validator5AddressdoctorComWebservice5.ArrayOfString sProvince = new validator5AddressdoctorComWebservice5.ArrayOfString();
+                validator5AddressdoctorComWebservice5.ArrayOfString sStreet = new validator5AddressdoctorComWebservice5.ArrayOfString();
+                validator5AddressdoctorComWebservice5.ArrayOfString sBuilding = new validator5AddressdoctorComWebservice5.ArrayOfString();
+                validator5AddressdoctorComWebservice5.ArrayOfString sHouseNo = new validator5AddressdoctorComWebservice5.ArrayOfString();
+                validator5AddressdoctorComWebservice5.Address Addr = new validator5AddressdoctorComWebservice5.Address();
+                
+                if(interActModeErrors == 0) {
+                    par.ProcessMode = 'INTERACTIVE';
+                    String town = (AddressObj.District__c != NULL) ? AddressObj.District__c : '';
+                    String townNStreet = AddressObj.Address_Line_1__c + town;
+                     
+                    sHouseNo.string_x = new List<String>{townNStreet.substringBefore(' ')};  
+                    Addr.HouseNumber = sHouseNo;
+                    
+                    sStreet.string_x = new List<String>{townNStreet.substringAfter(' ')};  
+                    Addr.Street = sStreet;
+                    
+                    sLocality.string_x = new List<String>{AddressObj.City__c}; 
+                    Addr.Locality = sLocality;
+                    
+                    sPostalCode.string_x = new List<String>{AddressObj.ZipCode__c}; 
+                    Addr.PostalCode = sPostalCode;
+                    
+                    sProvince.string_x = new List<String>{AddressObj.Province__c};  
+                    Addr.Province = sProvince;
+                    
+                    sCountry.string_x = new List<String>{'South Korea'};
+                    Addr.Country = sCountry;
+                    
+                } else if(fastCompletinoModeErrors ==0 ) {
+                    par.ProcessMode = 'FASTCOMPLETION';
+
+                    sBuilding.string_x = new List<String>{AddressObj.Address_Line_2__c};    //'Seoul Square'
+                    Addr.Building=sBuilding;
+                    sCountry.string_x = new List<String>{'South Korea'};
+                        Addr.Country = sCountry;
+                } 
+                                               
+                validator5AddressdoctorComWebservice5.ArrayOfAddress lsAddr = new validator5AddressdoctorComWebservice5.ArrayOfAddress();
+                validator5AddressdoctorComWebservice5.Address[] lsAddress = new List<validator5AddressdoctorComWebservice5.Address>();
+                lsAddr.Address = lsAddress;
+                lsAddr.Address.add(Addr);
+                
+                System.debug('Addres doctor request params parameter>>>>> '  + par);
+                System.debug('Addres doctor request params : '  + JSON.serializePretty(par) + ' \nAddress Param : \n' + JSON.serialize(lsAddr));
+                
+               // xResp = vWS.Process('165888','Infa2018',par,lsAddr,null);
+               // Fetching username and pwd from custom settings
+                xResp = vWS.Process(username,pwd,par,lsAddr,null);
+                
+                system.debug(xResp);
+                system.debug('statuscode - ' + xResp.StatusCode);
+                system.debug('status message - ' + xResp.StatusMessage);
+                validator5AddressdoctorComWebservice5.ArrayOfResult lsRes = new validator5AddressdoctorComWebservice5.ArrayOfResult();
+                lsRes = xResp.Results;
+                
+                
+                for(validator5AddressdoctorComWebservice5.Result result : lsRes.Result) {
+                    
+                    for(validator5AddressdoctorComWebservice5.ResultData resultData : result.ResultDataSet.ResultData) {
+                        System.debug(' Fire Addres Doc : ' + interActModeErrors + '\n' + resultData);
+                        if(resultData.Address!=null) {
+                            Address_Validated_Flag = TRUE;
+
+                            AddressDTO addressDTO = new AddressDTO();
+                            addressDTO.Building = (resultData.Address.Building != null) ? resultData.Address.Building.string_x[0] : NULL;
+                            addressDTO.Street = (resultData.Address.Street != null) ? resultData.Address.Street.string_x[0] : NULL;
+                            addressDTO.HouseNumber = (resultData.Address.HouseNumber != null) ? resultData.Address.HouseNumber.string_x[0] : NULL;
+                            addressDTO.Locality = (resultData.Address.Locality != null) ? resultData.Address.Locality.string_x[0] : NULL;
+                            addressDTO.PostalCode = (resultData.Address.PostalCode != null) ? resultData.Address.PostalCode.string_x[0] : NULL;
+                            addressDTO.Province = (resultData.Address.Province != null) ? resultData.Address.Province.string_x[0] : NULL;
+                            addressDTO.Country = (resultData.Address.Country != null) ? resultData.Address.Country.string_x[0] : NULL;
+                            addressDTO.DeliveryAddressLines = (resultData.Address.DeliveryAddressLines != null) ? resultData.Address.DeliveryAddressLines.string_x[0] : NULL;
+                            addressDTO.CountrySpecificLocalityLine = (resultData.Address.CountrySpecificLocalityLine != null) ? resultData.Address.CountrySpecificLocalityLine.string_x[0] : NULL;
+                            
+                            addressDTO.AddressComplete = resultData.Address.AddressComplete;
+                            validatedAddressList.add(addressDTO);
+                        }   
+                        
+                    }
+                } // for loop
+                System.debug('validatedAddressList : ' + JSON.serialize(validatedAddressList));
+                
+                if(validatedAddressList == NULL || validatedAddressList.isEmpty()) {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'No Addresses Found'));
+                }
+            } // else
+        }
+        }
+        catch(Exception e){
+            
+        }
+    }
+    
+    //-- DMK (Address doctor) 
+    public void populateValidatedAddress() {
+        Integer rowNum = Integer.valueOf(Apexpages.currentPage().getParameters().get('rowNum'));
+        System.debug('rowNum : ' + rowNum); 
+        AddressObj.Address_Line_1__c=validatedAddressList.get(rowNum).AddressComplete;
+        AddressObj.City__c=validatedAddressList.get(rowNum).Province;
+        AddressObj.District__c=validatedAddressList.get(rowNum).Locality; //Town
+        isAddressDrValidated = TRUE;
+        validatedAddressList = new List<AddressDTO>();
+        System.debug('updated Address : ' + AddressObj.Address_Line_1__c + ' isAddressDrValidated : ' + isAddressDrValidated);
+    }
     
     public List<addressSelectionWrapper> mapAddressResponse{get; set;}
     
@@ -1715,6 +2392,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         
            return options;
     }
+ 
      
     public void onLineDeduplication(){ 
   //  Readonly= true;  
@@ -1810,7 +2488,7 @@ If the user is Saving  same address which matches the fields returned by toleran
            objPersonAccount.Status__c.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer); 
              
         }
-        else if(recordType == 'Person Account'  && market == System.Label.JP && (objPersonAccount.Acquisition_Objective_Method__c == null || String.isBlank(objPersonAccount.Acquisition_Objective_Method__c) ) && objPersonAccount.Allow_Data_Sharing2__c=='Yes'  && (objPersonAccount.Data_Source__c=='Dealer Outlet' || TouchPoint=='Dealer Outlet' || TouchPoint=='販売店'))
+        else if(recordType == 'Person Account'  && market == System.Label.JP && (objPersonAccount.Acquisition_Objective_Method__c == null || String.isBlank(objPersonAccount.Acquisition_Objective_Method__c) ) && objPersonAccount.Allow_Data_Sharing2__c=='Yes'  && (objPersonAccount.Data_Source__c=='Dealer Outlet' || TouchPoint=='Dealer Outlet' || TouchPoint=='???'))
         { 
             objPersonAccount.Acquisition_Objective_Method__c.addError(Label.Please_select_Acquisition_Objective_Method);  
         }
@@ -2529,6 +3207,264 @@ If the user is Saving  same address which matches the fields returned by toleran
     }
     }
     
+/* Online Deduplication for KR Market added by Sravani Koppaka/Sravanthi Gudibandi*/
+
+public Object OnlineDeduplicationKR(){
+         KRSwitchOnlinededupFlag=true;
+        displayAccList.clear();
+       DedupAccountList.clear();
+       system.debug('Inside De Dup Korea Method '+objAccount);
+        
+        Integer yr;       
+        Integer bdayyear;
+        Continuation con=null;
+        
+        if(Address_Validated_Flag == null){
+            Address_Validated_Flag = false;
+        }                                  
+        if(objPersonAccount.PersonBirthdate !=null){
+            Integer currentYear = System.Today().year();
+            yr= objPersonAccount.PersonBirthdate.year();
+            bdayyear=currentYear-yr;
+        }
+        
+       /*
+        else if((recordType == 'Person Account' ||   recordType == 'Company') && market == System.Label.KR && (objPersonAccount.Market__c !='KR' || objAccount.Market__c !='KR')){
+            if(objPersonAccount.Market__c !=null){
+                objAccount.Market__c.addError(Label.You_are_allowed_to_create_record_for_your_home_market_only); 
+            }
+            if(objAccount.Market__c !=null){              
+                objAccount.Market__c.addError(Label.You_are_allowed_to_create_record_for_your_home_market_only);
+            }
+        }
+    */
+       /* else if((recordType == 'Person Account'  ||   recordType == 'Company') && market == System.Label.KR && (objAccount.Status__c  =='Customer'  || objAccount.Status__c  =='Customer')){ 
+            objAccount.Status__c.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer); 
+        }
+        */
+        /*else if(recordType == 'Person Account'  && market == System.Label.KR && objPersonAccount.PersonBirthdate != NULL  && (objPersonAccount.PersonBirthdate  >=System.today() || bdayyear  >=120 || bdayyear <=16)){ 
+            objPersonAccount.PersonBirthdate.addError(Label.Birthdate_is_not_allowed_to_be_less_than_65_and_greater_than_120_Years);    
+        }*/
+        /*
+        else if(recordType == 'Company' && market == System.Label.KR && objAccount.Name != NULL && objAccount.Name.length() <2) {
+            objAccount.Name.addError(Label.Name_should_not_be_less_than_2_letters);   
+        }
+       
+          else if(recordType == 'Person Account' && market == System.Label.KR && objPersonAccount.FirstName != NULL && objPersonAccount.FirstName.length() <2 && (Pattern.matches('^[0-9]{5}$',objPersonAccount.FirstName))) {
+            objPersonAccount.Name.addError(Label.FirstName_should_not_be_less_than_2_letters);   
+        }
+        */
+    /*    
+    else if(recordType == 'Person Account' && market == System.Label.KR && objPersonAccount.FirstName != NULL && (Pattern.matches('^[0-9]{5}$',objPersonAccount.FirstName))){
+            objPersonAccount.FirstName.addError(Label.First_Name_should_contain_only_alphabets);
+        }
+   *//*
+        else if(recordType == 'Person Account' && market == System.Label.KR && objPersonAccount.LastName != NULL && objPersonAccount.LastName.length() <2 && (Pattern.matches('^[0-9]{5}$',objPersonAccount.lastName))) {
+            objPersonAccount.Name.addError(Label.LastName_should_not_be_less_than_2_letters);   
+        }
+        */
+       /* 
+        else if(recordType == 'Person Account'  &&  market == System.Label.KR && (objPersonAccount.lastName != NULL && (Pattern.matches('^[0-9]{5}$',objPersonAccount.lastName)) )){ 
+            objPersonAccount.LastName.addError(Label.Last_Name_should_contain_only_alphabets);
+        }
+      */  
+        /*
+        else if(recordType == 'Person Account'  &&  market == System.Label.KR && (objPersonAccount.Email__c != NULL && (!Pattern.matches('^[a-zA-Z0-9._+-]{2,64}+@[a-zA-Z]+\\.[a-zA-Z]{2,4}$',objPersonAccount.Email__c)) )){ 
+            objPersonAccount.Email__c.addError(Label.Email_Criteria_is_invalid);
+        }
+        */
+        if(recordType == 'Person Account' && market == System.Label.KR)
+        {
+        
+            system.debug('Inside Parent If Block@@@ ');
+        if(hmCountryCode!= ' ' && homePhoneAreaCodePart1 != ' '  && homePhoneAreaCodePart2 != '' && homePhoneAreaCodePart3 != '')                   
+            {       
+                                       
+                        objPersonAccount.Individual_Home_Phone__c =hmCountryCode+'-'+homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                        
+                    }              
+                    else
+                    {
+                       
+                         objPersonAccount.Individual_Home_Phone__c = '';
+                    }
+                    if(wkCountryCode!='' && workPhoneAreaCodePart1 != ' ' && workPhoneAreaCodePart2 != '' && workPhoneAreaCodePart3 != '')
+                   {             
+                        objPersonAccount.Work_Phone__c =  wkCountryCode+'-'+workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                       
+                   }
+                    else
+                    {
+                         objPersonAccount.Work_Phone__c = ''; 
+                    }
+                     if(mbCountryCode!=''&& mobileAreaCode != ' ' && mobileAreaCodePart2 != '' && mobileAreaCodePart3 != '')
+                    {              
+                              
+                        objPersonAccount.Mobile__c=mbCountryCode+'-'+mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                       }
+                    else
+                    {
+                        objPersonAccount.Mobile__c = '';
+                    } 
+                   
+         }
+
+        /***************************** Company Record Type Validation check Starts Here ******************************************************/
+        /*
+        else if(recordType == 'Company' && market == System.Label.KR && (objAccount.Email__c != NULL && (!Pattern.matches('^[a-zA-Z0-9._+-]{2,64}+@[a-zA-Z]+\\.[a-zA-Z]{2,4}$',objAccount.Email__c)))){ 
+            objAccount.Email__c.addError(Label.Email_Criteria_is_invalid);
+        }
+      
+        else if(recordType == 'Company' && market == System.Label.KR && (objAccount.Vat_No__c != NULL && (objAccount.Vat_No__c.length() >10 || objAccount.Vat_No__c.length() <10 ))){ 
+            objAccount.Vat_No__c.addError(Label.VAT_No_length_should_be_10_only);
+        }
+        else if(recordType == 'Company' && market == System.Label.KR && (objAccount.Commercial_Reg_No__c != NULL && (objAccount.Commercial_Reg_No__c.length() >13 || objAccount.Commercial_Reg_No__c.length() <13 ))){ 
+            objAccount.Commercial_Reg_No__c.addError(Label.Comercial_Reg_No_length_should_be_13_only);
+        }
+    */
+        if(recordType == 'Company' && market == System.Label.KR)
+        {
+        if(hmCountryCode!= ' ' && homePhoneAreaCodePart1 != ' '  && homePhoneAreaCodePart2 != '' && homePhoneAreaCodePart3 != '')                   
+            {       
+                                       
+                        objAccount.Individual_Home_Phone__c =hmCountryCode+'-'+homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                        
+                    }              
+                    else
+                    {
+                       
+                         objAccount.Individual_Home_Phone__c = '';
+                    }
+                    if(wkCountryCode!='' && workPhoneAreaCodePart1 != ' ' && workPhoneAreaCodePart2 != '' && workPhoneAreaCodePart3 != '')
+                   {             
+                        objAccount.Work_Phone__c =  wkCountryCode+'-'+workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                       
+                   }
+                    else
+                    {
+                         objAccount.Work_Phone__c = ''; 
+                    }
+                     if(mbCountryCode!=''&& mobileAreaCode != ' ' && mobileAreaCodePart2 != '' && mobileAreaCodePart3 != '')
+                    {              
+                              
+                        objAccount.Mobile__c=mbCountryCode+'-'+mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                       }
+                    else
+                    {
+                        objAccount.Mobile__c = '';
+                    } 
+                   if(wkCountryCode!='' && workPhone2AreaCodePart1 != ' ' && workPhone2AreaCodePart2 != '' && workPhone2AreaCodePart3 != '')
+                    {                      
+                                        
+                        objAccount.Work_Phone_2__c =wkCountryCode+'-'+workPhone2AreaCodePart1+'-'+workPhone2AreaCodePart2+'-'+workPhone2AreaCodePart3;
+                        
+                    }
+                    else
+                    {
+                        objAccount.Work_Phone_2__c = '';
+                    }
+                                 
+                    }
+        
+
+            
+        /***************************** Company Record Type Validation check ENDS Here ******************************************************/
+        //else{
+                system.debug('Inside Else Of Parent Block @@ ');
+            //processResponse();
+            //readonly= true;  
+           // editmode=false;
+           system.debug('Inside Else Value of objAccount Last Name@@@ '+objAccount.LastName);
+            system.debug('Inside Else Value of objAccount Name@@@ '+objAccount.Name);
+            system.debug('@@@ Debug 1@@@ '+selectedRecordType);
+            if(objPersonAccount.LastName !=null || objAccount.Name !=null){
+                system.debug('Inside If of Else Block@@@@ ');
+                
+                if(selectedRecordType =='Company'){
+                    if(recordType !=null && recordType=='Company' && selectedRecordType =='Company'){
+                        objAccount.Recordtypeid=companyRecordTypeId;
+                    }
+                }
+                
+                else if(selectedRecordType =='Person Account'){
+                    if(recordType !=null && recordType== 'Person Account' && selectedRecordType =='Person Account'){  
+                        system.debug('Inside Child If@@@ ');           
+                        objPersonAccount.Recordtypeid=PersonAccountRecordTypeID ;
+                    }
+                }
+                system.debug('Inside Outside If@@@ '+objAccount);
+                system.debug('Inside Outside @@@ '+AddressObj);
+                 
+                Address__c NewAdd=new Address__c();
+                system.debug('NewAdd:'+NewAdd);
+                newadd.market__c = market;
+                    if(NewAdd != AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && (objAccount.RecordTypeId !=null || objPersonAccount.RecordTypeId !=null)){
+                        AddressObj.Address_Type__c = addresspicklist;
+                        if(AddressObj.Market__c !='KR'   &&  market == System.Label.KR){
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'You are allowed to create record for your home market only'));
+                        }
+                        //response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
+                        sendAddress = true;
+                        
+                        try{    
+                            if(label.New_Component=='true'){
+                                String endUrl = generateCDMEndPointURL();
+                                  if(nonContinuationResponse && market == 'KR'){
+                                        Map < string, string > headerCDM = new Map < string, string > ();
+                                        headerCDM.put('Content-Type', 'application/json');
+                                        system.debug('Inside Real Time @@@ ');
+                                        HttpResponse res = CalloutHandlerService.sendCallout('GET', endUrl, 60000, headerCDM, null);
+                                        system.debug('Inside Real Time @@@ '+res.getbody());
+                                        system.debug('Inside Real Time @@@ '+res);
+                                        //AddressSearchValidationControllerCDM cd = new AddressSearchValidationControllerCDM();
+                                        processResponseForKR(res);
+                                        }
+                                        else{
+                                            con = new Continuation(120);     
+                                            con.continuationMethod='processResponse';
+                                            this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+                                            system.debug('request label: '+ this.requestLabel);
+                                        }
+                            }else{
+                                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
+                            }
+                        }catch (Exception e){
+                             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
+                             CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber()+e.getMessage());
+                        }
+                    }
+                system.debug('Hello test Iam here 1@@ '+AddressObj);
+                system.debug('Hello test Iam here 2@@ '+NewAdd);
+                if(AddressObj == NewAdd){
+                     system.debug('Hello test Iam here @@ ');
+                    //response =  UtilWebservice.validateCustomerDetails(objAccount);
+                    sendAddress = false;
+                    String endUrl = generateCDMEndPointURL();
+                system.debug('Endurl:'+endurl);
+                    try{    
+                        if(label.New_Component=='true'){
+                            con = new Continuation(120);     
+                            con.continuationMethod='processResponse';
+                            
+                            this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+                            system.debug('request label: '+ this.requestLabel);
+                        }else{
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
+                        }
+                    }catch (Exception e){
+                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
+                         CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber()+e.getMessage());
+                    }                   
+                }
+
+            }     
+          //end of last name check.   
+        //}
+        
+        return con;
+    }
+  
+    //End of online deduplication method for KR Market.
     
     /* *PR20170918- Switch Between EP and CDM* */
     public void onLineDedupSwitchTH(){
@@ -2929,6 +3865,36 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
                 if(Market == 'TH')
                     endUrl+='&ip_BirthDate='+(string.isnotblank(Birthdate)?EncodingUtil.URLENCODE(Birthdate,'UTF-8'):'');
+  //Added for KR market for the formation of endURL
+                if(market == System.Label.KR && (!KRSwitchCustomerSearch)){
+                        endUrl += 'ip_Firstname=' + ((string.isnotblank(objPersonAccount.firstname)) ? EncodingUtil.URLENCODE(objPersonAccount.FirstName, 'UTF-8') : '');
+                        endUrl += '&ip_LastName=' + ((string.isnotblank(objPersonAccount.LastName)) ? EncodingUtil.URLENCODE(objPersonAccount.LastName, 'UTF-8') : '');
+                        endUrl += '&ip_HomePhone=' + ((string.isnotblank(String.valueof(objPersonAccount.Individual_Home_Phone__c))) ? EncodingUtil.URLENCODE(String.valueof(objPersonAccount.Individual_Home_Phone__c), 'UTF-8') : '');
+                        endUrl += '&ip_Mobile=' + ((string.isnotblank(String.valueof(objPersonAccount.Mobile__c))) ? EncodingUtil.URLENCODE(String.valueof(objPersonAccount.Mobile__c), 'UTF-8') : '');
+                        endUrl += '&ip_WorkPhone=' + ((string.isnotblank(String.valueof(objPersonAccount.Work_Phone__c))) ? EncodingUtil.URLENCODE(String.valueof(objPersonAccount.Work_Phone__c), 'UTF-8') : '');
+                        endUrl += '&ip_Email=' + ((string.isnotblank(objPersonAccount.Email__c)) ? EncodingUtil.URLENCODE(objPersonAccount.Email__c, 'UTF-8') : '');
+                        endUrl += '&ip_Birthdate=' + ((string.isnotblank(String.valueof(objPersonAccount.PersonBirthdate))) ? EncodingUtil.URLENCODE(String.valueof(objPersonAccount.PersonBirthdate), 'UTF-8') : '');
+                        endUrl += '&ip_VIN=' + ((string.isnotblank(objAccount.VIN__c)) ? EncodingUtil.URLENCODE(objAccount.VIN__c, 'UTF-8') : '');
+                       // endUrl += '&ip_AccountMarket=' + ((string.isnotblank(objPersonAccount.Market__c)) ? EncodingUtil.URLENCODE(objPersonAccount.Market__c, 'UTF-8') : '');
+                        endUrl += '&ip_Market=' + ((string.isnotblank(objPersonAccount.Market__c)) ? EncodingUtil.URLENCODE(objPersonAccount.Market__c, 'UTF-8') : '');
+
+                        //Market__c is two times in the VF page so assuming that we will send only one.
+                        endUrl += '&ip_SendAddFlag=' + ((sendAddress != null) ? EncodingUtil.URLENCODE(String.valueOf(sendAddress), 'UTF-8') : '');
+                    if(sendAddress){
+                        endUrl += '&ip_PostCode=' + ((string.isnotblank(AddressObj.ZipCode__c)) ? EncodingUtil.URLENCODE(AddressObj.ZipCode__c, 'UTF-8') : '');
+                        //endUrl += '&ip_Prefecture=' + ((string.isnotblank(AddressObj.Province__c)) ? EncodingUtil.URLENCODE(AddressObj.Province__c, 'UTF-8') : '');
+                        String tempProvinceTrans = doProvinceTranslation(AddressObj);
+                        endUrl += '&ip_Prefecture=' + ((string.isnotblank(tempProvinceTrans)) ? EncodingUtil.URLENCODE(tempProvinceTrans, 'UTF-8') : '');
+                        endUrl += '&ip_City=' + ((string.isnotblank(AddressObj.City__c)) ? EncodingUtil.URLENCODE(AddressObj.City__c, 'UTF-8') : '');
+                        endUrl += '&ip_Town=' + ((string.isnotblank(AddressObj.District__c)) ? EncodingUtil.URLENCODE(AddressObj.District__c, 'UTF-8') : '');
+                        endUrl += '&ip_AddressLine1=' + ((string.isnotblank(AddressObj.Address_Line_1__c)) ? EncodingUtil.URLENCODE(AddressObj.Address_Line_1__c, 'UTF-8') : '');
+                        endUrl += '&ip_AddressLine2=' + ((string.isnotblank(AddressObj.Address_Line_2__c)) ? EncodingUtil.URLENCODE(AddressObj.Address_Line_2__c, 'UTF-8') : '');
+                       //It needs to be confirm because we are already passing Market in objAccount
+                        //endUrl += '&ip_AddressMarket=' + ((string.isnotblank(AddressObj.Market__c)) ? EncodingUtil.URLENCODE(AddressObj.Market__c, 'UTF-8') : '');
+                        endUrl += '&ip_Market=' + ((string.isnotblank(AddressObj.Market__c)) ? EncodingUtil.URLENCODE(AddressObj.Market__c, 'UTF-8') : '');
+
+                    }
+                }
             }
             else if(recordType == 'Company'){
                  endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
@@ -2948,6 +3914,36 @@ If the user is Saving  same address which matches the fields returned by toleran
                      endUrl+='&ip_ZipPostalCode='+(string.isnotblank(zip)?EncodingUtil.URLENCODE(zip,'UTF-8'):'');
                      endUrl+='&ip_CommercialRegisterId='+(String.isnotblank(objAccount.Commercial_Reg_No__c)?EncodingUtil.URLENCODE(objAccount.Commercial_Reg_No__c,'UTF-8'):'');
                  }
+ // Added for KRMarket by Sravani Koppaka
+               if(market == System.Label.KR && (!KRSwitchCustomerSearch)){
+                    endUrl += 'ip_AccountName=' + ((string.isnotblank(objAccount.Name)) ? EncodingUtil.URLENCODE(objAccount.Name, 'UTF-8') : '');
+                    endUrl += '&ip_HomePhone=' + ((string.isnotblank(String.valueof(objAccount.Individual_Home_Phone__c))) ? EncodingUtil.URLENCODE(String.valueof(objAccount.Individual_Home_Phone__c), 'UTF-8') : '');
+                    endUrl += '&ip_Mobile=' + ((string.isnotblank(String.valueof(objAccount.Mobile__c))) ? EncodingUtil.URLENCODE(String.valueof(objAccount.Mobile__c), 'UTF-8') : '');
+                    endUrl += '&ip_WorkPhone=' + ((string.isnotblank(String.valueof(objAccount.Work_Phone__c))) ? EncodingUtil.URLENCODE(String.valueof(objAccount.Work_Phone__c), 'UTF-8') : '');
+                    endUrl += '&ip_WorkPhone2=' + ((string.isnotblank(String.valueof(objAccount.Work_Phone_2__c))) ? EncodingUtil.URLENCODE(String.valueof(objAccount.Work_Phone_2__c), 'UTF-8') : '');
+                    endUrl += '&ip_Email=' + ((string.isnotblank(objAccount.Email__c)) ? EncodingUtil.URLENCODE(objAccount.Email__c, 'UTF-8') : '');
+                    endUrl += '&ip_VAT=' + ((string.isnotblank(objAccount.Vat_No__c)) ? EncodingUtil.URLENCODE(objAccount.Vat_No__c, 'UTF-8') : '');
+                    endUrl += '&ip_CommercialRegNo=' + ((string.isnotblank(objAccount.Commercial_Reg_No__c)) ? EncodingUtil.URLENCODE(objAccount.Commercial_Reg_No__c, 'UTF-8') : '');
+                    endUrl += '&ip_Market=' + ((string.isnotblank(objAccount.Market__c)) ? EncodingUtil.URLENCODE(objAccount.Market__c, 'UTF-8') : '');
+                    //endUrl += '&ip_AccountMarket=' + ((string.isnotblank(objAccount.Market__c)) ? EncodingUtil.URLENCODE(objAccount.Market__c, 'UTF-8') : '');
+
+                    endUrl += '&ip_SendAddFlag=' + ((sendAddress != null) ? EncodingUtil.URLENCODE(String.valueOf(sendAddress), 'UTF-8') : '');
+                    if(sendAddress){
+                            endUrl += '&ip_PostCode=' + ((string.isnotblank(AddressObj.ZipCode__c)) ? EncodingUtil.URLENCODE(AddressObj.ZipCode__c, 'UTF-8') : '');
+                            //endUrl += '&ip_Prefecture=' + ((string.isnotblank(AddressObj.Province__c)) ? EncodingUtil.URLENCODE(AddressObj.Province__c, 'UTF-8') : '');
+                            String tempProvinceTrans = doProvinceTranslation(AddressObj);
+                            endUrl += '&ip_Prefecture=' + ((string.isnotblank(tempProvinceTrans)) ? EncodingUtil.URLENCODE(tempProvinceTrans, 'UTF-8') : '');
+                            endUrl += '&ip_City=' + ((string.isnotblank(AddressObj.City__c)) ? EncodingUtil.URLENCODE(AddressObj.City__c, 'UTF-8') : '');
+                            endUrl += '&ip_Town=' + ((string.isnotblank(AddressObj.District__c)) ? EncodingUtil.URLENCODE(AddressObj.District__c, 'UTF-8') : '');
+                            endUrl += '&ip_AddressLine1=' + ((string.isnotblank(AddressObj.Address_Line_1__c)) ? EncodingUtil.URLENCODE(AddressObj.Address_Line_1__c, 'UTF-8') : '');
+                            endUrl += '&ip_AddressLine2=' + ((string.isnotblank(AddressObj.Address_Line_2__c)) ? EncodingUtil.URLENCODE(AddressObj.Address_Line_2__c, 'UTF-8') : '');
+                           //It needs to be confirm because we are already passing Market in objAccount
+                            endUrl += '&ip_Market=' + ((string.isnotblank(AddressObj.Market__c)) ? EncodingUtil.URLENCODE(AddressObj.Market__c, 'UTF-8') : '');
+                            //endUrl += '&ip_AddressMarket=' + ((string.isnotblank(AddressObj.Market__c)) ? EncodingUtil.URLENCODE(AddressObj.Market__c, 'UTF-8') : '');
+
+                           // endUrl += '&ip_AddressLine2Native=' + ((string.isnotblank(AddressObj.Address_Line_2_Native__c)) ? EncodingUtil.URLENCODE(AddressObj.Address_Line_2_Native__c, 'UTF-8') : '');
+                    }
+                } 
             }
              if(Market == 'AU' || Market == 'NZ') // sada 2018/3/22 as part of US/2/3 and US229
                  {
@@ -2959,14 +3955,247 @@ If the user is Saving  same address which matches the fields returned by toleran
                      endUrl+='&ip_SubUrbValue='+(string.isnotblank(AddressObj.Suburb__c)?EncodingUtil.URLENCODE(AddressObj.Suburb__c,'UTF-8'):'');
                      endUrl+='&ip_ZipPostalCode='+(string.isnotblank(zip)?EncodingUtil.URLENCODE(zip,'UTF-8'):'');
                      endUrl+='&ip_Country='+(String.isnotblank(AddressObj.Country__c)?EncodingUtil.URLENCODE(AddressObj.Country__c,'UTF-8'):'');
-					 endUrl+='&ip_geographicalRegion='+(String.isnotblank(Market)?EncodingUtil.URLENCODE(Market,'UTF-8'):'');
+					 endUrl+='&ip_geographicalRegion='+(String.isnotblank(objAccount.Market__c)?EncodingUtil.URLENCODE(ObjAccount.Market__c,'UTF-8'):'');
                  }
+//Added for KR market by Sravani Koppaka
+            if(market==Label.KR && KRSwitchCustomerSearch){
+                 endUrl=generateCDMEndPointURLRules();
+            }   
         System.debug('Endurl*** ' + endUrl);
         return endUrl;
     }
 
+// Added by Sravani Koppaka which is used in generateCDMEndpointURL method
+public String doProvinceTranslation(Address__c AddressObj){
+        String provinceStr = '';
+        List<ProvinceTranslation__mdt> ProvinceCodeJP = [SELECT id,MD__c,Object__c,Picklist_Name__c,Province_EN1__c,Province_EN10__c,Province_EN11__c,Province_EN12__c,Province_EN13__c,  
+                        Province_EN14__c,Province_EN15__c,Province_EN16__c,Province_EN17__c,Province_EN18__c,Province_EN19__c,Province_EN2__c,Province_EN20__c, 
+                        Province_EN21__c,Province_EN22__c,Province_EN23__c,Province_EN24__c,Province_EN25__c,Province_EN26__c,Province_EN27__c,Province_EN28__c,    
+                        Province_EN29__c,Province_EN3__c,Province_EN30__c,Province_EN31__c,Province_EN32__c,Province_EN33__c,Province_EN34__c,Province_EN35__c, 
+                        Province_EN36__c,Province_EN37__c,Province_EN38__c,Province_EN39__c,Province_EN4__c,Province_EN40__c,Province_EN41__c,Province_EN42__c, 
+                        Province_EN43__c,Province_EN44__c,Province_EN45__c,Province_EN46__c,Province_EN47__c,Province_EN5__c,Province_EN6__c,Province_EN7__c,   
+                        Province_EN8__c,Province_EN9__c,Province_TR1__c,Province_TR10__c,Province_TR11__c,Province_TR12__c,Province_TR13__c,Province_TR14__c,   
+                        Province_TR15__c,Province_TR16__c,Province_TR17__c,Province_TR18__c,Province_TR19__c,Province_TR2__c,Province_TR20__c,Province_TR21__c, 
+                        Province_TR22__c,Province_TR23__c,Province_TR24__c,Province_TR25__c,Province_TR26__c,Province_TR27__c,Province_TR28__c,Province_TR29__c ,
+                        Province_TR3__c,Province_TR30__c,Province_TR31__c,Province_TR32__c,Province_TR33__c,Province_TR34__c,Province_TR35__c,Province_TR36__c, 
+                        Province_TR37__c,Province_TR38__c,Province_TR39__c,Province_TR4__c,Province_TR40__c,Province_TR41__c,Province_TR42__c,Province_TR43__c, 
+                        Province_TR44__c,Province_TR45__c,Province_TR46__c,Province_TR47__c,Province_TR5__c,Province_TR6__c,Province_TR7__c,Province_TR8__c,Province_TR9__c 
+                FROM ProvinceTranslation__mdt 
+                WHERE MD__c=: AddressObj.MD__c LIMIT 1]; 
+    
+        for(ProvinceTranslation__mdt provinceCode : ProvinceCodeJP){
+            if(AddressObj.Province__c == provinceCode.Province_EN1__c){
+                provinceStr = provinceCode.Province_TR1__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN2__c){
+                provinceStr = provinceCode.Province_TR2__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN3__c){
+                provinceStr = provinceCode.Province_TR3__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN4__c){
+                provinceStr = provinceCode.Province_TR4__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN5__c){
+                provinceStr = provinceCode.Province_TR5__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN6__c){
+                provinceStr = provinceCode.Province_TR6__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN7__c){
+                provinceStr = provinceCode.Province_TR7__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN8__c){
+                provinceStr = provinceCode.Province_TR8__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN9__c){
+                provinceStr = provinceCode.Province_TR9__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN10__c){
+                provinceStr = provinceCode.Province_TR10__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN11__c){
+                provinceStr = provinceCode.Province_TR11__c;
+            }            
+            if(AddressObj.Province__c == provinceCode.Province_EN12__c){
+                provinceStr = provinceCode.Province_TR12__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN13__c){
+                provinceStr = provinceCode.Province_TR13__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN14__c){
+                provinceStr = provinceCode.Province_TR14__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN15__c){
+                provinceStr = provinceCode.Province_TR15__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN16__c){
+                provinceStr = provinceCode.Province_TR16__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN17__c){
+                provinceStr = provinceCode.Province_TR17__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN18__c){
+                provinceStr = provinceCode.Province_TR18__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN19__c){
+                provinceStr = provinceCode.Province_TR19__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN20__c){
+                provinceStr = provinceCode.Province_TR20__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN21__c){
+                provinceStr = provinceCode.Province_TR21__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN22__c){
+                provinceStr = provinceCode.Province_TR22__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN23__c){
+                provinceStr = provinceCode.Province_TR23__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN24__c){
+                provinceStr = provinceCode.Province_TR24__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN25__c){
+                provinceStr = provinceCode.Province_TR25__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN26__c){
+                provinceStr = provinceCode.Province_TR26__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN27__c){
+                provinceStr = provinceCode.Province_TR27__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN28__c){
+                provinceStr = provinceCode.Province_TR28__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN29__c){
+                provinceStr = provinceCode.Province_TR29__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN30__c){
+                provinceStr = provinceCode.Province_TR30__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN31__c){
+                provinceStr = provinceCode.Province_TR31__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN32__c){
+                provinceStr = provinceCode.Province_TR32__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN33__c){
+                provinceStr = provinceCode.Province_TR33__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN34__c){
+                provinceStr = provinceCode.Province_TR34__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN35__c){
+                provinceStr = provinceCode.Province_TR35__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN36__c){
+                provinceStr = provinceCode.Province_TR36__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN37__c){
+                provinceStr = provinceCode.Province_TR37__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN38__c){
+                provinceStr = provinceCode.Province_TR38__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN39__c){
+                provinceStr = provinceCode.Province_TR39__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN40__c){
+                provinceStr = provinceCode.Province_TR40__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN41__c){
+                provinceStr = provinceCode.Province_TR41__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN42__c){
+                provinceStr = provinceCode.Province_TR42__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN43__c){
+                provinceStr = provinceCode.Province_TR43__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN44__c){
+                provinceStr = provinceCode.Province_TR44__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN45__c){
+                provinceStr = provinceCode.Province_TR45__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN46__c){
+                provinceStr = provinceCode.Province_TR46__c;
+            }
+            if(AddressObj.Province__c == provinceCode.Province_EN47__c){
+                provinceStr = provinceCode.Province_TR47__c;
+            }           
+        }
+        return provinceStr;
+        
+    }        
+  // End of doProvinceTranslation
 
     
+   // Added by Sravani Koppaka which is used in generateCDMEndpointURL method
+      public String generateCDMEndPointURLRules(){
+        String endUrl='';
+        map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
+        For(string str: mapURLs.keyset()){
+            if(mapURLs.get(str).Country__c == Market && mapURLs.get(str).Type__c==RecordType){
+                endUrl+=mapURLs.get(str).Informatica_URL__c+'?';
+            }
+                      
+        }
+        system.debug('Online EndURL @@@ '+endUrl);
+        List<Configuration_Rule__c> DedupCriteria= new List<Configuration_Rule__c>();
+        system.debug('Market Values @@@ '+Market);
+        system.debug('Sub Type Value@@@ '+recordType);
+        DedupCriteria=[select id,(select id,Destination__c,Source__c,Object_API__c,Order__c from Configuration_Rule_Items__r where active__c=true order by Order__c) from Configuration_Rule__c where active__c=true and Market__c=:Market and type__c='Deduplication' and Sub_Type__c=:recordType limit 1];         
+        system.debug('List Size for CRITEM @@@ '+DedupCriteria);
+        if(DedupCriteria.size()>0){
+            for(Configuration_Rule__c c:DedupCriteria){
+                if(c.Configuration_Rule_Items__r!=null && c.Configuration_Rule_Items__r.size()>0){
+                    system.debug('Inside If@@@');
+                    for(Integer i=0; i<c.Configuration_Rule_Items__r.size();i++){
+                        Configuration_Rule_Item__c cri =  new Configuration_Rule_Item__c();
+                        cri=c.Configuration_Rule_Items__r[i];
+                        if(i!=0){
+                            endUrl+='&';
+                        }
+                        if(cri.Object_API__c=='Account'){
+                            //endUrl+=cri.Destination__c+'='+((string.isnotblank(string.valueof(objAccount.get(cri.source__c))))?EncodingUtil.URLENCODE(string.valueof(objAccount.get(cri.source__c)),'UTF-8'):'');
+                            if(recordType == 'Person Account'){
+                                endUrl+=cri.Destination__c+'='+((string.isnotblank(string.valueof(objPersonAccount.get(cri.source__c))))?EncodingUtil.URLENCODE(string.valueof(objPersonAccount.get(cri.source__c)),'UTF-8'):'');
+                            }
+                            else if (recordType == 'Company'){
+                                endUrl+=cri.Destination__c+'='+((string.isnotblank(string.valueof(objAccount.get(cri.source__c))))?EncodingUtil.URLENCODE(string.valueof(objAccount.get(cri.source__c)),'UTF-8'):'');
+                        
+                            }   
+                        }
+                        else if(cri.Object_API__c=='Address__c' && sendAddress){
+                            if(cri.Destination__c=='ip_KRProvice'){
+                                String tempProvinceTrans = doProvinceTranslation(AddressObj);
+                                endUrl+=cri.Destination__c+'='+((string.isnotblank(tempProvinceTrans))?EncodingUtil.URLENCODE(tempProvinceTrans,'UTF-8'):'');
+                            }
+                            else{
+                                endUrl+=cri.Destination__c+'='+((string.isnotblank(string.valueof(AddressObj.get(cri.source__c))))?EncodingUtil.URLENCODE(string.valueof(AddressObj.get(cri.source__c)),'UTF-8'):'');
+                            }   
+                        }
+                        else if(cri.Object_API__c=='Default'){
+                             if(cri.Destination__c == 'ip_SendAddFlag'){
+                                endUrl+=cri.Destination__c+'='+((string.isnotblank((String.ValueOf(sendAddress))))?EncodingUtil.URLENCODE(String.ValueOf(sendAddress),'UTF-8'):'');
+                            }else{  
+                            endUrl+=cri.Destination__c+'='+((string.isnotblank((cri.source__c)))?EncodingUtil.URLENCODE((cri.source__c),'UTF-8'):'');
+                        }
+                    }
+                if(endUrl.charAt(endURL.length()-1) == 38){
+                            endURL = endUrl.removeEnd('&');                           
+                }
+                 } //end of child loop iteration.
+                }                                   
+            }
+        }
+         System.debug('End url inside the generate url method using Rule Item ------------------------------->'+endURL);                                                                                                               
+        return endUrl;
+    } 
+
+ // End of generateCDMEndPointURLRules
      
     //  Sada US-2/3 2018/March/22 R1    
     public pagereference saveAccountANZ()       
@@ -3071,8 +4300,8 @@ If the user is Saving  same address which matches the fields returned by toleran
         emailraw = emailraw.replace('..', '.'); //replace .. to single .
         emailraw = emailraw.replace('.@', '@'); //replace .@ to single @
         emailraw = emailraw.replace('@.', '@'); //replace @. to single @
-        emailraw = emailraw.removeStart('.');// remove “.” as the first character of an e-mail address.
-        emailraw = emailraw.removeEnd('.');// remove “.” as the last character of an e-mail address.
+        emailraw = emailraw.removeStart('.');// remove �.� as the first character of an e-mail address.
+        emailraw = emailraw.removeEnd('.');// remove �.� as the last character of an e-mail address.
         emailraw= emailraw.replaceAll( '\\s+', ''); // remove spaces
          
          if(!Pattern.matches(emailRegex,emailraw))
@@ -3473,7 +4702,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-                string querytxt='select id,firstname,UCID__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c,Lastmodifieddate  from account where <Search> in (';
+                String addressFieldsQuery = ',Primary_Address_Reference__c, Primary_Address_Reference__r.Province__c,Primary_Address_Reference__r.City__c,Primary_Address_Reference__r.District__c,Primary_Address_Reference__r.Address_Line_1__c,Primary_Address_Reference__r.Address_Line_2__c,Primary_Address_Reference__r.ZipCode__c,Primary_Address_Reference__r.Temp_ZipCode__c,Primary_Address_Reference__r.Temp_Address__c'; 
+                string querytxt='select id,VIP__c,firstname,UCID__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c,Primary_Address_Display__c,Lastmodifieddate  from account where <Search> in (';
                 querytxt=querytxt.replace('<Search>',label.SearchKey); 
                 set<String> valueSet = new set<String>();
                 for(Integer i=0; i<set_accounts.size(); i++){
@@ -3502,12 +4732,17 @@ If the user is Saving  same address which matches the fields returned by toleran
                 next=false;
                 LastIndex=DedupAccountList.size();      
                 First();
+                 // Added by Sravanthi Gudibandi---start
+                 if(market==system.label.KR){
+            constructAddressMap();
+                // Added by Sravanthi Gudibandi---end
                 If(displayAccList.size()==0)
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 else if(displayAccList.size()==1)
                     one = true;
                 else if(displayAccList.size()>1)
                     one = false;
+            }
             }
         }
         }
@@ -3520,6 +4755,55 @@ If the user is Saving  same address which matches the fields returned by toleran
       return null;
     }
     
+    // Added by Sravanthi Gudibandi---start
+          //this method is used to construct the address field map.
+    public void constructAddressMap(){
+        accIdToAddressMap = new Map<Id, String>();
+        String concatenateAddressFields; //used to concatenate the address fields.
+        
+        //iterating the constructed list.
+        for(Account acc : DedupAccountList){
+            concatenateAddressFields = '';
+            
+            if(acc.Primary_Address_Display__c != null){
+                concatenateAddressFields = acc.Primary_Address_Display__c;
+                concatenateAddressFields = concatenateAddressFields.replaceAll('null', '');
+                accIdToAddressMap.put(acc.Id, concatenateAddressFields);
+            
+            }
+        }//end of iterating the account records.
+        
+        //checking the size to avoid unnessary query.
+        if(DedupAccountList.size() != accIdToAddressMap.size()){
+            for(Address__c add : [SELECT Id, Customer__c, Province__c, City__c, District__c,  Address_Line_1__c, Address_Line_2__c, 
+                                         ZipCode__c, Temp_ZipCode__c, Temp_Address__c
+                                FROM Address__c 
+                                WHERE Customer__c IN : DedupAccountList
+                                AND Customer__c NOT IN : accIdToAddressMap.keySet()
+                                AND Address_Type__c = 'Home' AND Address_Type__c = 'Business']){
+                concatenateAddressFields = add.Province__c +' '+ 
+                                        add.City__c +' '+ 
+                                        add.District__c +' '+ 
+                                        add.Block__c +' '+ 
+                                        add.Address_Line_1__c +' '+ 
+                                        add.Address_Line_2__c +' '+ 
+                                        add.Address_Code__c +' '+ 
+                                        add.ZipCode__c +' Unnormalized Post Code '+ 
+                                        add.Temp_ZipCode__c +' Unnormalized Addres '+ 
+                                        add.Temp_Address__c ;
+                concatenateAddressFields = concatenateAddressFields.replaceAll('null', '');
+                accIdToAddressMap.put(add.Customer__c, concatenateAddressFields);
+            }//end of address iteration.
+        }//end of checking the size.
+        
+        for(Account acc : DedupAccountList){
+            if(accIdToAddressMap.isEmpty() || !accIdToAddressMap.containsKey(acc.Id)){
+                accIdToAddressMap.put(acc.Id, '');
+            }
+        }
+        System.debug('Account id to address field map values are ---------------------------------------->'+accIdToAddressMap);
+    }//end of constructing address map method.
+     // Added by Sravanthi Gudibandi---end
     /*
      MT20170913
      Online de duplication for MY Market  
@@ -3654,31 +4938,32 @@ public pagereference saveAccountTH()
                 return null;
         }
         else{
-            Pattern p = Pattern.compile('[0-9]{13}');
+            Pattern p = Pattern.compile('[1-8]{1}[0-9]{12}'); // CISM - 0044905952
             Matcher m = p.matcher(objAccount.ID_Number__c);
             if(!m.matches()){
-                objAccount.ID_Number__c.addError('If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
+                objAccount.ID_Number__c.addError('If ID Type is National ID, ID Number must not be empty and should be of 13 characters containing only digits, and must not start with either 0 or 9'); // CISM - 0044905952
                 return null;
             }
-            else{
+            else
+			{
                 integer sum=0;
                 Integer Remainder;
                 for(integer i=0;i<objAccount.ID_Number__c.length()-1;i++){
                     sum=sum+(integer.valueOf(objAccount.ID_Number__c.substring(i, i+1)))*(13-i);
                 }
-                remainder=11-(math.mod(sum,11));
-                if(remainder==11){
+                remainder=math.mod(11-(math.mod(sum,11)),10);
+                /*if(remainder==11){
                             if (integer.valueOf(objAccount.ID_Number__c.substring(12, 13))!=1) {
                             objAccount.ID_Number__c.addError('ID Number: Invalid National id');
                                 return null;	
                         }
                         }
-                else if(remainder!=integer.valueOf(objAccount.ID_Number__c.substring(12,13))){
-                objAccount.ID_Number__c.addError('Invalid National id');
-                return null;
-             
+                else */
+				if(remainder!=integer.valueOf(objAccount.ID_Number__c.substring(12,13))){
+					objAccount.ID_Number__c.addError('Invalid National id');
+					return null;
                 }
-        }
+			}
         
     }
    }
@@ -4056,7 +5341,7 @@ public pagereference saveAccountTH()
         if(zip!='' && zip!='--Select--')
             addressobj.ZipCode__c=zip;            
      
-         if(AddressObj.Address_Type__c != null && 
+        if(AddressObj.Address_Type__c != null && 
             (AddressObj.Address_Line_1__c==null ||
             province==null ||
             district==null ||
@@ -4069,70 +5354,42 @@ public pagereference saveAccountTH()
                 Address_Validated_Flag=False;
             
             }            
-                    if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.')); 
-                         Validation = true;                     
-                    }
-                                         
-                    if(addressobj.ZipCode__c == null)
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.')); 
-                        Validation = true;                      
-                    }
-                    if(addressobj.Address_Line_1__c == null)
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));
-                        Validation = true;                      
-                    }
-                    else
-                    {
-                        if(addressobj.Address_Line_1__c.length()>100)
-                        {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 1 should be less than or equal to 100 characters.'));
-                            Validation = true;                      
-                        }
-                     }
-                                           system.debug('enter 1 :'+addressobj.Province__c );
-                                           
-                    if(addressobj.Province__c == null)
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
-                        Validation = TRUE; 
-                    }
-                     
-                    if(addressobj.District__c == null )
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District__c is Mandatory.')); 
-                        Validation = TRUE;                        
-                    }
-                   
-                    if(addressobj.Sub_District__c == null)
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sub_District__c is Mandatory.')); 
-                        Validation = TRUE;                        
-                    }
-                   
-                    /*if(addressobj.Address_Line_2__c == null )
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.')); 
-                        Validation = TRUE;                        
-                    }
-                    else
-                    {*/                   
-                    
-                    if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
-                        Validation = true;                      
-                    }
-                    //}
-                    
+				if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+				{
+					ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.')); 
+					Validation = true;                     
+				}					 
+				if(addressobj.ZipCode__c == null)
+				{
+					ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.')); 
+					Validation = true;                      
+				}
+				if(addressobj.Address_Line_1__c == null)
+				{
+					ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));
+					Validation = true;                      
+				}
+				if(addressobj.Province__c == null)
+				{
+					ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
+					Validation = TRUE; 
+				}
+				 
+				if(addressobj.District__c == null )
+				{
+					ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District__c is Mandatory.')); 
+					Validation = TRUE;                        
+				}
+			   
+				if(addressobj.Sub_District__c == null)
+				{
+					ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sub_District__c is Mandatory.')); 
+					Validation = TRUE;                        
+				}        
             }
             catch (exception e)
-            {
-                
-                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));    
+            {    
+				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));    
             }
     }
 /*      
@@ -4333,7 +5590,20 @@ public pagereference saveAccountTH()
              if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!=label.MYPhoneCountryCode?true:false :false) wAreaBoolean=true;
            
     }
+    
+       //for Call  flow changes  country code added by Sravanthi Gudibandi.
 
+    public void checkcountrycodekorea(){
+     if(KRSwitchEnabledFlag){ 
+        wAreaBoolean=false;
+        hAreaBoolean=false;
+        
+       
+        if(String.isNOTBlank(hmCountryCode) ? hmCountryCode!=label.KRPhoneCountryCode?true:false:false) hAreaBoolean=true;
+        if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!=label.KRPhoneCountryCode?true:false :false) wAreaBoolean=true;
+        
+    }
+}
      //  Sada US-2/3 2018/March/22 R1    
         public void checkcountrycodeANZ(){
         wAreaBoolean=false;
@@ -4389,6 +5659,97 @@ public PageReference goToMarketSpecificPage() {
              accPage.setRedirect(true);
              return accPage;
         }
+        return null;
+    }
+    //Added By Rahul Mehta as part of handling the response received from CDM 
+      public Object processResponseForKR(HttpResponse res) {
+            //HttpResponse res = Continuation.getResponse(this.requestLabel);
+            System.debug('res*** ' + res.getBody());
+            //res.setBody('{"OP_UCID":[{"IdentificationTypeValue":"UCID","IdentificationNum":"300001269145F53B20B","AdminClientNum":"0010k00000ii7W2AAI"}]}');
+              
+          //Added for JP track.
+            //readonly= true;  
+            //editmode=false; 
+          // Set the result variable that is displayed on the Visualforce page
+        try{
+            //this.requestLabel = res.getBody();
+            //CustomLogUtil.CustomLoggingEntry('Continuation Response Body' + res.getBody());
+            System.debug('res*** ' + res.getBody());
+            if(res.getbody()=='{}'){
+                system.debug('Inside If Of Respone');
+                showCDM=false;
+                CustomLogUtil.CustomLoggingEntry('Error Occured will calling ' + 'Response Body' +res.getbody());
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+                
+            }
+            else if(res.getStatusCode()==500)
+            {
+                showCDM=false;
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + res.getstatuscode() +'-- '+res.getStatusCode());
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.The_request_could_not_reach_server));
+            }
+            else
+            {
+                //custSearch=JSON2ApexCustomerFromCDM.parse(res.getbody());
+                //system.debug('custSearch:'+custSearch);
+                
+                JSON2ApexCustomerCDM  custSearchJP = JSON2ApexCustomerCDM.parse(res.getBody());
+                system.debug('custSearch:'+custSearchJP);
+                list<string> set_accounts= new list<string>();
+                //For(JSON2ApexCustomerFromCDM.Out_JSON_UCID_List cust : custSearch.out_JSON_UCID_List){
+                For(JSON2ApexCustomerCDM.cls_OP_UCID  cust : custSearchJP.OP_UCID){
+                    system.debug('cust:'+cust);
+                    Map<String, Object> m = (Map<String, Object>)JSON.deserializeUntyped(JSON.serialize(cust));
+                    if(string.valueof(m.get(Label.AdminClientNum))!=null)
+                        set_accounts.add(string.valueof(m.get(label.AdminClientNum)));
+                }
+                if(set_accounts.size()>0){
+                    showCDM=true;
+                    String addressFieldsQuery = ',Primary_Address_Reference__c, Primary_Address_Reference__r.Province__c, Primary_Address_Reference__r.City__c,Primary_Address_Reference__r.District__c,Primary_Address_Reference__r.Block__c,Primary_Address_Reference__r.Address_Line_1__c,Primary_Address_Reference__r.Address_Line_2__c,Primary_Address_Reference__r.Address_Code__c,Primary_Address_Reference__r.ZipCode__c,Primary_Address_Reference__r.Temp_ZipCode__c,Primary_Address_Reference__r.Temp_Address__c';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                    //string querytxt='select id,firstname,UCID__c,Allow_data_sharing2__c,VIN__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__celect id,firstname,UCID__c,Allow_data_sharing2__c,VIN__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,Primary_Address_Display__c from account where <Search> in (';
+                    string querytxt='select id,firstname,isPersonAccount,UCID__c,Allow_data_sharing2__c,VIN__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,Primary_Address_Display__c from account where <Search> in (';
+                    querytxt=querytxt.replace('<Search>',label.SearchKey); 
+                    set<String> valueSet = new set<String>();
+                    for(Integer i=0; i<set_accounts.size(); i++){
+                        valueSet.add('\'' + String.escapeSingleQuotes(set_accounts[i]) + '\'');
+                    }
+                    if (valueSet.isEmpty()){
+                        valueSet.add('\'\'');
+                    }
+                    querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
+                    for(account acc :database.query(querytxt)){
+                        if(acc.Recordtype.name == 'Person Account' || acc.Recordtype.name == 'Company'){
+                            if(market == System.Label.KR)
+                            {
+                              DedupAccountList.add(acc);
+                              }
+                            else
+                            DedupAccountList.add(acc);
+                       }
+                     }
+                    last=false;     
+                    previous=false;     
+                    first=false;        
+                    next=false;
+                    LastIndex=DedupAccountList.size();      
+                    First();
+                    if(market==system.label.KR){
+                        constructAddressMap();                          
+                    If(displayAccList.size()==0)
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+                    else if(displayAccList.size()==1)
+                        one = true;
+                    else if(displayAccList.size()>1)
+                        one = false;
+                }
+            }
+          }
+        }
+        catch (Exception e){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
+            CustomLogUtil.CustomLoggingEntry('Error Occured ' + e +'-- '+e.getMessage());
+        }
+        // Return null to re-render the original Visualforce page
         return null;
     }
 

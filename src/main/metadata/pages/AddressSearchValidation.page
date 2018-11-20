@@ -85,6 +85,10 @@
     {
         ShowHideFields(checked);
     }
+    function LoadCountryCode(Country)
+    {
+        LoadCountryCode(Country);
+    }
     function unCheckOther(cb)
     {   
    
@@ -475,14 +479,17 @@
 
                        <apex:pageBlockSectionItem >
                        <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
-                       <apex:inputField value="{!objAccount.Market__c}"/>
+                        <apex:inputField value="{!objAccount.Market__c}" onchange="LoadCountryCode(this.value)"/>
                         
                     </apex:pageBlockSectionItem>
                      <apex:inputField value="{!objAccount.Opt_In_SMS3__c}" />
                       <apex:inputField value="{!objAccount.Status__c}" /> 
                    <apex:inputField value="{!objAccount.Opt_In_Mail__c}" /> 
                    
-                    
+				<apex:actionFunction name="LoadCountryCode" action="{!LoadCountryCode}" reRender="AUcompanyBlock, AddrPBSAU">  
+                      <apex:param name="LoadCountryCode" value="" /> 
+                 </apex:actionFunction> 
+                 
                     </apex:pageBlockSection>
         <!--   AU/NZ MARKET Company Account  - End -->
         
@@ -574,11 +581,14 @@
                     <apex:inputField value="{!objAccount.Opt_In_Phone__c}" /> 
                     <apex:pageBlockSectionItem >
                        <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
-                       <apex:inputField value="{!objAccount.Market__c}"/>
+                         <apex:inputField value="{!objAccount.Market__c}" onchange="LoadCountryCode(this.value)"/>
                     </apex:pageBlockSectionItem>    
                     
                     <apex:inputField value="{!objAccount.Opt_In_Mail__c}" />  
                  
+					<apex:actionFunction name="LoadCountryCode" action="{!LoadCountryCode}" reRender="AddrPBSAU, AUPersonAccBlock">  
+                      <apex:param name="LoadCountryCode" value="" /> 
+					</apex:actionFunction>
 
                     </apex:pageBlockSection>
                                    
@@ -603,6 +613,14 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
+                               <!---for Call  flow changes  country code added by Sravanthi Gudibandi--->
+
+                                
+                                <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px"  html-readonly="true"  rendered="{!KRSwitchEnabledFlag}"> 
+
+                            <apex:actionSupport action="{!checkcountrycodekorea}" event="onchange">
+                            </apex:actionSupport>
+                          </apex:inputText>    
                             <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>                                 
@@ -613,6 +631,8 @@
                    <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
                         <apex:outputPanel >
+					
+                 <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px" html-readonly="true" rendered="{!KRSwitchEnabledFlag}" /> 
                             <apex:selectList value="{!mobileAreaCode}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!MobileAreacodeItems}"/>
                             </apex:selectList>                       
@@ -624,6 +644,10 @@
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
+                <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" style="width:30px" html-readonly="true"  rendered="{!KRSwitchEnabledFlag}">
+                            <apex:actionSupport action="{!checkcountrycodekorea}" event="onchange">
+                            </apex:actionSupport>
+                        </apex:inputText>
                             <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>
@@ -675,6 +699,12 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
+                     <!---for Call  flow changes  country code added by Sravanthi Gudibandi--->
+
+                <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px" html-readonly="true"  rendered="{!KRSwitchEnabledFlag}"> 
+                            <apex:actionSupport action="{!checkcountrycodekorea}" event="onchange">
+                            </apex:actionSupport>
+                          </apex:inputText>
                             <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>                                 
@@ -685,6 +715,8 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
                         <apex:outputPanel >
+                 <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px" html-readonly="true"  rendered="{!KRSwitchEnabledFlag}"/>
+                 
                             <apex:selectList value="{!mobileAreaCode}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!MobileAreacodeItems}"/>
                             </apex:selectList>                       
@@ -695,6 +727,10 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />                        
                           <apex:outputPanel >
+                 <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" style="width:30px" html-readonly="true"  rendered="{!KRSwitchEnabledFlag}">
+                            <apex:actionSupport action="{!checkcountrycodekorea}" event="onchange">
+                            </apex:actionSupport>
+                        </apex:inputText>
                             <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                            </apex:selectList>                                          
@@ -706,6 +742,10 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone_2__c.Label}" />                        
                           <apex:outputPanel >
+                <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" style="width:30px" html-readonly="true"  rendered="{!KRSwitchEnabledFlag}">
+                            <apex:actionSupport action="{!checkcountrycodekorea}" event="onchange">
+                            </apex:actionSupport>
+                        </apex:inputText>
                             <apex:selectList value="{!workPhone2AreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                            </apex:selectList>                                          
@@ -1153,8 +1193,58 @@
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_2_Native__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Address_Line_2_Native__c}"/>                        
                     </apex:pageBlockSectionItem>
-                   
-                </apex:pageBlockSection>
+        </apex:pageBlockSection>
+        
+        <apex:outputPanel id="validatedAddressTable">
+            <apex:pageBlock title="Validated Addresses" rendered="{!validatedAddressList.size>0}">
+                <apex:variable value="{!0}" var="rowNum"/>
+                <apex:pageBlockTable value="{!validatedAddressList}" var="addresss" rowClasses="odd,even" styleClass="tableClass">
+                    <apex:facet name="caption"></apex:facet>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Building</apex:facet>
+                        <apex:outputText value="{!addresss.Building}"/>
+                        <apex:actionSupport action="{!populateValidatedAddress}" event="onclick" rerender="AddrJPKRPBS, KRSave, validatedAddressTable">
+                            <apex:param value="{!rowNum}" name="rowNum"/>
+                        </apex:actionsupport>
+                        <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                        
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Street</apex:facet>
+                        <apex:outputText value="{!addresss.Street}"/>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">HouseNumber</apex:facet>
+                        <apex:outputText value="{!addresss.HouseNumber}"/>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Locality</apex:facet>
+                        <apex:outputText value="{!addresss.Locality}"/>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">PostalCode</apex:facet>
+                        <apex:outputText value="{!addresss.PostalCode}"/>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Province</apex:facet>
+                        <apex:outputText value="{!addresss.Province}"/>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Country</apex:facet>
+                        <apex:outputText value="{!addresss.Country}"/>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+            
+        </apex:outputPanel>
         <!--  Address Information JP  KR - End -->
         
         
@@ -1547,7 +1637,11 @@
                     
                     <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(And(market=='JP',Editmode) ,true,false)}"/>
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
-                    <apex:commandButton action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!If(market=='KR',true,false)}"/>
+            <apex:commandButton id="KRSave" action="{!saveAccount}"    value="{!$Label.Save_Button}" rendered="{!If(AND(market=='KR',(!KRSwitchCustomerSearch)),true,false)}"/>
+       <!--Sravanthi Gudibandi Added Buttons for KR CDM---Start--> 
+            <apex:commandButton id="KRSave1" action="{!saveAccount}"  value="{!$Label.Save_Button}" rendered="{!If(AND(market=='KR',KRSwitchOnlinededupFlag),true,false)}"/>
+           <apex:commandButton id="KRSave2" action="{!OnlineDeduplicationKR}"  value="{!$Label.Save_Button}" rendered="{!If(AND(market=='KR',(!KRSwitchOnlinededupFlag)),true,false)}"/>
+                  <!--Sravanthi Gudibandi Added Buttons for KR CDM---End--> 
                  <!--Commented sfdckr1464<apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>-->
                     <!--PR20170918--Start-->
                     <!--<apex:commandButton action="{!onLineDeduplicationTH}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'TH') ,true,false)}" />-->
@@ -1563,7 +1657,8 @@
              					
                      </apex:outputPanel>
 					 <!-- Sada 2013/Mar/22 Added NZ and AU  for us2/3 and 229-->
-					 <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,JpaddressIds,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),$Permission.MYGeneric, $Permission.AUGeneric, $Permission.NZGeneric)) ,true,false)}" oncomplete="hideTable();"/> <!--oncomplete="hideTable();-->
+              <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,JpaddressIds,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH')|| ISPICKVAL($User.Market__c,'KR'),$Permission.MYGeneric, $Permission.AUGeneric, $Permission.NZGeneric)) ,true,false)}" oncomplete="hideTable();"/> <!--oncomplete="hideTable();-->
+            <apex:commandButton action="{!validateAddressDoctorSwitch}" value="{!$Label.Validate}" reRender="validatedAddressTable,pbbtns,KRSave, AddrPBS,AddrJPKRPBS,JpaddressIds,addressIds,msgs" rendered="{!If(ISPICKVAL($User.Market__c,'KR') ,true,false)}" oncomplete="hideTable();"/> <!--oncomplete="hideTable();-->
                      <!--<apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>-->
                     
                     <apex:outputPanel rendered="{!firstsave}" >
@@ -1959,6 +2054,58 @@
                                             
                 </apex:PageBlockTable>      
                      </apex:pageBlockSection>
+			 <!--Sravanthi Gudibandi Added Block for KR CDM---Start--> 
+            <apex:pageBlockSection columns="1" rendered="{!IF((displayAccList.size!=0 && (ISPICKVAL($User.Market__c,'KR'))), true, false)}">                 
+                <apex:pageBlockTable value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Person Account'}">       
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">         
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>            
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId ==null}">       
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.LastName}</apex:outputLink>            
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                           
+                        <apex:outputField value="{!cr.firstName}"/>     
+                    </apex:Column>      
+                    
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Mobile__c.Label}" rendered="{!!ISPICKVAL($User.Market__c,'KR')}">                                                     
+                        <apex:outputField value="{!cr.Mobile__c}"/>     
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                            
+                        <apex:outputField value="{!cr.Email__c}"/>      
+                    </apex:Column>              
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}" rendered="{!!ISPICKVAL($User.Market__c,'KR')}">
+                        <apex:outputField value="{!cr.UCID__c}"/>
+                    </apex:Column>                                                                                                                    
+                    <apex:Column headerValue="{!$Label.Address_for_Address_data}" rendered="{!ISPICKVAL($User.Market__c,'KR')}">               
+                         <apex:outputtext value="{!accIdToAddressMap[cr.Id]}" /> 
+                    </apex:Column>                                           
+                </apex:pageBlockTable>     
+                <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Company'}">      
+                   <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId !=null}">       
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.Name}</apex:outputLink>            
+                    </apex:Column> 
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId ==null}">       
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.Name}</apex:outputLink>            
+                    </apex:Column> 
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Work_Phone__c.Label}">                            
+                        <apex:outputField value="{!cr.Work_Phone__c}"/>      
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" rendered="{!ISPICKVAL($User.Market__c,'KR')}">                    
+                        <apex:outputField value="{!cr.Individual_Home_Phone__c}"/>
+                    </apex:Column>                                                                                                                                                        
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                            
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>                           
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}" rendered="{!!ISPICKVAL($User.Market__c,'KR')}">
+                        <apex:outputField value="{!cr.UCID__c}"/>
+                    </apex:Column>      
+                    
+                    <apex:Column headerValue="{!$Label.Address_for_Address_data}" rendered="{!ISPICKVAL($User.Market__c,'KR')}">               
+                         <apex:outputtext value="{!accIdToAddressMap[cr.Id]}" /> 
+                    </apex:Column>                                                                                                                    
+                </apex:PageBlockTable>      
+            </apex:pageBlockSection>       
+            <!--Sravanthi Gudibandi Added Block for KR CDM---End-->
 					 
                      <apex:pageblockButtons >       
                      <apex:commandButton value="First" action="{!first}" reRender="frmCDM" disabled="{!first}"/>       

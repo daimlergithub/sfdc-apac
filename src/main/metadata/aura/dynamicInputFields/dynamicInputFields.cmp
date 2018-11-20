@@ -1,0 +1,10 @@
+<aura:component>
+	<aura:attribute name="inputFieldList" type="String[]" />
+    <aura:attribute name="defaultValues" type="String[]" />
+    <aura:attribute name="layoutSize" type="Integer" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="onchange" type="c:SectionheaderEvent"/>
+    <lightning:layout  multipleRows="true" horizontalAlign="spread" >
+        {!v.body}
+    </lightning:layout>  
+</aura:component>

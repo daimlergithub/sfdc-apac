@@ -5,17 +5,21 @@
  * Author		: I2MAX
  * Date			: 2017.09.29
  * Description	: 메시지 전송, Task log)	
- * added comment for testing auto merge
 */
 global class CtrlMessageAPIKRDFW {
-
+	private static map<Id, Template__c> retTemplatesOrg{get;set;}
 	//*** 실시간 전송 ***//
+	/**
+	 *
+	 *
+	 * @param MessageIds
+	 */
 	@future(callout=true)	
 	public static void MBKMessageDirectSender(List<String> MessageIds){
 		map<Id, MBK_Messages__c> mapMBKs = new map<Id, MBK_Messages__c>([SELECT Account__c, Account_Name__c, Case__c, KaKaoTalk_ID__c, CampaignMember__c,  
 												Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 												altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
-												processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c 
+												processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c, currentCallerId__c
 											FROM MBK_Messages__c WHERE Id IN: MessageIds]);
 		List<MBK_Messages__c> MBKMessages = mapMBKs.values();
 		map<Id, List<Attachment>> messageImages = new map<Id, List<Attachment>>();
@@ -35,6 +39,7 @@ global class CtrlMessageAPIKRDFW {
 		HttpResponse	res		= new HttpResponse();
 		String			errMsg	= '';
 		String dataJson = '';
+        String smsSndNum = '';
 		
 		JSONGenerator g = JSON.createGenerator(true);
 		g.writeStartArray();
@@ -44,10 +49,14 @@ global class CtrlMessageAPIKRDFW {
 				Datetime myDT = Datetime.now();
 				String myDate = myDT.format('YYYYMMddHHmmss');				  
 				g.writeStartObject();
-				
+
+				if(MBK.currentCallerId__c == '' || MBK.currentCallerId__c == null) smsSndNum = system.label.MBK_Message_Sender_Phone;     //발송번호
+				else smsSndNum = MBK.currentCallerId__c;
+
 				//MBK.channel 분리
 				if(MBK.channel__c == 'S'){
-					g.writeStringField('smsSndNum', notNull(system.label.MBK_Message_Sender_Phone));	//발송번호
+                    g.writeStringField('smsSndNum', notNull(smsSndNum));     //발송번호       
+					//g.writeStringField('smsSndNum', notNull(system.label.MBK_Message_Sender_Phone));	//발송번호
 					g.writeStringField('smsMessage', notNull(MBK.message__c));							//발송메시지
 				}else if(MBK.channel__c == 'A'){
 					//알림톡
@@ -55,26 +64,24 @@ global class CtrlMessageAPIKRDFW {
 					g.writeStringField('subject', notNull(MBK.subject__c));				
 					g.writeStringField('smsMessage', notNull(MBK.message__c));							//발송메시지
 					g.writeStringField('message', notNull(MBK.message__c));								//발송메시지				
-					g.writeStringField('smsSndNum', notNull(system.label.MBK_Message_Sender_Phone));	//발송번호
+					g.writeStringField('smsSndNum', notNull(smsSndNum));                                //발송번호
+                    //g.writeStringField('smsSndNum', notNull(system.label.MBK_Message_Sender_Phone));	//발송번호 Former
 					g.writeStringField('smsKind', 'L');												//전환발송 구분
 									
 					if(MBK.templateCode__c == system.label.MBK_Message_Survey){
-						JSONGenerator buttong = JSON.createGenerator(true);
-						buttong.writeStartArray();
-						buttong.writeStartObject();
-						buttong.writeStringField('name', system.label.MBK_Message_Button_Name);	
-						buttong.writeStringField('type', 'WL');
-						buttong.writeStringField('url_mobile', system.label.MBK_Message_SurveyURL);
-						buttong.writeEndObject();					
-						
-						buttong.writeEndArray();
-						String dataButtonJson = buttong.getAsString();
-						g.writeStringField('button', dataButtonJson);	
+						List<button> jsonButtons = new List<button>();
+						button jsonButton = new button();
+						jsonButton.name			= system.label.MBK_Message_Button_Name;
+						jsonButton.type			= 'WL';
+						jsonButton.url_mobile	= system.label.MBK_Message_SurveyURL;
+						jsonButtons.add(jsonButton);
+						g.writeObjectField('button',jsonButtons);
 					}					
 				}else if(MBK.channel__c == 'M'){
 					g.writeStringField('message', notNull(MBK.message__c));								//발송메시지
 					g.writeStringField('subject', notNull(MBK.subject__c));
-					g.writeStringField('smsSndNum', notNull(system.label.MBK_Message_Sender_Phone));	//발송번호
+					g.writeStringField('smsSndNum', notNull(smsSndNum));	//발송번호
+                    //g.writeStringField('smsSndNum', notNull(system.label.MBK_Message_Sender_Phone));	//발송번호
 					//첨부파일 처리(MMS)
 					Integer i = 1; 
 					if(MBKAtts <> null && MBKAtts.size() > 0){ 
@@ -90,7 +97,7 @@ global class CtrlMessageAPIKRDFW {
 						g.writeObjectField('files',jsonfiles);
 					}	
 				}
-				
+
 				//데이터 공통부
 				myDate = MBK.Set_Sending_Time__c == null ? myDate : MBK.Set_Sending_Time__c.format('YYYYMMddHHmmss');
 				g.writeStringField('senderKey', notNull(MBK.senderKey__c));							//발신프로필키
@@ -187,7 +194,11 @@ global class CtrlMessageAPIKRDFW {
 			update MBKMessages;
 		}
 	}
-	
+	/**
+	 *
+	 *
+	 * @param MBKMessageIds
+	 */
 	@future
 	public static void MBKMessageLogging(List<String> MBKMessageIds){
 		List<MBK_Messages__c> MBKMessages = [SELECT Account__c, Account_Name__c, Case__c, KaKaoTalk_ID__c, CampaignMember__c,  
@@ -215,10 +226,10 @@ global class CtrlMessageAPIKRDFW {
 		}
 		insert insertTasks;	
 	}
-	
+
 	private static String notNull(String str){
 		if(str == null) return '';
-		else return str; 		
+		else return str;
 	}
 	
 	public class files{
@@ -227,4 +238,9 @@ global class CtrlMessageAPIKRDFW {
 		public String ext{get;set;} 
 	}
 
+	public class button{
+		public String name{get;set;}
+		public String type{get;set;}
+		public String url_mobile{get;set;}
+	}
 }

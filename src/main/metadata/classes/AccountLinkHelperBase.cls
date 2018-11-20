@@ -17,7 +17,7 @@ Public class AccountLinkHelperBase{
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
     public static Id accRetailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
     public static Id accRetailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
-
+	public static Id fsAccountLinkRecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c', UtilConstant.FS_Account_Link);
 /**
 * It will validate the duplicate c2c
 */
@@ -89,7 +89,8 @@ Public class AccountLinkHelperBase{
         if(AcclinkMap.size()>0){
         for(Group groupRec : [select Id, Name, Type from Group where Name IN: AcclinkMap.values()]){
             for(Account_link__c alk:Acclink){
-                if(alk.Retail_Delete_Flag__c==false){
+                //Rajesh - added logic to share retail copy only to the group with matching name
+                if(alk.Retail_Delete_Flag__c==false && groupRec.Name == (alk.fromRole__r.MD__c + alk.fromRole__r.Dealer_ND_Code__c)){
                     Account_Link__Share alshare=new Account_Link__Share ();
                     alshare.AccessLevel='EDIT';
                     alshare.RowCause = Schema.Account_link__Share.RowCause.Manual;
@@ -346,4 +347,105 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
 		 database.delete([select id from account_link__share where parentid in: idvalues and RowCause ='Manual'],false);
 		}
 	}
+ 
+    
+      public  void RevokeApexSharingBeforeUpdateDeleteFlag(List<Account_Link__c> newacclinkmap,Map<Id, Account_Link__c> oldacclinkmap,List<Account_Link__c> oldrec){
+         List<Account_Link__c> acclink=new List<Account_Link__C>();
+         List<Account_Link__Share> list_SharingDele;
+         List<Account_Link__Share> delAlk=new LIst<Account_Link__share>();
+         Set<ID> deleteSharingRec=new Set<ID>();
+         Set<ID> recordstoDelete=new Set<ID>();
+         Set<ID> accountIds=new Set<Id>();
+         Set<ID> groupIds=new Set<Id>();
+         List<AccountShare> accsharedelete=new List<AccountShare>();
+         set<String> gname=new Set<String>();
+         
+   list <user> Integrationuser= new list<user> ();
+          integrationuser=[select id from user where name =: system.label.IntegrationInfuser limit 1 ];
+            
+            //update owner and find list
+
+         for(Account_Link__c acl:newacclinkmap){
+                 if( acl.Retail_Delete_Flag__c == true &&(acl.recordtypeid == AccountLink_RetailPersonRecordTypeId || acl.recordtypeid == AccountLink_RetailCompanyRecordTypeId) ){
+                     deleteSharingRec.add(acl.fromrole__C);
+                     recordstoDelete.add(acl.id);
+                     accountIds.add(acl.torole__c);
+                      if(integrationuser.size()>0) acl.ownerid=integrationuser[0].id;
+                 }             
+            }
+            
+        if(deleteSharingRec.size()>0){
+            for(Account acc:[select id,Dealer_ND_Code__c,MD__c from Account where id IN:deleteSharingRec]){
+            
+                if(string.isnotblank(acc.Dealer_ND_Code__c)){ 
+                    string grpName= acc.MD__c+acc.Dealer_nd_Code__c;
+                    //gname.add(acc.Dealer_ND_Code__C);
+                    gname.add(grpName);
+                }
+                
+            }
+       
+            List<Group> groupList = [select Id, Name, Type from Group where Name IN: gname];
+            for(Group gp:groupList){   groupIds.add(gp.id);     }
+            
+          if(gname.size()>0)
+          {
+            delAlk= [SELECT Id, ParentId FROM Account_Link__Share WHERE ParentId IN: recordstoDelete AND UserOrGroupId IN :groupIds];
+            accsharedelete=[SELECT Id, accountid FROM AccountShare WHERE accountid IN:accountIds AND UserOrGroupId IN :groupIds];
+           } 
+         }
+         
+         //Delete sharing with Dealer 
+         if(delAlk.size()>0){    
+           Database.delete(delAlk, false); 
+          Database.delete(accsharedelete,false);   }
+        } 
+       
+    
+    /*
+    Method to call the CDM Informatica service for AccountLink 
+	Added below code for Calling Informatica service for Integration user for Stouch By Ashish Jadhav 5th Oct, 2018 
+  */
+	public static void callCDMServiceforInsertUpdateForStouch(List<Account_Link__c> alinks,String market,Boolean isInsert,Boolean isUpdate,Map<id,Account_Link__c> oldmap) {
+		Set<ID>acclids = new Set<ID>();
+      	for(Account_Link__c accrec : [Select Id,recordtypeID, toRole__r.UCID__c,toRole__r.StouchUniqueId__c,Retail_DMS_Customer_ID__c from Account_Link__c where id IN: trigger.new AND fromRole__r.Dealer_Rollout_Status__c = 'Done']) {
+        	if (String.isnotblank(accrec.toRole__r.UCID__c) && accrec.RecordTypeId != fsAccountLinkRecordTypeId && String.isnotblank(accrec.toRole__r.StouchUniqueId__c)){
+            	if(isInsert){
+                  acclids.add(accrec.id);
+              	}
+              	else if (isUpdate && (oldMap.get(accrec.id) != null) && accrec.Retail_DMS_Customer_ID__c == oldMap.get(accrec.id).Retail_DMS_Customer_ID__c){
+                  	acclids.add(accrec.id);
+              	}
+          	}
+      	}
+      	if(isInsert && !acclids.isEmpty()) {
+          	CDMInformatica_Services.createAccountLink(acclids, market, 'insert');
+      	}
+      	else if(isUpdate && !acclids.isEmpty()) {
+          	CDMInformatica_Services.createAccountLink(acclids, market, 'update');
+      	}
+  	}
+	
+	 /*
+    Created By: Dheeraj
+    Created Date: 27-08-2018
+    Trigger Events: After Insert and After Update
+    Description: This method is used to call the Informatica service whenever C2C record is created or fromRole__c, toRole__c updated in SFDC.
+    */
+    public static void sendC2CInfoToCDM(List<Account_Link__c> accLInkList, Map<Id,Account_Link__c> oldMap, Boolean isInertFlag, Boolean isUpdateFlag ){
+        Set<Id> accIdSet = new Set<Id>(); //to hold the person/company account record ids
+        for(Account_Link__c accLink : accLInkList){
+            if(accLink.recordTypeId == C2C_RecordTypeId && accLink.fromRole__c != null && accLink.toRole__c != null  && (isInertFlag || (isUpdateFlag && (accLink.fromRole__c != oldMap.get(accLink.Id).fromRole__c || accLink.toRole__c != oldMap.get(accLink.Id).toRole__c )))){
+                accIdSet.add(accLink.toRole__c);
+            }//end of condition check.
+        }//end of account list iteration.
+        
+        //calling the update service
+        if(accIdSet.size()>0){
+			TriggerRecursiveCheck.runOnce();
+            System.debug('Calling cdm service from c2c update ---------------------------->'+accIdSet);
+            CDMInformatica_Services.createCustomerCDM(accIdSet, Label.JP, Label.Update);
+        }
+    }//end of send c2c info to cdm method.
+     
 }

@@ -43,12 +43,12 @@ public class AddressHelperINTest{
             
             address=new Address__c();
             address.Address_Type__c='Home';
-            address.Province__c='test1';
+            address.Province__c='testProv';
             address.City__c='bangalore';
-            address.District__c='test2';
-            address.Block__c='test3';
-            address.Address_Line_1__c='testaddress1';
-            address.Address_Line_2__c='testaddress2';
+            address.District__c='testDist';
+            address.Block__c='testBlock';
+            address.Address_Line_1__c='testaddressOne';
+            address.Address_Line_2__c='testaddressTwo';
             address.Customer__c=account.id;
             address.Preferred__c = true;
             address.market__c = 'IN';
@@ -59,11 +59,11 @@ public class AddressHelperINTest{
             
             address2=new Address__c();
             address2.Address_Type__c='Home';
-            address2.Province__c='test1';
+            address2.Province__c='testPr';
             address2.City__c='bangalore';
-            address2.District__c='test2';
-            address2.Address_Line_1__c='testaddress1';
-            address2.Address_Line_2__c='testaddress2';
+            address2.District__c='testDistrict';
+            address2.Address_Line_1__c='testaddressOn';
+            address2.Address_Line_2__c='testaddressTw';
             address2.Customer__c=account.id;
             address2.Preferred__c = true;
             address2.country__c = 'India';

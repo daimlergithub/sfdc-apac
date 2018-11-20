@@ -19,6 +19,7 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
     public static Id recordTypeAccCompanyAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static Id recordTypeFSInquiry_Id=Schema.SObjectType.Case.getRecordTypeInfosByName().get('FS Inquiry').getRecordTypeId();
     public static Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
+    public static User user3 = TestUtils.IntegrationAPIUser();
     public static void createtestData(){
         Trigger__C casetrigger=new Trigger__C(name='TriggerCaseTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseTriggerHandlerTH',Trigger_Name__c='CaseTrigger',update__c=true);
     insert casetrigger;
@@ -38,9 +39,9 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
         
         personAcc = new Account(Foundation_Date__c=system.today(),RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
       insertAccount.add(personAcc);
-        Account accObj1 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id);
+        Account accObj1 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id,Dealer_Rollout_Status__c='Done');
         insertAccount.add(accObj1);
-        Account accObj2 = new Account(Foundation_Date__c=system.today(),RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id);
+        Account accObj2 = new Account(Foundation_Date__c=system.today(),RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id,Dealer_Rollout_Status__c='Done');
         insertAccount.add(accObj2);
         //personAcc2 = new Account(Primary_Address_Reference__c=objAddress.Id,RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
     //insert personAcc2;
@@ -93,4 +94,64 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
             createtestData();
         }
     }
+    
+    //To cover integration handler section in triggerCasehandlertr
+    static testMethod void testintegrationHandlerTH() {
+		Profile p1 = [select id, name from profile where Name='IntegrationAPI' limit 1];
+    	String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Profile p2 = [select id, name from profile where Name='System Administrator' limit 1];
+    	user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+        EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+        LocaleSidKey='en_US', ProfileId = p2.Id, Market__c='TH',
+        TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert user1;
+		
+        List < Group > gr = new List < group > {
+            new Group(Name = 'TH12345',developername = 'testndgroup1'),
+            new Group(Name = 'TH12346',developername = 'testndgroup2')
+        };
+        insert gr;
+		system.runAs(user3) {
+            TriggerUtil.userCreate = false;
+            Trigger__c CaseTriggerMY= new Trigger__c(Name='CaseTriggerTH',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='CaseTriggerHandlerTH',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='TH');
+        	insert CaseTriggerMY;
+            //insert casewith primary dealer as dealer1
+            Account dealer1 = new Account(Dealer_Rollout_Status__c = 'Done', Dealer_DMS_CRM_Code__c = 'DealerCode', Market__c = 'TH', Individual_Home_Phone__c = '+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer', Dealer_GC_Code__c = '123456', Dealer_nd_Code__C = '12345');
+        	insert dealer1;		
+			Account dealer2 = new Account(Dealer_Rollout_Status__c = 'Done', Dealer_DMS_CRM_Code__c = 'DealerCode', Market__c = 'TH', Individual_Home_Phone__c = '+66-9885857858', RecordTypeId = dealerType, Name = 'test dealer2', Dealer_GC_Code__c = '123457', Dealer_nd_Code__C = '12346');
+        	insert dealer2;
+            Account dealer3 = new Account(Dealer_Rollout_Status__c = 'Done', Dealer_DMS_CRM_Code__c = 'DealerCode', Market__c = 'TH', Individual_Home_Phone__c = '+66-9885857859', RecordTypeId = dealerType, Name = 'test dealer3', Dealer_GC_Code__c = '123457', Dealer_nd_Code__C = Null);
+        	insert dealer3;
+            Account accObj3 = new Account(Foundation_Date__c=system.today(),RecordTypeId = recordTypeAccCompanyAccountObjId ,Name = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
+			insert accObj3;
+            List<String> CaseFields=new List<String>();
+			CaseFields.add('Status');
+			CaseFields.add('Recordtypeid');   
+			CaseFields.add('Market__c');
+			CaseFields.add('Case_Dealer__c');
+			List<Case> CaseFieldsList;
+			CaseFieldsList=DataFactoryServices.createRecords('Case',CaseFields,'',2);
+			
+			CaseFieldsList[0].RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('S24h - MMC').getRecordTypeId();
+			CaseFieldsList[0].Market__c='TH';
+			CaseFieldsList[0].status='Open';
+			CaseFieldsList[0].Case_Dealer__c=dealer1.Id;
+            CaseFieldsList[1].RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('S24h - MMC').getRecordTypeId();
+			CaseFieldsList[1].Market__c='TH';
+			CaseFieldsList[1].status='Open';
+			CaseFieldsList[1].Case_Dealer__c=Null;
+            CaseFieldsList[1].AccountId=accObj3.Id;
+            CaseFieldsList[0].AccountId=accObj3.Id;
+			insert CaseFieldsList;
+			//update primary case dealer to dealer2
+			CaseFieldsList[0].Case_Dealer__c=dealer2.Id;
+            CaseFieldsList[1].Case_Dealer__c=dealer2.Id;
+            update CaseFieldsList;
+            CaseFieldsList[0].Case_Dealer__c=dealer3.Id;
+            update CaseFieldsList;
+            CaseFieldsList[0].ownerid=user1.Id;
+            CaseFieldsList[1].ownerid=user1.Id;
+			update CaseFieldsList;
+        }
+	}
 }

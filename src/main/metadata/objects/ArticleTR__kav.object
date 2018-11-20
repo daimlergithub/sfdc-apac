@@ -20,6 +20,7 @@
     </articleTypeChannelDisplay>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>Turkey Article Type</description>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <fields>

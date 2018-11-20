@@ -2,6 +2,7 @@
 ** Class: TriggerCampaignTriggerHandlerINTest
 ** Description: Test Class for TriggerCampaignTriggerHandlerIN
 ** Created By: Sravanthi Gudibandi
+** Modified By: Prem Kumar(04-October-2018)
 ** Date: 22-05-2018
 **/
 
@@ -34,7 +35,6 @@ public class TriggerCampaignTriggerHandlerINTest {
         sea.ParentId = ps.Id;
         sea.SetupEntityId = cps.id;
         insert sea;
-        
         user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
                          EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
                          LocaleSidKey='en_US', ProfileId = p2.Id, Market__c='IN',
@@ -51,7 +51,6 @@ public class TriggerCampaignTriggerHandlerINTest {
                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser3@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
         DMLManagerService.insertAsSystem(user3 );
         
-        
         system.runas(user1){
             Trigger__c TriggerCampaign=new Trigger__c(Name='TriggerCampaignIN',Trigger_Name__c='TriggerCampaign',Trigger_Handler__c='TriggerCampaignTriggerHandlerIN',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='IN');
             insert TriggerCampaign;   
@@ -63,7 +62,6 @@ public class TriggerCampaignTriggerHandlerINTest {
             sysSet.Log_Purge__c =10;
             sysSet.Name=p1.Name;
             DMLManagerService.insertAsSystem(sysSet);
-            
             
             CallOutHandlerSettingDFW__c coh = new CallOutHandlerSettingDFW__c();
             coh.Name = 'CalloutValues';
@@ -86,59 +84,33 @@ public class TriggerCampaignTriggerHandlerINTest {
             psa.PermissionSetId = ps.Id;
             insert psa;
             
-            
             listcampaigns=new list<Campaign>();
-            
-            Contact contact = new Contact(
-                LastName = 'test Contact'
-            );
+            Contact contact = new Contact(LastName = 'test Contact');
             insert contact;
-            
-            Campaign top1 = new Campaign(          
-                Name = 'top', 
-                Status = 'Started', 
-                StartDate = System.today(), 
-                EndDate = System.today(),
-                MD__c='IN',
-                IsActive=true,
-                RecordTypeId = topCampRecordTypeId
-            );
-            insert top1;
-            
-            Campaign cac= new Campaign(           
-                Name = 'top', 
-                Status = 'Started', 
-                MD__c='IN',
-                StartDate = System.today(), 
-                EndDate = System.today(),
-                Execution_Type__c ='OB_Call',
-                RecordTypeId = topCampRecordTypeId1,
-                ParentId = top1.Id
-            );
-            listcampaigns.add(cac); 
+            Campaign top1 = new Campaign(Name = 'top', Status = 'Started', StartDate = System.today(), EndDate = System.today(), MD__c='IN',
+                                         Market__c='IN', IsActive=true, RecordTypeId = topCampRecordTypeId);
+            listcampaigns.add(top1);
+            Campaign cac= new Campaign(Name = 'top', Status = 'Started', Market__c='IN', MD__c='IN', StartDate = System.today(), 
+                                       EndDate = System.today(), Execution_Type__c ='OB_Call', RecordTypeId = topCampRecordTypeId1,
+                                       ParentId = top1.Id);
+            insert cac; 
             insert listcampaigns;
             campaignOldMap= new Map<id,Campaign>();
-            campaignOldMap.put(cac.id, cac);
-            
-            
+            campaignOldMap.put(cac.id, cac);            
             market_Obj = new Market__c(Market_Code__c = 'IN', Market__c = 'India');
-            Insert market_Obj; 
+            Insert market_Obj;
             functionality_access_master_Obj = new Functionality_Access_Master__c(Description__c = '12', Module_Name__c = 'Modul230', PermissionSet_Ids__c = ps.id, Permission_Sets__c = ps.name);
             Insert functionality_access_master_Obj; 
             persona_Obj = new Persona__c(Market_Access__c = market_Obj.id, Functionality_Access__c = functionality_access_master_Obj.id, Active__c = true, PersonaName__c = 'IntegrationPerso111', ProfileId__c = p1.id , Profiles__c = p1.name);
             Insert persona_Obj; 
-            
-            
         }     
     }
     
-    static testMethod void testTriggerCampaignHandlerIN1() {
+    static testMethod void testMethod1() {
         try{
-            
             system.runas(user_Obj){
                 test.starttest();
                 TriggerCampaignTriggerHandlerIN tdc=new TriggerCampaignTriggerHandlerIN();
-                
                 CampaignHelperIN ch=new CampaignHelperIN();
                 System.assertEquals(true,listcampaigns != null );  
                 insert listcampaigns;
@@ -147,29 +119,34 @@ public class TriggerCampaignTriggerHandlerINTest {
         }
         catch(Exception e){}
     }    
-    static testMethod void testTriggerCampaignHandlerIN1INT() {
+    static testMethod void testMethod2() {
         try{
-            
             setupTestData();
-            
             System.runAs (user3) {  
                 TriggerUtil.userCreate=false;
-                
                 TriggerCampaignTriggerHandlerIN tdc=new TriggerCampaignTriggerHandlerIN();
-                
                 CampaignHelperIN ch=new CampaignHelperIN();
                 System.assertEquals(true,listcampaigns != null );  
                 insert listcampaigns;
-                
             }
         }
         catch(Exception e){}
-    }    
-    static testMethod void testTriggerCampaignHandlerIN2INT() {
-        
-        TriggerCampaignTriggerHandlerIN tdc=new TriggerCampaignTriggerHandlerIN();
-        tdc.handleIntegrationTrigger(true,true,true,true,true);
-        
     }
-    
+    //Prem Modified to increase test coverage
+    static testMethod void testMethod3() {
+        User usr = TestUtils.IntegrationAPIUser();
+        System.runAs (usr) {
+            TriggerCampaignTriggerHandlerIN tdc=new TriggerCampaignTriggerHandlerIN();
+            tdc.handleIntegrationTrigger(true,true,true,true,true);
+            TriggerUtil.userCreate=false;
+            CampaignHelperIN ch=new CampaignHelperIN(); 
+            List<Campaign> cmpList = [Select Id, Name From Campaign limit 2];
+            List<Campaign> cmpUpdateList = new List<Campaign>();
+            for(Campaign cmp : cmpList){
+                cmp.Venue__c = 'Pune';
+                cmpUpdateList.add(cmp);
+            }
+            update cmpUpdateList;
+        }
+    }
 }

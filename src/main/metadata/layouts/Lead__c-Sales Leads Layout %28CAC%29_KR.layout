@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customButtons>Send_to_Autoline</customButtons>
     <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -757,6 +758,17 @@
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>SubjectLine__c</fields>
+        <fields>FromName__c</fields>
+        <fields>FromAddress__c</fields>
+        <fields>DateSent__c</fields>
+        <fields>Opened__c</fields>
+        <fields>DateOpened__c</fields>
+        <fields>DateBounced__c</fields>
+        <relatedList>Email_Tracking__c.Lead__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

@@ -1,0 +1,7 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:NewsCMP</code> component displays the latest five News records which are published and Subscribe button to subscribe.
+            This component uses <code>aura:iteration</code> to display News on the UI. These fields are fetched from <code>News__c</code> object.            
+        </p>       
+    </aura:description>    
+</aura:documentation>

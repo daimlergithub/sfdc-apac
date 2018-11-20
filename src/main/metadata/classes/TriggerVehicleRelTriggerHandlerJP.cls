@@ -17,13 +17,21 @@
     1. Mouse Created on 2013-03-05
     2. Sinow Modified on 2013-06-20
     3. CC Modified on 2014-06-12
-    23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerVehicleRelationshipTriggerHandler
+    4. 23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerVehicleRelationshipTriggerHandler
+    5. 11/10/2018     Dheeraj        Changes related vr handling.
 */
 public class TriggerVehicleRelTriggerHandlerJP 
     implements TriggerHandlerIf
-{
+{    
+    Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();  
+
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     { 
+        Boolean enableCDMCall = false;
+        if(!jpSwitchMap.isEmpty() && jpSwitchMap.containsKey('Enable CDM Call for VR')){
+            enableCDMCall = jpSwitchMap.get('Enable CDM Call for VR').Enable_Flag__c;
+        }
+        
         VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
         Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
@@ -47,9 +55,18 @@ public class TriggerVehicleRelTriggerHandlerJP
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
        if(trigger.isAfter && (trigger.isInsert))
         {
+          
+          if(enableCDMCall){
+              if(TriggerRecursiveCheck.runVandVR){
+                  TriggerRecursiveCheck.runOnceForVandVR();
+                  VehicleRelationshipHelperJP.sendVehicleRelationshipInfo(trigger.New,(Map<Id,Vehicle_Relationship__c>)Trigger.oldmap , Label.JP, trigger.isInsert, trigger.isUpdate);
+              }
+          }
+          
           VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
           VehicleRelationshipHelperJP.afterInsertEvent(Trigger.new);
           VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelship,true,false);
+          
         }
         if(trigger.isAfter && Trigger.isUpdate) {
           
@@ -64,6 +81,12 @@ public class TriggerVehicleRelTriggerHandlerJP
           
           VehicleRelationshipHelperJP.afterUpdateEvent(Trigger.new, oldmapVehicleRelship);
           VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelship,true,false);
+          if(enableCDMCall){
+              if(TriggerRecursiveCheck.runVandVR){
+                  TriggerRecursiveCheck.runOnceForVandVR();
+                  VehicleRelationshipHelperJP.sendVehicleRelationshipInfo(trigger.New,(Map<Id,Vehicle_Relationship__c>)Trigger.oldmap, Label.JP, trigger.isInsert, trigger.isUpdate);
+              }
+          }
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);

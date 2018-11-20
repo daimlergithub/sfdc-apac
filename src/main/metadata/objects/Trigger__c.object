@@ -98,6 +98,22 @@ If the trigger is disabled, it is not processed, execution terminates.</descript
         <type>Checkbox</type>
     </fields>
     <label>Trigger</label>
+	<listViews>
+        <fullName>All_Market</fullName>
+        <columns>NAME</columns>
+        <columns>Trigger_Handler__c</columns>
+        <columns>Trigger_Name__c</columns>
+        <columns>after__c</columns>
+        <columns>before__c</columns>
+        <columns>delete__c</columns>
+        <columns>enabled__c</columns>
+        <columns>insert__c</columns>
+        <columns>update__c</columns>
+        <columns>Market__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
     <listViews>
         <fullName>Thailand_View</fullName>
         <columns>NAME</columns>
@@ -111,6 +127,11 @@ If the trigger is disabled, it is not processed, execution terminates.</descript
         <columns>update__c</columns>
         <columns>Market__c</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
         <label>Thailand View</label>
         <language>en_US</language>
     </listViews>

@@ -5,9 +5,8 @@
 History:
 Author                         Date                    Description
 **/
-public with sharing class AfterSalesLeadController {
+public without sharing class AfterSalesLeadController {
 
-    
     //To fetch opportunity details
       public Opportunity opp {get;set;}
       public Id recTypeId {get;set;}
@@ -20,10 +19,13 @@ public with sharing class AfterSalesLeadController {
       public integer j;
       public static integer chk;
       public static integer chkcomp;
-      public boolean valSuccess = true;
       public Id leadrecTypeId {get;set;}
       public String userMarket {get;set;}
-    
+
+    //Boolean used to display error 
+    public boolean valSuccess = true;
+    public boolean valCompSuccess = true;
+    public boolean valTradeSuccess = true;    
     
     //This is used for interested vehicle
     public list<Lead_Details__c> intVehicle {get;set;} 
@@ -46,8 +48,11 @@ public with sharing class AfterSalesLeadController {
     if(chkcomp != 1)isHidecomp = true;
         opp = new opportunity();
         string accID = ApexPages.currentPage().getParameters().get('accID');
-        if(accID.length() != 0)
+        if(accID.length() != 0){
             opp.accountId = accID; 
+            Vehrel();
+        }
+
         uObj = [SELECT Id,Market__c  FROM User WHERE Id=:UserInfo.getUserId()] ;
         userMarket = uObj.Market__c;
         recTypeId = UtilRecordType.getRecordTypeIdByName('Opportunity', System.Label.Aftersales_Lead);
@@ -124,22 +129,33 @@ public with sharing class AfterSalesLeadController {
     public void Vehrel(){
 
 
-    system.debug('contact: ' + opp.AccountID);
-    
-    vehRel = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
-       system.debug('vehRel: ' + vehRel);
-
-
+        system.debug('contact: ' + opp.AccountID);
+        
+        //vehRel = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
+        //system.debug('vehRel: ' + vehRel);
+        //Rajesh - Get list of VRs for account and check for uniqueness of vehicle. Only 1 VR per vehicle needs to show in this page
+        List<Vehicle_Relationship__c> contactVRs = [Select Vehicle_ID__c,Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
+        String vehicleSet = '';
+        vehRel = new List<Vehicle_Relationship__c>();
+        for (Vehicle_Relationship__c vr : contactVRs){
+            String vehicleId = String.valueOf(vr.Vehicle_ID__c);
+            if (vehicleId != null && vehicleId != ''){
+                if (!vehicleSet.contains(vehicleId)){
+                    vehicleSet = vehicleSet + ',' + vehicleId;
+                    vehRel.add(vr);
+                }
+            }
+        }
     }
   //function to check Vehicle make in Tradin info is numeric.
   public void Vehmake(){
-    valSuccess = true;
+    valTradeSuccess = true;
         system.debug('yom: ' + tradeVehc[0].Year_of_Manufacture__c);
     string yom = tradeVehc[0].Year_of_Manufacture__c;
     if (yom != null && (!yom.isNumeric() || yom.length() != 4))
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, System.Label.IN_Year_Of_Make));
-          valSuccess = false;
+          valTradeSuccess = false;
       }
     }
     
@@ -173,7 +189,7 @@ public with sharing class AfterSalesLeadController {
     chkcomp = 1;
     prefcountcomp = 0;
     isHidecomp = true;
-      valSuccess = true;
+      valCompSuccess = true;
       system.debug('size'+compVehc.size());
       if(compVehc!=null && compVehc.size()>0)
       {
@@ -190,15 +206,17 @@ public with sharing class AfterSalesLeadController {
         {
           ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Competitor_Preferred_vehicle));
             isHidecomp = false;
-            valSuccess = false;
+            valCompSuccess = false;
         }
       }
   }
     
     public pageReference saveOpp(){
-    Vehmake();
+        Vehmake();
+        PreferredChk();
+        PreferredChkComp();
         system.debug('valSuccess: '+valSuccess);
-        if(valSuccess) {
+        if(valSuccess && valCompSuccess && valTradeSuccess) {
             //added flag to check opportunity errors out and prevent further processing - 201/6/22 rajesh
             Boolean oppErrFlag = false;
         try{
@@ -207,6 +225,7 @@ public with sharing class AfterSalesLeadController {
         catch (DmlException e){
 			valSuccess = false ; 					
             oppErrFlag = true;
+            if(Opp.Market__c != 'TR')
             ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
         }
             //added below to prevent loss of interested vehicle information on opportunity error
@@ -215,7 +234,7 @@ public with sharing class AfterSalesLeadController {
         }
 
 		//Sada added if condition as part of defect DF -272 on 2018/june/22
-			if(valSuccess) {
+			if(valSuccess && valCompSuccess && valTradeSuccess) {
         allVehicles = new list<Lead_Details__c>();
         //added for loops so that lead detail is not inserted if user oest not pick any model
         for(integer i=0;i<intVehicle.size();i++){
@@ -241,7 +260,10 @@ public with sharing class AfterSalesLeadController {
 system.debug(allvehicles.size()+'00000000'+allVehicles);
        // Insert allVehicles;
         try{
-            Insert allVehicles;
+             if(Opp.Market__c == 'TR')
+                  VehicleSaveController vs = new VehicleSaveController(allVehicles);
+             else
+               Insert allVehicles;
         }
         catch(DmlException e){
             ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          

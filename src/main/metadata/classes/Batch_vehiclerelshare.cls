@@ -96,7 +96,7 @@ global class Batch_vehiclerelshare implements Database.Batchable<sObject> ,Datab
        email.setToAddresses(to);
        email.SetsaveAsActivity(false);
        email.setHTMLBody(emailBodyStr);
-       Messaging.sendEmail(new Messaging.SingleEmailMessage[] {email});  
+    //   Messaging.sendEmail(new Messaging.SingleEmailMessage[] {email});  
     }
 
 }

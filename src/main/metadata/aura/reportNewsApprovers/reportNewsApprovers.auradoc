@@ -1,0 +1,9 @@
+<aura:documentation>
+	<aura:description>
+        <p><code>c:reportNewsApprovers</code> component to show Approver List, Public Group Name and Group Members.</p>
+        <p>This component uses <code>lightning:datatable</code> to display results on the UI. Public Groups are fetched from a Custom Metadata type <code>Public_Group_Labels__mdt</code>. This Meta data type contains Mapping of Approval List from News and Public Group</p>        
+    </aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		Example Description
+	</aura:example>
+</aura:documentation>

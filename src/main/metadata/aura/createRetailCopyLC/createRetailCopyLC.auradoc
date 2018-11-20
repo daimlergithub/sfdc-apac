@@ -1,0 +1,18 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:CreateRetailCopyLC</code> component allows for the creatiopn of Retail copy for Markets. Retail copy can be created based on the Dealer and Address combination for certain markets (TH,JP,KR,TR) or with just the dealer (AUNZ,MY,IN) for certain Markets.
+            This Component uses table structure to display the Address records (Where ever applicable). Table could be a SLDS Card table or <code>lightning:DataTable</code> based on the selection in App Builder.
+            Based on the Create retail copy operation, user would see messages which indicate the Retail Copy Status.
+            <code>Sucessfully_Created_Retail_Copy
+                <br/>Retail_copy_is_already_present
+                  <br/> Please Select Dealer
+                  <br/> Please Select atleast one address
+            </code>   
+        </p>
+        <!--More markup here, such as <pre> for code samples--> 
+    </aura:description>
+    
+    <!-- <aura:example name="myComponentExample" ref="c:myComponentExample" label="Using the c:AccountContactDetails Component">
+                                                                              
+    </aura:example>-->
+</aura:documentation>

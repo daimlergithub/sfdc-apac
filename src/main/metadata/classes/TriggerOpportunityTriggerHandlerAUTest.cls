@@ -25,8 +25,10 @@ public class TriggerOpportunityTriggerHandlerAUTest {
     public static String companyAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     
     public static void prepareTestData(String testCase, String Market){
-        Trigger__c TriggerAccountAU = new Trigger__c(Name='TriggerOpportunity',Trigger_Name__c='TriggerOpportunity',Trigger_Handler__c='TriggerOpportunityTriggerHandlerAU',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='AU');
+        Trigger__c TriggerAccountAU = new Trigger__c(Name='TriggerOpportunityAU',Trigger_Name__c='TriggerOpportunity',Trigger_Handler__c='TriggerOpportunityTriggerHandlerAU',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='AU');
         insert TriggerAccountAU;
+        Trigger__c TriggerAccountNZ = new Trigger__c(Name='TriggerOpportunityNZ',Trigger_Name__c='TriggerOpportunity',Trigger_Handler__c='TriggerOpportunityTriggerHandlerAU',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NZ');
+        insert TriggerAccountNZ;        
         system.debug('p--'+TriggerAccountAU);
         CallOutHandlerSettingDFW__c coh = new CallOutHandlerSettingDFW__c();
         coh.Name = 'CalloutValues';
@@ -134,7 +136,6 @@ public class TriggerOpportunityTriggerHandlerAUTest {
             insert updatecustomsettings;
             ps1 = new PermissionSet(Name = 'Test1', Label = 'Test1');
             insert ps1;
-            // provide India Specific permissions
             TestUtils.providePermissionsIN(usr, ps1, 'AUGeneric');
             insert oppList;
         }
@@ -154,7 +155,7 @@ public class TriggerOpportunityTriggerHandlerAUTest {
         DMLManagerService.insertAsSystem(usr);
          
           User user3 = TestUtils.IntegrationAPIUser();
-        System.runAs(user3){
+        System.runAs(usr){
              TriggerUtil.userCreate = false;
     
             ps1 = new PermissionSet(Name = 'Test1', Label = 'Test1');
@@ -165,17 +166,8 @@ public class TriggerOpportunityTriggerHandlerAUTest {
             List<Car_Model__c> carModelList  = createBulkCarModel(7);
         }
         test.stopTest();
-    } 
-    public static testMethod void testHandleTriggerInsert2(){
-        test.startTest();
-        User usr = TestUtils.createGenericAdminUser('Australia', 'Asia/Kolkata', 'AU');
-        System.runAs(usr){
-         
-            TriggerOpportunityTriggerHandlerAU to =new TriggerOpportunityTriggerHandlerAU();
-            to.handleIntegrationTrigger(false,True,True,True,false);
-        }
-        test.stopTest();
-    }     
+	} 
+    
        public static testMethod void testHandleTriggerInsert3(){
         test.startTest();
         User usr = TestUtils.createGenericAdminUser('New Zealand', 'Asia/Kolkata', 'NZ');

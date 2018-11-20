@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>anket_mailing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+	#desktop{
+		display: block;
+	}
+	#mobile{
+		display:none; 
+	}
+	
+	@media all and (max-width:640px){
+		#desktop{
+			display:none; 
+		}
+		#mobile{
+			display: block; 
+			width: 100%;
+		}
+	}
+</style>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- Save for Web Slices (anket_mailing.psd) -->
+<table id="desktop" width="690" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td>
+			<img src="{!User.EnterpriseURL__c}/servlet/servlet.ImageServer?id=015p0000000TnJU&oid={!Organization.Id}" width="690" height="108" alt="" style="display:block;">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="{!User.EnterpriseURL__c}/servlet/servlet.ImageServer?id=015p0000000VZjF&oid={!Organization.Id}" width="690" height="358" alt="" style="display:block;">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="{!User.EnterpriseURL__c}/servlet/servlet.ImageServer?id=015p0000000VZjU&oid={!Organization.Id}" width="690" height="335" alt="" style="display:block;" usemap="#image-map">
+			<map name="image-map">
+			    <area target="_blank" alt="Ankete Katıl" title="" href="{!Opportunity.Survey_URL__c}{!Opportunity.AccountId}" coords="71,223,209,266" shape="rect">
+			</map>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="{!User.EnterpriseURL__c}/servlet/servlet.ImageServer?id=015p0000000VZjZ&oid={!Organization.Id}" width="690" height="109" alt="" style="display:block;" usemap="#image-map1">
+			<map name="image-map1">
+			    <area target="" alt="Facebook" title="" href="https://tr-tr.facebook.com/mercedesbenztr/" coords="66,49,97,79" shape="rect">
+			    <area target="" alt="Google+" title="" href="https://plus.google.com/+MercedesBenz" coords="121,47,155,81" shape="rect">
+			    <area target="" alt="Twitter" title="" href="https://twitter.com/mercedesturkiye" coords="182,44,218,83" shape="rect">
+			    <area target="" alt="Youtube" title="" href="https://www.youtube.com/user/mbtrvideo" coords="242,45,283,85" shape="rect">
+			    <area target="" alt="Instagram" title="" href="https://www.instagram.com/mercedesbenzturkiye/" coords="304,46,341,84" shape="rect">
+			</map>
+		</td>
+	</tr>
+</table>
+<table id="mobile" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td>
+			<img src="{!User.EnterpriseURL__c}/servlet/servlet.ImageServer?id=015p0000000VZjo&oid={!Organization.Id}" width="100%" height="" alt="" style="display:block;">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="{!User.EnterpriseURL__c}/servlet/servlet.ImageServer?id=015p0000000VZjt&oid={!Organization.Id}" width="100%" height="" alt="" style="display:block;">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="{!User.EnterpriseURL__c}/servlet/servlet.ImageServer?id=015p0000000VZjy&oid={!Organization.Id}" width="100%" height="" alt="" style="display:block;" usemap="#image-map-mobile">
+			<map name="image-map-mobile">
+			    <area target="" alt="" title="" href="" coords="39,227,180,274" shape="rect">
+			</map>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="{!User.EnterpriseURL__c}/servlet/servlet.ImageServer?id=015p0000000VZk3&oid={!Organization.Id}" width="100%" height="" alt="" style="display:block;" usemap="#image-map-mobile-1">
+			<map name="image-map-mobile-1">
+			    <area target="" alt="Facebook" title="" href="https://tr-tr.facebook.com/mercedesbenztr/" coords="34,51,65,80" shape="rect">
+			    <area target="" alt="Google+" title="" href="https://plus.google.com/+MercedesBenz" coords="82,51,118,83" shape="rect">
+			    <area target="" alt="Twitter" title="" href="https://twitter.com/mercedesturkiye" coords="140,49,177,83" shape="rect">
+			    <area target="" alt="Youtube" title="" href="https://www.youtube.com/user/mbtrvideo" coords="196,50,238,84" shape="rect">
+			    <area target="" alt="Instagram" title="" href="https://www.instagram.com/mercedesbenzturkiye/" coords="254,50,289,84" shape="rect">
+			</map>
+		</td>
+	</tr>
+</table>
+<!-- End Save for Web Slices -->
+</body>
+</html>

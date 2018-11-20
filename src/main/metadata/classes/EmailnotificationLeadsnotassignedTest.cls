@@ -19,7 +19,7 @@ public class EmailnotificationLeadsnotassignedTest
         RecordType retailLeadType = [select Id, developername from recordtype where sobjecttype = 'lead__c' and developername = 'Retail_Sales_Leads'];
         
         Test.startTest();       
-          lead = new Lead__c(Assigned_Dealer__c = dealer.Id, Contact__c = contact.Id, RecordTypeId = retailLeadType.Id,Lead_Type__c = 'Used Car',CAC_Lead_Status__c = 'Allocated',Lead_Assignment_Notification_Done__c = False);
+          lead = new Lead__c(Assigned_Dealer__c = dealer.Id,MD__c = 'JP', Contact__c = contact.Id, RecordTypeId = retailLeadType.Id,Lead_Type__c = 'Used Car',CAC_Lead_Status__c = 'Allocated',Lead_Assignment_Notification_Done__c = False,Dealer_Lead_Status__c='Estimation');
         insert lead;
        
             EmailnotificationLeadsnotassigned batcher = new EmailnotificationLeadsnotassigned ();           

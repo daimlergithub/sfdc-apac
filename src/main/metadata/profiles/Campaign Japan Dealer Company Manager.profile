@@ -308,15 +308,7 @@
         <apexClass>AddToRetailCampaignControllerTet</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>AddingMemberstoChatterGroup</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AddingMemberstoChatterGroup_test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
+<classAccesses>
         <apexClass>AddressDisplayInlineEditController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -26387,6 +26379,14 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>usernotificationsetting</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>ForceWindowClose</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>sendLeadInfoToAutoline</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>

@@ -11,7 +11,7 @@ global class retailMatchMergeBatchMY implements Database.Batchable<sObject>, Dat
         this.market = Market;
         currentBatchChain = chain;
         if(currentBatchChain == 3){
-          for(User usr:[Select Id,contact.account.Dealer_Nd_code__c from User where contact.account.Dealer_Nd_code__c!=NULL and Market__c = :market]){
+          for(User usr:[Select Id,contact.account.Dealer_Nd_code__c,contact.account.Dealer_GC_code__c from User where contact.account.Dealer_Nd_code__c!=NULL and Market__c = :market]){
               userIdLst.add(usr.Id);
              }
         }
@@ -37,7 +37,10 @@ global class retailMatchMergeBatchMY implements Database.Batchable<sObject>, Dat
         } 
         else if (currentBatchChain == 2) {
             System.debug('@@@start in currentBatchChain '+currentBatchChain);
-            qry = 'Select id from Vehicle__c where MD__c =:market and market__c  =:market';
+            if(market == Label.TR)
+                qry = 'Select id from Vehicle__c where market__c  =:market';
+            else
+                qry = 'Select id from Vehicle__c where MD__c =:market and market__c  =:market';
             System.debug('start in qry2'+qry);
         } 
         else if(currentBatchChain == 3 ){
@@ -67,6 +70,7 @@ global class retailMatchMergeBatchMY implements Database.Batchable<sObject>, Dat
             for(Duplicate_Merge_Info__c d: (List<Duplicate_Merge_Info__c>)scope){
                 dgAccMap.put(d.Duplicate_Customer__c,d.Master_Customer__c);
                 dgAccLinkMap.put(d.Duplicate_Retail_Customer__c,d.Master_Retail_Customer__c);
+
                 String gname=d.MD__c+d.Duplicate_Retail_Customer__r.RetailDealer_ND_Code__c;
                 groupName.add(gname); 
                 ndCodeList.add(d.Duplicate_Retail_Customer__r.RetailDealer_ND_Code__c);
@@ -118,7 +122,11 @@ global class retailMatchMergeBatchMY implements Database.Batchable<sObject>, Dat
             List<Vehicle__c> vehicleIds=(List<Vehicle__c>)scope;
             String VRFieldsToSync= System.Label.VR_Fields_Sync;
             List<String> lVRFieldsToSync =  String.isNotBlank(VRFieldsToSync) ? VRFieldsToSync.split(',') : NULL;
-            String soql1 = 'Select id,' + VRFieldsToSync +  ', start_date__c, end_date__c, car_Relation__c, Contact__c, Vehicle_ID__c from vehicle_relationship__c where Vehicle_ID__c IN :vehicleIds and MD__c=\'MY\' and Car_Relation__c IN :carRelations';
+            String soql1;
+            if(Market == Label.TR)
+                soql1 = 'Select id,' + VRFieldsToSync +  ', start_date__c, end_date__c, car_Relation__c, Contact__c, Vehicle_ID__c from vehicle_relationship__c where Vehicle_ID__c IN :vehicleIds and Market__c=\'TR\' and Car_Relation__c IN :carRelations';
+            else
+                soql1 = 'Select id,' + VRFieldsToSync +  ', start_date__c, end_date__c, car_Relation__c, Contact__c, Vehicle_ID__c from vehicle_relationship__c where Vehicle_ID__c IN :vehicleIds and MD__c=\'MY\' and Car_Relation__c IN :carRelations';
             for(Vehicle_relationship__c vr : Database.query(soql1)){
                 if(vr.end_date__c == NULL && vr.start_date__c != NULL)
                 mLatestRTCopyVR.put(vr.Vehicle_ID__c+'_'+vr.Contact__c+'_'+vr.Car_Relation__c, vr);
@@ -163,6 +171,8 @@ global class retailMatchMergeBatchMY implements Database.Batchable<sObject>, Dat
             System.debug('@@@in execute 3');
             Boolean leadMergeSuccess = false;
             Boolean caseMergeSuccess = false;
+Boolean bookingMergeSuccess = false;
+            Boolean loyaltycardMergeSuccess = false;
             Boolean RTMergeSuccess = false;
             Boolean NotesAndAttachmentSuccess= false; 
             Boolean VRMergeSuccess = false;
@@ -176,12 +186,22 @@ global class retailMatchMergeBatchMY implements Database.Batchable<sObject>, Dat
             }
             
             caseMergeSuccess = sObjectMerge_MY.mergeCase(duplicateCustmrId2MasterCustmerIdMap);
-            leadMergeSuccess = sObjectMerge_MY.mergeLead(dupMergeInfoTobeUpdated);
+	    /* Added by sravanthi gudibandi for KR Market for merging Loyalty card and Booking object---start*/
+            if(duplicateCustmrId2MasterCustmerIdMap != null){
+                bookingMergeSuccess = sObjectMerge_MY.mergeBooking(duplicateCustmrId2MasterCustmerIdMap);
+                loyaltycardMergeSuccess  = sObjectMerge_MY.mergeLoyaltycard(duplicateCustmrId2MasterCustmerIdMap);
+            }
+            /* Added by sravanthi gudibandi for KR Market for merging Loyalty card and Booking object---End*/
+            //Rajesh - commenting out market specific condition as mergeOpportunity should run for multiple countries. for markets like MY it will run and not find records.
+           // if(Market != Label.TR)
+                leadMergeSuccess = sObjectMerge_MY.mergeLead(dupMergeInfoTobeUpdated);
+           // else if(Market == Label.TR)
+                leadMergeSuccess = sObjectMerge_MY.mergeOpportunity(dupMergeInfoTobeUpdated);
             RTMergeSuccess = sObjectMerge_MY.mergeRetailTask(duplicateCustmrId2MasterCustmerIdMap);
             VRMergeSuccess = sObjectMerge_MY.mergeVR(duplicateCustmrId2MasterCustmerIdMap);
             OpenActivitiesSuccess = sObjectMerge_MY.mergeOpenActivities(duplicateCustmrId2MasterCustmerIdMap);
             NotesAndAttachmentSuccess = sObjectMerge_MY.mergeNotesAndAttachment(duplicateCustmrId2MasterCustmerIdMap);
-            if(dupMergeInfoTobeUpdated!=null && dupMergeInfoTobeUpdated.size()>0 && caseMergeSuccess && leadMergeSuccess && RTMergeSuccess && VRMergeSuccess && OpenActivitiesSuccess && NotesAndAttachmentSuccess){
+            if(dupMergeInfoTobeUpdated!=null && dupMergeInfoTobeUpdated.size()>0 && caseMergeSuccess && loyaltycardMergeSuccess && bookingMergeSuccess && leadMergeSuccess && RTMergeSuccess && VRMergeSuccess && OpenActivitiesSuccess && NotesAndAttachmentSuccess){
                 try{
                     update dupMergeInfoTobeUpdated;
                 }catch(Exception e){
@@ -206,7 +226,13 @@ global class retailMatchMergeBatchMY implements Database.Batchable<sObject>, Dat
             System.debug('@@@in finish 3');
             UtilConstant.RETAIL_MATCH_MERGE = true;
             Database.Executebatch(new ShareALLRecordsToNewUserBatch(userIdLst,'Account_Link__c',market),100);
-            Database.Executebatch(new ShareALLRecordsToNewUserBatch(userIdLst,'Lead__c',Market),100);
+            
+            //added by IN market for lead2opty changes
+            if(!Label.oppMergeMarkets.contains(market))        
+                Database.Executebatch(new ShareALLRecordsToNewUserBatch(userIdLst,'Lead__c',Market),100);
+    
+            if(Label.oppMergeMarkets.contains(market))
+                Database.Executebatch(new ShareALLRecordsToNewUserBatch(userIdLst,'Opportunity',Market),100);
             Database.Executebatch(new ShareALLRecordsToNewUserBatch(userIdLst,'Case',market),100);
             Database.Executebatch(new ShareALLRecordsToNewUserBatch(userIdLst,'Vehicle_Relationship__c',market),100);
             Database.Executebatch(new ShareALLRecordsToNewUserBatch(userIdLst,'User',market),100);

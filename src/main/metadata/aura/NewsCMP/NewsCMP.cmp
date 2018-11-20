@@ -1,0 +1,39 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created By:Narendra.I
+* Created Date:17-July-2018
+* Company:Infosys Ltd
+* Description: Component to display recent 5 News records.
+* **********************************************************************************-->
+<aura:component controller="newsController" implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="News" type="News__c[]" />
+    <aura:attribute name="Subscribe" type="boolean"/>    
+    <article class="slds-card">        
+        <lightning:card iconName="action:google_news" title="Recent News"   class="slds-text-heading_small">
+            <aura:set attribute="title">
+                <a href="/MBIndonesia/s/news/News__c/Recent" target="_blank">Recent News</a>
+            </aura:set>  
+            <aura:set attribute="actions">
+                <aura:if isTrue="{!!v.Subscribe}">
+                    <lightning:button variant="success" label="Subscribe" title="Subscribe" onclick="{! c.subscribeNews }"/>                    
+                    <aura:set attribute="else">
+                        <lightning:button variant="destructive" class="slds-btn" label="Un Subscribe" title="Un Subscribe" onclick="{! c.unsubscribeNews }"/>                    
+                    </aura:set>
+                </aura:if>
+            </aura:set>
+        </lightning:card>       
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="slds-p-left--medium slds-p-right--medium">
+                <ul class="slds-list--vertical slds-has-dividers--top-space">
+                    <aura:iteration items="{!v.News}" var="item" indexVar="i" >
+                        <li class="slds-list__item">                   
+                            <a href="{!'/MBIndonesia/s/news/'+item.Id}" target="_blank" id="{!item.Id}" > {!item.Title__c}</a>
+                        </li>
+                    </aura:iteration>
+                </ul>
+            </div>
+        </div>  
+    </article>
+</aura:component>

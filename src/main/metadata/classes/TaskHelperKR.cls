@@ -307,7 +307,25 @@ public class TaskHelperKR {
                 
              }
 } //End of method updateExecutionCampaignSharing 
-    
 
-   
+      /**
+     *
+     *
+     * @param Tasks
+     */
+    //MBK Message Send Manage 6/26/2018
+    public static void MessageSendManage(List<Task> Tasks, Map<Id,Task> oldTaskMap, String action){
+
+        List<String> taskIds = new List<String>();
+        for(Task temp:Tasks){
+            if(action == 'Update'){
+                Task oldTask = oldTaskMap.get(temp.Id);
+                if(temp.Status__c <> oldTask.Status__c){
+                    taskIds.add(temp.Id);
+                }
+            }else taskIds.add(temp.Id);
+        }
+        MBKSendManageHelperKR.messageManageValidationCheck(taskIds, 'Task', action);
+    }    
+ 
 }

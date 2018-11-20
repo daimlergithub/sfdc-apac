@@ -353,6 +353,8 @@
         <fields>Account_No__c</fields>
         <fields>Status__c</fields>
         <relatedList>Recievables_Paid__c.FS_Contract__c</relatedList>
+        <sortField>Receipt_Date__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -376,6 +378,8 @@
         <fields>Rental_Amount_Gross__c</fields>
         <fields>Gross_Amount_Paid__c</fields>
         <relatedList>Re_Payment_Plan__c.FS_Contract__c</relatedList>
+        <sortField>Rental_ID__c</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -451,7 +455,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000Japz</masterLabel>
+        <masterLabel>00h0k000000SoUB</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

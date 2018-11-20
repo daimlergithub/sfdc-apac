@@ -16,6 +16,15 @@ private class TriggerDMRequestTriggerHandlerKRTest
 	
     static testMethod void testDataPreparation() 
     {
+       KR_Switch__c krswitch2=new KR_Switch__c(Name='AccountHelperswitch',Enable_Flag__c=True);
+   List<KR_Switch__c> lsttrgt2 = new List<KR_Switch__c>();
+   lsttrgt2.add(krswitch2);
+   insert lsttrgt2;
+   Map<String, KR_Switch__c> KRSwitchMap2 = KR_Switch__c.getAll();
+      Boolean KRSwitchEnabledFlag2 = false;  
+       if(!KRSwitchMap2.isEmpty() && KRSwitchMap2.containsKey('AccountHelperswitch')){
+           KRSwitchEnabledFlag2 = KRSwitchMap2.get('AccountHelperswitch').Enable_Flag__c;
+        }
     	DM_Request__c dmReqSC;
       	DM_Request__c dmReqTL;
       	DM_Request__c dmReqMgr;
@@ -235,10 +244,18 @@ private class TriggerDMRequestTriggerHandlerKRTest
 		system.runAs(usrSC)
 		{
 			Account personAccountSC = new Account();
+         if (!KRSwitchEnabledFlag2) {
 	        personAccountSC.RecordTypeId=personAccountRecordtypeid;
 	        personAccountSC.LastName='Test Account';
 	        personAccountSC.MBK_Data_Source__c='Email';
 	        personAccountSC.Mobile__c='0130-5678-9876';
+            }
+            else{
+             personAccountSC.RecordTypeId=personAccountRecordtypeid;
+            personAccountSC.LastName='Test Account';
+            personAccountSC.MBK_Data_Source__c='Email';
+            personAccountSC.Mobile__c='+82-130-567-9876';
+            }
 	        insert personAccountSC;
 	        
 	        Address__c addrSC = new Address__c();
@@ -261,10 +278,18 @@ private class TriggerDMRequestTriggerHandlerKRTest
 		system.runAs(usrTL)
 		{
 			Account personAccountTL = new Account();
+              if (!KRSwitchEnabledFlag2) {
 	        personAccountTL.RecordTypeId=personAccountRecordtypeid;
 	        personAccountTL.LastName='Test Account';
 	        personAccountTL.MBK_Data_Source__c='Email';
 	        personAccountTL.Mobile__c='0130-5678-9876';
+           }
+           else{
+           personAccountTL.RecordTypeId=personAccountRecordtypeid;
+            personAccountTL.LastName='Test Account';
+            personAccountTL.MBK_Data_Source__c='Email';
+            personAccountTL.Mobile__c='+82-130-578-9876';
+           }
 	        insert personAccountTL;
 	        
 	        Address__c addrTL = new Address__c();
@@ -287,10 +312,20 @@ private class TriggerDMRequestTriggerHandlerKRTest
 		system.runAs(usrMgr)
 		{
 			Account personAccountMgr = new Account();
+         if (!KRSwitchEnabledFlag2) {
+           
 	        personAccountMgr.RecordTypeId=personAccountRecordtypeid;
 	        personAccountMgr.LastName='Test Account';
 	        personAccountMgr.MBK_Data_Source__c='Email';
 	        personAccountMgr.Mobile__c='0130-5678-9876';
+            }
+            else{
+           
+            personAccountMgr.RecordTypeId=personAccountRecordtypeid;
+            personAccountMgr.LastName='Test Account';
+            personAccountMgr.MBK_Data_Source__c='Email';
+            personAccountMgr.Mobile__c='+82-130-578-9876';
+            }
 	        insert personAccountMgr;
 	        
 	        Address__c addrMgr = new Address__c();
@@ -313,10 +348,18 @@ private class TriggerDMRequestTriggerHandlerKRTest
 		system.runAs(usrSup)
 		{
 			Account personAccountSup = new Account();
+         if (!KRSwitchEnabledFlag2) {
 	        personAccountSup.RecordTypeId=personAccountRecordtypeid;
 	        personAccountSup.LastName='Test Account';
 	        personAccountSup.MBK_Data_Source__c='Email';
 	        personAccountSup.Mobile__c='0130-5678-9876';
+            }
+            else{
+              personAccountSup.RecordTypeId=personAccountRecordtypeid;
+            personAccountSup.LastName='Test Account';
+            personAccountSup.MBK_Data_Source__c='Email';
+            personAccountSup.Mobile__c='+82-130-578-9876';
+            }
 	        insert personAccountSup;
 	        
 	        Address__c addrSup = new Address__c();
@@ -338,10 +381,19 @@ private class TriggerDMRequestTriggerHandlerKRTest
 		system.runAs(usrInt)
 		{
 			Account personAccountInt = new Account();
+             if (!KRSwitchEnabledFlag2) {
+           
 	        personAccountInt.RecordTypeId=personAccountRecordtypeid;
 	        personAccountInt.LastName='Test Account';
 	        personAccountInt.MBK_Data_Source__c='Email';
 	        personAccountInt.Mobile__c='0130-5678-9876';
+            }
+            else{
+             personAccountInt.RecordTypeId=personAccountRecordtypeid;
+            personAccountInt.LastName='Test Account';
+            personAccountInt.MBK_Data_Source__c='Email';
+            personAccountInt.Mobile__c='0130-5678-9876';
+            }
 	        insert personAccountInt;
 	        
 	        Address__c addrInt = new Address__c();

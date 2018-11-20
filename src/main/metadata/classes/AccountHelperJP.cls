@@ -409,11 +409,18 @@ public class AccountHelperJP
 
                         system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c); 
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                        if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
+                        if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id && add.Province__c !=null)
                         {
                             province = addtrmap1.get(add.Province__c);
                         }
+                         if(add.Customer__c==acc.id && add.Province__c !=null)
+                        {
                         acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                        }
+                         if(add.Customer__c==acc.id && add.Province__c ==null)
+                        {
+                        acc.Primary_Address_Display__c = add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                        }
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                     }
@@ -425,11 +432,18 @@ public class AccountHelperJP
                         system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c); 
 
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                        if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
+                        if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id && add.Province__c !=null)
                         {
                             province = addtrmap1.get(add.Province__c);
                         }
+                         if(add.Customer__c==acc.id && add.Province__c !=null)
+                        {
                         acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                        }
+                         if(add.Customer__c==acc.id && add.Province__c ==null)
+                        {
+                        acc.Primary_Address_Display__c = add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                        }
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                     }

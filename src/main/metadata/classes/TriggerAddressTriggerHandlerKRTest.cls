@@ -41,7 +41,25 @@ public class TriggerAddressTriggerHandlerKRTest {
         {
         
        List<Account> AccList= new list<Account>();         
-       Account personAccount =  new Account(FirstName='Test',LastName='Person Account',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT).getRecordTypeId());
+          KR_Switch__c krswitch=new KR_Switch__c(Name='AccountHelperswitch',Enable_Flag__c=True);
+   List<KR_Switch__c> lsttrgt = new List<KR_Switch__c>();
+   lsttrgt.add(krswitch);
+   insert lsttrgt;
+       Map<String, KR_Switch__c> KRSwitchMap = KR_Switch__c.getAll();
+      Boolean KRSwitchEnabledFlag = false;  
+       if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('AccountHelperswitch')){
+           KRSwitchEnabledFlag = KRSwitchMap.get('AccountHelperswitch').Enable_Flag__c;
+        }
+         
+       Account personAccount;
+       
+         if (!KRSwitchEnabledFlag ) {       
+        personAccount =  new Account(FirstName='Test',LastName='Person Account',Md__c='TH', Individual_Home_Phone__c='000-000-000', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT).getRecordTypeId());
+        }
+        else{
+           personAccount =  new Account(FirstName='Test',LastName='Person Account',Md__c='TH', Individual_Home_Phone__c='+82-51-1234-1234', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT).getRecordTypeId());
+
+        }
        //insert personAccount;
        Account Dealer = new Account(Dealer_Default_Flag__c=true,Dealer_DMS_CRM_Code__c='test code',Dealer_GC_Code__c=user_Obj.Dealer_GC_Code__c,Status__c='xCustomer',City__c='Beijing',Phone = '0808001010',Name = 'test dealer1', Mobile__c = '000-000-0000',Area_code__c = '010',ZipCode__c='1234567',Allow_Data_Sharing_Comment__c = 'yes',RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId());
        //insert Dealer;  

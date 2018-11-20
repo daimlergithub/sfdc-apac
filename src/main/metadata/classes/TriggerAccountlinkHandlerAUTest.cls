@@ -301,11 +301,15 @@ public static testMethod void testHandleTriggerDelete(){
          al1.fromrole__c=acct1.id;
          
          al1.toRole__c=acct4.id;
+         al1.Retail_Delete_Flag__c = True;
          updatelst.add(al1);
          al2.toRole__c=acct4.id;
          updatelst.add(al2);
          
          update updatelst;
+         al1.Retail_Delete_Flag__c = false;
+         update al1;
+         
      }
 }
 }

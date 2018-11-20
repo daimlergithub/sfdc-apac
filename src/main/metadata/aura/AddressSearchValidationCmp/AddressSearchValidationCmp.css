@@ -1,0 +1,22 @@
+/*.THIS .slds-form-element{
+    padding-left:2rem;
+    padding-right:2rem;
+}
+.THIS .slds-combobox{
+    width:300px;
+}
+
+.THIS .slds-select_container .slds-select{
+	width: 80%;
+    margin-left: 70px;    
+}
+.THIS .slds-grid_align-spread{
+	width: 80%;
+    margin-left: 70px;    
+}*/
+.THIS .slds-scrollable_y {
+    min-height: 150px;
+}
+.THIS .slds-spinner_container{
+    position: fixed;
+}

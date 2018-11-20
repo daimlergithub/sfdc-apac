@@ -78,10 +78,57 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Agreement_to_commit_info_proces_CC_Old__c</fullName>
+        <externalId>false</externalId>
+        <label>Agreement_to_commit_info_proces_CC_Old</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Agreement_to_commit_info_processing__c</fullName>
         <externalId>false</externalId>
         <label>Agreement to commit info processing</label>
         <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attachment1__c</fullName>
+        <description>This field can be used as a placeholder to push the ID of the first image from Marketing Cloud , Code will refer this ID and push the image with the payload</description>
+        <externalId>false</externalId>
+        <label>Attachment ID 1</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attachment2__c</fullName>
+        <description>This field can be used as a placeholder to push the ID of the second image from Marketing Cloud , Code will refer this ID and push the image with the payload</description>
+        <externalId>false</externalId>
+        <label>Attachment ID 2</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attachment3__c</fullName>
+        <description>This field can be used as a placeholder to push the ID of the third image from Marketing Cloud , Code will refer this ID and push the image with the payload</description>
+        <externalId>false</externalId>
+        <label>Attachment ID 3</label>
+        <length>25</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -96,6 +143,20 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Booking__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is used as a placeholder to push the booking ID in context so that related personalizations applicable from the Booking record can be used .</description>
+        <externalId>false</externalId>
+        <label>Booking</label>
+        <referenceTo>Booking__c</referenceTo>
+        <relationshipLabel>MBK_Messages</relationshipLabel>
+        <relationshipName>MBK_Messages</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>CampaignMember__c</fullName>
@@ -183,6 +244,39 @@ If(Case__c &lt;&gt; null, 'Case', 'N/A'))))</formula>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>General_Personal_InfoThirdParty_Optional__c</fullName>
+        <externalId>false</externalId>
+        <label>General Personal InfoThirdParty-Optional</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>General_Personal_Info_Mandatory__c</fullName>
+        <externalId>false</externalId>
+        <label>General Personal Info (Mandatory)</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>General_Personal_Information_Mandatory__c</fullName>
+        <externalId>false</externalId>
+        <label>General Personal Information (Mandatory)</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>IsModify__c</fullName>
         <externalId>false</externalId>
         <formula>if(Text(Status__c) = 'Reserved' &amp;&amp; (Set_Sending_Time__c - now()) * 1000 &gt; 20, true, false )</formula>
@@ -229,6 +323,16 @@ If(Case__c &lt;&gt; null, 'Case', 'N/A'))))</formula>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>MarketingCloud__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is an identifier populated from Marketing Cloud so that it can be referred while fetching records to process batch and also acts as differentiator between records created manually and from marketing Cloud</description>
+        <externalId>false</externalId>
+        <label>MarketingCloud</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Opt_In_SMS__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -249,9 +353,31 @@ If(Case__c &lt;&gt; null, 'Case', 'N/A'))))</formula>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Personal_Agreement_CC_Old__c</fullName>
+        <externalId>false</externalId>
+        <label>Personal_Agreement_CC_Old</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Personal_Agreement__c</fullName>
         <externalId>false</externalId>
         <label>Personal Agreement</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Personal_Info_Third_Party_Release_CC_Old__c</fullName>
+        <externalId>false</externalId>
+        <label>Personal_Info_Third_Party_Release_CC_Old</label>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -333,6 +459,28 @@ If(Case__c &lt;&gt; null, 'Case', 'N/A'))))</formula>
         </valueSet>
     </fields>
     <fields>
+        <fullName>Targeted_Advert_Info_Optional_STCCC__c</fullName>
+        <externalId>false</externalId>
+        <label>Targeted Advert Info (Optional) STCCC</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Targeted_Advertising_Info_Optional__c</fullName>
+        <externalId>false</externalId>
+        <label>Targeted Advertising Info (Optional)</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>UCID__c</fullName>
         <externalId>false</externalId>
         <label>UCID</label>
@@ -381,6 +529,17 @@ If(Case__c &lt;&gt; null, 'Case', 'N/A'))))</formula>
         <externalId>false</externalId>
         <label>code</label>
         <length>3</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>currentCallerId__c</fullName>
+        <externalId>false</externalId>
+        <label>currentCallerId</label>
+        <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

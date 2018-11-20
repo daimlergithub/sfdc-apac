@@ -53,7 +53,7 @@ public class SurveyTakerHelperKRTest
 		   insert usrMBKSup;
        }
         
-        dlrAcc = (Account)UtilTestData.createSobject(new Account(mobile__c='010-6363-8383',Dealer_ND_Code__c = 'MBK0463',Dealer_Type__c = 'Company', OwnerId = usrMBKSup.Id, MD__c = 'KR'), UTilTestData.ACCOUNT_RT_DEALER); 
+        dlrAcc = (Account)UtilTestData.createSobject(new Account(Dealer_ND_Code__c = 'MBK0463',Dealer_Type__c = 'Company', OwnerId = usrMBKSup.Id, MD__c = 'KR'), UTilTestData.ACCOUNT_RT_DEALER); 
         
         Contact contDlrHQ = new Contact();
         contDlrHQ.AccountId = dlrAcc.Id; 
@@ -88,6 +88,16 @@ public class SurveyTakerHelperKRTest
         accGrp.Name = dlrAcc.Dealer_ND_Code__c;
         insert accGrp;
         
+         KR_Switch__c krswitch=new KR_Switch__c(Name='AccountHelperswitch',Enable_Flag__c=True);
+   List<KR_Switch__c> lsttrgt = new List<KR_Switch__c>();
+   lsttrgt.add(krswitch);
+   insert lsttrgt;
+        Map<String, KR_Switch__c> KRSwitchMap = KR_Switch__c.getAll();
+      Boolean KRSwitchEnabledFlag = false;  
+       if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('AccountHelperswitch')){
+           KRSwitchEnabledFlag = KRSwitchMap.get('AccountHelperswitch').Enable_Flag__c;
+        }
+          if (!KRSwitchEnabledFlag ) {
         acc = new Account(Dealer_Default_Flag__c=false,
 	       Dealer_DMS_SR_Code__c='test code 2',
 	       Status__c='NoCustomer',Email__c = 'testemail@test.com',
@@ -106,6 +116,28 @@ public class SurveyTakerHelperKRTest
 	       Industry = 'Other',
 	  	   ownerId = userinfo.getUserId(),
 	       RecordTypeId = personrectypeId);
+         }
+         else{
+          acc = new Account(Dealer_Default_Flag__c=false,
+           Dealer_DMS_SR_Code__c='test code 2',
+           Status__c='NoCustomer',Email__c = 'testemail@test.com',
+           City__c='Beijing',
+           Gender__c = 'Male',
+           Area_code__c = '0101',
+           LastName = 'galaxy',
+           MBK_Data_Source__c = 'Mercedes Call Catalogue',
+           FirstName = 'First Name',
+           Salutation = 'Unknown',
+           Mobile__c = '+82-51-2833-1222',
+           Primary_Email__c = 'Email1',
+           Primary_Fax__c = 'FAX2',
+           Primary_Phone__c ='Other2',
+           MD__c = 'KR',
+           Industry = 'Other',
+           ownerId = userinfo.getUserId(),
+           RecordTypeId = personrectypeId);
+         }
+         
         insert acc;
         
         surveytkr = new SurveyTaker__c();
@@ -114,6 +146,17 @@ public class SurveyTakerHelperKRTest
         
         system.runAs(usrSup)
         {
+          try{
+          KR_Switch__c krswitch1=new KR_Switch__c(Name='AccountHelperswitch',Enable_Flag__c=True);
+   List<KR_Switch__c> lsttrgt1 = new List<KR_Switch__c>();
+   lsttrgt1.add(krswitch1);
+   insert lsttrgt;
+        Map<String, KR_Switch__c> KRSwitchMap1 = KR_Switch__c.getAll();
+      Boolean KRSwitchEnabledFlag1 = false;  
+       if(!KRSwitchMap1.isEmpty() && KRSwitchMap1.containsKey('AccountHelperswitch')){
+           KRSwitchEnabledFlag1 = KRSwitchMap1.get('AccountHelperswitch').Enable_Flag__c;
+        }
+          if (!KRSwitchEnabledFlag ) {
            acchq = new Account(Dealer_Default_Flag__c=false,
 	       Dealer_DMS_SR_Code__c='test code 2',
 	       Status__c='NoCustomer',Email__c = 'testemail@test.com',
@@ -132,11 +175,36 @@ public class SurveyTakerHelperKRTest
 	       Industry = 'Other',
 	  	   ownerId = userinfo.getUserId(),
 	       RecordTypeId = personrectypeId);
+           }
+           else{
+            acchq = new Account(Dealer_Default_Flag__c=false,
+           Dealer_DMS_SR_Code__c='test code 2',
+           Status__c='NoCustomer',Email__c = 'testemail@test.com',
+           City__c='Beijing',
+           Gender__c = 'Male',
+           Area_code__c = '0101',
+           LastName = 'galaxy',
+           MBK_Data_Source__c = 'Mercedes Call Catalogue',
+           FirstName = 'First Name',
+           Salutation = 'Unknown',
+           Mobile__c = '+82-51-2833-1222',
+           Primary_Email__c = 'Email1',
+           Primary_Fax__c = 'FAX2',
+           Primary_Phone__c ='Other2',
+           MD__c = 'KR',
+           Industry = 'Other',
+           ownerId = userinfo.getUserId(),
+           RecordTypeId = personrectypeId);
+           }
            insert acchq;
         
            surveytkrHq = new SurveyTaker__c();
 	       surveytkrHq.Account__c = acchq.id;
 	       insert surveytkrHq;
+        }
+         catch(Exception e)
+        {
+        }
         }
         
     }

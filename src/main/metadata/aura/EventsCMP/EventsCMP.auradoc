@@ -1,0 +1,9 @@
+<aura:documentation>
+	<aura:description>
+        <p><code>c:EventsCMP</code> component to show latest Events on Portal page.</p>
+        <p>This component uses <code>aura:iteration</code> to display Events on the UI with table format. These fields are fetched from <code>Events__c</code> object.</p>        
+    </aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		Example Description
+	</aura:example>
+</aura:documentation>

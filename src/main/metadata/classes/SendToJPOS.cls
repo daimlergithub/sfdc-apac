@@ -42,9 +42,17 @@ public class SendToJPOS{
     public static Id alkIndividualRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+	//SN20181018-JPCDM
+	public Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();
+    Boolean jpSwitchEnableFlag = false;
     
     //Constructor
     public SendToJPOS(ApexPages.StandardController controller) { 
+	//SN20181018
+		if(!jpSwitchMap.isEmpty() && jpSwitchMap.containsKey('SendtoJPOS')){
+            jpSwitchEnableFlag = jpSwitchMap.get('SendtoJPOS').Enable_Flag__c;
+        }
+	//SN20181018-JPCDM end
     CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id,LanguageLocaleKey FROM User WHERE Id = : UserInfo.getUserId()];
      if(CurrentUsr.LanguageLocaleKey  == 'en_US'){
          locallang = label.Select;    
@@ -254,6 +262,7 @@ public class SendToJPOS{
            listAlk=new List<Account_Link__c> ();
            
            AccId=ApexPages.currentPage().getParameters().get('id'); 
+		   HttpResponse res = new HttpResponse();
            CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,Dealer_GC_Code__c,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
            if(AccId!=null)
            {
@@ -485,9 +494,17 @@ public class SendToJPOS{
               {
               String src;
               
-                      
-           src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id); 
-             
+            if(jpSwitchEnableFlag){
+                system.debug('333333');
+                Id accountId = Id.ValueOf(accId);
+                Set<Id> accIdSet = new Set<Id>();
+                accIdSet.add(accountId);
+                Map<Id, Id> accAddMap = new Map<Id,Id>(); 
+                accAddMap.put(accountId,addId);
+                res = CDMInformatica_Services.createCustCDMJPOS(accIdSet, 'JP', 'JPOS Person Account',accAddMap,AssignedDealer.Id);
+                }else{            
+				src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id); 
+				}
              
              
             ShowHideError=false; 
@@ -523,7 +540,16 @@ public class SendToJPOS{
                       if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
                       {
                       String src;
+					  if(jpSwitchEnableFlag){
+                                Id accountId = Id.ValueOf(accId);
+                                Set<Id> accIdSet = new Set<Id>();
+                                accIdSet.add(accountId);
+                                Map<Id, Id> accAddMap = new Map<Id,Id>(); 
+                                accAddMap.put(accountId,addId);
+                                res = CDMInformatica_Services.createCustCDMJPOS(accIdSet, 'JP', 'JPOS Company Account',accAddMap,AssignedDealer.Id);
+                            }else{
                    src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
+				   }
                    System.debug(' ^&^&^&^ Id#$#$#'+response);
                      
                     ShowHideError=false; 

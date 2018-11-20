@@ -11,7 +11,8 @@ public class UserHelperAUTest {
         adminProfileObj = [select id from profile where Name='System Administrator' limit 1];
          
         Profile p = [select id from profile where Name='System Administrator' limit 1];
-        User u = new User(LastName='UserTH',country='Australia',/*UserRoleId = role.id*/firstName='BCI',ProfileId=p.Id,Alias='ainTH123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusrTH@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = 'TH');
+        User u = new User(LastName='UserTH',country='Australia',/*UserRoleId = role.id*/firstName='BCI',ProfileId=p.Id,Alias='ainTH123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',
+		UserName=System.now().millisecond() + 'testadminAuUse1@Daimlest.com',Market__c = 'TH');
         insert u;
         adminUserObj = u;
          
@@ -41,7 +42,8 @@ public class UserHelperAUTest {
         System.runAs(adminUserObj)
         {
             Profile profileObj = [select id from profile where Name='Thailand Dealer Delegate Admin' limit 1];
-            User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'AU',isActive=true);
+            User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',
+			UserName=System.now().millisecond() + 'testAdminAUUse1@Daitest.com',Market__c = 'AU',isActive=true);
             insert userObj;  
             userObj.Market__c='MY';
           update userObj;

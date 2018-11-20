@@ -1,0 +1,18 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="recordId" type="Id" default="" description="Account Record Id"/> 
+    <aura:attribute name="objectType" type="String" default="Account" description="Sobject Name"/>
+    <aura:attribute name="fieldList" type="String" description="Fields to show"/>
+    <aura:attribute name="fieldListArray" 
+                    type="String[]" 
+                    default="Id,Name"/> 
+    <aura:attribute name="columns" type="String" default="1" description="Column count"/>
+    <aura:attribute name="layoutType" type="String" default = "Full" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <lightning:recordForm
+         aura:id="MiniForm"                 
+         recordId="{!v.recordId}" 
+         objectApiName="{!v.objectType}" 
+         fields="{!v.fieldListArray}"
+         columns="{!v.columns}"
+         mode="view" />
+</aura:component>

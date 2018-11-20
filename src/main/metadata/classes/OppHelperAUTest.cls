@@ -40,6 +40,8 @@ public class OppHelperAUTest {
         opp.CloseDate = Date.newInstance(2018, 4, 17);
         opp.Selected_Car_Model__c ='CLA;A-Class'; 
         insert opp;   
+        List<Opportunity> opp1 = new List<Opportunity>();
+        opp1.add(opp);
         
             OppHelperAU oppObj = new OppHelperAU();
             Map<Id,Opportunity> oppMap = new Map<Id,Opportunity>();
@@ -47,7 +49,33 @@ public class OppHelperAUTest {
                 oppMap.put(opp.Id, opp);
             //}
             oppObj.mapCarModelToOpporutnity(oppMap); 
-        }
+         oppObj.updateOwnerwithDealer(opp1);
+            
+         id dealerType =RecordTypeAccessService.getRecordTypeid('Account','Dealer');
+         Account dealerAcc = new Account(Name = 'Test India Dealer Account',Dealer_nd_code__c='1234', recordTypeId = dealerType);
+         Opportunity oppA = new Opportunity();
+       	 oppA.AccountId = acc.Id;
+       	 oppA.StageName = 'New';
+       	 oppA.Market__c = 'AU';
+       	 oppA.Name = 'Generic Opportunity';
+       	 oppA.RecordTypeId = salesLeadRecordTypeId;
+       	 oppA.CloseDate = Date.newInstance(2018, 4, 17);
+       	 oppA.Selected_Car_Model__c ='CLA;A-Class'; 
+      	 oppA.assigned_dealer__c = dealerAcc.Id;
+         insert oppA;   
+         List<Opportunity> opp2 = new List<Opportunity>();
+        	opp2.add(oppA);
+      
+        Map<Id,Opportunity> oppMap1 = new Map<Id,Opportunity>();
+        //for(Opportunity op : opp){
+           oppMap1.put(oppA.Id, oppA);
+         //}  
+         oppMap.put(dealerAcc.Id,opp);
+			oppObj.ShareRecordswithDealers(opp1,false);      
+           	oppObj.CreateRetailCopy(opp1,oppMap1,true,true,'AU');
+           	oppObj.beforeInsertOpportunity(opp1,true);
+			oppObj.beforeUpdateOpportunity(opp1,OppMap1,true);
+         }
         test.stopTest();
     }
     

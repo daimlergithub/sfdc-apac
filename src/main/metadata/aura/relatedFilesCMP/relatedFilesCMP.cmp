@@ -1,0 +1,60 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created By:Narendra.I
+* Created Date:24-Aug-2018
+* Company:Infosys Ltd
+* Description: Component to show related files and upload/delete files.
+* **********************************************************************************-->
+<aura:component controller="newsController">
+    <aura:attribute name="newsId" type="Id"/>   
+    <aura:attribute name="fileStatus" type="boolean" default="true"/>   
+    <aura:attribute name="files" type="ContentDocument[]"/>
+    <aura:handler name="init" value="{!this}" action="{!C.doInit}" />
+    
+    <div class="slds-section-title--divider">
+        <lightning:icon iconName="standard:file" size="small"/><strong>&nbsp;Files</strong>          
+    </div> 
+    <div class="slds-form-element__row">       
+        <div class="slds-clearfix">
+            <div class="slds-float_right">         
+                <c:uploadFile recordId="{!v.newsId}" fromVal="news"/>
+            </div>
+        </div>            
+    </div>    
+    <div class="slds-card__body slds-card__body_inner">
+        <aura:if isTrue="{!v.files.length > 0 }">
+            <table class="slds-table slds-table_bordered slds-table--header-fixed">  
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Title">Title</div>                    
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Action">Action</div>                    
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>                    
+                    <aura:iteration items="{!v.files}" var="event">
+                        <tr>
+                            <td data-label="Account Name">
+                                <div class="slds-truncate" title="{!event.Title}">
+                                    <a class="outputLookupLink slds-truncate forceOutputLookup" target="_blank" href="{!'/'+ event.Id}" >
+                                        {!event.Title}
+                                    </a>
+                                </div>
+                            </td>
+                            <td data-label="Account Name">
+                                <div class="slds-truncate" title="{!event.Title}">
+                                    <button type="button" class="slds-button" id="{!event.Id}" label="Delete" title="Delete" onclick="{! c.deleteFile }">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+                
+            </table>  
+        </aura:if>
+    </div>
+    
+</aura:component>

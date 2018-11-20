@@ -96,36 +96,4 @@ public class CaseCommentCustomHelperTH {
             	update caseToUpdateLst;
         }      
     }
-    
-    public static void ChangeUTCtimeToBKKtime(List<CaseComment> caseCommentLst,Set<Id>fsTHcaseIdLst)
-    {
-        if(caseCommentLst!=null && caseCommentLst.size()>0)
-        {
-            for(CaseComment cmntObj:CaseCommentLst)
-            {
-                if(fsTHcaseIdLst.contains(cmntObj.ParentId))
-                {
-                    String commentBody=cmntObj.CommentBody;
-                    List<String> customerResponseDate=commentBody.split('/n');
-                    if(customerResponseDate!=null && customerResponseDate.size()==2)
-                    {
-                        DateTime utcDateTime=DateTime.valueOf(customerResponseDate[1]);
-                        DateTime bkkDateTime=utcDateTime.addHours(7);
-                        String bkkTimeFormat=bkkDateTime.format('dd-MM-yyyy HH:mm:ss');
-                        commentBody=customerResponseDate[0]+bkkTimeFormat;
-                        cmntObj.CommentBody=commentBody;
-                    }
-                    else If(customerResponseDate!=null && customerResponseDate.size()>2)
-                    {
-                        DateTime utcDateTime=DateTime.valueOf(customerResponseDate[1]);
-                        DateTime bkkDateTime=utcDateTime.addHours(7);
-                        String bkkTimeFormat=bkkDateTime.format('dd-MM-yyyy HH:mm:ss');
-                        commentBody=customerResponseDate[0]+bkkTimeFormat+customerResponseDate[2];
-                        cmntObj.CommentBody=commentBody;
-                    }
-                }
-            }
-            
-        }
-    }
 }

@@ -1,0 +1,4 @@
+<design:component>
+	 <design:attribute name="SurveyType" label="Survey Type" description="This attribute defines the Survey Type like Lifestyle,Vehicle etc." />
+	 <design:attribute name="Context" label="Context" description="This defines the object on which this need to be rendered." />
+</design:component>

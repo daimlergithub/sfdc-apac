@@ -55,12 +55,14 @@ PermissionSetAssignment psa = new PermissionSetAssignment();
        System.runAs (user1) {  
         account= new Account();
         account.Phone='09844650654';
-        account.FirstName = 'Test';        
+        account.Name = 'Test';        
         account.MBK_Data_Source__c ='Email';
         account.Data_Source__c  = 'Test4';
         account.Dealer_Rollout_Status__c = 'Done';
-        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
-        
+      //  account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
+        account.RecordTypeId   = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        insert account;
+  
       
         address=new Address__c();
         address.Address_Type__c='Home';
@@ -73,8 +75,9 @@ PermissionSetAssignment psa = new PermissionSetAssignment();
         address.Customer__c=account.id;
         address.TitleOfHonor__c = 'To Person'; 
         address.Preferred__c = true;
-        address.country__c = 'Malaysia';
-        address.ZipCode__c = '12345';
+        address.country__c = 'Australia';
+        address.ZipCode__c = '2345';
+        address.State_City__c = 'NSW';
         addressList.add(address);
         DMLManagerService.insertAsSystem(addressList);
         //insert address;

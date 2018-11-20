@@ -1,0 +1,44 @@
+<aura:documentation>
+    <aura:description>
+        <code>c:modalAccountLinkView</code> component contains both Lightning <b>Record View Form</b> and <b>Record Edit Form</b>.
+        
+        The parent component in which this child component is embedded must set the following parameters:
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered slds-table_stacked-horizontal">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="sObjectId">Id</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="displayAccountLinkField">All Columns</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="recordEditForm">Record Form</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="myObjectData">Data</div>
+                    </th>                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="data">
+                        <div class="slds-truncate" title="sObjectId">Pass current Record Id</div>
+                    </td>
+                    <td data-label="Tablecolumns">
+                        <div class="slds-truncate" title="displayAccountLinkField">Array of fields API names to be displayed in the modal box.The modal box will be displayed when 'Show More' / 'Edit' button is selected</div>
+                    </td>
+                    <td data-label="Allcolumns">
+                        <div class="slds-truncate" title="recordEditForm">Boolean variable provide flexibility to switch between Record Edit or Record View Form</div>
+                    </td>
+                    <td data-label="objectApiName">
+                        <div class="slds-truncate" title="myObjectData">Array of data to be displayed</div>
+                    </td>                    
+                    
+                </tr>
+            </tbody>
+        </table>
+    </aura:description>
+    
+</aura:documentation>

@@ -1,0 +1,75 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created By:Narendra.I
+* Created Date:05-Aug-2018
+* Company:Infosys Ltd
+* Description: Component to show uploadFile and shareCommunityFilesCMP based on coditions.
+* **********************************************************************************-->
+<aura:component controller="FileUploadController" implements="lightning:actionOverride,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" >
+    
+    <aura:attribute name="currentSteps" type="String" default="step1" />
+    <aura:attribute name="stepsArray" type="List" />
+    <aura:attribute name="isError" type = "Boolean" default = "false"/>
+    <aura:attribute name="ParentrecordId" type="String"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="communityFile" type="Community_Files__c" default="{'sobjectType': 'Community_Files__c'}" />
+    <aura:attribute name="fileName" type="String" default="{!v.communityFile.Name}" />
+    <aura:attribute name="expirationDate" type="Date" default="{!v.communityFile.Expiration_Date__c}" />
+    <aura:attribute name="shareOpt" type="boolean" default="true"/>
+    <aura:attribute name="loader" type="boolean" default="true"/>
+    <aura:handler name="init" value="{!this}" action="{!c.startProgress}" />
+    <aura:if isTrue="{!v.loader}">
+        <div class="backgroundInverse">
+            <lightning:spinner alternativeText="Loading" variant="inverse" />
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.shareOpt}">
+        <div class="slds-section-title--divider">
+            <center>
+                <strong>You are not authorized to Share the File.
+                </strong><br/><br/>
+                <strong>Only Record owners can share the File.
+                </strong>
+            </center>            
+        </div><br/>
+        <center>
+        <lightning:button variant="Neutral" label="Close" title="Share" onclick="{! c.handleClose }"/>
+        </center>
+        <aura:set attribute="else"> 
+            
+            <div class="slds-m-around--medium">
+                <lightning:progressIndicator currentStep="{!v.currentSteps}" type="path"  variant = "base">
+                    <lightning:progressStep label="1" value="step1" onclick="{!c.goToPrevious }"/>
+                    <lightning:progressStep label="2" value="step2" onclick="{!c.goToNext }"/>                 
+                </lightning:progressIndicator>
+                
+                <aura:if isTrue = "{!equals(v.currentSteps, 'step1')}">
+                    <div class = "wk_step1 wk_container">                        
+                        <c:uploadFile recordId="{!v.recordId}"/>  
+                    </div>
+                    <aura:set attribute="else">
+                        <aura:if isTrue = "{!equals(v.currentSteps, 'step2')}">
+                            <div class = "wk_step2 wk_container">
+                                <!--<c:publicGroupCMP recordId="{!v.recordId}"/>-->
+                                <c:shareCommunityFilesCMP recordId="{!v.recordId}"/>
+                            </div>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+                
+                <br/>
+                <center>
+                    <div class="wk_controlBtn">                    
+                        <aura:if isTrue="{!equals(v.currentSteps, 'step1')}">
+                            <lightning:button variant="Neutral" label="Close" title="Share" onclick="{! c.handleClose }"/>
+                            <lightning:button variant="brand" label="Next" onclick="{!c.goToNext }" />                   
+                                              
+                        </aura:if>
+                    </div>
+                </center>
+            </div>
+        </aura:set>
+    </aura:if>
+    
+</aura:component>

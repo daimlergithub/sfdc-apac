@@ -76,10 +76,11 @@ public with sharing class TaskMassAssignChangeOwnerJP {
     private void sendNotificationToNewOwner(Id newOwnerId, List<Task> tasks) {
          String wholesaleDealerStr = '';
          String dealerStr = '';
-         String emailBody = 'Hi,<br/><br/>Following Task are assigned to you - <br/>';
+         String emailBody = Label.Hi+',<br/><br/>'+Label.MessageSubject+'<br/>';
          String thCommURL='';
         //EmailTemplate templateRec = [Select Id, Name from EmailTemplate where DeveloperName = 'test_email'];
         User userRec = [select Profile.Name,market__c,usertype from User where Id =: UserInfo.getUserId()];
+        
         if(userRec.market__c=='TH'){
         thCommURL=RetailCampaignHelperTH.getCommunityURL();
             User usr = [select Profile.Name,market__c,usertype from User where Id =: newOwnerId];
@@ -88,15 +89,14 @@ public with sharing class TaskMassAssignChangeOwnerJP {
               dealerStr += '(' + i +') ' + thCommURL+ tasks[i-1].Id + '<br/>';   
             }
                 if(usr.usertype=='PowerPartner'){
-                
-                    emailBody += '<br/>If you are dealer user, please use the link<br/>';
+                   emailBody += '<br/>'+Label.messageBodyDealer+'<br/>';
                    emailBody += dealerStr;
                    system.debug('i am dealer');
                 }else{
-                  emailBody += '<br/> If you are wholesale user, please use the link<br/>';
+                    emailBody += '<br/>'+Label.messageBodyWS+'<br/>';
                   emailBody += wholesaleDealerStr;
                 }
-                emailBody += '<br/>Thanks<br/>Salesforce';
+                emailBody += '<br/>'+Label.Thanks+',<br/>Salesforce';
             }
         else{
         Boolean isJapanProfile = false;
@@ -128,7 +128,7 @@ public with sharing class TaskMassAssignChangeOwnerJP {
         //msg.setTemplateId(templateRec.Id);
         msg.setTargetObjectId(newOwnerId);  
         msg.setHTMLBody(emailBody);
-        msg.subject = 'Task Assignment Notification';
+        msg.subject =Label.TaskAssignmentSubject;
         msgList.add(msg);
         Messaging.sendEmail(msgList);   
     }

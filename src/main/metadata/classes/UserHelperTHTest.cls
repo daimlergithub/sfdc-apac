@@ -8,7 +8,7 @@ public class UserHelperTHTest {
         Trigger__c TriggerUser=new Trigger__c(Name='UserTriggerTH',Trigger_Name__c='UserTrigger',Trigger_Handler__c='UserTriggerHandlerTH',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='TH');
         insert TriggerUser;
         adminProfileObj = [select id from profile where Name='System Administrator' limit 1];
-        adminUserObj = new User(LastName='adminUser',country='Australia',firstName='BCI',ProfileId=adminProfileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser03@testing.com',UserName='admusr3@daimler.com',Market__c = 'TH',isActive=true);
+        adminUserObj = new User(LastName='adminUser',country='Australia',firstName='BCI',ProfileId=adminProfileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser03@testing.com',UserName='admusr3@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = 'TH',isActive=true);
         insert adminUserObj;    
     }
     public static testmethod  void  ShareUsersToDealersAfterInsertAndUpdateTest(){
@@ -25,7 +25,7 @@ public class UserHelperTHTest {
         System.runAs(adminUserObj)
         {
             Profile profileObj = [select id from profile where Name='Thailand Dealer Delegate Admin' limit 1];
-            User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'TH',isActive=true);
+            User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = 'TH',isActive=true);
             insert userObj;  
             userObj.Market__c='MY';
           update userObj;
@@ -58,7 +58,7 @@ public class UserHelperTHTest {
         
             Profile profileObj = [select id from profile where Name='Thailand Dealer Delegate Admin' limit 1];
             
-            User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',isActive=true);
+            User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com'+String.valueof(DateTime.now().getTime()),isActive=true);
             insert userObj;
         userObj.Market__c='TH';
         update userObj;
@@ -183,7 +183,7 @@ public class UserHelperTHTest {
             surveyShare.RowCause = Schema.Survey__Share.RowCause.Manual;
             insert surveyShare;
             
-            User userObj2 = new User(ContactId=c2.Id,LastName='User2',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser02@testing.com',UserName='admusr2@daimler.com',Market__c = 'TH',isActive=true);
+            User userObj2 = new User(ContactId=c2.Id,LastName='User2',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser02@testing.com',UserName='admusr2@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = 'TH',isActive=true);
           insert userObj2;
         new UserTriggerHandlerTH().handleIntegrationTrigger(false,false,false,false,false);
         }

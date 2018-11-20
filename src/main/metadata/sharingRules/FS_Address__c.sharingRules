@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>FS_Address_Sharing_MY</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share FS Address to MY MBFS users.</description>
+        <label>FS Address Sharing MY for MBFS</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FS_Address_Sharing_for_MBIndiaFS</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>FS Address with Market as IN, will have access as Read only for everyone in MBIndiaFS Management</description>
+        <label>FS Address Sharing for MBIndiaFS</label>
+        <sharedTo>
+            <roleAndSubordinates>MBIndiaFS_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FS_Address_Sharing_for_MBIndiaFS_Management</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share FS Address to MBIndiaFS Management</description>
+        <label>FS Address Sharing for MBIndiaFS Management</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FS_Address_Sharing_to_WS_Group</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share FS address to WS group users.</description>
+        <label>FS_Address_Sharing_to_WS_Group</label>
+        <sharedTo>
+            <group>All_Wholesale_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

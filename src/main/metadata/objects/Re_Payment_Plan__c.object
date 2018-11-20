@@ -56,7 +56,7 @@
     <fields>
         <fullName>Composite_Rental_Identifier__c</fullName>
         <externalId>false</externalId>
-        <formula>FS_Contract__r.Borrower__r.BPID__c+"-"+ FS_Contract__r.Contract_ID__c+"-"+ Rental_ID__c</formula>
+        <formula>FS_Contract__r.Borrower__r.BPID__c+"-"+ FS_Contract__r.Contract_ID__c+"-"+ TEXT(Rental_ID__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Composite Rental Identifier</label>
         <required>false</required>
@@ -190,11 +190,12 @@
         <fullName>Rental_ID__c</fullName>
         <externalId>false</externalId>
         <label>Rental No</label>
-        <length>10</length>
+        <precision>18</precision>
         <required>false</required>
+        <scale>0</scale>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>

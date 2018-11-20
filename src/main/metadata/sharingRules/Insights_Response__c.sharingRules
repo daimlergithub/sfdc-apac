@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>AU_Edit_Access_InsightResponse_AU_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Edit access to all internal suboridnates</description>
+        <label>AU_Edit_Access_InsightResponse_AU_VP</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NZ_Edit_Access_InsightResponse_NZ_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Edit access to internal subordinates</description>
+        <label>NZ_Edit_Access_InsightResponse_NZ_VP</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

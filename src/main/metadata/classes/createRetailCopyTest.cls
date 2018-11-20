@@ -73,9 +73,9 @@ public class createRetailCopyTest {
     
   Public static void personAccountTestData()
   {
-        
-   dealer = (Account)UtilTestData.createSobject(new Account(Market__c='TH'), UtilTestData.ACCOUNT_RT_DEALER);
-  personAcc = new Account(Dealer_Default_Flag__c=false,
+   
+      dealer = (Account)UtilTestData.createSobject(new Account(Market__c='TH'), UtilTestData.ACCOUNT_RT_DEALER);
+   personAcc = new Account(Dealer_Default_Flag__c=false,
                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
                                City__c='Beijing',
@@ -511,17 +511,9 @@ public class createRetailCopyTest {
      static void createuserANZ() {
           Profile systemadm = [select Id from Profile where Name = 'System Administrator' limit 1];
  
-	
-  
-      dealer = (Account)UtilTestData.createSobject(new Account(Market__c='AU'), UtilTestData.ACCOUNT_RT_DEALER);
-      
-    accobj = new Account (Name = 'SreeDealer',Corporate_Category__c ='Business Partner', Individual_Home_Phone__c = '+61485967485', Market__c = 'AU');
-    insert accobj;
-	
-       Contact con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
-        insert con;
+
        usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUse12355485@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUse123485@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = systemadm.Id,            
@@ -530,6 +522,7 @@ public class createRetailCopyTest {
             EmailEncodingKey = 'UTF-8',
             LastName = 'McTesty',
             Market__c = 'AU',
+           IsActive = true,
             CommunityNickname = System.now().millisecond() + 'test12345',
             TimeZoneSidKey = 'America/Los_Angeles',
             LocaleSidKey = 'en_US',
@@ -538,11 +531,22 @@ public class createRetailCopyTest {
         );
         
         insert usr;
+		
+			
+	
+		  dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+		  
+			accobj = new Account (Name = 'SreeDealer',Corporate_Category__c ='Business Partner', Individual_Home_Phone__c = '+61485967485');
+		insert accobj;
+		
+			con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
+			insert con;
+		
    
         Profile DealerDelegated = [select Id from Profile where Name = 'Japan Dealer Company Manager' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         Dealerusr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUse12355485@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUse1@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
@@ -555,11 +559,13 @@ public class createRetailCopyTest {
             LocaleSidKey = 'en_US',
             LanguageLocaleKey = 'en_US',
            market__c ='AU',
+            IsActive = true,
             ContactId=con.id
         );
       
       insert Dealerusr; 
-     }
+    	 
+    }	
 
   static void createTestDataANZ() {
       

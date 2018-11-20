@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>MBANZ_Edit_Access_Data_Steward</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Insight Question Edit access to  Data Steward users of ANZ Market</description>
+        <label>MBANZ_Edit_Access_Data_Steward</label>
+        <sharedTo>
+            <group>MB_ANZ_Data_Stewards</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU,NZ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

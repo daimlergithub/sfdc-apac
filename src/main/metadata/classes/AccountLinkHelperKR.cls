@@ -727,12 +727,12 @@ public class AccountLinkHelperKR
     private static void createDealerSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
        
         // Changing Sharing from User to Public Group
-        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        List<Account> dealerAccList = [select Id,Dealer_ND_Code__c,Dealer_Type__c from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet() and Dealer_Type__c='Company'];
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
         for(Account dealerRec : dealerAccList) {
-            dealerAccNameSet.add(dealerRec.Name);
-            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+            dealerAccNameSet.add(dealerRec.Dealer_ND_Code__c);
+            accNameToAccIdMap.put(dealerRec.Dealer_ND_Code__c, dealerRec.Id);
         }
        
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
@@ -873,6 +873,15 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
  
  
  public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
+ 
+  Map<String, KR_Switch__c> KRSwitchMap = KR_Switch__c.getAll(); 
+      Boolean KRSwitchEnabledFlag = false;
+   
+          if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('AccountLinkhelperSwitch')){
+           KRSwitchEnabledFlag = KRSwitchMap.get('AccountLinkhelperSwitch').Enable_Flag__c;
+        }
+ 
+ 
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
@@ -934,11 +943,35 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Retail_Special_Care__c = accountMap.get(acclnk.toRole__c).Special_Care__c;
                     acclnk.Retail_Special_Needs_Class__c = accountMap.get(acclnk.toRole__c).Special_Needs_Class__c;
                     acclnk.Retail_Allow_Data_Sharing__c = accountMap.get(acclnk.toRole__c).Allow_Data_Sharing2__c;  
+                  //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Home phone.
+                  if(KRSwitchEnabledFlag){
+                  if(accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c !=null)
+                  acclnk.Retail_Individual_Home_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c.substringBefore('-')+ accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c.substringAfter('-');
+                   
+                  }
+                  else{
+                  
                     acclnk.Retail_Individual_Home_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
+                   }
+                     //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Work Phone .
+                      if(KRSwitchEnabledFlag){
+                       if(accountMap.get(acclnk.toRole__c).Work_Phone__c !=null)
+                    acclnk.Retail_Work_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c.substringBefore('-')+ accountMap.get(acclnk.toRole__c).Work_Phone__c.substringAfter('-');
+                      }
+                      else{
+                      
                     acclnk.Retail_Work_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
-                    //acclnk.Retail_Mobile__c = accountMap.get(acclnk.toRole__c).PersonMobilePhone;   
-                    //acclnk.Retail_Email__c = accountMap.get(acclnk.toRole__c).PersonEmail;
-                    acclnk.Retail_Mobile__c = accountMap.get(acclnk.toRole__c).Mobile__c;   
+                    }
+                     
+                    //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Mobile .
+                    if(KRSwitchEnabledFlag){
+                     acclnk.Retail_Mobile__c = accountMap.get(acclnk.toRole__c).Mobile__c.substringBefore('-')+ accountMap.get(acclnk.toRole__c).Mobile__c.substringAfter('-');
+
+                    }
+               else {
+                    acclnk.Retail_Mobile__c = accountMap.get(acclnk.toRole__c).Mobile__c;
+                    }
+   
                     acclnk.Retail_Email__c = accountMap.get(acclnk.toRole__c).Email__c;
                     acclnk.Retail_Primary_Phone__c = accountMap.get(acclnk.toRole__c).Primary_Phone_Display__c;
                     //acclnk.Retail_DMS_Customer_ID__c    = accountMap.get(acclnk.toRole__c).DMS_Customer_ID__c;
@@ -956,8 +989,26 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Retail_UCID__c = accountMap.get(acclnk.toRole__c).UCID__c;
                     acclnk.Retail_Company_Name_Native1__c = accountMap.get(acclnk.toRole__c).Company_Name_Native_1__c; 
                     acclnk.Retail_Commercial_Reg_No__c = accountMap.get(acclnk.toRole__c).Commercial_Reg_No__c; 
+                     //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Company Phone .
+                    if(KRSwitchEnabledFlag){
+                     if(accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c !=null)
+                    acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c.substringBefore('-')+ accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c.substringAfter('-');
+                    }
+                    else{
+
                     acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
-                    acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
+                     }
+                   //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Company other Phone .
+                   
+                 if(KRSwitchEnabledFlag){             
+                                                 
+                 if(accountMap.get(acclnk.toRole__c).Work_Phone__c !=null)
+                   acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c.substringBefore('-')+ accountMap.get(acclnk.toRole__c).Work_Phone__c.substringAfter('-');
+                  
+                 }
+              else{
+                   acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
+                  }
                     acclnk.Retail_Agreement__c = accountMap.get(acclnk.toRole__c).Personal_Agreement__c;
                     acclnk.Retail_Information_Third_Party_Release__c = accountMap.get(acclnk.toRole__c).Personal_Information_Third_Party_Release__c;
                     acclnk.Retail_Abroad_Agreement__c = accountMap.get(acclnk.toRole__c).Personal_Abroad_Agreement__c;
@@ -988,7 +1039,7 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                 
                 //Checking the Company RecordType
                 if(accountMap.get(acclnk.toRole__c).RecordType.Name=='Company'){
-                    acclnk.Retail_Company_Name__c = accountMap.get(acclnk.toRole__c).Company_Name__c;
+                    acclnk.Retail_Company_Name__c = accountMap.get(acclnk.toRole__c).name;
                     acclnk.Retail_Company_Name_Native1__c = accountMap.get(acclnk.toRole__c).Company_Name_Native_1__c;
                     acclnk.Retail_Commercial_Reg_No__c = accountMap.get(acclnk.toRole__c).Commercial_Reg_No__c;
                     acclnk.Retail_Vat_No__c = accountMap.get(acclnk.toRole__c).Vat_No__c;
@@ -996,9 +1047,34 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Retail_Website__c = accountMap.get(acclnk.toRole__c).website;
                     //acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
                     //acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
-					acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
-                    acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone_2__c;
+                   //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Company Phone .
+                   if(KRSwitchEnabledFlag){
+                    if(accountMap.get(acclnk.toRole__c).Work_Phone__c!=null)                     
+                    acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c.substringBefore('-')+ accountMap.get(acclnk.toRole__c).Work_Phone__c.substringAfter('-');
+                   }
+                   else{
+                   
+                    acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
+                     }
+                   //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Company other Phone .
+                   if(KRSwitchEnabledFlag){
+                   if(accountMap.get(acclnk.toRole__c).Work_Phone_2__c!=null)
+                   acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone_2__c.substringBefore('-')+ accountMap.get(acclnk.toRole__c).Work_Phone_2__c.substringAfter('-');
+                   }
+                   else{
+                   acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone_2__c;
+                       }
+                    //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Company Mobile .
+                   if(KRSwitchEnabledFlag){
+                   if(accountMap.get(acclnk.toRole__c).Mobile__c!=null)
+                    acclnk.Retail_Company_Mobile__c = accountMap.get(acclnk.toRole__c).Mobile__c.substringBefore('-')+ accountMap.get(acclnk.toRole__c).Mobile__c.substringAfter('-');
+
+                   }
+                   else
+                   {
+
                     acclnk.Retail_Company_Mobile__c = accountMap.get(acclnk.toRole__c).Mobile__c;
+                   }
                     //acclnk.Retail_DMS_Customer_ID__c = accountMap.get(acclnk.toRole__c).DMS_Customer_ID__c;      
                     acclnk.Retail_Email_OptOut__c = accountMap.get(acclnk.toRole__c).PersonHasOptedOutOfEmail;
                     acclnk.Retail_Fax_OptOut__c = accountMap.get(acclnk.toRole__c).PersonHasOptedOutOfFax;
@@ -1332,7 +1408,10 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
                   }
         }
     }
-    if(acclist.size()>0)
+    
+}
+}
+if(acclist.size()>0)
     {
         insert acclist;
        if(sutlist!=null)
@@ -1340,8 +1419,6 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
           insert sutlist;
         }
     }
-}
-}
 }
   public static void afterDeleteEvent(List<Account_Link__c>oldlist)
 {
@@ -1657,25 +1734,32 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
 			//Changes by Monalisa For SFDCKR-1633
 			if(accLinkFromToRoleMapC2C.size()>0){
              List<Account_Link__c> retailCopyCompAccLinks =new  List<Account_Link__c> ();
-             List<Account_Link__c> retailCopyPersonAccLinks = [SELECT Id,Retail_Related_Company__c,fromRole__c,toRole__c FROM Account_Link__c WHERE toRole__c =:accLinkFromToRoleMapC2C.keySet() AND recordTypeId =: AccountLink_RetailPersonRecordTypeId AND Retail_Related_Company__c=NULL];
-                   if(retailCopyPersonAccLinks.size()>0){
-                    for(Account_Link__c acc : retailCopyPersonAccLinks){
-                        retailCopyCompAccLinks = [SELECT Id,fromRole__c,toRole__c FROM Account_Link__c WHERE toRole__c =:accLinkFromToRoleMapC2C.values()  AND recordTypeId =: AccountLink_RetailCompanyRecordTypeId AND fromRole__c=:acc.fromRole__c];
-                        System.debug('retailCopyCompAccLinks------>'+retailCopyCompAccLinks );
-                        if(retailCopyCompAccLinks.size()>0){
-                            acc.Retail_Related_Company__c=retailCopyCompAccLinks[0].Id;
-                            updateList.add(acc);
-                        }
-                    
-                     }   
-                 }
-            }
+             List<Id> commonFromRole=new List<Id>();
+             List<Account_Link__c> retailCopyPersonAccLinks = [SELECT Id,Retail_Related_Company__c,fromRole__c,toRole__c FROM Account_Link__c WHERE toRole__c IN:accLinkFromToRoleMapC2C.keySet() AND recordTypeId =: AccountLink_RetailPersonRecordTypeId AND Retail_Related_Company__c=NULL and Retail_Duplicate_Flag__c=false];
+             if(retailCopyPersonAccLinks.size()>0){
+                for(Account_Link__c acc : retailCopyPersonAccLinks){
+                    commonFromRole.add(acc.fromRole__c);
+                    }
+                    retailCopyCompAccLinks = [SELECT Id,fromRole__c,toRole__c FROM Account_Link__c WHERE toRole__c IN:accLinkFromToRoleMapC2C.values()  AND recordTypeId =: AccountLink_RetailCompanyRecordTypeId AND fromRole__c IN:commonFromRole and Retail_Duplicate_Flag__c=false];
+                    System.debug('retailCopyCompAccLinks------>'+retailCopyCompAccLinks );
+                    if(retailCopyCompAccLinks.size()>0){
+                       for(Account_Link__c compacc : retailCopyCompAccLinks ){
+                        for(Account_Link__c personacc : retailCopyPersonAccLinks){         
+                            if(compacc.fromRole__c==personacc.fromRole__c){
+                                personacc.Retail_Related_Company__c=compacc.Id;
+                                updateList.add(personacc);
+                               }
+                             }      
+                           } 
+                         }
+                       }
+                     }
             if(accLinkFromToRoleMapComp.size()>0){
                  List<Account_Link__c> personAccountlinklist=new  List<Account_Link__c> ();
-                 List<Account_Link__c> AccountlinkC2Clist = [select id, fromRole__c, toRole__c, Retail_Delete_Flag__c from Account_Link__c WHERE  fromRole__c =: accLinkFromToRoleMapComp.keySet() AND RecordTypeID =: AccountLink_Contact2ContactRecordTypeId AND Retail_Delete_Flag__c = false limit 1];
+                 List<Account_Link__c> AccountlinkC2Clist = [select id, fromRole__c, toRole__c, Retail_Delete_Flag__c from Account_Link__c WHERE  fromRole__c IN: accLinkFromToRoleMapComp.keySet() AND RecordTypeID =: AccountLink_Contact2ContactRecordTypeId AND Retail_Delete_Flag__c = false limit 1];
                      System.debug('AccountlinkC2Clist------>'+AccountlinkC2Clist );
                      if(AccountlinkC2Clist.size()>0){                    
-                     personAccountlinklist= [select id, fromRole__c, toRole__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: accLinkFromToRoleMapComp.values() AND toRole__c =: AccountlinkC2Clist[0].toRole__c AND RecordTypeID =: AccountLink_RetailPersonRecordTypeId  AND Retail_Delete_Flag__c = false];
+                     personAccountlinklist= [select id, fromRole__c, toRole__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c IN: accLinkFromToRoleMapComp.values() AND toRole__c =: AccountlinkC2Clist[0].toRole__c AND RecordTypeID =: AccountLink_RetailPersonRecordTypeId  AND Retail_Delete_Flag__c = false];
                       }
                        System.debug('personAccountlinklist------>'+personAccountlinklist );
                        if(personAccountlinklist.size()>0){
@@ -1716,4 +1800,3 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
         } 
     }
 }
-

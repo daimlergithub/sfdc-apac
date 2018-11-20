@@ -95,11 +95,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>UpsellOpportunity__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Last_Campaign_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Loyalty_Credit_Card_Member__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -198,11 +198,11 @@
                 <field>Preferred_Contact_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Reference__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
@@ -316,6 +316,10 @@
                 <behavior>Edit</behavior>
                 <field>Industry</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>UpsellOpportunity__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -416,7 +420,7 @@
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
         <sortField>RECORDTYPE</sortField>
-        <sortOrder>Asc</sortOrder>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
@@ -483,6 +487,21 @@
         <sortField>Related_From__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Lead_Desired_Service__c</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>Sales_Consultant__c</fields>
+        <fields>Service_Advisor__c</fields>
+        <fields>CAC_Lead_Status__c</fields>
+        <fields>Source_Campaign__c</fields>
+        <fields>Lead_DataSource__c</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <relatedList>Lead__c.Contact__c</relatedList>
+        <sortField>NAME</sortField>
+        <sortOrder>Desc</sortOrder>
+    </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
@@ -499,19 +518,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.TYPE</fields>
-        <fields>Activity_Status__c</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>TASK.WHAT_NAME</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>Start_Call_Time__c</fields>
-        <fields>TASK.CALLDURATION</fields>
-        <fields>TASK.LAST_UPDATE</fields>
-        <relatedList>RelatedHistoryList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
@@ -521,20 +527,34 @@
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
         <sortField>CAMPAIGN.CAMPAIGN_TYPE</sortField>
-        <sortOrder>Asc</sortOrder>
+        <sortOrder>Desc</sortOrder>
+    </relatedLists>
+	<relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>MessageName__c</fields>
+        <fields>MessageText__c</fields>
+        <fields>MessageType__c</fields>
+        <fields>MobileNumber__c</fields>
+        <fields>Status__c</fields>
+        <fields>Date__c</fields>
+        <fields>CampaignName__c</fields>
+        <relatedList>SMS_Result__c.Account__c</relatedList>
+        <sortField>Date__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Lead_Desired_Service__c</fields>
-        <fields>Assigned_Dealer__c</fields>
-        <fields>Sales_Consultant__c</fields>
-        <fields>Service_Advisor__c</fields>
-        <fields>CAC_Lead_Status__c</fields>
-        <fields>Source_Campaign__c</fields>
-        <fields>Lead_DataSource__c</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <relatedList>Lead__c.Contact__c</relatedList>
+        <fields>et4ae5__SubjectLine__c</fields>
+        <fields>et4ae5__FromName__c</fields>
+        <fields>et4ae5__FromAddress__c</fields>
+        <fields>et4ae5__DateSent__c</fields>
+        <fields>et4ae5__Opened__c</fields>
+        <fields>et4ae5__DateOpened__c</fields>
+        <fields>et4ae5__DateBounced__c</fields>
+        <fields>LAST_UPDATE</fields>
+        <relatedList>et4ae5__IndividualEmailResult__c.et4ae5__Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <customButtons>New_DM_Request</customButtons>
@@ -578,6 +598,19 @@
         <fields>TASK.PRIORITY</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+	<relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.TYPE</fields>
+        <fields>Activity_Status__c</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Start_Call_Time__c</fields>
+        <fields>TASK.CALLDURATION</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

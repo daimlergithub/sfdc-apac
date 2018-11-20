@@ -1,0 +1,13 @@
+.THIS {
+    
+}
+
+.THIS .slds-modal__container{
+       max-width: 70rem !important;
+       width:50% !important;
+
+}
+
+/*.THIS .slds-checkbox .slds-checkbox_faux {
+    box-shadow: inset 1px 2px 0 8px #90abcc;
+}*/

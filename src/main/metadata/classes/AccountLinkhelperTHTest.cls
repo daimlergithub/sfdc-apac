@@ -32,18 +32,18 @@ public Class AccountLinkhelperTHTest {
         insert gr;
 
         List < Account > acc = new List < Account > ();
-        acc.add(new Account(Md__c = 'TH', UCID__c = '989898989', RecordTypeId = personaccountid, LastName = 'Mercedez', Allow_Data_Sharing__c = 'Yes', Phone = '09874760605', Individual_Home_Phone__c = '+66-9885857857'));
-        acc.add(new Account(Md__c = 'TH', RecordTypeId = personaccountid, LastName = 'Mercedez', Allow_Data_Sharing__c = 'Yes', Phone = '09874760605', Individual_Home_Phone__c = '+66-9885857857'));
+        acc.add(new Account(Md__c = 'TH', UCID__c = '989898989', RecordTypeId = personaccountid, LastName = 'Mercedez', Allow_Data_Sharing__c = 'Yes', Phone = '09874760605', Individual_Home_Phone__c = '+66-9885857857',StouchUniqueId__c ='1234567890'));
+        acc.add(new Account(Md__c = 'TH', RecordTypeId = personaccountid, LastName = 'Mercedez', Allow_Data_Sharing__c = 'Yes', Phone = '09874760605', Individual_Home_Phone__c = '+6698885785',StouchUniqueId__c ='1234567891'));
+        acc.add(new Account(Md__c = 'TH', UCID__c = 'UCID989898989',RecordTypeId = personaccountid, LastName = 'Mercedez', Allow_Data_Sharing__c = 'Yes', Phone = '09874760605', Individual_Home_Phone__c = '+6698858585',StouchUniqueId__c ='1234567891'));
         insert acc;
         address.add(new Address__c(Address_Type__c = 'Home', Province__c = 'Shanghai', City__c = 'bangalore', District__c = 'test2', Block__c = 'test3', Customer__c = acc[0].id, Address_Line_1__c = 'testaddress1', Address_Line_2__c = 'testaddress2', ZipCode__c = '32703', TitleOfHonor__c = 'To Person', preferred__c = True, Opt_In_Hardcopy__c = True, MD__c = 'TH'));
         address.add(new Address__c(Address_Type__c = 'Home', Province__c = 'Shanghai', City__c = 'bangalore', District__c = 'test2', Block__c = 'test3', Customer__c = acc[0].id, Address_Line_1__c = 'testaddress1', Address_Line_2__c = 'testaddress2', ZipCode__c = '32703', TitleOfHonor__c = 'To Person', preferred__c = True, Opt_In_Hardcopy__c = True, MD__c = 'TH'));
         insert address;
-        system.runAs(user1) {
+        system.runAs(user1)
+        {
             listcampaigns1.add(new Account_Link__c(Retail_Address_Reference__c = address[0].id, Name = 'new al', Md__c = 'TH', toRole__c = acc[0].id, fromrole__c = dealer.id, Retail_LastName__c = 'heii', Retail_Full_Name__c = 'dhanu', Retail_Full_Name_Title__c = 'Mrs', Retail_FirstName__c = 'Saru',
                 RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(), Retail_DMS_Customer_ID__c = '1122', Retail_Gender__c = 'Female'));
-            listcampaigns1.add(new Account_Link__c(Retail_Address_Reference__c = address[0].id, Name = 'new al', Md__c = 'TH', toRole__c = acc[0].id, fromrole__c = acc[1].id, Retail_LastName__c = 'heii', Retail_Full_Name__c = 'dhanu', Retail_Full_Name_Title__c = 'Mrs', Retail_FirstName__c = 'Saru',
-                RecordTypeId = contacttocontactid, Retail_DMS_Customer_ID__c = '1122', Retail_Gender__c = 'Female'));
-
+            listcampaigns1.add(new Account_Link__c(Name = 'Contact2Contact Test', Md__c = 'TH', toRole__c = acc[0].id, fromrole__c = acc[1].id, RecordTypeId = contacttocontactid, Active__c=FALSE,Start_Date__c=NULL,End_Date__c=NULL));
             insert listcampaigns1;
             TriggerRecursiveCheck.AccountLinkCheck = true;
             List < Account_Link__c > updatelst = new List < Account_Link__c > ();
@@ -55,11 +55,12 @@ public Class AccountLinkhelperTHTest {
             Address__C a = new address__C(Address_Type__c = 'Business', Province__c = 'Shanghai', City__c = 'bangalore', District__c = 'test2', Block__c = 'test3', Customer__c = acc[0].id, Address_Line_1__c = 'testaddress1', Address_Line_2__c = 'testaddress2', ZipCode__c = '32703', TitleOfHonor__c = 'To Person', preferred__c = True, Opt_In_Hardcopy__c = True, MD__c = 'TH');
             insert a;
             TriggerRecursiveCheck.AccountLinkCheck = true;
-            List < Account_link__C > ac = new List < account_link__c > ();
+            List < Account_link__C > ac = new List < account_link__c >();
             for (Account_link__C ab: listcampaigns1) {
                 ab.Retail_Full_Name__c = 'abc';
                 ab.Retail_Gender__c = 'male';
                 ab.Retail_Address_Reference__c = a.id;
+                ab.active__c=TRUE;
                 ac.add(ab);
             }
             update ac;
@@ -67,15 +68,20 @@ public Class AccountLinkhelperTHTest {
             listcampaigns1[0].active__c = false;
             listcampaigns1[0].fromrole__c = dealer1.id;
             update listcampaigns1[0];
-
-
+            listcampaigns1[0].retail_duplicate_flag__c = TRUE;
+            update listcampaigns1[0];
         }
-        system.runAs(user3) {
+        system.runAs(user3)
+        {
             TriggerUtil.userCreate = false;
             acclinklist.add(new Account_Link__c(Retail_Address_Reference__c = address[0].id, Name = 'new al', Md__c = 'TH', toRole__c = acc[0].id, fromrole__c = dealer.id, Retail_LastName__c = 'heii', Retail_Full_Name__c = 'dhanu', Retail_Full_Name_Title__c = 'Mrs', Retail_FirstName__c = 'Saru',
                 RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(), Retail_DMS_Customer_ID__c = '1122', Retail_Gender__c = 'Female'));
+            acclinklist.add(new Account_Link__c(Name = 'Contact2Contact Test', Md__c = 'TH', toRole__c = acc[0].id, fromrole__c = acc[2].id, RecordTypeId = contacttocontactid, Active__c=TRUE,Start_Date__c=System.Today()-2,End_Date__c=NULL));
             insert acclinklist;
-
+            
+            acclinklist[1].active__c=FALSE;
+            acclinklist[1].end_date__c= System.Today();
+            update acclinklist[1];
         }
     }
 

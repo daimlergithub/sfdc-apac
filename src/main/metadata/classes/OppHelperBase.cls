@@ -301,8 +301,9 @@ public without sharing class OppHelperBase{
                                         Account.Special_Needs_Class__c, Account.Allow_Data_Sharing2__c, Account.Primary_Address_Reference__r.Address_Type__c,
                                         Account.Primary_Address_Reference__r.Province__c, Account.Preferred_Contact_Method__c, MD__c,
                                         Account.UCID__c,Account.Salutation__c, Account.RecordtypeId, Account.Name, Account.Company_Name_Native_1__c, Account.Foundation_Date__c,Account.Primary_Address_Reference__r.Foreign_Nationals__c,
-                                        Account.Website, Account.Vat_No__c, Account.DMS_Customer_ID__c, Account.Complaint_Amount__c, Account.Sales_Sanction__c, Account.Allow_Data_Sharing__c, Account.PersonEmail, Account.PersonHasOptedOutOfEmail, Account.PersonHasOptedOutOfFax, Account.Primary_Phone_Display__c, Account.PersonDoNotCall, Account.Postal_Opt_Out__c, Account.Job__c, Account.Personal_Agreement__c, Account.Personal_Information_Third_Party_Release__c, Account.Personal_Abroad_Agreement__c, Account.Agreement_to_commit_info_processing__c, Account.Commercial_Reg_No__c, Account.Company_Name__c, Account.Visit_Opt_Out__c,Assigned_Dealer__r.Dealer_Rollout_Status__c
-                                        from Opportunity WHERE id IN: contactId];
+                                        Account.Website, Account.Vat_No__c, Account.DMS_Customer_ID__c, Account.Complaint_Amount__c, Account.Sales_Sanction__c, Account.Allow_Data_Sharing__c, Account.PersonEmail, Account.PersonHasOptedOutOfEmail, Account.PersonHasOptedOutOfFax, Account.Primary_Phone_Display__c, Account.PersonDoNotCall, Account.Postal_Opt_Out__c, Account.Job__c, Account.Personal_Agreement__c, Account.Personal_Information_Third_Party_Release__c, Account.Personal_Abroad_Agreement__c, Account.Agreement_to_commit_info_processing__c, Account.Commercial_Reg_No__c, Account.Company_Name__c, Account.Visit_Opt_Out__c,Assigned_Dealer__r.Dealer_Rollout_Status__c,
+										Account.Opt_In_Email__c,Account.MD__c,Account.Market__c,Account.Race__c,Account.Retail_Work_Phone__c,Account.Special_Mark_on_Account__c,Account.Opt_In_Mail__c,Account.Opt_In_Phone__c,Account.Opt_In_SMS3__c,Account.ACN__c,Account.MB_Online_Id__c from Opportunity WHERE id IN: contactId];
+                                        
         List < Account_Link__c > accLst = new List < Account_Link__c > ();
         for (Opportunity dealerLead: leadLst) {
             if (dealerLead.Assigned_Dealer__c != null)
@@ -326,13 +327,20 @@ public without sharing class OppHelperBase{
                         acclnk.Retail_Address_Line_1__c = led.Account.Primary_Address_Reference__r.Address_Line_1__c;
                         acclnk.Retail_Address_Line_2__c = led.Account.Primary_Address_Reference__r.Address_Line_2__c;
                         acclnk.Retail_Address_Line_3__c = led.Account.Primary_Address_Reference__r.Address_Line_3__c;
+                        if(Market == Label.TR){
+                            acclnk.Retail_City__c = led.Account.Primary_Address_Reference__r.City__c.left(17);
+                            acclnk.Retail_Distinct__c = led.Account.Primary_Address_Reference__r.District__c;
+                             acclnk.Retail_Address_Line_1__c = led.Account.Primary_Address_Reference__r.Address_Line_1__c.left(17);
+                        acclnk.Retail_Address_Line_2__c = led.Account.Primary_Address_Reference__r.Address_Line_2__c.left(17);
+                        }
                         acclnk.Retail_Address_Type__c = led.Account.Primary_Address_Reference__r.Address_Type__c;
                         acclnk.Retail_ZipCode__c = led.Account.Primary_Address_Reference__r.ZipCode__c;
                         acclnk.Retail_Address_CreatedDate__c = date.newinstance(led.Account.Primary_Address_Reference__r.CreatedDate.year(), led.Account.Primary_Address_Reference__r.CreatedDate.month(), led.Account.Primary_Address_Reference__r.CreatedDate.day());
                         acclnk.Retail_Address_LastModifiedDate__c = date.newinstance(led.Account.Primary_Address_Reference__r.Lastmodifieddate.year(), led.Account.Primary_Address_Reference__r.Lastmodifieddate.month(), led.Account.Primary_Address_Reference__r.Lastmodifieddate.day());
                     }
                     acclnk.Retail_Country__c = led.Account.country__c;
-                    acclnk.Retail_Full_Name_Title__c = led.Account.Title__c +' '+led.Account.LastName + ' ' + led.Account.FirstName;
+                    //Rajesh - added check to avoid concatenating null title to full name.
+                    acclnk.Retail_Full_Name_Title__c = (led.Account.Title__c != null)?led.Account.Title__c:'' +' '+led.Account.LastName + ' ' + led.Account.FirstName;
                     acclnk.Retail_Salutation__c=led.Account.Salutation__c;
                     acclnk.Retail_Special_Care__c=led.Account.Special_Care__c;
                     acclnk.createddate__c = led.Account.createdDate;
@@ -381,7 +389,27 @@ public without sharing class OppHelperBase{
                     if (led.Account.Primary_Address_Reference__c != null) {
                         acclnk.Retail_Address_Reference__c = led.Account.Primary_Address_Reference__c;
                     }
-                    accLst.add(acclnk);
+                   
+                    //Madhusudhan CS added as per MBANZ-139
+                    if(led.Account.Market__c == 'AU' || led.Account.Market__c == 'NZ'){
+               system.debug('ANZ person account');
+               sObjectMappingUtility varMapUtil = new sObjectMappingUtility(led.Account.Md__c,'Create_RetailCopy_PersonAccount');
+               varMapUtil.mapFieldValues(led.Account, acclnk);
+               if (led.Account.Primary_Address_Reference__r.Address_Line_1__c != null)
+               {
+                    sObjectMappingUtility varAddrMapUtil = new sObjectMappingUtility(led.Account.Md__c,'Create_AddressRetailCopy_PersonAccount');
+                    varAddrMapUtil.mapFieldValues(led.Account.Primary_Address_Reference__r, acclnk );
+                    //Override the General mapping 
+                    acclnk.Retail_Address_Line_1__c = ((led.Account.Primary_Address_Reference__r.Address_Line_1__c)!=null?led.Account.Primary_Address_Reference__r.Address_Line_1__c:'').left(35);
+                    acclnk.Retail_Address_Line_2__c = ((led.Account.Primary_Address_Reference__r.Address_Line_2__c)!=null?led.Account.Primary_Address_Reference__r.Address_Line_2__c:'').left(35);
+                    acclnk.Retail_Address_Line_3__c = ((led.Account.Primary_Address_Reference__r.Address_Line_3__c)!=null?led.Account.Primary_Address_Reference__r.Address_Line_3__c:'').left(35);
+                    acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(led.Account.Primary_Address_Reference__r.CreatedDate);
+                    acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(led.Account.Primary_Address_Reference__r.LastModifiedDate);
+               }
+                            
+           }        
+                   accLst.add(acclnk);  
+  
                 } 
                 if (led.Account.RecordTypeId == AccountCompanyId && (!existingRC.containskey(string.valueof(led.Assigned_Dealer__c)+string.valueof(led.Accountid)))) {
                     cacclnk = new Account_Link__c(RecordTypeId = alkCompanyRecordTypeId, Name = led.Account.UCID__c, toRole__c = led.accountID, fromRole__c = led.Assigned_Dealer__c);
@@ -392,6 +420,12 @@ public without sharing class OppHelperBase{
                         cacclnk.Retail_Address_Line_1__c = led.Account.Primary_Address_Reference__r.Address_Line_1__c;
                         cacclnk.Retail_Address_Line_2__c = led.Account.Primary_Address_Reference__r.Address_Line_2__c;
                         cacclnk.Retail_Address_Line_3__c = led.Account.Primary_Address_Reference__r.Address_Line_3__c;
+                        if(Market == Label.TR){
+                            acclnk.Retail_City__c = led.Account.Primary_Address_Reference__r.City__c.left(17);
+                            acclnk.Retail_Distinct__c = led.Account.Primary_Address_Reference__r.District__c;
+                            acclnk.Retail_Address_Line_1__c = led.Account.Primary_Address_Reference__r.Address_Line_1__c.left(17);
+                            acclnk.Retail_Address_Line_2__c = led.Account.Primary_Address_Reference__r.Address_Line_2__c.left(17);
+                        }
                         cacclnk.Retail_Address_Type__c = led.Account.Primary_Address_Reference__r.Address_Type__c;
                         cacclnk.Retail_ZipCode__c = led.Account.Primary_Address_Reference__r.ZipCode__c;
                         cacclnk.Retail_Address_CreatedDate__c = date.newinstance(led.Account.Primary_Address_Reference__r.CreatedDate.year(), led.Account.Primary_Address_Reference__r.CreatedDate.month(), led.Account.Primary_Address_Reference__r.CreatedDate.day());
@@ -428,6 +462,26 @@ public without sharing class OppHelperBase{
                     if(led.Account.Primary_Address_Reference__c != null) {
                         cacclnk.Retail_Address_Reference__c = led.Account.Primary_Address_Reference__c;              
                     }
+					   //Madhusudhan CS added as per MBANZ-139
+                       if(led.Account.Market__c == 'AU' || led.Account.Market__c == 'NZ'){
+                                                system.debug('ANZ Company account');
+                            sObjectMappingUtility varMapUtil = new sObjectMappingUtility(led.Account.Md__c,'Create_RetailCopy_CompanyAccount');
+                            varMapUtil.mapFieldValues(led.Account, cacclnk);
+                            if (led.Account.Primary_Address_Reference__r.Address_Line_1__c != null)
+                            {
+                                sObjectMappingUtility varAddrMapUtil = new sObjectMappingUtility(led.Account.Md__c,'Create_AddressRetailCopy_CompanyAccount');
+                                varAddrMapUtil.mapFieldValues(led.Account.Primary_Address_Reference__r, cacclnk);
+                                
+                                //Override the General mapping 
+                                cacclnk.Retail_Address_Line_1__c = ((led.Account.Primary_Address_Reference__r.Address_Line_1__c)!=null?led.Account.Primary_Address_Reference__r.Address_Line_1__c:'').left(35);
+                                cacclnk.Retail_Address_Line_2__c = ((led.Account.Primary_Address_Reference__r.Address_Line_2__c)!=null?led.Account.Primary_Address_Reference__r.Address_Line_2__c:'').left(35);
+                                cacclnk.Retail_Address_Line_3__c = ((led.Account.Primary_Address_Reference__r.Address_Line_3__c)!=null?led.Account.Primary_Address_Reference__r.Address_Line_3__c:'').left(35);
+                                cacclnk.Retail_Address_CreatedDate__c = Date.ValueOf(led.Account.Primary_Address_Reference__r.CreatedDate);
+                                cacclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(led.Account.Primary_Address_Reference__r.LastModifiedDate);
+                            }
+                            
+                        }  
+ 
                     accLst.add(cacclnk);         
                 } 
             }
@@ -503,4 +557,26 @@ public without sharing class OppHelperBase{
         CarModelMappingUtility.mapIdOpportunity = mapIdOpportunity;
         CarModelMappingUtility.mapCarModelOpportunity();
     }
+	//Madhusudhan CS added as per MBANZ-403
+     public static void updateOpportunityFieldsBeforeInsert(list<Opportunity> listNewOpps,boolean isInsert){
+         If(!listNewOpps.isEmpty() && listNewOpps != Null){
+            for(Opportunity Opp : listNewOpps){
+               if(Opp.Market__c =='AU' || Opp.Market__c =='NZ'){
+                    Opp.MD__C = Opp.Market__c;
+                }
+            }
+          }
+     }
+     //Madhusudhan CS added as per MBANZ-403 
+     public static void updateOpportunityFieldsBeforeUpdate(list<Opportunity> listNewOpps,map<id,Opportunity> OppsOldMap,boolean isUpdate){
+         If(!listNewOpps.isEmpty() && listNewOpps != Null){
+            for(Opportunity Opp : listNewOpps){
+             Opportunity OldOpps = OppsOldMap.get(Opp.id);
+               if(Opp.Market__c =='AU' || Opp.Market__c =='NZ'){
+                    Opp.MD__C = Opp.Market__c;
+                }
+            }
+          }
+     }
+          
 }

@@ -8,13 +8,14 @@
 global class C2C_AccountlinkShareJPSchedule implements Schedulable {
    global void execute(SchedulableContext SC) {
       C2C_AccountlinkShareJPBatch runBatch = new C2C_AccountlinkShareJPBatch();
-      Database.executeBatch(runBatch);
+      Database.executeBatch(runBatch,50);
    }
    
     public void oneTimeScheduleBatch(){
-        //Run daily at 3 PM
-        String cronExp ='0 0 15 ? * *';
-        System.schedule('Share C2C Account Link JP', cronExp, new C2C_AccountlinkShareJPSchedule());        
+        //Run daily at 11 PM
+        String cronExp ='0 0 23 ? * *';
+		String jobName= 'Share Retail Copy JP ' + System.today();
+        System.schedule(jobName, cronExp, new C2C_AccountlinkShareJPSchedule());        
     }
     
 }

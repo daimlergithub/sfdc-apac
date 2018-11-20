@@ -29,11 +29,11 @@ public class SurveyTakerHelperTR {
         for(SurveyTaker__c sur : surTakList)
         {
             
-            if(sur.Dealer_Account__c != null && sur.View_By_All__c == false)
+            if(sur.Dealer_Account__c != null && sur.View_By_All__c == false && sur.md__c=='TR')
             {
                 dealerID.add(sur.Dealer_Account__c);
             }
-            else if(sur.Account__c != null && sur.Dealer_Account__c == null && sur.View_By_All__c == false)
+            else if(sur.Account__c != null && sur.Dealer_Account__c == null && sur.View_By_All__c == false && sur.md__c=='TR')
             {
                 percomAccoID.add(sur.Account__c);
                 
@@ -186,7 +186,7 @@ public class SurveyTakerHelperTR {
         
         
         for(SurveyTaker__c vc : newList){
-            if(vc.account__c != null  &&  vc.account__c != oldMap.get(vc.Id).account__c && vc.View_By_All__c == false && vc.Dealer_Account__c == null){
+            if(vc.account__c != null  &&  vc.account__c != oldMap.get(vc.Id).account__c && vc.View_By_All__c == false && vc.Dealer_Account__c == null && vc.md__c=='TR'){
                 if(!mapCheckingType.containsKey(vc.account__c)){
                     mapCheckingType.put(vc.account__c, new List<Id>());
                 }

@@ -845,8 +845,11 @@ function survey7_TY(){
         
         // Account id found
         var id = "{!Task.What.Id}";
+        
+        var conId = "{!Task.Who.Id}";
+        
           //alert('id recieved');
-        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2; 
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&ContactID='+conId+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2; 
         window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
     }
 }
@@ -855,7 +858,7 @@ function survey8_TY(){
     var SurveyName="Lost Sales Management Survey"; 
     var SurveyQuestionsList; 
     var SurveyQuestionRecords; 
-    var SQ1, SQ2, SQ3 ,SQ4,SQ5,SQ6,SQ7,SQ8,SQ9,SQ10,SQ11,SQ12;
+    var SQ1, SQ2, SQ3 ,SQ4,SQ5,SQ5b,SQ6,SQ7,SQ8,SQ9,SQ10,SQ11,SQ12;
 
     var url = '/flow/Lost_Sales_Management_Survey?LeadID='; 
     sforce.connection.sessionId = "{!$Api.Session_ID}";
@@ -896,6 +899,8 @@ function survey8_TY(){
                 SQ11=SurveyQuestionRecords[i].Id; 
             else if(SurveyQuestionOrderNumber==12) 
                 SQ12=SurveyQuestionRecords[i].Id;
+            else if(SurveyQuestionOrderNumber==13) 
+              SQ5b=SurveyQuestionRecords[i].Id;
             } 
         } 
         //alert('ques fetched');
@@ -904,11 +909,224 @@ function survey8_TY(){
         // Lead id found
         var id = "{!Task.What.Id}";
           //alert('id recieved');
-        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5+'&Q6_ID='+SQ6+'&Q7_ID='+SQ7+'&Q8_ID='+SQ8+'&Q9_ID='+SQ9+'&Q10_ID='+SQ10+'&Q11_ID='+SQ11+'&Q12_ID='+SQ12; 
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5+'&Q5b_ID='+SQ5b+'&Q6_ID='+SQ6+'&Q7_ID='+SQ7+'&Q8_ID='+SQ8+'&Q9_ID='+SQ9+'&Q10_ID='+SQ10+'&Q11_ID='+SQ11+'&Q12_ID='+SQ12; 
         window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
     }
 
+    function survey1_IN(){ 
+        //alert('survey1');
+    var SurveyName="Mercedes Benz Sales Survey";
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2, SQ3 ,SQ4,SQ5,SQ6,SQ7,SQ8,SQ9,SQ10,SQ11,SQ12, SQ13 ,SQ14,SQ15,SQ16,SQ17,SQ18,SQ19,SQ20,SQ21,SQ22,SQ23 ,SQ24,SQ25,SQ26,SQ27,SQ28,SQ29,SQ30,SQ31,SQ32,SQ33 ,SQ34,SQ35,SQ36,SQ37,SQ38,SQ39,SQ40,SQ41;
 
+    var url = '/flow/Mercedes_Benz_Sales_Survey_Flow?LeadID=';
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No Mercedes Benz Sales Survey"); 
+    }else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2) 
+                SQ2=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==3) 
+                SQ3=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==4) 
+                SQ4=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==5) 
+                SQ5=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==6) 
+                SQ6=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==7) 
+                SQ7=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==8) 
+                SQ8=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==9) 
+                SQ9=SurveyQuestionRecords[i].Id; 
+			else if(SurveyQuestionOrderNumber==10) 
+                SQ10=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==11) 
+                SQ11=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==12) 
+                SQ12=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==13) 
+                SQ13=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==14) 
+                SQ14=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==15) 
+                SQ15=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==16) 
+                SQ16=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==17) 
+                SQ17=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==18) 
+                SQ18=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==19) 
+                SQ19=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==20) 
+                SQ20=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==21) 
+                SQ21=SurveyQuestionRecords[i].Id;
+			else if(SurveyQuestionOrderNumber==22) 
+                SQ22=SurveyQuestionRecords[i].Id;
+			else if(SurveyQuestionOrderNumber==23) 
+                SQ23=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==24) 
+                SQ24=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==25) 
+                SQ25=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==26) 
+                SQ26=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==27) 
+                SQ27=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==28) 
+                SQ28=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==29) 
+                SQ29=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==30) 
+                SQ30=SurveyQuestionRecords[i].Id; 
+			else if(SurveyQuestionOrderNumber==31) 
+                SQ31=SurveyQuestionRecords[i].Id;   
+            else if(SurveyQuestionOrderNumber==32) 
+                SQ32=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==33) 
+                SQ33=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==34) 
+                SQ34=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==35) 
+                SQ35=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==36) 
+                SQ36=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==37) 
+                SQ37=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==38) 
+                SQ38=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==39) 
+                SQ39=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==40) 
+                SQ40=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==41) 
+                SQ41=SurveyQuestionRecords[i].Id;
+            } 
+        } 
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Lead id found
+        var id = "{!Task.What.Id}";
+        url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5+'&Q6_ID='+SQ6+'&Q7_ID='+SQ7+'&Q8_ID='+SQ8+'&Q9_ID='+SQ9+'&Q10_ID='+SQ10+'&Q11_ID='+SQ11+'&Q12_ID='+SQ12+'&Q13_ID='+SQ13+'&Q14_ID='+SQ14+'&Q15_ID='+SQ15+'&Q16_ID='+SQ16+'&Q17_ID='+SQ17+'&Q18_ID='+SQ18+'&Q19_ID='+SQ19+'&Q20_ID='+SQ20+'&Q21_ID='+SQ21+'&Q22_ID='+SQ22+'&Q23_ID='+SQ23+'&Q24_ID='+SQ24+'&Q25_ID='+SQ25+'&Q26_ID='+SQ26+'&Q27_ID='+SQ27+'&Q28_ID='+SQ28+'&Q29_ID='+SQ29+'&Q30_ID='+SQ30+'&Q31_ID='+SQ31+'&Q32_ID='+SQ32+'&Q33_ID='+SQ33+'&Q34_ID='+SQ34+'&Q35_ID='+SQ35+'&Q36_ID='+SQ36+'&Q37_ID='+SQ37+'&Q38_ID='+SQ38+'&Q39_ID='+SQ39+'&Q40_ID='+SQ40+'&Q41_ID='+SQ41;  
+        window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+    }
+    
+    function survey2_IN(){ 
+    //alert('survey2');
+    var SurveyName="CLI Baseline Measurement on national level - Sales Process Survey"; 
+    var SurveyQuestionsList; 
+    var SurveyQuestionRecords; 
+    var SQ1, SQ2, SQ3 ,SQ4,SQ5,SQ6,SQ7,SQ8,SQ9,SQ10,SQ11,SQ12, SQ13 ,SQ14,SQ15,SQ16,SQ17,SQ18,SQ19,SQ20,SQ21,SQ22,SQ23 ,SQ24,SQ25,SQ26,SQ27,SQ28,SQ29,SQ30,SQ31,SQ32,SQ33 ,SQ34,SQ35,SQ36,SQ37,SQ38,SQ39,SQ40,SQ41;
+
+    var url = '/flow/CLI_Baseline_Measurement_on_national_level_Sales_Process_Survey?LeadID='; 
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'");
+    var SurveyRecords = SurveyList.getArray("records"); 
+    var SurveyID=SurveyRecords[0].Id;
+    if(SurveyID == null) { 
+        alert("Oops!! No CLI Baseline Measurement on national level - Sales Process Survey"); 
+    }
+	else{ 
+        SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+        SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+        
+        for(var i=0;i<SurveyQuestionRecords.length;i++){ 
+            
+            var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+            if(SurveyQuestionOrderNumber==1){ 
+                SQ1=SurveyQuestionRecords[i].Id; 
+            } 
+            else if(SurveyQuestionOrderNumber==2) 
+                SQ2=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==3) 
+                SQ3=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==4) 
+                SQ4=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==5) 
+                SQ5=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==6) 
+                SQ6=SurveyQuestionRecords[i].Id; 
+			else if(SurveyQuestionOrderNumber==7) 
+                SQ7=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==8) 
+                SQ8=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==9) 
+                SQ9=SurveyQuestionRecords[i].Id; 
+			else if(SurveyQuestionOrderNumber==10) 
+                SQ10=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==11) 
+                SQ11=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==12) 
+                SQ12=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==13) 
+                SQ13=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==14) 
+                SQ14=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==15) 
+                SQ15=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==16) 
+                SQ16=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==17) 
+                SQ17=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==18) 
+                SQ18=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==19) 
+                SQ19=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==20) 
+                SQ20=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==21) 
+                SQ21=SurveyQuestionRecords[i].Id;
+			else if(SurveyQuestionOrderNumber==22) 
+                SQ22=SurveyQuestionRecords[i].Id;
+			else if(SurveyQuestionOrderNumber==23) 
+                SQ23=SurveyQuestionRecords[i].Id;  
+            else if(SurveyQuestionOrderNumber==24) 
+                SQ24=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==25) 
+                SQ25=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==26) 
+                SQ26=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==27) 
+                SQ27=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==28) 
+                SQ28=SurveyQuestionRecords[i].Id; 
+            else if(SurveyQuestionOrderNumber==29) 
+                SQ29=SurveyQuestionRecords[i].Id;
+			}
+		}
+        //alert('ques fetched');
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        
+        // Lead id found
+        var id = "{!Task.What.Id}";
+        //alert(id);
+		url += id+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&SurveyName='+SurveyName+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5+'&Q6_ID='+SQ6+'&Q7_ID='+SQ7+'&Q8_ID='+SQ8+'&Q9_ID='+SQ9+'&Q10_ID='+SQ10+'&Q11_ID='+SQ11+'&Q12_ID='+SQ12+'&Q13_ID='+SQ13+'&Q14_ID='+SQ14+'&Q15_ID='+SQ15+'&Q16_ID='+SQ16+'&Q17_ID='+SQ17+'&Q18_ID='+SQ18+'&Q19_ID='+SQ19+'&Q20_ID='+SQ20+'&Q21_ID='+SQ21+'&Q22_ID='+SQ22+'&Q23_ID='+SQ23+'&Q24_ID='+SQ24+'&Q25_ID='+SQ25+'&Q26_ID='+SQ26+'&Q27_ID='+SQ27+'&Q28_ID='+SQ28+'&Q29_ID='+SQ29;
+		
+        if(id.startsWith("006")){
+            url += '&OptyID='+id+'&SurveyType=Opty'; 
+        }
+        else if(id.startsWith("701")){
+			url +='&CampaignID='+id+'&SurveyType=Cam';
+        }
+        //alert(url);
+		window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+	}
 
 </script>
 <apex:form >
@@ -929,28 +1147,36 @@ function survey8_TY(){
 	<apex:pageBlock rendered="{!TEXT($User.Market__c) =='MY'}">
         <apex:outputLabel>Sorry! We do not have surveys for Malaysia!</apex:outputLabel>
     </apex:pageBlock>
-    <apex:pageBlock title="SURVEYS" rendered="{!TEXT($User.Market__c) =='TR'}">
+    <apex:pageBlock title="{!$Label.Survey}" rendered="{!TEXT($User.Market__c) =='TR'}">
         
             <apex:pageBlockSection rendered="{!Task.What.Type == 'Case'}" columns="1">
-                <apex:outputLink onclick="survey1_TY();" >Carecall calls for complaint cases</apex:outputLink>   
-                <apex:outputLink onclick="survey2_TY();" >Carecall calls for inquiry cases</apex:outputLink>
+                <apex:outputLink onclick="survey1_TY();" >{!$Label.Carecall_Compliant}</apex:outputLink>   
+                <apex:outputLink onclick="survey2_TY();" >{!$Label.CareCall_Inquiry}</apex:outputLink>
             </apex:pageBlockSection>
             
             <apex:pageBlockSection rendered="{!Task.What.Type == 'Opportunity'}" columns="1">
-                <apex:outputLink onclick="survey3_TY();" >Lead confirmation/ Sales</apex:outputLink>
-                <apex:outputLink onclick="survey4_TY();" >Lead confirmation/ After Sales</apex:outputLink>
-                 <apex:outputLink onclick="survey8_TY();" >Lost Sales Management Survey</apex:outputLink>
+                <!--<apex:outputLink onclick="survey3_TY();" >Lead confirmation/ Sales</apex:outputLink>
+                <apex:outputLink onclick="survey4_TY();" >Lead confirmation/ After Sales</apex:outputLink>-->
+                 <apex:outputLink onclick="survey8_TY();" >{!$Label.Lost_Sales}</apex:outputLink>
             </apex:pageBlockSection>
             
             <apex:pageBlockSection rendered="{!Task.What.Type == 'Account'}" columns="1">
-                <apex:outputLink onclick="survey5_TY();" >Platinum data updates</apex:outputLink>
-                <apex:outputLink onclick="survey6_TY();" >Customer data updates</apex:outputLink>            
+                <apex:outputLink onclick="survey5_TY();" >{!$Label.Platinum_Survey}</apex:outputLink>
+                <apex:outputLink onclick="survey6_TY();" >{!$Label.Customer_Survey}</apex:outputLink>            
             </apex:pageBlockSection>
             
             <apex:pageBlockSection rendered="{!Task.What.Type == 'Campaign'}" >
-                <apex:outputLink onclick="survey7_TY();" >Event satisfaction evaluations</apex:outputLink>
+                <apex:outputLink onclick="survey7_TY();" >{!$Label.Event_Survey}</apex:outputLink>
             </apex:pageBlockSection>      
         
+    </apex:pageBlock>
+    <apex:pageBlock title="SURVEYS" rendered="{!TEXT($User.Market__c) =='IN'}">
+        <apex:pageBlockSection >
+            <apex:outputLink onclick="survey1_IN();" >Mercedes Benz Sales Survey</apex:outputLink>
+            <br/>
+            <apex:outputLink onclick="survey2_IN();" >CLI Baseline Measurement on national level - Sales Process Survey</apex:outputLink>
+            <br/> 
+        </apex:pageBlockSection>
     </apex:pageBlock>
 </apex:form>
 </apex:page>

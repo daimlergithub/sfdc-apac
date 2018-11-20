@@ -88,7 +88,7 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
  }
   system.debug('#$#$# ChildCamId#$#$ d'+ChildCamId);
   
-  
+ /* 
  if(ChildCamId!=null)
  {
  Campaignmember=[select id,Status__c from Campaign_Member__c where Campaign_ID__c=:ChildCamId AND Status__c = 'Executed' ];
@@ -105,13 +105,13 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
  UpdateCampaignmember.add(cmm);
  }
   }
- }
+ }  */
  
  
  
- Update UpdateCampaignmember;
+ //Update UpdateCampaignmember;
  
  
- system.debug('#$#$# UpdateCampaignmember#$#$ d'+UpdateCampaignmember);
+ //system.debug('#$#$# UpdateCampaignmember#$#$ d'+UpdateCampaignmember);
  }
 }

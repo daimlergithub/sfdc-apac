@@ -1,0 +1,39 @@
+<aura:component implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" controller="AuraLabelHelper">
+    <aura:attribute name="recordId" type="Id" default="" />
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="optinRecord" type="Object"/>
+    <aura:attribute name="optinTitle" type="String" default="Opt-In Summary" />
+    <aura:attribute name="optinIcon" type="String" default="standard:feedback" />
+    <aura:attribute name="fieldList" 
+                    type="String" 
+                    default="Opt_In_Email__c,Opt_In_Phone__c,Opt_In_Mail__c,Opt_In_Mobile__c,Opt_In_SMS__c"/>
+    <aura:attribute name="fieldListArray" 
+                    type="String[]" 
+                    default="Opt_In_Email__c,Opt_In_Phone__c,Opt_In_Mail__c,Opt_In_Mobile__c,Opt_In_SMS__c"/>
+    <aura:attribute name="valueList" type="Map" />
+    <aura:attribute name="itemSize" type="String" default="1" />
+    <aura:attribute name="formReady" type="Boolean" default="false" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    
+    <aura:if isTrue="{!v.formReady}">
+    <force:recordData aura:id="optinLoader"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.optinRecord}"
+                      fields="{!v.fieldListArray}"
+                      recordUpdated="{!c.recordReady}"
+                      />
+    
+    <lightning:card iconName="{!v.optinIcon}" title="{!v.optinTitle}">
+        <lightning:layout horizontalAlign="spread" multipleRows="true">
+            <aura:iteration items="{!v.valueList}" var="optinItem" indexVar="key">
+                <lightning:layoutItem padding="around-small" size="{!itemSize}">               
+                    <lightning:icon iconName="{!optinItem.icon}"
+                                    alternativeText="{!optinItem.label +': '+optinItem.icon}"
+                                    size="xx-small"/>
+                    {!optinItem.label}
+                </lightning:layoutItem>
+            </aura:iteration>
+        </lightning:layout>
+    </lightning:card>
+    </aura:if>    
+</aura:component>

@@ -17,7 +17,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
            insert updatecustomsettings;
       
-           testAccount = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
+           testAccount = (Account)UtilTestData.createSobject(new Account(MD__c='JP'), UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
            vehicle_relationship = (Vehicle_Relationship__c)UtilTestData.createSobject(new Vehicle_Relationship__c(), UtilTestData.VEHICLE_RELATIONSHIP);
            vehicle_relationship.Start_Date__c = startDate;
            vehicle_relationship.End_Date__c = endDate;

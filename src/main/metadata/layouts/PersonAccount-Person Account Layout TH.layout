@@ -105,10 +105,6 @@
                 <field>Special_Mark_on_Account__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>UpsellOpportunity__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Individual_Home_Phone__c</field>
             </layoutItems>
@@ -127,6 +123,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Last_Campaign_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Loyalty_Credit_Card_Member__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -223,11 +223,11 @@
                 <field>Preferred_Contact_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Reference__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Primary_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
@@ -341,6 +341,10 @@
                 <behavior>Edit</behavior>
                 <field>Industry</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>UpsellOpportunity__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -441,7 +445,7 @@
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
         <sortField>RECORDTYPE</sortField>
-        <sortOrder>Asc</sortOrder>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
@@ -547,7 +551,7 @@
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
         <sortField>CAMPAIGN.CAMPAIGN_TYPE</sortField>
-        <sortOrder>Asc</sortOrder>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
 	<relatedLists>
         <excludeButtons>New</excludeButtons>
@@ -561,6 +565,21 @@
         <fields>CampaignName__c</fields>
         <relatedList>SMS_Result__c.Account__c</relatedList>
         <sortField>Date__c</sortField>
+        <sortOrder>Desc</sortOrder>
+    </relatedLists>
+	<relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>et4ae5__SubjectLine__c</fields>
+        <fields>et4ae5__FromName__c</fields>
+        <fields>et4ae5__FromAddress__c</fields>
+        <fields>et4ae5__DateSent__c</fields>
+        <fields>et4ae5__Opened__c</fields>
+        <fields>et4ae5__DateOpened__c</fields>
+        <fields>et4ae5__DateBounced__c</fields>
+        <fields>LAST_UPDATE</fields>
+        <relatedList>et4ae5__IndividualEmailResult__c.et4ae5__Contact__c</relatedList>
+		<sortField>LAST_UPDATE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>

@@ -56,6 +56,7 @@ public class createRetailCopyTRTest {
             address.Address_Line_2__c='testaddress2';
             address.Customer__c=personAcc.id;
             address.TitleOfHonor__c = 'To Person';
+			address.Country__c = 'Turkey';
             
             
             insert address;
@@ -132,6 +133,7 @@ public class createRetailCopyTRTest {
             address.Address_Line_2__c='testaddress2';
             address.Customer__c=companyacc.id;
             address.TitleOfHonor__c = 'To Person';  
+			address.Country__c = 'Turkey';
             
             
             insert address;
@@ -186,8 +188,8 @@ public class createRetailCopyTRTest {
     }
     
     
-    public static testMethod void DealerTestTR()
-    {
+   public static testMethod void DealerTestTR()
+   {
         Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
         userrole ur = [select id,name from userrole WHERE Name='Daimler APAC'];  
          user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
@@ -206,14 +208,31 @@ public class createRetailCopyTRTest {
         
         //create user  
         // User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
-        
-        Id p = [SELECT Id FROM Profile WHERE usertype='PowerPartner' limit 1].id;
+		PermissionSet ps = new PermissionSet();
+		ps.Name = 'Test';
+		ps.Label = 'Test';
+		insert ps;
+		
+		CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.TRGeneric ];
+
+		  SetupEntityAccess sea = new SetupEntityAccess();
+		  sea.ParentId = ps.Id;
+		  sea.SetupEntityId = cps.id;
+		  insert sea;
+		   profile p = [SELECT Id,name FROM Profile WHERE usertype='PowerPartner' limit 1];
+        Market__c market_Obj = new Market__c(Market_Code__c = 'TR', Market__c = 'Turkey');
+		Insert market_Obj; 
+		Functionality_Access_Master__c functionality_access_master_Obj = new Functionality_Access_Master__c(Description__c = '12', Module_Name__c = 'Modul230', PermissionSet_Ids__c = ps.id, Permission_Sets__c = ps.name);
+		Insert functionality_access_master_Obj; 
+		Persona__c persona_Obj = new Persona__c(Market_Access__c = market_Obj.id, Functionality_Access__c = functionality_access_master_Obj.id, Active__c = true, PersonaName__c = 'IntegrationPerso111', ProfileId__c = p.Id , Profiles__c = p.name);
+		Insert persona_Obj; 
+       
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
             Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
             
             FirstName = 'firstname',
-            ProfileId = p,            
+            ProfileId = p.Id,            
             Alias = 'test123',
             Email = 'test12345@test.com',
             EmailEncodingKey = 'UTF-8',
@@ -223,7 +242,8 @@ public class createRetailCopyTRTest {
             LocaleSidKey = 'en_US',
             LanguageLocaleKey = 'en_US',
             Market__c='TR',
-            ContactId=con.id
+            ContactId=con.id,
+            Persona_Assigned__c = 'IntegrationPerso111'
         );
         
         insert usr;
@@ -251,6 +271,7 @@ public class createRetailCopyTRTest {
                                      Primary_Phone__c ='Other2',
                                      Company__c=dealer.id,
                                      Main_Dealer__c = dealer.Id,
+									 Corporate_Category__c='Rental',
                                      RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
             
             insert companyacc;
@@ -262,10 +283,12 @@ public class createRetailCopyTRTest {
             address.Province__c='Ayas';
             address.City__c='Ankara';
             address.District__c='Ayas';
+			address.zipcode__c='22222';
             address.Address_Line_1__c='testaddressone';
             address.Address_Line_2__c='testaddresstwo';
             address.Customer__c=companyacc.id;
-            address.Market__c='TR';           
+            address.Market__c='TR'; 
+			address.Country__c='Turkey';			
             
             insert address;
             
@@ -291,10 +314,18 @@ public class createRetailCopyTRTest {
         }
         
         
-    }
-    /*public static testMethod void DealerTestPersonTR()
+    } 
+    public static testMethod void DealerTestPersonTR()
     {
         
+        Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+        userrole ur = [select id,name from userrole WHERE Name='Daimler APAC'];  
+         user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                                 EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                                 LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='TR',userroleid=ur.id,
+                                 TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user_Obj );
+        system.runAs(user_Obj){  
         // create a Dealer
         dealer = (Account)UtilTestData.createSobject(new Account(market__c='TR'), UtilTestData.ACCOUNT_RT_DEALER);
         
@@ -305,14 +336,31 @@ public class createRetailCopyTRTest {
         
         //create user  
         // User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+        PermissionSet ps = new PermissionSet();
+		ps.Name = 'Test';
+		ps.Label = 'Test';
+		insert ps;
+		
+		CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.TRGeneric ];
+
+		  SetupEntityAccess sea = new SetupEntityAccess();
+		  sea.ParentId = ps.Id;
+		  sea.SetupEntityId = cps.id;
+		  insert sea;
         
-        Id p = [SELECT Id FROM Profile WHERE usertype='PowerPartner' limit 1].id;
+          profile p = [SELECT Id,name FROM Profile WHERE usertype='PowerPartner' limit 1];
+        Market__c market_Obj = new Market__c(Market_Code__c = 'TR', Market__c = 'Turkey');
+		Insert market_Obj; 
+		Functionality_Access_Master__c functionality_access_master_Obj = new Functionality_Access_Master__c(Description__c = '12', Module_Name__c = 'Modul230', PermissionSet_Ids__c = ps.id, Permission_Sets__c = ps.name);
+		Insert functionality_access_master_Obj; 
+		Persona__c persona_Obj = new Persona__c(Market_Access__c = market_Obj.id, Functionality_Access__c = functionality_access_master_Obj.id, Active__c = true, PersonaName__c = 'IntegrationPerso111', ProfileId__c = p.Id , Profiles__c = p.name);
+		Insert persona_Obj; 
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
             Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
             
             FirstName = 'firstname',
-            ProfileId = p,            
+            ProfileId = p.Id,            
             Alias = 'test123',
             Email = 'test12345@test.com',
             EmailEncodingKey = 'UTF-8',
@@ -322,12 +370,13 @@ public class createRetailCopyTRTest {
             LocaleSidKey = 'en_US',
             LanguageLocaleKey = 'en_US',
             Market__c='TR',
-            ContactId=con.id
+            ContactId=con.id,
+             Persona_Assigned__c = 'IntegrationPerso111'
         );
         
         insert usr;
         
-        
+        }
         System.runAs (usr) {
             
             //Insert Person Account
@@ -340,8 +389,8 @@ public class createRetailCopyTRTest {
                                     Area_code__c = '0101',
                                     MD__c = 'TR',
                                     Market__c = 'TR',
-                                    LastName = '刈乾冠寒刊勘',
-                                    FirstName = '刈乾冠寒刊勘',
+                                    LastName = 'Last Name',
+                                    FirstName = 'First Name',
                                     Salutation = 'Unknown',      
                                     Province__c = 'Shanghai',
                                     data_source__c='MBT Event',
@@ -373,11 +422,12 @@ public class createRetailCopyTRTest {
             address.District__c='test2';
             address.Block__c='test3';
             address.market__c='TR';
+			address.zipcode__c='12345';
             address.Address_Line_1__c='testaddress1';
             address.Address_Line_2__c='testaddress2';
             address.Customer__c=personAcc.id;
             address.TitleOfHonor__c = 'To Person';  
-            
+            address.Country__c = 'Turkey'; 
             
             insert address;
             Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
@@ -398,5 +448,5 @@ public class createRetailCopyTRTest {
         }
         
         
-    }*/
+    }
     }

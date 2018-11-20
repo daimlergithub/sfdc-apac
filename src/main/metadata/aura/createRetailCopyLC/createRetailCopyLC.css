@@ -1,0 +1,19 @@
+/*.THIS .tableAuto{
+    table-layout:auto!important;
+}
+.THIS .toggle {
+   display: none;
+}
+.THIS .toggledisplay {
+   display: '';
+}
+.THIS .slds-form-element__label{
+    display: none;
+}
+.THIS .slds-grid_align-spread{
+	width: 80%;
+    margin-left: 70px;    
+}*/
+.THIS .slds-scrollable_y {
+    min-height: 150px;
+}

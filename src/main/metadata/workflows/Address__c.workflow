@@ -72,6 +72,18 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+	    <fullName>Update Account Customer LastUpdatedDate when I%2FF fields changed FM</fullName>
+        <actions>
+            <name>Update_Account_customer_modified_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>and(
+CONTAINS($Label.Update_Account_Customer_LastUpdatedDate_when_I_F_fields_changed_FM,TEXT(Market__c )),
+(ISCHANGED( Province_Native__c) || ISCHANGED(City_Native__c) ||  ISCHANGED( District_Native__c ) || ISCHANGED( Block_Native__c ) ||  ISCHANGED( Address_Line_1_Native__c) || ISCHANGED( Address_Line_2_Native__c) ||  ISCHANGED( Province__c ) || ISCHANGED( City__c ) ||  ISCHANGED( District__c ) || ISCHANGED( Block__c ) ||  ISCHANGED( Address_Line_1__c ) || ISCHANGED( Address_Line_2__c) || ISCHANGED( ZipCode__c )))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Address Type Last Modified fields on Address</fullName>
         <actions>
             <name>Update_Address_Type_Last_Modified_Date</name>

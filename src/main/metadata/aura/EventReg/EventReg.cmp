@@ -1,0 +1,88 @@
+<!--************************************************************************************
+* Created By:Infosys Ltd
+* Created Date:05-Sep-2018
+* Company:Infosys Ltd
+* Description: Component to create registrations on Event.
+* **********************************************************************************-->
+<aura:component controller="eventController" implements="lightning:actionOverride,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >   
+    
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="recordIdValue" type="Id" />
+    <aura:attribute name="spinner" type="Boolean" default="true" />
+    <aura:attribute name="flag" type="Boolean" default="false" />
+    <aura:attribute name="message" type="String" />
+    <!-- <aura:if isTrue="{!v.spinner}">
+        <div class="backgroundInverse">
+            <lightning:spinner alternativeText="Loading" variant="brand" />
+        </div>
+    </aura:if> -->  
+    <aura:if isTrue="{!!empty(v.message)}">
+        <ui:message title="Information" severity="info" closable="false">
+            {!v.message}
+        </ui:message>
+    </aura:if>
+    <lightning:recordEditForm aura:id="editForm" recordId="{!v.recordIdValue}" objectApiName="Registration__c" onload="{!c.handleloader}" onsuccess="{!c.handleSuccess}" onerror="{!c.handleError}">
+        <lightning:messages/>
+        <div class="slds-align_absolute-center">
+            <lightning:card title="Registration" class="style:bold;">                        
+            </lightning:card>                    
+        </div>
+        <br/>
+        
+        <fieldset class="slds-form--compound">
+            <div class="slds-show slds-form-element_group">
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-1">
+                        <lightning:inputField fieldName="First_Name__c" aura:id="First_Name__c" value=""/> 
+                    </div>
+                </div>
+                
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-1">
+                        <lightning:inputField fieldName="Last_Name__c" aura:id="Last_Name__c" value=""/>  
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-1">
+                        <lightning:inputField fieldName="Job_Title__c" aura:id="Job_Title__c" value=""/> 
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-1">
+                        <lightning:inputField fieldName="Company_Name__c" aura:id="Company_Name__c" value=""/> 
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-1">
+                        <lightning:inputField fieldName="Email_Id__c" aura:id="Email_Id__c" value=""/> 
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-1">
+                        <lightning:inputField fieldName="Contact_Number__c" aura:id="Contact_Number__c" value=""/> 
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-1">
+                        <lightning:inputField fieldName="Country__c" aura:id="Country__c" value=""/>
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-1">
+                        <lightning:inputField fieldName="State__c" aura:id="State__c" value=""/>
+                    </div>
+                </div>
+                <div class="slds-form-element__row slds-hide">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-1">
+                        <lightning:inputField fieldName="Related_Event__c" aura:id="Related_Event__c" value="" class="parent"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>               
+    </lightning:recordEditForm>
+    
+    <div class="slds-align_absolute-center">                                
+        <lightning:button class="slds-m-top_small" variant="brand" type="button" name="register" label="Register Now" onclick="{!c.register}" disabled="{!v.flag}" />    
+    </div>   
+    
+</aura:component>

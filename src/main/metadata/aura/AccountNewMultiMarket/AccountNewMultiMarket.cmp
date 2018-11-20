@@ -1,0 +1,160 @@
+<!-- Component to create new Account
+     (C)) Daimler SEA Copyright  2018
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,flexipage:availableForRecordHome,lightning:actionOverride,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" access="global" controller="AccountNewMultiMarketLTG">
+    <aura:attribute name="accLabel" type="String" />
+    <aura:attribute name="accountOwner" type="String" />
+    <aura:attribute name="accountState" type="String" />
+    <aura:attribute name="accTypeLabel" type="String" />
+    <aura:attribute name="accountDefaultValues" type="String[]" />                  
+    <aura:attribute name="addressDefaultValues" type="String[]" />
+    <aura:attribute name="Address_Validated_Flag" type="String" />
+    <aura:attribute name="addressState" type="String" />
+    <aura:attribute name="buttons" type="String[]" />
+    <aura:attribute name="cancelButton" type="String" />
+    <aura:attribute name="colList" type="List" />
+    <aura:attribute name="compAcct" type="String" />
+    <aura:attribute name="companyName" type="String"/>
+    <aura:attribute name="datasource" type="Boolean" default="false" />
+    <aura:attribute name="deDuplicationAccounts" type="Object" />
+    <aura:attribute name="deduplicationButton" type="String" />
+    <aura:attribute name="displayListAccount" type="String[]" />
+    <aura:attribute name="displayListAddress" type="String[]" />
+    <aura:attribute name="displayPhoneNos" type="String[]" />
+    <aura:attribute name="errorMsg" type="String"/>
+    <aura:attribute name="firstsave" type="Boolean" default="false" />
+    <aura:attribute name="fromCDM" type="Boolean" default="true" />
+    <aura:attribute name="hasError" type="Boolean" />
+    <aura:attribute name="hasSpinner" type="boolean"/>
+    <aura:attribute name="isCommunity" type="String"/>
+    <aura:attribute name="communityName" type="String"/>
+    <aura:attribute name="lstErrorMsg" type="String[]"/>
+    <aura:attribute name="mbkdatasource" type="Boolean" default="false" />
+    <aura:attribute name="objAccount" type="Account" default="{'sobjectType':'Account'}" />
+    <aura:attribute name="objAddress" type="Address__c" default="{'sobjectType':'Address__c'}" />
+    <aura:attribute name="options" type="List" default="[
+    {'label': 'Person Account', 'value': 'Person Account'},
+    {'label': 'Company', 'value': 'Company'}                                         
+    ]" />
+    <aura:attribute name="personAcct" type="String" />
+    <aura:attribute name="recordAddressId" type="Id" />
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="result" type="String" />
+    <aura:attribute name="saveButton" type="String" />
+    <aura:attribute name="selectedRecordId" type="String" />
+    <aura:attribute name="selectedRecordtype" type="Id" />
+    <aura:attribute name="TouchPoint" type="String" />
+    <aura:attribute name="user" type="User" default="{'sobjectType':'User'}" />
+    <aura:attribute name="userMarket" type="String"/>
+    <aura:attribute name="userMarketAll" type="String"/>
+    <aura:attribute name="vfHost" type="String" />
+    <aura:attribute name="vfPage" type="String" />
+    <aura:attribute name="Zip" type="String" />
+    <aura:attribute name="ANZUserwithCustomPermission" type="String" default="False"/>
+    <aura:attribute name="zState"
+                    type="String"
+                    default="init"
+                    description="State of form governs what part of the form gets shown"
+                    access="private"/> 
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="RecordTypeSelected" event="c:RecordTypeSelected" action="{!c.getRecType}" />
+    <aura:handler event="aura:locationChange" action="{!c.locationChange}"/>
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    <div class="exampleHolder">
+        <aura:if isTrue="{!v.hasSpinner}">
+            <lightning:spinner alternativeText="Loading" />
+        </aura:if>
+    </div>
+    <div>
+        <aura:if isTrue="{!v.zState=='init'}">
+            <lightning:spinner alternativeText="Loading" />
+        </aura:if>
+    </div>
+    <aura:if isTrue="{!(v.zState=='pickrecordtype')}">
+        <c:RecordTypeSelection ObjName="Account" options="{!v.options}" userMarket="{!v.userMarket}"  availableMarkets="{!v.userMarketAll}" ANZCheckValue="{!v.ANZUserwithCustomPermission}"/>
+        <lightning:inputField fieldName="Name" />
+    </aura:if>
+    <aura:if isTrue="{!(v.zState=='enterdata')}">
+        <lightning:card title="{!v.accLabel}" iconName="standard:account">
+            <aura:if isTrue="{!v.hasError}">
+                <div id="errormsg" class="slds-m-top_x-small slds-m-bottom_x-small validationError slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error">
+                    <aura:iteration items="{!v.lstErrorMsg}" var="item">
+                        <aura:if isTrue="{!(item!='Error')}">
+                            Error: {!item}<br />
+                        </aura:if>
+                    </aura:iteration>
+                </div>
+            </aura:if>
+            <lightning:messages />
+            <!--Person Account Starts-->
+            <aura:if isTrue="{!and((v.selectedRecordId == v.personAcct),(v.zState=='enterdata'))}">
+                <lightning:card>
+                    <aura:set attribute="title">
+                        <lightning:icon iconName="standard:people" size="small" />
+                        &nbsp;&nbsp;{!v.accTypeLabel}
+                    </aura:set>
+                    <div class="slds-card__body slds-card__body_inner slds-box">
+                        <lightning:recordEditForm aura:id="createPersonAccount" onsubmit="{!c.onRecordAccountSubmit}" objectApiName="Account" recordId="{!v.recordId}" recordTypeId="{!v.selectedRecordtype}">
+                            <lightning:messages />
+                            <c:dynamicInputFields inputFieldList="{!v.displayListAccount}" defaultValues="{!v.accountDefaultValues}" layoutSize="5" onchange="{!c.getInputFieldData}"></c:dynamicInputFields>
+                        </lightning:recordEditForm>
+                    </div>
+                </lightning:card>
+            </aura:if>
+            <!--Person Account Ends-->
+            <!--Company Account Starts-->
+            <aura:if isTrue="{!and((v.selectedRecordId == v.compAcct),(v.zState=='enterdata'))}">
+                <lightning:card>
+                    <aura:set attribute="title">
+                        <lightning:icon iconName="utility:company" size="small" />
+                        &nbsp;&nbsp;{!v.accTypeLabel}
+                    </aura:set>
+                    <div class="slds-card__body slds-card__body_inner slds-box">
+                        <lightning:layout multipleRows="true" horizontalAlign="spread">
+                            <lightning:layoutItem size="5">
+                                <lightning:input type="text" name="Name" label="Name" value="{!v.companyName}" onchange="{!c.getAccountName}" />
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                        <lightning:recordEditForm aura:id="createCompanyAccount" onsubmit="{!c.onRecordAccountSubmit}" objectApiName="Account" recordId="{!v.recordId}" recordTypeId="{!v.selectedRecordtype}">
+                            <c:dynamicInputFields inputFieldList="{!v.displayListAccount}" defaultValues="{!v.accountDefaultValues}" layoutSize="5" onchange="{!c.getInputFieldData}"></c:dynamicInputFields>                                   
+                        </lightning:recordEditForm>
+                    </div>
+                </lightning:card>
+            </aura:if>
+            <!--Company Account Ends-->
+            <!--Address Starts-->
+            <aura:if isTrue="{!v.zState=='enterdata'}">
+                <lightning:card>
+                    <aura:set attribute="title">
+                        <lightning:icon iconName="standard:address" size="small" />
+                        &nbsp;&nbsp;Address Information
+                    </aura:set>
+                    <div class="slds-card__body slds-card__body_inner slds-box">
+                        <lightning:recordEditForm aura:id="createAddress" onsubmit="{!c.onRecordAddressSubmit}" objectApiName="Address__c" recordId="{!v.recordAddressId}">
+                            <c:dynamicInputFields inputFieldList="{!v.displayListAddress}" defaultValues="{!v.addressDefaultValues}" layoutSize="5" onchange="{!c.getInputFieldDataAddress}"></c:dynamicInputFields>
+                            <lightning:layout multipleRows="true" horizontalAlign="spread">
+                                <lightning:layoutItem size="5">
+                                    <lightning:input type="text" name="Postal Code" label="Postal Code" value="{!v.Zip}" onchange="{!c.getZip}" />
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                        </lightning:recordEditForm>
+                    </div>
+                </lightning:card>
+            </aura:if>
+            <!--Address Ends-->
+            <footer class="slds-card__footer">
+                <aura:iteration items="{!v.buttons}" var="item">
+                    <lightning:button variant="brand" label="{!item}" onclick="{!c.viewButton}" />
+                </aura:iteration>
+            </footer>
+            <!--<lightning:button variant="brand" label="Test Aura" onclick="{!c.viewData}"/>-->
+            <!--Integration Result Start-->
+            <aura:if isTrue="{!or(v.result!=null,v.result!=undefined)}">
+                <lightning:dataTable columns="{!v.colList}" data="{!v.deDuplicationAccounts}" keyField="id" onrowaction="{!c.handleRowAction}" />
+            </aura:if>
+            <!--Integration Result End-->
+            <iframe aura:id="vfFrame" src="{!(v.vfHost + v.vfPage)}" frameborder="0" width="1" height="1" />
+        </lightning:card>
+    </aura:if>
+</aura:component>

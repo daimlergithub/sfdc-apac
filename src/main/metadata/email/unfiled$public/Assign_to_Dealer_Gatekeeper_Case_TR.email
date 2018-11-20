@@ -1,17 +1,16 @@
-Good morning,
+Sayın İlgili,
 
-A new case has been brought in.
+Tarafınıza bir çağrı atanmıştır.
 
-Please expedite the case.
+Kontak:  {!Case.Account} 
+Bayi: {!Case.Case_Dealer__c} 
+Çağrı numarası: {!Case.CaseNumber}
+Konu: {!Case.Subject} 
+Açıklama: {!Case.Description} 
 
-Customer Name: {! Case.Account}
-Contact and complaint dealers: {! Case.Case_Dealer__c}
-Case number: {! Case.CaseNumber}
-Title: {! Case.Subject}
-Content: {! Case.Description}
 
-You can find more information about this case through the link below.
+Çağrı detaylarına ulaşmak için alttaki linke tıklayabilirsiniz: 
 
-{! Case.Link}
+{!Case.Link} 
 
-- MBTR Customer Center -
+Mercedes-Benz Müşteri İletişim Merkezi

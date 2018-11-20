@@ -108,7 +108,7 @@ public class AddressDisplayInlineEditControllerINTest
             
             // Create User
             List<User> userList = new List<User>();
-            sysAdminUser1 = new User ( Alias = 'sysA1'
+            sysAdminUser1 = new User ( Alias = 'sysAdm'
                                       , Email='sysAdmin1@dialmer.com'
                                       , EmailEncodingKey='UTF-8'
                                       , LastName='Adminstrator'
@@ -127,10 +127,12 @@ public class AddressDisplayInlineEditControllerINTest
             
             objAccount= new Account();
             objAccount.RecordtypeId=PersonaccRTId;
-            objAccount.Firstname='test1';
-            objAccount.LastName='test2';
+            objAccount.Firstname='testOne';
+            objAccount.LastName='testTwo';
             objAccount.salutation='Mr.';
             objAccount.Type='Personal';
+            objAccount.Phone ='+911234567890';
+            objAccount.Work_Phone__c ='+911234567890';
             objAccount.Status__c='Active';
             objAccount.Province__c='test';
             objAccount.City__c='test';
@@ -171,7 +173,7 @@ public class AddressDisplayInlineEditControllerINTest
                         Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c  from Address__c where Id =:objAddress.Id];
             system.debug('editadds>>>'+editadds);
             editadds[0].Preferred__c=false;
-            editadds[0].Province__c='test1';
+            editadds[0].Province__c='testOn';
             editadds[0].isTestrunning__c=true;
             //editadds[0].Address_Type__c ='Company';        
             update editadds;

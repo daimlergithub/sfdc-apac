@@ -109,30 +109,70 @@ Modify Reason:
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Other</valueName>
-            </valueSettings>
+                </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>MB</valueName>
-            </valueSettings>
+                </valueSettings>
             <valueSettings>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>AMG</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Smart</valueName>
-            </valueSettings>
+              </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -367,15 +407,25 @@ IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA')))))))</defaultValue>
     </fields>
     <fields>
         <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+       <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',									  
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN', 
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ', 
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
-IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
-        <externalId>false</externalId>
+IF(ISPICKVAL($User.Market__c, 'ID'), 'ID',
+IF(ISPICKVAL($User.Market__c, 'VN'), 'VN', 
+IF(ISPICKVAL($User.Market__c, 'SG'), 'SG', 
+IF(ISPICKVAL($User.Market__c, 'RO'), 'RO', 
+IF(ISPICKVAL($User.Market__c, 'HU'), 'HU', 
+IF(ISPICKVAL($User.Market__c, 'SK'), 'SK', 
+IF(ISPICKVAL($User.Market__c, 'AR'), 'AR', 
+IF(ISPICKVAL($User.Market__c, 'CO'), 'CO', 
+IF(ISPICKVAL($User.Market__c, 'EG'), 'EG',  
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))))))))))))</defaultValue>
+ <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -423,6 +473,51 @@ IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
                     <fullName>IN</fullName>
                     <default>false</default>
                     <label>IN</label>
+                </value>
+                <value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                    <label>ID</label>
+                </value>
+                <value>
+                    <fullName>VN</fullName>
+                    <default>false</default>
+                    <label>VN</label>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>false</default>
+                    <label>SG</label>
+                </value>
+                <value>
+                    <fullName>RO</fullName>
+                    <default>false</default>
+                    <label>RO</label>
+                </value>
+                <value>
+                    <fullName>HU</fullName>
+                    <default>false</default>
+                    <label>HU</label>
+                </value>
+                <value>
+                    <fullName>SK</fullName>
+                    <default>false</default>
+                    <label>SK</label>
+                </value>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                    <label>AR</label>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                    <label>CO</label>
+                </value>
+                <value>
+                    <fullName>EG</fullName>
+                    <default>false</default>
+                    <label>EG</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2455,67 +2550,174 @@ Modify Reason:
                 </value>
             </valueSetDefinition>
             <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>Car Book</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>Price List</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>smart manual</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <valueName>Letterheads envelopes and consumables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>MB Magazine</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>Journals and magazines</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>Entrance Ticket</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>Presents</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <valueName>Folding</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>Others</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Invitation Letter/Card</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Souvenir/Gifts</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Handbook</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Welcome Pack</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Voucher</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Loyalty card</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Random Act of Kindness</valueName>
             </valueSettings>
             <valueSettings>
@@ -2574,7 +2776,7 @@ Modify Reason:
             <operation>equals</operation>
             <value>TH</value>
         </filters>
-        <label>All MBTH DM Materials</label>
+        <label>All DM Materials</label>
         <language>en_US</language>
         <sharedTo>
             <group>THUsers</group>
@@ -2893,12 +3095,36 @@ Modify Reason:
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>DM_Material_Market_can_not_be_changed_FM</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != '$Label.Integration_API_User', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorMessage>Market field of DM Material should be same as user's market field</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>LabelPrint_NoOfDigit</fullName>
         <active>true</active>
         <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,
     OR(MD__c ='JP', MD__c ='KR', if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),	if(AND(MD__c=='IN',$Permission.INGeneric),true,false)),
     $Profile.Name != 'IntegrationAPI'
    )</errorConditionFormula>
+        <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
+        <errorMessage>Label Printing Name should be less than or equal to 23 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Type_is_required</fullName>
+        <active>true</active>
+        <description>The Type field is mandatory</description>
+        <errorConditionFormula>AND( ISPICKVAL(Market__c, "TR"),$Profile.Name != 'IntegrationAPI', TEXT(Type__c)="")</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The Type field cannot be blank</errorMessage>
+</validationRules>
+ <validationRules>
+        <fullName>LabelPrint_NoOfDigit_FM</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23, 
+OR( CONTAINS( $CustomMetadata.Validation_Parameterization_FM__mdt.LabelPrint_NoOfDigit_FM.Market__c ,""+TEXT(Market__c)+""), 
+$Profile.Name != '$Label.Integration_API_User' 
+))</errorConditionFormula>
         <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
         <errorMessage>Label Printing Name should be less than or equal to 23 letters.</errorMessage>
     </validationRules>

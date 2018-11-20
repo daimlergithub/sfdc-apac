@@ -5,5 +5,5 @@
         <sharedTo>MBTR_Management</sharedTo>
         <sharedToType>RoleAndSubordinatesInternal</sharedToType>
     </folderShares>
-    <name>Data Stats</name>
+    <name>MBT Data Stats</name>
 </ReportFolder>

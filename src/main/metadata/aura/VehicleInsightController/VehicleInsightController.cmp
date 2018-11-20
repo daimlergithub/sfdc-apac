@@ -1,0 +1,22 @@
+<aura:component  controller = "VehicleInsightController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >    
+    <aura:attribute name = "SurveyType" type = "String" default="Vehicle"/>
+    <aura:attribute name = "Context" type = "String" default="Account"/>	
+    <aura:attribute name = "Vehicle" type = "object"/>    
+	<aura:handler name="init" action="{!c.myAction}" value="{!this}"/> 
+    
+    
+    <h3 class="slds-section-title--divider"> Vehicle Insights</h3><br/>
+    <div style="margin-left:10px">
+    <lightning:accordion  allowMultipleSectionsOpen="true" aura:id="accordion">
+      <aura:iteration items= "{!v.Vehicle}" var = "varVehicle">   
+        <lightning:accordionSection name="{!varVehicle.vehicleId}" label="{!varVehicle.vehicleName}">
+            <aura:set attribute="body">
+               <div style="min-height: 100px">      
+        			<c:InsightQuestions SurveyType = "{!v.SurveyType}" Context = "{!v.Context}" recordId = "{!varVehicle.vehicleId}"/><br/>
+    			</div>
+    		</aura:set>
+        </lightning:accordionSection>
+        </aura:iteration>
+    </lightning:accordion>
+    </div>    
+</aura:component>

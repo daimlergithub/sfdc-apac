@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+     <sharingCriteriaRules>
+        <fullName>AU_VR_Edit_to_MB_AU_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Allow Edit access to wholesale users of AU VP and its subordinates</description>
+        <label>AU_VR_Edit_to_MB_AU_VP</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vehicle Relationship Retail,Vehicle Relationship</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+	<sharingCriteriaRules>
+        <fullName>IN_Share_VRs_with_MPC_And_FS</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>IN Share VRs with MPC And FS</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vehicle Relationship Retail,Vehicle Relationship</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
     <sharingCriteriaRules>
         <fullName>JP_MarketVehicle_Relatioship_Readable_to_MBJ_IT_Dept</fullName>
         <accessLevel>Edit</accessLevel>
@@ -22,6 +59,19 @@
             <field>Allow_Data_Sharing__c</field>
             <operation>equals</operation>
             <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBFS_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>MBFS Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -50,6 +100,25 @@
             <value>MY</value>
         </criteriaItems>
     </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NZ_VR_Edit_to_MB_NZ_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Edit access to wholesale users of NZ VP and its subordinates</description>
+        <label>NZ_VR_Edit_to_MB_NZ_VP</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vehicle Relationship Retail,Vehicle Relationship</value>
+        </criteriaItems>
+    </sharingCriteriaRules>	
     <sharingCriteriaRules>
         <fullName>Read_Write_of_Vehicle_to_CAC</fullName>
         <accessLevel>Edit</accessLevel>
@@ -115,8 +184,27 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>TH_Vehicle_Relationship_Readable</fullName>
+        <fullName>TH_FS_Vehicle_Relationship_Readable</fullName>
         <accessLevel>Read</accessLevel>
+        <description>Thailand FS Users will be able to see the Vehicle Relationship records coming from Autoline</description>
+        <label>TH_FS_Vehicle_Relationship_Readable</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBLT</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vehicle Relationship Retail,Vehicle Relationship</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>TH_Vehicle_Relationship_Readable</fullName>
+        <accessLevel>Edit</accessLevel>
         <description>Thailand Users will be able to see the Vehicle Relationship records coming from Autoline</description>
         <label>TH_Vehicle_Relationship_Readable</label>
         <sharedTo>
@@ -126,6 +214,24 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vehicle Relationship Retail,Vehicle Relationship</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>VR_Permission_TR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>VR Permission TR</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -141,4 +247,103 @@
             <value>Vehicle Relationship Soft Deleted</value>
         </criteriaItems>
     </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>MBAR_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBAR Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBAR</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBAR</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBCO_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBCO Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBCO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBCO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBEG_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBEG Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBEG</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBEG</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBHU_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBHU Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBHU</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBHU</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBID_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBID Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBID</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBID</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBRO_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBRO Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBRO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBRO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBSG_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBSG Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBSG</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBSG</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBSK_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBSK Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBSK</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBSK</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBVN_Vehicle_Relationship_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBVN Vehicle Relationship Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBVN</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBVN</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
 </SharingRules>

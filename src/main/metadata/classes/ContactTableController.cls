@@ -207,6 +207,12 @@ public class ContactTableController {
         get;
         set;
     }
+     
+          //sravanthi Gudibandi added  for switch
+        public Map<String,KR_Switch__c> KRSwitchMap = new Map<String,KR_Switch__c>();
+       public Boolean KRSwitchEnabledFlag {get; set;}
+     
+     
     public ContactTableController(ApexPages.StandardController stdController) {
         editMode = false;
         editMode1 = false;
@@ -214,6 +220,12 @@ public class ContactTableController {
         hAreaBoolean = false;
         wAreaBoolean = false;
         fAreaBoolean = false;
+        
+          KRSwitchMap = KR_Switch__c.getAll();  
+        KRSwitchEnabledFlag = false;
+        if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('ContactTableSwitch')){
+           KRSwitchEnabledFlag = KRSwitchMap.get('ContactTableSwitch').Enable_Flag__c;
+        }
 
         //MT20170909 - Added  code to get the area code from the custom settings
         //Fill in CountryCodes
@@ -302,10 +314,10 @@ public class ContactTableController {
                 'Opt_In_SMS3__c', //Soumya W 2018/April/6 added as part of MBANZ-199  
                 'Opt_In_Phone__c', //Soumya W 2018/April/6 added as part of MBANZ-199  
                 'Opt_In_Mail__c', //Soumya W 2018/April/6 added as part of MBANZ-199 
-				'Email_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
-				'SMS_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
-				'Phone_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
-				'Mail_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199				
+				'Email_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
+				'SMS_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
+				'Phone_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
+				'Mail_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199				
                 'Opt_In_Mobile__c',//Hildaa added for TR market
                 'Opt_In_SMS__c',//Hildaa added for TR market
                 'Postal_Opt_In__c'//Hildaa added for TR market
@@ -341,7 +353,19 @@ public class ContactTableController {
             hmCountryCode = '+66';
             wkCountryCode = '+66';
             faxCountryCode = '+66';
-        } 
+        }
+        //Added for KR Market//sravanthi Gudibandi
+
+          if (ParAcc.MD__c == Label.KR) {
+            if(KRSwitchEnabledFlag){
+            firstsave = true;
+            secondsave = false;
+            mbCountryCode = '+82';
+            hmCountryCode = '+82';
+            wkCountryCode = '+82';
+           }
+        }
+ 
         //Added for TR Market
         if(ParAcc.Market__c==Label.TR){  
             firstsave = true;  
@@ -434,7 +458,31 @@ public class ContactTableController {
      CR20170523 */
 
     public void PhoneNumberFormat() {
+     if(KRSwitchEnabledFlag){
+        if (!(String.isBlank(ParAcc.Individual_Home_Phone__c)) && (ParAcc.MD__c == 'KR')) {
+        
 
+            if (!ParAcc.Individual_Home_Phone__c.contains('-')) {
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, System.label.Insufficient_privilege));
+            } else {
+                String[] resultshomePhoneAreaCode = ParAcc.Individual_Home_Phone__c.split('-');
+                if (resultshomePhoneAreaCode.size() < 3) {
+          //for Call  flow changes  country code added by Sravanthi Gudibandi
+
+                      hmCountryCode='';
+                    homePhoneAreaCodePart1 = resultshomePhoneAreaCode[0];
+                    homePhoneAreaCodePart2 = resultshomePhoneAreaCode[1];
+                    homePhoneAreaCodePart3 = resultshomePhoneAreaCode[2];
+                } else {
+                        hmCountryCode=resultshomePhoneAreaCode[0];
+                    homePhoneAreaCodePart1 = resultshomePhoneAreaCode[1];
+                    homePhoneAreaCodePart2 = resultshomePhoneAreaCode[2];
+                    homePhoneAreaCodePart3 = resultshomePhoneAreaCode[3];
+                }
+            }
+        }
+        }
+        else{
         if (!(String.isBlank(ParAcc.Individual_Home_Phone__c)) && (ParAcc.MD__c == 'KR')) {
 
             if (!ParAcc.Individual_Home_Phone__c.contains('-')) {
@@ -452,7 +500,30 @@ public class ContactTableController {
                 }
             }
         }
+        }
+                if(KRSwitchEnabledFlag){
 
+        if (!(String.isBlank(ParAcc.Work_Phone__c)) && (ParAcc.MD__c == 'KR')) {
+            if (!ParAcc.Work_Phone__c.contains('-')) {
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, System.label.Insufficient_privilege));
+            } else {
+                String[] resultsworkPhoneAreaCode = ParAcc.Work_Phone__c.split('-');
+                if (resultsworkPhoneAreaCode.size() < 3) {
+                  wkCountryCode='';
+                    workPhoneAreaCodePart1 = resultsworkPhoneAreaCode[0];
+                    workPhoneAreaCodePart2 = resultsworkPhoneAreaCode[1];
+                    workPhoneAreaCodePart3 = resultsworkPhoneAreaCode[2];
+                } else {
+                        wkCountryCode=resultsworkPhoneAreaCode[0];
+                    workPhoneAreaCodePart1 = resultsworkPhoneAreaCode[1];
+                    workPhoneAreaCodePart2 = resultsworkPhoneAreaCode[2];
+                    workPhoneAreaCodePart3 = resultsworkPhoneAreaCode[3];
+                }
+            }
+        }
+        }
+        
+         else{
         if (!(String.isBlank(ParAcc.Work_Phone__c)) && (ParAcc.MD__c == 'KR')) {
             if (!ParAcc.Work_Phone__c.contains('-')) {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, System.label.Insufficient_privilege));
@@ -469,7 +540,31 @@ public class ContactTableController {
                 }
             }
         }
+         }
+                          if(KRSwitchEnabledFlag){
+
         if (!(String.isBlank(ParAcc.Mobile__c)) && (ParAcc.MD__c == 'KR')) {
+
+            if (!ParAcc.Mobile__c.contains('-')) {
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, System.label.Insufficient_privilege));
+            } else {
+                String[] resultsMobilePhoneAreaCode = ParAcc.Mobile__c.split('-');
+                if (resultsMobilePhoneAreaCode.size() < 3) {
+                     mbCountryCode='';
+                    mobilePhoneAreaCodePart1 = resultsMobilePhoneAreaCode[0];
+                    mobilePhoneAreaCodePart2 = resultsMobilePhoneAreaCode[1];
+                    mobilePhoneAreaCodePart3 = resultsMobilePhoneAreaCode[2];
+                } else {
+                 mbCountryCode=resultsMobilePhoneAreaCode[0];
+                    mobilePhoneAreaCodePart1 = resultsMobilePhoneAreaCode[1];
+                    mobilePhoneAreaCodePart2 = resultsMobilePhoneAreaCode[2];
+                    mobilePhoneAreaCodePart3 = resultsMobilePhoneAreaCode[3];
+                }
+            }
+        }
+        }
+          else{
+           if (!(String.isBlank(ParAcc.Mobile__c)) && (ParAcc.MD__c == 'KR')) {
             if (!ParAcc.Mobile__c.contains('-')) {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, System.label.Insufficient_privilege));
             } else {
@@ -485,7 +580,32 @@ public class ContactTableController {
                 }
             }
         }
+          }
+           if(KRSwitchEnabledFlag){
+
         if (!(String.isBlank(ParAcc.Work_Phone_2__c)) && (ParAcc.MD__c == 'KR')) {
+
+            if (!ParAcc.Work_Phone_2__c.contains('-')) {
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, System.label.Insufficient_privilege));
+            } else {
+                String[] resultsworkPhoneAreaCode = ParAcc.Work_Phone_2__c.split('-');
+                if (resultsworkPhoneAreaCode.size() < 3) {
+                     wkCountryCode='';
+                    workPhone2AreaCodePart1 = resultsworkPhoneAreaCode[0];
+                    workPhone2AreaCodePart2 = resultsworkPhoneAreaCode[1];
+                    workPhone2AreaCodePart3 = resultsworkPhoneAreaCode[2];
+                } else {
+                 wkCountryCode=resultsworkPhoneAreaCode[0];
+                    workPhone2AreaCodePart1 = resultsworkPhoneAreaCode[1];
+                    workPhone2AreaCodePart2 = resultsworkPhoneAreaCode[2];
+                    workPhone2AreaCodePart3 = resultsworkPhoneAreaCode[3];
+                }
+            }
+        }
+    }
+    
+    else{
+     if (!(String.isBlank(ParAcc.Work_Phone_2__c)) && (ParAcc.MD__c == 'KR')) {
             if (!ParAcc.Work_Phone_2__c.contains('-')) {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, System.label.Insufficient_privilege));
             } else {
@@ -501,6 +621,7 @@ public class ContactTableController {
                 }
             }
         }
+    }
     }
     /**
      *@Description : This method makes editMode true which allows the user to input values to the phone numbers  and email fields for Thailand market only.
@@ -1149,7 +1270,24 @@ public class ContactTableController {
         if (ParAcc != null && ParAcc.Md__c == 'KR')
 
         {
-            if ((String.isBlank(homePhoneAreaCodePart1)) && (String.isBlank(homePhoneAreaCodePart2)) && (String.isBlank(homePhoneAreaCodePart3))) {
+     //for Call  flow changes  country code added by Sravanthi Gudibandi
+     if(KRSwitchEnabledFlag){
+             if ((String.isBlank(hmCountryCode)) &&(String.isBlank(homePhoneAreaCodePart1)) && (String.isBlank(homePhoneAreaCodePart2)) && (String.isBlank(homePhoneAreaCodePart3))) {
+                ParAcc.Individual_Home_Phone__c = '';
+            } 
+          else if ((!(String.isBlank(hmCountryCode))) &&(!(String.isBlank(homePhoneAreaCodePart1))) && (!(String.isBlank(homePhoneAreaCodePart2))) && (!(String.isBlank(homePhoneAreaCodePart3)))) {
+               ParAcc.Individual_Home_Phone__c = hmCountryCode+'-'+homePhoneAreaCodePart1 + '-' + homePhoneAreaCodePart2 + '-' + homePhoneAreaCodePart3;
+                if (ParAcc.Individual_Home_Phone__c.startsWith(' -')) {
+                   ParAcc.Individual_Home_Phone__c = ParAcc.Individual_Home_Phone__c.removeStart(' -');
+
+              }
+           } 
+            else {
+                ParAcc.Individual_Home_Phone__c = '';
+            }
+            }
+            else {
+             if ((String.isBlank(homePhoneAreaCodePart1)) && (String.isBlank(homePhoneAreaCodePart2)) && (String.isBlank(homePhoneAreaCodePart3))) {
                 ParAcc.Individual_Home_Phone__c = '';
             } else if ((!(String.isBlank(homePhoneAreaCodePart1)) || (String.isBlank(homePhoneAreaCodePart1))) && (!(String.isBlank(homePhoneAreaCodePart2)) || (String.isBlank(homePhoneAreaCodePart2))) && (!(String.isBlank(homePhoneAreaCodePart3)) || (String.isBlank(homePhoneAreaCodePart3)))) {
                 ParAcc.Individual_Home_Phone__c = homePhoneAreaCodePart1 + '-' + homePhoneAreaCodePart2 + '-' + homePhoneAreaCodePart3;
@@ -1160,8 +1298,21 @@ public class ContactTableController {
             } else {
                 ParAcc.Individual_Home_Phone__c = '';
             }
-
-            if ((String.isBlank(workPhoneAreaCodePart1)) && (String.isBlank(workPhoneAreaCodePart2)) && (String.isBlank(workPhoneAreaCodePart3))) {
+            }
+             if(KRSwitchEnabledFlag){
+            if ((String.isBlank(wkCountryCode)) &&(String.isBlank(workPhoneAreaCodePart1)) && (String.isBlank(workPhoneAreaCodePart2)) && (String.isBlank(workPhoneAreaCodePart3))) {
+                ParAcc.Work_Phone__c = '';
+            } else if ((!(String.isBlank(wkCountryCode))) &&(!(String.isBlank(workPhoneAreaCodePart1))) && (!(String.isBlank(workPhoneAreaCodePart2))) && (!(String.isBlank(workPhoneAreaCodePart3)))) {
+                ParAcc.Work_Phone__c =  wkCountryCode+'-'+workPhoneAreaCodePart1 + '-' + workPhoneAreaCodePart2 + '-' + workPhoneAreaCodePart3;
+                if (ParAcc.Work_Phone__c.startsWith(' -')) {
+                    ParAcc.Work_Phone__c = ParAcc.Work_Phone__c.removeStart(' -');
+                }
+            } else {
+                ParAcc.Work_Phone__c = '';
+            }
+            }
+            else {
+             if ((String.isBlank(workPhoneAreaCodePart1)) && (String.isBlank(workPhoneAreaCodePart2)) && (String.isBlank(workPhoneAreaCodePart3))) {
                 ParAcc.Work_Phone__c = '';
             } else if ((String.isBlank(workPhoneAreaCodePart1) || !(String.isBlank(workPhoneAreaCodePart1))) && (String.isBlank(workPhoneAreaCodePart2) || !(String.isBlank(workPhoneAreaCodePart2))) && (String.isBlank(workPhoneAreaCodePart3) || !(String.isBlank(workPhoneAreaCodePart3)))) {
                 ParAcc.Work_Phone__c = workPhoneAreaCodePart1 + '-' + workPhoneAreaCodePart2 + '-' + workPhoneAreaCodePart3;
@@ -1171,7 +1322,21 @@ public class ContactTableController {
             } else {
                 ParAcc.Work_Phone__c = '';
             }
-            if ((String.isBlank(mobilePhoneAreaCodePart1)) && (String.isBlank(mobilePhoneAreaCodePart2)) && (String.isBlank(mobilePhoneAreaCodePart3))) {
+            }
+            if(KRSwitchEnabledFlag){
+            if ((String.isBlank(mbCountryCode)) &&(String.isBlank(mobilePhoneAreaCodePart1)) && (String.isBlank(mobilePhoneAreaCodePart2)) && (String.isBlank(mobilePhoneAreaCodePart3))) {
+                ParAcc.Mobile__c = '';
+            } else if ((!(String.isBlank(mbCountryCode)) ) &&(!(String.isBlank(mobilePhoneAreaCodePart1))) && (!(String.isBlank(mobilePhoneAreaCodePart2))) && (!(String.isBlank(mobilePhoneAreaCodePart3)))) {
+                ParAcc.Mobile__c =  mbCountryCode+'-'+mobilePhoneAreaCodePart1 + '-' + mobilePhoneAreaCodePart2 + '-' + mobilePhoneAreaCodePart3;
+                if (ParAcc.Mobile__c.startsWith(' -')) {
+                    ParAcc.Mobile__c = ParAcc.Mobile__c.removeStart(' -');
+                }
+            } else {
+                ParAcc.Mobile__c = '';
+            }
+            }
+            else {
+             if ((String.isBlank(mobilePhoneAreaCodePart1)) && (String.isBlank(mobilePhoneAreaCodePart2)) && (String.isBlank(mobilePhoneAreaCodePart3))) {
                 ParAcc.Mobile__c = '';
             } else if ((!(String.isBlank(mobilePhoneAreaCodePart1)) || (String.isBlank(mobilePhoneAreaCodePart1))) && (!(String.isBlank(mobilePhoneAreaCodePart2)) || (String.isBlank(mobilePhoneAreaCodePart2))) && (!(String.isBlank(mobilePhoneAreaCodePart3)) || (String.isBlank(mobilePhoneAreaCodePart3)))) {
                 ParAcc.Mobile__c = mobilePhoneAreaCodePart1 + '-' + mobilePhoneAreaCodePart2 + '-' + mobilePhoneAreaCodePart3;
@@ -1181,7 +1346,21 @@ public class ContactTableController {
             } else {
                 ParAcc.Mobile__c = '';
             }
-            if ((String.isBlank(workPhone2AreaCodePart1)) && (String.isBlank(workPhone2AreaCodePart2)) && (String.isBlank(workPhone2AreaCodePart3))) {
+            }
+             if(KRSwitchEnabledFlag){
+            if ((String.isBlank(wkCountryCode)) &&(String.isBlank(workPhone2AreaCodePart1)) && (String.isBlank(workPhone2AreaCodePart2)) && (String.isBlank(workPhone2AreaCodePart3))) {
+                ParAcc.Work_Phone_2__c = '';
+            } else if ((!(String.isBlank(wkCountryCode))) &&(!(String.isBlank(workPhone2AreaCodePart1))) && (!(String.isBlank(workPhone2AreaCodePart2))) && (!(String.isBlank(workPhone2AreaCodePart3)))) {
+                ParAcc.Work_Phone_2__c =  wkCountryCode+'-'+workPhone2AreaCodePart1 + '-' + workPhone2AreaCodePart2 + '-' + workPhone2AreaCodePart3;
+                if (ParAcc.Work_Phone_2__c.startsWith(' -')) {
+                    ParAcc.Work_Phone_2__c = ParAcc.Work_Phone_2__c.removeStart(' -');
+                }
+            } else {
+                ParAcc.Work_Phone_2__c = '';
+            }
+            }
+            else {
+             if ((String.isBlank(workPhone2AreaCodePart1)) && (String.isBlank(workPhone2AreaCodePart2)) && (String.isBlank(workPhone2AreaCodePart3))) {
                 ParAcc.Work_Phone_2__c = '';
             } else if ((String.isBlank(workPhone2AreaCodePart1) || !(String.isBlank(workPhone2AreaCodePart1))) && (String.isBlank(workPhone2AreaCodePart2) || !(String.isBlank(workPhone2AreaCodePart2))) && (String.isBlank(workPhone2AreaCodePart3) || !(String.isBlank(workPhone2AreaCodePart3)))) {
                 ParAcc.Work_Phone_2__c = workPhone2AreaCodePart1 + '-' + workPhone2AreaCodePart2 + '-' + workPhone2AreaCodePart3;
@@ -1191,6 +1370,9 @@ public class ContactTableController {
             } else {
                 ParAcc.Work_Phone_2__c = '';
             }
+            }
+            
+            
         } else if (ParAcc != null && ParAcc.Md__c == 'TH') {
             UpdateAccountTH();
         }

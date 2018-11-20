@@ -47,23 +47,23 @@
         <apex:PageMessages escape="false" />
         <apex:actionStatus onstart="showDialog();" onstop="hideDialog();"  id="IngStatus"/>
         <apex:actionFunction action="{!pageRefresh}" name="pageRefresh" status="IngStatus" rerender="LogList"/>
-        <apex:sectionHeader title=" Message Logs View" />
+        <apex:sectionHeader title=" {!$Label.MBK_Page_Label_MBK_Message_Logs}" />
         <apex:pageBlock id="LogList">
             <apex:pageBlockTable style="width:100%" value="{!MBKMessageLogs}" var="item" columnsWidth="5%, 9%, 9%, 9%, 9%, 9%, 10%, 10%, 10%, 10%, 10%">
                 <apex:column >
                     <apex:facet name="header"></apex:facet>
                     <apex:outputPanel rendered="{!item.IsModify__c}">
-						<a href="/apex/PageMessagePopupKRDFW?action=Edit&Id={!item.Id}" target="_Blank"> Edit </a>
+						<a href="/apex/PageMessagePopupKRDFW?action=Edit&Id={!item.Id}" target="_Blank"> {!$Label.MBK_Page_Label_Edit} </a>
                     </apex:outputPanel>
 					<apex:outputPanel rendered="{!item.IsModify__c}">
-						<a href="#" onclick="messageCancel('{!item.Id}');" > / Cancel </a>
+						<a href="#" onclick="messageCancel('{!item.Id}');" > / {!$Label.MBK_Page_Label_Cancel} </a>
 					</apex:outputPanel>
                 </apex:column>
-                
-				<apex:column headerValue="Send Type">
+
+				<apex:column headerValue="{!$Label.MBK_Page_Label_Send_Type}">
                     <apex:facet name="header">
-	  					<apex:commandLink value="Send Type" action="{!toggleSort}" rerender="LogList" >
-		                    <apex:param name="sortField" value="Account_Name__c" assignTo="{!sortField}"/>
+	  					<apex:commandLink value="{!$Label.MBK_Page_Label_Send_Type}" action="{!toggleSort}" rerender="LogList" >
+		                    <apex:param name="sortField" value="channel__c" assignTo="{!sortField}"/>
 		                    <apex:outputPanel rendered="{!BEGINS(sortField,'channel__c')}">
 		                        &nbsp;<apex:image value="{!IF(sortDir = 'desc','/img/arrowDown.gif','/img/arrowUp.gif')}"/>
 		                    </apex:outputPanel>
@@ -74,18 +74,18 @@
                     <apex:outputText value="MMS" rendered="{!item.channel__c='M'}"/>
                 </apex:column>
 
-                <apex:column headerValue="Message ID" rendered="{!isPartner=false}">
-                    <apex:facet name="header">Message ID</apex:facet>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Message_ID}" rendered="{!isPartner=false}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Message_ID}</apex:facet>
                     <a href="javascript:srcUp('{!baseUrl}/{!item.Id}?isdtp=vw');" target="_blank"><apex:outputField value="{!item.Name}"/></a>
                 </apex:column>
-                <apex:column headerValue="Message ID" rendered="{!isPartner=true}">
-                    <apex:facet name="header">Message ID</apex:facet>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Message_ID}" rendered="{!isPartner=true}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Message_ID}</apex:facet>
                     <a href="{!baseUrl}/MBKorea/{!item.Id}" target="_blank"><apex:outputField value="{!item.Name}"/></a>
                 </apex:column>
                                 
-                <apex:column headerValue="Account Name">
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Account_Name}">
                     <apex:facet name="header">
-	  					<apex:commandLink value="Account Name" action="{!toggleSort}" rerender="LogList" >
+	  					<apex:commandLink value="{!$Label.MBK_Page_Label_Account_Name}" action="{!toggleSort}" rerender="LogList" >
 		                    <apex:param name="sortField" value="Account_Name__c" assignTo="{!sortField}"/>
 		                    <apex:outputPanel rendered="{!BEGINS(sortField,'Account_Name__c')}">
 		                        &nbsp;<apex:image value="{!IF(sortDir = 'desc','/img/arrowDown.gif','/img/arrowUp.gif')}"/>
@@ -105,9 +105,9 @@
                     </apex:facet>
                     <apex:outputText value="{!item.UCID__c}"/>
                 </apex:column>
-                <apex:column headerValue="Mobile">
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Mobile}">
 					<apex:facet name="header">
-	  					<apex:commandLink value="Mobile" action="{!toggleSort}" rerender="LogList" >
+	  					<apex:commandLink value="{!$Label.MBK_Page_Label_Mobile}" action="{!toggleSort}" rerender="LogList" >
 		                    <apex:param name="sortField" value="phoneNum__c" assignTo="{!sortField}"/>
 		                    <apex:outputPanel rendered="{!BEGINS(sortField,'phoneNum__c')}">
 		                        &nbsp;<apex:image value="{!IF(sortDir = 'desc','/img/arrowDown.gif','/img/arrowUp.gif')}"/>
@@ -116,9 +116,9 @@
                     </apex:facet>
                     <apex:outputText value="{!item.phoneNum__c}"/>
                 </apex:column>
-                <apex:column headerValue="KaKao Talk ID">
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Kakao_Talk_ID}">
 					<apex:facet name="header">
-	  					<apex:commandLink value="KaKao Talk ID" action="{!toggleSort}" rerender="LogList" >
+	  					<apex:commandLink value="{!$Label.MBK_Page_Label_Kakao_Talk_ID}" action="{!toggleSort}" rerender="LogList" >
 		                    <apex:param name="sortField" value="KaKaoTalk_ID__c" assignTo="{!sortField}"/>
 		                    <apex:outputPanel rendered="{!BEGINS(sortField,'KaKaoTalk_ID__c')}">
 		                        &nbsp;<apex:image value="{!IF(sortDir = 'desc','/img/arrowDown.gif','/img/arrowUp.gif')}"/>
@@ -128,9 +128,9 @@
                     <apex:outputText value="{!item.KaKaoTalk_ID__c}"/>
                 </apex:column>
                 
-                <apex:column headerValue="요청시간">
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Requested_Time}">
 					<apex:facet name="header">
-	  					<apex:commandLink value="요청시간" action="{!toggleSort}" rerender="LogList" >
+	  					<apex:commandLink value="{!$Label.MBK_Page_Label_Requested_Time}" action="{!toggleSort}" rerender="LogList" >
 		                    <apex:param name="sortField" value="LastModifiedDate" assignTo="{!sortField}"/>
 		                    <apex:outputPanel rendered="{!BEGINS(sortField,'LastModifiedDate')}">
 		                        &nbsp;<apex:image value="{!IF(sortDir = 'desc','/img/arrowDown.gif','/img/arrowUp.gif')}"/>
@@ -139,12 +139,10 @@
                     </apex:facet>
                     <apex:outputField value="{!item.LastModifiedDate}"/>
                 </apex:column>
-                
-                
-                
-                <apex:column headerValue="Reserved Sending Time">
+
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Reserved_Sending_Time}">
 					<apex:facet name="header">
-	  					<apex:commandLink value="Reserved Sending Time" action="{!toggleSort}" rerender="LogList" >
+	  					<apex:commandLink value="{!$Label.MBK_Page_Label_Reserved_Sending_Time}" action="{!toggleSort}" rerender="LogList" >
 		                    <apex:param name="sortField" value="Set_Sending_Time__c" assignTo="{!sortField}"/>
 		                    <apex:outputPanel rendered="{!BEGINS(sortField,'Set_Sending_Time__c')}">
 		                        &nbsp;<apex:image value="{!IF(sortDir = 'desc','/img/arrowDown.gif','/img/arrowUp.gif')}"/>
@@ -154,9 +152,9 @@
                     <apex:outputField value="{!item.Set_Sending_Time__c}"/>
                 </apex:column>                
                 
-                <apex:column headerValue="Sent Time">
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Sent_Time}">
 					<apex:facet name="header">
-	  					<apex:commandLink value="Sent Time" action="{!toggleSort}" rerender="LogList" >
+	  					<apex:commandLink value="{!$Label.MBK_Page_Label_Sent_Time}" action="{!toggleSort}" rerender="LogList" >
 		                    <apex:param name="sortField" value="sndDtm__c" assignTo="{!sortField}"/>
 		                    <apex:outputPanel rendered="{!BEGINS(sortField,'sndDtm__c')}">
 		                        &nbsp;<apex:image value="{!IF(sortDir = 'desc','/img/arrowDown.gif','/img/arrowUp.gif')}"/>
@@ -166,9 +164,9 @@
                     <apex:outputField value="{!item.sndDtm__c}"/>
                 </apex:column>                 
                 
-                <apex:column headerValue="Status">
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Status}">
 					<apex:facet name="header">
-	  					<apex:commandLink value="Status" action="{!toggleSort}" rerender="LogList" >
+	  					<apex:commandLink value="{!$Label.MBK_Page_Label_Status}" action="{!toggleSort}" rerender="LogList" >
 		                    <apex:param name="sortField" value="Status__c" assignTo="{!sortField}"/>
 		                    <apex:outputPanel rendered="{!BEGINS(sortField,'Status__c')}">
 		                        &nbsp;<apex:image value="{!IF(sortDir = 'desc','/img/arrowDown.gif','/img/arrowUp.gif')}"/>
@@ -179,8 +177,8 @@
                 </apex:column>                  
                 
                 
-                <apex:column headerValue="Related To object/ object code">
-					<apex:facet name="header">Related To object/ object code</apex:facet>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Related_Toobject_object_code}">
+					<apex:facet name="header">{!$Label.MBK_Page_Label_Related_Toobject_object_code}</apex:facet>
                     <apex:outputField value="{!item.Account__c}" rendered="{!item.Account__c<>null}"/>
                     <apex:outputText value="({!item.UCID__c})" rendered="{!item.Account__c<>null}"/>
                     

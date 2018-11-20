@@ -15,7 +15,9 @@ public class campaignMemberHelperTRTest {
             Status = 'Started', 
             StartDate = System.today(), 
             EndDate = System.today(),
-			Market__c='TR'
+			Market__c='TR',
+			Campaign_Type__c = 'Design',
+			Purpose__c ='Test'
             );
             insert top1;            
 

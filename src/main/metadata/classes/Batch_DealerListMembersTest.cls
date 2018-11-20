@@ -5,8 +5,9 @@ public class Batch_DealerListMembersTest
     static String PersonAcc = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(); 
     
-    static void createTestData()
+    static testmethod void afterInsertEvent()
     {
+    test.starttest();
         Account De=new Account();
         De.RecordtypeId=DealerAcc;
         De.Name = 'メルセ';
@@ -18,6 +19,7 @@ public class Batch_DealerListMembersTest
         De.Mobile__c ='0435488899';
         De.Dealer_Rollout_Status__c = 'Done';
         De.Dealer_GC_Code__c = 'GC1234';
+        //De.Market__c= 'JP';
         insert De;
         
         Account De1=new Account();
@@ -31,6 +33,7 @@ public class Batch_DealerListMembersTest
         De1.Mobile__c ='0435488899';
         De1.Dealer_Rollout_Status__c = 'Done';
         De1.Dealer_GC_Code__c = 'GC3444';
+        //De1.Market__c= 'JP';
         insert De1;
         
         Account  Per= new Account();
@@ -46,34 +49,33 @@ public class Batch_DealerListMembersTest
         Per.Phone = '08022420181';
         Per.Main_Dealer__c = De.id;
         Per.Customer_Lifecycle_Phase__c = 'Care';
+       // per.Market__c= 'JP';
         
         insert Per;
         
-          Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=Per.id,fromrole__c =De1.id, Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
-         insert al1;
+         Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=Per.id,fromrole__c =De1.id, Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
+        insert al1;
         
        Participating_Dealer__c pd = new Participating_Dealer__c();
        pd.Dealer__c = De.id;
+
        insert pd;
        
        Dealer_list_member__c dl= new Dealer_list_member__c();
        dl.Participating_Dealer__c = pd.id;
        dl.NewAccount__c = Per.id;
-        
+      // dl.MD__c= 'JP';
        insert dl;
+     
+      
+       
+          // createTestData();
+     Batch_DealerListMembers batcher = new Batch_DealerListMembers();
+            Database.executeBatch(batcher, 200);
+           
         
+           test.stoptest(); 
         
     }
-    public static  testmethod void afterInsertEvent_test1()
-  {
-         
-      
-           test.starttest();
-       try{      
-     createTestData();
-     Batch_DealerListMembers batcher = new Batch_DealerListMembers();
-            Database.executeBatch(batcher, 200);}
-         catch(exception e){system.debug(e);}
-           test.stoptest();
-  }
+   
 }

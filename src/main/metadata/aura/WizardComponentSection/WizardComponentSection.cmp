@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
+    <aura:attribute name="sectionName" type="String" />
+    <aura:attribute name="componentNameList" type="String[]"/> 
+    <aura:attribute name="size" type="String" default="6"/>
+    <aura:attribute name="style" type="String" default="display: none"/>
+    <aura:attribute name="AccId" type="String" />
+    <!-- HANDLER -->
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    
+    <div id="{!v.sectionName}" className="slds-hide" style="{!v.style}">
+        <lightning:card title="{!v.sectionName}">
+            <div class="c-container">
+                <lightning:layout multipleRows="true">
+                    <aura:iteration items="{!v.body}" var="item">
+                        <lightning:layoutitem flexibility="auto" size="{!v.size}" padding="around-small">
+                            {!item}
+                        </lightning:layoutitem>
+                    </aura:iteration>
+                </lightning:layout>
+            </div>
+        </lightning:card>
+    </div>
+    
+</aura:component>

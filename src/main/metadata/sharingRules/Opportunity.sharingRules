@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Opportunity_ANZ</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Opportunity sharing with the group of users who work on both AU and NZ</description>
+        <label>Opportunity ANZ</label>
+        <sharedTo>
+            <group>MBANZ_users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ,AU</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Opportunity_AU</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing Leads with AU market users</description>
+        <label>Opportunity AU</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Opportunity_NZ</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Opportunity sharing with NZ Market users</description>
+        <label>Opportunity NZ</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_RW_to_MBTR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share all Opportunities of MBTR with role MBTR Management and subordinates</description>
+        <label>Share RW to MBTR</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Lead,Sales Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Opty_Share_India_MPC</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Opty Share India MPC</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Lead,Sales Lead</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>Share_Opportunity_with_ID</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Creating Sharing Rule To share the opportunity data with all the ID Users</description>
+        <label>Share Opportunity with ID</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBID</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBID</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

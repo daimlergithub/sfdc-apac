@@ -1,0 +1,7 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:newsEditCMP</code> component to <code>override</code> the standard <code>News Edit button</code>. 
+            This component uses <code>lightning:recordEditForm</code> to edit the News record.            
+        </p>       
+    </aura:description>    
+</aura:documentation>

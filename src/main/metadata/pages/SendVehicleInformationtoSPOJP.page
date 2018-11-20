@@ -34,6 +34,8 @@
                        
                    
                 </apex:pageblockTable>
+                <br></br>
+                <br></br>
                 <apex:commandButton value="{!$Label.Confirmation}" action="{!Navigate}" />
                 <apex:commandButton value="{!$Label.Cancel}" action="{!cancel}"/>
 </apex:pageBlock>

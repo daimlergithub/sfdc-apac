@@ -1,0 +1,11 @@
+<!-- File Name   : SectionheaderEvent -->
+<!-- Description : SectionheaderEvent Lightening component -->
+<!-- Copyright   : Infosys Limited Copyright (c) 2018  -->
+<!-- @author     : Sarath -->
+<!-- Author Modification & Ver.Date : Sarath & 06-July-2018  -->
+<aura:event type="APPLICATION" description="Event template" >
+	<aura:attribute name="idToToggle" type="String"/>
+    <aura:attribute name="fieldAPINAME" type="String"/>
+    <aura:attribute name="fieldValue" type="String"/>
+    <aura:attribute name="fieldListValuesMap" type="Map"/>
+</aura:event>

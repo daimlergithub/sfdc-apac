@@ -1,3 +1,17 @@
+/**  
+* Class Name: stouchPersonSearch
+* Description : This class is for 'KR' (Korea) Market, Person Search API for Stouch App.
+*				-If MD__c is not passed in request then It will be treated as 'KR'
+*				-If MD__c is passsed in request and if it equals 'TH' it will be treated as TH and stouchPersonSearchTH will be called.
+* Author : Narendra Nimmana
+* Date : 
+* Modification Log *
+=============================================================================================================================================== 
+Ver   		Date       			Author         				Modification --- ---- ------ -------------
+C1.0     	25/07/2018    		Ashish Jadhav    			ITSSTOUCH-2237 : hyphens should not be removed from phone numbers(for KR - market).
+                                							Confirmed in mail from Supriyo and Srinivasan.
+=============================================================================================================================================== 
+**/
 @RestResource(urlMapping='/stouchPersonSearch/*')
 global without sharing class stouchPersonSearch {
 
@@ -33,7 +47,8 @@ global without sharing class stouchPersonSearch {
             for(Account_link__c acclink:accountlinklist){
                Map<String,Object> PersonResults=new Map<String,Object>();
                PersonResults.put('LastName',string.ISBlank(acclink.Retail_LastName__c)? ' ' : acclink.Retail_LastName__c);
-               PersonResults.put('PersonMobilePhone',string.ISBlank(acclink.Retail_Mobile__c)? ' ' : acclink.Retail_Mobile__c.remove('-'));
+               //PersonResults.put('PersonMobilePhone',string.ISBlank(acclink.Retail_Mobile__c)? ' ' : acclink.Retail_Mobile__c.remove('-'));
+               PersonResults.put('PersonMobilePhone',string.ISBlank(acclink.Retail_Mobile__c)? ' ' : acclink.Retail_Mobile__c);
                PersonResults.put('PersonEmail',string.ISBlank(acclink.Retail_Email__c)? ' '  : acclink.Retail_Email__c);
                PersonResults.put('Personal_UCID__c',string.ISBlank(acclink.Retail_UCID__c)? ' '  : acclink.Retail_UCID__c);
                PersonResults.put('Owner',string.ISBlank(users.get(acclink.Ownerid).federationIdentifier)?' ':users.get(acclink.Ownerid).federationIdentifier);
@@ -46,6 +61,9 @@ global without sharing class stouchPersonSearch {
 		}
         else if(market=='TH'){
             PersonResultsList=StouchPersonSearchTH.personSearchResultsTH(accountlinklist1);
+        }
+        else if(market=='MY'){
+            PersonResultsList=StouchPersonSearchMY.personSearchResultsMY(accountlinklist1);
         }
 
         

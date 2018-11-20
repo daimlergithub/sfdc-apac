@@ -8,4 +8,7 @@
     <tab>Car_Model__c</tab>
     <tab>Account_Link__c</tab>
 	<tab>standard-Opportunity</tab>
+	<tab>standard-Case</tab>
+	<tab>Vehicle__c</tab>
+	<tab>Vehicle_Relationship__c</tab>
 </CustomApplication>

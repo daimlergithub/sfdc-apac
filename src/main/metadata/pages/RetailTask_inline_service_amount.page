@@ -1,5 +1,6 @@
 <apex:page standardController="Retail_Task__c" extensions="RetailtaskInlineEditController">
     <apex:includeScript value="/support/console/25.0/integration.js"/>
+	<apex:slds/>
     <!--form starts here-->
     <apex:form id="addfrm" >
         <!--OutPutPanel starts here-->

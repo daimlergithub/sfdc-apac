@@ -58,7 +58,7 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
             }           
         }                                                                      
         if(isAfter && isInsert ){
-            if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){
+            if(Util_getPermissions.checkCustomPermission(Label.INGeneric) || Util_getPermissions.checkCustomPermission(Label.INDealerFS)){
                 if (INTriggerRecursionCheck.inAccountAftIns == false){
                     INTriggerRecursionCheck.inAccountAftIns= true;
                     AccountHelperIN.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);

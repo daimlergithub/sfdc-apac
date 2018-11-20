@@ -65,6 +65,7 @@ static testMethod void testTriggerDMRequestTriggerHandlerTR1() {
     DM_Material__c dmMtrlSC = new DM_Material__c();
 	dmMtrlSC.Name = 'Test DM Material SC Created';
 	dmMtrlSC.Market__c='TR';
+	dmMtrlSC.Type__c = 'Kit';
 	insert dmMtrlSC;
     test.stoptest();
           

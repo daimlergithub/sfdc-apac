@@ -8,7 +8,7 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Retail_Campaign_
     {
     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
-         contact = (Account)UtilTestData.createSobject(new Account(Mobile__c ='0001234567'), 
+         contact = (Account)UtilTestData.createSobject(new Account(Mobile__c ='0001234567',MD__c='JP'), 
                 UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         Test.startTest();       
         Retail_Campaign__c top = new Retail_Campaign__c(            

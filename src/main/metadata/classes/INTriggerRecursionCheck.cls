@@ -31,4 +31,9 @@ public class INTriggerRecursionCheck {
     public static boolean inCaseCompAmt = false;
     public static boolean inAccLinkshareretailCopy = false;//07042018 : Namitha added to prevent shareretailcopy recursion as part of ph2.
     public static boolean inAccLinkshareAccount = false;// 07042018 : Namitha added to prevent shareaccount recursion as part of ph2.
+	public static boolean inAccLinkaddressupdateRT = false;
+	public static boolean inAccLinkrevokesharing = false;
+    public static boolean OnAfterUpdateCreateC2CRetailCopy = false;
+    public static boolean updateSalesConsultant = false;
+    public static boolean RemoveAccessofUsers = false;
 }

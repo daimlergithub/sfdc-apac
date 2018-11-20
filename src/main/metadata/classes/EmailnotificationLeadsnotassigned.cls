@@ -27,7 +27,7 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
                                          Assigned_Dealer__r.Dealer_GC_Code__c,Assigned_Dealer__r.Dealer_ND_Code__c, Assigned_Dealer__r.Name,Service_Advisor__c FROM Lead__c 
                                          where MD__c = 'JP' and (Last_Nonassign_Notification_Date__c <=: pastdatdate OR Last_Nonassign_Notification_Date__c = null)
                                          and Service_Advisor__c = NULL and CAC_Lead_Status__c = 'Allocated' and Assigned_Dealer__c != null 
-                                         and Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' and Dealer_Lead_Status__c !='Lost']);            
+                                         and Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' and Dealer_Lead_Status__c !='Lost' and Dealer_Lead_Status__c !='On-going' and Dealer_Lead_Status__c !='Order Placed']);            
     }
     //EXECUTE METHOD
     global void execute(Database.BatchableContext BC, List<Lead__c> scope){

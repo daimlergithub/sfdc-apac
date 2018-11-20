@@ -46,6 +46,11 @@ global with sharing class VehicleExtension {
         vehicle.market__c=[Select market__c From User Where Id = :UserInfo.getUserId()][0].market__c;
         marketcheck = vehicle.market__c;
         string returnId = ApexPages.currentPage().getParameters().get('accId');
+        if(vehicle.market__c == 'AU' || vehicle.market__c == 'NZ')
+        {
+         vehicle.RecordTypeId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordtypeID();
+        }
+        
         
         if(returnId!=null)
         {
@@ -177,6 +182,8 @@ global with sharing class VehicleExtension {
     
     public void save(){
      
+       if(vehicle.market__C != 'AU' && vehicle.market__C != 'NZ')
+        {
         if(brand == UtilConstant.Question){
             brand=null;
         }
@@ -266,6 +273,7 @@ global with sharing class VehicleExtension {
         if(selectedNewUsed !=null && selectedNewUsed  =='Used')
         {
         vehicle.New_Used__c='Used';
+        }
         }
         //try{  
         insert vehicle;                       
@@ -453,4 +461,25 @@ global with sharing class VehicleExtension {
             
       return options;
     }  
+   
+       public PageReference saveDetailANZ()   
+        {
+        PageReference pageRef ;
+        pageRef  = null; 
+        
+                
+                string vin = vehicle.EuroVIN__c;   
+                system.debug('vin:' +vehicle.EuroVIN__c);
+                system.debug('new: '+vehicle.New_Used__c);
+                if(vin != null )
+                {
+                    vin = vin.replaceAll( '\\s+', ''); 
+                    vin =vin.toUpperCase();
+                    vin = vin.replaceAll('[^a-zA-Z0-9]', ''); // remove all spl characters
+
+                    vehicle.EuroVIN__c = vin ;
+                }
+                pageRef  = saveVal();
+             return pageRef  ;
+            }
 }

@@ -1,0 +1,43 @@
+<aura:component controller="InlineAddressLightning">
+   <aura:attribute name="myObject" type="Address__c" description="A simplified view record object to be displayed"/>
+   <aura:attribute name="headingName" type="String" />
+   <aura:attribute name="accountRecord" type="Account" description="A simplified view record object to be displayed"/>
+   <aura:attribute name="displayListAddress" type="String[]"/>
+   <aura:attribute name="oldRecord" type="Address__c" description="Old version of record before edit" default="{'sobjectType' : 'Address__c'}"/>
+   <aura:attribute name="AddEditAddress" type="Boolean" />
+   
+   <aura:registerEvent name="AddressCreated" type="c:AddressCreated"/>
+    
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   
+   
+   <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+      <div class="slds-modal__container ">
+         <lightning:recordEditForm  aura:id="recordEditForm" 
+                                    recordId="{!v.myObject.Id}"
+                                    onsuccess="{!c.handleSuccess}" 
+                                    objectApiName="Address__c">
+             
+            <div class="slds-modal__header">
+               <h2 class="slds-text-heading--medium">{!v.headingName}</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium modalContainer">
+               <lightning:messages />
+               
+               <lightning:inputField fieldName="Customer__c" value="{!v.accountRecord.Id}" class='slds-hide'/> 
+                 
+                <aura:iteration items="{!v.displayListAddress}" var="item" >
+                    <lightning:inputField fieldName="{!item}" onchange="{!c.fieldValChange}"/>                             
+            	</aura:iteration>  
+            </div>
+            <div class="slds-modal__footer">
+               <div class="slds-align_absolute-center">
+                  <lightning:button label="Cancel" title="Neutral action" onclick="{! c.closeEdit }"/>
+                  <lightning:button variant="brand" type="submit" name="save" label="Save" /><!-- onclick="{! c.handleSaveRecord }" -->
+               </div>
+            </div>
+         </lightning:recordEditForm>
+      </div>
+   </div>
+   <div class="slds-backdrop slds-backdrop--open"></div>
+</aura:component>

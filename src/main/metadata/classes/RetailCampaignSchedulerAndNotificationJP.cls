@@ -94,8 +94,8 @@ global class RetailCampaignSchedulerAndNotificationJP implements Database.Batcha
                         task.RecordTypeId = taskRecTypeId;
                         task.ActivityDate = campaignRec.Execution_Start_Date__c;
                         taskList.add(task);
-                        
-                        campaignMemberRec.Status__c = 'Executed';
+                        // Commented by Venky, Changes related to JP-3600
+                       // campaignMemberRec.Status__c = 'Executed';
                         campaignMemberListToUpdate.add(campaignMemberRec);
                     }
                     
@@ -128,7 +128,8 @@ global class RetailCampaignSchedulerAndNotificationJP implements Database.Batcha
                     setNotificationTemplate(campaignRec.OwnerId, templateId, campaignRec.Id);
                     
                     for(Campaign_Member__c campaignMemberRec : campaignRec.Campaign_Members__r ) {
-                        campaignMemberRec.Status__c = 'Executed';
+					// Commented by Venky, Changes related to JP-3600
+                       // campaignMemberRec.Status__c = 'Executed';
                         campaignMemberListToUpdate.add(campaignMemberRec);
                     }
                     campaignRec.Child_Campaign_Status__c = 'Execution';
@@ -148,8 +149,8 @@ global class RetailCampaignSchedulerAndNotificationJP implements Database.Batcha
                             lead.RecordTypeId = recTypeId;
                         }
                         leadList.add(lead);
-                    
-                        campaignMemberRec.Status__c = 'Executed';
+							// Commented by Venky, Changes related to JP-3600
+                       // campaignMemberRec.Status__c = 'Executed';
                         campaignMemberListToUpdate.add(campaignMemberRec);
                     }
                     campaignRec.Child_Campaign_Status__c = 'Execution';

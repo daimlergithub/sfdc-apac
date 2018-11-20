@@ -29,13 +29,13 @@ public class SurveyTakerHelperJP {
         for(SurveyTaker__c sur : surTakList)
         {
             
-            if(sur.Dealer_Account__c != null && sur.View_By_All__c == false)
+            if(sur.Dealer_Account__c != null && sur.View_By_All__c == false && sur.md__c=='JP')
             {
                 dealerID.add(sur.Dealer_Account__c);
             }
             else if(sur.Account__c != null && sur.Dealer_Account__c == null && sur.View_By_All__c == false)
             {
-                percomAccoID.add(sur.Account__c);
+               // percomAccoID.add(sur.Account__c);
                 
             }
         }
@@ -45,16 +45,16 @@ public class SurveyTakerHelperJP {
         
         if(!percomAccoID.isEmpty() && percomAccoID != null)
         {
-            accountLinkList=[select id,fromrole__c,torole__c from Account_link__c where torole__c=:percomAccoID AND (RecordtypeId =:rp OR RecordtypeId =:rc)];
+           // accountLinkList=[select id,fromrole__c,torole__c from Account_link__c where torole__c=:percomAccoID AND (RecordtypeId =:rp OR RecordtypeId =:rc)];
         }
-        if(accountLinkList!=null)
+       /* if(accountLinkList!=null)
         {
             for(account_link__c acs:accountLinkList)
             { 
                 system.debug('accountLinkList>>>>'+accountLinkList);
                 dealerID.add(acs.fromrole__c);
             }
-        }
+        }*/
         if(dealerID != null)
         {
             alist=[select id,name,Dealer_GC_Code__c from account where id IN:dealerID];  
@@ -187,7 +187,7 @@ public class SurveyTakerHelperJP {
         
         for(SurveyTaker__c vc : newList){
             if(vc.account__c != null  &&  vc.account__c != oldMap.get(vc.Id).account__c && vc.View_By_All__c == false && vc.Dealer_Account__c == null){
-                if(!mapCheckingType.containsKey(vc.account__c)){
+               /* if(!mapCheckingType.containsKey(vc.account__c)){
                     mapCheckingType.put(vc.account__c, new List<Id>());
                 }
                 mapCheckingType.get(vc.account__c).add(vc.Id);
@@ -195,14 +195,14 @@ public class SurveyTakerHelperJP {
                 if(vc.account__c != oldMap.get(vc.Id).account__c){
                     System.debug('set_CustomerId>>>>>>>'+set_CustomerId);
                     set_CustomerId.add(oldMap.get(vc.Id).account__c);
-                }
+                }*/
                 /*  if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false)
-{
-System.debug('inser>>>');
-list_SurveyTakerId.add(vc.Id);
-
-}*/
-                if(vc.Dealer_Account__c == null && oldMap.get(vc.Id).Dealer_Account__c != null)
+                {
+                System.debug('inser>>>');
+                list_SurveyTakerId.add(vc.Id);
+                
+                }*/
+                if(vc.Dealer_Account__c == null && oldMap.get(vc.Id).Dealer_Account__c != null && vc.md__c=='JP')
                 { 
                     System.debug('set_AccountId>>>>>>>'+set_AccountId);
                     set_AccountId.add(oldMap.get(vc.Id).Dealer_Account__c);

@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>ANZ_EuroVIN_Update</fullName>
+        <description>Updates EuroVin from Vehicle</description>
+        <field>Euro_Vin__c</field>
+        <formula>Vehicle_ID__r.EuroVIN__c</formula>
+        <name>ANZ_EuroVIN_Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ANZ_RegistrationNo_Update</fullName>
+        <description>update Registration Number</description>
+        <field>Registration_Number__c</field>
+        <formula>Vehicle_ID__r.RegistrationNo__c</formula>
+        <name>ANZ_RegistrationNo_Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ANZ_Registration_Date_Update</fullName>
+        <description>Update Registration Date from Vehicle</description>
+        <field>Registration_Date__c</field>
+        <formula>Vehicle_ID__r.FirstRegistrationDate__c</formula>
+        <name>ANZ_Registration_Date-Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>ANZ_EuroVIN_Update</fullName>
+        <actions>
+            <name>ANZ_EuroVIN_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>ANZ_RegistrationNo_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>ANZ_Registration_Date_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>(AND($Profile.Name != &apos;IntegrationAPI&apos;,OR(ISPICKVAL(Market__c, &apos;AU&apos;) ,ISPICKVAL(Market__c, &apos;NZ&apos;)), OR(ISCHANGED(Vehicle_ID__c),  NOT(ISNULL(Vehicle_ID__c)) )))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Warranty_Type_Task</fullName>
         <active>true</active>

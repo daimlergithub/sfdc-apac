@@ -69,9 +69,19 @@
 
     }
 
-    public static testMethod void VehicleRelationshipHelperTHTestMethod() {
+    public static testMethod void Addresstest() {
         System.runAs(user1) {
             test.startTest();
+            creatTestData();
+            test.stopTest();
+        }
+    }
+	
+	public static testMethod void Addresstest2() {
+        System.runAs(user2) {
+            test.startTest();
+			TriggerRecursiveCheck.run = true;
+			TriggerUtil.userCreate = false;
             creatTestData();
             test.stopTest();
         }

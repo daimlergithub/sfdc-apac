@@ -5,7 +5,7 @@ public class testusernotification{
       Profile p = [select id from profile where name='Standard User'];
 
       User u = new User(alias = 'test123', email='test123@noemail.com',emailencodingkey='UTF-8', lastname='Testing', languagelocalekey='en_US',localesidkey='en_US', 
-                        profileid = p.Id, country='United States',Notification_Lead_Dealer_Assignment__c='789',Notification_Lead_Not_Assigned__c='123',Notification_Lead_No_Update__c='456',
+                        profileid = p.Id, country='United States',Notification_Lead_Dealer_Assignment__c='789',Notification_Campaign__c='987',Notification_Lead_Not_Assigned__c='123',Notification_Lead_No_Update__c='456',
                         timezonesidkey='America/Los_Angeles', username='test123xyzs@noemail.com');
       insert u;
        
@@ -32,7 +32,7 @@ public class testusernotification{
        Profile p = [select id from profile where name='Standard User'];
        String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
        User u = new User(alias = 'test123', email='test123@noemail.com',emailencodingkey='UTF-8', lastname='Testing', languagelocalekey='en_US',localesidkey='en_US',
-                         profileid = p.Id, country='United States',Notification_Lead_Dealer_Assignment__c='789',Notification_Lead_Not_Assigned__c='123', Notification_Lead_No_Update__c='456',
+                         profileid = p.Id, country='United States',Notification_Lead_Dealer_Assignment__c='789',Notification_Campaign__c='987',Notification_Lead_Not_Assigned__c='123', Notification_Lead_No_Update__c='456',
                          timezonesidkey='America/Los_Angeles', username='test123sturt@noemail.com');
        insert u;
        
@@ -62,6 +62,10 @@ public class testusernotification{
        usernoti.remove3();
        usernoti.getAvailableUsers3();
        usernoti.getSelectedUsers3();
+       usernoti.add4();
+       usernoti.remove4(); 
+       usernoti.getAvailableUsers4();
+       usernoti.getSelectedUsers4();
        usernoti.updateit();
        
     }

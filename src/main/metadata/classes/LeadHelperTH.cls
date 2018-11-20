@@ -13,7 +13,7 @@ public without sharing class LeadHelperTH {
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     private static final String retailSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.RETAIL_SALES_LEADS).getRecordTypeId();
-    private static final String fsLeadRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.FS_LEAD).getRecordTypeId();
+    //private static final String fsLeadRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.FS_LEAD).getRecordTypeId();
     private static Id retailCampaign_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Retail_campaign__c', 'Campaign Execution');
     set < id > accId = new set < id > ();
     set < id > newmapid = new set < id > ();
@@ -104,39 +104,29 @@ public without sharing class LeadHelperTH {
                     } else {
                         if (l.assigned_dealer__c != null && l.Received_Date_Time__c != null && l.Accepted_Date_Time__c != null) {
                             if (l.CAC_Lead_status__C == 'New') {
-
                                 l.ownerID = l.createdbyId;
                                 l.assigned_dealer__c = null;
-
                             }
-
-
                         }
-
                     }
-
                 }
-
             }
-
-
             if (newmapid.size() > 0) {
                 updateOwnership(newmapid, leads);
             }
         }
-
     }
 
     //Call informatica web service
     public void CdmLeadcreate(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap) {
         Set < Id > LeadIdinsert = new Set < Id > ();
         Set < Id > LeadIdupdate = new Set < Id > ();
-        Map < Id, Lead__c > ldmap = new Map < Id, Lead__c > ([select id, Contact__c, Contact__r.Ucid__c, Retail_Contact__r.Retail_DMS_Customer_ID__c, Assigned_Dealer__c from Lead__c where id in: leadOldMap.keyset() AND Retail_Contact__c != null AND Retail_Contact__r.fromRole__c != null AND Retail_Contact__r.fromRole__r.Dealer_Rollout_Status__c = 'Done']);
+        Map < Id, Lead__c > ldmap = new Map < Id, Lead__c > ([select id, Contact__c, Contact__r.Ucid__c, Retail_Contact__r.Retail_DMS_Customer_ID__c, Assigned_Dealer__c,Sent_to_Autoline__c from Lead__c where id in: leadOldMap.keyset() AND Retail_Contact__c != null AND Retail_Contact__r.fromRole__c != null AND Retail_Contact__r.fromRole__r.Dealer_Rollout_Status__c = 'Done' AND Sent_to_Autoline__c=FALSE]);
         for (Lead__c le: leadlist) {
             //condition added by Tejbir. Finance lead should not go to Autoline.
-            if (ldmap.containskey(le.Id) && le.RecordTypeId != fsLeadRecordTypeId) {
+            if (ldmap.containskey(le.Id) && ((le.RecordTypeId == salesRecordTypeId) || (le.RecordTypeId == afterSalesRecordTypeId))) {
                 if (ldmap.get(le.Id).Contact__c != null && ldmap.get(le.Id).Contact__r.Ucid__c != '' && ldmap.get(le.Id).Retail_Contact__r.Retail_DMS_Customer_ID__c != '' && le.Assigned_Dealer__c != null && le.Assigned_Dealer__c == leadOldMap.get(le.id).Assigned_Dealer__c && le.MD__c == 'TH' && le.CAC_Lead_Status__c == 'Accepted' && (leadOldMap.get(le.id).CAC_Lead_Status__c == 'New' || leadOldMap.get(le.id).CAC_Lead_Status__c == 'Assigned' || leadOldMap.get(le.id).CAC_Lead_Status__c == 'First Contact Customer' || usr.Profile.Name == 'IntegrationAPI')) {
-					system.debug('test___' + le.id);
+                    system.debug('test___' + le.id);
                     LeadIdinsert.add(le.Id);
                 }
             }
@@ -180,8 +170,18 @@ public without sharing class LeadHelperTH {
     }
     Public void CreateRetailCopy(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap, boolean isInsert, boolean isUpdate) {
         set < String > contactId = new set < String > ();
+        List<Id> leadIdLst=new List<Id>();
+        if(leadlist!=null && leadlist.size()>0)
+        {
+            for(Lead__c lead:leadlist)
+            {
+                leadIdLst.add(lead.id);
+            }
+        }
+        if(leadIdLst!=null && leadIdLst.size()>0)
+            leadlist=[select id,Assigned_Dealer__c,MD__c,Assigned_Dealer__r.Dealer_Rollout_Status__c from lead__c where Id IN:leadIdLst];
         for (Lead__c le: leadlist) {
-            if (le.Assigned_Dealer__c != null && le.MD__c == 'TH') {
+             if (le.Assigned_Dealer__c != null && le.MD__c == 'TH' && le.Assigned_Dealer__r.Dealer_Rollout_Status__c == 'Done') {
                 if (isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c)) {
                     contactId.add(le.id);
                 }

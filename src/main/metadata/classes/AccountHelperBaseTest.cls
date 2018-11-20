@@ -118,11 +118,11 @@ comment added*/
             //AccountHelperBase.updateAccountFieldsBeforeInsert(listNewAccounts, isInsert)
             
             /* system.assertequals(AccountHelperBase.calculateAgeRange(18),'17-25');
-			system.assertequals(AccountHelperBase.calculateAgeRange(27),'26-35');
-			system.assertequals(AccountHelperBase.calculateAgeRange(37),'36-45');
-			system.assertequals(AccountHelperBase.calculateAgeRange(47),'46-55');
-			system.assertequals(AccountHelperBase.calculateAgeRange(57),'56-65');
-			system.assertequals(AccountHelperBase.calculateAgeRange(67),'65+'); */
+            system.assertequals(AccountHelperBase.calculateAgeRange(27),'26-35');
+            system.assertequals(AccountHelperBase.calculateAgeRange(37),'36-45');
+            system.assertequals(AccountHelperBase.calculateAgeRange(47),'46-55');
+            system.assertequals(AccountHelperBase.calculateAgeRange(57),'56-65');
+            system.assertequals(AccountHelperBase.calculateAgeRange(67),'65+'); */
             
             list<Account> updateAccountList=[select Opt_In_Home_Phone__c,Opt_In_Email__c from Account where id=:acc.Id]; 
             system.assertEquals(acc.Opt_In_Home_Phone__c, false);
@@ -151,14 +151,14 @@ Account dealer1 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH',
 insert dealer1;
 Contact dealerContact = new Contact(FirstName = 'Test',Md__c='TH', Lastname = 'Amit', AccountId = dealer1.Id, Email = 'test@test.com');
 insert dealerContact;
-User user2 = new User(LastName='GEORGE',contactid=dealerContact.id,country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
+User user2 = new User(LastName='GEORGE',contactid=dealerContact.id,country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()),UserName='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()));
 insert user2;*/
         
         String dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
         profile p22=[select id from profile where Name='System Administrator'];
         userrole ur =[select id from userrole where Name ='Daimler APAC'];
         
-        User user1 = new User(LastName='GEORGE',Market__c='TH',userroleid=ur.id,country='Australia',ProfileId=p22.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
+        User user1 = new User(LastName='GEORGE',Market__c='TH',userroleid=ur.id,country='Australia',ProfileId=p22.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()),UserName='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()));
         insert user1;
         //User user1 = TestUtils.createMYAdminUser();
         User user2;
@@ -243,7 +243,7 @@ insert user2;*/
             insert dealer1;
             Contact dealerContact = new Contact(FirstName = 'Test',Md__c='TH', Lastname = 'Amit', AccountId = dealer1.Id, Email = 'test@test.com');
             insert dealerContact;
-            user2 = new User(LastName='GEORGE',contactid=dealerContact.id,country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev0d1');
+            user2 = new User(LastName='GEORGE',contactid=dealerContact.id,country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()),UserName='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()));
             insert user2;
             Group g=new group(name='12345');insert g;
         }
@@ -503,7 +503,7 @@ system.assertequals(AccountHelperBase.calculateAgeRange(67),'65+'); */
         profile p22=[select id from profile where Name='System Administrator'];
         userrole ur =[select id from userrole where Name ='Daimler APAC'];
         
-        User user1 = new User(LastName='GEORGE',Market__c='TR',userroleid=ur.id,country='Australia',ProfileId=p22.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
+        User user1 = new User(LastName='GEORGE',Market__c='TR',userroleid=ur.id,country='Australia',ProfileId=p22.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()),UserName='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()));
         insert user1;
         //User user1 = TestUtils.createMYAdminUser();
         User user2;
@@ -569,7 +569,7 @@ system.assertequals(AccountHelperBase.calculateAgeRange(67),'65+'); */
             insert dealer1;
             Contact dealerContact = new Contact(FirstName = 'Test',Md__c='TR', Market__c='TR',Lastname = 'Amit', AccountId = dealer1.Id, Email = 'test@test.com');
             insert dealerContact;
-            user2 = new User(LastName='GEORGE',contactid=dealerContact.id,Market__c='TR',country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev0d1');
+            user2 = new User(LastName='GEORGE',contactid=dealerContact.id,Market__c='TR',country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()),UserName='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()));
             insert user2;
             Group g=new group(name='12345');insert g;
         }

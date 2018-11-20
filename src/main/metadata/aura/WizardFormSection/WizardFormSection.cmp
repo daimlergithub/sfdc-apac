@@ -1,0 +1,38 @@
+<aura:component >
+    <!-- Attributes -->
+    <aura:attribute name="sectionName" type="String"/>
+    <aura:attribute name="fieldMap" type="Map"/> 
+    <aura:attribute name="size" type="String" default="6"/>
+    <aura:attribute name="style" type="String" default="display: none"/>
+    <aura:attribute name="AccId" type="String" />
+    <!-- EVENT -->
+    <aura:registerEvent name="GetAccountId" type="c:GetAccountId"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+   <!-- <lightning:recordEditForm recordTypeId="012280000006I64AAE" objectApiName="Retail_Task__c"> -->
+   <div id="{!v.sectionName}" className="slds-hide" style="{!v.style}">    
+       <lightning:card title="{!v.sectionName}">
+           <lightning:layout multipleRows="true">
+               {!v.body}
+           </lightning:layout>
+       </lightning:card>
+   </div>
+  <!-- </lightning:recordEditForm> -->
+  <!-- 
+    <div id="{!v.sectionName}" className="slds-hide" style="{!v.style}">
+        <lightning:card title="{!v.sectionName}">
+            <lightning:layout multipleRows="true">
+                <aura:iteration items="{!v.fieldList}" var="item">
+                    <lightning:layoutitem flexibility="auto" size="{!v.size}" padding="around-small">
+                        <aura:if isTrue="{!item == 'AccountId'}">
+                            <lightning:inputField fieldName="{!item}"  value="{!v.AccId}" onchange="{!c.getAccId}"/>
+                        </aura:if>     
+                        <aura:if isTrue="{!item != 'AccountId'}">
+                            <lightning:inputField fieldName="{!item}"/>
+                        </aura:if>
+                    </lightning:layoutitem>
+                </aura:iteration>
+            </lightning:layout>
+        </lightning:card>
+    </div> -->
+</aura:component>

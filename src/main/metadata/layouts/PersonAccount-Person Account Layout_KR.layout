@@ -311,7 +311,7 @@
                 <field>SMS_Last_Modified_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Loyalty_Card_No__c</field>
             </layoutItems>
             <layoutItems>

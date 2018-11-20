@@ -1,0 +1,125 @@
+<!-- File Name   : CreateRetailCopyLC -->
+<!-- Description : Component to Create Retail Copy for Accounts based on Market -->
+<!--Part of : Account Detail Record -->
+<!--Form : This Component uses Design to display tables for Address records. -->
+<!--UI is displayed Based on the user selected option (Card Table or Lightning Data Table)-->
+<!--Shown as : Subtab with in Account Record or as a Quick action -->
+<!--Receives Market specific fields from the Factory model to display fields pertaining to each Market -->
+<!-- Copyright   : Infosys Limited Copyright (c) 2018  -->
+<!-- @author     : Infosys Team -->
+<!-- Author Modification & Ver.Date : Infosys Team & 10-July-2018  --> 
+<aura:component controller="createRetailCopyLCController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,flexipage:availableForRecordHome,lightning:actionOverride,force:hasRecordId,forceCommunity:availableForAllPageTypes" 
+                access="global" >
+    <aura:attribute name="recordId" type="Id" />	
+    <aura:attribute name="isPortalEnabled" type="Boolean" default="true"/>
+    <aura:attribute name="selectedAddRec" type="Address__c"/> 
+    <aura:attribute name="showAddRecs" type="Boolean" default="false"/>
+    <aura:attribute name="enablepopupt1" type="Boolean" default="false"/>
+    <aura:attribute name="locallang" type="string" default=""/>
+    <aura:attribute name="accRec" type="Account" default="{'sobjectType':'Account'}"/>
+    <aura:attribute name="LocalSelect" type="String"/>
+    <aura:attribute name="numberOfRecs" type="Integer"/>
+    <aura:attribute name="userRec" type="User"/>
+    <aura:attribute name="addressList" type="Address__c[]" />
+    <aura:attribute name="LDTcolumns" type="List" />
+    <aura:attribute name="LDTdata" type="List" />
+    <aura:attribute name="LDTallColumns" type="List" />
+    <aura:attribute name="maxRowSelection" type="Integer" default="1"/>
+    
+    <!-- design attribute -->
+    
+    <aura:attribute name="componentHeading" default="{!$Label.c.select_dealer}" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="fieldLabelMap" type="Map" /> <!-- Map will store field NAme as key and field label as Value String, String -->
+    <aura:attribute name="displayMode" type="String" default="Lightning Data Table"/>
+    <ltng:require scripts="/support/api/43.0/interaction.js"/>
+    <lightning:workspaceAPI aura:id="workspace" />
+    <lightning:overlayLibrary aura:id="modalLib"/>
+    <aura:attribute name="accRecLRF" type="String[]" default="['Main_Dealer__c']" />  
+    <aura:attribute name="tableSelectedhover" type="String" />
+    <center>
+        <lightning:notificationsLibrary aura:id="notifLib" />
+    </center>
+    
+    <!--<aura:if isTrue="{!or(v.LDTcolumns.length!=0,v.addressList.length!=0)}">-->
+    <lightning:card iconName="custom:custom12">
+         <aura:set attribute="title">
+        <div class="slds-media__body">
+                        <h2 id="header_1916:0" >
+                            <div class="slds-card__header-link baseCard__header-title-container">
+                                <span class="slds-text-heading--small slds-truncate slds-m-right--xx-small" title="Retail Tasks (Service Contact)" >
+                                    {!v.componentHeading}
+                                </span>
+                            </div>
+                        </h2>
+                    </div>
+        </aura:set>
+    <lightning:layout multipleRows="true" horizontalAlign="spread" >
+        <lightning:layoutItem size="6">
+            <lightning:recordEditForm objectApiName="Account" >
+                <label class="lbl-ip-space">  </label> 
+                <lightning:inputField fieldName="Main_Dealer__c" label="{!$Label.c.select_dealer}" onchange="{!c.getMainDealerValue}" labelClass="slds-hide"/>
+            </lightning:recordEditForm> 
+        </lightning:layoutItem>
+    </lightning:layout>
+    </lightning:card>
+    <!-- </aura:if>-->
+    <br/> 
+    <aura:if isTrue="{!and(v.displayMode=='Card Table',v.addressList.length!=0)}">
+        
+        <lightning:card variant="Narrow" title="Address" iconName="standard:address" >
+            <div class="slds-card__body slds-scrollable">
+                
+                <table class="slds-table slds-table_col-bordered slds-table_striped " role="grid">
+                    <thead>
+                        <tr class="slds-text-title--caps slds-truncate slds-is-resizable">
+                            <th scope="col"><div class="slds-is-resizable slds-truncate slds-align_absolute-center" >{! v.locallang}</div></th>
+                            <th scope="col"><div class="slds-is-resizable slds-truncate slds-align_absolute-center" >{! v.fieldLabelMap.Address_Type__c }</div></th>
+                            <th scope="col"><div class="slds-is-resizable slds-truncate slds-align_absolute-center" >{! v.fieldLabelMap.ZipCode__c }</div></th>
+                            <th scope="col"><div class="slds-is-resizable slds-truncate slds-align_absolute-center" >{! v.fieldLabelMap.Province__c }</div></th>
+                            <th scope="col"><div class="slds-is-resizable slds-truncate slds-align_absolute-center" >{! v.fieldLabelMap.City__c }</div></th>
+                            <th scope="col"><div class="slds-is-resizable slds-truncate slds-align_absolute-center" >More Details</div></th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.addressList}" var="add" indexVar="i">
+                            <tr>
+                                <td scope="row" role="gridcell"><ui:inputRadio aura:id="r0" label="{!i}" name="others" labelClass="uiLabel-right uiLabel slds-hide" value="{!add.id}" change="{!c.radioSelectedAdd}"/></td>
+                                <td scope="row" role="gridcell"><div class="slds-is-resizable slds-truncate slds-align_absolute-center"><ui:outputText value="{!add.Address_Type__c}" aura:id="addTypeT"/></div></td>
+                                <td scope="row" role="gridcell"><div class="slds-is-resizable slds-truncate slds-align_absolute-center"><ui:outputText value="{!add.ZipCode__c}" aura:id="zipcodeT" /></div></td>
+                                <td scope="row" role="gridcell"><div class="slds-is-resizable slds-truncate slds-align_absolute-center"><ui:outputText value="{!add.Province__c}" aura:id="provinceT" /></div></td>
+                                <td scope="row" role="gridcell"><div class="slds-is-resizable slds-truncate slds-align_absolute-center"><ui:outputText value="{!add.City__c}" aura:id="proNativeT" /></div></td>
+                                <td scope="row" role="gridcell"> <button class="slds-button slds-button slds-button--icon slds-align_absolute-center" aria-describedby="help" title="Show More Details" id="{!i}" onclick="{!c.display}" >
+                                    <aura:if isTrue="{!!v.enablepopupt1}"><lightning:icon iconName="utility:jump_to_bottom" size="small" alternativeText="Show More Details" /></aura:if>
+                                    <aura:if isTrue="{!v.enablepopupt1}"><lightning:icon iconName="utility:jump_to_top" size="small" alternativeText="Show More Details"></lightning:icon> </aura:if></button></td> 
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+                
+            </div>
+        </lightning:card>
+        
+    </aura:if>
+    <!--- popover code to show more fields starts -->
+    <c:createRetailCopyhover selectedAddRechover= "{!v.selectedAddRec}" fieldLabelMaphover = "{! v.fieldLabelMap}" tableSelectedhover = "t1" enable="{!v.enablepopupt1}"/>
+    <!--- popover code to show more fields ends  -->
+    <aura:if isTrue="{!and(v.displayMode=='Lightning Data Table',v.LDTdata.length!=0)}">
+        <div class="slds-grid" style="height:300px;">
+            <lightning:datatable aura:id="dataTable"
+                                 columns="{!v.LDTcolumns }"
+                                 data="{!v.LDTdata}"
+                                 keyField="id"
+                                 maxRowSelection="{! v.maxRowSelection }"
+                                 onrowaction="{!c.handleRowAction}"/>
+            
+        </div>
+    </aura:if> 
+    <footer class="slds-card__footer">
+        <lightning:button variant="brand" label="{!$Label.c.CreateRetailCopy}" onclick="{!c.createRetailCopy}" aura:id="createRetailCopy" />
+        <lightning:button variant="neutral" label="{!$Label.c.Cancel}" aura:id="Cancel" onclick="{!c.cancelFunction}"/>
+    </footer>
+    
+</aura:component>

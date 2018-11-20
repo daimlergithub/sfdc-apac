@@ -2,6 +2,7 @@
 ** Class: OpportunityInlineVehicleControllerINTest
 ** Description: Test Class for OpportunityInlineVehicleController
 ** Created By: Sravanthi Gudibandi
+** Modified BY : Prem Kumar(04-October-2018)
 ** Date: 12-April-2018
 **/
 
@@ -28,6 +29,12 @@ public class OpportunityInlineVehicleControllerINTest {
             List<Car_Model__c> carModelList = TestUtils.createBulkCarModel(7);
             List<Lead_Details__c> ledDetList = TestUtils.createBulkLeadDetails(oppSales, carModelList);
             List<Lead_Details__c> ledDetList1 = TestUtils.createBulkLeadDetails(oppafterSales, carModelList);
+            // Prem - Added code to increase test coverage
+            Id mbVehRecordTypeId = RecordTypeAccessService.getRecordTypeId('Vehicle__c','MB');
+            Vehicle__c veh = new Vehicle__c(Brand__c='MB New', recordTypeId=mbVehRecordTypeId);
+            insert veh;
+            Vehicle_Relationship__c vehRel = new Vehicle_Relationship__c(Contact__c=companyAcc.Id, Vehicle_ID__c=veh.Id, Status_1__c='A', Market__c='IN');
+            insert vehRel;
         }
     }
     

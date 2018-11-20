@@ -38,7 +38,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Retail_Task_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -47,7 +51,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
-    <enableFeeds>false</enableFeeds>
+    <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
@@ -100,6 +104,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Active_Recall__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Stores the value for Recall service vehicle for ANZ Market</description>
+        <externalId>false</externalId>
+        <label>Active Recall</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>	
     <fields>
         <fullName>Actual_Maturity_Date__c</fullName>
         <externalId>false</externalId>
@@ -2797,7 +2811,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -2902,8 +2917,18 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'IN'), 'IN', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'ID'), 'ID', 
+IF(ISPICKVAL($User.Market__c, 'RO'), 'RO',
+IF(ISPICKVAL($User.Market__c, 'SG'), 'SG',
+IF(ISPICKVAL($User.Market__c, 'VN'), 'VN',
+IF(ISPICKVAL($User.Market__c, 'HU'), 'HU',
+IF(ISPICKVAL($User.Market__c, 'SK'), 'SK',
+IF(ISPICKVAL($User.Market__c, 'AR'), 'AR',
+IF(ISPICKVAL($User.Market__c, 'CO'), 'CO',
+IF(ISPICKVAL($User.Market__c, 'EG'), 'EG',
+IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -2947,6 +2972,56 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                     <fullName>IN</fullName>
                     <default>false</default>
                     <label>IN</label>
+                </value>
+                <value>
+                    <fullName>NZ</fullName>
+                    <default>false</default>
+                    <label>NZ</label>
+                </value>				
+                <value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                    <label>ID</label>
+                </value>
+                <value>
+                    <fullName>RO</fullName>
+                    <default>false</default>
+                    <label>RO</label>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>false</default>
+                    <label>SG</label>
+                </value>
+                <value>
+                    <fullName>VN</fullName>
+                    <default>false</default>
+                    <label>VN</label>
+                </value>
+                <value>
+                    <fullName>HU</fullName>
+                    <default>false</default>
+                    <label>HU</label>
+                </value>
+                <value>
+                    <fullName>SK</fullName>
+                    <default>false</default>
+                    <label>SK</label>
+                </value>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                    <label>AR</label>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                    <label>CO</label>
+                </value>
+                <value>
+                    <fullName>EG</fullName>
+                    <default>false</default>
+                    <label>EG</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -3076,6 +3151,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <fields>
+        <fullName>Next_Service_Date__c</fullName>
+        <description>Next Service Date of the vehicle in service history for ANZ Market</description>
+        <externalId>false</externalId>
+        <label>Next Service Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>	
     <fields>
         <fullName>NoClaimBonus__c</fullName>
         <externalId>false</externalId>
@@ -3299,6 +3384,42 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Pay_Order_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Repair Order Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                    <label>Internal</label>
+                </value>
+                <value>
+                    <fullName>Customer Pay</fullName>
+                    <default>false</default>
+                    <label>Customer Pay</label>
+                </value>
+                <value>
+                    <fullName>Retail</fullName>
+                    <default>false</default>
+                    <label>Retail</label>
+                </value>
+                <value>
+                    <fullName>Warranty</fullName>
+                    <default>false</default>
+                    <label>Warranty</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>	
     <fields>
         <fullName>Payment_End_Date__c</fullName>
         <externalId>false</externalId>
@@ -3701,6 +3822,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                     <default>false</default>
                     <label>ServicePackage for Business</label>
                 </value>
+                <value>
+                    <fullName>warranty plus for certified car</fullName>
+                    <default>false</default>
+                    <label>warranty plus for certified car</label>
+                </value>
+                <value>
+                    <fullName>30</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>30</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -3874,6 +4006,20 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>Related_Opportunity__c</fullName>
+		<description>Stores the value for Opportunity lookup for ANZ Market</description>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Lead</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Retail Tasks</relationshipLabel>
+        <relationshipName>Retail_Tasks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>	
     <fields>
         <fullName>Related_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -4218,128 +4364,389 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 </value>
             </valueSetDefinition>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Predelivery inspection</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>1year inspection</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>MOT</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+               <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>MB Safety check</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Dealer Campaign</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>General Repair</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+               <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Warranty</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Outside Order</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Paint Jobs</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+               <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Re-Repair</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Quick Service</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+               <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Service Transfer</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+               <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Accessories</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+               <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Service Maintenance</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>MB 1year inspection</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>First MOT</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Test Jobs</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Electrical Jobs</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+               <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Body Jobs</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Other Jobs</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Return Jobs</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Service Contract</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Free</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Not selected</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>AU</controllingFieldValue>
+				<controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Wear &amp; Tear Jobs</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>New car/used car sales</valueName>
             </valueSettings>
             <valueSettings>
+			    <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>NZ</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
                 <valueName>Used car purchase</valueName>
             </valueSettings>
         </valueSet>
@@ -4510,6 +4917,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Service_Sublet_Amount__c</fullName>
+        <description>Rajesh: Added field for India : Sublet Invoice amount from eDealer DMS. Represents amount paid to 3rd party as part of service total amount</description>
+        <externalId>false</externalId>
+        <label>Service Sublet Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Service_Total_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Service Total Amount</label>
@@ -4523,8 +4943,9 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
     </fields>
     <fields>
         <fullName>Service_Vehicle_VIN__c</fullName>
+		<description>Service Vehicle VIn is populated with EU/US VIN Number</description>
         <externalId>false</externalId>
-        <formula>IF((MD__c=='TH' || MD__c=='MY'), Service_Vehicle__r.EuroVIN__c, Service_Vehicle__r.UsVIN__c)</formula>
+        <formula>IF((MD__c=='TH' || MD__c=='MY' || MD__c=='AU' || MD__c=='NZ'), Service_Vehicle__r.EuroVIN__c, Service_Vehicle__r.UsVIN__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Vehicle VIN</label>
         <required>false</required>
@@ -5329,6 +5750,44 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	
+	<fields>
+        <fullName>Related_Guarantor_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Guarantor 1</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Related Guarantor (Related Guarantor 1)</relationshipLabel>
+        <relationshipName>Retail_Task_Related_Guarantor1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Related_Guarantor_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Guarantor 2</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Related Guarantor (Related Guarantor 2)</relationshipLabel>
+        <relationshipName>Retail_Task_Related_Guarantor2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Related_Guarantor_3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Guarantor 3</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Related Guarantor (Related Guarantor 3)</relationshipLabel>
+        <relationshipName>Retail_Task_Related_Guarantor3</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	
     <label>Retail Task</label>
     <listViews>
         <fullName>ALL</fullName>
@@ -6131,6 +6590,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>			
+            <values>
                 <fullName>MY</fullName>
                 <default>false</default>
             </values>
@@ -6221,6 +6684,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pay_Order_Type__c</picklist>
+            <values>
+                <fullName>Customer Pay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7056,6 +7538,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>			
+            <values>
                 <fullName>MY</fullName>
                 <default>false</default>
             </values>
@@ -7090,6 +7576,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pay_Order_Type__c</picklist>
+            <values>
+                <fullName>Customer Pay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8093,6 +8598,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>			
+            <values>
                 <fullName>MY</fullName>
                 <default>false</default>
             </values>
@@ -8183,6 +8692,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pay_Order_Type__c</picklist>
+            <values>
+                <fullName>Customer Pay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9254,6 +9782,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>			
+            <values>
                 <fullName>MY</fullName>
                 <default>false</default>
             </values>
@@ -9344,6 +9876,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pay_Order_Type__c</picklist>
+            <values>
+                <fullName>Customer Pay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10431,6 +10982,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>			
+            <values>
                 <fullName>MY</fullName>
                 <default>false</default>
             </values>
@@ -10521,6 +11076,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pay_Order_Type__c</picklist>
+            <values>
+                <fullName>Customer Pay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11572,11 +12146,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <picklistValues>
             <picklist>Market__c</picklist>
             <values>
+                <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11592,11 +12186,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>			
+            <values>
                 <fullName>MY</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11682,6 +12296,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pay_Order_Type__c</picklist>
+            <values>
+                <fullName>Customer Pay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11807,6 +12440,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>warranty plus for certified car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

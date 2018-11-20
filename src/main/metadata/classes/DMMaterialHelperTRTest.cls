@@ -25,12 +25,12 @@ public class DMMaterialHelperTRTest {
 
      
         Profile taskprofile = [select id, Name from profile where Name='System Administrator' limit 1];
-        User user = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='sa2222222m@test.com.dev01',Market__c = 'TR');
+        User user = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='sa2222222m@test.com.dev01'+String.valueof(DateTime.now().getTime()),Market__c = 'TR');
         insert user;
         System.runas(user){       
             Profile profileCAC = [select Id from Profile where Name = :Label.IntProfileName];
             usr = new User();
-            usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';        
+            usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com'+String.valueof(DateTime.now().getTime());        
             if(profileCAC!=Null){
             usr.ProfileId = profileCAC.Id;}
             usr.LastName = 'Test User';
@@ -62,7 +62,7 @@ public class DMMaterialHelperTRTest {
         system.runAs(usr){
             Material = new DM_Material__c();
             Material.Name='testname';
-			Material.Market__c='TR';
+            Material.Market__c='TR';
             insert Material;
 
           

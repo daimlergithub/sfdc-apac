@@ -40,6 +40,10 @@
                 <behavior>Edit</behavior>
                 <field>Case_Type__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Case_Type_tr__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBTH_Case_Subtype__c</field>
@@ -51,6 +55,14 @@
 	    <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Case_Sub_Type_Detail__c</field>
+            </layoutItems>
+	     <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Case_Sub_Type__c</field>
+            </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Case_Sub_Type_Detail_tr__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -100,6 +112,10 @@
                 <behavior>Edit</behavior>
                 <field>Resolution__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Customer_Satisfaction__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Technical_Comments__c</field>
@@ -116,10 +132,7 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Legal_Involved__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_In_Workshop__c</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Transport_Car_Model__c</field>
@@ -219,6 +232,10 @@
                 <behavior>Edit</behavior>
                 <field>Turnaround_Time_In_Days__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Turn_Around_Time__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Turnaround_Time_with_Public_Holidays__c</field>
@@ -243,7 +260,10 @@
                 <behavior>Edit</behavior>
                 <field>CareCall__c</field>
             </layoutItems>
-	
+	 	<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Date_Received__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -291,6 +311,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Feedback_to_CCC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Feedback_to_CAC__c</field>
             </layoutItems>
             <layoutItems>
@@ -301,10 +325,15 @@
                 <behavior>Edit</behavior>
                 <field>Case_FieldManager__c</field>
             </layoutItems>
+	     <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Handling_Level__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Improvement_Department__c</field>
             </layoutItems>
+	    
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Requests_Transport__c</field>
@@ -333,10 +362,7 @@
                 <behavior>Edit</behavior>
                 <field>Response_Type__c</field>
             </layoutItems>
-	    <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Customer_Satisfaction__c</field>
-            </layoutItems>
+	    
             
         </layoutColumns>
         <layoutColumns>
@@ -473,6 +499,10 @@
                 <behavior>Edit</behavior>
                 <field>Defective_SubItem__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_In_Workshop__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -491,10 +521,7 @@
                 <behavior>Edit</behavior>
                 <field>Car_Remarks__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Date_Received__c</field>
-            </layoutItems>
+           
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Registration_Number__c</field>
@@ -503,10 +530,7 @@
                 <behavior>Edit</behavior>
                 <field>Correction__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Handling_Level__c</field>
-            </layoutItems>
+           
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Engine_Number__c</field>
@@ -729,6 +753,9 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Complaint_Description__c.Case__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEmailMessageList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

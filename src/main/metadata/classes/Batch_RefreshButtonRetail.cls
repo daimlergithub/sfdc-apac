@@ -89,7 +89,7 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
         }
         if((!acclink.isempty() && acclink.size()>0) && (!mapAccLinks.isempty() && mapAccLinks.size()>0)){
         for(Campaign_Member__c camp : scope){
-           if(camp.Vehicle__c != null){
+           if(camp.Vehicle__c != null && mapAccLinks.get(camp.Vehicle__c)!=null && (!mapAccLinks.isempty() && mapAccLinks.size()>0)){
             if(mapAccLinks.get(camp.Vehicle__c).NextInspectionDate__c != null){
                 camp.NextInspectionDate__c = mapAccLinks.get(camp.Vehicle__c).NextInspectionDate__c;
             }
@@ -160,6 +160,30 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
        }
        }
        }
+	            Map<Id,Account_Link__c> mapmymeid = New Map<Id,Account_Link__c>();
+          List<Account_Link__c> acclinkid = [select ID,Name from Account_link__c where RecordType.Developername = 'IndividualExternalLink' and System__c = 'My Mercedes' and Primary__c = True and toRole__c IN: contactid  ];
+       
+         System.debug('+++++++++acclinkid++++++++++++'+acclinkid );
+        if(!acclinkid.isempty()&&acclinkid.size()>0){
+        for(Account_Link__c acc :acclinkid){
+        
+                mapmymeid.put(acc.toRole__c,acc);
+                
+            }
+            for(Campaign_Member__c cmpmembr : scope){
+            for(Account_Link__c acc : acclinkid  ){
+           
+            if(cmpmembr.Contact_Id__c == acc.toRole__c 
+
+			){
+            cmpmembr.My_Mercedes_ID__c = acc.name;
+
+            membertoupdate.put(cmpmembr.id,cmpmembr);
+            }
+        }
+        }
+        
+        }
         database.update (membertoupdate.values(),false);
     }
     

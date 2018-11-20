@@ -206,7 +206,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
             ar.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer);
           }
           }
-
+		TriggerAccountTriggerHandlerKR.preventRecurssion=true;
     }
     
     /**
@@ -282,6 +282,12 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
     //Creating Retail copy from dealer #SFDCKR-696
     public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate)
     {
+     Map<String, KR_Switch__c> KRSwitchMap = KR_Switch__c.getAll(); 
+      Boolean KRSwitchEnabledFlag = false;
+   
+          if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('AccountHelperswitch')){
+           KRSwitchEnabledFlag = KRSwitchMap.get('AccountHelperswitch').Enable_Flag__c;
+        }
         User usr = [select id,Name,ContactId,contact.AccountId,Profile.UserLicense.Name,Contact.Account.Dealer_ND_Code__c from user where Id =: UserInfo.getUserId()];
         if(usr.Profile.UserLicense.Name == 'Partner Community')
         {
@@ -324,7 +330,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                         acclnk.fromRole__c = usr.Contact.AccountId;
                         acclnk.toRole__c = retailacc.Id;
                         acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;                 
-                        acclnk.Retail_Company_Name__c = retailacc.Company_Name__c;
+                        acclnk.Retail_Company_Name__c = retailacc.name;
                         acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
                         acclnk.Retail_Fax_OptOut__c = retailacc.PersonHasOptedOutOfFax;
                         acclnk.Retail_Primary_Phone__c = retailacc.Primary_Phone_Display__c;
@@ -359,9 +365,30 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                         acclnk.Retail_Sales_Sanction__c = retailacc.Sales_Sanction__c;
                         acclnk.Retail_UCID__c = retailacc.UCID__c;
                         acclnk.Retail_Allow_Data_Sharing__c = retailacc.Allow_Data_Sharing__c;
+                        if(KRSwitchEnabledFlag){
+                    if(retailacc.Mobile__c!= null)
+                    acclnk.Retail_Mobile__c = retailacc.Mobile__c.substringBefore('-')+ retailacc.Mobile__c.substringAfter('-');
+
+                    }
+                    else{
                         acclnk.Retail_Mobile__c = retailacc.Mobile__c;
+                        }
+                         if(KRSwitchEnabledFlag){
+                    if(retailacc.Individual_Home_Phone__c!= null)
+                    acclnk.Retail_Individual_Home_Phone__c = retailacc.Individual_Home_Phone__c.substringBefore('-')+ retailacc.Individual_Home_Phone__c.substringAfter('-');
+
+                    }
+                    else{
                         acclnk.Retail_Individual_Home_Phone__c = retailacc.Individual_Home_Phone__c;
+                      } 
+                       if(KRSwitchEnabledFlag){
+                    if(retailacc.Work_Phone__c!= null)
+                    acclnk.Retail_Work_Phone__c = retailacc.Work_Phone__c.substringBefore('-')+ retailacc.Work_Phone__c.substringAfter('-');
+
+                    }
+                    else{
                         acclnk.Retail_Work_Phone__c = retailacc.Work_Phone__c;
+                        }
                         acclnk.Retail_Email__c = retailacc.Email__c;
                         acclnk.Retail_Fax__c =retailacc.Fax;
                         acclnk.Retail_Preferred_Contact_Method__c = retailacc.Preferred_Contact_Method__c;
@@ -382,8 +409,24 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                         acclnk.Retail_Special_Needs_Class__c = retailacc.Special_Needs_Class__c;
                         acclnk.Retail_Company_Name_Native1__c = retailacc.Company_Name_Native_1__c; 
                         acclnk.Retail_Commercial_Reg_No__c = retailacc.Commercial_Reg_No__c;
+                         if(KRSwitchEnabledFlag){
+                    if(retailacc.Individual_Home_Phone__c!= null)
+                    acclnk.Retail_Company_Phone__c = retailacc.Individual_Home_Phone__c.substringBefore('-')+ retailacc.Individual_Home_Phone__c.substringAfter('-');
+
+                    }
+                    else
+                    {
                         acclnk.Retail_Company_Phone__c = retailacc.Individual_Home_Phone__c;
+                        }
+                        if(KRSwitchEnabledFlag){
+                    if(retailacc.Work_Phone__c!= null)
+                    acclnk.Retail_Company_Other_Phone__c = retailacc.Work_Phone__c.substringBefore('-')+ retailacc.Work_Phone__c.substringAfter('-');
+
+                    }
+                    else
+                    {
                         acclnk.Retail_Company_Other_Phone__c = retailacc.Work_Phone__c; 
+                        }
                         acclnk.Retail_Agreement__c = retailacc.Personal_Agreement__c;
                         acclnk.Retail_Information_Third_Party_Release__c = retailacc.Personal_Information_Third_Party_Release__c;
                         acclnk.Retail_Abroad_Agreement__c = retailacc.Personal_Abroad_Agreement__c;
@@ -475,10 +518,17 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 insert insertAccshList;
             }
         }
+		TriggerAccountTriggerHandlerKR.preventRecurssionafter=true;
     }
     
     public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isafter,List<Account> accLst , Map<Id,Account>oldAccountmap)
     {
+    Map<String, KR_Switch__c> KRSwitchMap = KR_Switch__c.getAll(); 
+      Boolean KRSwitchEnabledFlag = false;
+   
+          if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('AccountHelperswitch')){
+           KRSwitchEnabledFlag = KRSwitchMap.get('AccountHelperswitch').Enable_Flag__c;
+        }
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
@@ -579,10 +629,10 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                   acc.General_Personal_Information_Optional__c!=oldAccountmap.get(acc.id).General_Personal_Information_Optional__c||
                   acc.General_Personal_InfoThirdParty_Optional__c!=oldAccountmap.get(acc.id).General_Personal_InfoThirdParty_Optional__c||
                   acc.Targeted_Advertising_Info_Optional__c!=oldAccountmap.get(acc.id).Targeted_Advertising_Info_Optional__c||
-				  acc.Personal_Agreement_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Agreement_CC_Old__c||
-				  acc.Personal_Info_Third_Party_Release_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Info_Third_Party_Release_CC_Old__c||
-				  acc.Agreement_to_commit_info_proces_CC_Old__c!=oldAccountmap.get(acc.id).Agreement_to_commit_info_proces_CC_Old__c||
-				  acc.Personal_Abroad_Agreement_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Abroad_Agreement_CC_Old__c)
+                  acc.Personal_Agreement_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Agreement_CC_Old__c||
+                  acc.Personal_Info_Third_Party_Release_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Info_Third_Party_Release_CC_Old__c||
+                  acc.Agreement_to_commit_info_proces_CC_Old__c!=oldAccountmap.get(acc.id).Agreement_to_commit_info_proces_CC_Old__c||
+                  acc.Personal_Abroad_Agreement_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Abroad_Agreement_CC_Old__c)
                 {
                     AccountIds.add(acc.id);
                 }
@@ -650,13 +700,38 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing__c;  
                 //}   
                 //if(persongroup4 == true){
-                acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
+                   //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Home Phone .
+                   if(KRSwitchEnabledFlag){
+                    if(acclnk.toRole__r.Individual_Home_Phone__c!= null)
+                   acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c.substringBefore('-')+ acclnk.toRole__r.Individual_Home_Phone__c.substringAfter('-');
+
+                   }
+                   else{
+
+                 acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
+                 }
                 //}
                 //if(persongroup5 == true){
+                //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Work  Phone .
+                 if(KRSwitchEnabledFlag){
+                  if(acclnk.toRole__r.Work_Phone__c!= null)
+                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c.substringBefore('-')+ acclnk.toRole__r.Work_Phone__c.substringAfter('-');
+
+                 }
+                else{
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
+                }
                 //}
                 //if(persongroup6 == true){
-                acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;   
+                //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Mobile Phone .
+                 if(KRSwitchEnabledFlag){
+                 if(acclnk.toRole__r.Mobile__c!= null)
+                acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c.substringBefore('-')+ acclnk.toRole__r.Mobile__c.substringAfter('-'); 
+
+                 }
+            else{
+                acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c; 
+                }
                 //}   
                 //if(persongroup8 == true){   
                 acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
@@ -677,8 +752,25 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 //acclnk.Retail_Company_Name__c = acclnk.toRole__r.Company_Name__c;
                 acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c; 
                 acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c; 
+            //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Company Phone .
+                 if(KRSwitchEnabledFlag){
+                 if(acclnk.toRole__r.Individual_Home_Phone__c!= null)
+                 acclnk.Retail_Company_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c.substringBefore('-')+ acclnk.toRole__r.Individual_Home_Phone__c.substringAfter('-');
+
+                 }
+                 else{
+
                 acclnk.Retail_Company_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
-                acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c;
+                }
+               //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Company other  Phone .
+                if(KRSwitchEnabledFlag){
+                if(acclnk.toRole__r.Work_Phone__c!= null)
+               acclnk.Retail_Company_Other_Phone__c =acclnk.toRole__r.Work_Phone__c.substringBefore('-')+ acclnk.toRole__r.Work_Phone__c.substringAfter('-');
+
+                }
+             else{
+               acclnk.Retail_Company_Other_Phone__c =acclnk.toRole__r.Work_Phone__c;
+           }
                 acclnk.Retail_Agreement__c = acclnk.toRole__r.Personal_Agreement__c;
                 acclnk.Retail_Information_Third_Party_Release__c = acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
                 acclnk.Retail_Abroad_Agreement__c = acclnk.toRole__r.Personal_Abroad_Agreement__c;
@@ -701,13 +793,13 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Personal_Information_Third_Party_KR__c= acclnk.toRole__r.Personal_Info_Third_Party_Release_CC_Old__c;
                 acclnk.Agreement_to_commit_info_processing_KR__c=acclnk.toRole__r.Agreement_to_commit_info_proces_CC_Old__c;
                 acclnk.Personal_Abroad_Agreement_KR__c= acclnk.toRole__r.Personal_Abroad_Agreement_CC_Old__c;
-				acclnk.Personal_Agreement_Service_24h__c= acclnk.toRole__r.Personal_Agreement_Service_24h__c;
+                acclnk.Personal_Agreement_Service_24h__c= acclnk.toRole__r.Personal_Agreement_Service_24h__c;
                 acclnk.General_Personal_Information_Mandatory__c= acclnk.toRole__r.General_Personal_Information_Mandatory__c;
                 acclnk.Unique_Identification_Info_Mandatory__c= acclnk.toRole__r.Unique_Identification_Info_Mandatory__c;
                 acclnk.Unique_Identity_Info_ThirdParty_Optional__c= acclnk.toRole__r.Unique_Identity_Info_ThirdParty_Optional__c;
                 acclnk.General_Personal_Information_Optional__c=acclnk.toRole__r.General_Personal_Information_Optional__c;
                 acclnk.General_Personal_InfoThirdParty_Optional__c= acclnk.toRole__r.General_Personal_InfoThirdParty_Optional__c;
-                acclnk.Targeted_Advertising_Info_Optional__c= acclnk.toRole__r.Targeted_Advertising_Info_Optional__c;				
+                acclnk.Targeted_Advertising_Info_Optional__c= acclnk.toRole__r.Targeted_Advertising_Info_Optional__c;               
             }
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company' && acclnk.fromRole__r.Dealer_Rollout_Status__c == 'Done')
@@ -732,10 +824,32 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Industry__c = acclnk.toRole__r.Industry; 
                 acclnk.Retail_Website__c = acclnk.toRole__r.website;
                 
-                
+               //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Company Phone .
+               if(KRSwitchEnabledFlag){
+               if(acclnk.toRole__r.Individual_Home_Phone__c!= null)
+             acclnk.Retail_Company_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c.substringBefore('-')+ acclnk.toRole__r.Individual_Home_Phone__c.substringAfter('-');
+
+               }
+               else{
                 acclnk.Retail_Company_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
-                
-                acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c;
+                }
+            //Sravanthi Gudibandi---->for call flow Added code to remove hypen for Company  other Phone .
+                 if(KRSwitchEnabledFlag){
+                  if(acclnk.toRole__r.Work_Phone__c!= null)
+                  acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c.substringBefore('-')+ acclnk.toRole__r.Work_Phone__c.substringAfter('-');
+
+                       }
+                       else{
+               acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c;
+               }
+			   if(KRSwitchEnabledFlag){
+			   if(acclnk.toRole__r.Mobile__c!= null)
+                acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c.substringBefore('-')+ acclnk.toRole__r.Mobile__c.substringAfter('-'); 
+
+                 }
+            else{
+                acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c; 
+                }
                 
                 acclnk.Retail_DMS_Customer_ID__c = acclnk.toRole__r.DMS_Customer_ID__c;      
                 acclnk.Retail_Email_OptOut__c = acclnk.toRole__r.PersonHasOptedOutOfEmail;
@@ -785,6 +899,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
             update AccountlnkUpdate;
         }
         //}
+		TriggerAccountTriggerHandlerKR.preventRecurssionupdateRetail=true;
     } 
     
     
@@ -859,6 +974,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 Database.insert(AccountShareList, false);
             }
         }
+		    TriggerAccountTriggerHandlerKR.preventRecurssionaftersahring=true;
     }
 
     /****************************************8
@@ -1221,4 +1337,25 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 }       
         }       
     }
+
+ /**
+     @param Accounts
+     @param oldaccMap
+     @param action
+    */
+    //MBK Message Send Manage 6/26/2018
+    public static void MessageSendManage(List<Account> Accounts, map<Id,Account> oldaccMap, String action){
+
+        List<String> accountIds = new List<String>();
+        for(Account temp:Accounts){
+            If(action == 'Update') {
+                Account oldacc = oldaccMap.get(temp.Id);
+                if (temp.Status__c <> oldacc.Status__c) {
+                    accountIds.add(temp.Id);
+                }
+            }else accountIds.add(temp.Id);
+        }
+        MBKSendManageHelperKR.messageManageValidationCheck(accountIds, 'Account', action);
+    }
+        
 }

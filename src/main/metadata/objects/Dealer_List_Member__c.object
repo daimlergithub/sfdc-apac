@@ -551,6 +551,15 @@ NOT(ISBLANK(PRIORVALUE(Participating_Dealer__c))),NOT(ISNEW()),ISCHANGED(Partici
         <errorMessage>Participating Dealer cannot be changed</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Reason_for_the_removal_cant_change</fullName>
+        <active>true</active>
+        <description>SFDCJP-3460 Reason for the Removal" field value should not enter if List Maintenance CM Status is "Ready" or "New"</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'), 
+ISCHANGED(Reason_for_the_removal__c),(OR((ISPICKVAL(List_Maintenance_CM_Status__c, "Ready")),(ISPICKVAL(List_Maintenance_CM_Status__c, "New")))))</errorConditionFormula>
+        <errorDisplayField>Reason_for_the_removal__c</errorDisplayField>
+        <errorMessage>"Reason for Removal" field value should not enter if List Maintenance CM Status is "Ready" or "New"</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>lock_on_campaign</fullName>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),Participating_Dealer__r.Approve_the_List__c = TRUE)</errorConditionFormula>

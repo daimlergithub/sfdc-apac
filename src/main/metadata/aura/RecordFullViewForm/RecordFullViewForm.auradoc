@@ -1,0 +1,36 @@
+<aura:documentation>
+    <aura:description>
+        This component uses lightning:recordViewForm to display fields.
+        <br/>
+        The parent component in which this child component is embedded must set the following parameters:
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered slds-table_stacked-horizontal">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="recordId">RECORD ID</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Fields">FIELDS</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="objectApiName">OBJECT API NAME</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="recordId">The id of the record, whose fields will be displayed</div>
+                    </td>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="Fields">List of API names of the fields to be displayed.</div>
+                    </td>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="objectApiName">API name of the object whose fields are to be displayed.</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </aura:description>
+    
+</aura:documentation>

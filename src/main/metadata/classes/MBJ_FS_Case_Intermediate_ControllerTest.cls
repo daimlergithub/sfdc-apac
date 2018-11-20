@@ -14,6 +14,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Retail_Task__c testContract = new Retail_Task__c(Name='Test Contract',Account__c =testaccount.id,ContractNumber__c='1234567890');
         insert testContract;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Finance Inquiry Case'].Id;
         
         Case testCase = new Case();
@@ -43,8 +47,13 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(Name='Test Account 123',UCID__c='UCIDtest3394510');
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         Retail_Task__c testContract = new Retail_Task__c(Name='Test Contract',Account__c =testaccount.id,ContractNumber__c='1234567890');
         insert testContract;
+        
         
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Customer Request Case'].Id;
         
@@ -74,6 +83,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
     public static testMethod void testRetailTaskClosingController() {
         Account testAccount = new Account(Name='Test Account 123',UCID__c='UCIDtest3394510');
         insert testAccount;
+        
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
         
         Retail_Task__c testContract = new Retail_Task__c(Name='Test Contract',Account__c =testaccount.id,ContractNumber__c='1234567890');
         insert testContract;
@@ -107,6 +120,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(Name='Test Account 123',UCID__c='UCIDtest3394510');
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         Retail_Task__c testContract = new Retail_Task__c(Name='Test Contract',Account__c =testaccount.id,ContractNumber__c='1234567890');
         insert testContract;
         
@@ -139,6 +156,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(Name='Test Account 123',UCID__c='UCIDtest3394510');
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         Retail_Task__c testContract = new Retail_Task__c(Name='Test Contract',Account__c =testaccount.id,ContractNumber__c='1234567890');
         insert testContract;
         
@@ -170,6 +191,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(Name='Test Account 123',UCID__c='UCIDtest3394510');
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+            
         Retail_Task__c testContract = new Retail_Task__c(Name='Test Contract',Account__c =testaccount.id,ContractNumber__c='1234567890');
         insert testContract;
         
@@ -200,6 +225,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
     public static testMethod void testRetailTaskMBComplaintController() {
         Account testAccount = new Account(Name='Test Account 123',UCID__c='UCIDtest3394510');
         insert testAccount;
+        
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
         
         Retail_Task__c testContract = new Retail_Task__c(Name='Test Contract',Account__c =testaccount.id,ContractNumber__c='1234567890');
         insert testContract;
@@ -235,6 +264,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Finance Inquiry Case'].Id;
         Case testCase = new Case();
         testCase.recordtypeid = strRecordTypeId;
@@ -260,6 +293,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         String rt = [SELECT id,Name FROM RecordType WHERE (Name='Person Account Retail') AND (SobjectType='Account')].Id;  
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
+        
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
         
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Customer Request Case'].Id;
         Case testCase = new Case();
@@ -287,6 +324,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Contract Closing Case'].Id;
         Case testCase = new Case();
         testCase.recordtypeid = strRecordTypeId;
@@ -312,6 +353,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         String rt = [SELECT id,Name FROM RecordType WHERE (Name='Person Account Retail') AND (SobjectType='Account')].Id;
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
+        
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
         
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Finance Quotation Case'].Id;
         Case testCase = new Case();
@@ -339,6 +384,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Complaint Management Case'].Id;
         Case testCase = new Case();
         testCase.recordtypeid = strRecordTypeId;
@@ -364,6 +413,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         String rt = [SELECT id,Name FROM RecordType WHERE (Name='Person Account') AND (SobjectType='Account')].Id;
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
+        
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
         
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'Inquiry'].Id;
         Case testCase = new Case();
@@ -391,6 +444,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         String rt = [SELECT id,Name FROM RecordType WHERE (Name='Person Account') AND (SobjectType='Account')].Id;  
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
+        
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
         
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MB Complaint'].Id;
         Case testCase = new Case();
@@ -420,6 +477,9 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
         
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Finance Inquiry Case'].Id;
         Case testCase = new Case();
@@ -447,6 +507,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Customer Request Case'].Id;
         Case testCase = new Case();
         testCase.recordtypeid = strRecordTypeId;
@@ -472,6 +536,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Contract Closing Case'].Id;
         Case testCase = new Case();
         testCase.recordtypeid = strRecordTypeId;
@@ -496,6 +564,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         String rt = [SELECT id,Name FROM RecordType WHERE (Name='Person Account') AND (SobjectType='Account')].Id;  
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
+        
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
         
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Finance Quotation Case'].Id;
         Case testCase = new Case();
@@ -523,6 +595,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Complaint Management Case'].Id;
         Case testCase = new Case();
         testCase.recordtypeid = strRecordTypeId;
@@ -547,6 +623,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         String rt = [SELECT id,Name FROM RecordType WHERE (Name='Person Account') AND (SobjectType='Account')].Id;
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
+        
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
         
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'Inquiry'].Id;
         Case testCase = new Case();
@@ -575,6 +655,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
         Account testAccount = new Account(LastName='Test', UCID__c='UCIDtest3394510', recordTypeId=rt);
         insert testAccount;
         
+        //create custom setting
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+        
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MB Complaint'].Id;
         Case testCase = new Case();
         testCase.recordtypeid = strRecordTypeId;
@@ -600,7 +684,10 @@ public class MBJ_FS_Case_Intermediate_ControllerTest{
        public static testMethod void testCaseMBFCustomerRequestCase() {
         Account testAccount = new Account(Name='Test Account 123',UCID__c='UCIDtest3394510');
         insert testAccount;
-        
+       
+        Case_ContractId_Field_Id__c caseContractIdFieldId=new Case_ContractId_Field_Id__c(Name='TH_FS_ContractNumber',Value__c='CF00N0k000001Ah0h'); 
+        insert caseContractIdFieldId;
+           
         String strRecordTypeId = [Select Id From RecordType Where SobjectType = 'Case' and Name = 'MBF Customer Request Case'].Id;        
         Case testCase = new Case();
         testCase.recordtypeid = strRecordTypeId;

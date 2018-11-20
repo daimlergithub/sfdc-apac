@@ -1,175 +1,316 @@
-<apex:page controller="CtrlMessageSearchKRDFW" tabStyle="MBK_Messages__c" docType="html-5.0">
-<head>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>      
-    <script type="text/javascript">
-    	var isBulk = false;
-    	var chked_val = '';
-    	var chkCnt = 0;
-        $(document).ready(function(){
-            $("#waitWindow").dialog({ autoOpen: false, modal: true, position: { my: "center", at: "center", of: window }, closeText: 'hide', draggable: false, title:'처리중...'});        	
-        	$('.dataTable').DataTable();    		                
-        });
-        
-        function showDialog(){
-            $("#waitWindow").dialog("open");
-            return false;
-        }
-        
-        function hideDialog(){
-            $("#waitWindow").dialog("close");
-            return false;
-        }       
-                
-        function allChecked(){       		
-       		allChecking(); 
-        } 
-        
-        function checkCount(thisChk, itemId){
-        	console.log('thisObj.checked: ' + thisChk.checked);
- 			if(thisChk.checked) {
- 				chked_val += ','+itemId;
- 				chkCnt++;
- 			} else {
- 				chked_val = chked_val.replace(','+itemId, '');
- 				chkCnt--;
- 			}
- 			
- 			$('#totalMan').html(chkCnt);
- 			
-        }
-        
-        function sendPage(){
-       		console.log('chked_val: ' + chked_val);
-       		console.log('chkCnt: ' + chkCnt);
-       		var isBulk = false;
-       		if(chkCnt > 1) isBulk = true;
-       		chked_val = chked_val.substring(1, chked_val.length);
-       		console.log('chked_val: ' + chked_val);
-        	if(!isBulk){
-        		window.open('{!popupUrl}?id='+chked_val, '_blank');
-        	}else{
-				Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.CtrlMessageSearchKRDFW.messageScheduling}',
-					chked_val,chkCnt,
-			        function(result, event){		        	
-			            if (event.status) {
-			            	var resObj = result;
-			            	if(resObj != 'failed') {
-			            		//성공
-			            		window.open('{!popupUrl}?bulkMessageId='+resObj, '_blank');        	
-			            	} else {
-			            		//실패
-			            		alert('Message Bulk Message Scheduling failed');
-			            	}
-			            } else {
-			            	//서버 연결 실패
-			            		alert('Error : Connection to the server failed.');
-			            }
-			        }, 
-			        {escape: true}
-			    );
-        		
-        	}
-        }
-        function pageRerender(){
-        	$('.dataTable').DataTable();
-        }
-                
-        function pageRerender2(chked_val1, chkCnt1){
-        	$('.dataTable').DataTable();
-        	
-        	chked_val = chked_val1;
-        	chkCnt = chkCnt1;
-       		console.log('idList: ' + chked_val);
-       		$('#totalMan').html(chkCnt);
-        }
-    </script>
-</head>
-<body>
+<!--
+ - Created by ms on 2018-06-21.
+ -->
+
+<apex:page id="PageMessageSearchKRDFW" controller="CtrlMessageSearchKRDFW" tabStyle="MBK_Messages__c" docType="html-5.0">
+    <head>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript">
+            var isBulk = false;
+            var chked_val = '';
+            var chkCnt = 0;
+            $(document).ready(function(){
+                $("#waitWindow").dialog({ autoOpen: false, modal: true, position: { my: "center", at: "center", of: window }, closeText: 'hide', draggable: false, title:'처리중...'});
+                $('.dataTable').DataTable();
+                $('.layerDataTable').DataTable();
+            });
+
+            function showDialog(){
+                $("#waitWindow").dialog("open");
+                return false;
+            }
+
+            function hideDialog(){
+                $("#waitWindow").dialog("close");
+                return false;
+            }
+
+            //2018.6.25 개별체크항목들이 전체 체크되면 checkall이 true가 되고 아니면 false가 되도록 변경
+            function isAllChecked(){
+                if($(".itemCheckbox:checked").length == $(".itemCheckbox").length){
+                    $("input:checkbox[id*=checkall]").attr("checked", true);
+                }
+                else{
+                    $("input:checkbox[id*=checkall]").attr("checked", false);
+                }
+            }
+
+            function allChecked(){
+                allChecking();
+            }
+
+            function checkCount(thisChk, itemId){
+                console.log('thisObj.checked: ' + thisChk.checked);
+                console.log('chked_val: ' + chked_val);
+                console.log('chkCnt: ' + chkCnt);
+                if(thisChk.checked) {
+                    chked_val += ','+itemId;
+                    chkCnt++;
+                } else {
+                    chked_val = chked_val.replace(','+itemId, '');
+                    chkCnt--;
+                }
+
+                $('#totalMan').html(chkCnt);
+                isAllChecked();
+            }
+
+            function sendPage(){
+                console.log('chked_val: ' + chked_val);
+                console.log('chkCnt: ' + chkCnt);
+                var isBulk = false;
+                if(chkCnt > 1) isBulk = true;
+                var sendChked_val = chked_val.substring(1, chked_val.length);
+                console.log('chked_val: ' + chked_val);
+                if(!isBulk){
+                    window.open('{!popupUrl}?id='+sendChked_val, '_blank');
+                }else{
+                    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.CtrlMessageSearchKRDFW.messageScheduling}',
+                        sendChked_val,chkCnt,
+                        function(result, event){
+                            if (event.status) {
+                                var resObj = result;
+                                if(resObj != 'failed') {
+                                    //성공
+                                    window.open('{!popupUrl}?bulkMessageId='+resObj, '_blank');
+                                } else {
+                                    //실패
+                                    alert('Message Bulk Message Scheduling failed');
+                                }
+                            } else {
+                                //서버 연결 실패
+                                    alert('Error : Connection to the server failed.');
+                            }
+                        },
+                        {escape: true}
+                    );
+
+                }
+            }
+            function layerPopup(){
+                $('.layerDataTable').DataTable();
+            }
+            function pageRerender(){
+                $('.dataTable').DataTable();
+                isAllChecked();
+            }
+
+            function pageRerender2(chked_val1, chkCnt1){
+                $('.dataTable').DataTable();
+                $('.layerDataTable').DataTable();
+
+                chked_val = chked_val1;
+                chkCnt = chkCnt1;
+                console.log('idList: ' + chked_val);
+                isAllChecked();
+                $('#totalMan').html(chkCnt);
+            }
+        </script>
+        <style type="text/css">
+            .custPopup{
+                background-color: white;
+                border-width: 1px;
+                border-style: solid;
+                z-index: 9999;
+                left: 30%;
+                padding:30px;
+                position: absolute;
+                /* These are the 3 css properties you will need to change so the popup
+                displays in the center of the screen. First set the width. Then set
+                margin-left to negative half of what the width is. You can add
+                the height property for a fixed size pop up if you want.*/
+                width: 60%;
+                height: 60%;
+                margin-left: -250px;
+                top:10%;
+            }
+            .popupBackground{
+                background-color:black;
+                opacity: 0.20;
+                filter: alpha(opacity = 20);
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 9998;
+            }
+        </style>
+    </head>
+    <body>
     <apex:form id="mainform">
         <apex:PageMessages escape="false" Id="msg"/>
         <apex:actionStatus onstart="showDialog();" onstop="hideDialog();"  id="IngStatus"/>
 
-        <apex:sectionHeader title=" Customer Target Search List" />
-        <apex:pageBlock title="">
+        <apex:sectionHeader title=" {!$Label.MBK_Page_Label_Customer_Target_Search_List} " />
+        <apex:pageBlock >
             <apex:pageBlockSection columns="1">
                 <apex:pageBlockSectionItem >
                     <apex:outputPanel >
-                    	<apex:inputText styleClass="name" value="{!searchStr}" style="width: 80%; margin-right:3px;" />
-						<apex:commandButton value=" Search " action="{!targetSearch}" rerender="SearchList, msg" Status="IngStatus" oncomplete="pageRerender();"/>
+                        <apex:selectList value="{!Mtype}" size="1" style="margin-right:3px;vertical-align: sub;">
+                            <apex:selectOption itemValue="customer" itemLabel=" {!$Label.MBK_Page_Label_Customer} "/>
+                            <apex:selectOption itemValue="parnter" itemLabel=" {!$Label.MBK_Page_Label_Community} "/>
+                        </apex:selectList>
+                        <apex:inputText styleClass="name" value="{!searchStr}" style="width: 50%; margin-right:3px;" />
+                        <apex:commandButton value=" {!$Label.MBK_Page_Label_Search} " onClick="targetSearch(chked_val, chkCnt); return false;" />
                     </apex:outputPanel>
-                    <apex:outputPanel style="margin-left:50px;">                 
-                    	<input type="button" class="btn" value=" Messages " onclick="sendPage();"/>
-                    	Total Target : <span id="totalMan">{!chkCount}</span>명
-                   	</apex:outputPanel>
+                    <apex:outputPanel style="margin-left:50px;">
+                        <input type="button" class="btn" value=" {!$Label.MBK_Page_Label_Messages} " onclick="sendPage();"/>
+                            {!$Label.MBK_Page_Label_Total_Target} : <span id="totalMan">{!chkCount}</span>{!$Label.MBK_Page_Label_Persons}
+                        <apex:commandButton value="{!$Label.MBK_Page_Label_CheckRecipient}" onClick="viewTargetList(chked_val, chkCnt); return false;" />
+                    </apex:outputPanel>
                 </apex:pageBlockSectionItem>
             </apex:pageBlockSection>
         </apex:pageBlock>
-        <apex:pageBlock id="SearchList">
+
+        <apex:pageBlock id="SearchList" rendered="{!Mtype = 'customer'}">
             <apex:pageBlockTable styleClass="dataTable" style="width:100%" value="{!MessageSearchList}" var="item" columnsWidth="5% 10%, 10%, 10%, 10%, 5%, 10%, 10%, 10%, 10%, 10%">
-                <apex:column rendered="{!item.Doc}">
+                <apex:column >
                     <apex:facet name="header">
-                    	<apex:inputCheckbox value="{!allChecked}" id="checkall" onchange="allChecked();" />
+                        <apex:inputCheckbox value="{!allChecked}" id="checkall" onchange="allChecked();" />
                     </apex:facet>
-                    <apex:inputCheckbox value="{!item.checked}" onchange="checkCount(this, '{!item.recordId}');" />
+                    <apex:inputCheckbox styleClass="itemCheckbox" value="{!item.checked}" onchange="checkCount(this, '{!item.recordId}');" rendered="{!item.Doc}"/>
                 </apex:column>
-                <apex:column headerValue="Account Name">
-                    <apex:facet name="header">Account Name</apex:facet>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Account_Name}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Account_Name}</apex:facet>
                     <apex:outputText value="{!item.AccountName}" />
                 </apex:column>
                 <apex:column headerValue="UCID">
-                	<apex:facet name="header">UCID</apex:facet>
-                	<apex:outputText value="{!item.UCID}" />
+                    <apex:facet name="header">UCID</apex:facet>
+                    <apex:outputText value="{!item.UCID}" />
                 </apex:column>
-                <apex:column headerValue="Mobile">
-					<apex:facet name="header">Mobile</apex:facet>
-                	<apex:outputText value="{!item.Mobile}" />
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Mobile}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Mobile}</apex:facet>
+                    <apex:outputText value="{!item.Mobile}" />
                 </apex:column>
-                <apex:column headerValue="KaKao Talk ID">
-					<apex:facet name="header">KaKao Talk ID</apex:facet>
-                	<apex:outputText value="{!item.KaKao}" />
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Kakao_Talk_ID}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Kakao_Talk_ID}</apex:facet>
+                    <apex:outputText value="{!item.KaKao}" />
                 </apex:column>
-				<apex:column headerValue="Mobile OptIn">
-					<apex:facet name="header">Mobile OptIn</apex:facet>
-					<apex:inputCheckbox value="{!item.Opt_In_SMS}" disabled="true"/> 
-				</apex:column>
-				<apex:column headerValue="Personal Agreement">
-					<apex:facet name="header">Personal Agreement</apex:facet>
-					<apex:outputText value="{!item.Personal_Agreement}" /> 
-				</apex:column>
-				<apex:column headerValue="Personal Information Third Party Release">
-					<apex:facet name="header">Personal Information Third Party Release</apex:facet>
-					<apex:outputText value="{!item.Personal_Information_Third_Party_Release}" /> 
-				</apex:column>
-				<apex:column headerValue="Agreement to commit info processing">
-					<apex:facet name="header">Agreement to commit info processing</apex:facet>
-					<apex:outputText value="{!item.Agreement_to_commit_info_processing}" /> 
-				</apex:column>      
-				<apex:column headerValue="Personal Abroad Agreement">
-					<apex:facet name="header">Personal Abroad Agreement</apex:facet>
-					<apex:outputText value="{!item.Personal_Abroad_Agreement}"/> 
-				</apex:column>                              
-				
-                <apex:column headerValue="Related To object/ object code">
-					<apex:facet name="header">Related To object/ object code</apex:facet>
-					<a href="{!linkUrl}/{!item.recordId}" target="_blank"><apex:outputText value="{!item.Related}" /></a>
-                	<apex:outputPanel rendered="{!item.RelatedWhat <> null}">
-                		<a href="{!linkUrl}/{!item.RelatedWhat}" target="_blank"><apex:outputText value="/{!item.RelatedWhatName}" /></a>
-                	</apex:outputPanel>
-                	<apex:outputPanel rendered="{!item.RelatedWho <> null}">
-                		<a href="{!linkUrl}/{!item.RelatedWho}" target="_blank"><apex:outputText value="/{!item.RelatedWhoName}" /></a>
-                	</apex:outputPanel>                	
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Mobile_Optin}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Mobile_Optin}</apex:facet>
+                    <apex:inputCheckbox value="{!item.Opt_In_SMS}" disabled="true"/>
                 </apex:column>
-            </apex:pageBlockTable> 
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Personal_Agreement}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Personal_Agreement}</apex:facet>
+                    <apex:outputText value="{!item.Personal_Agreement}" />
+                </apex:column>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Personal_Information_Third_Party_Release}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Personal_Information_Third_Party_Release}</apex:facet>
+                    <apex:outputText value="{!item.Personal_Information_Third_Party_Release}" />
+                </apex:column>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Agreement_to_commit_info_processing}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Agreement_to_commit_info_processing}</apex:facet>
+                    <apex:outputText value="{!item.Agreement_to_commit_info_processing}" />
+                </apex:column>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Personal_Abroad_Agreement}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Personal_Abroad_Agreement}</apex:facet>
+                    <apex:outputText value="{!item.Personal_Abroad_Agreement}"/>
+                </apex:column>
+
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Related_Toobject_object_code}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Related_Toobject_object_code}</apex:facet>
+                    <a href="{!linkUrl}/{!item.recordId}" target="_blank"><apex:outputText value="{!item.Related}" /></a>
+                    <apex:outputPanel rendered="{!item.RelatedWhat <> null}">
+                        <a href="{!linkUrl}/{!item.RelatedWhat}" target="_blank"><apex:outputText value="/{!item.RelatedWhatName}" /></a>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!item.RelatedWho <> null}">
+                        <a href="{!linkUrl}/{!item.RelatedWho}" target="_blank"><apex:outputText value="/{!item.RelatedWhoName}" /></a>
+                    </apex:outputPanel>
+                </apex:column>
+            </apex:pageBlockTable>
         </apex:pageBlock>
-        <apex:actionFunction action="{!allChecking}" name="allChecking" Status="IngStatus" rerender="SearchList, msg" oncomplete="pageRerender2('{!idList}', '{!chkCount}');"/>
-        
+
+        <apex:pageBlock id="SearchList2" rendered="{!Mtype = 'parnter'}">
+            <apex:pageBlockTable styleClass="dataTable" style="width:100%" value="{!MessageSearchList}" var="item" columnsWidth="5% 10%, 10%, 10%, 10%, 5%, 10%, 10%, 10%, 10%, 10%">
+                <apex:column rendered="{!item.Doc}">
+                    <apex:facet name="header">
+                        <apex:inputCheckbox value="{!allChecked}" id="checkall" onchange="allChecked();" />
+                    </apex:facet>
+                    <apex:inputCheckbox styleClass="itemCheckbox" value="{!item.checked}" onchange="checkCount(this, '{!item.recordId}');" />
+                </apex:column>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Name}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Name}</apex:facet>
+                    <apex:outputText value="{!item.AccountName}" />
+                </apex:column>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Profile}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Profile}</apex:facet>
+                    <apex:outputText value="{!item.UCID}" />
+                </apex:column>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Mobile}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Mobile}</apex:facet>
+                    <apex:outputText value="{!item.Mobile}" />
+                </apex:column>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Role}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Role}</apex:facet>
+                    <apex:outputText value="{!item.KaKao}" />
+                </apex:column>
+                <apex:column headerValue="{!$Label.MBK_Page_Label_Email}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_Email}</apex:facet>
+                    <apex:outputText value="{!item.Personal_Agreement}" />
+                </apex:column>
+
+                <apex:column headerValue="{!$Label.MBK_Page_Label_ETC}">
+                    <apex:facet name="header">{!$Label.MBK_Page_Label_ETC}</apex:facet>
+                    <a href="{!linkUrl}/{!item.recordId}" target="_blank"><apex:outputText value="{!item.Related}" /></a>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+
+        <apex:actionFunction action="{!allChecking}" name="allChecking" Status="IngStatus" rerender="mainform, msg" oncomplete="pageRerender2('{!idList}', '{!chkCount}');"/>
+        <apex:actionFunction name="targetSearch" action="{!targetSearch}" rerender="mainform, msg" Status="IngStatus" oncomplete="pageRerender2('{!idList}', '{!chkCount}');">
+            <apex:param name="sendTarget" value="" />
+            <apex:param name="targetCount" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="viewTargetList" action="{!viewTargetList}" rerender="layerPopup" Status="IngStatus" onComplete="layerPopup();">
+            <apex:param name="sendTarget" value="" />
+            <apex:param name="targetCount" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="removeTarget" action="{!removeTarget}" rerender="mainform, msg, layerPopup" Status="IngStatus" oncomplete="pageRerender2('{!idList}', '{!chkCount}');" >
+            <apex:param name="sendTarget" value="" />
+            <apex:param name="targetCount" value="" />
+        </apex:actionFunction>
+        <!-- 레이어 팝업 -->
+        <apex:outputPanel id="layerPopup">
+            <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayLayer}"/>
+            <apex:outputPanel style="overflow:auto;" styleClass="custPopup" layout="block" rendered="{!displayLayer}">
+                <table class="layerDataTable">
+                    <thead>
+                    <tr>
+                        <td></td>
+                        <td>{!$Label.MBK_Page_Label_Account_Name}</td>
+                        <td>{!$Label.MBK_Page_Label_Related_Toobject_object_code}</td>
+                        <td>{!$Label.MBK_Page_Label_Mobile}</td>
+                        <td>UCID</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <apex:repeat var="item" value="{!sendTargetList}">
+                        <tr>
+                            <td>
+                                <apex:commandButton value="{!$Label.MBK_Page_Label_Remove}" onClick="removeTarget('{!item.recordId}', chkCnt); return false;" />
+                            </td>
+                            <td>{!item.AccountName}</td>
+                            <td>{!item.Related}</td>
+                            <td>{!item.Mobile}</td>
+                            <td>{!item.UCID}</td>
+                        </tr>
+                    </apex:repeat>
+                    </tbody>
+                </table>
+                <div style="text-align: center; margin-top: 3%">
+                    <apex:commandButton value="{!$Label.MBK_Page_Label_Close}" action="{!hideTargetList}" rerender="layerPopup"/>
+                </div>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        <!-- 레이어 팝업 끝 -->
     </apex:form>
-</body>
-<div id="waitWindow" style="text-align:center;">
-    <div>처리중입니다.<br/>이창을 닫지 마시고 잠시만 기다리세요</div>
-</div>
+    </body>
+    <div id="waitWindow" style="text-align:center;">
+        <div>처리중입니다.<br/>이창을 닫지 마시고 잠시만 기다리세요</div>
+    </div>
 </apex:page>

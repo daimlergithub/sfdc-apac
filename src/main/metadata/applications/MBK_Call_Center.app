@@ -1322,6 +1322,7 @@
     <tab>Tasks</tab>
     <tab>Vehicle__c</tab>
     <tab>Vehicle_Relationship__c</tab>
+    <tab>Retail_Task__c</tab>
     <tab>standard-Campaign</tab>
     <tab>standard-report</tab>
     <tab>DM_Material__c</tab>
@@ -1387,6 +1388,9 @@
         <mapping>
             <fieldName>Contact__c</fieldName>
             <tab>Vehicle_Relationship__c</tab>
+        </mapping>
+        <mapping>
+            <tab>Retail_Task__c</tab>
         </mapping>
         <mapping>
             <fieldName>Related_contact__c</fieldName>

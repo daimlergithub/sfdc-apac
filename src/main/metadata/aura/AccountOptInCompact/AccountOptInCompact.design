@@ -1,0 +1,17 @@
+<design:component label="OptIn overview">
+    <design:attribute name="optinTitle"
+                      label="Title"
+                      default="Opt-In summary" />
+    <design:attribute name="optinIcon"
+                      label="Icon Name from SLDS"
+                      default="standard:feedback" />
+    <design:attribute name="fieldList"
+                      label="Boolean fields"
+                      description="Fields to be shown as checkmarks"
+                      default="Opt_In_Email__c,Opt_In_Phone__c,Opt_In_Mail__c,Opt_In_Mobile__c,Opt_In_SMS__c"/>
+     <design:attribute name="itemSize"
+                      label="Size 1-12"
+                      description="How small (1) or big (12) should it be"
+                      default="1"
+                      datasource="1,2,3,4,5,6,7,8,9,10,11,12" />
+</design:component>

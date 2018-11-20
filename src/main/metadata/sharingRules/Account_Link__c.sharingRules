@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
+        <fullName>AL_Permission_TR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>AL Permission TR</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>AL_TH_SystemAdminAccess_duplicateAL</fullName>
         <accessLevel>Read</accessLevel>
         <label>AL_TH_SystemAdminAccess_duplicateAL</label>
@@ -14,13 +27,67 @@
         </criteriaItems>
         <criteriaItems>
             <field>RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Finance Services</value>
+            <operation>equals</operation>
+            <value>Retail Person,Retail Company</value>
         </criteriaItems>
         <criteriaItems>
             <field>Retail_Duplicate_Flag__c</field>
             <operation>equals</operation>
             <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Account_Link_ANZ</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Account Link ANZ</label>
+        <sharedTo>
+            <group>MBANZ_users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU,NZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contact2Contact,Retail Person,Individual Customer External Link,Retail Company,Company Customer External Link</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Account_Link_AU</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Account Link AU</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contact2Contact,Retail Person,Individual Customer External Link,Retail Company,Company Customer External Link</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Account_Link_NZ</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Account Link NZ</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contact2Contact,Retail Person,Individual Customer External Link,Retail Company,Company Customer External Link</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -62,6 +129,63 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>MBIN_Account_Link_Share_MBFS_Wholesale</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share retail copies and Contact2Contact account link records as read only data to MB India FS wholesale team</description>
+        <label>MBIN Account Link Share MBFS Wholesale</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contact2Contact,Retail Person,Vehicle External Link,Retail Company</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBIN_Account_Link_Share_MBPC_Wholesale</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share account link records except FS copy with Wholesale users as read write</description>
+        <label>MBIN Account Link Share MBPC Wholesale</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contact2Contact,Retail Person,Vehicle External Link,Retail Company</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBIN_FS_Copy_Share_with_Wholesale</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share a read only copy of the FS Copy with all wholesale users from MPC and FS as well</description>
+        <label>MBIN FS Copy Share with Wholesale</label>
+        <sharedTo>
+            <role>MBIndia</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Services</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>MBLT_Account_Link_Sharing</fullName>
         <accessLevel>Read</accessLevel>
         <description>Sharing of Thailand FS copy to all FS Users.</description>
@@ -81,9 +205,28 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>MY_MarketAccountLink_Readable_to_MBFS_Management</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>View all records of Malaysia with MD__c = &apos;MY&apos; for all Roles used in Malaysia</description>
+        <label>MY_MarketAccountLink_Readable_to_MBFS_Management</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Services</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>MY_MarketAccountLink_Readable_to_MBMY_Management</fullName>
         <accessLevel>Edit</accessLevel>
-        <description>View all records of Thailand with MD__c = &apos;MY&apos; for all Roles used in Malaysia</description>
+        <description>View all records of Malaysia with MD__c = &apos;MY&apos; for all Roles used in Malaysia</description>
         <label>MY_MarketAccountLink_Readable_to_MBMY_Management</label>
         <sharedTo>
             <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
@@ -92,6 +235,11 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contact2Contact,Retail Person,Vehicle External Link,Retail Company</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -123,6 +271,42 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>Share_Except_FS_Copy_to_FS_Manager_Group</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Except FS Copy to FS Manager Group</label>
+        <sharedTo>
+            <group>All_FS_Manger_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contact2Contact,Retail Person,Vehicle External Link,Retail Company</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_FS_Copy_with_MPC_group</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share FS Copy with MPC group</label>
+        <sharedTo>
+            <group>All_Wholesale_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Services</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>TH_MarketAccountLink_Readable_to_MBTH_Management</fullName>
         <accessLevel>Edit</accessLevel>
         <description>View all records of Thailand with MD__c = &apos;TH&apos; for all Roles used in Thailand</description>
@@ -137,13 +321,13 @@
         </criteriaItems>
         <criteriaItems>
             <field>RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Finance Services</value>
+            <operation>equals</operation>
+            <value>Contact2Contact,Retail Person,Vehicle External Link,Retail Company</value>
         </criteriaItems>
         <criteriaItems>
             <field>Retail_Duplicate_Flag__c</field>
-            <operation>notEqual</operation>
-            <value>True</value>
+            <operation>equals</operation>
+            <value>False</value>
         </criteriaItems>
     </sharingCriteriaRules>
 </SharingRules>

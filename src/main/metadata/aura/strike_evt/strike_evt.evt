@@ -1,0 +1,8 @@
+<!-- File Name   : strike_evt -->
+<!-- Description : strike_evt Lightening event -->
+<!-- Copyright   : Infosys Limited Copyright (c) 2018  -->
+<!-- @author     : Sarath -->
+<!-- Author Modification & Ver.Date : Sarath & 23-June-2018  -->
+<aura:event type="COMPONENT" description="Event template" >
+	<aura:attribute name="data" type="Object"/>
+</aura:event>

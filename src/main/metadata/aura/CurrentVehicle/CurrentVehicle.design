@@ -1,0 +1,8 @@
+<design:component>
+     <design:attribute name="displayType" 
+                      label="Display types"  
+                      description="Select Table or Card" 
+                      datasource="Table,Card"
+                      default="Card"
+                      />
+</design:component>

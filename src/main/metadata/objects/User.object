@@ -107,9 +107,10 @@
     </fields>
     <fields>
         <fullName>DMS_UserID__c</fullName>
+        <description>Rajesh 9/6/2018 Increased length to 15 to support India DMS</description>
         <externalId>false</externalId>
         <label>DMS User ID</label>
-        <length>8</length>
+        <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
@@ -182,6 +183,16 @@
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EnterpriseURL__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEFT($Api.Enterprise_Server_URL_270, FIND( "/services", $Api.Enterprise_Server_URL_270) -1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>EnterpriseURL</label>
+        <required>false</required>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -421,7 +432,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Hierarchy</type>
     </fields>
-    <fields>
+     <fields>
         <fullName>Market__c</fullName>
         <description>Set to JP</description>
         <externalId>false</externalId>
@@ -477,8 +488,71 @@
                     <default>false</default>
                     <label>TR</label>
                 </value>
+                <value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                    <label>ID</label>
+                </value>
+				<value>
+                    <fullName>HU</fullName>
+                    <default>false</default>
+                    <label>HU</label>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>false</default>
+                    <label>SG</label>
+                </value>
+                <value>
+                    <fullName>VN</fullName>
+                    <default>false</default>
+                    <label>VN</label>
+                </value>
+                <value>
+                    <fullName>SK</fullName>
+                    <default>false</default>
+                    <label>SK</label>
+                </value>
+                <value>
+                    <fullName>RO</fullName>
+                    <default>false</default>
+                    <label>RO</label>
+                </value>
+                <value>
+                    <fullName>EG</fullName>
+                    <default>false</default>
+                    <label>EG</label>
+                </value>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                    <label>AR</label>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                    <label>CO</label>
+                </value>	
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subscribe__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used in NEWS Subscription.</description>
+        <externalId>false</externalId>
+        <label>Subscribed To News</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Subscribed_To_Event__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used for RCP Indonesia : Events Object</description>
+        <externalId>false</externalId>
+        <label>Subscribed To Event</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Notification_Account_Contact_Update__c</fullName>
@@ -517,6 +591,15 @@
         <label>Notification Account Finance Update</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Campaign__c</fullName>
+        <externalId>false</externalId>
+        <label>Notification Campaign</label>
+        <length>2500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Notification_Lead_Dealer_Assignment__c</fullName>
@@ -727,7 +810,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+    <!--<fields>
         <fullName>et4ae5__Default_MID__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -737,7 +820,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields>-->
     <fields>
         <fullName>et4ae5__ExactTargetForAppExchangeAdmin__c</fullName>
         <defaultValue>false</defaultValue>
@@ -997,7 +1080,7 @@
         <label>Active Portal Users_CCC Retail</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
+    <!--<listViews>
         <fullName>Active_SFDC_Users_MBK</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>
@@ -1006,6 +1089,7 @@
         <columns>CORE.USER_ROLE.NAME</columns>
         <columns>CORE.PROFILE.NAME</columns>
         <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.USERS.SAML_SUBJECT</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CORE.PROFILE.NAME</field>
@@ -1019,7 +1103,7 @@
         </filters>
         <label>Active SFDC Users_MBK</label>
         <language>en_US</language>
-    </listViews>
+    </listViews>-->
     <listViews>
         <fullName>AdminUsers</fullName>
         <columns>FULL_NAME</columns>

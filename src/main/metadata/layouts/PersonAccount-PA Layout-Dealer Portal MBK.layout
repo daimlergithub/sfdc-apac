@@ -314,6 +314,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Email_Opt_Out_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>PersonHasOptedOutOfFax</field>
             </layoutItems>
             <layoutItems>

@@ -280,9 +280,9 @@ public class PhoneNumberFormatCheckINTest {
             insert rm;
             objAccount= new Account();
             objAccount.RecordtypeId= companyAccRecordTypeId;
-            objAccount.Name='Test Person 1st';
+            objAccount.Name='Test Person fst';
             objAccount.Status__c='Active';
-            objAccount.Province__c='Province1';
+            objAccount.Province__c='ProvinceTest';
             objAccount.City__c='Test';
             objAccount.Email__c='abcf@hji.com';
             objAccount.ID_Type__c='National ID';
@@ -301,19 +301,20 @@ public class PhoneNumberFormatCheckINTest {
             objAccount.Mobile__c='+911234567890';
             objAccount.Preferred_Language__c='English';      
             objAccount.MBK_Data_Source__c ='Email';
-            objAccount.Province__c = 'Province1';
+            objAccount.Province__c = 'ProvinceTst';
             objAccount.Phone = '08022420181';
             objAccount.Vat_No__c='kdjid';
             objAccount.Preferred_Language__c='English';
             objAccount.Province__c='apdff';
-            
+            if(user1.Market__c == 'IN' || user1.Market__c == null)
+            	objAccount.Corporate_Category__c = 'Corporate Loyalty';
             
             
             insert objAccount;
             
             objAccount1 = new Account();
             objAccount1.RecordtypeId= companyAccRecordTypeId;
-            objAccount1.Name='Test Person 1st';
+            objAccount1.Name='Test Person first';
             objAccount1.ID_Type__c='National ID';
             objAccount1.ID_Number__c='1234567891234';
             try{
@@ -325,9 +326,10 @@ public class PhoneNumberFormatCheckINTest {
             
             personAcc= new Account();
             personAcc.RecordtypeId= strPerson;
-            personAcc.LastName='Test123';
+            personAcc.LastName='TestLast';
+            personAcc.FirstName='TestFirst';
             personAcc.Status__c='Active';
-            personAcc.Province__c='Province1';
+            personAcc.Province__c='ProvinceProv';
             personAcc.City__c='Test';
             personAcc.ID_Type__c='National ID';
             personAcc.ID_Number__c='1234567891234';
@@ -343,7 +345,7 @@ public class PhoneNumberFormatCheckINTest {
             personAcc.Preferred_Language__c='Engmmm';        
             personAcc.MBK_Data_Source__c ='Email';
             personAcc.Phone = '08022420181';
-            personAcc.Province__c = 'Province1';
+            personAcc.Province__c = 'ProvinceTestProv';
             personAcc.Commercial_Reg_No__c='adfgrt';
             personAcc.Vat_No__c='kdjid';
             personAcc.Preferred_Language__c='telugu';
@@ -351,7 +353,7 @@ public class PhoneNumberFormatCheckINTest {
             
             personAcc1 = new Account();
             personAcc1.RecordtypeId= strPerson;
-            personAcc1.LastName='Test Person 2nd';
+            personAcc1.LastName='Test Person secnd';
             personAcc1.ID_Type__c='National ID';
             personAcc1.ID_Number__c='1234567891234';
             try{insert personAcc1;}
@@ -364,15 +366,20 @@ public class PhoneNumberFormatCheckINTest {
             addressobj =  new Address__C();
             addressobj.Customer__c = objAccount.Id;
             addressobj.Address_Type__c = 'Home';
+            addressobj.City__c='TestCity';
+            addressobj.District__c='testDist';
             addressobj.Address_Line_1__c = 'line 1';
             addressobj.Address_Line_2__c = 'line 2';
             addressobj.Block__c = 'Block';
             addressobj.Customer__c = objAccount.id;
-            addressobj.ZipCode__c = '14941';
+            if(user1.Market__c == 'IN' || user1.Market__c == null)
+                addressobj.ZipCode__c = '123456';
+            else
+            	addressobj.ZipCode__c = '14941';
             addressobj.Province__c ='Maharashtra';
             addressobj.TitleOfHonor__c = 'To Person';
             addressobj.Market__c='IN';
-            addressobj.Foreign_Nationals__c = true;
+            addressobj.Foreign_Nationals__c = false;
             addressobj.Country__c = 'India';
             insert addressobj;
         }

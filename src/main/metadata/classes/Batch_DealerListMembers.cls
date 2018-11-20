@@ -60,7 +60,7 @@ global class Batch_DealerListMembers implements Database.Batchable<sObject> ,Dat
                          acclink.torole__c = s.NewAccount__c;
                         acclink.RecordtypeId = AccountLink_RetailPersonRecordTypeId ;
                         acclink.fromrole__c = s.Participating_Dealer__r.dealer__c;
-                        acclink.market__c = 'JP';
+                      //  acclink.market__c = 'JP';
                         accoutlinkList.add(acclink);
                         }  
            

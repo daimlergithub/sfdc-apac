@@ -52,7 +52,10 @@ private class TestCtrlMessageSearchKRDFW {
     	
         CtrlMessageSearchKRDFW mbkTargets = new CtrlMessageSearchKRDFW();
         mbkTargets.searchStr = personAcc14.Work_Phone__c;
-        mbkTargets.targetSearch();           
+        mbkTargets.targetSearch();
+        mbkTargets.allChecking();
+        mbkTargets.viewTargetList();
+        mbkTargets.removeTarget();
     }
     
     static testMethod void myTestLead(){
@@ -89,8 +92,11 @@ private class TestCtrlMessageSearchKRDFW {
        	Test.setFixedSearchResults(fixedSearchResults);
        			
         CtrlMessageSearchKRDFW mbkTargets = new CtrlMessageSearchKRDFW();    	
-    	mbkTargets.searchStr = lead.Work_Phone__c;
+    	mbkTargets.searchStr = personAcc14.Work_Phone__c;
         mbkTargets.targetSearch();
+        mbkTargets.allChecking();
+        mbkTargets.viewTargetList();
+        mbkTargets.removeTarget();
     }
     
     static testMethod void myTestTask(){
@@ -109,6 +115,7 @@ private class TestCtrlMessageSearchKRDFW {
 	    taskobj.RecordTypeId = OBTaskRecordTypeId ;
 	    taskobj.Subject = 'test';
 	    taskobj.Status='open';
+        taskobj.Phone__c = '01099990000';
 	    taskobj.Activity_Status__c='Successful';
 	    taskobj.Generate_QC__c = true;
 	    taskobj.whatId = acc.Id;
@@ -120,6 +127,9 @@ private class TestCtrlMessageSearchKRDFW {
         CtrlMessageSearchKRDFW mbkTargets = new CtrlMessageSearchKRDFW();    	
     	mbkTargets.searchStr = taskobj.Subject;
         mbkTargets.targetSearch();
+        mbkTargets.allChecking();
+        mbkTargets.viewTargetList();
+        mbkTargets.removeTarget();
     }
     
     static testMethod void myTestCampaign(){
@@ -197,6 +207,9 @@ private class TestCtrlMessageSearchKRDFW {
         CtrlMessageSearchKRDFW mbkTargets = new CtrlMessageSearchKRDFW();    	
     	mbkTargets.searchStr = campExec.Name;
         mbkTargets.targetSearch();
+        mbkTargets.allChecking();
+        mbkTargets.viewTargetList();
+        mbkTargets.removeTarget();
     }
     
     static testMethod void myTestCase(){
@@ -227,11 +240,16 @@ private class TestCtrlMessageSearchKRDFW {
        	   	
         CtrlMessageSearchKRDFW mbkTargets = new CtrlMessageSearchKRDFW();    	
     	mbkTargets.searchStr = myCase.Subject;
-        mbkTargets.targetSearch();    	
+        mbkTargets.targetSearch();
+        mbkTargets.allChecking();
+        mbkTargets.viewTargetList();
+        mbkTargets.removeTarget();
     }       
     
     static testMethod void myTestOther(){
     	CtrlMessageSearchKRDFW mbkTargets = new CtrlMessageSearchKRDFW();
-		mbkTargets.allChecking(); 
+		mbkTargets.allChecking();
+        mbkTargets.hideTargetList();
+        CtrlMessageSearchKRDFW.messageScheduling('asdf', '1');
     }    
 }

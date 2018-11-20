@@ -231,4 +231,376 @@ public static User user1 = TestUtils.createAdminUser();
         }
         Test.stopTest();
     }
+	public static testMethod  void createLeadInAL(){
+        String personAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String AfterSalesLeadRType = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordtypeID();
+        String SalesLeadRType = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordtypeID();
+        Profile adminProfile = [SELECT id,name FROM profile WHERE Name='System Administrator'];  
+        User jpUSer = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                             EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                             LocaleSidKey='en_US', ProfileId = adminProfile.Id, Market__c='JP',
+                             TimeZoneSidKey='America/Los_Angeles', UserName='testuserJP@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert jpUSer;
+        
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+        cs.DEFAULT_CALLOUT_TIME__c='1000';
+        cs.MAX_CALLOUT_TIME__c='5000';
+        cs.Name='CalloutValues';
+        insert cs;
+        
+        JP_Switch__c errorJPSwitch = new JP_Switch__c();
+        errorJPSwitch.Enable_Flag__c = true;
+        errorJPSwitch.Name = 'Error Handling';
+        insert errorJpSwitch;
+        
+        SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+        insert sysObj;
+        
+        CDM_Integration_URLs__c cdmALLead= new CDM_Integration_URLs__c(Name='JP Create Lead',Context__c='Lead',Country__c='JP',Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-CDM-JP-AL-LeadCreation',Type__c='Insert');
+        insert cdmALLead;
+        
+        System.RunAs(jpUSer){
+            //Test.setMock(HttpCalloutMock.class, new MockHttpResponseGeneratorForAddress());
+            Account jpPersonAccount = new Account();
+            jpPersonAccount.recordTypeId = personAccRT;
+            jpPersonAccount.Data_source__C = 'Event';
+            jpPersonAccount.LastName = 'ェネレータ';
+            jpPersonAccount.LastName_Native_1__c = 'ェネレータ';
+            jpPersonAccount.FirstName_Native_1__c = 'ェネレータ';
+            jpPersonAccount.FirstName = 'ェネレータ';
+            jpPersonAccount.Market__c = 'JP';
+            jpPersonAccount.PersonBirthdate = System.Today().addYears(-20);
+            jpPersonAccount.Email__c = 'test@gmail.com';
+            jpPersonAccount.Email2__c = 'test21@gmail.com';
+            insert jpPersonAccount;
+            
+            Lead__c alLead = new Lead__c();
+            alLead.Contact__c = jpPersonAccount.Id;
+            alLead.CAC_Lead_Status__c = 'Qualified';
+            alLead.Lead_Type__c = 'New Car';
+            alLead.md__c='JP';
+            alLead.Market__c = 'JP';
+            alLead.RecordTypeId=AfterSalesLeadRType;
+            //alLead.Assigned_Dealer__c = dealer.Id;
+            insert alLead;
+            
+            Lead__c salesLead = new Lead__c();
+            salesLead.Contact__c = jpPersonAccount.Id;
+            salesLead.CAC_Lead_Status__c = 'Qualified';
+            salesLead.Lead_Type__c = 'New Car';
+            salesLead.md__c='JP';
+            salesLead.Market__c = 'JP';
+            salesLead.RecordTypeId=SalesLeadRType;
+            //alLead.Assigned_Dealer__c = dealer.Id;
+            insert salesLead;
+            
+            Set<Id> leadIdSet = new Set<Id>();
+            leadIdSet.add(alLead.Id);
+            //leadIdSet.add(salesLead.Id);
+            CDMInformatica_Services.createLeadInAL(leadIdSet, 'JP', 'Insert'); 
+            
+            leadIdSet.clear();
+            leadIdSet.add(salesLead.Id);
+            CDMInformatica_Services.createLeadInAL(leadIdSet, 'JP', 'Insert'); 
+        }//end of run as
+    }
+
+ //Added by Sravani Koppaka -- Start
+    public static testMethod  void createLeadInALKR(){
+        String personAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String AfterSalesLeadRType = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordtypeID();
+        String SalesLeadRType = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordtypeID();
+        Profile adminProfile = [SELECT id,name FROM profile WHERE Name='System Administrator'];  
+        User KRUSer = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                             EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                             LocaleSidKey='en_US', ProfileId = adminProfile.Id, Market__c='KR',
+                             TimeZoneSidKey='America/Los_Angeles', UserName='testuserJP@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert KRUSer;
+        
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+        cs.DEFAULT_CALLOUT_TIME__c='1000';
+        cs.MAX_CALLOUT_TIME__c='5000';
+        cs.Name='CalloutValues';
+        insert cs;
+        
+        KR_Switch__c errorKRSwitch = new KR_Switch__c();
+        errorKRSwitch.Enable_Flag__c = true;
+        errorKRSwitch.Name = 'Error Handling';
+        insert errorKRSwitch;
+        
+        SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+        insert sysObj;
+        
+        CDM_Integration_URLs__c cdmALLead= new CDM_Integration_URLs__c(Name='KR Create Lead',Context__c='Lead',Country__c='KR',Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-CDM-KR-AL-LeadCreation',Type__c='Insert');
+        insert cdmALLead;
+        
+        System.RunAs(KRUSer){
+        try{
+        
+            //Test.setMock(HttpCalloutMock.class, new MockHttpResponseGeneratorForAddress());
+            Account KRPersonAccount = new Account();
+            KRPersonAccount.recordTypeId = personAccRT;
+            KRPersonAccount.LastName='Test Person 1st';
+            KRPersonAccount.Status__c='Prospect';
+            KRPersonAccount.Province__c='Province1';
+            KRPersonAccount.City__c='Test';
+            KRPersonAccount.ZipCode__c = '1004235';
+            KRPersonAccount.Email__c='test@mbj.com';
+            KRPersonAccount.Mobile__c ='+82-00-000-0000';
+            //KRPersonAccount.Main_Dealer__c = dealerAccount.id;
+            KRPersonAccount.Customer_Lifecycle_Phase__c = 'Care';
+            KRPersonAccount.MBK_Data_Source__c='Mercedes-Benz';
+            insert KRPersonAccount;
+            
+            Lead__c alLead = new Lead__c();
+            alLead.Contact__c = KRPersonAccount.Id;
+            alLead.CAC_Lead_Status__c = 'Qualified';
+            alLead.Lead_Type__c = 'New Car';
+            alLead.md__c='KR';
+            alLead.Market__c = 'KR';
+            alLead.RecordTypeId=AfterSalesLeadRType;
+            //alLead.Assigned_Dealer__c = dealer.Id;
+            insert alLead;
+            
+            Lead__c salesLead = new Lead__c();
+            salesLead.Contact__c = KRPersonAccount.Id;
+            salesLead.CAC_Lead_Status__c = 'Qualified';
+            salesLead.Lead_Type__c = 'New Car';
+            salesLead.md__c='KR';
+            salesLead.Market__c = 'KR';
+            salesLead.RecordTypeId=SalesLeadRType;
+            //alLead.Assigned_Dealer__c = dealer.Id;
+            insert salesLead;
+            
+            Set<Id> leadIdSet = new Set<Id>();
+            leadIdSet.add(alLead.Id);
+            //leadIdSet.add(salesLead.Id);
+            CDMInformatica_Services.createLeadInAL(leadIdSet, 'KR', 'Insert'); 
+            
+            leadIdSet.clear();
+            leadIdSet.add(salesLead.Id);
+            CDMInformatica_Services.createLeadInAL(leadIdSet, 'KR', 'Insert'); 
+       
+        }//end of run as
+       
+        catch(Exception e)
+        {
+        }
+        }
+    }
+   //Added by Sravani Koppaka -- End  
+	
+    public static testMethod  void createCustCdmSpo(){
+        String personAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String companyAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+        Profile adminProfile = [SELECT id,name FROM profile WHERE Name='System Administrator'];  
+        User jpUSer = new User(Alias = 'st12', Email='testUser@testorg.com', 
+                             EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                             LocaleSidKey='en_US', ProfileId = adminProfile.Id, Market__c='JP',
+                             TimeZoneSidKey='America/Los_Angeles', UserName='testuserJP@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert jpUSer;
+        
+        
+        
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+        cs.DEFAULT_CALLOUT_TIME__c='1000';
+        cs.MAX_CALLOUT_TIME__c='5000';
+        cs.Name='CalloutValues';
+        insert cs;
+        
+        JP_Switch__c errorJPSwitch = new JP_Switch__c();
+        errorJPSwitch.Enable_Flag__c = true;
+        errorJPSwitch.Name = 'Error Handling';
+        insert errorJpSwitch;
+        
+        SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+        insert sysObj;
+        
+        
+        CDM_Integration_URLs__c cdmALLead= new CDM_Integration_URLs__c(Name='JP Create Person Account',Context__c='Person Account',Country__c='JP',Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-CDM-JP-AL-AccountCreation1',Type__c='Insert');
+        insert cdmALLead;
+        
+        CDM_Integration_URLs__c cdmCompanyAcc= new CDM_Integration_URLs__c(Name='JP Create Company Account',Context__c='Company',Country__c='JP',Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-CDM-JP-AL-AccountCreation2',Type__c='Insert');
+        insert cdmCompanyAcc;
+    	Test.startTest();
+        System.RunAs(jpUSer){
+            //Test.setMock(HttpCalloutMock.class, new MockHttpResponseGeneratorForAddress());
+            Account jpPersonAccount = new Account();
+            jpPersonAccount.recordTypeId = personAccRT;
+            jpPersonAccount.Data_source__C = 'Event';
+            jpPersonAccount.LastName = 'ェネレータ';
+            jpPersonAccount.LastName_Native_1__c = 'ェネレータ';
+            jpPersonAccount.FirstName_Native_1__c = 'ェネレータ';
+            jpPersonAccount.FirstName = 'ェネレータ';
+            jpPersonAccount.Market__c = 'JP';
+            jpPersonAccount.PersonBirthdate = System.Today().addYears(-20);
+            jpPersonAccount.Email__c = 'test@gmail.com';
+            jpPersonAccount.Email2__c = 'test21@gmail.com';
+            insert jpPersonAccount;
+            
+            Account jpCompanyAccount = new Account();
+            jpCompanyAccount.recordTypeId = companyAccRT;
+            jpCompanyAccount.Data_source__C = 'Event';
+            jpCompanyAccount.Name = 'ェネレータ';
+            jpCompanyAccount.Market__c = 'JP';
+            jpCompanyAccount.Email__c = 'test@gmail.com';
+            jpCompanyAccount.Email2__c = 'test21@gmail.com';
+            insert jpCompanyAccount;
+            
+            Set<Id> accountIdSet = new Set<Id>();
+            accountIdSet.add(jpPersonAccount.Id);
+            accountIdSet.add(jpCompanyAccount.Id);
+            CDMInformatica_Services.createCustCdmSpo(accountIdSet,'JP', 'Insert', jpUSer.Id);
+            
+            
+            //accountIdSet.clear();
+            
+            //CDMInformatica_Services.createCustCdmSpo(accountIdSet,'JP', 'Company', jpUSer.Id);
+        }//end of run as
+        Test.stopTest();
+    }
+    
+    public static testMethod  void createCustCDMJPOS(){
+        String personAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String companyAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+        Profile adminProfile = [SELECT id,name FROM profile WHERE Name='System Administrator'];  
+        User jpUSer = new User(Alias = 'st12', Email='testUser@testorg.com', 
+                             EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                             LocaleSidKey='en_US', ProfileId = adminProfile.Id, Market__c='JP',
+                             TimeZoneSidKey='America/Los_Angeles', UserName='testuserJP@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert jpUSer;
+        
+        
+        
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+        cs.DEFAULT_CALLOUT_TIME__c='1000';
+        cs.MAX_CALLOUT_TIME__c='5000';
+        cs.Name='CalloutValues';
+        insert cs;
+        
+        JP_Switch__c errorJPSwitch = new JP_Switch__c();
+        errorJPSwitch.Enable_Flag__c = true;
+        errorJPSwitch.Name = 'Error Handling';
+        insert errorJpSwitch;
+        
+        SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+        insert sysObj;
+        
+        
+        CDM_Integration_URLs__c cdmALLead= new CDM_Integration_URLs__c(Name='JP Create Person Account',Context__c='Person Account',Country__c='JP',Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-CDM-JP-AL-AccountCreation1',Type__c='Insert');
+        insert cdmALLead;
+        
+        CDM_Integration_URLs__c cdmCompanyAcc= new CDM_Integration_URLs__c(Name='JP Create Company Account',Context__c='Company',Country__c='JP',Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-CDM-JP-AL-AccountCreation2',Type__c='Insert');
+        insert cdmCompanyAcc;
+    	Test.startTest();
+        System.RunAs(jpUSer){
+            //Test.setMock(HttpCalloutMock.class, new MockHttpResponseGeneratorForAddress());
+            Account jpPersonAccount = new Account();
+            jpPersonAccount.recordTypeId = personAccRT;
+            jpPersonAccount.Data_source__C = 'Event';
+            jpPersonAccount.LastName = 'ェネレータ';
+            jpPersonAccount.LastName_Native_1__c = 'ェネレータ';
+            jpPersonAccount.FirstName_Native_1__c = 'ェネレータ';
+            jpPersonAccount.FirstName = 'ェネレータ';
+            jpPersonAccount.Market__c = 'JP';
+            jpPersonAccount.PersonBirthdate = System.Today().addYears(-20);
+            jpPersonAccount.Email__c = 'test@gmail.com';
+            jpPersonAccount.Email2__c = 'test21@gmail.com';
+            insert jpPersonAccount;
+            
+            Id individualaddRecordtypeid = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId();
+            Address__c add=new Address__c();
+            add.Customer__c=jpPersonAccount.id;
+            add.Province__c='Test province';
+            add.City__c='test city';
+            add.Block__c='test block';
+            add.RecordTypeId=individualaddRecordtypeid;
+            add.Address_Line_1__c='test add line 1';
+            add.Address_Line_2__c ='test add line 1';
+            add.Address_Type__c='Business';
+            add.Market__c='JP';
+            insert add;
+            
+            
+                 
+            
+            Account jpCompanyAccount = new Account();
+            jpCompanyAccount.recordTypeId = companyAccRT;
+            jpCompanyAccount.Data_source__C = 'Event';
+            jpCompanyAccount.Name = 'ェネレータ';
+            jpCompanyAccount.Market__c = 'JP';
+            jpCompanyAccount.Email__c = 'test@gmail.com';
+            jpCompanyAccount.Email2__c = 'test21@gmail.com';
+            insert jpCompanyAccount;
+            
+            Id businessaddRecordtypeid = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+            Address__c add2=new Address__c();
+            add2.Customer__c=jpCompanyAccount.id;
+            add2.Province__c='Test province';
+            add2.City__c='test city';
+            add2.Block__c='test block';
+            add2.RecordTypeId=businessaddRecordtypeid;
+            add2.Address_Line_1__c='test add line 1';
+            add2.Address_Line_2__c ='test add line 1';
+            add2.Address_Type__c='Business';
+            add2.Market__c='JP';
+            insert add2;
+            
+            Set<Id> accountIdSet = new Set<Id>();
+            accountIdSet.add(jpPersonAccount.Id);
+            accountIdSet.add(jpCompanyAccount.Id);
+            
+            
+			Map< ID, ID > accAddMap = new Map<Id, Id>();
+			accAddMap.put(jpPersonAccount.Id, add.Id);
+            accAddMap.put(jpCompanyAccount.Id, add2.Id);
+            CDMInformatica_Services.createCustCDMJPOS(accountIdSet, 'JP', 'Insert', accAddMap, jpUSer.Id);
+            
+        }//end of run as
+        Test.stopTest();
+    }
+    
+    public static testMethod  void errorHandlerRealtimeJP(){
+        String personAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String companyAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+        Profile adminProfile = [SELECT id,name FROM profile WHERE Name='System Administrator'];  
+        User jpUSer = new User(Alias = 'st12', Email='testUser@testorg.com', 
+                             EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                             LocaleSidKey='en_US', ProfileId = adminProfile.Id, Market__c='JP',
+                             TimeZoneSidKey='America/Los_Angeles', UserName='testuserJP@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert jpUSer;
+        System.runAs(jpUSer){
+            HttpResponse res = new HttpResponse();
+            res.setStatus('SUCCESS');
+            res.setStatusCode(200);
+            
+            Account jpPersonAccount = new Account();
+            jpPersonAccount.recordTypeId = personAccRT;
+            jpPersonAccount.Data_source__C = 'Event';
+            jpPersonAccount.LastName = 'ェネレータ';
+            jpPersonAccount.LastName_Native_1__c = 'ェネレータ';
+            jpPersonAccount.FirstName_Native_1__c = 'ェネレータ';
+            jpPersonAccount.FirstName = 'ェネレータ';
+            jpPersonAccount.Market__c = 'JP';
+            jpPersonAccount.PersonBirthdate = System.Today().addYears(-20);
+            jpPersonAccount.Email__c = 'test@gmail.com';
+            jpPersonAccount.Email2__c = 'test21@gmail.com';
+            insert jpPersonAccount;
+            
+            String realTimeRecordTypeId = Schema.SObjectType.Custom_Debug_Info__c.getRecordTypeInfosByName().get('RealTime').getRecordtypeID();
+            Custom_Debug_Info__c cdiNew = new Custom_Debug_Info__c();
+			cdiNew.RecordID__c = jpPersonAccount.Id;
+            cdiNew.Market__c='JP';
+            cdiNew.isSuccess__c=false;
+            cdiNew.RecordTypeId = realTimeRecordTypeId;
+            insert cdiNew;
+            
+            Set<Id> recordIDSet = new Set<Id>();
+            recordIDSet.add(jpPersonAccount.Id);
+            
+            
+            CDMInformatica_Services.errorHandlerRealtimeJP(res, recordIDSet, 'JP', 'Insert', 'SFDC');
+        }
+    }
+	
 }

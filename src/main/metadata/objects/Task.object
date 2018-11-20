@@ -2483,6 +2483,14 @@
                 <fullName>Visited</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Check In</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Check Out</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>OB_Status__c</picklist>
@@ -13373,12 +13381,12 @@ var idList = {!GETRECORDIDS($ObjectType.Task)};
 var retURL = window.location.toString(); 
 var proceed = true; 
 if(idList.length &lt;= 0){ 
-alert('Please select record(s).'); 
+alert('{!$Label.RecordSelectionError}'); 
 proceed = false; 
 } 
 if ((navigator.userAgent.indexOf('MSIE')) &gt;= 0) { 
 if(idList.length &gt; 100){ 
-alert('Only maximum of 100 records can be selected.'); 
+alert('{!$Label.maxRecordError}'); 
 proceed = false; 
 } 
 } 

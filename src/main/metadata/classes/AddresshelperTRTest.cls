@@ -7,7 +7,7 @@ public class AddresshelperTRTest {
     public static testMethod void testUpdatePrimaryAddressOnAccount(){
         //create test data
         Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
-        User user1 = new User(LastName='User'+System.Today(),Market__c='TR',country='Turkey',firstName='Test',ProfileId=p1.Id,Alias='Test',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Test@infosys.com',UserName='Test@infosys.com.asiadevty4');
+        User user1 = new User(LastName='User'+System.Today(),Market__c='TR',country='Turkey',firstName='Test',ProfileId=p1.Id,Alias='Test',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Test@infosys.com',UserName='Test@infosys.com.asiadevty4'+String.valueof(DateTime.now().getTime()));
         insert user1;
         System.runAs (user1) {  
             

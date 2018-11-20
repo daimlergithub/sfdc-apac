@@ -2,7 +2,7 @@
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
     <email>serdar.tumerdem@gelecek.com.uat</email>
-    <name>Gelecek Erzurum_GC0015361_GS0019673</name>
+    <name>MBTR Gelecek Erzurum</name>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>

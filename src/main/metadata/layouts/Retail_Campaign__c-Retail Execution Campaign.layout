@@ -3,6 +3,7 @@
     <customButtons>OPRO_DM_Print_OPR</customButtons>
     <customButtons>OPRO_DM_Print_PDF</customButtons>
     <customButtons>Segment</customButtons>
+	<customButtons>Create_Campaign_Member_CSV</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -91,6 +92,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Add_Campaign_Member_ID__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Add_dealer_information__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

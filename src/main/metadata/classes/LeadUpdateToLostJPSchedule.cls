@@ -8,13 +8,19 @@
 global class LeadUpdateToLostJPSchedule implements Schedulable {
    global void execute(SchedulableContext SC) {
       LeadUpdateToLostJPBatch runBatch = new LeadUpdateToLostJPBatch();
-      Database.executeBatch(runBatch);
+	  If(Test.isRunningTest()){
+	    Database.executeBatch(runBatch);
+	  }
+	  else {
+        Database.executeBatch(runBatch,1);
+		}
    }
    
     public void oneTimeScheduleBatch(){
-        //Run daily at 12 AM
-        String cronExp ='0 0 0 ? * * *';
-        System.schedule('Update Lead to Lost', cronExp, new LeadUpdateToLostJPSchedule());        
+        //Run daily at 11 PM
+        String cronExp ='0 0 23 ? * *';
+		String jobName= 'Update Lead to Lost '+ System.today();
+        System.schedule(jobName, cronExp, new LeadUpdateToLostJPSchedule());        
     }
     
 }

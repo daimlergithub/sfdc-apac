@@ -83,7 +83,7 @@ public without sharing class CaseHelperTH {
         set < String > actlnkids = new set < String > ();
         List < Account_Link__c > accLst = new List < Account_Link__c > ();
         List < Account_Link__c > dealercount = new List < Account_Link__c > ();
-        List < Case > caseLst = [select Id, AccountId, Case_Dealer__c, Account.LastName, Account.FirstName, Account.LastName_Native_1__c, Account.ID_Type__c, Account.ID_Number__c, Account.country__c,
+        List < Case > caseLst = [select Id, AccountId, Case_Dealer__c,Case_Dealer__r.Dealer_Rollout_Status__c, Account.LastName, Account.FirstName, Account.LastName_Native_1__c, Account.ID_Type__c, Account.ID_Number__c, Account.country__c,
             Account.FirstName_Native_1__c, Account.PersonBirthdate, Account.Special_Care__c, Account.Individual_Home_Phone__c, Account.Work_Phone__c, Account.Primary_Address_Reference__r.Sub_District__c,
             Account.Mobile__c, Account.Fax, Account.Email__c, Account.Primary_Address_Reference__r.City__c, Account.Primary_Address_Reference__r.District__c, Account.createdDate, Account.lastmodifieddate,
             Account.Primary_Address_Reference__r.Block__c, Account.Primary_Address_Reference__r.Address_Line_1__c,
@@ -113,7 +113,7 @@ public without sharing class CaseHelperTH {
         }
         for (Case led: caseLst) {
             System.debug('11*');
-            if (led.Case_Dealer__c != null && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0) && (isInsert || (isUpdate && led.Case_Dealer__c != caseOldMap.get(led.id).Case_Dealer__c)) ) {
+            if (led.Case_Dealer__c != null && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0) && led.Case_Dealer__r.Dealer_Rollout_Status__c !=null && led.Case_Dealer__r.Dealer_Rollout_Status__c.equalsIgnoreCase('Done') && (isInsert || (isUpdate && led.Case_Dealer__c != caseOldMap.get(led.id).Case_Dealer__c))) {
                 Account_Link__c acclnk = new Account_Link__c();
                 //accLst.add(acclnk);
                 System.debug('22*' + led.Account.RecordTypeId + PersonRecordTypeId);

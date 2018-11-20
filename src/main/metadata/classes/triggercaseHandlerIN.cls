@@ -8,7 +8,7 @@ public class triggercaseHandlerIN implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        if(Util_GetPermissionList.checkAccessOnUser(Label.INGeneric)){
+        if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){
             CaseHelperIN CaseHelperINInstance = new CaseHelperIN();
             String market = System.Label.IN;
             if(Trigger.isBefore){
@@ -23,7 +23,7 @@ public class triggercaseHandlerIN implements TriggerHandlerIf
                         INTriggerRecursionCheck.inCaseCustPhase = true;
                     	CaseHelperINInstance.changeCustomerPhase(Trigger.New);
                     }
-                    if(Util_GetPermissionList.checkAccessOnUser(Label.INRetail) && INTriggerRecursionCheck.inCaseCaseOwner == false){
+                    if(Util_getPermissions.checkCustomPermission(Label.INRetail) && INTriggerRecursionCheck.inCaseCaseOwner == false){
                         //Update Owner of case to the GateKeeper of the Dealer added to case
                         INTriggerRecursionCheck.inCaseCaseOwner = true;
                         CaseHelperINInstance.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false, market);
@@ -40,7 +40,7 @@ public class triggercaseHandlerIN implements TriggerHandlerIf
                     CaseHelperINInstance.countRepeatComplaintCase(trigger.new,true,market);
                     //To add whether a case is created by Wholesale or Retail user
                     CaseHelperINInstance.updateComplaintCreatorDepartment(Trigger.New);
-                    if(Util_GetPermissionList.checkAccessOnUser(Label.INRetail)){
+                    if(Util_getPermissions.checkCustomPermission(Label.INRetail)){
                         if( INTriggerRecursionCheck.inCaseCaseOwner == false){
 	                         INTriggerRecursionCheck.inCaseCaseOwner = true;
     	                    CaseHelperINInstance.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true, market);
@@ -52,12 +52,12 @@ public class triggercaseHandlerIN implements TriggerHandlerIf
             }
             if(Trigger.isAfter){
                 if(Trigger.isInsert){
-                   if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy) && INTriggerRecursionCheck.inCaseRetCpy == false){
+                   if(Util_getPermissions.checkCustomPermission(Label.CreateRetailCopy) && INTriggerRecursionCheck.inCaseRetCpy == false){
                        INTriggerRecursionCheck.inCaseRetCpy = true;
                        //To create a Retail Copy(Account Link) of Case Account
                        CaseHelperINInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
                    }
-                   if(Util_GetPermissionList.checkAccessOnUser(Label.INRetail) && INTriggerRecursionCheck.inCaseShare == false){
+                   if(Util_getPermissions.checkCustomPermission(Label.INRetail) && INTriggerRecursionCheck.inCaseShare == false){
                        INTriggerRecursionCheck.inCaseShare = true;
                        //To share the Case record with the assigned dealers
                        CaseHelperINInstance.ShareRecordswithDealers(Trigger.new,false, market);
@@ -70,11 +70,11 @@ public class triggercaseHandlerIN implements TriggerHandlerIf
 
                 }
                 else if(Trigger.isUpdate){
-                   if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy) && INTriggerRecursionCheck.inCaseRetCpy == false){
+                   if(Util_getPermissions.checkCustomPermission(Label.CreateRetailCopy) && INTriggerRecursionCheck.inCaseRetCpy == false){
                        INTriggerRecursionCheck.inCaseRetCpy = true;
                        CaseHelperINInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
                    }
-                   if(Util_GetPermissionList.checkAccessOnUser(Label.INRetail) && INTriggerRecursionCheck.inCaseShare == false){
+                   if(Util_getPermissions.checkCustomPermission(Label.INRetail) && INTriggerRecursionCheck.inCaseShare == false){
                        INTriggerRecursionCheck.inCaseShare = true;
                        CaseHelperINInstance.ShareRecordswithDealers(Trigger.new,true, market);
                    }

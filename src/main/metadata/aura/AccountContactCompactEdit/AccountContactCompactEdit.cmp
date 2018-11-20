@@ -1,0 +1,51 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="recordId" type="Id" default="" />
+    <aura:attribute name="recordContact" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="fieldList" type="String[]" default="Name,Individual_Home_Phone__c,Individual_Home_Phone_Status__c,Home_Phone_Last_Modified_By__c,Home_Phone_Last_Modified_Date__c,Work_Phone__c,Work_Phone_Status__c,Work_Phone_Last_Modified_By__c,Work_Phone_Last_Modified_Date__c,Home_Phone_2__c,Home_Phone_Status_2__c,Home_Phone_Last_Modified_By2__c,Home_Phone_Last_Modified_Date2__c,Mobile_3__c,Mobile3_Status__c,Mobile3_Last_Modified_By__c,Mobile3_Last_Modified_Date__c,Email2__c,Email_Status_2__c,Email_Last_Modified_By2__c,Email_Last_Modified_Date2__c,Fax,Fax_Validity__c,Fax_Last_Modified_By__c,Fax_Last_Modified_Date__c,Mobile__c,Mobile_Status__c,SMS_Last_Modified_By__c,SMS_Last_Modified_Date__c,Mobile2__c,SMS_MMS_IM_Status_2__c,SMS_Last_Modified_By__c,SMS_Last_Modified_Date__c,Phone,Work_Phone_Status_2__c,Work_Phone_Last_Modified_By2__c,Work_Phone_Last_Modified_Date2__c,Email__c,Email_Status__c,Email_Last_Modified_By__c,Email_Last_Modified_Date__c,Email3__c,Email_Status_3__c,Email_Last_Modified_By3__c,Email_Last_Modified_Date3__c,Fax2__c,Fax_Validity2__c,Work_Fax_Last_Modified_By__c,Fax2_Last_Modified_Date__c"/>
+	
+    <!-- added for edit functionlaity -->
+    <aura:attribute name="showEditContact" type="Boolean" access="global" default="false"/>
+    <aura:attribute name="workingObject" type="String" default="Account"/>
+    <aura:attribute name="editFieldList" type="String[]" default="Individual_Home_Phone__c,Work_Phone__c,Home_Phone_2__c,Mobile_3__c,Email2__c,Fax,Mobile__c,Mobile2__c,Phone,Email__c,Email3__c,Fax2__c" />
+     
+    
+    <force:recordData aura:id="recordLoader"
+      recordId="{!v.recordId}"
+      fields="{!v.fieldList}"
+      targetFields="{!v.recordContact}"
+      targetError="{!v.recordError}"
+      mode="VIEW"
+      />
+    
+    <div class="slds-m-top_xxx-small" style="border:none">
+      <aura:if isTrue="{!v.showEditContact}">
+          <c:modalAccountLinkView workingObject="{!v.workingObject}" sObjectId="{!v.recordId}" displayAccountLinkField="{!v.editFieldList}" accountEditComp="{!v.showEditContact}" myObjectData="{!v.recordContact}"/>
+      </aura:if>
+    <lightning:card iconName="standard:person_account" title="{!'Contact details for '+v.recordContact.Name}">
+        <aura:set attribute="actions">
+            <lightning:buttonIcon   
+                                    iconName="utility:edit" 
+                                    variant="bare" 
+                                    size="large" 
+                                    alternativeText="Edit Record" 
+                                    onclick="{!c.editContact}"/>
+         </aura:set>
+            <ul>
+                <c:AccountContactLine lineId="L1" tileHeading="Home" value="{!v.recordContact.Individual_Home_Phone__c}" status="{!v.recordContact.Individual_Home_Phone_Status__c}" lastUpdateBy="{!v.recordContact.Home_Phone_Last_Modified_By__c}" lastUpdateDate="{!v.recordContact.Home_Phone_Last_Modified_Date__c}" iconName="custom:custom107" type="phone"></c:AccountContactLine>
+                <c:AccountContactLine lineId="L2" tileHeading="Work Phone" value="{!v.recordContact.Work_Phone__c}" status="{!v.recordContact.Work_Phone_Status__c}" lastUpdateBy="{!v.recordContact.Work_Phone_Last_Modified_By__c}" lastUpdateDate="{!v.recordContact.Work_Phone_Last_Modified_Date__c}" iconName="standard:call" type="phone"></c:AccountContactLine>
+                <c:AccountContactLine lineId="L3" tileHeading="Other Phone 1" value="{!v.recordContact.Home_Phone_2__c}" status="{!v.recordContact.Home_Phone_Status_2__c}" lastUpdateBy="{!v.recordContact.Home_Phone_Last_Modified_By2__c}" lastUpdateDate="{!v.recordContact.Home_Phone_Last_Modified_Date2__c}" iconName="custom:custom22" type="phone"></c:AccountContactLine>
+                <c:AccountContactLine lineId="L4" tileHeading="Mobile 3" value="{!v.recordContact.Mobile_3__c}" status="{!v.recordContact.Mobile3_Status__c}" lastUpdateBy="{!v.recordContact.Mobile3_Last_Modified_By__c}" lastUpdateDate="{!v.recordContact.Mobile3_Last_Modified_Date__c}" iconName="custom:custom28" type="phone"></c:AccountContactLine>
+                <c:AccountContactLine lineId="L5" tileHeading="Business Email" value="{!v.recordContact.Email2__c}" status="{!v.recordContact.Email_Status_2__c}" lastUpdateBy="{!v.recordContact.Email_Last_Modified_By2__c}" lastUpdateDate="{!v.recordContact.Email_Last_Modified_Date2__c}" iconName="custom:custom105" type="email"></c:AccountContactLine>
+                <c:AccountContactLine lineId="L6" tileHeading="Fax" value="{!v.recordContact.Fax}" status="{!v.recordContact.Fax_Validity__c}" lastUpdateBy="{!v.recordContact.Fax_Last_Modified_By__c}" lastUpdateDate="{!v.recordContact.Fax_Last_Modified_Date__c}" iconName="custom:custom24" type="phone"></c:AccountContactLine >
+                <c:AccountContactLine lineId="L7" tileHeading="Mobile" value="{!v.recordContact.Mobile__c}" status="{!v.recordContact.Mobile_Status__c}" lastUpdateBy="{!v.recordContact.SMS_Last_Modified_By__c}" lastUpdateDate="{!v.recordContact.SMS_Last_Modified_Date__c}" iconName="custom:custom110" type="phone"></c:AccountContactLine>
+                <c:AccountContactLine lineId="L8" tileHeading="Work Mobile" value="{!v.recordContact.Mobile2__c}" status="{!v.recordContact.SMS_MMS_IM_Status_2__c}" lastUpdateBy="{!v.recordContact.SMS_Last_Modified_By__c}" lastUpdateDate="{!v.recordContact.SMS_Last_Modified_Date__c}" iconName="custom:custom113" type="phone"></c:AccountContactLine>
+                <c:AccountContactLine lineId="L9" tileHeading="Other Phone 2" value="{!v.recordContact.Phone}" status="{!v.recordContact.Work_Phone_Status_2__c}" lastUpdateBy="{!v.recordContact.Work_Phone_Last_Modified_By2__c}" lastUpdateDate="{!v.recordContact.Work_Phone_Last_Modified_Date2__c}" iconName="custom:custom75" type="phone"></c:AccountContactLine>
+                <c:AccountContactLine lineId="L10" tileHeading="Home Email" value="{!v.recordContact.Email__c}" status="{!v.recordContact.Email_Status__c}" lastUpdateBy="{!v.recordContact.Email_Last_Modified_By__c}" lastUpdateDate="{!v.recordContact.Email_Last_Modified_Date__c}" iconName="custom:custom23" type="email"></c:AccountContactLine>
+                <c:AccountContactLine lineId="L11" tileHeading="Other Email" value="{!v.recordContact.Email3__c}" status="{!v.recordContact.Email_Status_3__c}" lastUpdateBy="{!v.recordContact.Email_Last_Modified_By3__c}" lastUpdateDate="{!v.recordContact.Email_Last_Modified_Date3__c}" iconName="standard:list_email" type="email"></c:AccountContactLine>                              
+                <c:AccountContactLine lineId="L12" tileHeading="Work Fax" value="{!v.recordContact.Fax2__c}" status="{!v.recordContact.Fax_Validity2__c}" lastUpdateBy="{!v.recordContact.Work_Fax_Last_Modified_By__c}" lastUpdateDate="{!v.recordContact.Fax2_Last_Modified_Date__c}" iconName="custom:custom24" type="phone"></c:AccountContactLine>                             
+            </ul>
+        
+            </lightning:card>
+    </div>
+</aura:component>

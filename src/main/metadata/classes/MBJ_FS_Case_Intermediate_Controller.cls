@@ -28,6 +28,38 @@ public class MBJ_FS_Case_Intermediate_Controller{
     }
     
     public PageReference Redirect(){
+        Map<String, String> pageParams = ApexPages.currentPage().getParameters();
+        String locationTheme = getLocationTheme();
+        
+        if(pageParams.get('sfdc.override') == '1' ) {
+            if(locationTheme == 'LEX') {
+                return lightningRedirect();
+            } else if(locationTheme == 'CLASSIC') {
+                return classicRedirect();            
+            } 
+    	}
+        
+        return NULL;
+    }
+    
+    public static String getLocationTheme() {
+        /*if (Site.getSiteId() != null) {
+            return 'COMMUNITY';
+        }*/ 
+		if (UserInfo.getUIThemeDisplayed() == 'Theme3') {
+            return 'CLASSIC';
+        } else {
+            return 'LEX';
+        }
+    }
+    
+    private PageReference lightningRedirect() {
+        PageReference pr = new PageReference('/500/e?RecordType=' + ApexPages.currentPage().getParameters().get('RecordType') + '&nooverride=1&retURL=/500/o');
+        pr.setRedirect(TRUE);
+        return pr;
+    }
+    
+    public PageReference classicRedirect(){
         PageReference returnURL;
         RecordTypeid = ApexPages.currentPage().getParameters().get('RecordType');
         retailTaskID = Apexpages.currentpage().getparameters().get('retailTaskID');

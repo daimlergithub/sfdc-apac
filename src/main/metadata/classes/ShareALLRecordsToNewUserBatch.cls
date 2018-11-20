@@ -8,7 +8,7 @@ Global string market;
 
 global ShareALLRecordsToNewUserBatch (List<ID> userIdLst,String sobjectNameStr,string md){
     sobjectName = sobjectNameStr;
-    List<User> usrLst=[Select Id,contact.account.Dealer_Nd_code__c from User where Id IN:userIdLst];
+    List<User> usrLst=[Select Id,contact.account.Dealer_Nd_code__c,contact.account.Dealer_GC_code__c from User where Id IN:userIdLst];
     dealerCodeGrpIdMap=new Map<String,Id>();
     Set<String> grpNamesLst=new Set<String>();
     dealerCodeLst=new Set<String>();
@@ -20,6 +20,11 @@ global ShareALLRecordsToNewUserBatch (List<ID> userIdLst,String sobjectNameStr,s
         String grpName=Market+usr.contact.account.Dealer_Nd_code__c;
         grpNamesLst.add(grpName);
         dealerCodeLst.add(usr.contact.account.Dealer_Nd_code__c);
+        if(Market == Label.TR && usr.contact.account.Dealer_GC_code__c != null){
+            String grpName1=Market+usr.contact.account.Dealer_GC_code__c;
+            grpNamesLst.add(grpName1);
+            dealerCodeLst.add(usr.contact.account.Dealer_GC_code__c);
+        }
     }
     
     List<Group> grpLst;
@@ -46,6 +51,9 @@ global Database.QueryLocator start(Database.BatchableContext BC)
         Integer noOfHours;
         datetime myDateTime = datetime.now();
         DateTimeForShareBatch__c dt = DateTimeForShareBatch__c.getValues('RetailMatchMergeBatchMY');
+        if (market == System.Label.IN){
+            dt = DateTimeForShareBatch__c.getValues('RetailMatchMergeBatchIN');
+        }
             
         if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL){
             query += ' and {4}';
@@ -56,12 +64,15 @@ global Database.QueryLocator start(Database.BatchableContext BC)
         if ('Account_Link__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c,fromRole__c,fromRole__r.recordTypeID,recordTypeID');
             condition.add('Account_Link__c');
-            condition.add('Md__c=:market');
+            if(Market == Label.TR || Market == Label.IN)
+                condition.add('Market__c=:market');
+            else
+                condition.add('Md__c=:market');
             condition.add('(toRole__c!=null or fromRole__c!=null) AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false');
             if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
                 condition.add('SystemModStamp >=:myDateTime'); 
             }
-        } else if ('Lead__c'.equalsIgnoreCase(sobjectName)){
+        } else if ('Lead__c'.equalsIgnoreCase(sobjectName) && Market != Label.TR /*&& Market != Label.IN*/){
             condition.add('Id,Assigned_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Lead__c');
             condition.add('Md__c=:market');
@@ -69,10 +80,22 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
                 condition.add('SystemModStamp >=:myDateTime'); 
             }
-        } else if ('Case'.equalsIgnoreCase(sobjectName)){
+        } 
+        else if ('Opportunity'.equalsIgnoreCase(sobjectName) && (Market == Label.TR || Market == Label.IN)){
+            condition.add('Id,Assigned_Dealer__r.Dealer_GC_Code__c,ownerId');
+            condition.add('Opportunity');
+            condition.add('Market__c=:market');
+            condition.add('Assigned_Dealer__c!=null and Assigned_Dealer__r.Dealer_GC_Code__c IN:dealerCodeLst');
+            if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
+                condition.add('SystemModStamp >=:myDateTime'); 
+            }
+        }else if ('Case'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Case_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Case');
-            condition.add('Md__c=:market');
+            if(Market == Label.TR || Market == Label.IN)
+                condition.add('Market__c=:Market');
+            else
+                condition.add('Md__c=:Market');
             condition.add('Case_Dealer__c!=null and Case_Dealer__r.Dealer_ND_Code__c IN:dealerCodeLst');
             if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
                 condition.add('SystemModStamp >=:myDateTime'); 
@@ -80,7 +103,10 @@ global Database.QueryLocator start(Database.BatchableContext BC)
         }else if('Vehicle_Relationship__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Owner_Dealer_ND_Code__c,Vehicle_ID__c,Vehicle_ID__r.Car_Model__c');
             condition.add('Vehicle_Relationship__c');
-            condition.add('Md__c=:market');
+            if(Market == Label.TR)
+                condition.add('Market__c=:market');
+            else
+                condition.add('Md__c=:market');
             condition.add('Owner_Dealer__c!=null and Owner_Dealer_ND_Code__c IN:dealerCodeLst and To_Be_Deleted__c = false');
             if(UtilConstant.RETAIL_MATCH_MERGE && dt != NULL && myDateTime != NULL){
                 condition.add('SystemModStamp >=:myDateTime'); 
@@ -103,6 +129,9 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                 condition.add('SystemModStamp >=:myDateTime'); 
             }
         }
+        system.debug('queryyyyyy'+query+'-------'+condition+'String.format(query, condition)'+String.format(query, condition));
+        string querystr = string.format(query,condition);
+        return Database.getQueryLocator(querystr);
         
         return Database.getQueryLocator(String.format(query, condition));
     }
@@ -222,6 +251,10 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                                 AccountShare accShare=new AccountShare();
                                 accShare.AccountAccessLevel = 'EDIT';
                                 accShare.OpportunityAccessLevel = 'READ';
+                                if (Market == Label.IN){
+                                    accShare.OpportunityAccessLevel = 'None';
+                                    accShare.CaseAccessLevel = 'None';
+                                }
                                 accShare.AccountId = accLinkIdToRoleIdMap.get(accLinkId);
                                 accShare.UserOrGroupId = dealerCodeGrpIdMap.get(accLinkIdDealerCodeForAccountMap.get(accLinkId));
                                 accShare.RowCause = Schema.AccountShare.RowCause.Manual; 
@@ -246,7 +279,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             }
                
               
-        }else if('Lead__c'.equalsIgnoreCase(sobjectName))
+        }else if('Lead__c'.equalsIgnoreCase(sobjectName) && Market != Label.TR && Market != Label.IN)
       {
             Map<String,List<Lead__c>> DealerCodeLeadMap=new Map<String,List<Lead__c>>();
             for(sObject sObj:scope)
@@ -281,6 +314,49 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                       share.parentid = leadObj.Id;
                       share.UserOrGroupId = dealerCodeGrpIdMap.get(leadObj.Assigned_Dealer__r.Dealer_ND_Code__c);
                       share.RowCause = Schema.Lead__Share.RowCause.Manual;
+                      insertleadShare.add(share);
+                }
+            }
+            if(insertleadShare!=null && insertleadShare.size()>0)
+             DMLManagerService.insertAsSystem(insertleadShare); 
+        }
+        else if('Opportunity'.equalsIgnoreCase(sobjectName) && (market == Label.TR || market == Label.IN))
+      {
+            Map<String,List<Opportunity>> DealerCodeLeadMap=new Map<String,List<Opportunity>>();
+            for(sObject sObj:scope)
+            {  
+                Opportunity leadObj=(Opportunity)sObj;
+                if(leadObj.Assigned_Dealer__r.Dealer_GC_Code__c != null){
+                if(DealerCodeLeadMap.containsKey(leadObj.Assigned_Dealer__r.Dealer_GC_Code__c))
+                {
+                    List<Opportunity> leadLst=new List<Opportunity>();
+                    leadLst=DealerCodeLeadMap.get(leadObj.Assigned_Dealer__r.Dealer_GC_Code__c);
+                    leadLst.add(leadObj);
+                    DealerCodeLeadMap.put(leadObj.Assigned_Dealer__r.Dealer_GC_Code__c,leadLst);
+                }
+                else //if Dealer code is not present in map
+                {
+                    List<Opportunity> leadLst=new List<Opportunity>();
+                    leadLst.add(leadObj);
+                    DealerCodeLeadMap.put(leadObj.Assigned_Dealer__r.Dealer_GC_Code__c,leadLst);
+                }
+                }
+            }
+            
+            
+            List<opportunityshare> insertleadShare=new List<opportunityshare>();
+            for(String dealerCode:DealerCodeLeadMap.keySet())
+            {
+                
+                List<opportunity> leadLst=DealerCodeLeadMap.get(dealerCode);
+                
+                for(opportunity leadObj:leadLst)
+                {
+                      opportunityshare share = new opportunityshare();
+                      share.OpportunityAccessLevel  = 'EDIT';
+                      share.opportunityid  = leadObj.Id;
+                      share.UserOrGroupId = dealerCodeGrpIdMap.get(leadObj.Assigned_Dealer__r.Dealer_GC_Code__c);
+                      share.RowCause = Schema.opportunityshare.RowCause.Manual;
                       insertleadShare.add(share);
                 }
             }
@@ -487,6 +563,10 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                     AccountShare accShare=new AccountShare();
                     accShare.AccountAccessLevel = 'EDIT';
                     accShare.OpportunityAccessLevel = 'READ';
+                    if (market == Label.IN){
+                        accShare.OpportunityAccessLevel = 'None';
+                        accShare.CaseAccessLevel = 'None';
+                    }
                     accShare.AccountId = accId;
                     accShare.UserOrGroupId = dealerCodeGrpIdMap.get(accIdDealerCodeMap.get(accId));
                     accShare.RowCause = Schema.AccountShare.RowCause.Manual; 

@@ -17,6 +17,8 @@ public with sharing class YearlyTAReportController {
     public Retail_Campaign__c smartMonthlyKPINewLead { get; set; }
     public Retail_Campaign__c smartMonthlyKPINewOrder { get; set; }
     
+	
+	
     public YearlyTAReportController() {
         
         String yearlyTAId = ApexPages.currentPage().getParameters().get('id');

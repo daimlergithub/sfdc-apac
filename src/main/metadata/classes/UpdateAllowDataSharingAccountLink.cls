@@ -67,6 +67,6 @@ global class UpdateAllowDataSharingAccountLink implements Database.Batchable<sOb
    
    
     global void execute(SchedulableContext ctx) {
-        Database.executeBatch(new UpdateAllowDataSharingAccountLink(), 10);
+        Database.executeBatch(new UpdateAllowDataSharingAccountLink(), 1);
     }
 }

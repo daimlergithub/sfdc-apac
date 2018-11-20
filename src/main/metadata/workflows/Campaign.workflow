@@ -91,6 +91,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+		<fullName>Activate_Campaign_FM</fullName>
+        <field>IsActive</field>
+        <literalValue>1</literalValue>
+        <name>Activate Campaign FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Active</fullName>
         <field>IsActive</field>
         <literalValue>1</literalValue>
@@ -118,6 +127,24 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+		<fullName>Record_Close_Date_FM</fullName>
+        <field>Closed_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Record Close Date FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Record_Publish_Date_FM</fullName>
+        <field>Publish_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Record Publish Date FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Rejected</fullName>
         <field>Status</field>
         <literalValue>Rejected</literalValue>
@@ -140,6 +167,15 @@
         <field>IsActive</field>
         <literalValue>1</literalValue>
         <name>Update Ative to True</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+		<fullName>Update_Ative_to_True_FM</fullName>
+        <field>IsActive</field>
+        <literalValue>1</literalValue>
+        <name>Update Ative to True FM</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -295,6 +331,16 @@ RecordType.Name,
         </criteriaItems>
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+		<fullName>Activate_Campaign_When_Status_Changes_to_Started_FM</fullName>
+        <actions>
+            <name>Activate_Campaign_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>CONTAINS( $Label.Activate_Campaign_When_Status_Changes_to_Started ,   TEXT(Market__c))  &amp;&amp;    RecordType.Name = 'Planning &amp; Design Campaign'  &amp;&amp;   ISPICKVAL(Status  , 'Started') &amp;&amp;  IsActive  = false</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -502,6 +548,28 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+		<fullName>Record Publish Date FM</fullName>
+        <actions>
+            <name>Record_Publish_Date_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>to record Publish date when status is Published</description>
+        <formula>CONTAINS( $Label.Record_Publish_Date_FM ,  TEXT( Market__c ) ) &amp;&amp;  RecordType.Name = 'Planning &amp; Design Campaign' &amp;&amp;  ISPICKVAL( Status , 'Published')</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Record_Close_Date_FM</fullName>
+        <actions>
+            <name>Record_Close_Date_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>to record close date when status is Closed</description>
+        <formula>CONTAINS( $Label.Record_Close_Date_FM ,  TEXT( Market__c ) ) &amp;&amp;  ISPICKVAL( Status , 'Closed') &amp;&amp;  RecordType.Name = 'Planning &amp; Design Campaign'</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Segmentation start date Notification to WS Users</fullName>
         <active>true</active>
         <criteriaItems>
@@ -658,5 +726,16 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <active>true</active>
         <formula>AND(1=1,MD__c='JP' ||MD__c='KR' || MD__c='TH' || MD__c='MY' || MD__c='IN' || ISPICKVAL(Market__c, 'TR') )</formula>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update_Active_of_Campaign_Execution_FM</fullName>
+        <actions>
+            <name>Update_Ative_to_True_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>to update active field of campaign execution when active field is false</description>
+        <formula>CONTAINS( $Label.Update_Active_of_Campaign_Execution_FM , TEXT(Market__c)) &amp;&amp;  RecordType.Name = 'Campaign Execution' &amp;&amp;  IsActive = false</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

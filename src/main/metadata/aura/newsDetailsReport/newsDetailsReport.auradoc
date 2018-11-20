@@ -1,0 +1,7 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:newsDetailsReport</code> component displays <code>News__c records</code> and <code>related files(attachments)</code>.
+            <br/>component uses <code>lightning:datatable</code> to display data dynamically.
+        </p>        
+    </aura:description>  
+</aura:documentation>

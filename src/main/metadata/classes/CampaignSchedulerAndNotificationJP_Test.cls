@@ -4,6 +4,7 @@ public class CampaignSchedulerAndNotificationJP_Test {
  public static Campaign_Member__c cm;
   public static Campaign camobj1;
  public static Campaign_Member__c cm1;
+ public static Lead__c lead1;
  
   public static Id centmarcampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
    public static Id camIdPlan= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
@@ -18,7 +19,7 @@ public class CampaignSchedulerAndNotificationJP_Test {
     camobj.StartDate = System.today();
     camobj.EndDate = System.today()+10;
     camobj.Campaign_Objectives__c = 'camobjectives';
-    camobj.Execution_Start_Date__c = Date.Today()+4;
+    camobj.Execution_Start_Date__c = Date.Today();
     camobj.Segmentation_Date__c= Date.Today();
     camobj.Execution_Type__c =  'OB Call';
     camobj.Child_Campaign_Status__c = 'Segmentation';
@@ -30,6 +31,7 @@ public class CampaignSchedulerAndNotificationJP_Test {
     cm=new Campaign_Member__c();
     cm.Campaign_ID__c =camobj.id;
     cm.Status__c = 'Ready';
+    cm.Md__c='JP';
     //cm.contact_Id__c = accobj.Id;   
     insert cm;    
     
@@ -218,7 +220,7 @@ createTestData();
     camobj12.Campaign_Executer__c='Retail';
     camobj12.Campaign_Objectives__c = 'camobjectives';
     camobj12.Description = 'testdescrip';
-    camobj12.Campaign_Execution_Channels__c='eMail';
+   // camobj12.Campaign_Execution_Channels__c='eMail';
     camobj12.Campaign_Type__c = 'After Sales';
     insert camobj12;
   
@@ -238,10 +240,18 @@ createTestData();
     camobj.Description = 'testdescrip';
     camobj.Campaign_CCC_Manager__c = Userinfo.getuserid();
     insert camobj;
-  
+    
+     lead1 = new Lead__c();
+    lead1.CAC_Lead_Status__c = 'Approved'; 
+    lead1.Source_Campaign__c = camobj.id;
+      insert lead1;
+      
+      
+      
     cm=new Campaign_Member__c();
     cm.Campaign_ID__c =camobj.id;
     cm.Status__c = 'Ready';
+    cm.Md__c='JP';
     //cm.contact_Id__c = accobj.Id;   
     insert cm;    
     
@@ -277,7 +287,7 @@ createTestData();
   
  
     }
-  }
+  } 
   public static testmethod void GenerateCampaignOfferingHistoryLOGtest4() {
     User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
     System.runAs(thisUser){
@@ -344,7 +354,7 @@ createTestData();
     cm1.Special_Flag_to_Include__c='true';
     cm1.Auto_creation_of_tasks__c=true;
     cm1.Auto_creation_of_DM_requests__c=true; 
-	
+    
    
     //cm.contact_Id__c = accobj.Id;   
     insert cm1;    

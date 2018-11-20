@@ -4,6 +4,6 @@
     <encodingKey>UTF-8</encodingKey>
     <name>Assign to Dealer Gatekeeper Case_TR</name>
     <style>none</style>
-    <subject>{! Case.CaseNumber} new customer {! Case.RecordType} incoming notification</subject>
+    <subject>Mercedes-Benz Müşteri İletişim Merkezi Bilgilendirme{! Case.CaseNumber}</subject>
     <type>text</type>
 </EmailTemplate>

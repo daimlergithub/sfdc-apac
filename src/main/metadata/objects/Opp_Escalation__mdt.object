@@ -23,6 +23,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Email_ID__c</fullName>
+        <description>email id to capture to email from which email should sent</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Email ID</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Hot_Hours__c</fullName>
         <defaultValue>0</defaultValue>
         <externalId>false</externalId>

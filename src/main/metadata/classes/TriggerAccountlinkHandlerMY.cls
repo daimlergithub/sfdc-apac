@@ -3,63 +3,74 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
     public void handleTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
       
             AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
-			 if (Trigger.isbefore && Trigger.isinsert ) {               
-			      acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
+             if (Trigger.isbefore && Trigger.isinsert ) {               
+                  acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
                 
             }
-			 if (Trigger.isbefore && Trigger.isupdate ) {               
-			      acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
+             if (Trigger.isbefore && Trigger.isupdate ) {               
+                  acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
                  if(Util_GetPermissionList.checkAccessOnUser(Label.addressupdateRT)){  
                     acchelper.addressupdateRT(trigger.new, (Map < Id, Account_Link__c > ) trigger.oldMap);                  
                 }
             }
-			
+            
             if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
                 if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
                     acchelper.ValidateC2CAfterUpdateInsert(trigger.new, Label.MY,Trigger.isinsert,Trigger.isupdate,trigger.oldMap);
                    
-				   if(Trigger.isInsert){
-				    if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
-						acchelper.afterInsertEventShareRetailCopy(Trigger.new);
-						acchelper.afterInsertEventShareAccount(Trigger.new);
-						}
-					}
-					
+                   if(Trigger.isInsert){
+                    if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
+                        acchelper.afterInsertEventShareRetailCopy(Trigger.new);
+                        acchelper.afterInsertEventShareAccount(Trigger.new);
+                        }
+                    }
+                    
                 }
                 if (Trigger.isInsert  && !System.isFuture()) {
-				if(Util_GetPermissionList.checkAccessOnUser(Label.AccountLInkAL)){
+                if(Util_GetPermissionList.checkAccessOnUser(Label.AccountLInkAL)){
                    acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.InsertContext);
-				   }
+                   }
                 }
             }
 
             if (Trigger.isAfter && Trigger.isupdate ) {  
                 if (TriggerRecursiveCheck.run2 && !System.isFuture()) {
                     TriggerRecursiveCheck.runOnce2();
-					 if(Util_GetPermissionList.checkAccessOnUser(Label.AccountLInkAL)){
+                     if(Util_GetPermissionList.checkAccessOnUser(Label.AccountLInkAL)){
                      acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.UpdateContext); 
-                    }					
+                    }                   
                 }
                 if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){                    
                     acchelper.RevokeApexSharingAfterUpdate(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap, Trigger.Old);
-					acchelper.OnAfterUpdateCreateC2CRetailCopy(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap);
+                    acchelper.OnAfterUpdateCreateC2CRetailCopy(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap);
                 }
             }
        
     }
     public void handleIntegrationTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
         // Implementation to addedd as required in market
-         List<Account_Link__c> AccListNewList = Trigger.new;
-         
-           if( !trigger.isdelete && !AccListNewList.isEmpty() && AccListNewList.size() > 0 && AccListNewList [0].MD__c == Label.MY){
-				if((trigger.isupdate || trigger.isinsert) && trigger.isbefore){
-				   AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
+        
+        List<Account_Link__c> AccListNewList = Trigger.new;
+         Map<Id,Account_Link__c> oldMap= (Map<Id,Account_Link__c>)Trigger.oldMap;
+           if( !trigger.isdelete && !AccListNewList.isEmpty() && AccListNewList.size() > 0 && (AccListNewList [0].MD__c == Label.MY || AccListNewList [0].Market__c == Label.MY)){
+                if((trigger.isupdate || trigger.isinsert) && trigger.isbefore){
+                   AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
                    acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
-				   acchelper.RemoveAccessofUsers(trigger.new);
-				}
+                   acchelper.RemoveAccessofUsers(trigger.new);
+                }
                if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
                    AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
                    acchelper.ValidateC2CAfterUpdateInsert(trigger.new, Label.MY,Trigger.isinsert,Trigger.isupdate,trigger.oldMap);
+                   //Added by Ashish J. to Call to CDM Serivce AccountLink to flow through DMS for insert and update and share records
+                   acchelper.afterInsertEventShareRetailCopy(Trigger.new);
+                   acchelper.afterInsertEventShareAccount(Trigger.new);
+                   if(Trigger.isInsert || (Trigger.isupdate && TriggerRecursiveCheck.run)) {
+                        if(Trigger.isupdate){
+                            TriggerRecursiveCheck.runOnce();
+                        }
+                        System.debug('####CALLLLLLLL####isupdate'+Trigger.isupdate );
+                        acchelper.callCDMServiceforInsertUpdateForStouch(AccListNewList , Label.MY,Trigger.isinsert,Trigger.isupdate,oldMap);
+                   }
                }
                
            }

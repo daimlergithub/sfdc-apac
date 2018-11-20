@@ -1,0 +1,69 @@
+<apex:page controller="AddToDealershipCommon">
+    <style type="text/css">
+        .custPopup{
+            background-color: white;
+        	border-radius: 15px;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            width: 500px;
+            margin-left: -250px;
+            top:100px;
+        }
+        .popupBackground{
+            background-color:black;
+            opacity: 0.40;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+        
+    </style>
+    <apex:form >
+        <apex:pageMessages />
+        <apex:pageBlock title="Add To Dealership">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.Search}" action="{!search}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="2">
+                <apex:outputText value="{!$Label.Vin_Number}"/>
+                <apex:inputText value="{!vin}"/>
+                <apex:outputText value="{!$Label.Registration_Number}"/>
+                <apex:inputText value="{!regNumber}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:actionFunction name="selectOne" action="{!disableCheckbox}" rerender="pgbk">
+            <apex:param name="selectItemId" value="" assignTo="{!selectedRec}"/>       
+        </apex:actionFunction>
+        <apex:pageBlock title="Vehicle Relationships" rendered="{!showVrel}">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.CreateRetailCopy}" action="{!showPopup}" rendered="{!vehRelWrapList.size>0}"/>
+            </apex:pageBlockButtons>
+            <apex:outputPanel rendered="{!vehRelWrapList.size<1}">
+                <apex:outputText value="{!$Label.Vehicle_Record_Error}"/>
+            </apex:outputPanel>
+            <apex:pageBlockTable id="pgbk" value="{!vehRelWrapList}" var="vrl" rendered="{!vehRelWrapList.size>0}">
+                <apex:column >
+                    <apex:inputCheckbox onclick="selectOne('{!vrl.vhRel.Id}')" value="{!vrl.selected}" disabled="{!IF(vrl.selected==true,true,false)}"/>
+                </apex:column>
+                <apex:column value="{!vrl.vhRel.Name}" />
+                <apex:column value="{!vrl.vhRel.Contact__c}" />           
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:outputPanel id="tstpopup">
+            <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>
+            <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                <apex:outputText >{!message}</apex:outputText><br/><br/>
+                <apex:commandButton value="Proceed" action="{!createRetailCopyAndRedirect}" rerender="tstpopup"/>
+                <apex:commandButton value="Cancel" action="{!closePopup}" rerender="tstpopup"/>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

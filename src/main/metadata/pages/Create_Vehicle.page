@@ -1,10 +1,9 @@
-<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Vehicle__c" extensions="VehicleExtension">
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Vehicle__c" extensions="VehicleExtension" lightningStylesheets="true">
     <apex:includeScript value="{!$Resource.jQuery}" />
     <apex:includeScript value="{!$Resource.Angular}"/>
     <apex:includeScript value="{!$Resource.jQueryCSV}" />
     <apex:includeScript value="{!$Resource.JSforce}" />
-   
-    <script type="text/javascript">
+   <script type="text/javascript">
         
     /*on click of save button sends Selected values which were got from Car_Model Object to action function*/
     function saveDetail() 
@@ -83,8 +82,12 @@
         $scope.selectedRange = "";
         $scope.modelRange_map ="";
         $scope.vehicle_brand_classes = []; 
-       if(marketch != 'JP'){
+       if(marketch != 'JP' && marketch != 'AU' && marketch != 'NZ'){
            $scope.availableOptions = ['--Select--','MB','Competitor','Self Registered'];
+       }
+        else if (marketch == 'AU' || marketch == 'NZ')
+       {
+           $scope.availableOptions = ['MB'];
        }
        else 
        {
@@ -159,12 +162,14 @@
             
         }
         
+        
     }); 
     
     </script> 
+
     <apex:form id="form">  
         <!--Displays error messages-->
-        <apex:pageMessages id="showmsg"></apex:pageMessages>
+            <apex:pageMessages id="showmsg"></apex:pageMessages>
         <div id="ng-app" ng-app="VehiclePickerApp"  ng-controller="VehiclePickerController" style="padding-left:200px,position: relative">
           
             <!--PageBlock starts here-->
@@ -261,7 +266,7 @@
                  
              <span ng-switch-when="MB">                    
                     <apex:outputLabel value="{!$Label.TH_Not_authorized_to_create_MB_Vehicle_record}" rendered="{!Not(nonThaiUserLoggedIn)}" style="font-weight: bold; color: red; font-size: 14px"/>
-                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}" rendered="{!nonThaiUserLoggedIn}"> 
+                     <apex:pageBlockSection title="{!$Label.Vehicle_Information}" rendered="{!nonThaiUserLoggedIn && marketcheck != 'AU' && marketcheck !='NZ' }"> 
                              
                                 
                                     <!--Custom brand picklist to get the values from carmodal object-->
@@ -332,10 +337,10 @@
                         
                      </apex:pageBlockSection>  
               
-                </span>
+                 </span>
                  
                 <span ng-switch-when="MB">
-                   <apex:pageBlockSection title="{!$Label.Vehicle_Detail}" rendered="{!nonThaiUserLoggedIn}"> 
+                   <apex:pageBlockSection title="{!$Label.Vehicle_Detail}" rendered="{!nonThaiUserLoggedIn && marketcheck != 'AU' && marketcheck !='NZ' }"> 
                         <apex:inputField value="{!vehicle.OptionCode__c}"/> 
                         <apex:inputField value="{!vehicle.Colour__c}"/>
                         <apex:inputField value="{!vehicle.EngineNumber__c}"/>
@@ -353,11 +358,12 @@
                         <apex:inputField value="{!vehicle.Product_Model__c}"/>
                         <apex:inputField value="{!vehicle.Category_Code__c}"/>
                         <apex:inputField value="{!vehicle.Market__c}"/>
+
                     </apex:pageBlockSection> 
-                 </span>
-               
+                    </span>
+              
                  <span ng-switch-when="MB">
-                    <apex:pageBlockSection title="{!$Label.Date_Information}" rendered="{!nonThaiUserLoggedIn}">
+                    <apex:pageBlockSection title="{!$Label.Date_Information}" rendered="{!nonThaiUserLoggedIn && marketcheck != 'AU' && marketcheck !='NZ' }"> 
                         <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
                         <apex:inputField value="{!vehicle.ProductionDate__c}"/>
                         <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
@@ -369,7 +375,7 @@
                  </span>
                 
                  <span ng-switch-when="MB">
-                    <apex:pageBlockSection title="{!$Label.Other_Information}" rendered="{!nonThaiUserLoggedIn}">
+                    <apex:pageBlockSection title="{!$Label.Other_Information}" rendered="{!nonThaiUserLoggedIn && marketcheck != 'AU' && marketcheck !='NZ' }"> 
                         <apex:inputField value="{!vehicle.Transmission__c}"/>
                         <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
                         <apex:inputField value="{!vehicle.System_Data_Source__c}"/>
@@ -512,9 +518,55 @@
                         <apex:inputField value="{!vehicle.Finance_Method__c}" rendered="{!marketcheck !='JP'}"/>  
                     </apex:pageBlockSection>
                 </span>
+				<!--Created for ANZ Market -->
+				 <apex:pageBlockSection title="{!$Label.Vehicle_Information}" rendered="{!marketcheck == 'AU' || marketcheck =='NZ' }"> 
+                    <apex:inputField value="{!vehicle.Brand__c}"/> 
+                    <apex:inputField value="{!vehicle.Class__c}"/> 
+                    <apex:inputField value="{!vehicle.Model__c}"/> 
+                    <apex:inputField value="{!vehicle.Vehicle_Group__c}"/> 
+                    <apex:inputField value="{!vehicle.Baumuster__c}"/> 
+				 </apex:pageBlockSection> 
+				 
+				   <apex:pageBlockSection title="{!$Label.Vehicle_Detail}" rendered="{!marketcheck == 'AU' || marketcheck =='NZ' }"> 
+                        <apex:inputField value="{!vehicle.EuroVIN__c}"/>
+                        <apex:inputField value="{!vehicle.New_Used__c}"/>	
+                        <apex:inputField value="{!vehicle.Colour__c}"/>
+                        <apex:inputField value="{!vehicle.EngineNumber__c}"/>
+                        <apex:inputField value="{!vehicle.CurrentMileage__c}"/>
+                        <apex:inputField value="{!vehicle.CylinderCapacity__c}"/>
+                        <apex:inputField value="{!vehicle.Fuel__c}"/>
+                        <apex:inputField value="{!vehicle.Height__c}"/>
+                        <apex:inputField value="{!vehicle.Width__c}"/>
+                        <apex:inputField value="{!vehicle.Weight__c}"/>
+                        <apex:inputField value="{!vehicle.ModelYear__c}"/>
+					
+                        <apex:inputField value="{!vehicle.National_Model__c}"/>
+                        <apex:inputField value="{!vehicle.VehicleAge__c}"/>
+                        <apex:inputField value="{!vehicle.Product_Model__c}"/>
+                        <apex:inputField value="{!vehicle.Category_Code__c}"/>
+                        <apex:inputField value="{!vehicle.Market__c}"/>
+
+                    </apex:pageBlockSection>
+					
+                    <apex:pageBlockSection title="{!$Label.Date_Information}" rendered="{!marketcheck == 'AU' || marketcheck =='NZ' }"> 
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                        <apex:inputField value="{!vehicle.ProductionDate__c}"/>
+                        <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
+                        <apex:inputField value="{!vehicle.NextInspectionDate__c}"/>
+                      
+                    </apex:pageBlockSection>
+					
+					<apex:pageBlockSection title="{!$Label.Other_Information}" rendered="{!marketcheck == 'AU' || marketcheck =='NZ' }"> 
+                        <apex:inputField value="{!vehicle.Transmission__c}"/>
+                        <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
+                        <apex:inputField value="{!vehicle.System_Data_Source__c}"/>
+                        <apex:inputField value="{!vehicle.VehicleStatus__c}"/>
+                    </apex:pageBlockSection>
+				 
                  <apex:pageBlockButtons >
-                     <apex:commandButton value="{!$Label.Save_Button}" onclick="saveDetail();return false;"/>
-                     <apex:commandButton value="{!$Label.Save_New_Button}"  onclick="saveAndNewDetail();return false;"/>
+                     <apex:commandButton value="{!$Label.Save_Button}" onclick="saveDetail();return false;" rendered="{!marketcheck != 'AU' && marketcheck !='NZ' }"/>
+                     <apex:commandButton id="SavebtnAU" value="{!$Label.Save_Button}" action="{!saveDetailANZ}"  rendered="{!marketcheck == 'AU' || marketcheck =='NZ' }" rerender="showmsg"/>
+                     <apex:commandButton value="{!$Label.Save_New_Button}"  onclick="saveAndNewDetail();return false;" rendered="{!marketcheck != 'AU' && marketcheck !='NZ' }"/>
                      <apex:commandButton action="{!Cancel}" value="{!$Label.Cancel_Button}"/>                    
                  </apex:pageBlockButtons>
                 

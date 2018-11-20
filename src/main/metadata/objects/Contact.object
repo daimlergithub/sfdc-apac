@@ -808,12 +808,14 @@
     <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+			IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
 			IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 			IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 			IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 			IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 			IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-			IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))))</defaultValue>
+			IF(ISPICKVAL($User.Market__c, 'ID'), 'ID',
+			IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -828,14 +830,16 @@
     </fields>
     <fields>
         <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU',
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',		
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'ID'), 'ID',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
-IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -879,10 +883,20 @@ IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
                     <default>false</default>
                     <label>IN</label>
                 </value>
+				<value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                    <label>ID</label>
+                </value>
                 <value>
                     <fullName>TR</fullName>
                     <default>false</default>
                     <label>TR</label>
+                </value>
+                <value>
+                    <fullName>NZ</fullName>
+                    <default>false</default>
+                    <label>NZ</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -4099,7 +4113,7 @@ Adds an active member/membership status/update activity generated sales leads--t
         <fullName>Contact_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of Contact should be same as user's Market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c), if(AND(OR(TEXT( Market__c ) == 'AU',TEXT( Market__c ) == 'NZ' ), $Permission.ANZCrossMarket), false, true))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>

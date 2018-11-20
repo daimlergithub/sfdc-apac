@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This template is used for after news approval.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>NewsApprovedTemplate</name>
+    <style>none</style>
+    <subject>RE: Your News was Approved</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

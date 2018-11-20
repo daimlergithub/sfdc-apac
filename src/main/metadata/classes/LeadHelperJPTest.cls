@@ -290,7 +290,7 @@ public class LeadHelperJPTest
             listNewLeads.add(lead3);
             insert listNewLeads;
             
-            listCampaign =[select id,Name,CAC_Lead_Status__c,Assigned_Dealer__c ,Contact__c,MD__c from lead__C where id IN:listNewLeads ];
+            listCampaign =[select id,Name,CAC_Lead_Status__c,Assigned_Dealer__c ,Dealer_Lead_Status__c,Contact__c,MD__c from lead__C where id IN:listNewLeads ];
             list<lead__C> oldList = new  list<lead__C>();
             oldList.addAll(listCampaign);
             map<id,lead__C> oldMap = new map<id,lead__C>();
@@ -307,7 +307,7 @@ public class LeadHelperJPTest
             
             LeadHelperJP.updateCustomerStage(listNewLeads,oldMap,LeadNewMap);
             LeadHelperJP.createAccountLinkFromDealer(listNewLeads, LeadNewMap, accountId, dealerIdId, accouMap);
-            LeadHelperJP.updateCustomerStageByInformatica(listNewLeads,oldMap,LeadNewMap);
+            //LeadHelperJP.updateCustomerStageByInformatica(listNewLeads,oldMap,LeadNewMap);
             Test.StopTest();
         }
         
@@ -705,7 +705,172 @@ public class LeadHelperJPTest
             
               
     }
-
+public static testMethod void testupdateCustomerStageInform()
+    {  
+        Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
+        User u = new User(Alias = 'standt', Email='test@mbj.com', 
+                          EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
+                          LocaleSidKey='en_US', ProfileId = p.Id, 
+                          TimeZoneSidKey='America/Los_Angeles', UserName='integration.inf@infosys.com.test');
+        insert u;
+        System.runAs(u){
+            Test.StartTest();
+            List<Lead__C> listNewLeads=new List<Lead__C>();
+            List<Lead__C> listCampaign=new List<Lead__C>();
+            map<id,Lead__C> LeadNewMap=new map<id,Lead__C>();
+            set<id> accountId = new set<id>();
+            Map<id,id> accouMap = new Map<id,id>();
+            set<id> dealerIdId = new set<id>();
+            DealerAccount= new Account();
+            DealerAccount.RecordtypeId=DealerAccRecordTypeId;
+            DealerAccount.Name='Test Person 1st';
+            DealerAccount.Type='Personal';
+            DealerAccount.Status__c='Active';
+            DealerAccount.Province__c='Province1';
+            DealerAccount.City__c='Test';
+            DealerAccount.Email__c='test@mbj.com';
+            DealerAccount.Mobile__c ='0435488899';
+            DealerAccount.Dealer_Rollout_Status__c = 'Done';
+            
+            insert DealerAccount;
+            dealerIdId.add(DealerAccount.Id);
+            objAccount= new Account();
+            objAccount.RecordtypeId=personAccRecordTypeId;
+            objAccount.LastName='Test Person 1st';
+            //objAccount.Type='Personal';
+            objAccount.Status__c='Active';
+            objAccount.Province__c='Province1';
+            objAccount.City__c='Test';
+            objAccount.ZipCode__c = '1004235';
+            objAccount.Email__c='test@mbj.com';
+            objAccount.Mobile__c ='0435488899';
+            objAccount.Phone = '08022420181';
+            objAccount.Main_Dealer__c = DealerAccount.id;
+            objAccount.Customer_Lifecycle_Phase__c = 'Care';
+            
+            insert objAccount;
+            
+            objAccount2= new Account();
+            objAccount2.RecordtypeId=personAccRecordTypeId;
+            objAccount2.LastName='Test Person 1st';
+            //objAccount.Type='Personal';
+            objAccount2.Status__c='Active';
+            objAccount2.Province__c='Province1';
+            objAccount2.City__c='Test';
+            objAccount2.ZipCode__c = '1004209';
+            objAccount2.Email__c='test@mbj.com';
+            objAccount2.Mobile__c ='0435488899';
+            objAccount2.Phone = '08022420181';
+            objAccount2.Main_Dealer__c = DealerAccount.id;
+            objAccount2.Customer_Lifecycle_Phase__c = 'Care';
+            
+            insert objAccount2;
+            
+            Account objAccount3 = new Account();
+             objAccount3.RecordtypeId=personAccRecordTypeId;
+            objAccount3.LastName='Test Person 1st';
+            //objAccount.Type='Personal';
+            objAccount3.Status__c='Active';
+            objAccount3.Province__c='Province1';
+            objAccount3.City__c='Test';
+            objAccount3.ZipCode__c = '1004209';
+            objAccount3.Email__c='test@mbj.com';
+            objAccount3.Mobile__c ='0435488899';
+            objAccount3.Phone = '08022420181';
+            objAccount3.Main_Dealer__c = DealerAccount.id;
+            objAccount3.Customer_Lifecycle_Phase__c = 'Care';
+            insert objAccount3;
+            accountId.add(objAccount.Id);
+            accountId.add(objAccount2.Id);
+            accountId.add(objAccount3.Id);
+            accouMap.put(objAccount.Id, DealerAccount.Id);
+            accouMap.put(objAccount2.Id, DealerAccount.Id);
+            accouMap.put(objAccount3.Id, DealerAccount.Id);
+            
+            lead1 = new lead__C();
+            lead1.MD__c = 'JP';
+            lead1.Contact__c = objAccount.id;
+            lead1.Assigned_Dealer__c = DealerAccount.id;
+            lead1.CAC_Lead_Status__c = 'Approved';
+            lead1.Dealer_Lead_Status__c='On-going';
+            lead1.Lead_DataSource__c='Dealer Outlet';
+            lead1.Lead_Latest_Phase__c='Contact';
+            listNewLeads.add(lead1);
+            
+            lead3 = new lead__C();
+            lead3.MD__c = 'JP';
+            lead3.Contact__c = objAccount2.id;
+            lead3.Assigned_Dealer__c = DealerAccount.id;
+            lead3.CAC_Lead_Status__c = 'Approved';
+            lead3.Dealer_Lead_Status__c='On-going';
+            lead3.Lead_DataSource__c='Dealer Outlet';
+            lead3.Lead_Latest_Phase__c='Contact';
+            listNewLeads.add(lead3);
+            
+            Lead__c lead4 = new Lead__c();
+            lead4 = new lead__C();
+            lead4.MD__c = 'JP';
+            lead4.Contact__c = objAccount2.id;
+            lead4.Assigned_Dealer__c = DealerAccount.id;
+            lead4.CAC_Lead_Status__c = 'Approved';
+            lead4.Dealer_Lead_Status__c='On-going';
+            lead4.Lead_DataSource__c='Dealer Outlet';
+            lead4.Lead_Latest_Phase__c='Contact';
+            lead4.RecordTypeId=aftersalesRecordTypeId;
+            listNewLeads.add(lead4);
+            
+            Lead__c lead5 = new Lead__c();
+            lead5 = new lead__C();
+            lead5.MD__c = 'JP';
+            lead5.Contact__c = objAccount3.id;
+            lead5.Assigned_Dealer__c = DealerAccount.id;
+            lead5.CAC_Lead_Status__c = 'Approved';
+            lead5.Dealer_Lead_Status__c='On-going';
+            lead5.Lead_DataSource__c='Dealer Outlet';
+            lead5.Lead_Latest_Phase__c='Contact';
+            listNewLeads.add(lead5);
+            Lead__c lead6 = new Lead__c();
+            lead6 = new lead__C();
+            lead6.MD__c = 'JP';
+            lead6.Contact__c = objAccount3.id;
+            lead6.Assigned_Dealer__c = DealerAccount.id;
+            lead6.CAC_Lead_Status__c = 'Approved';
+            lead6.Dealer_Lead_Status__c='On-going';
+            lead6.Lead_DataSource__c='Dealer Outlet';
+            lead6.Lead_Latest_Phase__c='Contact';
+            lead6.RecordTypeId=aftersalesRecordTypeId;
+            List<Lead__c> ldLst= new List<Lead__c>();
+            ldLst.add(lead6);
+            insert ldLst;
+            insert listNewLeads;
+            
+            listCampaign =[select id,Name,CAC_Lead_Status__c,Assigned_Dealer__c ,Contact__c,MD__c,Dealer_Lead_Status__c,Lead_Latest_Phase__c from lead__C where id IN:listNewLeads ];
+            list<lead__C> oldList = new  list<lead__C>();
+            oldList.addAll(listCampaign);
+            map<id,lead__C> oldMap = new map<id,lead__C>();
+            oldMap.putAll(oldList);
+            
+            lead1.Lead_Latest_Phase__c = 'Invoiced';
+            update lead1;
+            
+            lead3.CAC_Lead_Status__c = 'Not Allocated';
+            update lead3;
+            
+            
+            lead4.CAC_Lead_Status__c = 'Allocated';
+            update lead4;
+            
+            lead5.Dealer_Lead_Status__c = 'Purchased(Only Non BDC)' ;
+            update lead5;
+          //  update listNewLeads;
+            LeadNewMap.putAll(listNewLeads);
+            
+            LeadHelperJP.updateCustomerStageInform(listNewLeads,oldMap,LeadNewMap);
+            Test.StopTest();
+        }
+        
+    }
+    
     
     
 }

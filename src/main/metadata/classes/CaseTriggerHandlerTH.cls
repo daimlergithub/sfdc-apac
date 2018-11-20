@@ -76,16 +76,30 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
     {
       // Implementation to addedd as required in market
       CaseHelperTH caseHelperTHd = new CaseHelperTH();
+      CaseHelperTR caseHelperTRInst = new CaseHelperTR();
       List <case> caselist = new List<case>();
-      for (Sobject sobj:trigger.new){
-          Case c=(case) sobj;
-          if(c.market__c == 'TH') caselist.add(c);
-      }
-      if(trigger.isinsert && trigger.isbefore){
-          if(CaseHelperTH.booleanCampaignUpdate){
-              caseHelperTHd.updateCaseDeadLineAmount(caselist);
+      if(!isDelete)
+	  {
+		  for (Sobject sobj:trigger.new){
+			  Case c=(case) sobj;
+			  if(c.market__c == 'TH') caselist.add(c);
+		  }
+          
+		  if(trigger.isinsert && trigger.isbefore){
+			  if(CaseHelperTH.booleanCampaignUpdate){
+				  caseHelperTHd.updateCaseDeadLineAmount(caselist);
+			  }
+		  }
+          //Added below code to call case share method for compass cases
+          if (caselist !=null && !caselist.isEmpty() && trigger.isAfter ){
+                    if (trigger.isInsert){
+                        caseHelperTRInst.ShareCompassRecordswithDealers(caselist,false, 'TH');
+                    }
+                    if (trigger.isUpdate){
+                        caseHelperTRInst.ShareCompassRecordswithDealers(caselist,Trigger.isupdate, 'TH');
+                    }
           }
-      }
+	  }
       
     }
     

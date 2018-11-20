@@ -742,9 +742,9 @@ public class CaseHelperKR
             system.debug('PSM caseJsonStr + caseIds '+'  '+caseJsonStr);
             updateCaseDeadLine.caseDeadLinesetter(caseJsonStr);
         }
-	}
-	
-	//---------------------------- Case Share - SFDCKR-964 ----------------------------
+    }
+    
+    //---------------------------- Case Share - SFDCKR-964 ----------------------------
     // Added By - Sreenivasareddy
   
     public static void casesharehierarchy(List<Case> LstnewCase) {
@@ -754,7 +754,7 @@ public class CaseHelperKR
            if(c.MD__c=='KR') {
               ownerids.add(c.OwnerId);
               system.debug('*****Caseownerlist' +ownerids);
-		   }	  
+           }      
         }
         
         if(!Test.isRunningTest()){
@@ -821,7 +821,7 @@ public class CaseHelperKR
             insert caseShar;
         }
     }
-	//---------------------------- Case Owner Mail Send - SFDCKR-830 ----------------------------
+    //---------------------------- Case Owner Mail Send - SFDCKR-830 ----------------------------
     // Added By - Monalisa
    @future
     public static void sendEmailToQueue(map<string,string> LstnewCase) {
@@ -847,7 +847,7 @@ public class CaseHelperKR
           EmailTemplate templateId  =[select id,name,Subject from EmailTemplate WHERE name = 'Case owner is updated to Queue'];
           Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
           List<Id> ccDeatils=new List<Id>();
-		  List<Id> updatedCcDeatils=new List<Id>();
+          List<Id> updatedCcDeatils=new List<Id>();
           for(string caseOwnrId: LstnewCase.keySet())
           {   
               for(GroupMember grmMbr: ownerids)
@@ -861,7 +861,7 @@ public class CaseHelperKR
                   
               }
           }
-				  System.debug('ccDeatils----'+ccDeatils);
+                  System.debug('ccDeatils----'+ccDeatils);
                   List<User> activeUser=[select Id from User where id in:ccDeatils and isActive=TRUE];
                   System.debug('activeUser----'+activeUser);
                   for(User u:activeUser){
@@ -891,4 +891,23 @@ public class CaseHelperKR
           }
           TriggerCaseTriggerHandlerKR.recurssioncheckaftersendmail=true;                  
        }
+       
+    /**
+     * @param Cases
+     * @param oldcaseMap
+     * @param action
+     */
+    //MBK Message Send Manage 6/26/2018
+    public static void MessageSendManage(List<Case> cases, Map<Id,Case> oldCaseMap, String action){
+        List<String> caseIds = new List<String>();
+        for(Case temp:cases){
+            if(action == 'Update'){
+                Case oldCase = oldcaseMap.get(temp.Id);
+                if(temp.Status <> oldCase.Status){
+                    caseIds.add(temp.Id);
+                }
+            }else caseIds.add(temp.Id);
+        }
+        MBKSendManageHelperKR.messageManageValidationCheck(caseIds, 'Case', action);
+    }       
 }

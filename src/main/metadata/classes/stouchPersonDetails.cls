@@ -2,8 +2,8 @@
 global without sharing class stouchPersonDetails {
     public static final Id retailPersonId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static final Id contactToContactRecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
-    Public static Map<Id,User> users;
-	global interface stouchPersonDetailsInterface {
+    Public static Map<String,User> UserMap;
+    global interface stouchPersonDetailsInterface {
     }
 
     private class stouchPersonDetailsClass implements stouchPersonDetailsInterface {
@@ -33,13 +33,17 @@ global without sharing class stouchPersonDetails {
             leadMaps.put('LastModifiedDate', leads.LastModifiedDate.format('yyyy-MM-dd\'T\'HH:mm:ss\'Z\'','GMT'));
         leadMaps.put('Customer_Type__c',(leads==null || String.ISBlank(leads.Customer_Type__c))?' ':leads.Customer_Type__c);
         leadMaps.put('Purchase_Time__c',(leads==null || String.ISBlank(leads.Purchase_Time__c))?' ':leads.Purchase_Time__c);
-        leadMaps.put('Owner', (leads==null || String.ISBlank(Users.get(leads.OwnerId).FederationIdentifier))?' ':Users.get(leads.OwnerId).FederationIdentifier);
-        leadMaps.put('OwnerName', (leads==null || String.ISBlank(Users.get(leads.OwnerId).Lastname))?' ':Users.get(leads.OwnerId).Lastname);
-        leadMaps.put('DealerID', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_ND_Code__c))?' ':leads.Assigned_dealer__r.Dealer_ND_Code__c);
-        leadMaps.put('Dealer_GC_Code__c', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_GC_Code__c))?' ':leads.Assigned_dealer__r.Dealer_GC_Code__c);
-        leadMaps.put('Dealer_GS_Code__c', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_GS_Code__c))?' ':leads.Assigned_dealer__r.Dealer_GS_Code__c);
+        //leadMaps.put('Owner', (leads==null || String.ISBlank(UserMap.get(leads.OwnerId).FederationIdentifier))?' ':UserMap.get(leads.OwnerId).FederationIdentifier);
+        //leadMaps.put('OwnerName', (leads==null || String.ISBlank(UserMap.get(leads.OwnerId).Lastname))?' ':UserMap.get(leads.OwnerId).Lastname);
+        
+        leadMaps.put('Owner',leads==null ? ' ':(leads.Owner.Type == 'User'? (( UserMap == null || UserMap.isEmpty() || !UserMap.containsKey(leads.OwnerId) || UserMap.get(leads.OwnerId).FederationIdentifier == null ) ? ' ': UserMap.get(leads.OwnerId).FederationIdentifier): ((leads.Assigned_dealer__c == null || leads.Assigned_dealer__r.Dealer_ND_Code__c == null || UserMap == null || UserMap.isEmpty() || !UserMap.containsKey(leads.Assigned_dealer__r.Dealer_ND_Code__c) || String.ISBlank(UserMap.get(leads.Assigned_dealer__r.Dealer_ND_Code__c).FederationIdentifier))? ' ': UserMap.get(leads.Assigned_dealer__r.Dealer_ND_Code__c).FederationIdentifier)));
+        leadMaps.put('OwnerName',leads==null ? ' ':(leads.Owner.Type == 'User'? ((UserMap == null || UserMap.isEmpty() || !UserMap.containsKey(leads.OwnerId) || String.ISBlank(UserMap.get(leads.OwnerId).Lastname)) ? ' ': UserMap.get(leads.OwnerId).Lastname): ((leads.Assigned_dealer__c == null || leads.Assigned_dealer__r.Dealer_ND_Code__c == null || UserMap == null || UserMap.isEmpty() || !UserMap.containsKey(leads.Assigned_dealer__r.Dealer_ND_Code__c) || String.ISBlank(UserMap.get(leads.Assigned_dealer__r.Dealer_ND_Code__c).Lastname))? ' ': UserMap.get(leads.Assigned_dealer__r.Dealer_ND_Code__c).Lastname)));
+        leadMaps.put('DealerID', (leads==null || leads.Assigned_dealer__c == null || String.ISBlank(leads.Assigned_dealer__r.Dealer_ND_Code__c))?' ':leads.Assigned_dealer__r.Dealer_ND_Code__c);
+        leadMaps.put('Dealer_GC_Code__c', (leads==null || leads.Assigned_dealer__c == null || String.ISBlank(leads.Assigned_dealer__r.Dealer_GC_Code__c))?' ':leads.Assigned_dealer__r.Dealer_GC_Code__c);
+        leadMaps.put('Dealer_GS_Code__c', (leads==null || leads.Assigned_dealer__c == null || String.ISBlank(leads.Assigned_dealer__r.Dealer_GS_Code__c))?' ':leads.Assigned_dealer__r.Dealer_GS_Code__c);
         leadMaps.put('MBK_Lead_Data_Source', (leads==null || String.ISBlank(leads.MBK_Lead_DataSource__c))?' ':leads.MBK_Lead_DataSource__c);
         leadMaps.put('corporateLead', (leads==null || String.ISBlank(leads.Company_Account__c))?'No':'Yes');
+        leadMaps.put('Lost_Reason', (leads==null || String.ISBlank(leads.Dealer_Lost_Reason__c))?' ':leads.Dealer_Lost_Reason__c);
         return leadMaps;
     }
     @HttpPost
@@ -63,8 +67,8 @@ global without sharing class stouchPersonDetails {
                      MBK_Data_Source__c,(select id,Name,Dealer_Lead_status__c,Lead_Type__c,Source_Campaign__c,
                      Lead_Priority__c,Interested_Vehicle_Note__c,Re_visit__c,Preferred_Contact_Time__c,Preferred_Contact_Date__c,
                      Current_Vehicle_1_Text__c,Current_Vehicle_2_Text__c,Test_Drive_Date__c,Dealer_Comments__c,
-                     LastModifiedDate,Customer_Type__c,Purchase_Time__c,OwnerId,Assigned_dealer__c,Assigned_dealer__r.Dealer_GC_Code__c,Assigned_dealer__r.Dealer_ND_Code__c,
-                     Assigned_dealer__r.Dealer_GS_Code__c,MBK_Lead_DataSource__c,Trade_in_Vehicle_Text2__c,Company_Account__c from Lead_Contact__r where CAC_Lead_Status__c != 'Lost(CAC)' or(Lost_CAC_Date_Time__c>=:date.valueOf(fromDate) and Lost_CAC_Date_Time__c<=:date.valueOf(toDate))) 
+                     LastModifiedDate,Customer_Type__c,Purchase_Time__c,OwnerId,Owner.Type,Assigned_dealer__c,Assigned_dealer__r.Dealer_GC_Code__c,Assigned_dealer__r.Dealer_ND_Code__c,
+                     Assigned_dealer__r.Dealer_GS_Code__c,MBK_Lead_DataSource__c,Dealer_Lost_Reason__c,Trade_in_Vehicle_Text2__c,Company_Account__c from Lead_Contact__r where CAC_Lead_Status__c != 'Lost(CAC)' or(Lost_CAC_Date_Time__c>=:date.valueOf(fromDate) and Lost_CAC_Date_Time__c<=:date.valueOf(toDate))) 
                      ,Agreement_Date_for_Marketing_Consent__c,Withdrawal_Date_for_Marketing_Consent__c,General_Personal_Info_Mandatory__c,
                      Person_Agree_Test_Driving_Optional__c,Person_Info_Custom_Service_Optional__c,Targeted_Advert_Info_Optional_STCCC__c,Gender__c,
                      General_Personal_Information_Mandatory__c,General_Personal_Information_Optional__c,Unique_Identification_Info_Mandatory__c,
@@ -122,13 +126,13 @@ global without sharing class stouchPersonDetails {
         personDetails.put('PersonMailingAddressline2', ' ');
         if(acc.Account_Links__r.size()!=0){
             Map<String,String> prefectureValues=new Map<String,String>{'Hokkaido' =>'Incheon','Aomori' =>'Gyeongsangnam-do','Iwate' =>'Chungcheongnam-do','Akita' =>'Gyeonggi-do',
-            														'Fukushima' =>'Busan','Ibaraki' =>'Jeollabuk-do','Gunma' =>'Sejong-si','Chiba' =>'Gyeongsangbuk-do',
-            														'Ishikawa' =>'Jeju-do','Fukui' =>'Daegu','Gifu' =>'Seoul','Aichi' =>'Gangwon-do','Hyogo' =>'Jeollanam-do',
-            														'Hiroshima' =>'Ulsan','Kagawa' =>'Chungcheongbuk-do','Ehime' =>'Gwangju','Fukuoka' =>'Daejeon'};
+                                                                    'Fukushima' =>'Busan','Ibaraki' =>'Jeollabuk-do','Gunma' =>'Sejong-si','Chiba' =>'Gyeongsangbuk-do',
+                                                                    'Ishikawa' =>'Jeju-do','Fukui' =>'Daegu','Gifu' =>'Seoul','Aichi' =>'Gangwon-do','Hyogo' =>'Jeollanam-do',
+                                                                    'Hiroshima' =>'Ulsan','Kagawa' =>'Chungcheongbuk-do','Ehime' =>'Gwangju','Fukuoka' =>'Daejeon'};
             User usr=[select id,federationIdentifier from User where id=:acc.Account_Links__r[0].OwnerId];
             personDetails.put('Owner', String.ISBlank(usr.federationIdentifier)?' ':usr.federationIdentifier);
-        	personDetails.put('RetailerID',String.ISBlank(acc.Account_Links__r[0].fromRole__r.DMS_Retailer_ID__c)?' ':acc.Account_Links__r[0].fromRole__r.DMS_Retailer_ID__c);
-        	personDetails.put('PersonalDMSID',String.ISBlank(acc.Account_Links__r[0].Retail_DMS_Customer_Id__c)?' ':acc.Account_Links__r[0].Retail_DMS_Customer_Id__c);
+            personDetails.put('RetailerID',String.ISBlank(acc.Account_Links__r[0].fromRole__r.DMS_Retailer_ID__c)?' ':acc.Account_Links__r[0].fromRole__r.DMS_Retailer_ID__c);
+            personDetails.put('PersonalDMSID',String.ISBlank(acc.Account_Links__r[0].Retail_DMS_Customer_Id__c)?' ':acc.Account_Links__r[0].Retail_DMS_Customer_Id__c);
             personDetails.put('Salesforce_Object', String.ISBlank(acc.Account_Links__r[0].Id)?' ':acc.Account_Links__r[0].Id);
             personDetails.put('PersonMobilePhone', String.ISBlank(acc.Account_Links__r[0].Retail_Mobile__c)?' ':acc.Account_Links__r[0].Retail_Mobile__c);
             personDetails.put('PersonEmail', String.ISBlank(acc.Account_Links__r[0].Retail_Email__c)?' ':acc.Account_Links__r[0].Retail_Email__c);
@@ -149,19 +153,35 @@ global without sharing class stouchPersonDetails {
         system.debug('acc.Account_Links1__r.size()'+acc2.Account_Links__r.size());
         if(acc2.Account_Links__r.size()!=0){
             personDetails.put('CompanyName__c', String.ISBlank(acc2.Account_Links__r[0].fromRole__r.Company_Name__c)?' ':acc2.Account_Links__r[0].fromRole__r.Company_Name__c);
-        	personDetails.put('Company_UCID__c', String.ISBlank(acc2.Account_Links__r[0].fromRole__r.Ucid__c)?' ':acc2.Account_Links__r[0].fromRole__r.Ucid__c);
+            personDetails.put('Company_UCID__c', String.ISBlank(acc2.Account_Links__r[0].fromRole__r.Ucid__c)?' ':acc2.Account_Links__r[0].fromRole__r.Ucid__c);
         }
         
         List<Object> leadList=new List<Object>();
-        List<Id> userIds=new List<Id>();
+        Set<String> userIds=new Set<String> ();
         for(Lead__c leads:acc.Lead_Contact__r){
-            userIds.add(leads.OwnerId);
+            if(leads.Owner.Type == 'User'){
+                userIds.add(leads.OwnerId);    
+            }
+            else if (leads.Assigned_dealer__c !=null && leads.Assigned_dealer__r.Dealer_ND_Code__c != null){
+                userIds.add(leads.Assigned_dealer__r.Dealer_ND_Code__c);
+            }    
         }
-        Users=New Map<Id,user>([select id,FederationIdentifier,Lastname from User where id=:userIds]);
+        
+        system.debug('***userIds*****'+userIds);
+        UserMap =New Map<String,User>();
+        for (User usr : [select id,FederationIdentifier,Lastname,Dealer_ND_Code__c from User where id IN : userIds OR (Dealer_ND_Code__c IN: userIds AND contact.Dealer_Lead_Gate_Keeper__c = true)]){
+            UserMap.put(usr.Id,usr);
+            if(usr.Dealer_ND_Code__c != null)
+                UserMap.put(usr.Dealer_ND_Code__c,usr);
+        }
+        system.debug('***UserMap*****'+UserMap);
         if(acc.Lead_Contact__r.size()==0){
+            system.debug('***null***');
             leadList.add(leadDetails(null));
+            
         }
         for(Lead__c leads:acc.Lead_Contact__r){
+            system.debug('***NOT NULL***');
             leadList.add(leadDetails(leads));
         }
         personDetails.put('leadList', leadList);
@@ -169,6 +189,9 @@ global without sharing class stouchPersonDetails {
             }
         else if(market=='TH'){
             personDetails=StouchPersonDetailsTH.getPersonDetailsTH(ucid,fromDate,toDate,contactToContactRecordTypeId,retailPersonId);
+        }
+        else if(market=='MY'){
+            personDetails=StouchPersonDetailsMY.getPersonDetailsMY(ucid,fromDate,toDate,retailPersonId);
         }
         stouchPersonDetailsClass spdc= new stouchPersonDetailsClass();
         spdc.customerDetails=personDetails;

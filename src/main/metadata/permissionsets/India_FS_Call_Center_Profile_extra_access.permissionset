@@ -1313,6 +1313,14 @@
 
 
 
+
+
+
+
+
+
+
+
         <apexClass>ContactHelperMY</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1333,6 +1341,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+
+
+
+
 
 
 
@@ -1661,6 +1673,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+	    <apexClass>FSOppInlineVehicleController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ForgotPasswordController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1833,6 +1849,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+
+
+
+
 
 
 
@@ -4001,6 +4021,10 @@
 
 
 
+
+
+
+
         <apexClass>VehiclePickerForCaseControllerKR</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -4548,6 +4572,14 @@
         <apexClass>utilDealerLevelRecordShare</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>AccessFSOppIN</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>INDealerFS</name>
+    </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
         <name>INGeneric</name>
@@ -7553,9 +7585,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Salutation__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8070,12 +8102,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.ABN_No__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.ACN_No__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8315,7 +8347,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Industry_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8385,7 +8417,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Marketing_Material__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8395,7 +8427,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Middle_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8550,7 +8582,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Race__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8725,7 +8757,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Distinct__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8995,7 +9027,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Sub_District__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9085,7 +9117,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Share_Info__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9105,17 +9137,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Stay_months__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Stay_years__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Sub_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9614,6 +9646,156 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11374,6 +11556,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
+
+
+
+
 
 
 
@@ -15889,6 +16076,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
         <field>Contact.isTestRunning__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16799,6 +16996,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
+
+
+
+
 
 
 
@@ -17904,6 +18106,41 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <field>Event.eDM_Template_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -17919,6 +18156,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
+
+
+
+
 
 
 
@@ -18544,6 +18786,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -22160,7 +22412,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Created_by_Segment__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22246,6 +22498,11 @@
         <editable>false</editable>
         <field>Opportunity.Express_Service__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.FS_Contract__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22638,7 +22895,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Opportunity.Purchase_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22708,7 +22965,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Related_Leads__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22768,9 +23025,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Test_Drive_Date__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -24254,6 +24511,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
+
+
+
+
 
 
 
@@ -29859,6 +30121,41 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <field>Task.eDM_Template_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -29874,6 +30171,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
+
+
+
+
 
 
 
@@ -30504,6 +30806,46 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32253,9 +32595,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account_Link__c</object>
@@ -32433,9 +32775,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Lead_Details__c</object>
@@ -33032,6 +33374,10 @@
 
 
 
+
+
+
+
         <apexPage>MyProfilePage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -33042,6 +33388,10 @@
     <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+	    <apexPage>OpportunityFSLeadVehiclePicker</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>OpportunityInlineVehicle</apexPage>
@@ -33144,6 +33494,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+
+
+
+
 
 
 
@@ -33409,7 +33763,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Account_Link__c.Finance_Services</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
@@ -33528,6 +33882,10 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+
+
+
+
 
 
 
@@ -33685,7 +34043,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Opportunity.Aftersales_Lead</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Opportunity.Finance_Lead</recordType>
@@ -33693,7 +34051,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Opportunity.Sales_Lead</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>PersonAccount.PersonAccount</recordType>
@@ -33817,7 +34175,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Retail_Task__c.Service</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>SMS_Code__c.GenerateDownstreamMMS</recordType>
@@ -33941,11 +34299,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Soft_Deleted</recordType>
@@ -34228,12 +34586,16 @@
 
 
 
+
+
+
+
         <tab>standard-Asset</tab>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
         <tab>standard-Campaign</tab>
-        <visibility>Available</visibility>
+        <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
         <tab>standard-Case</tab>

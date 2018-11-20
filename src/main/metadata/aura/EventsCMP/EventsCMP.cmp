@@ -1,0 +1,81 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created By:Narendra.I
+* Created Date:12-July-2018
+* Company:Infosys Ltd
+* Description: Component to display Calendar Events.
+* **********************************************************************************-->
+<aura:component controller="eventController" implements="force:appHostable,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:lightningQuickAction" access="global"  >
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="eventList" type="List"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="Events" type="Events__c[]" />
+    <aura:attribute name="Subscribe" type="boolean"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <article class="slds-card">              
+        <lightning:card class="slds-text-heading_small" iconName="action:log_event" title="Events">
+            <aura:set attribute="title">
+                <a href="/MBIndonesia/s/events/Events__c/Recent" target="_blank" class="a">Recent Events</a>
+            </aura:set> 
+            <aura:set attribute="actions">
+                <aura:if isTrue="{!!v.Subscribe}">
+                    <lightning:button variant="success" label="Subscribe" title="Subscribe" onclick="{! c.subscribeEvents }"/>                    
+                    <aura:set attribute="else">
+                        <lightning:button variant="destructive" class="slds-btn" label="Un Subscribe" title="Un Subscribe" onclick="{! c.unsubscribeEvents }"/>                    
+                    </aura:set>
+                </aura:if>
+            </aura:set>
+        </lightning:card>
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="slds-p-left--medium slds-p-right--medium">
+                <div class="slds-table--header-fixed_container" style="height:260px;">
+                    <div class ="slds-scrollable" style="height:100%;">
+                        <table class="slds-table slds-table_bordered">
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Event">Event</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Date">Date</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Location">Location</div>
+                                    </th>
+                                </tr>
+                            </thead>               
+                            <tbody>                    
+                                <aura:iteration items="{!v.eventList}" var="event">
+                                    <tr>
+                                        <th scope="row" data-label="Event">
+                                            <div class="slds-truncate" title="{!event.Name}">
+                                                <a class="outputLookupLink slds-truncate forceOutputLookup" target="_blank" href="{!'/MBIndonesia/s/events/'+ event.Id}" >
+                                                    {!event.Name}
+                                                </a>
+                                            </div>
+                                        </th>                            
+                                        <td data-label="Date">
+                                            <div class="slds-truncate" title="{!event.Start_Time__c}">
+                                                <!-- {!event.Start_Time__c} -->
+                                                <lightning:formattedDateTime value="{!event.Start_Time__c}" year="numeric" day="2-digit" month="2-digit" hour="2-digit" minute="2-digit" timeZone="{! $Locale.timezone}"/>
+                                            </div>
+                                        </td>
+                                        <td data-label="Location">
+                                            <div class="slds-truncate" title="{!event.Location__c}">
+                                                {!event.Location__c}
+                                            </div>
+                                        </td>                            
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                            
+                        </table>  
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </article>       
+    
+</aura:component>

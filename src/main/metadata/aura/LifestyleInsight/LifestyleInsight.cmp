@@ -1,0 +1,26 @@
+<aura:component controller="LifestyleInsightController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,flexipage:availableForRecordHome,lightning:actionOverride,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="SurveyType" type="String" default="Life Style" />
+    <aura:attribute name="Context" type="String" default="Account" />
+    <aura:attribute name="custQuestions" type="PrepopulateInsighstWrapper[]" />
+    <aura:handler name="init" action="{!c.myAction}" value="{!this}" />
+
+    <lightning:layoutItem size="12">
+        <h3 class="slds-section-title--divider"> LifeStyle Insights</h3>
+    </lightning:layoutItem><br />
+    <div style="margin-left:10px">
+        <lightning:layout horizontalAlign="left" verticalAlign="top" multipleRows="true">
+            <lightning:layoutItem size="12">
+                <h3 class="slds-section-title--divider"> Customer Summary</h3>
+            </lightning:layoutItem><br />
+            <aura:iteration items="{!v.custQuestions}" var="questionList">
+                <lightning:layoutItem size="6" padding="around-medium">
+                    <c:renderInput fieldlabel = "{!questionList.questiontext}" selectedAnswer = "{!questionList.answerText}" fieldtype="Prepopulate"/>
+                </lightning:layoutItem>
+            </aura:iteration>
+        </lightning:layout>
+    </div>
+    <div style="margin-left:10px">
+        <c:InsightQuestions SurveyType="{!v.SurveyType}" Context="{!v.Context}" recordId="{!v.recordId}" /><br />
+    </div>
+</aura:component>

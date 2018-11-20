@@ -66,17 +66,14 @@ public class CampaignHelperTH {
             } else if (isUpdate && cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId()) {     
                 // CAC Campaign List
                 cpIdSet.add(cp.id);
-                 
-             
+                List<Campaign> parentCmpList = [Select Id From Campaign Where ParentId=:cp.Id And isActive=false And RecordTypeId=:cpRecordTypeMap.get(CacCampaign).getRecordTypeId()];
                 List<Campaign> childCmpList = new List<Campaign>(); 
-               for(Campaign childCAC : [Select Id From Campaign Where ParentId=:cp.Id And isActive=false And RecordTypeId=:cpRecordTypeMap.get(CacCampaign).getRecordTypeId()]){
-                 
-                   childCAC.isActive = true;
-                   
-                    childCmpList.add(childCAC);
-                    
-                } 
-                
+                if(parentCmpList.size()>0){
+                    for(Campaign childCAC : parentCmpList){
+                        childCAC.isActive = true;
+                        childCmpList.add(childCAC); 
+                    } 
+                }
                 try{
                     update childCmpList;
                 }catch(DmlException ex){
@@ -89,10 +86,12 @@ public class CampaignHelperTH {
         
         /* START Campaign Excution create task update */
         List<Campaign> cpExeList = new List<Campaign>();
-        
         if(!cpIdSet.isEmpty()) {
-            for(Campaign cpExe : [select id, Create_Task__c from Campaign where ParentId in :cpIdSet ]) {
-                cpExeList.add(new Campaign(id = cpExe.Id, Create_Task__c = true));
+            List<Campaign> lst_childCampaign = [select id, Create_Task__c from Campaign where ParentId in :cpIdSet];
+            if(lst_childCampaign.size()>0){
+                for(Campaign cpExe : lst_childCampaign) {
+                    cpExeList.add(new Campaign(id = cpExe.Id, Create_Task__c = true));
+                }
             }
         }
 
@@ -136,8 +135,8 @@ public class CampaignHelperTH {
     public static void beforeUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
       
-        Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution').getRecordTypeId();
-        Id cmpExeReTpIdC = cpRecordTypeMap.get('Campaign Execution').getRecordTypeId();
+        //Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution').getRecordTypeId();
+        Id cmpExeReTpId = cpRecordTypeMap.get('Campaign Execution').getRecordTypeId();
         Set<Id> campaignIds = new Set<Id>();
         for(Campaign cp : campaignNew) {
             if (cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId())
@@ -147,15 +146,17 @@ public class CampaignHelperTH {
         }
         
         Map<Id, Integer> CampaignCMPExes = new Map<Id, Integer>();
-        for(Campaign cmp : [Select Id, ParentId from Campaign Where ParentId in :campaignIds And (RecordTypeId=:cmpExeReTpIdS Or RecordTypeId=:cmpExeReTpIdC)])
-        {
-            if(!CampaignCMPExes.containsKey(cmp.ParentId))
+        List<Campaign> excCampaign_lst = [Select Id, ParentId from Campaign Where ParentId in :campaignIds and RecordTypeId=:cmpExeReTpId];
+        if(excCampaign_lst.size()>0){
+            for(Campaign cmp : excCampaign_lst)
             {
-                 CampaignCMPExes.put(cmp.ParentId, 0);
+                if(!CampaignCMPExes.containsKey(cmp.ParentId))
+                {
+                     CampaignCMPExes.put(cmp.ParentId, 0);
+                }
+                CampaignCMPExes.put(cmp.ParentId, CampaignCMPExes.get(cmp.ParentId) + 1);
             }
-            CampaignCMPExes.put(cmp.ParentId, CampaignCMPExes.get(cmp.ParentId) + 1);
         }
-        
         for(Campaign cp : campaignNew)
          {
             if(CampaignCMPExes.get(cp.Id)==null)
@@ -163,11 +164,9 @@ public class CampaignHelperTH {
             if ((cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId()) && (CampaignCMPExes.get(cp.Id) < 1 ) && !cp.Activate_for_retail_campaign__c)
             {
                 
-                  cp.addError('You can not activate a campaign without any execution.');
+                  cp.addError('You can not activate a campaign without any execution');
                                 
             }
         }
-    }
-    
-  
+    } 
 }

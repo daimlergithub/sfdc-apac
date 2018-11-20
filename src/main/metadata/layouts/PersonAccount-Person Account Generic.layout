@@ -455,6 +455,15 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+<platformActionList>
+        <actionListContext>Record</actionListContext>
+        <platformActionListItems>
+ <actionName>Account.New_Retail_Task</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>7</sortOrder>
+        </platformActionListItems>
+	</platformActionList>
+
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
@@ -547,6 +556,15 @@
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
     </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>et4ae5__SubjectLine__c</fields>
+        <fields>et4ae5__FromName__c</fields>
+        <fields>et4ae5__DateSent__c</fields>
+        <fields>et4ae5__DateOpened__c</fields>
+        <fields>et4ae5__DateBounced__c</fields>
+        <relatedList>et4ae5__IndividualEmailResult__c.et4ae5__Contact__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Date__c</fields>
@@ -579,8 +597,10 @@
         <relatedList>DM_Request__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Survey__c</fields>
+		<fields>Survey2__c</fields>
         <fields>Survey_Taking_Status__c</fields>
         <fields>Account__c</fields>
         <fields>Case__c</fields>

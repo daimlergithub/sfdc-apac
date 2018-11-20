@@ -1,0 +1,73 @@
+<aura:component controller="leadDetailsLCCtrl"  implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,flexipage:availableForRecordHome,lightning:actionOverride,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" access="global" >
+    <!-- Attributes -->
+    <!-- TODO: cleanup unused attributes -->
+    <aura:attribute name="recordId" type="Id" />
+    <!-- aura:attribute name="totalPages" type="Integer" /--> 
+    <aura:attribute name="showPrevious" type="Boolean" default="false"/> 
+    <aura:attribute name="showNext" type="Boolean" default="true"/>
+    <aura:attribute name="showAll" type="Boolean" default="false"/>
+    <aura:attribute name="saved" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <aura:attribute name="FSWrapList" type="List" />
+    <aura:attribute name="wizardStepNames" type="List" />
+    <aura:attribute name="isNew" type="boolean" default="false" />
+    <aura:attribute name="recordTypeName" type="string" />
+    <aura:attribute name="RecordTypeID" type="ID" />
+    <aura:attribute name="progressIndicator" type="Aura.Component" />
+    <aura:attribute name="VehiclePicker" type="Aura.Component[]" />
+    <aura:attribute name="stage" type="Object"/>
+    <aura:attribute name="ParentAccountId" type="String"/>
+    <aura:attribute name="cardTitle" type="String" default="New Opportunity / Lead"/>
+    <aura:attribute name="options" type="List" default="[
+    {'label': 'Sales Lead', 'value': 'Sales Lead'},
+    {'label': 'Aftersales Lead', 'value': 'Aftersales Lead'}                                                   
+    ]"/>
+    <!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="RecordTypeSelected" event="c:RecordTypeSelected" action="{!c.getRecType}"/>
+    <aura:handler event="aura:locationChange" action="{!c.locationChange}"/>
+    <!-- Event -->
+    <aura:registerEvent name="SaveVehiclePicker" type="c:SaveVehiclePicker"/>
+    <lightning:messages/>
+    
+    <!-- component to show modelBox to select RecordType -->
+    <aura:if isTrue="{!v.isNew}">
+    <c:RecordTypeSelection ObjName="Opportunity" options="{! v.options}"/>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.FSWrapList.length > 0}">
+        <lightning:card title="{!v.cardTitle}" >
+            {!v.progressIndicator}
+            
+            <lightning:recordEditForm 
+                                      aura:id="Opptyform"
+                                      onload="{!c.handleLoad}"
+                                      onerror="{!c.handleError}"
+                                      onsuccess="{!c.handleSuccess}"
+                                      objectApiName="Opportunity"
+                                      recordTypeId="{!v.RecordTypeID}"
+                                      recordId="{!v.recordId}"
+                                      >
+    			<!-- <lightning:messages /> -->
+                <p class="slds-p-bottom_x-large">
+                    <div aura:id="body">
+                    {!v.body}
+                    </div>
+                    <center>
+                        <lightning:buttongroup>
+                            <aura:if  isTrue="{!v.showPrevious}" >
+                                <lightning:button label="Previous" onclick="{!c.handlePrevious}"/>        
+                            </aura:if>
+                            <!--<lightning:button label="Save" variant="neutral" type="submit"/>  onsuccess="{!c.handleSuccess}"-->
+                            <lightning:button label="Save" variant="neutral" onclick="{!c.handleSubmit}"/>
+                            <lightning:button aura:id="showAll" label="{!v.showAll? 'backToWizard':'Show all'}" onclick="{!c.toggleShowAll}"/>
+                            <aura:if isTrue="{!v.showNext}" >
+                                <lightning:button label="Next" onclick="{!c.handleNext}"/>        
+                            </aura:if>
+                        </lightning:buttongroup>
+                    </center>
+                </p>
+            </lightning:recordEditForm>
+        </lightning:card>   
+    </aura:if>  
+</aura:component>

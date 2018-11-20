@@ -328,6 +328,15 @@
                 </value>
             </valueSetDefinition>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>				 
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
@@ -339,6 +348,15 @@
                 <valueName>Home</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>						 
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
@@ -350,33 +368,60 @@
                 <valueName>Business</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>				 
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>								 
                 <valueName>Other Address 1</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>						 
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>						 
                 <valueName>Other Address 2</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>				 
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>NZ</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>							 
                 <valueName>Other Address 3</valueName>
             </valueSettings>
         </valueSet>
@@ -460,6 +505,15 @@
     </fields>
     <fields>
         <fullName>Country__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;NZ&apos;) ,&apos;New Zealand&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;Australia&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;Canada&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;Japan&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;Thailand&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;Malaysia&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;IN&apos;), &apos;India&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;Korea&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;TR&apos;), &apos;Turkey&apos;,&apos;&apos;)))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Country</label>
         <required>false</required>
@@ -610,35 +664,85 @@
                     <default>false</default>
                     <label>Czech Republic</label>
                 </value>
+                <value>
+                    <fullName>Other country</fullName>
+                    <default>false</default>
+                    <label>Other country</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>				 
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Japan</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>							 
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>							 
                 <valueName>Korea</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>				 
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Laos</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>			 
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>							 
                 <valueName>Thailand</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>						 
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>						 
                 <valueName>Singapore</valueName>
             </valueSettings>
             <valueSettings>
@@ -646,19 +750,46 @@
                 <valueName>Vietnam</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>						 
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>							 
                 <valueName>Malaysia</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>								 
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>						 
                 <valueName>Brunei</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>					 
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>							 
                 <valueName>Indonesia</valueName>
             </valueSettings>
             <valueSettings>
@@ -738,6 +869,10 @@
             <valueSettings>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Czech Republic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Other country</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -923,8 +1058,9 @@
         IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
         IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 		 IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
+		 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
 	IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))
-	)))))</defaultValue>
+	))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -955,7 +1091,16 @@ IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
 IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
 IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'ID'), 'ID', 
+IF(ISPICKVAL($User.Market__c, 'SG'), 'SG',
+IF(ISPICKVAL($User.Market__c, 'VN'), 'VN',
+IF(ISPICKVAL($User.Market__c, 'RO'), 'RO',
+IF(ISPICKVAL($User.Market__c, 'HU'), 'HU',
+IF(ISPICKVAL($User.Market__c, 'SK'), 'SK',
+IF(ISPICKVAL($User.Market__c, 'AR'), 'AR',
+IF(ISPICKVAL($User.Market__c, 'CO'), 'CO',
+IF(ISPICKVAL($User.Market__c, 'EG'), 'EG',''))))))))))))))))))</defaultValue>	 
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -1014,6 +1159,51 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                     <fullName>TR</fullName>
                     <default>false</default>
                     <label>TR</label>
+                </value>
+				<value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                    <label>ID</label>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>false</default>
+                    <label>SG</label>
+                </value>
+                <value>
+                    <fullName>VN</fullName>
+                    <default>false</default>
+                    <label>VN</label>
+                </value>
+                <value>
+                    <fullName>RO</fullName>
+                    <default>false</default>
+                    <label>RO</label>
+                </value>
+                <value>
+                    <fullName>SK</fullName>
+                    <default>false</default>
+                    <label>SK</label>
+                </value>
+                <value>
+                    <fullName>HU</fullName>
+                    <default>false</default>
+                    <label>HU</label>
+                </value>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                    <label>AR</label>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                    <label>CO</label>
+                </value>
+                <value>
+                    <fullName>EG</fullName>
+                    <default>false</default>
+                    <label>EG</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1384,6 +1574,91 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                     <default>false</default>
                     <label>Daejeon</label>
                 </value>
+                <value>
+                    <fullName>Esenler</fullName>
+                    <default>false</default>
+                    <label>Esenler</label>
+                </value>
+                <value>
+                    <fullName>Johor</fullName>
+                    <default>false</default>
+                    <label>Johor</label>
+                </value>
+                <value>
+                    <fullName>Kedah</fullName>
+                    <default>false</default>
+                    <label>Kedah</label>
+                </value>
+                <value>
+                    <fullName>Kelantan</fullName>
+                    <default>false</default>
+                    <label>Kelantan</label>
+                </value>
+                <value>
+                    <fullName>Melaka</fullName>
+                    <default>false</default>
+                    <label>Melaka</label>
+                </value>
+                <value>
+                    <fullName>Negeri Sembilan</fullName>
+                    <default>false</default>
+                    <label>Negeri Sembilan</label>
+                </value>
+                <value>
+                    <fullName>Pahang</fullName>
+                    <default>false</default>
+                    <label>Pahang</label>
+                </value>
+                <value>
+                    <fullName>Penang</fullName>
+                    <default>false</default>
+                    <label>Penang</label>
+                </value>
+                <value>
+                    <fullName>Perak</fullName>
+                    <default>false</default>
+                    <label>Perak</label>
+                </value>
+                <value>
+                    <fullName>Perlis</fullName>
+                    <default>false</default>
+                    <label>Perlis</label>
+                </value>
+                <value>
+                    <fullName>Sabah</fullName>
+                    <default>false</default>
+                    <label>Sabah</label>
+                </value>
+                <value>
+                    <fullName>Sarawak</fullName>
+                    <default>false</default>
+                    <label>Sarawak</label>
+                </value>
+                <value>
+                    <fullName>Selangor</fullName>
+                    <default>false</default>
+                    <label>Selangor</label>
+                </value>
+                <value>
+                    <fullName>Terengganu</fullName>
+                    <default>false</default>
+                    <label>Terengganu</label>
+                </value>
+                <value>
+                    <fullName>Wilayah Persekutuan - KL</fullName>
+                    <default>false</default>
+                    <label>Wilayah Persekutuan - KL</label>
+                </value>
+                <value>
+                    <fullName>Wilayah Persekutuan - Labuan</fullName>
+                    <default>false</default>
+                    <label>Wilayah Persekutuan - Labuan</label>
+                </value>
+                <value>
+                    <fullName>Wilayah Persekutuan-Putrajaya</fullName>
+                    <default>false</default>
+                    <label>Wilayah Persekutuan-Putrajaya</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -1640,6 +1915,74 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <valueName>Bangkok</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Johor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Kedah</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Kelantan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Melaka</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Negeri Sembilan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Pahang</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Penang</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Perak</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Perlis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Sabah</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Sarawak</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Selangor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Terengganu</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Wilayah Persekutuan - KL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Wilayah Persekutuan - Labuan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Wilayah Persekutuan-Putrajaya</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Esenler</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -2446,12 +2789,12 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                     <label>InValid</label>
                 </value>
             </valueSetDefinition>
-            <valueSettings>
+            <valueSettings>				 
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>						 
                 <valueName>Active</valueName>
             </valueSettings>
             <valueSettings>
@@ -2460,28 +2803,46 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>Incomplete</valueName>
+                <valueName>Incomplete</valueName>			
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>Dead Mail</valueName>
+                <valueName>Dead Mail</valueName>			 
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
-                <valueName>Opt out</valueName>
+	               <valueName>Opt out</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Valid</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
                 <valueName>InValid</valueName>
             </valueSettings>
         </valueSet>
@@ -2547,7 +2908,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <fullName>Suburb__c</fullName>
         <description>Suburb details  for AU/NZ</description>
         <externalId>false</externalId>
-        <inlineHelpText>Suburb</inlineHelpText>
         <label>Suburb</label>
         <length>255</length>
         <required>false</required>
@@ -2797,6 +3157,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other country</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -2836,11 +3200,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <picklistValues>
             <picklist>Market__c</picklist>
             <values>
+			    <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+			    <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2864,11 +3248,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+			    <fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>TR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2916,6 +3316,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Ehime</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Esenler</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3591,6 +3995,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other country</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -3630,11 +4038,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <picklistValues>
             <picklist>Market__c</picklist>
             <values>
+			    <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+			    <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3658,11 +4086,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+			    <fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>TR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>VN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3710,6 +4154,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Ehime</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Esenler</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4385,6 +4833,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other country</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -4424,11 +4876,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <picklistValues>
             <picklist>Market__c</picklist>
             <values>
+			    <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+			    <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4452,11 +4924,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+			    <fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>TR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>VN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4504,6 +4992,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Ehime</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Esenler</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5182,7 +5674,7 @@ ZipCode__c = ''
         <fullName>Address_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of Address should be same as user's market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI',NOT(isTestRunning__c))</errorConditionFormula>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI',$Profile.Name != 'Marketing Administrator', NOT(isTestRunning__c), if(AND(OR(TEXT( Market__c ) == 'AU',TEXT( Market__c ) == 'NZ' ), $Permission.ANZCrossMarket), false, true))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
@@ -5277,6 +5769,18 @@ $Profile.Name != 'IntegrationAPI',
 OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Company_Name_Native__c</errorDisplayField>
         <errorMessage>Company name native should be in double byte.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Country_ManadoryTR</fullName>
+        <active>true</active>
+        <description>Country is mandatory when address line 1 is entered.</description>
+        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',
+!ISBLANK(Address_Line_1__c),
+ISPICKVAL(Market__c, 'TR'),
+ISPICKVAL(Country__c , '')
+)</errorConditionFormula>
+        <errorDisplayField>Country__c</errorDisplayField>
+        <errorMessage>Please select Country.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>District_NoOfDigit</fullName>
@@ -5388,8 +5892,8 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Primary_Address_Reference_Not_Editable</fullName>
-        <active>true</active>
-        <description>Added for india market to validate Preferred Address on the retail copy should not be changed post record goes to eDealer...</description>
+        <active>false</active>
+        <description>Inactivated based on India market input Oct 31 2018 | Added for india market to validate Preferred Address on the retail copy should not be changed post record goes to eDealer...</description>
         <errorConditionFormula>AND( $Profile.Name  != 'IntegrationAPI', $Permission.INGeneric ,  NOT(ISBLANK( Customer__r.DMS_Customer_ID__c)), ISCHANGED( Preferred__c))</errorConditionFormula>
         <errorMessage>Preferred Address on the retail copy should not be changed post record goes to eDealer...</errorMessage>
     </validationRules>
@@ -5411,6 +5915,89 @@ MD__c = 'JP',
         <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; MD__c = 'JP' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Address_Line_1_Length</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(  
+		OR	(
+				ISPICKVAL(Market__c,&apos;AU&apos;),
+				ISPICKVAL(Market__c,&apos;NZ&apos;),
+				ISPICKVAL(Market__c,&apos;IN&apos;)
+			) ,
+		LEN(Address_Line_1__c) &gt; 100
+	)</errorConditionFormula>
+        <errorDisplayField>Address_Line_1__c</errorDisplayField>
+        <errorMessage>Address Line 1 should be less than or equal to 100 characters</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Address_Line_1_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(  OR(ISPICKVAL(Market__c,&apos;AU&apos;),ISPICKVAL(Market__c,&apos;NZ&apos;)) , ISBLANK(Address_Line_1__c))</errorConditionFormula>
+        <errorDisplayField>Address_Line_1__c</errorDisplayField>
+        <errorMessage>Address line 1 is mandatory</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Address_Line_2_length</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( OR(ISPICKVAL(Market__c,&apos;AU&apos;),ISPICKVAL(Market__c,&apos;NZ&apos;),ISPICKVAL(Market__c,&apos;IN&apos;)), LEN(Address_Line_2__c) &gt; 100  )</errorConditionFormula>
+        <errorDisplayField>Address_Line_2__c</errorDisplayField>
+        <errorMessage>Address Line 2 should be less than or equal to 100 characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Address_Line_3_Length</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( OR(ISPICKVAL(Market__c,&apos;AU&apos;),ISPICKVAL(Market__c,&apos;NZ&apos;),ISPICKVAL(Market__c,&apos;IN&apos;)), LEN(Address_Line_3__c)&gt;100 )</errorConditionFormula>
+        <errorDisplayField>Address_Line_3__c</errorDisplayField>
+        <errorMessage>Address Line 3 should be less than or equal to 100 characters</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Address_type_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISPICKVAL(Address_Type__c, &apos;&apos;)</errorConditionFormula>
+        <errorDisplayField>Address_Type__c</errorDisplayField>
+        <errorMessage>Please specify address type</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Address_Type_Validation_Error</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND
+( 
+	OR(ISNEW(),ISCHANGED(Address_Type__c)),
+	OR( ISPICKVAL(Market__c,&apos;AU&apos;),ISPICKVAL(Market__c,&apos;NZ&apos;),  ISPICKVAL(Market__c,&apos;IN&apos;)),
+	NOT(ISPICKVAL(Address_Type__c, &quot;&quot;)), 
+	
+	OR(
+		AND(ISPICKVAL(Address_Type__c, &quot;Home&quot;),Customer__r.Home_Address_Count__c != 0), 
+		AND(ISPICKVAL(Address_Type__c, &quot;Business&quot;),Customer__r.Business_Address_Count__c != 0), 
+		AND(ISPICKVAL(Address_Type__c, &quot;Other Address 1&quot;),Customer__r.Other_Address_1_count__c != 0), 
+		AND(ISPICKVAL(Address_Type__c, &quot;Other Address 2&quot;),Customer__r.Other_Address_2_count__c != 0), 
+		AND(ISPICKVAL(Address_Type__c, &quot;Other Address 3&quot;),Customer__r.Other_Address_3_count__c != 0) 
+	) 
+)</errorConditionFormula>
+        <errorDisplayField>Address_Type__c</errorDisplayField>
+        <errorMessage>This address type already exist</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ANZ_Postal_code_validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( OR(ISPICKVAL(Market__c,&apos;AU&apos;),ISPICKVAL(Market__c,&apos;NZ&apos;)) ,NOT( ISBLANK(ZipCode__c) ), OR(NOT(ISNUMBER(ZipCode__c)),LEN(ZipCode__c) &lt; 3, LEN(ZipCode__c)&gt;4))</errorConditionFormula>
+        <errorDisplayField>ZipCode__c</errorDisplayField>
+        <errorMessage>Postal code can be min 3 and max 4 character long and contain only numeric value</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>State_City_is_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( OR( ISPICKVAL(Market__c,&apos;AU&apos;),ISPICKVAL(Market__c,&apos;NZ&apos;) ) ,ISPICKVAL(State_City__c,&quot;&quot;))</errorConditionFormula>
+        <errorDisplayField>State_City__c</errorDisplayField>
+        <errorMessage>State/City is Mandatory</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Zip_code_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( OR(ISPICKVAL(Market__c,&apos;AU&apos;),ISPICKVAL(Market__c,&apos;NZ&apos;)) , ISBLANK(ZipCode__c) )</errorConditionFormula>
+        <errorDisplayField>ZipCode__c</errorDisplayField>
+        <errorMessage>Postal Code is mandatory</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Town_Native_Kana</fullName>

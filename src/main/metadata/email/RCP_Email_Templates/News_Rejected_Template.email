@@ -1,0 +1,15 @@
+Hello, <br/><br/>
+
+The following submitted News was rejected.<br/> <br/>
+
+Below are the News Details:<br/> <br/>
+
+Author : {!News__c.Owner_Name__c}<br/>
+Title : {!News__c.Title__c}<br/> 
+Start Date: {!News__c.Start_Date__c}<br/> 
+End Date : {!News__c.Expiration_Date__c}<br/> <br/>
+
+Rejection Comments: {!ApprovalRequest.Comments} <br/><br/>
+
+Please click on below link to view the record.<br/>
+<a href="{!News__c.Link}">Click here</a> <br/><br/>

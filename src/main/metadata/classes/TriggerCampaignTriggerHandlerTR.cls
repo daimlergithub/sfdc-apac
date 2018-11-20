@@ -53,7 +53,7 @@ public class TriggerCampaignTriggerHandlerTR implements TriggerHandlerIf
     {
       List<Campaign> CampaignNewList=trigger.new;
       if(!isDelete && !CampaignNewList.isEmpty() && CampaignNewList.size() > 0 && CampaignNewList[0].Market__c==Label.TR){
-          if(CampaignNewList[0].MD__c==Label.MY){
+          if(CampaignNewList[0].Market__c==Label.TR){
               if(trigger.isUpdate)
             {
                     chb.beforeUpdateEvents(CampaignNewList,oldmap,market,parentCampaign);

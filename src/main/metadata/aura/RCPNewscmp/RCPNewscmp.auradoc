@@ -1,0 +1,7 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:RCPNewscmp</code> component to override the standard <code>News New button</code>. 
+            This component uses <code>lightning:recordEditForm</code> to create the News record.            
+        </p>       
+    </aura:description>    
+</aura:documentation>

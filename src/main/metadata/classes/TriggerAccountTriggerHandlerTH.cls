@@ -35,6 +35,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf {
         if (isBefore && isInsert) {
             AccountHelperTH.ValidatePhoneNumberonBeforeEvents(Trigger.new);
             AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new, trigger.isInsert);
+            AccountHelperTH.updateOptInFields(Trigger.new, NULL, trigger.isInsert, false); // CISM-0044841681
         }
 
 
@@ -52,6 +53,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf {
             AccountHelperTH.updateAgeRange(Trigger.new);
             //AccountHelperTH.activeContracts(Trigger.new);
             // AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
+            AccountHelperTH.updateOptInFields(Trigger.new, (Map<ID,Account>)Trigger.oldMap, false , Trigger.isUpdate); // CISM-0044841681
         }
         //New Code Block Added on 9/21/2016
         if (isAfter && isInsert && !System.isFuture() && !System.isBatch()) {
@@ -86,8 +88,8 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf {
                 if (TriggerRecursiveCheck.run) {
                     TriggerRecursiveCheck.runOnce();
                     //CDMInformatica_Services.createCustomerCDM(accids);
-					if(accids.size() > 0)
-					CDMInformatica_Services.createCustomerCDM(accids, 'TH', 'update');
+                    if(accids.size() > 0)
+                    CDMInformatica_Services.createCustomerCDM(accids, 'TH', 'update');
                     //firstRun=false;
                 }
             }
@@ -131,16 +133,18 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf {
         Set < Id > Softdeletedacc = new Set < Id > ();
         if (accountNewList2 != null && accountNewList2.size() > 0) {
             for (Account aTH: accountNewList2) {
-                if (aTH.MD__c == 'TH' && isAfter && isupdate) {
+                if (aTH.MD__c == 'TH' ) {
                     accountNewList.add(aTH);
-                    if (accountOldMap != null && accountOldMap.size() > 0) {
-                        Account oldAcc = (Account) accountOldMap.get(aTH.Id);
-                        if (oldAcc != null && oldAcc.UCID__c != aTH.UCID__c)
-                            changedUCIDaccountLst.add(aTH);
-                        if (oldAcc != null && oldAcc.recordtypeId != aTH.recordtypeId && (aTH.recordtypeId == accPersonsd_RecordTypeId || aTH.recordtypeId == accCompanysd_RecordTypeId))
-                            Softdeletedacc.add(aTH.Id);
+                    if((isAfter && isupdate && TriggerRecursiveCheck.isNotVRrelatedUpdateTH && TriggerRecursiveCheck.isNotSalesAddressrelatedUpdateTH))
+                    {
+                        if (accountOldMap != null && accountOldMap.size() > 0) {
+                            Account oldAcc = (Account) accountOldMap.get(aTH.Id);
+                            if (oldAcc != null && oldAcc.UCID__c != aTH.UCID__c)
+                                changedUCIDaccountLst.add(aTH);
+                            if (oldAcc != null && oldAcc.recordtypeId != aTH.recordtypeId && (aTH.recordtypeId == accPersonsd_RecordTypeId || aTH.recordtypeId == accCompanysd_RecordTypeId))
+                                Softdeletedacc.add(aTH.Id);
+                        }
                     }
-
                 }
             }
         }
@@ -148,25 +152,27 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf {
         if (!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0) {
             if (isBefore && isInsert) {
                 AccountHelperTH.updateAccountFieldsBeforeInsert(accountNewList, trigger.isInsert);
+                AccountHelperTH.updateOptInFields(accountNewList, NULL, trigger.isInsert, false); // CISM-0044841681
             }
 
-            if (isBefore && isUpdate) {
-                AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new, (Map < Id, Account > ) Trigger.OldMap, Trigger.isUpdate);
-                AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new, Trigger.isUpdate);
-                AccounthelperTH.updateOnDoNotCall(Trigger.new);
-                AccountHelperTH.updateOnPostalOptout(Trigger.new);
-                AccountHelperTH.updateOnEmailOptout(Trigger.new);
-                AccountHelperTH.updateAgeRange(Trigger.new);
-                AccountHelperTH.activeContracts(Trigger.new);
+            if (isBefore && isUpdate && TriggerRecursiveCheck.isNotVRrelatedUpdateTH && TriggerRecursiveCheck.isNotSalesAddressrelatedUpdateTH) {
+                AccountHelperTH.updateAccountFieldsBeforeUpdate(accountNewList, (Map < Id, Account > ) Trigger.OldMap, Trigger.isUpdate);
+                AccountHelperTH.updatePrimaryAddressdisplay(accountNewList, Trigger.isUpdate);
+                AccounthelperTH.updateOnDoNotCall(accountNewList);
+                AccountHelperTH.updateOnPostalOptout(accountNewList);
+                AccountHelperTH.updateOnEmailOptout(accountNewList);
+                AccountHelperTH.updateAgeRange(accountNewList);
+                AccountHelperTH.activeContracts(accountNewList);
+                AccountHelperTH.updateOptInFields(accountNewList, (Map<Id,Account>)Trigger.oldMap, false , Trigger.isUpdate); // CISM-0044841681
             }
-            if (isAfter && isupdate && !accountNewList.isEmpty() && accountNewList.size() > 0) {
+            if (isAfter && isupdate && !accountNewList.isEmpty() && accountNewList.size() > 0 && TriggerRecursiveCheck.isNotVRrelatedUpdateTH && TriggerRecursiveCheck.isNotSalesAddressrelatedUpdateTH) {
                 AccountHelperTH.DealerCommAccountlinkcreatecdm(accountNewList, (Map < Id, Account > ) Trigger.OldMap);
                 //AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, accountNewList);
                 if (changedUCIDaccountLst != null && !changedUCIDaccountLst.isEmpty() && changedUCIDaccountLst.size() > 0)
                     AccountHelperTH.shareAccountMerge(changedUCIDaccountLst);
                 if (Softdeletedacc != null && !Softdeletedacc.isEmpty() && Softdeletedacc.size() > 0)
                     AccountHelperTH.revokesoftdeleteAccess(Softdeletedacc);
-                AccountHelperTH.accesschange(accountNewList, accountOldMap);
+                //AccountHelperTH.accesschange(accountNewList, accountOldMap);
             }
         }
 

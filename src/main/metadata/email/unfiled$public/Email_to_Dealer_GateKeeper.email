@@ -1,0 +1,16 @@
+Hi, 
+
+A new LEAD ({!Opportunity.Name}, Lead Number:{!Opportunity.Lead_No__c} ) has been assigned to your dealership {!Opportunity.Assigned_Dealer__c}. The contact details for the same are as follows:
+
+Contact Name    :    {!Account.Name}
+Contact Email    :    {!Account.Email__c}
+Contact Phone   :    {!Account.Mobile__c}
+
+Kindly update the details, stages and activities basis follow-up.
+
+In case of any queries, please contact the (Customer Contact) team.
+
+Regards
+Salesforce team
+
+This is an auto generated email. Please do not reply.

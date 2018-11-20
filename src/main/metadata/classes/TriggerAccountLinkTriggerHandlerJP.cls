@@ -14,11 +14,14 @@ public class TriggerAccountLinkTriggerHandlerJP
 	Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
-			Boolean CDMRCCreation = false;	
+			Boolean CDMRCCreation = false;
+			Boolean CDMCustomerCreation = false;			
 				if(!jpSwitchMap.isEmpty() && jpSwitchMap.containsKey('CDM RC Creation and Update')){
 					CDMRCCreation = jpSwitchMap.get('CDM RC Creation and Update').Enable_Flag__c;
 				}		
-		
+				if(!jpSwitchMap.isEmpty() && jpSwitchMap.containsKey('CDM Customer Creation and Update')){
+					CDMCustomerCreation = jpSwitchMap.get('CDM Customer Creation and Update').Enable_Flag__c;
+				}
 		if(LeadUtil.isAcctrigger )
         {
             if(Trigger.isBefore && Trigger.isInsert)
@@ -49,6 +52,12 @@ public class TriggerAccountLinkTriggerHandlerJP
 				if (!System.isFuture() && CDMRCCreation) {
 					AccountLinkHelperBase.CDMAccountlinkContextGroup(trigger.new,'JP',Label.InsertContext );
 				}
+				 if (TriggerRecursiveCheck.run && !System.isFuture() && CDMCustomerCreation) {
+                        
+                        //for sending c2c information to IOC.
+                        AccountLinkHelperBase.sendC2CInfoToCDM(trigger.New, (Map<Id,Account_Link__c>)trigger.OldMap , trigger.IsInsert, trigger.IsUpdate);
+                }
+
             }
             if(Trigger.isAfter && Trigger.isDelete)
             {
@@ -75,6 +84,9 @@ public class TriggerAccountLinkTriggerHandlerJP
                     }   
 				}
                 //AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+				if(!System.isFuture() && CDMCustomerCreation && TriggerRecursiveCheck.run){                    
+                    AccountLinkHelperBase.sendC2CInfoToCDM(trigger.New, (Map<Id,Account_Link__c>)trigger.OldMap , trigger.IsInsert, trigger.IsUpdate);
+                }
             }
         }
     } 

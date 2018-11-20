@@ -1,0 +1,12 @@
+<aura:component controller = "ServiceHistoryController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="columns" type="List"/>
+    <aura:attribute name="data" type="Retail_Task__c[]"/>
+    <aura:attribute name="vehicleId" type="string" access="global"/>
+    <aura:attribute name="customerid" type="string"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init}"/>
+    <lightning:datatable
+                keyField="id"
+                data="{! v.data }"
+                columns="{! v.columns }"
+                hideCheckboxColumn="true"/>
+</aura:component>

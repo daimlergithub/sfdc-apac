@@ -39,7 +39,83 @@ public class sObjectMerge_MY {
         }
         return isSuccess=true;
     }
-
+ /* Added by sravanthi gudibandi for KR Market for merging loyalty card object---start*/
+    public static Boolean mergeLoyaltycard(Map<Id,Id> duplicateCustmrId2MasterCustmerIdMap){
+        Boolean isSuccess = false;
+        List<Loyalty_Card__c> Listloyaltycard= new List<Loyalty_Card__c>();
+        for(Loyalty_Card__c loyaltycardObj:[select Id,Account__c, Account__r.RecordTypeId from Loyalty_Card__c where Account__c IN:duplicateCustmrId2MasterCustmerIdMap.keySet()])
+        {
+            if(loyaltycardObj.Account__r.RecordTypeId == SoftdeletedPersonAccountRecordTypeId){
+                if(duplicateCustmrId2MasterCustmerIdMap.get(loyaltycardObj.Account__c)!=null)
+                    loyaltycardObj.Account__c = duplicateCustmrId2MasterCustmerIdMap.get(loyaltycardObj.Account__c);
+                Listloyaltycard.add(loyaltycardObj); 
+            }
+            else if(loyaltycardObj.Account__r.RecordTypeId == SoftdeletedCompanyAccountRecordTypeId){
+                if(duplicateCustmrId2MasterCustmerIdMap.get(loyaltycardObj.Account__c)!=null)
+                    loyaltycardObj.Account__c = duplicateCustmrId2MasterCustmerIdMap.get(loyaltycardObj.Account__c);
+                Listloyaltycard.add(loyaltycardObj); 
+            }
+        }
+        if(!Listloyaltycard.isEmpty()){
+            try{
+                update Listloyaltycard;
+                isSuccess = true;
+                return isSuccess;
+            }catch(Exception e){
+                System.debug('Failed while re-parenting Loyalty card '+ e.getMessage());
+                return isSuccess;
+            }
+        }
+        return isSuccess=true;
+    }
+    /* Added by sravanthi gudibandi for KR Market for merging loyalty card object---End*/
+    
+    /* Added by sravanthi gudibandi for KR Market for merging Booking object---start*/ 
+    public static Boolean mergeBooking(Map<Id,Id> duplicateCustmrId2MasterCustmerIdMap){
+        Boolean isSuccess = false;
+        List<Booking__c> Listbooking= new List<Booking__c>();
+        List<Booking__c> bookings = [select Id,Sales_Consultant_ID__r.AccountID, Sales_Consultant_ID__r.Account.RecordTypeId from Booking__c where Sales_Consultant_ID__r.AccountID IN:duplicateCustmrId2MasterCustmerIdMap.keySet()]; 
+        Map<Id,Id> personaccMap = new Map<Id,Id>();
+        Set<Id> masAccs = new Set<Id>();
+        for(Id key: duplicateCustmrId2MasterCustmerIdMap.keySet()){
+            masAccs.add(duplicateCustmrId2MasterCustmerIdMap.get(key));
+        }
+        List<Account> acns = [SELECT Id,PersonContactId FROM Account WHERE Id IN: masAccs];
+        for(Account ac: acns)
+        {
+            personaccMap.put(ac.Id,ac.PersonContactId);
+        }
+        for(Booking__c BookingObj: bookings)
+        {            
+            if(BookingObj.Sales_Consultant_ID__r.Account.RecordTypeId == SoftdeletedPersonAccountRecordTypeId){
+                if(duplicateCustmrId2MasterCustmerIdMap.get(BookingObj.Sales_Consultant_ID__r.AccountID)!=null){
+                    Id accId = duplicateCustmrId2MasterCustmerIdMap.get(BookingObj.Sales_Consultant_ID__r.AccountID);
+                    BookingObj.Sales_Consultant_ID__c = personaccMap.get(accId);
+                    Listbooking.add(BookingObj); 
+                }
+            }
+            else if(BookingObj.Sales_Consultant_ID__r.Account.RecordTypeId == SoftdeletedCompanyAccountRecordTypeId){
+                if(duplicateCustmrId2MasterCustmerIdMap.get(BookingObj.Sales_Consultant_ID__r.AccountID)!=null){
+                    Id accId = duplicateCustmrId2MasterCustmerIdMap.get(BookingObj.Sales_Consultant_ID__r.AccountID);
+                    BookingObj.Sales_Consultant_ID__c = personaccMap.get(accId);
+                    Listbooking.add(BookingObj); 
+                }
+            }
+        }
+        System.debug('Listbooking '+ Listbooking);
+        if(!Listbooking.isEmpty()){
+            try{
+                update Listbooking;
+                isSuccess = true;
+                return isSuccess;
+            }catch(Exception e){
+                System.debug('Failed while re-parenting Booking '+ e.getMessage());
+                return isSuccess;
+            }
+        }
+        return isSuccess=true;
+    }
+    /* Added by sravanthi gudibandi for KR Market for merging Booking object---End*/
 
     public static Boolean mergeLead(List<Duplicate_Merge_Info__c> ldupMergeObj)
     {
@@ -61,6 +137,41 @@ public class sObjectMerge_MY {
             else if(leadObj.Company_Account__r.RecordTypeId == SoftdeletedCompanyAccountRecordTypeId){
             leadObj.Company_Account__c = duplicateCustmrId2MasterCustmerIdMap.get(leadObj.Company_Account__c);
             leadObj.Retail_Contact__c = leadObj.Retail_Contact__c != NULL ? mduplicateRTToMasterRT.get(leadObj.Retail_Contact__c) : NULL;
+            LeadList.add(leadObj);
+            }
+        }
+        
+        if(!LeadList.isEmpty()){
+            try{
+                update LeadList;
+                isSuccess = true;
+                return isSuccess;
+            }catch(Exception e){
+                System.debug('Failed while re-parenting Leads '+ e.getMessage());
+                return isSuccess;
+            }
+        }
+        return isSuccess=true;    
+    }  
+    
+    public static Boolean mergeOpportunity(List<Duplicate_Merge_Info__c> ldupMergeObj)
+    {
+        Boolean isSuccess = false;
+        Map<Id,Id> duplicateCustmrId2MasterCustmerIdMap=new Map<Id,Id>();
+        Map<Id,Id> mduplicateRTToMasterRT=new Map<Id,Id>();
+        List<Opportunity> LeadList= new List<Opportunity>();
+        for(Duplicate_Merge_Info__c dupMergeObj: ldupMergeObj){
+            duplicateCustmrId2MasterCustmerIdMap.put(dupMergeObj.Duplicate_Customer__c, dupMergeObj.Master_Customer__c);
+            mduplicateRTToMasterRT.put(dupMergeObj.Duplicate_Retail_Customer__c, dupMergeObj.Master_Retail_Customer__c);
+        }
+        
+        for(Opportunity leadObj:[select Id,AccountId,Account.RecordTypeId,recordtypeId from Opportunity where AccountId IN:duplicateCustmrId2MasterCustmerIdMap.keySet()]){
+            if(leadObj.Account.RecordTypeId == SoftdeletedPersonAccountRecordTypeId){
+            leadObj.AccountId = duplicateCustmrId2MasterCustmerIdMap.get(leadObj.AccountId);
+            LeadList.add(leadObj);
+            }
+            else if(leadObj.Account.RecordTypeId == SoftdeletedCompanyAccountRecordTypeId){
+            leadObj.AccountId = duplicateCustmrId2MasterCustmerIdMap.get(leadObj.AccountId);
             LeadList.add(leadObj);
             }
         }
@@ -113,7 +224,7 @@ public class sObjectMerge_MY {
     {
         Boolean isSuccess = false;
         //get vehicle relationship records from duplicate accounts.
-        List<Vehicle_Relationship__c> vrForDuplicateAccountList=[select Id,Contact__c,car_relation__c,Euro_Vin__c,recordtypeId,Selling_Dealer__c,Selling_Dealer__r.Dealer_ND_Code__c,Owner_Dealer__c,Owner_Dealer__r.Dealer_ND_Code__c from Vehicle_Relationship__c where Contact__c IN:duplicateCustmrId2MasterCustmerIdMap.keySet() and Vehicle_ID__c!=null and recordTypeID!=:vehicleReltnshpSoftDelRecordTypeId]; 
+        List<Vehicle_Relationship__c> vrForDuplicateAccountList=[select Id,Contact__c,car_relation__c,Euro_Vin__c,recordtypeId,Selling_Dealer__c,Selling_Dealer__r.Dealer_ND_Code__c,Owner_Dealer__c,Owner_Dealer__r.Dealer_ND_Code__c from Vehicle_Relationship__c where Contact__c IN:duplicateCustmrId2MasterCustmerIdMap.keySet() and Contact__c != null and Vehicle_ID__c!=null and recordTypeID!=:vehicleReltnshpSoftDelRecordTypeId]; 
         Map<Id,List<Vehicle_Relationship__c>> duplicateCustmrId2LstVrMap=new Map<Id,List<Vehicle_Relationship__c>>();
         if(vrForDuplicateAccountList!=null && vrForDuplicateAccountList.size()>0)
         {
@@ -126,7 +237,7 @@ public class sObjectMerge_MY {
             }
         }
         //get vehicle relationship records from Golden accounts.
-        List<Vehicle_Relationship__c> vrForGoldenAccountList=[select Id,Contact__c,car_relation__c,Euro_Vin__c,recordtypeId,Selling_Dealer__c,Selling_Dealer__r.Dealer_ND_Code__c,Owner_Dealer__c,Owner_Dealer__r.Dealer_ND_Code__c from Vehicle_Relationship__c where Contact__c IN:duplicateCustmrId2MasterCustmerIdMap.values() and Vehicle_ID__c!=null and recordTypeID!=:vehicleReltnshpSoftDelRecordTypeId]; 
+        List<Vehicle_Relationship__c> vrForGoldenAccountList=[select Id,Contact__c,car_relation__c,Euro_Vin__c,recordtypeId,Selling_Dealer__c,Selling_Dealer__r.Dealer_ND_Code__c,Owner_Dealer__c,Owner_Dealer__r.Dealer_ND_Code__c from Vehicle_Relationship__c where Contact__c IN:duplicateCustmrId2MasterCustmerIdMap.values() and Contact__c != null and Vehicle_ID__c!=null and recordTypeID!=:vehicleReltnshpSoftDelRecordTypeId]; 
         Map<Id,List<Vehicle_Relationship__c>> goldenCustmrId2LstVrMap=new Map<Id,List<Vehicle_Relationship__c>>();
         if(vrForGoldenAccountList!=null && vrForGoldenAccountList.size()>0)
         {

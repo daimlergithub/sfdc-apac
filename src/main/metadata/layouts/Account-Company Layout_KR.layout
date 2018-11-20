@@ -154,7 +154,7 @@
                 <field>Agreement_to_commit_info_processing__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Loyalty_Card_No__c</field>
             </layoutItems>
 			<layoutItems>

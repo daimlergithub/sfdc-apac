@@ -256,6 +256,10 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Negotiation_DateTime__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Form_created_by__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -342,6 +346,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Mobile__c</field>
+            </layoutItems>
+	     <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Related_Leads__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -476,8 +484,9 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Drop_off_Time__c</field>
+                <field>Selected_Car_Model__c</field>
             </layoutItems>
+           
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -680,6 +689,17 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Booking_ID__c</fields>
+        <fields>Booking_Type__c</fields>
+        <fields>Booking_Status__c</fields>
+        <fields>Assigned_Dealer_Outlet__c</fields>
+        <fields>Sales_Consultant_ID__c</fields>
+        <fields>Cancellation_Reason__c</fields>
+        <fields>More_info_for_Cancellation__c</fields>
+        <relatedList>Booking__c.Opportunity__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -701,7 +721,7 @@
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
-    <relatedLists>
+	<relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <relatedLists>

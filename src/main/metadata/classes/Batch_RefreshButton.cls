@@ -1,12 +1,18 @@
-global class Batch_RefreshButton implements Database.Batchable<sObject>{
+global class Batch_RefreshButton implements Database.Batchable<sObject>,Database.stateful{
     global final String query;
+	 global  Campaign camprec=new  Campaign();
       global Map<Id, String> errorMap {get; set;}
   global Map<Id, String> successMap {get; set;}
    global list<Id> successlist=new list<ID>();
+    global set<Id> campid=new set<ID>();
   global Map<Id, SObject> IdToSObjectMap {get; set;}
     global Batch_RefreshButton(String q){
         query = q;
+		campid.add(q);
         system.debug('++++++++++++++++++'+query);
+		  errorMap = new Map<Id, String>();
+successMap= new Map<Id, String>();
+IdToSObjectMap = new Map<Id, SObject>();
         
     }
     
@@ -20,7 +26,7 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
     String provincevehicle;
       String market = 'JP';
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-      
+     
         UtilAddressTranslation.gettranslatedvalues(market);
         system.debug('++++++++++++++++++++++++'+scope);
         Set<String> Jointvehicle = new set<String>();
@@ -158,28 +164,75 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
         }
         
         }
+         Map<Id,Account_Link__c> mapmymeid = New Map<Id,Account_Link__c>();
+          List<Account_Link__c> acclinkid = [select ID,Name from Account_link__c where RecordType.Developername = 'IndividualExternalLink' and System__c = 'My Mercedes' and Primary__c = True and toRole__c IN: contactid  ];
+       
+         System.debug('+++++++++acclinkid++++++++++++'+acclinkid );
+        if(!acclinkid.isempty()&&acclinkid.size()>0){
+        for(Account_Link__c acc :acclinkid){
         
+                mapmymeid.put(acc.toRole__c,acc);
+                
+            }
+            for(Campaign_Member__c cmpmembr : scope){
+            for(Account_Link__c acc : acclinkid  ){
+           
+            if(cmpmembr.Contact_Id__c == acc.toRole__c 
+
+			){
+            cmpmembr.My_Mercedes_ID__c = acc.name;
+
+            membertoupdate.put(cmpmembr.id,cmpmembr);
+            }
+        }
+        }
+        
+        }        
         
         //update membertoupdate;
-        database.update(membertoupdate.values(), false);
+       // database.update(membertoupdate.values(), false);
         //update membertoupdate.values();
         //upsert membertoupdate.values();
     
         
     }
+    
+    
+        if(membertoupdate.size()>0)
+    {
+        List<Database.SaveResult> dsrs = Database.update(membertoupdate.Values(), false);
+            Integer index = 0;
+            for(Database.SaveResult dsr : dsrs){
+                if(dsr.issuccess())
+                {
+                successlist.add(dsr.id);            
+                }
+                if(!dsr.isSuccess()){
+                    for(Id key: membertoupdate.keySet())
+                    {
+                  String errMsg = dsr.getErrors()[0].getMessage();
+                    errorMap.put(key, errMsg);
+                    IdToSObjectMap.put(key, membertoupdate.values());                        
+                    }
+                    
+                }
+                index++;
+            }
+    }
     }
     
     global void finish(Database.BatchableContext BC){
     
-    errorMap = new Map<Id, String>();
-successMap= new Map<Id, String>();
-IdToSObjectMap = new Map<Id, SObject>();
+   
     
     
          if(!errorMap.isEmpty() || !successlist.isempty())
      {
          AsyncApexJob a = [SELECT id, ApexClassId,JobItemsProcessed, TotalJobItems,NumberOfErrors, CreatedBy.Email FROM AsyncApexJob WHERE id = :BC.getJobId()];
-       //  camprec=[Select id,name from campaign where id=:campid Limit 1];
+        if(campid !=null)
+        {
+         camprec=[Select id,name from campaign where id=:campid Limit 1];
+         }
          String body = 'Your batch job '
              + 'Batch_RefreshButton '
              + 'has finished. and' 
@@ -191,7 +244,8 @@ IdToSObjectMap = new Map<Id, SObject>();
          
          // Creating the CSV file
             String finalstr = 'Id, Name, Error \n';
-            String subject = 'Refresh List for - Apex Batch Error List';
+			// String subject = 'Campaign member Insertion for'+camprec.Name+' - Apex Batch Error List';
+            String subject = 'Refresh List for'+camprec.Name+' - Apex Batch Error List';
             String attName = 'Refresh List.csv';
             for(Id id  : errorMap.keySet()){
                 string err = errorMap.get(id);
@@ -209,7 +263,7 @@ IdToSObjectMap = new Map<Id, SObject>();
  
             // Sets the paramaters of the email
             email.setSubject( subject );
-			//email.setToAddresses( new String[] {'dinesh.govindaswamy@nttdata.com'} );
+            //email.setToAddresses( new String[] {'dinesh.govindaswamy@nttdata.com'} );
            email.setToAddresses( new String[] {'NTT_Daimler_SO_Team@nttdata.com'} );
             email.setCcAddresses( new String[] {'atsushi.ogihara@nttdata.com'} );
             email.setPlainTextBody( body );

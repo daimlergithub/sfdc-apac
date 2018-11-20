@@ -13,6 +13,25 @@ public without sharing class AddressHelperBase {
     public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
     
     // @Description: Updates Primary Address related details on account once Preferred__c is checked.
+    public static void setPreferredFlag(list<Address__c> listNewAddress){
+        Map<Id,Account> mpAcc = new Map<Id,Account>();
+        Set<Id> AccIdSet = new Set<Id>();
+        for (Address__c addr : listNewAddress){
+            if (string.isnotblank(addr.Customer__c)){
+                AccIdSet.add(addr.Customer__c);
+            }
+        }
+        if (AccIdSet.size() > 0){
+            mpAcc = new Map<Id,Account>([select id, Primary_Address_Reference__c from Account where id in :AccIdSet]);
+        }
+        for (Address__c updAddr : listNewAddress){
+            if (updAddr.customer__c != null && (mpAcc.get(updAddr.customer__c) == null || (mpAcc.get(updAddr.customer__c) != null && mpAcc.get(updAddr.customer__c).Primary_Address_Reference__c == null))){
+                updAddr.preferred__c = true;
+            }
+        }
+    }
+
+    // @Description: Updates Primary Address related details on account once Preferred__c is checked.
     public static void updateAddressOnAccount(list<Address__c> listNewAddress){           
         Set<Id> AccIdSet = new Set<Id>();
         map<Id,Account> updateAccntMap = new map<Id,Account>();
@@ -40,8 +59,10 @@ public without sharing class AddressHelperBase {
                                 acc.Primary_Address__c +=' '+ addr.District__c;
                             if(addr.Province__c!=null && addr.Province__c!='')
                                 acc.Primary_Address__c +=' '+ addr.Province__c;
-                            if(addr.Country__c!=null && addr.Country__c!='')
+                            if(addr.Country__c!=null && addr.Country__c!='' && addr.Country__c!='Turkey')
                                 acc.Primary_Address__c +=' '+ addr.Country__c;
+                            if(addr.Market__c == Label.TR && addr.Country__c =='Turkey')
+                                acc.Primary_Address__c +=' '+ Label.TRCountry;
                             if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
                                 acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
                                 acc.Primary_Address_Display__c=acc.Primary_Address__c;  
@@ -67,6 +88,11 @@ public without sharing class AddressHelperBase {
         if(IsInsert){                
             //get the related accountIds
             for(Address__c add:triggerNew){
+			//Madhusudhan CS added as per MBANZ-403
+                if(add.Market__c=='AU'||add.Market__c=='NZ')
+                     {
+                        add.MD__c=add.Market__c;
+                     }
                 accountId.add(add.Customer__c);
             }                   
             for(Address__c addresList:[select Address_Type__c from Address__c where Customer__c IN:accountId]){
@@ -83,7 +109,12 @@ public without sharing class AddressHelperBase {
         }
         if(isUpdate){
             for(Address__c add:triggerNew){                 
-                Address__c oldaddress = addressOldMap.get(add.Id);                     
+                Address__c oldaddress = addressOldMap.get(add.Id);  
+			//Madhusudhan CS added as per MBANZ-403
+                if(add.Market__c=='AU'||add.Market__c=='NZ')
+                    {
+                        add.MD__c=add.Market__c;
+                    } 
                 if(oldaddress.Address_Type__c!= add.Address_Type__c){
                     accountId.add(add.Customer__c);                         
                 }
@@ -125,8 +156,10 @@ public without sharing class AddressHelperBase {
                                 acc.Primary_Address__c +=' '+ addr.District__c;
                             if(addr.Province__c!=null && addr.Province__c!='')
                                 acc.Primary_Address__c +=' '+ addr.Province__c;
-                            if(addr.Country__c!=null && addr.Country__c!='')
+                            if(addr.Country__c!=null && addr.Country__c!='' && addr.Country__c!='Turkey')
                                 acc.Primary_Address__c +=' '+ addr.Country__c;
+                            if(addr.Market__c == Label.TR && addr.Country__c == 'Turkey')
+                                acc.Primary_Address__c +=' '+ Label.TRCountry;
                             if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
                                 acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
                                 acc.Primary_Address_Display__c=acc.Primary_Address__c;  
@@ -234,9 +267,15 @@ public without sharing class AddressHelperBase {
         if (PreferredMap.size()>0){
             List<account_Link__c> UpdateRetailCopy= new List<Account_Link__c>();
             for(account_Link__c al: [select id,Retail_Address_Type__c,Retail_Address_Reference__c,Retail_City__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,
-            Retail_Address_Line_3__c,Retail_Province__c,Retail_Distinct__c,Retail_ZipCode__c,Retail_Address_CreatedDate__c,Retail_Address_LastModifiedDate__c,md__c
+            Retail_Address_Line_3__c,Retail_Province__c,Retail_Distinct__c,Retail_ZipCode__c,Retail_Address_CreatedDate__c,Retail_Address_LastModifiedDate__c,md__c,Retail_State_City__c,Retail_Suburb__c,Retail_Country__c
             from Account_Link__c where (Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false) and Retail_Address_Reference__c in :PreferredMap.values()]){
-                   al.Retail_Address_Type__c = newMap.get(al.Retail_Address_Reference__c).Address_Type__c;
+
+		
+					al.Retail_Suburb__c = newMap.get(al.Retail_Address_Reference__c).Suburb__c;
+					al.Retail_Country__c = newMap.get(al.Retail_Address_Reference__c).Country__c;
+					al.Retail_State_City__c = newMap.get(al.Retail_Address_Reference__c).State_City__c;
+					
+					al.Retail_Address_Type__c = newMap.get(al.Retail_Address_Reference__c).Address_Type__c;
                     al.Retail_Province__c =(newMap.get(al.Retail_Address_Reference__c).Province__c !=null ?(newMap.get(al.Retail_Address_Reference__c).Province__c): '') ;
                     al.Retail_City__c = (newMap.get(al.Retail_Address_Reference__c).District__c != null ? newMap.get(al.Retail_Address_Reference__c).District__c:'').left(35);
                     al.Retail_Distinct__c = ((newMap.get(al.Retail_Address_Reference__c).District__c!=null ? newMap.get(al.Retail_Address_Reference__c).District__c : '')+' '+(newMap.get(al.Retail_Address_Reference__c).Block__c!= null ?newMap.get(al.Retail_Address_Reference__c).Block__c : '')).left(35);
@@ -255,4 +294,31 @@ public without sharing class AddressHelperBase {
             DMLManagerService.updateAsSystem(UpdateRetailCopy);  
         }
     }
+	
+	public static void uncheckExistingPreferredAddress(){
+        Set<Id> setAccountId = new Set<Id>();
+        Map<String,String> mapAccountToAddress = new Map<String,String>();
+        List<Address__c> lstAddress = new List<Address__c>();
+        for(Address__c objAddress : (List<Address__c>)trigger.new)
+        {
+            if(objAddress.Preferred__c && (trigger.isInsert || !((Map<Id,Address__c>)trigger.oldMap).get(objAddress.Id).Preferred__c))
+            {
+                mapAccountToAddress.put(objAddress.Customer__c,objAddress.Id);
+            }
+        }
+        
+        if(!mapAccountToAddress.isEmpty())
+        {
+            for(Address__c objAddress : [   SELECT Preferred__c FROM Address__c 
+                                            WHERE Customer__c in : mapAccountToAddress.keySet()
+                                            and Preferred__c = true LIMIT 1])
+            {
+                objAddress.Preferred__c = false;
+                lstAddress.add(objAddress);
+            }
+            
+            if(!lstAddress.isEmpty())
+                update lstAddress;
+        }
+    } 
 }

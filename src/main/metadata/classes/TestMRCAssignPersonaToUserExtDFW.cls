@@ -1,6 +1,6 @@
 @isTest
 public class TestMRCAssignPersonaToUserExtDFW{
-     @testSetup
+     /* @testSetup
      static void setupTestData(){
         List<String> funAccMasterFields=new List<String>();
         funAccMasterFields.add('Module_Name__c');
@@ -77,5 +77,5 @@ public class TestMRCAssignPersonaToUserExtDFW{
        system.assertEquals('Persona1',usr.Persona_Assigned__c);
        test.stoptest();    
        }     
-     }  
+     }  */
 }

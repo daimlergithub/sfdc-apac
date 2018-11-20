@@ -1,0 +1,10 @@
+Sayın İlgili,
+
+Tarafınıza atanmış olan {!Opportunity.Account} kontağına ait Lead sürecine ilişkin bir aksiyon hala alınmamıştır. Belirtilen süre içerisinde ilgili kontak ile temasa geçmenizi rica ederiz.
+
+İlgili Lead'e ait daha detaylı bilgiye ulaşmak için aşağıdaki linke tıklayınız.
+
+
+ {!Opportunity.Link}
+
+- Mercedes-Benz Türk-

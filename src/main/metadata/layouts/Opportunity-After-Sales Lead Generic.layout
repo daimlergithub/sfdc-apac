@@ -131,6 +131,14 @@
                 <behavior>Edit</behavior>
                 <field>Number_of_SLA_remainders_sent__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Product_Name__c</field>
+            </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Product_price__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -233,10 +241,7 @@
                 <behavior>Edit</behavior>
                 <field>Pickup_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Pick_up_Time__c</field>
-            </layoutItems>
+           
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_drop_off__c</field>
@@ -256,6 +261,10 @@
 	      <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Policy_Inception_Date__c</field>
+            </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Form_created_by__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -320,6 +329,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Related_Leads__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -612,6 +625,10 @@
                 <behavior>Edit</behavior>
                 <field>Purchase_Time__c</field>
             </layoutItems>
+	     <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Pick_up_Time__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Date__c</field>
@@ -723,6 +740,17 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Booking_ID__c</fields>
+        <fields>Booking_Type__c</fields>
+        <fields>Booking_Status__c</fields>
+        <fields>Assigned_Dealer_Outlet__c</fields>
+        <fields>Sales_Consultant_ID__c</fields>
+        <fields>Cancellation_Reason__c</fields>
+        <fields>More_info_for_Cancellation__c</fields>
+        <relatedList>Booking__c.Opportunity__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -744,7 +772,7 @@
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
-    <relatedLists>
+	<relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <relatedLists>

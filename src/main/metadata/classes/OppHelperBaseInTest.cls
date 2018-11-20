@@ -45,7 +45,7 @@ public class OppHelperBaseInTest {
         //CarModelMappingUtilityTest.initData();
         //User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
         Profile p = [select id from profile where Name='System Administrator' limit 1];
-        User usr = new User(LastName='User',country='India',firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey='Asia/Kolkata',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName='admusrIN01@daimler.com',Market__c = 'IN');
+        User usr = new User(LastName='User',country='India',firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey='Asia/Kolkata',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName='admusrIN01@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = 'IN');
         insert usr;
         System.runAs(usr){
             initData();
@@ -106,7 +106,7 @@ public class OppHelperBaseInTest {
         //CarModelMappingUtilityTest.initData();
         //User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
         Profile p = [select id from profile where Name='IntegrationAPI' limit 1];
-        User usr = new User(LastName='User',country='India',firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey='Asia/Kolkata',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName='admusrIN01@daimler.com',Market__c = 'IN',User_Type__c='PowerPartner');
+        User usr = new User(LastName='User',country='India',firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey='Asia/Kolkata',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName='admusrIN01@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = 'IN',User_Type__c='PowerPartner');
         insert usr;
         System.runAs(usr){
             Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = dealerRecordTypeId, Market__c = 'IN',Dealer_ND_Code__c='test');
@@ -125,7 +125,7 @@ public class OppHelperBaseInTest {
         	Name = 'test',
         	StageName = 'Nurture',
         	Probability = 10.0,
-        	CloseDate = Date.newInstance(2018,09,03),
+        	CloseDate = Date.Today(),
         	LeadSource = 'IB',
         	ForecastCategoryName = 'Pipeline',
         	//OwnerId = '005N0000005RpFEIA0',

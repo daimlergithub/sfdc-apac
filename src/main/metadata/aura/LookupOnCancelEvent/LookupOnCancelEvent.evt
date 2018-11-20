@@ -1,0 +1,7 @@
+<!-- File Name   : LookupOnCancelEvent -->
+<!-- Description : LookupOnCancelEvent Lightening tokens -->
+<!-- Copyright   : Infosys Limited Copyright (c) 2018  -->
+<!-- @author     : Sarath -->
+<!-- Author Modification & Ver.Date : Sarath & 23-June-2018  -->
+<aura:event type="COMPONENT" description="LOOKUP on Cancel Event" >
+</aura:event>

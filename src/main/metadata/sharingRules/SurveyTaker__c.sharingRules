@@ -61,6 +61,19 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>Survey_Taken_Share_TR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Survey Taken Share TR</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>TH_Survey_taken_sharing_to_other_Th_users</fullName>
         <accessLevel>Edit</accessLevel>
         <label>TH Survey taken sharing to other Th users</label>

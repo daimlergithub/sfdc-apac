@@ -4,6 +4,6 @@
     <encodingKey>UTF-8</encodingKey>
     <name>Assign to Dealer Gatekeeper Opportunity_TR</name>
     <style>none</style>
-    <subject>{! Opportunity.Name} new customer {! Opportunity.RecordType} incoming notification</subject>
+    <subject>Mercedes-Benz Türk Lead Yönetimi | Yeni Lead Atama - {! Opportunity.Name}  </subject>
     <type>text</type>
 </EmailTemplate>

@@ -1,0 +1,30 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created By:Narendra.I
+* Created Date:23-Oct-2018
+* Company:Infosys Ltd
+* Description: Component to send email notification.
+* **********************************************************************************-->
+<aura:component controller="reUsableMultiSelectLookupCtrl" implements="lightning:actionOverride,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" >
+    <aura:attribute name="recordId" type="Id" />    
+        <h2 class="title slds-text-heading--medium">
+            <center> Send email notification</center>
+        </h2>   <hr style="margin:10px;"/>
+        <center>                   
+            <span class="slds-text-body–regular">                            
+                Are you sure you want to send email Notification.                            
+            </span>  
+        </center> <hr style="margin:10px;"/>
+        <footer class="modal__footer">
+            <div style="text-align: right;">
+                <lightning:button label="Send"                              
+                                  variant="brand"
+                                  onclick="{! c.handleSend }"
+                                  />
+                <lightning:button label="Cancel"                             
+                                  variant="Neutral"
+                                  onclick="{! c.handleClose }"
+                                  />
+            </div>
+        </footer>    
+</aura:component>

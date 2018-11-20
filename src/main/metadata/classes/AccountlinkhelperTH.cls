@@ -4,7 +4,7 @@
 *It will Revoke the access Once the fromRole becomes Null
 *It Will Calculates the Complaint Amount based on Number of Cases
 * Author: Dhanamjaya
-* Created Date : 2017-01-23	
+* Created Date : 2017-01-23  
 */
 Public class AccountlinkhelperTH{
     Public   MAP<Account_link__C,String> AcclinkMap=new MAP<Account_link__C,String>();
@@ -15,7 +15,7 @@ Public class AccountlinkhelperTH{
     Public  List<Account_link__C> Acclink;
     Public  List<Account_Link__Share> accLinkshareLst=new List<Account_Link__Share>();
     Public  List<User> usrlist=new List<User>();
-	 //SFDCTH-723
+   //SFDCTH-723
 public void updateActiveStatusBeforeInser(List<Account_Link__c> acclinks,boolean isinsertflag,boolean isupdateflag,boolean userContext){
         if(userContext){
             for(Account_Link__c acl:acclinks){
@@ -42,45 +42,184 @@ public void updateActiveStatusBeforeInser(List<Account_Link__c> acclinks,boolean
                     if(acl.recordTypeID==AccountLink_C2CRecordTypeId&&!acl.active__c&&acl.End_Date__c==null){
                         acl.End_Date__c=system.today();
                     }
-                    }
-                
+                }   
             }
             else if(isinsertflag){
                 for(Account_Link__c acl:acclinks){
                     if(acl.recordTypeID==AccountLink_C2CRecordTypeId){
                         if(!acl.Active__c && acl.Start_Date__c==null && acl.End_Date__c==null){
-                        acl.Active__c=true;
-                        acl.Start_Date__c=System.Today();
-                    }
-                    else if(!acl.Active__c && acl.Start_Date__c!=null && acl.End_Date__c==null){
-                        acl.Active__c=true;
-                    }
+                            acl.Active__c=true;
+                            acl.Start_Date__c=System.Today();
+                        }
+                        else if(!acl.Active__c && acl.Start_Date__c!=null && acl.End_Date__c==null){
+                            acl.Active__c=true;
+                        }
                         else if(acl.Start_Date__c>acl.End_Date__c){
-                        acl.addError('Start Date should not be greater than End Date');
+                            acl.addError('Start Date should not be greater than End Date');
+                        }
                     }
-                    }
-                    }
-            }
-
+                }
             }
         }
+    }
     public  void afterInsertEventShareRetailCopy(List<Account_link__C> acclinklist){
         Map<Id,Id> c2cAccLinkIdfromRoleIdMap=new Map<Id,Id>();
         Map<Id,Id> c2cAccLinkIdToRoleIdMap=new Map<Id,Id>();
-        Acclink=[select id,fromRole__c,toRole__c,RetailDealer_ND_Code__c,Retail_Delete_Flag__c,fromRole__r.Dealer_nd_Code__c,recordTypeId from Account_link__c  where  id=:acclinklist and (fromRole__c!=null or toRole__c!=null)];
+        Acclink=[select id,fromRole__c,toRole__c,RetailDealer_ND_Code__c,Retail_Duplicate_Flag__c,fromRole__r.Dealer_nd_Code__c,recordTypeId from Account_link__c  where  id=:acclinklist and (fromRole__c!=null or toRole__c!=null)];
         for(Account_link__c acclinkrec:Acclink){
-            if(acclinkrec.fromRole__r.Dealer_nd_Code__c !=null){
+            if(acclinkrec.fromRole__r.Dealer_nd_Code__c !=null && acclinkrec.Retail_Duplicate_Flag__c==false){
                 String grpName='TH'+acclinkrec.fromRole__r.Dealer_nd_Code__c;
-                AcclinkMap.put(acclinkrec,grpName);								   
-            }else if(acclinkrec.recordTypeID==AccountLink_C2CRecordTypeId && acclinkrec.fromRole__c!=null && acclinkrec.toRole__c!=null)
+                AcclinkMap.put(acclinkrec,grpName);                   
+            }else if(acclinkrec.recordTypeID==AccountLink_C2CRecordTypeId && acclinkrec.fromRole__c!=null && acclinkrec.toRole__c!=null && acclinkrec.Retail_Duplicate_Flag__c==false)
             {
                 c2cAccLinkIdfromRoleIdMap.put(acclinkrec.Id,acclinkrec.fromRole__c);
                 c2cAccLinkIdToRoleIdMap.put(acclinkrec.Id, acclinkrec.toRole__c);
             }
             
         }
+        
+        if(c2cAccLinkIdfromRoleIdMap!=null && c2cAccLinkIdfromRoleIdMap.size()>0)
+        {
+          List<Account_Link__Share> accLinkC2cshareLst;
+            Map<Id,Set<String>> accLinkIdDealerCodeMap=getC2CAccLinkDealerCode(c2cAccLinkIdfromRoleIdMap,c2cAccLinkIdToRoleIdMap);
+          if(accLinkIdDealerCodeMap!=null && accLinkIdDealerCodeMap.size()>0)
+              accLinkC2cshareLst=createC2CShareRecords(c2cAccLinkIdfromRoleIdMap,accLinkIdDealerCodeMap,'TH');
+            if(accLinkC2cshareLst!=null && accLinkC2cshareLst.size()>0)
+              accLinkshareLst.addAll(accLinkC2cshareLst);
+        }
+        
+        if(AcclinkMap.size()>0)
+        {
+            List<Account_Link__Share> accLinkshareRTLst=shareRetailPersonAndCompanyAccLink(AcclinkMap,'TH');
+            if(accLinkshareRTLst!=null && accLinkshareRTLst.size()>0)
+              accLinkshareLst.addAll(accLinkshareRTLst);
+        }
+        
+        
+        /*
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: AcclinkMap.values()]){
+            for(Account_link__c alk:Acclink){
+                if(alk.Retail_Delete_Flag__c==false){
+                    Account_Link__Share alshare=new Account_Link__Share ();
+                    alshare.AccessLevel='EDIT';
+                    alshare.RowCause = Schema.Account_link__Share.RowCause.Manual;
+                    alshare.ParentId = alk.id;
+                    alshare.UserOrGroupId=groupRec.id;
+                    accLinkshareLst.add(alshare);        
+                }
+            }
+            
+        }*/
+        
+        if(accLinkshareLst.size()>0){
+            Database.insert(accLinkshareLst, false);
+
+        }
+    }
+  
+    //Method for sharing of Retai Person and retail company Account links
+    public List<Account_Link__Share> shareRetailPersonAndCompanyAccLink(Map<Account_link__C,String> acclinkDealerCodeMap,String Market)
+    {
+        List<Account_Link__Share> accLinkshareLocalLst=new List<Account_Link__Share>(); 
+        if(acclinkDealerCodeMap!=null && acclinkDealerCodeMap.size()>0)
+        {
+            List<Group> grpLst=[select Id, Name from Group where Name IN: acclinkDealerCodeMap.values()];
+            Map<String,Id> grpNameGrpId=new Map<String,Id>();
+            if(grpLst!=null && grpLst.size()>0)
+            {
+                for(Group gp:grpLst)
+                {
+                    String dealerCode=gp.Name;
+                    dealerCode=dealerCode.substring(Market.length());
+                    grpNameGrpId.put(dealerCode, gp.Id);
+                }
+            }
+            
+            for(Account_link__c alk:acclinkDealerCodeMap.keySet()){
+                    if(alk.RetailDealer_ND_Code__c!=null && grpNameGrpId!=null && grpNameGrpId.size()>0 && grpNameGrpId.get(alk.RetailDealer_ND_Code__c)!=null){
+                        Account_Link__Share alshare=new Account_Link__Share ();
+                        alshare.AccessLevel='EDIT';
+                        alshare.RowCause = Schema.Account_link__Share.RowCause.Manual;
+                        alshare.ParentId = alk.id;
+                        alshare.UserOrGroupId=grpNameGrpId.get(alk.RetailDealer_ND_Code__c);
+                        accLinkshareLocalLst.add(alshare);        
+                    }
+            }
+            
+        }
+        if(accLinkshareLocalLst.size()>0)
+            return accLinkshareLocalLst;
+        else 
+            return null;
+    }
     
-            //sharing logic for contact to contact account link recordtype
+    
+    public List<Account_Link__Share> createC2CShareRecords(Map<Id,Id> c2cAccLinkIdfromRoleIdMap,Map<Id,Set<String>> accLinkIdDealerCodeMap,String Market)
+    {
+        Set<String> allDealerCodeSet=new Set<String>();
+        List<Group> grpLst;
+        List<Account_Link__Share> accLinkshareLocalLst=new List<Account_Link__Share>(); 
+        Map<String,Id> dealerCodeGrpIdMap=new Map<String,Id>();
+        //get groups
+        for(Id accLinkId:c2cAccLinkIdfromRoleIdMap.keySet())
+        {
+            if(accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
+            {
+                Set<String> delaerCodeSet=accLinkIdDealerCodeMap.get(accLinkId);
+                for(String dealerCode:delaerCodeSet)
+                {
+                    String THdealerCode=Market+dealerCode;
+                    allDealerCodeSet.add(THdealerCode);
+                }
+            }
+        }
+        if(allDealerCodeSet!=null && allDealerCodeSet.size()>0)
+        {
+            grpLst=[Select Id,Name from Group where Name IN: allDealerCodeSet];
+        }
+        if(grpLst!=null && grpLst.size()>0)
+        {
+            for(Group gp:grpLst)
+            {
+                String dealerCode=gp.Name;
+                dealerCode=dealerCode.substring(Market.length());
+                dealerCodeGrpIdMap.put(dealerCode, gp.Id);
+            }        
+        }  
+        //sharing for contact2contact account Link record type
+        for(Id accLinkId:c2cAccLinkIdfromRoleIdMap.keySet())
+        {
+            if(accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
+            {
+                Set<String> delaerCodeSet=accLinkIdDealerCodeMap.get(accLinkId);
+                if(delaerCodeSet!=null && delaerCodeSet.size()>0)
+                {
+                    for(String dealerCode:delaerCodeSet)
+                    {
+                        if(dealerCodeGrpIdMap!=null && dealerCodeGrpIdMap.size()>0 && dealerCodeGrpIdMap.get(dealerCode)!=null)
+                        {
+                            Account_Link__share alshare = new Account_Link__share();
+                            alshare.AccessLevel = 'EDIT';
+                            alshare.parentid = accLinkId;
+                            alshare.UserOrGroupId = dealerCodeGrpIdMap.get(dealerCode);
+                            alshare.RowCause = Schema.Account_link__Share.RowCause.Manual;
+                            accLinkshareLocalLst.add(alshare);
+                        }
+                    }
+                }
+            }
+        }
+        if(accLinkshareLocalLst.size()>0)
+            return accLinkshareLocalLst;
+        else 
+            return null;
+    }
+    
+    //Method for sharing of contact 2 contact account link
+    public Map<Id,Set<String>> getC2CAccLinkDealerCode(Map<Id,Id> c2cAccLinkIdfromRoleIdMap,Map<Id,Id> c2cAccLinkIdToRoleIdMap)
+    {
+        
+        //sharing logic for contact to contact account link recordtype
             if(c2cAccLinkIdfromRoleIdMap!=null && c2cAccLinkIdfromRoleIdMap.size()>0)
             {
                 List<Account_Link__c> accLinkLst=[select Id,RetailDealer_ND_Code__c,ownerId,toRole__c,fromRole__r.recordTypeID,recordTypeID from Account_Link__c where (toRole__c IN :c2cAccLinkIdfromRoleIdMap.values() or toRole__c IN :c2cAccLinkIdToRoleIdMap.values()) and (recordTypeId=:AccountLink_RetailPersonRecordTypeId or recordTypeId=:AccountLink_RetailCompanyRecordTypeId)];
@@ -106,8 +245,8 @@ public void updateActiveStatusBeforeInser(List<Account_Link__c> acclinks,boolean
                     {
                         if(accLinkIdToRoleIdMap.get(accLinkId)==c2cAccLinkIdfromRoleIdMap.get(c2cAccLinkId) && accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
                         {
-       						if(!c2cAccLinkFromRoleIdSetDealerCodeMap.containsKey(c2cAccLinkId))
-                            	c2cAccLinkFromRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
+                   if(!c2cAccLinkFromRoleIdSetDealerCodeMap.containsKey(c2cAccLinkId))
+                              c2cAccLinkFromRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
                             else
                                c2cAccLinkFromRoleIdSetDealerCodeMap.get(c2cAccLinkId).addAll(accLinkIdDealerCodeMap.get(accLinkId)); 
                         }
@@ -117,7 +256,7 @@ public void updateActiveStatusBeforeInser(List<Account_Link__c> acclinks,boolean
                         if(accLinkIdToRoleIdMap.get(accLinkId)==c2cAccLinkIdToRoleIdMap.get(c2cAccLinkId) && accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
                         {
                             if(!c2cAccLinkToRoleIdSetDealerCodeMap.containsKey(c2cAccLinkId))
-                            	c2cAccLinkToRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
+                              c2cAccLinkToRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
                             else
                                c2cAccLinkToRoleIdSetDealerCodeMap.get(c2cAccLinkId).addAll(accLinkIdDealerCodeMap.get(accLinkId));
                         }
@@ -143,110 +282,93 @@ public void updateActiveStatusBeforeInser(List<Account_Link__c> acclinks,boolean
                         }
                     }
                 }
-                Set<String> allDealerCodeSet=new Set<String>();
-                List<Group> grpLst;
-                Map<String,Id> dealerCodeGrpIdMap=new Map<String,Id>();
-                //get groups
-                for(Id accLinkId:c2cAccLinkIdfromRoleIdMap.keySet())
-                {
-                 	if(accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
-                    {
-                        Set<String> delaerCodeSet=accLinkIdDealerCodeMap.get(accLinkId);
-                        for(String dealerCode:delaerCodeSet)
-                        {
-                            String THdealerCode='TH'+dealerCode;
-                            allDealerCodeSet.add(THdealerCode);
-                        }
-                        	
-                    }
-                }
+                if(accLinkIdDealerCodeMap.size()>0)
+                    return accLinkIdDealerCodeMap;
+                else
+                    return null;
                 
-                if(allDealerCodeSet!=null && allDealerCodeSet.size()>0)
-                {
-                   grpLst=[Select Id,Name from Group where Name IN: allDealerCodeSet];
-                }
-                if(grpLst!=null && grpLst.size()>0)
-                {
-                    for(Group gp:grpLst)
-                    {
-                        String dealerCode=gp.Name;
-                        dealerCode=dealerCode.substring(2);
-                        dealerCodeGrpIdMap.put(dealerCode, gp.Id);
-                    }        
-            
-                }  
-                //sharing for contact2contact account Link record type
-                for(Id accLinkId:c2cAccLinkIdfromRoleIdMap.keySet())
-                {
-                    if(accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
-                    {
-                          Set<String> delaerCodeSet=accLinkIdDealerCodeMap.get(accLinkId);
-                          if(delaerCodeSet!=null && delaerCodeSet.size()>0)
-                          {
-                              for(String dealerCode:delaerCodeSet)
-                              {
-                                  if(dealerCodeGrpIdMap.get(dealerCode)!=null)
-                                  {
-                                      Account_Link__share alshare = new Account_Link__share();
-                                      alshare.AccessLevel = 'EDIT';
-                                      alshare.parentid = accLinkId;
-                                      alshare.UserOrGroupId = dealerCodeGrpIdMap.get(dealerCode);
-                                      alshare.RowCause = Schema.Account_link__Share.RowCause.Manual;
-                                    
-                                      accLinkshareLst.add(alshare);
-                                  }
-                                  
-                              }
-                  	 	   }
-                	}
-            	}
+             
             }
-		if(AcclinkMap!=null && AcclinkMap.size()>0)
+        return null;
+        
+    }
+    
+    //Revoke all the account link sharing if delete flag is true
+    public void revokeAccLinkSharingDuplicateFlag(List<Account_Link__c> acclinkLst,Map<Id,Account_Link__c> accLinkOldMap,Boolean isAfterInsert, Boolean isAfterUpdate)
+    {
+        List<Id> acclinkIdLst=new List<Id>();
+        List<Id> acclinkIdSuprUsrGrpLst=new List<Id>();
+        for(Account_Link__c accLinkObj:acclinkLst)
         {
-            List<Group> grpLst=[select Id, Name from Group where Name IN: AcclinkMap.values()];
-            Map<String,Id> grpNameGrpId=new Map<String,Id>();
-            for(Group gp:grpLst)
+            if(accLinkObj.RecordTypeId==AccountLink_RetailPersonRecordTypeId || accLinkObj.RecordTypeId==AccountLink_RetailCompanyRecordTypeId)
             {
-                String dealerCode=gp.Name;
-                dealerCode=dealerCode.substring(2);
-                grpNameGrpId.put(dealerCode, gp.Id);
-            }
-            
-            for(Account_link__c alk:Acclink){
-                    if(alk.Retail_Delete_Flag__c==false && alk.RetailDealer_ND_Code__c!=null && grpNameGrpId.get(alk.RetailDealer_ND_Code__c)!=null){
-                        Account_Link__Share alshare=new Account_Link__Share ();
-                        alshare.AccessLevel='EDIT';
-                        alshare.RowCause = Schema.Account_link__Share.RowCause.Manual;
-                        alshare.ParentId = alk.id;
-                        alshare.UserOrGroupId=grpNameGrpId.get(alk.RetailDealer_ND_Code__c);
-                        accLinkshareLst.add(alshare);        
-                    }
+                //if delete flag is true
+                if(accLinkObj.Retail_Duplicate_Flag__c && isAfterUpdate && accLinkObj.Retail_Duplicate_Flag__c!=accLinkOldMap.get(accLinkObj.Id).Retail_Duplicate_Flag__c)
+                {
+                    acclinkIdLst.add(accLinkObj.Id);
+                }
+                else if(accLinkObj.Retail_Duplicate_Flag__c && isAfterInsert)
+                {
+                    acclinkIdLst.add(accLinkObj.Id);
+                    
+                }else if(!accLinkObj.Retail_Duplicate_Flag__c && isAfterUpdate && accLinkObj.Retail_Duplicate_Flag__c!=accLinkOldMap.get(accLinkObj.Id).Retail_Duplicate_Flag__c)
+                {//Remove the SuperUserSharing from Account link records.
+                        acclinkIdSuprUsrGrpLst.add(accLinkObj.Id);
+                }
             }
             
         }
-		
-        /*
-        for(Group groupRec : [select Id, Name, Type from Group where Name IN: AcclinkMap.values()]){
-            for(Account_link__c alk:Acclink){
-                if(alk.Retail_Delete_Flag__c==false){
-                    Account_Link__Share alshare=new Account_Link__Share ();
-                    alshare.AccessLevel='EDIT';
-                    alshare.RowCause = Schema.Account_link__Share.RowCause.Manual;
-                    alshare.ParentId = alk.id;
-                    alshare.UserOrGroupId=groupRec.id;
-                    accLinkshareLst.add(alshare);        
+        
+        if(acclinkIdLst.size()>0)
+        {
+            List<Account_Link__Share> acclinkSharingToBeDeleteLst=[select id from Account_Link__Share where parentId IN:acclinkIdLst and RowCause ='Manual'];
+            //delete the account link sharing records.
+            if(acclinkSharingToBeDeleteLst!=null && acclinkSharingToBeDeleteLst.size()>0)
+            {
+                delete acclinkSharingToBeDeleteLst;
+            }
+            
+            //give access of above account links to the specific group based on dealership
+            Map<Account_link__C,String> acclink2GrpNameMap=new MAP<Account_link__C,String>();
+            List<Account_Link__share> accLinkShareSuprUserLst = new List<Account_Link__share>();
+            List<Account_Link__c> Acclink=[select id,fromRole__c,toRole__c,RetailDealer_ND_Code__c,Retail_Duplicate_Flag__c,fromRole__r.Dealer_nd_Code__c,recordTypeId from Account_link__c  where  id=:acclinkIdLst and (fromRole__c!=null or toRole__c!=null)];
+            for(Account_link__c acclinkrec:Acclink){
+                if(acclinkrec.RetailDealer_ND_Code__c!=null)
+                {
+                    String grpName=UtilConstant.Thailand_SuperUser+acclinkrec.fromRole__r.Dealer_nd_Code__c;
+                  acclink2GrpNameMap.put(acclinkrec,grpName);  
                 }
             }
             
-        }*/
+            if(acclink2GrpNameMap.size()>0)
+            {
+                List<Account_Link__Share> accLinkshareRTLst=shareRetailPersonAndCompanyAccLink(acclink2GrpNameMap,UtilConstant.Thailand_SuperUser);
+                if(accLinkshareRTLst!=null && accLinkshareRTLst.size()>0)
+                    accLinkShareSuprUserLst.addAll(accLinkshareRTLst);
+            }
+            
+            if(accLinkShareSuprUserLst.size()>0)
+                insert accLinkShareSuprUserLst;
+        }
         
-        if(accLinkshareLst.size()>0){
-            Database.insert(accLinkshareLst, false);
+        if(acclinkIdSuprUsrGrpLst.size()>0)
+        {
+            String superUserGrpName=UtilConstant.Thailand_SuperUser+'%';
+            List<Account_Link__Share> acclinkSharingToBeDeleteLst;
+            Map<Id,Group> superUserGrpId2SuperUserGrpMap=new Map<Id,Group>([select id,Name from Group where Name like:superUserGrpName]);
+            if(superUserGrpId2SuperUserGrpMap!=null && superUserGrpId2SuperUserGrpMap.size()>0)
+              acclinkSharingToBeDeleteLst=[select id from Account_Link__Share where parentId IN:acclinkIdSuprUsrGrpLst and RowCause ='Manual' And UserOrGroupId IN: superUserGrpId2SuperUserGrpMap.keySet()];
+            //delete the super user account link sharing records.
+            if(acclinkSharingToBeDeleteLst!=null && acclinkSharingToBeDeleteLst.size()>0)
+            {
+                delete acclinkSharingToBeDeleteLst;
+            }
 
         }
+         
     }
-	
-	public static void addressupdateRT(List<Account_Link__c> alinks,Map<id,Account_Link__c> oldals)
+    
+  public static void addressupdateRT(List<Account_Link__c> alinks,Map<id,Account_Link__c> oldals)
         {
             List<Account_Link__c> accupdatelst = new List<Account_Link__c>();
             Set<Id>addid= new Set<Id>();
@@ -401,7 +523,7 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                 dealerCode=dealerCode.substring(2);
                 grpNameGrpId.put(dealerCode, gp.Id);
             }
-        	
+          
             for(ID accLinkId:accLinkIdDealerCodeMap.keySet()){
                 if(accLinkId2AccIdMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId)!=null)
                 {
@@ -472,11 +594,13 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
          }
        
      }
-	 
-	 public static void accesschange(List<Account_link__c> accountNewList, Map<Id,SObject> accountlnkOldMap)
+    // Delete Apex sharing of Soft-Deleted Account Link records for Dealer Users 
+    public static void accesschange(List<Account_link__c> accountNewList, Map<Id,SObject> accountlnkOldMap)
     {
-        Map<Id,Id>UserAccountlnkMap = new Map<Id,Id>();
         Set<Id> Softdeletedacclnk=new Set<Id>();
+        
+        /* Commented on 01-Oct-2018
+        Map<Id,Id> UserAccountlnkMap = new Map<Id,Id>();
         Set<Id> Userids=new Set<Id>();
         Set<String>Dealerndcode = new set<String>();
         
@@ -499,37 +623,41 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
         {
             g.put(gr.Developername, gr);
         }
+        */
         for(Account_link__c accl: accountNewList)
         {   
             Account_link__c oldAcclnk=(Account_link__c)accountlnkOldMap.get(accl.Id);
             if(oldAcclnk != null && accl.Retail_Duplicate_Flag__c ==true &&  oldAcclnk.Retail_Duplicate_Flag__c != accl.Retail_Duplicate_Flag__c)
             {
                 Softdeletedacclnk.add(accl.Id);
+                /* Commented on 01-Oct-2018
                 if(Dealerdelegateadmin.containskey(accl.CreatedbyId)){
                     String groupname = 'Delegate' + Dealerdelegateadmin.get(accl.CreatedbyId).Dealer_DMS_Retailer_ID__c;
                     if( g.containskey(groupname))
                     UserAccountlnkMap.put(accl.Id,g.get(groupname).Id);
-                }
+                }*/
             }
                 
         }
         if(Softdeletedacclnk.size() > 0)
         revokesoftdeleteAccess(Softdeletedacclnk);
+        /* Commented on 01-Oct-2018
         if(UserAccountlnkMap.size() > 0)
         grantDelegateAdminAccess(accountNewList, UserAccountlnkMap);
+        */
     }
-	 
-	public static void revokesoftdeleteAccess(Set<Id> acclnkids)
-    {
-        
+   
+    public static void revokesoftdeleteAccess(Set<Id> acclnkids){        
         List<Account_Link__Share > accsharelist = new List<Account_Link__Share > ([select id from Account_Link__Share where ParentId in : acclnkids and RowCause = 'Manual']);
         if(accsharelist.size() >0)
         {
             Database.delete(accsharelist, false);
         }
     }
-	
-	public static void grantDelegateAdminAccess(list<Account_Link__c> alst, Map<Id,Id> AcclinkDelegateGroupmap)
+    
+    /*Commented on 01-Oct-2018
+    **Grant access to softdeleted account link (Retail Person, Retail Company) records
+    public static void grantDelegateAdminAccess(list<Account_Link__c> alst, Map<Id,Id> AcclinkDelegateGroupmap)
     {
         List<Account_Link__share> accShareLst= new List<Account_Link__share>();
         for(Account_Link__c al: alst)
@@ -545,7 +673,14 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
             }
         }
         if(accShareLst.size() > 0)
-             Database.insert(accShareLst, false);
+            Database.insert(accShareLst, false);
             
+    }*/
+  
+  /*
+     * To restrict duplicate Wholesale Contact2Contact gets created or updated either by users or integration user
+    */
+    public void ValidateC2CAfterUpdateInsert(List<Account_link__C> acclinklist,String Market,boolean isinsert, boolean isupdate,Map<id,sobject> oldmapAL ){
+        AccountLinkHelperBase.validateC2C(acclinklist,'TH',isinsert,isupdate,oldmapAL );
     }
 }

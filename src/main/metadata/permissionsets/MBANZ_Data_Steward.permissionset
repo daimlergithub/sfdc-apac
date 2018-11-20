@@ -21237,11 +21237,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Re_Payment_Plan__c.Rental_No__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Re_Payment_Plan__c.Sundry_charges__c</field>
         <readable>false</readable>
     </fieldPermissions>

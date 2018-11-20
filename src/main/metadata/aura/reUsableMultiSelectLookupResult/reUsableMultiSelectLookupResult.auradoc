@@ -1,0 +1,6 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:reUsableMultiSelectLookupResult</code> component displays the results of <code>c:reUsableMultiSelectLookup</code>.                        
+        </p>        
+    </aura:description>  
+</aura:documentation>

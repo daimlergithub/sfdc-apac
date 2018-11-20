@@ -11,7 +11,7 @@ public class CampaignMemberCustomHelperTHTest {
         insert dealer1;
         Contact dealerContact = new Contact(FirstName = 'Test',Md__c='TH', Lastname = 'Amit', AccountId = dealer1.Id, Email = 'test@test.com');
         insert dealerContact;
-        user1 = new User(LastName='GEORGE',market__c='TH',contactid=dealerContact.id,country='Australia',ProfileId=p1.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
+        user1 = new User(LastName='GEORGE',market__c='TH',contactid=dealerContact.id,country='Australia',ProfileId=p1.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
     	insert user1;
     }
     

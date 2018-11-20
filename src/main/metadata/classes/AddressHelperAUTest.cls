@@ -8,7 +8,8 @@ public class AddressHelperAUTest{
     public static testMethod void testUpdatePrimaryAddressOnAccount(){
        //create test data
        Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
-       User user1 = new User(LastName='User'+System.Today(),Market__c='AU',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
+       User user1 = new User(LastName='User'+System.Today(),Market__c='AU',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',
+	   UserName= System.now().millisecond() + 'testAUUse1@Daimler-test.com');
        insert user1;
        System.runAs (user1) {  
    
@@ -33,12 +34,13 @@ public class AddressHelperAUTest{
         
         account= new Account();
         account.Phone='09844650654';
-        account.FirstName = 'Test';        
+        account.Name = 'Test';        
         account.MBK_Data_Source__c ='Email';
         account.Data_Source__c  = 'Test4';
         account.Dealer_Rollout_Status__c = 'Done';
-        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
-        
+      //  account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
+       account.RecordTypeId   = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        insert account;
       
         address=new Address__c();
         address.Address_Type__c='Home';
@@ -51,8 +53,9 @@ public class AddressHelperAUTest{
         address.Customer__c=account.id;
         address.TitleOfHonor__c = 'To Person'; 
         address.Preferred__c = true;
-        address.country__c = 'Malaysia';
-        address.ZipCode__c = '12345';
+        address.country__c = 'Australia';
+         address.State_City__c = 'NSW';
+        address.ZipCode__c = '2345';
         addressList.add(address);
         DMLManagerService.insertAsSystem(addressList);
         //insert address;

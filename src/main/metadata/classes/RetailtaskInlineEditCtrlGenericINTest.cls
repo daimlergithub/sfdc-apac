@@ -20,4 +20,46 @@ public class RetailtaskInlineEditCtrlGenericINTest {
         }
         test.stopTest();
     }
+     @IsTest
+     public static void baseFunctionalityTestANZ(){
+        test.startTest();
+        User usr = TestUtils.createGenericAdminUser('Australia', 'Asia/Kolkata', 'AU');
+        
+        System.runAs(usr){
+            Retail_Task__c retailtaskref = new Retail_Task__c (Market__c = 'AU');
+          insert retailtaskref;
+            ApexPages.StandardController sc = new ApexPages.StandardController(retailtaskref);
+            ApexPages.currentPage().getParameters().put('id', retailtaskref.Id);
+            RetailtaskInlineEditControllerGeneric rec = new RetailtaskInlineEditControllerGeneric (sc);
+        }
+        test.stopTest();
+    }
+    @IsTest
+     public static void baseFunctionalityTestMY(){
+        test.startTest();
+        User usr = TestUtils.createGenericAdminUser('Australia', 'Asia/Kolkata', 'MY');
+        
+        System.runAs(usr){
+            Retail_Task__c retailtaskref = new Retail_Task__c (Market__c = 'MY');
+          insert retailtaskref;
+            ApexPages.StandardController sc = new ApexPages.StandardController(retailtaskref);
+            ApexPages.currentPage().getParameters().put('id', retailtaskref.Id);
+            RetailtaskInlineEditControllerGeneric rec = new RetailtaskInlineEditControllerGeneric (sc);
+        }
+        test.stopTest();
+    }
+    @IsTest
+     public static void baseFunctionalityTestTH(){
+        test.startTest();
+        User usr = TestUtils.createGenericAdminUser('Australia', 'Asia/Kolkata', 'TH');
+        
+        System.runAs(usr){
+            Retail_Task__c retailtaskref = new Retail_Task__c (Market__c = 'TH');
+          insert retailtaskref;
+            ApexPages.StandardController sc = new ApexPages.StandardController(retailtaskref);
+            ApexPages.currentPage().getParameters().put('id', retailtaskref.Id);
+            RetailtaskInlineEditControllerGeneric rec = new RetailtaskInlineEditControllerGeneric (sc);
+        }
+        test.stopTest();
+    }
 }

@@ -21,7 +21,7 @@ public class AccountHelperINTest {
             //Update Account            
             Acc = TestUtils.UpdateAccount(Acc.id);  
             Account acc2 = TestUtils.createCompanyAccount(user1);
-            acc2.Primary_Address_Reference__c = TestUtils.createAddress(acc2.ID).ID;
+            acc2.Primary_Address_Reference__c = TestUtils.createAddressIN(acc2.ID).ID;
             update acc2;
             list<Account> list3=new list<Account>();
             list3.add(acc2);

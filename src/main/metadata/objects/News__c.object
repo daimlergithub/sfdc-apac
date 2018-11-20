@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <comment>Overriding standard button</comment>
+        <content>RCPNewscmp</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>News_Two_Column_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>News_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>News_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Next_Steps__c</fields>
+        <label>News Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This Object is used to create and post new updates or news on Bulletin.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Approval_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Approval Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Recalled</fullName>
+                    <default>false</default>
+                    <label>Recalled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Approver_List__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>For multiple approvers, Please use CTRL + Select Approver.</inlineHelpText>
+        <label>Approver List</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>WorkFlow_Group__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales Manager</fullName>
+                    <default>false</default>
+                    <label>Sales Manager</label>
+                </value>
+                <value>
+                    <fullName>Sales Director</fullName>
+                    <default>false</default>
+                    <label>Sales Director</label>
+                </value>
+                <value>
+                    <fullName>After Sales Committee</fullName>
+                    <default>false</default>
+                    <label>After Sales Committee</label>
+                </value>
+                <value>
+                    <fullName>After Sales Manager</fullName>
+                    <default>false</default>
+                    <label>After Sales Manager</label>
+                </value>
+                <value>
+                    <fullName>Marketing Manager</fullName>
+                    <default>false</default>
+                    <label>Marketing Manager</label>
+                </value>
+                <value>
+                    <fullName>ND Manager</fullName>
+                    <default>false</default>
+                    <label>ND Manager</label>
+                </value>
+                <value>
+                    <fullName>Approver1</fullName>
+                    <default>false</default>
+                    <label>Approver1</label>
+                </value>
+                <value>
+                    <fullName>Approver10</fullName>
+                    <default>false</default>
+                    <label>Approver10</label>
+                </value>
+                <value>
+                    <fullName>Approver11</fullName>
+                    <default>false</default>
+                    <label>Approver11</label>
+                </value>
+                <value>
+                    <fullName>Approver12</fullName>
+                    <default>false</default>
+                    <label>Approver12</label>
+                </value>
+                <value>
+                    <fullName>Approver2</fullName>
+                    <default>false</default>
+                    <label>Approver2</label>
+                </value>
+                <value>
+                    <fullName>Approver3</fullName>
+                    <default>false</default>
+                    <label>Approver3</label>
+                </value>
+                <value>
+                    <fullName>Approver4</fullName>
+                    <default>false</default>
+                    <label>Approver4</label>
+                </value>
+                <value>
+                    <fullName>Approver5</fullName>
+                    <default>false</default>
+                    <label>Approver5</label>
+                </value>
+                <value>
+                    <fullName>Approver6</fullName>
+                    <default>false</default>
+                    <label>Approver6</label>
+                </value>
+                <value>
+                    <fullName>Approver7</fullName>
+                    <default>false</default>
+                    <label>Approver7</label>
+                </value>
+                <value>
+                    <fullName>Approver8</fullName>
+                    <default>false</default>
+                    <label>Approver8</label>
+                </value>
+                <value>
+                    <fullName>Approver9</fullName>
+                    <default>false</default>
+                    <label>Approver9</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Sales</controllingFieldValue>
+                <valueName>Sales Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales</controllingFieldValue>
+                <valueName>Sales Director</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>After Sales</controllingFieldValue>
+                <valueName>After Sales Committee</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>After Sales</controllingFieldValue>
+                <valueName>After Sales Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Marketing</controllingFieldValue>
+                <valueName>Marketing Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Network Development</controllingFieldValue>
+                <valueName>ND Manager</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Category_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>After Sales</fullName>
+                    <default>false</default>
+                    <label>After Sales</label>
+                </value>
+                <value>
+                    <fullName>Network Development</fullName>
+                    <default>false</default>
+                    <label>Network Development</label>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                    <label>Training</label>
+                </value>
+                <value>
+                    <fullName>Logistic</fullName>
+                    <default>false</default>
+                    <label>Logistic</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Count__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Count</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Allows users to enter up to 131,072 characters on separate lines.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Allows users to enter up to 131,072 characters on separate lines.</inlineHelpText>
+        <label>Content</label>
+        <length>131072</length>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>30</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DocStatus_FileUpload__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>variable using for file upload from UI if doc status is ready to publish</description>
+        <externalId>false</externalId>
+        <label>DocStatus_FileUpload</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Document_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Document Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>false</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Ready to Publish</fullName>
+                    <default>false</default>
+                    <label>Ready to Publish</label>
+                </value>
+                <value>
+                    <fullName>Published</fullName>
+                    <default>false</default>
+                    <label>Published</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+                <value>
+                    <fullName>Pending for Approval</fullName>
+                    <default>false</default>
+                    <label>Pending for Approval</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Recalled</fullName>
+                    <default>false</default>
+                    <label>Recalled</label>
+                </value>
+                <value>
+                    <fullName>Submit for Approval</fullName>
+                    <default>false</default>
+                    <label>Submit for Approval</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Files_Info__c</fullName>
+        <description>To store text if files available in related list</description>
+        <externalId>false</externalId>
+        <label>Files Info</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>'https://asiadvdcp1-daimlerasia.cs5.force.com/MBIndonesia/s/detail/'+ Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Click Here</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mail_Sent__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>To know the status of the news weather sent email notification or not using batchClassForNewsSubscribers apex class.</description>
+        <externalId>false</externalId>
+        <label>Mail Sent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Need_Approval__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>content that should be approved, and also decide if the content does not need approval</description>
+        <externalId>false</externalId>
+        <label>Need Approval</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Next_Steps__c</fullName>
+        <externalId>false</externalId>
+        <formula>If(Save_As_Draft__c == TRUE, "Please uncheck Save as Draft field to Publish News",If(ISPICKVAL(Approval_Status__c,"Rejected"), "If necessary resubmit again for approval after discussion with Rejector",null))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Next Steps</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Owner_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedBy.FirstName &amp; " " &amp; CreatedBy.LastName</formula>
+        <label>Author</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Remarks__c</fullName>
+        <description>content authors can type in comments for the reviewer to see.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Author can enter remarks/comments here.</inlineHelpText>
+        <label>Remarks</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Save_As_Draft__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Content Author can save News as Draft. Which we cannot publish until check box unchecked.</description>
+        <externalId>false</externalId>
+        <label>Draft</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Send_Reminder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Send Reminder</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Share_With_Groups__c</fullName>
+        <externalId>false</externalId>
+        <label>Share With Groups</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>RCP_NewsReader_All</fullName>
+                    <default>false</default>
+                    <label>RCP_NewsReader_All</label>
+                </value>
+                <value>
+                    <fullName>RCP_NewsReader_Restricted_1</fullName>
+                    <default>false</default>
+                    <label>RCP_NewsReader_Restricted_1</label>
+                </value>
+                <value>
+                    <fullName>RCP_NewsReader_Restricted_2</fullName>
+                    <default>false</default>
+                    <label>RCP_NewsReader_Restricted_2</label>
+                </value>
+                <value>
+                    <fullName>RCP_NewsReader_Restricted_3</fullName>
+                    <default>false</default>
+                    <label>RCP_NewsReader_Restricted_3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <length>512</length>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>WorkFlow_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>WFGRP</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Need_Approval__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>After Sales</fullName>
+                    <default>false</default>
+                    <label>After Sales</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Network Development</fullName>
+                    <default>false</default>
+                    <label>Network Development</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>After Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Marketing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Network Development</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <label>News</label>
+    <listViews>
+        <fullName>All_News_Internal_Users</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>Category_Type__c</columns>
+        <columns>WorkFlow_Group__c</columns>
+        <columns>Owner_Name__c</columns>
+        <columns>Document_Status__c</columns>
+        <columns>Approval_Status__c</columns>
+        <columns>Save_As_Draft__c</columns>
+        <columns>Approver_List__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All News</label>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_News_Partner_Users</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>Category_Type__c</columns>
+        <columns>Start_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All News</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allPartnerUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Approval_for_After_Sales_Committee</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Owner_Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>Approver_List__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Approver_List__c</field>
+            <operation>includes</operation>
+            <value>After Sales Committee</value>
+        </filters>
+        <filters>
+            <field>Approval_Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </filters>
+        <label>Pending for After Sales Committee</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBDINA_RCP_AfterSalesCommittee</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Approval_for_After_Sales_Manager</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Owner_Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>Approver_List__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Approval_Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </filters>
+        <filters>
+            <field>Approver_List__c</field>
+            <operation>includes</operation>
+            <value>After Sales Manager</value>
+        </filters>
+        <label>Pending for After Sales Manager</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBDINA_RCP_AfterSalesManager</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Approval_for_Marketing_Manager</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Owner_Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>Approver_List__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Approval_Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </filters>
+        <filters>
+            <field>Approver_List__c</field>
+            <operation>includes</operation>
+            <value>Marketing Manager</value>
+        </filters>
+        <label>Pending for Marketing Manager</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBDINA_RCP_MarketingManager</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Approval_for_ND_Manager</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Owner_Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>Approver_List__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Approval_Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </filters>
+        <filters>
+            <field>Approver_List__c</field>
+            <operation>includes</operation>
+            <value>ND Manager</value>
+        </filters>
+        <label>Pending for ND Manager</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBDINA_RCP_NDManager</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Approval_for_Sales_Director</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Owner_Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>Approver_List__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Approval_Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </filters>
+        <filters>
+            <field>Approver_List__c</field>
+            <operation>includes</operation>
+            <value>Sales Director</value>
+        </filters>
+        <label>Pending for Sales Director</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBDINA_RCP_SalesDirector</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Approval_for_Sales_Manager</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Owner_Name__c</columns>
+        <columns>Title__c</columns>
+        <columns>Approver_List__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Approver_List__c</field>
+            <operation>includes</operation>
+            <value>Sales Manager</value>
+        </filters>
+        <filters>
+            <field>Approval_Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </filters>
+        <label>Pending for Sales Manager</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBDINA_RCP_SalesManager</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBDINA_RCP_Admin_News</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBDINA_RCP_Admin</label>
+        <queue>MBDINA_RCP_Admin</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>Bulletin-{00000}</displayFormat>
+        <label>News Number</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>News</pluralLabel>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>News</fullName>
+        <active>true</active>
+        <description>This record type used in News creation</description>
+        <label>News</label>
+        <picklistValues>
+            <picklist>Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Approver_List__c</picklist>
+            <values>
+                <fullName>After Sales Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After Sales Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Director</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Manager</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category_Type__c</picklist>
+            <values>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Logistic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Network Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Document_Status__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready to Publish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for Approval</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Share_With_Groups__c</picklist>
+            <values>
+                <fullName>RCP_NewsReader_All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RCP_NewsReader_Restricted_1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RCP_NewsReader_Restricted_2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RCP_NewsReader_Restricted_3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WorkFlow_Group__c</picklist>
+            <values>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Network Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>News_After_Approval</fullName>
+        <active>true</active>
+        <description>This record type is used for after approval.</description>
+        <label>News After Approval</label>
+        <picklistValues>
+            <picklist>Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Approver_List__c</picklist>
+            <values>
+                <fullName>After Sales Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After Sales Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Director</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Manager</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category_Type__c</picklist>
+            <values>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Logistic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Network Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Document_Status__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready to Publish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for Approval</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Share_With_Groups__c</picklist>
+            <values>
+                <fullName>RCP_NewsReader_All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RCP_NewsReader_Restricted_1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RCP_NewsReader_Restricted_2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RCP_NewsReader_Restricted_3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WorkFlow_Group__c</picklist>
+            <values>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Network Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>News_Approval</fullName>
+        <active>true</active>
+        <description>This record type is used in approval of News</description>
+        <label>News Approval</label>
+        <picklistValues>
+            <picklist>Approval_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Approver_List__c</picklist>
+            <values>
+                <fullName>After Sales Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After Sales Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Director</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Manager</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category_Type__c</picklist>
+            <values>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Logistic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Network Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Document_Status__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready to Publish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for Approval</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Share_With_Groups__c</picklist>
+            <values>
+                <fullName>RCP_NewsReader_All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RCP_NewsReader_Restricted_1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RCP_NewsReader_Restricted_2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RCP_NewsReader_Restricted_3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WorkFlow_Group__c</picklist>
+            <values>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Network Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Title__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Owner_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Approver_List__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Owner_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Title__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Approver_List__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Approevr_List_is_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+NOT(ISPICKVAL(WorkFlow_Group__c,"")),
+ISBLANK(Approver_List__c)
+)</errorConditionFormula>
+        <errorDisplayField>Approver_List__c</errorDisplayField>
+        <errorMessage>Please select atleast one Approver.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Do_Not_Modify_News_Details</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISPICKVAL(Approval_Status__c ,'Pending'), 
+OR (ISCHANGED(Name),ISCHANGED(Title__c),ISCHANGED(Description__c),ISCHANGED(Approver_List__c),ISCHANGED(Need_Approval__c),ISCHANGED(Category_Type__c),ISCHANGED(Remarks__c),ISCHANGED(Save_As_Draft__c),ISCHANGED(Share_With_Groups__c),ISCHANGED(WorkFlow_Group__c), 
+ISPICKVAL(Document_Status__c,'Expired')) 
+
+)</errorConditionFormula>
+        <errorMessage>You are not allowed to change the News details in this stage</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Do_Not_Modify_News_EndDate</fullName>
+        <active>true</active>
+        <description>Do_Not_Modify_News_EndDate if it is not required. Only can be changed if it is less than start date</description>
+        <errorConditionFormula>AND( 
+NOT($Profile.Name="System Administrator"), 
+ISPICKVAL(Approval_Status__c ,'Pending'), 
+AND(ISCHANGED(Expiration_Date__c),Start_Date__c &gt;= Today() , NOT(ISCHANGED(Start_Date__c))) 
+)</errorConditionFormula>
+        <errorMessage>You are not allowed to change the News details in this stage</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EndDate_should_be_greater_than_StartDate</fullName>
+        <active>true</active>
+        <description>News End Date should be greater than Start Date.</description>
+        <errorConditionFormula>Expiration_Date__c &lt; Start_Date__c</errorConditionFormula>
+        <errorDisplayField>Expiration_Date__c</errorDisplayField>
+        <errorMessage>News End Date should be greater than or equal to Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Start_Date_Should_be_Future_Date</fullName>
+        <active>true</active>
+        <description>News Start Date Should be Future Date.</description>
+        <errorConditionFormula>Start_Date__c  &lt; Today()</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>News Start Date Should be Today or Future Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Workflow_Group_is_Mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+Need_Approval__c == True,
+ISPICKVAL(WorkFlow_Group__c,"")
+)</errorConditionFormula>
+        <errorDisplayField>WorkFlow_Group__c</errorDisplayField>
+        <errorMessage>Please select Workflow Group.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>needforapproval_rule</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+Save_As_Draft__c == True,
+ Need_Approval__c == True
+)</errorConditionFormula>
+        <errorDisplayField>Need_Approval__c</errorDisplayField>
+        <errorMessage>In order to sent for approval please uncheck "Draft".</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

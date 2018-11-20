@@ -259,7 +259,6 @@
         <fields>FIRST_NAME</fields>
         <fields>LAST_NAME</fields>
         <fields>TITLE</fields>
-        <fields>COMPANY</fields>
         <relatedList>RelatedCampaignMemberList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -272,16 +271,6 @@
         <fields>Retail_Campaign__c</fields>
         <fields>Contact__c</fields>
         <relatedList>Campaign_Lead__c.Campaign__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>CAMPAIGN.NAME</fields>
-        <fields>Campaign_Code__c</fields>
-        <fields>CAMPAIGN.STATUS</fields>
-        <fields>Child_Campaign_Status__c</fields>
-        <fields>CAMPAIGN.START_DATE</fields>
-        <fields>CAMPAIGN.END_DATE</fields>
-        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
-        <relatedList>Campaign.Previous_Campaign_Execution__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

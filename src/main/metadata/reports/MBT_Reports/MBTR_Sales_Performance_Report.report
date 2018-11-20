@@ -54,7 +54,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>MBTR - Sales Performance Report</name>
+    <name>MBT - Sales Performance Report</name>
     <params>
         <name>open</name>
         <value>all</value>

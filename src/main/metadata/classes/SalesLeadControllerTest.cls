@@ -125,4 +125,39 @@ public class SalesLeadControllerTest {
         }
         test.stopTest();
     }
+     @IsTest
+    private static void testSaveOpportunity4() {
+        test.startTest();
+        User usr = TestUtils.createGenericAdminUser('Turkey', 'Asia/Kolkata', 'TR');
+        System.runAs(usr){
+            initData();
+            Account acc = [Select Id, Name From Account limit 1];
+            Opportunity oppty = [select Id, Name,closedate From Opportunity Where AccountId =: acc.Id];
+            system.debug('--->'+oppty);
+            ApexPages.currentPage().getParameters().put('recordType','Sales Lead');
+            ApexPages.currentPage().getParameters().put('accID', acc.Id);
+            ApexPages.StandardController objsc = new ApexPages.StandardController(oppty);
+            SalesLeadController slc = new SalesLeadController(objsc);
+            PageReference pageRef = Page.SalesLeadPage;
+            
+            List<Car_Model__c> carModelList = TestUtils.createBulkCarModel(7);
+            list<Lead_Details__c> ldList = TestUtils.createBulkLeadDetails(oppty, carModelList);
+            for(Lead_Details__c ld : ldList){
+                ld.Preferred__c = true;
+                slc.allVehicles.add(ld);
+            }
+            slc.AddIntRecord();
+            slc.AddCompRecord();
+            slc.UpdateModInfo();
+            slc.Vehrel();
+            slc.PreferredChk();
+            slc.PreferredChkComp();
+            slc.opp.Name = oppty.Name;
+            slc.opp.closedate = oppty.closedate;
+            system.debug('before save'+oppty);
+            slc.saveOpp();
+            slc.Cancel();
+        }
+        test.stopTest();
+    }
 }

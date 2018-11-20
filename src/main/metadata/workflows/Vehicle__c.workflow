@@ -17,8 +17,8 @@ MOD( YEAR( Latest_Invoice_Date__c ), 100 ) != 0
 )
 ) 
 ),
-Date( YEAR( Latest_Invoice_Date__c ) + 2, 3, 1),
-Date( YEAR( Latest_Invoice_Date__c ) + 2, MONTH( Latest_Invoice_Date__c ), DAY( Latest_Invoice_Date__c ) )
+Date( YEAR( Latest_Invoice_Date__c ) + 3, 3, 1),
+Date( YEAR( Latest_Invoice_Date__c ) + 3, MONTH( Latest_Invoice_Date__c ), DAY( Latest_Invoice_Date__c ) )
 )</formula>
         <name>Warranty_End_Date_for_NewCar</name>
         <notifyAssignee>false</notifyAssignee>
@@ -60,15 +60,28 @@ DAY( Latest_Invoice_Date__c)
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Warranty_Start_Date_Update</fullName>
+        <field>Warranty_Start_Date__c</field>
+        <formula>Latest_Invoice_Date__c</formula>
+        <name>Warranty_Start_Date_Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Warranty_End _Date_for_NewCar</fullName>
         <actions>
             <name>Warranty_End_Date_for_NewCar</name>
             <type>FieldUpdate</type>
         </actions>
+        <actions>
+            <name>Warranty_Start_Date_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>true</active>
-        <description>If the vehicle is checked as NEW then warranty end date should be &quot;invoice date + 2 years&quot;</description>
-        <formula>AND( ISPICKVAL( New_Used__c , &apos;Used&apos;) , ISPICKVAL( Market__c , &apos;TR&apos;) )</formula>
+        <description>If the vehicle is checked as NEW then warranty end date should be &quot;invoice date + 3 years&quot;</description>
+        <formula>AND( ISPICKVAL( New_Used__c , &apos;New&apos;) , ISPICKVAL( Market__c , &apos;TR&apos;), RecordType.Name == &apos;MB&apos;, $User.Alias == &apos;iinf&apos; )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -77,9 +90,13 @@ DAY( Latest_Invoice_Date__c)
             <name>Warranty_End_Date_for_UsedCar</name>
             <type>FieldUpdate</type>
         </actions>
+        <actions>
+            <name>Warranty_Start_Date_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>true</active>
         <description>If the vehicle is checked as USED then warranty end date should be &quot;invoice date + 6 months&quot;</description>
-        <formula>AND( ISPICKVAL( New_Used__c , &apos;Used&apos;) , ISPICKVAL(  Market__c , &apos;TR&apos;))</formula>
+        <formula>AND( ISPICKVAL( New_Used__c , &apos;Used&apos;) , ISPICKVAL(  Market__c , &apos;TR&apos;),RecordType.Name == &apos;MB&apos;, $User.Alias == &apos;iinf&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

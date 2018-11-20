@@ -1,0 +1,9 @@
+<aura:documentation>
+	<aura:description>
+        <p><code>c:reportNewsWorkFlows</code> component to show WorkFlow Group and Approver List from News Object.</p>
+        <p>This component uses <code>lightning:datatable</code> to display results on the UI. We are fetching Dependeent Field (Approver List) Description to show Workflow Group and Approvers List on the UI</p>        
+    </aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		Example Description
+	</aura:example>
+</aura:documentation>

@@ -1,0 +1,65 @@
+<aura:component controller="InlineAddressLightning" 
+                implements="force:hasRecordId,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" 
+                access="global" >
+    
+   <aura:attribute name="recordId" type="Id" />
+   
+   <aura:attribute name="objAccount" type="Account" access="global"/> 
+   <aura:attribute name="accTargetRecord" type="Account" access="global"/> 
+ 
+   
+   <aura:attribute name="lstAddresses" type="Address__c[]" access="global"/>
+   <aura:attribute name="displaySidebarFields" type="String[]"/>
+   <aura:attribute name="displayListAddress" type="String[]"/>
+   <aura:attribute name="displayOutputFieldListAddress" type="String[]"/>
+   
+   <aura:attribute name="disableAddMoreAddress" type="Boolean" default="true" />
+   <aura:attribute name="showAddAddress" type="Boolean" access="global" default="false"/>
+   <aura:attribute name="maxAddressCount" type="Integer" default="2" />
+   <aura:attribute name="initOccured" type="Boolean" default="false" />
+    
+    <aura:handler name="AddressDeleted" event="c:AddressDeleted" action="{!c.handleAddressDelete}"/>
+    <aura:handler name="AddressCreated" event="c:AddressCreated" action="{!c.handleAddressCreation}"/>
+    
+   <force:recordData  aura:id="addressService"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.objAccount}"
+                      layoutType="FULL" 
+                      recordUpdated="{!c.recordUpdated}"
+                    />
+      
+   <div class="slds-m-top_xxx-small" style="border:none">
+      <aura:if isTrue="{!v.showAddAddress}">
+         <c:AddEditAddress  myObject="{'sobjectType': 'Address__c'}"  
+                            headingName="New Record" 
+                            accountRecord="{!v.objAccount}" 
+                            AddEditAddress="{!v.showAddAddress}" 
+                            displayListAddress="{!v.displayListAddress}" />
+      </aura:if>
+      <lightning:card iconName="standard:home"  title="Address" class="defaultcoloring">
+         <aura:set attribute="actions">
+            <lightning:buttonIcon   disabled="{!v.disableAddMoreAddress}" 
+                                    iconName="utility:new" 
+                                    variant="bare" 
+                                    size="large" 
+                                    alternativeText="create Record" 
+                                    onclick="{!c.navigateToCreateAddress}"/>
+         </aura:set>
+         <div class="slds-p-left--medium slds-p-right--medium">
+            <ul class="slds-list--vertical slds-has-dividers--top-space">
+               <aura:iteration items="{!v.lstAddresses}" var="item" indexVar="indexVal">
+                  <li class="slds-list__item">
+                     <c:inlineAddressLightningGrid addressObj="{!item}" 
+                                                   accountRecord="{!v.objAccount}"                                                   
+                                                   index="{!indexVal}" 
+                                                   displaySidebarFields="{!v.displaySidebarFields}"
+                                                   displayListAddress="{!v.displayListAddress}"
+                                                   displayOutputFieldListAddress="{!v.displayOutputFieldListAddress}"
+                                                   />
+                  </li>
+               </aura:iteration>
+            </ul>
+         </div>
+      </lightning:card>
+   </div>
+</aura:component>

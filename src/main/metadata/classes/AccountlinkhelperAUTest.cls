@@ -103,12 +103,13 @@ public class AccountlinkhelperAUTest {
             acMapList.put(acclnk.id,acclnk);
                         
             AccountlinkhelperAU my= new AccountlinkhelperAU();
-          //  my.RevokeApexSharingAfterUpdate(acclinklist,acMapList, acclinklist);
-            my.ValidateC2CAfterUpdateInsert(acclinklist,Label.AU,false,true,aclist);
+          // my.RevokeApexSharingAfterUpdate(acclinklist,acMapList, acclinklist);
+			 my.ValidateC2CAfterUpdateInsert(acclinklist,Label.AU,false,true,aclist);
              my.addressupdateRT(acclinklist,acMapList);
-            my.InvokeCDMAccountlinkContaxt(acclinklist,Label.AU,'Context');
+			 my.InvokeCDMAccountlinkContaxt(acclinklist,Label.AU,'Context');
              my.afterInsertEventShareRetailCopy(acclinklist);
              my.afterInsertEventShareAccount(acclinklist);
+			 my.RemoveAccessofUsers(acclinklist);
 
             test.stopTest();
     

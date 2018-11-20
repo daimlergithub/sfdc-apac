@@ -20,14 +20,14 @@ public class SalesLeadEditControllerTest {
     public static List<Car_Model__c> carModelList;
     public static List<Lead_Details__c> ledDetList;
     
-      @TestSetup
+    @TestSetup
     
     public static void initData(){
         Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
         user usr = new User(Alias = 'standt', Email='testUser@testorg.com', 
-                              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
-                              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='IN',
-                              TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+                            EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                            LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='IN',
+                            TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
         DMLManagerService.insertAsSystem(usr);
         System.runAs(usr){
             companyAcc = TestUtils.createGenericAccount(usr, '123456', companyAccRecordTypeId, '1234567890');
@@ -44,21 +44,25 @@ public class SalesLeadEditControllerTest {
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name From Account limit 1];
-           // Opportunity oppty = [select Id, Name From Opportunity];
-        Opportunity opp = new Opportunity();
-        opp.AccountId =  companyAcc.Id;
-        opp.StageName = 'New';
-        opp.Market__c = 'IN';
-        opp.Name = 'Generic Opportunity';
-        opp.RecordTypeId = salesLeadRecordTypeId;
-        opp.CloseDate = Date.newInstance(2018, 4, 17);
-        opp.Selected_Car_Model__c ='CLA;A-Class'; 
-        insert opp;   
+            // Opportunity oppty = [select Id, Name From Opportunity];
+            Opportunity opp = new Opportunity();
+            opp.AccountId =  companyAcc.Id;
+            opp.StageName = 'New';
+            opp.Market__c = 'IN';
+            opp.Name = 'Generic Opportunity';
+            opp.RecordTypeId = salesLeadRecordTypeId;
+            opp.Lead_Type__c = 'Activities';
+            opp.Lead_Sub_Type__c = 'Dealer Event';
+            opp.Lead_DataSource__c = 'Event';
+            opp.Type_of_Sale__c = 'Corporate';
+            opp.CloseDate = Date.Today();
+            opp.Selected_Car_Model__c ='CLA;A-Class'; 
+            insert opp;   
             List<Car_Model__c> cmlList = [Select Id, Name From Car_Model__c limit 14];
             List<Lead_Details__c> ldList = [Select Id, Name From Lead_Details__c Where Related_Lead__c =: opp.Id];
             ApexPages.currentPage().getParameters().put('id', opp.Id);
             ApexPages.StandardController objsc = new ApexPages.StandardController(opp);
-
+            
             SalesLeadEditController slec = new SalesLeadEditController(objsc);
             PageReference pageRef = Page.SalesLeadEditPage;
             slec.getTradeInVehicles();
@@ -79,16 +83,20 @@ public class SalesLeadEditControllerTest {
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name From Account limit 1];
-           // Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
-        Opportunity opp = new Opportunity();
-        opp.AccountId =  companyAcc.Id;
-        opp.StageName = 'New';
-        opp.Market__c = 'IN';
-        opp.Name = 'Generic Opportunity';
-        opp.RecordTypeId = salesLeadRecordTypeId;
-        opp.CloseDate = Date.newInstance(2018, 4, 17);
-        opp.Selected_Car_Model__c ='CLA;A-Class'; 
-        insert opp;   
+            // Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
+            Opportunity opp = new Opportunity();
+            opp.AccountId =  companyAcc.Id;
+            opp.StageName = 'New';
+            opp.Market__c = 'IN';
+            opp.Name = 'Generic Opportunity';
+            opp.RecordTypeId = salesLeadRecordTypeId;
+            opp.Lead_Type__c = 'Activities';
+            opp.Lead_Sub_Type__c = 'Dealer Event';
+            opp.Lead_DataSource__c = 'Event';
+            opp.Type_of_Sale__c = 'Corporate';
+            opp.CloseDate = Date.Today();
+            opp.Selected_Car_Model__c ='CLA;A-Class'; 
+            insert opp;   
             ApexPages.currentPage().getParameters().put('id', opp.Id);
             ApexPages.StandardController objsc = new ApexPages.StandardController(opp);
             SalesLeadEditController slec = new SalesLeadEditController(objsc);
@@ -146,15 +154,19 @@ public class SalesLeadEditControllerTest {
             initData();
             Account acc = [Select Id, Name From Account limit 1];
             //Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
-        Opportunity opp = new Opportunity();
-        opp.AccountId =  companyAcc.Id;
-        opp.StageName = 'New';
-        opp.Market__c = 'IN';
-        opp.Name = 'Generic Opportunity';
-        opp.RecordTypeId = salesLeadRecordTypeId;
-        opp.CloseDate = Date.newInstance(2018, 4, 17);
-        opp.Selected_Car_Model__c ='CLA;A-Class'; 
-        insert opp;   
+            Opportunity opp = new Opportunity();
+            opp.AccountId =  companyAcc.Id;
+            opp.StageName = 'New';
+            opp.Market__c = 'IN';
+            opp.Name = 'Generic Opportunity';
+            opp.RecordTypeId = salesLeadRecordTypeId;
+            opp.Lead_Type__c = 'Activities';
+            opp.Lead_Sub_Type__c = 'Dealer Event';
+            opp.Lead_DataSource__c = 'Event';
+            opp.Type_of_Sale__c = 'Corporate';
+            opp.CloseDate = Date.Today();
+            opp.Selected_Car_Model__c ='CLA;A-Class'; 
+            insert opp;   
             System.debug('oppty==>' + opp);
             ApexPages.currentPage().getParameters().put('id', opp.Id);
             ApexPages.StandardController objsc = new ApexPages.StandardController(opp);
@@ -207,7 +219,7 @@ public class SalesLeadEditControllerTest {
         }
         test.stopTest();
     }  
-     public static List<Car_Model__c> createBulkCarModel(Integer n){
+    public static List<Car_Model__c> createBulkCarModel(Integer n){
         List<Car_Model__c> cModelList = new List<Car_Model__c>();
         for(Integer i=0; i<5; i++){
             Car_Model__c cm = new Car_Model__c();

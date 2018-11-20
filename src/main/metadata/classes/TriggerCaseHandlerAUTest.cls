@@ -7,7 +7,7 @@ public static Market__c market_Obj;
 public static Functionality_Access_Master__c functionality_access_master_Obj ;
 public static Persona__c persona_Obj; 
 
-static testMethod void testTriggerCaseHandlerMY1() {
+static testMethod void testTriggerCaseHandlerAU1() {
     Profile p1 = [select id, name from profile where Name='System Administrator' limit 1];
     user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
         EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
@@ -23,7 +23,7 @@ static testMethod void testTriggerCaseHandlerMY1() {
         ps.Name = 'Test';
         ps.Label = 'Test';
         insert ps;
-        Set<String> customperms = new Set<String>{Label.MYRetail, Label.AUGeneric, Label.CreateRetailCopy};
+        Set<String> customperms = new Set<String>{Label.AURetail, Label.AUGeneric, Label.CreateRetailCopy};
         List<CustomPermission> lcps = new List<CustomPermission>([SELECT ID From CustomPermission WHERE MasterLabel IN :customperms]);
     List<SetupEntityAccess> lsetupentity = new List<SetupEntityAccess>();
         for(CustomPermission cps: lcps){

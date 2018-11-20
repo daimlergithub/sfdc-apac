@@ -1,0 +1,132 @@
+<aura:component controller="InlineAddressLightning" access="global" >
+    <aura:attribute name="addressObj" type="Address__c" />
+    <aura:attribute name="recordObj" type="Address__c" />
+    
+    <aura:attribute name="accountRecord" type="Object" description="A simplified view record object to be displayed"/>
+    <aura:attribute name="index" type="Integer" />
+    <aura:attribute name="displaySidebarFields" type="String[]"/>
+    <aura:attribute name="displayOutputFieldListAddress" type="String[]"/>
+    <aura:attribute name="displayListAddress" type="String[]"/>
+    <aura:attribute name="fieldsToQuery" type="String[]" default="['Address_Type__c']" />
+    
+    <aura:attribute name="editIt" type="boolean"/>
+    <aura:attribute name="recordView" type="boolean"/>
+    <aura:attribute name="deleteit" type="boolean"/>
+    
+    <aura:attribute name="addressRecordLds" type="Address__c" description="The record object to be displayed"/>
+    
+    
+    <aura:registerEvent name="AddressDeleted" type="c:AddressDeleted"/>
+    
+    <force:recordData 	aura:id="addrRecord"
+                        layoutType="FULL"
+                        recordId="{!v.addressObj.Id}"
+                      	targetFields ="{!v.addressRecordLds}"
+                      	targetRecord="{!v.recordObj}"
+                      	/>
+                  
+    
+    <aura:if isTrue="{!v.deleteit}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <h2 id="header99" class="slds-text-heading--medium">Confirmation for deletion</h2>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <p><b>Do you want to Delete ?</b>
+                    </p>
+                </div>
+                
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}" >Cancel</button>
+                    <button class="slds-button slds-button--brand" onclick="{!c.deleteRecord}">Confirm Delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if> 
+    
+    <aura:if isTrue="{!v.editIt}">
+        <c:AddEditAddress   myObject="{!v.addressObj}" 
+                            headingName="Update Address" 
+                            accountRecord="{!v.accountRecord}"  
+                            AddEditAddress="{!v.editIt}" 
+                            displayListAddress="{!v.displayListAddress}"/>
+                            <!-- 
+                            lstAddresses="{!v.lstAddresses}"  -->
+    </aura:if>
+    
+    <aura:if isTrue="{!v.recordView}"> 
+            <div class="slds-modal slds-fade-in-open slds-modal--medium" style="padding-top:118px;">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <h2 class="slds-text-heading--medium">Address</h2>                        
+                    </div>
+                    <div class="slds-modal__content">  
+                       <c:inlineAddressLightningView 
+                                        sObjectId="{!v.addressObj.Id}" 
+                                        displayOutputFieldListAddress="{!v.displayOutputFieldListAddress}" 
+                                        />
+                    </div>
+                    <div class="slds-modal__footer">                        
+                        <ui:button class="slds-button slds-button--neutral" press="{!c.cancelViewRecord}">Close</ui:button>
+                    </div>
+                </div> 
+            </div> 
+            <div class="slds-backdrop slds-backdrop--open"></div>
+        </aura:if>
+        
+    <div class="slds-media">
+         
+        
+        
+        
+        <div ><!-- class="slds-media__body" -->
+            
+            <div class="slds-grid"> 
+                <div class="slds-col">
+                    <div class="slds-grid"> 
+                        <div class="slds-col"> 
+                            <button class="slds-button" onclick="{!c.viewRecord}">
+                                <lightning:Icon iconName="standard:address" title="View Address" alternativeText="address"/>
+                            </button>
+                            <h3 class="slds-text-heading--small slds-m-bottom--xx-small slds-m-left--x-small" style="display: inline;">{!v.addressRecordLds.Address_Type__c}</h3>
+                        </div>
+                       
+                    </div>
+                </div>
+                
+                
+                
+                <div class="slds-col slds-float_right" style="text-align: right;">
+                    <lightning:buttonIcon iconName="utility:edit" class="slds-col--bump-left" variant="bare" alternativeText="Edit Record" onclick="{!c.editRecord}" />
+                    <lightning:buttonIcon iconName="utility:delete" class="slds-col--bump-left" variant="bare" alternativeText="Delete Record" onclick="{!c.ConfirmdeleteRecord}" /> 
+                </div>
+            </div>
+            
+            <div aura:id="addressDetails" class="slds-m-top--small">
+                <lightning:recordViewForm 
+                                  aura:id="recordViewForm" 
+                                  recordId="{!v.addressObj.Id}"
+                                  objectApiName="Address__c">
+                    <lightning:messages />
+                    <div class="slds-media slds-box">
+                        <div class="slds-media__body">
+                            <div aura:id="addressDetails" >
+                                <div class="slds-grid slds-gutters slds-wrap"> 
+                                    <aura:iteration items="{!v.displaySidebarFields}" var="item" >
+                                        <div class="slds-size_1-of-2 slds-form-element_separator">
+                                            <lightning:outputField fieldName="{!item}" />   
+                                        </div>
+                                    </aura:iteration> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </lightning:recordViewForm>
+            </div>
+        </div>
+        
+    </div>
+</aura:component>

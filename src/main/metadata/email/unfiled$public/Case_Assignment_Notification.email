@@ -1,0 +1,13 @@
+Sayın İlgili,
+
+Tarafınıza bir çağrı atanmıştır.
+
+Kontak : {!Case.Account} 
+Çağrı numarası: {!Case.CaseNumber}
+Konu: {!Case.Subject}
+Açıklama: {!Case.Description}							   
+
+Çağrı detaylarına ulaşmak için alttaki linke tıklayabilirsiniz: 
+{!Case.Link} 
+
+Mercedes-Benz Müşteri İletişim Merkezi

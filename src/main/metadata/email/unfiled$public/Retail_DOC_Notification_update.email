@@ -1,0 +1,13 @@
+Sayın İlgili,
+
+{!Account_Link__c.toRole__c} adlı kayda ait izin bilgileri aşağıdaki şekilde güncellenmiştir.
+
+Email izni - {!IF(Account_Link__c.Retail_Email_OptIn__c, "Evet", "Hayır")}
+Posta izni - {!IF(Account_Link__c.Retail_Postal_OptIn__c, "Evet", "Hayır")}
+Arama izni - {!IF(Account_Link__c.Retail_Phone_OptIn__c, "Evet", "Hayır")}
+SMS izni - {!IF(Account_Link__c.Retail_SMS_OptIn__c, "Evet", "Hayır")}
+
+Detaylı bilgi almak ve güncelleme yapmak için  bayimiz ile iletişime geçebilirsiniz.
+
+Teşekkür ederiz,
+Mercedes-Benz Müşteri İletişim Merkezi - {!Account_Link__c.fromRole__c}

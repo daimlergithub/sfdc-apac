@@ -1,0 +1,152 @@
+<apex:page standardController="Opportunity" extensions="FSOppInlineVehicleController" lightningStylesheets="true">
+  <apex:form id="form">
+      <apex:pageBlock rendered="{!IF($Permission.INGeneric || $Permission.AUGeneric|| $Permission.NZGeneric , true, false)}">
+          <!-- Interested Vehicle -->
+          <apex:pageMessages id="msg1" />
+          <apex:pageBlockSection title="Interested Vehicle Information" columns="1" id="sec1" rendered="{!IF($Permission.INGeneric , true, false)}" >
+          <!--<apex:pageMessages id="pgmsg"/> -->
+          <apex:commandButton value=" Add Interested Vehicle" action="{!addIntRecord}" rendered="{!isHide}" reRender="pb1, pgmsg"/>
+               <apex:pageBlockTable id="pb1" value="{!intVehicle}" var="intveh" style="width:900px;" >
+                    <apex:column >
+                    <!--Link to  edit a address record -->
+                    <apex:commandLink action="{!EditOptions}" value="Edit" style="color:blue;white-space:nowrap;" >
+                            <!--pass row id parameter to controller  -->
+                            <apex:param name="edit" value="{!intveh.Id}" assignTo="{!editaddressId}"/>
+                    </apex:commandLink>
+                    </apex:column>
+                    <apex:column headerValue="Car Model">
+                        <apex:inputField value="{!intveh.Car_Model__c}" onchange="UpdateModInfo(this)" rendered="{!editaddressId == intveh.Id}"/>
+                        <apex:outputField value="{!intveh.Car_Model__c}" rendered="{!!(editaddressId == intveh.Id)}" style="width:7%; white-space:none;" />
+                    </apex:column>   
+                    <apex:column headerValue="Brand" rendered="{!IF($Permission.INGeneric, false, true)}">
+                        <apex:outputField value="{!intveh.Brand__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Class" rendered="{!IF($Permission.INGeneric, false, true)}">
+                        <apex:outputField value="{!intveh.Class__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                   <apex:column headerValue="Brand" rendered="{!IF($Permission.INGeneric, true,false)}">
+                        <apex:outputField value="{!intveh.Brand_Picklist__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Class" rendered="{!IF($Permission.INGeneric, true,false)}">
+                        <apex:outputField value="{!intveh.Class_Picklist__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Color">
+                        <apex:outputField value="{!intveh.Color__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Preferred">
+                        <apex:inputfield value="{!intveh.Preferred__c}" onchange="PreferredChk(this)" rendered="{!editaddressId == intveh.Id}"/>
+                        <apex:outputField value="{!intveh.Preferred__c}" rendered="{!!(editaddressId == intveh.Id)}" style="width:7%; white-space:none;"/>
+                        </apex:column>
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            <!-- Competetor Vehicle -->
+            <apex:pageBlockSection title="Competetor Vehicle Information" columns="1" >
+            <!--<apex:pageMessages id="pgmsg1"/>-->
+            <apex:commandButton value=" Add Competitor Vehicle" action="{!addCompRecord}" reRender="pb2, pgmsg1" rendered="{!isHidecomp}"/>
+                <apex:pageBlockTable id="pb2" value="{!compVehc}" var="compveh" style="width:900px;" >
+                <apex:column >
+                    <!--Link to  edit a address record -->
+                    <apex:commandLink action="{!EditOptions}" value="Edit" style="color:blue;white-space:nowrap;">
+                            <!--pass row id parameter to controller  -->
+                            <apex:param name="edit" value="{!compveh.Id}" assignTo="{!editaddressId}"/>
+                    </apex:commandLink>
+                    </apex:column>
+                    <apex:column headerValue="Car Model">
+                        <apex:inputField value="{!compveh.Car_Model_Competitor__c}" onchange="UpdateModInfo(this)" rendered="{!editaddressId == compveh.Id}"/>
+                        <apex:outputField value="{!compveh.Car_Model_Competitor__c}" rendered="{!!(editaddressId == compveh.Id)}" style="width:7%; white-space:none;"/>
+                    </apex:column>
+                    <apex:column headerValue="Brand" rendered="{!IF($Permission.INGeneric, false,true)}">
+                        <apex:outputField value="{!compveh.Brand__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Class" rendered="{!IF($Permission.INGeneric, false,true)}">
+                        <apex:outputField value="{!compveh.Class__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Brand" rendered="{!IF($Permission.INGeneric, true,false)}">
+                        <apex:outputField value="{!compveh.Brand_Picklist__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Class" rendered="{!IF($Permission.INGeneric, true,false)}">
+                        <apex:outputField value="{!compveh.Class_Picklist__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Color">
+                        <apex:outputField value="{!compveh.Color__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Preferred">
+                        <apex:inputfield value="{!compveh.Preferred__c}" onchange="PreferredChkComp(this)" rendered="{!editaddressId == compveh.Id}"/>
+                        <apex:outputField value="{!compveh.Preferred__c}" rendered="{!!(editaddressId == compveh.Id)}" style="width:7%; white-space:none;"/>
+                    </apex:column>
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            <!-- Trade In Vehicle -->
+            <apex:pageBlockSection title="Trade In Vehicle Information" columns="1" >
+                <apex:commandButton value="Edit Trade In Details" action="{!editTradeInDetails}" reRender="pb3, pgmsg1" rendered="{!isHidecomp}"/>
+                <apex:pageBlockTable id="pb3" value="{!tradeVehc}" var="tradeveh" style="width:900px;" >
+                    <apex:column headerValue="Trade-In Vehicle" >
+                        <apex:outputPanel rendered="{!!editTradeInFlg}"><apex:outputField value="{!tradeveh.Trade_In_Vehicle__c}"/></apex:outputPanel>
+                        <apex:outputPanel rendered="{!editTradeInFlg}"><apex:inputField value="{!tradeveh.Trade_In_Vehicle__c}"/></apex:outputPanel>
+                        </apex:column>
+                    <apex:column headerValue="Year of Manufacture">
+                        <apex:outputPanel rendered="{!!editTradeInFlg}"><apex:outputField value="{!tradeveh.Year_of_Manufacture__c}"/></apex:outputPanel>
+                        <apex:outputPanel rendered="{!editTradeInFlg}"><apex:inputField value="{!tradeveh.Year_of_Manufacture__c}"/></apex:outputPanel>
+                        </apex:column>
+                    <apex:column headerValue="Mileage">
+                        <apex:outputPanel rendered="{!!editTradeInFlg}"><apex:outputField value="{!tradeveh.Mileage__c}"/></apex:outputPanel>
+                        <apex:outputPanel rendered="{!editTradeInFlg}"><apex:inputField value="{!tradeveh.Mileage__c}"/></apex:outputPanel>
+                        </apex:column>
+                    <apex:column headerValue="Trim">
+                        <apex:outputPanel rendered="{!!editTradeInFlg}"><apex:outputField value="{!tradeveh.Trim__c}"/></apex:outputPanel>
+                        <apex:outputPanel rendered="{!editTradeInFlg}"><apex:inputField value="{!tradeveh.Trim__c}"/></apex:outputPanel>
+                        </apex:column>
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            <!-- Current Vehicle -->
+           <apex:pageBlockSection title="Current Vehicle Information" columns="1" >
+                <apex:pageBlockTable id="pb4" value="{!Vehrel}"  var="currveh" style="width:900px;" >
+                    <apex:column headerValue="Car Model">
+                        <apex:outputLabel value="{!currveh.Vehicle_Model__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Brand">
+                        <apex:outputLabel value="{!currveh.Vehicle_Brand__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Class">
+                        <apex:outputLabel value="{!currveh.Vehicle_Class__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Mileage Start">
+                        <apex:outputLabel value="{!currveh.Mileage_start__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Mileage">
+                        <apex:outputLabel value="{!currveh.Mileage_End__c}" />
+                    </apex:column>
+                </apex:pageBlockTable>        
+            </apex:pageBlockSection>
+            
+
+            <apex:actionFunction name="UpdateModInfo" action="{!UpdateModInfo}" reRender="pb1,pb2,pb3">
+            </apex:actionFunction>
+            <apex:actionFunction name="PreferredChk" action="{!PreferredChk}" reRender="msg1,pgmsg,pb1">
+            </apex:actionFunction>
+            <apex:actionFunction name="PreferredChkComp" action="{!PreferredChkComp}" reRender="msg1,pgmsg1,pb2">
+            </apex:actionFunction>
+            
+
+            <apex:pageBlockButtons >
+                <!--<apex:commandButton style="float:centre" value=" Save " action="{!savecase}" reRender="msg,msg1" oncomplete="window.top.location='/{!recID}';"/>-->
+                <apex:commandButton style="float:centre" value=" Save " action="{!savecase}" reRender="form"/>
+            </apex:pageBlockButtons> 
+            
+
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

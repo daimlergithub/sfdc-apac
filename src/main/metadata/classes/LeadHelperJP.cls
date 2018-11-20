@@ -28,10 +28,9 @@ public class LeadHelperJP
     private static final EmailTemplate salesAdvisorNotification =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to Service Advisor' limit 1]; 
    
     
-    public static void updateCustomerStage(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
+     public static void updateCustomerStage(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
     {
-        
-        // Variables Declaration 
+         // Variables Declaration 
         set<id> contactIdsUpd = new set<id>(); 
         set<id> contactIdsIns = new set<id>();
         set<id> accountIds = new set<id>();
@@ -45,21 +44,25 @@ public class LeadHelperJP
         List<Account> AccountListUpd =  new List<Account>();
          List<Account> UpdateAcc=  new List<Account>();
         list<Account> AccountsToBeUpdated = new list<Account>();
-        List<Lead__c> Leads = new List<Lead__c>();
-        List<Lead__c> salesLeads = new List<Lead__c>();
-        List<Lead__c> afterLeads = new List<Lead__c>();
-        List<Lead__c> salesaftersalesLeads = new List<Lead__c>();
-        
-        boolean flag=false;
+        List<Lead__c> Leads = new List<Lead__c>(); 
+        map<id,Account> accountMap1 = new Map<id,Account>();        
+        map<id,List<id>> AccLeadMap1 = new map<id,List<id>>();
+        map<id,Lead__c> leadMap1 = new Map<id,Lead__c>();
+         boolean salesLeadPresent=false;
+        boolean aftersalesLeadPresent=false;
+        Set<Account> accSet = new Set<Account>();
+        map<id,Account> accountMap = new Map<id,Account>();
+         boolean flag=false;
     if(Label.isInformaticaUserJP == 'true')
       flag=true;    
     String usrName=assigneduser.Username;
-    if(assigneduser.Profile.Name == 'IntegrationAPI' && flag && usrName.contains('integration.inf@infosys.com'))      
+    if(assigneduser.Profile.Name == 'IntegrationAPI' && flag && usrName.contains(Label.InfomraticaUserLabel))      
        {
         updateCustomerStageInform(listNewLeads,LeadOldMap,LeadNewMap);
         
        }
-       else {
+       else{
+        
         if(LeadUtil.updateCustomerStageMethod){
         for(Lead__C lead : listNewLeads)
         {
@@ -78,15 +81,16 @@ public class LeadHelperJP
                     }
                     ContactDealerMap.put(lead.contact__C,lead.Assigned_Dealer__c); // Contact Dealer map 
                     
-                    if(lead.Contact__c != null && ((oldLead.CAC_Lead_Status__c != lead.CAC_Lead_Status__c) || (oldLead.Dealer_Lead_Status__c != lead.Dealer_Lead_Status__c)) && (lead.CAC_Lead_Status__c == 'Approved' || lead.CAC_Lead_Status__c == 'Allocated') && lead.Dealer_Lead_Status__c != ('Purchased(Only Non BDC)') && lead.Dealer_Lead_Status__c !='Lost')
+                   
+                }
+                 if(lead.Contact__c != null && ((oldLead.CAC_Lead_Status__c != lead.CAC_Lead_Status__c) || (oldLead.Dealer_Lead_Status__c != lead.Dealer_Lead_Status__c)) && (lead.CAC_Lead_Status__c == 'Approved' || lead.CAC_Lead_Status__c == 'Allocated') && lead.Dealer_Lead_Status__c != ('Purchased(Only Non BDC)') && lead.Dealer_Lead_Status__c !='Lost' ) //
                     {
                     accountIds.add(lead.Contact__c);
                     }
-                }
                 
-                if(oldLead.CAC_Lead_Status__c != lead.CAC_Lead_Status__c && (lead.CAC_Lead_Status__c == 'Purchased(Only Non BDC)' ||
-                                                                             lead.CAC_Lead_Status__c == 'Lost(CAC)' || 
-                                                                             lead.CAC_Lead_Status__c == 'Not Allocated'))
+                if(oldLead.Dealer_Lead_Status__c != lead.Dealer_Lead_Status__c && (lead.Dealer_Lead_Status__c == 'Purchased(Only Non BDC)' ||
+                                                                             lead.Dealer_Lead_Status__c == 'Lost' || 
+                                                                             lead.Dealer_Lead_Status__c == 'Not Allocated'))
                 {
                     system.debug('!!!!!!!!'+'inside 2nd case loop trigger.new');
                     if(lead.Contact__c != null){
@@ -94,179 +98,143 @@ public class LeadHelperJP
                     }
                     
                 }
-            }
+                 }
         }
-        if(accountIds !=null)
-        { 
-        salesLeads=[Select id from Lead__c Where Recordtypeid=:salesRecordTypeId and Contact__c=:accountIds and ((Dealer_Lead_Status__c != 'Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Lost'))];
-        afterLeads =[Select id from Lead__c Where Recordtypeid=:afterSalesRecordTypeId and Contact__c=:accountIds and ((Dealer_Lead_Status__c != 'Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Lost'))];
-        salesaftersalesLeads =[Select id from Lead__c Where (Recordtypeid=:salesRecordTypeId OR Recordtypeid=:afterSalesRecordTypeId ) and Contact__c=:accountIds and ((Dealer_Lead_Status__c != 'Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Lost'))];
+                 System.debug('accountIds@@@'+ accountIds.size());
+        System.debug('contactIdsIns@@@'+ contactIdsIns.size());
+        if(accountIds !=null && accountIds.size() >0)
+        {
+            
         AccountListUpd = [select id,Customer_Lifecycle_Phase__c from Account where id in :accountIds]; 
-        
-        if(!AccountListUpd.isEmpty())
+        for(Account acc:AccountListUpd){
+                accountMap1.put(acc.id,acc);
+            }        
+            List<Lead__c> Leads11 = [select id,contact__c,CAC_Lead_Status__c,Dealer_Lead_Status__c,RecordTypeId from Lead__c where contact__c in : accountIds];
+            System.debug('Leads11 ::'+Leads11.size());
+            
+           for(Lead__c ld:Leads11){
+               LeadMap1.put(ld.id,ld);
+               if(!AccLeadMap1.containsKey(ld.contact__c)){
+                   AccLeadMap1.put(ld.contact__c, new List<Id>{ld.id});
+               }
+               else {
+                   AccLeadMap1.get(ld.contact__c).add(ld.Id);
+               }
+           }
+           for(Id accId:AccLeadMap1.keyset()){             
+               for(Id leadId: AccLeadMap1.get(accId)){
+                   if(LeadMap1.get(leadId).Dealer_Lead_Status__c != 'Lost' && LeadMap1.get(leadId).Dealer_Lead_Status__c != 'Purchased(Only Non BDC)'){
+                       if(LeadMap1.get(leadId).RecordTypeId == salesRecordTypeId){
+                           salesLeadPresent =true;
+                       }
+                       if(LeadMap1.get(leadId).RecordTypeId == afterSalesRecordTypeId){
+                           aftersalesLeadPresent =true;
+                       }
+                   }
+               }
+               if(salesLeadPresent && aftersalesLeadPresent){
+                   accountMap1.get(accId).Customer_Lifecycle_Phase__c='Sales & Service Lead';
+               }
+               if(!salesLeadPresent && aftersalesLeadPresent){
+                   accountMap1.get(accId).Customer_Lifecycle_Phase__c='Service Lead';
+               }
+               if(salesLeadPresent && !aftersalesLeadPresent){
+                   accountMap1.get(accId).Customer_Lifecycle_Phase__c='Sales Lead';
+               }
+               if(!salesLeadPresent && !aftersalesLeadPresent){
+                   accountMap1.get(accId).Customer_Lifecycle_Phase__c='Care';
+               }
+               accSet.add(accountMap1.get(accId));
+               salesLeadPresent=false;
+               aftersalesLeadPresent=false;     
+           }
+           
+           
+        }
+           
+           if( contactIdsIns!=null && contactIdsIns.size() >0 )
         {
-            system.debug('!!!!!!!!'+ 'inside acctupd loop');
-            for(Lead__C led : listNewLeads)
-            {
-            
-            for(Account acc : AccountListUpd)
-            {
-            if(acc.id == led.contact__c)
-            {
-            if(salesLeads.size() ==0 && afterLeads.size()==0 && salesaftersalesLeads.size()==0 )
-                {
-                acc.Customer_Lifecycle_Phase__c = 'Care';
-                 //   acc.Customer_Lifecycle_Phase__c = 'Sales Lead';
+            AccountListIns = [select id,Customer_Lifecycle_Phase__c from Account where id in : contactIdsIns];        
+            for(Account acc:AccountListIns){
+                accountMap.put(acc.id,acc);
+            }
+            List<Lead__c> Leads1 = [select id,contact__c,CAC_Lead_Status__c,Dealer_Lead_Status__c,RecordTypeId,Lead_Latest_Phase__c from Lead__c where contact__c in : contactIdsIns and id not in :listNewLeads];
+            System.debug('Leads1 ::'+Leads1.size());
+            if(Leads1.size() == 0){
+                for(Account a: AccountListIns){
+                    a.Customer_Lifecycle_Phase__c='Care';
+                    accSet.add(a);
                 }
-            if(salesLeads.size() >0 && afterLeads.size()==0)
-            {
-            acc.Customer_Lifecycle_Phase__c = 'Sales Lead';
             }
-            
-            if(salesLeads.size() ==0 && afterLeads.size() >0)
-            {
-            acc.Customer_Lifecycle_Phase__c = 'Service Lead';
-            }
-            
-            if(salesLeads.size() >0 && afterLeads.size() >0)
-            {
-            acc.Customer_Lifecycle_Phase__c = 'Sales & Service Lead';
-            }
-                UpdateAcc.add(acc);
+             System.debug('Leads1 ::'+Leads1);
+           for(Lead__c ld:Leads1){
+               LeadMap.put(ld.id,ld);
+               if(!AccLeadMap.containsKey(ld.contact__c)){
+                   AccLeadMap.put(ld.contact__c, new List<Id>{ld.id});
+               }
+               else {
+                   AccLeadMap.get(ld.contact__c).add(ld.Id);
+               }
+           }
+             System.debug('Leads1 ::AccLeadMap AccLeadMap'+AccLeadMap);
+           for(Id accId:AccLeadMap.keyset()){
+               if(AccLeadMap.get(accId).size()==0){                 
+                    accountMap.get(accId).Customer_Lifecycle_Phase__c='Care';
+                    accSet.add(accountMap.get(accId));
                 }
-                
-            }
-            }
-            update UpdateAcc;
+               else {
+           
+           System.debug('Leads1 ::AccLeadMap AccLeadMap'+AccLeadMap);
+               for(Id leadId: AccLeadMap.get(accId)){         
+                System.debug('Leads1 ::AccLeadMap AccLeadMap'+LeadMap.get(leadId).Dealer_Lead_Status__c );       
+                   if((LeadMap.get(leadId).Dealer_Lead_Status__c != 'Lost' && LeadMap.get(leadId).Dealer_Lead_Status__c != 'Purchased(Only Non BDC)') ){
+                       if(LeadMap.get(leadId).RecordTypeId == salesRecordTypeId){
+                           salesLeadPresent =true;
+                       }
+                       if(LeadMap.get(leadId).RecordTypeId == afterSalesRecordTypeId){
+                           aftersalesLeadPresent =true;
+                       }
+                   }
+               }
+               if(salesLeadPresent && aftersalesLeadPresent){
+                   accountMap.get(accId).Customer_Lifecycle_Phase__c='Sales & Service Lead';
+               }
+               if(!salesLeadPresent && aftersalesLeadPresent){
+                   accountMap.get(accId).Customer_Lifecycle_Phase__c='Service Lead';
+               }
+               if(salesLeadPresent && !aftersalesLeadPresent){
+                   accountMap.get(accId).Customer_Lifecycle_Phase__c='Sales Lead';
+               }
+               if(!salesLeadPresent && !aftersalesLeadPresent){
+                   accountMap.get(accId).Customer_Lifecycle_Phase__c='Care';
+               }
+               accSet.add(accountMap.get(accId));
+               }
+               salesLeadPresent=false;
+               aftersalesLeadPresent=false;     
+           }
+           }  
+         
+         
+         if(accSet !=null)
+         {
+          List<Account> acList = new List<Account>(accSet);
+        if(acList.size()>0 || !acList.isempty()){
+            update acList;
         }
-        }
+         
+         }
         
-        if( contactIdsIns!=null)
-        {
-        AccountListIns = [select id,Customer_Lifecycle_Phase__c from Account where id in : contactIdsIns];
         
-        Leads = [select id,contact__c,CAC_Lead_Status__c from Lead__c where contact__c in : contactIdsIns];
-        if(!Leads.isEmpty())
-        {
-            for(Lead__c lead : Leads)   // getting map of (Acc,List<Leads>) Account and list of leads associated with it.
-            {
-                LeadMap.put(lead.id,lead);
-                tempLeads = AccLeadMap.get(lead.contact__C);
-                if (tempLeads == null){
-                    AccLeadMap.put(lead.contact__C, new List<Id>{lead.Id});
-                }else{
-                    tempLeads.add(lead.Id);
-                }
-                
-                
-                
-            }
-        }
-        
-        }
-        if(!AccountListIns.isEmpty())
-        {
-            for(Account Acc : AccountListIns)
-            {
-                system.debug('!!!!!!!!'+'inside 2nd case loop AccInsert');
-                boolean AccUpdFlag = true ;
-                leadIds = AccLeadMap.get(Acc.id);
-                if(leadIds != null)
-                {
-                for(id LeadId : leadIds)
-                {
-                    system.debug('!!!!!!!!'+'inside 2nd case loop Leads'+ LeadId);
-                    Lead__C tempLead = LeadMap.get(LeadId);
-                    
-                    Lead__c Currentlead = LeadNewMap.get(LeadId);
-                    
-                    system.debug('!!!!!!!!'+'inside 2nd case loop Leads'+ tempLead.id + 'status:' + tempLead.CAC_Lead_Status__c );
-                    
-                    
-                    if(tempLead.CAC_Lead_Status__c == 'Purchased(Only Non BDC)' || tempLead.CAC_Lead_Status__c == 'Lost(CAC)'  || tempLead.CAC_Lead_Status__c == 'Not Allocated' || (Currentlead != null && Currentlead.id == tempLead.id ) )
-                    {
-                        
-                        continue;
-                    }
-                    else
-                    {
-                        AccUpdFlag = false ;
-                        break;
-                    }
-                    
-                }
-                }
-                
-                if (AccUpdFlag == true)
-                {
-                    system.debug('!!!!!!!' + 'acc update in 2nd case true' );
-                    Acc.Customer_Lifecycle_Phase__c = 'Care';
-                    AccountsToBeUpdated.add(Acc);
-                    
-                }
-                system.debug('!!!!!!!' + 'flag ' +AccUpdFlag);
-            }
-            
-            
-            update AccountsToBeUpdated;
-        }
         if(!contactIdsUpd.isEmpty()){
             //createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
         }
         LeadUtil.updateCustomerStageMethod = false;
         }//
-       }
+        }
     }
     
-     /** Upadte Account fields by Informatica for JP YA-Step-2.
-     ** Created By: REETESH 
-     ** Date: 2018-06-25 
-     **/
-    
-    public static void updateCustomerStageByInformatica(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
-    {   
-    boolean flag=false;
-    if(Label.isInformaticaUserJP == 'true'){
-      flag=true;
-    }
-        String usrName=assigneduser.Username;
-    if(assigneduser.Profile.Name=='IntegrationAPI' && flag && usrName.contains('integration.inf@infosys.com')){      
-      updateCustomerStageInform(listNewLeads,LeadOldMap,LeadNewMap);
-    }    
-        
-    }   
-     /** Upadte Lead Assigned Date by Informatica for JP YA-Step-2.
-     ** Created By: REETESH 
-     ** Date: 2018-07-02
-     **/
-    
-    public static void updateAssignedDateByInformaticaJP(list<Lead__c> listNewLeads)
-    {   
-    boolean flag=false;
-    if(Label.isInformaticaUserJP == 'true'){
-      flag=true;
-    }
-        String usrName=assigneduser.Username;
-        Set<Id> leadIdSet = new Set<Id>();
-    if(assigneduser.Profile.Name=='IntegrationAPI' && flag && usrName.contains('integration.inf@infosys.com')){ 
-      for(Lead__c l:listNewLeads){
-       leadIdSet.add(l.Id);
-       }     
-      List<Lead__c>  leadList=[Select id,createdDate,Assigned_Date_Time__c,Assigned_Dealer__c from Lead__c where (MD__c='JP' OR Market__c='JP') AND id IN :leadIdSet];
-       List<Lead__c> ldList = new List<Lead__c>();
-      for(Lead__c lead1:leadList){       
-      if(lead1.Assigned_Dealer__c!= null || lead1.Assigned_Dealer__c!='')
-          {
-              lead1.Assigned_Date_Time__c = lead1.createdDate;
-              ldList.add(lead1);
-          }
-          }
-          if(!ldList.isEmpty()){
-             update ldList;
-          }
-    }    
-        
-    } 
+     
        /** 
        Created By: Dinesh Govindaswamy
      SFDCjp-2915
@@ -276,6 +244,7 @@ public class LeadHelperJP
             public static void InsertAssignedDealer(List<Lead__c> dealerLeadList )
     {
         List<User> userList = new List<User>();
+        List<User> CheckInResponsible = new List<User>();
         set<id> userid = new set<id>();
        // map<id, id> mapsalesConandUsrId = new map<id, id>();
         userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
@@ -301,7 +270,20 @@ public class LeadHelperJP
                 }
           }            
           }
-       
+       if(label.Check_in_Responsible =='Check in Responsible')
+       {
+          CheckInResponsible=[select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where market__c='JP' and contactid!=null and id =:Userinfo.getUserId()   and ((profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Sales Representative') OR (profile.Name='Japan Dealer Service Advisor')) limit 1]; 
+           for(Lead__c reslead: dealerLeadList)
+           {
+               if(reslead.market__c=='JP' && reslead.Check_In_Date__c !=null &&  reslead.Recordtypeid ==afterSalesRecordTypeId)
+               {
+                   for(User resu:CheckInResponsible)
+                   {
+                       reslead.Check_in_Responsible__c=resu.id;
+                   }
+               }
+           }
+       }
        
         }
     
@@ -649,7 +631,10 @@ public class LeadHelperJP
     
      public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate)
     {   
-      
+         
+    String usrName=assigneduser.Username;
+    
+        
         
         set<id> dealerleadIds = new set<id>();
         set<id> DealerAccid = new set<id>();
@@ -711,7 +696,7 @@ public class LeadHelperJP
         }
         
         set<String> usrlst = New set<String>();
-        if(Leadlist !=null && userGCCode!=null)
+        if(Leadlist !=null && !Leadlist.isEmpty() && userGCCode!=null && !userGCCode.isEmpty())
         {
         for(Lead__c led : Leadlist){
         for(User usr : userGCCode){ 
@@ -731,7 +716,7 @@ public class LeadHelperJP
         }
         }
          system.debug('usrlst*****************'+usrlst);
-         if(usrlst !=null)
+         if(usrlst !=null && !usrlst.isEmpty())
          {
        ChangeList =[Select id,Notification_Lead_Dealer_Assignment__c,Dealer_GC_Code__c From User Where id =: usrlst and ((Dealer_GC_Code__c In:DealerGcCode) OR (Dealer_GC_Code__c In:AfterSalesDealerGcCode)) and ContactId != null and isActive = true];
         }
@@ -752,6 +737,15 @@ public class LeadHelperJP
         
         
         system.debug('dealerUserList ><><><>' + dealerUserList);
+        Map<Id,User> MapUserList = New Map<Id,user>();
+        
+        For(User userCheck : dealerUserList ){
+        
+        MapUserList.put(userCheck.id,userCheck);
+        
+        }
+        
+        System.debug('+++++++++++'+MapUserList); 
         
         
         if(!Leadlist.isEmpty() && Leadlist != null)
@@ -788,6 +782,9 @@ public class LeadHelperJP
                     for(User us : ChangeList)
                     {   
                         System.debug('$$$$$$$$&^&^&^'+dealerUserList);
+                        
+                        
+                        if(MapUserList.size()>0 && !MapUserList.containskey(us.Id)){
                         if(emaLeds.Lead_Assignment_Notification_Done__c == false && emaLeds.Lead_DataSource__c != 'Dealer Outlet' && us.Notification_Lead_Dealer_Assignment__c!=null && emaLeds.Assigned_Dealer__r.Dealer_GC_Code__c == us.Dealer_GC_Code__c)
                         {
                         List<string> LeadAssignement = (us.Notification_Lead_Dealer_Assignment__c.split(';')); 
@@ -812,6 +809,7 @@ public class LeadHelperJP
                          }
                            
                             
+                        }
                         }
                     }
                     }
@@ -869,6 +867,7 @@ public class LeadHelperJP
             }                     
         }
       //  }
+      
     }     
          public static void updateAssignedDealer(List<Lead__c> dealerLeadList, set<Id> salesConIds)
     {
@@ -1005,50 +1004,53 @@ public class LeadHelperJP
             
      }   
 public static void updateCustomerStageInform(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)   {
-        // Variables Declaration 
+// Variables Declaration 
         set<id> contactIdsUpd = new set<id>(); 
         set<id> contactIdsIns = new set<id>();
         set<id> accountIds = new set<id>();
         set<id> DealerIds = new set<id>();
         map<id,id> ContactDealerMap = new map<id,id>();
         map<id,List<id>> AccLeadMap = new map<id,List<id>>();
+        map<id,List<id>> AccLeadMap1 = new map<id,List<id>>();
         List<id> tempLeads = new List<id>();
         list<id> leadIds = new List<id>();
-        map<id,Lead__C> leadMap = new Map<id,Lead__C>();
+        map<id,Lead__c> leadMap = new Map<id,Lead__c>();
+        map<id,Lead__c> leadMap1 = new Map<id,Lead__c>();
+        map<id,Account> accountMap = new Map<id,Account>();
+         map<id,Account> accountMap1 = new Map<id,Account>();
         List<Account> AccountListIns =  new List<Account>();
         List<Account> AccountListUpd =  new List<Account>();
         Map<Id,Account> UpdateAcc=  new Map<id,Account>();
         Map<id,Account> AccountsToBeUpdated = new Map<id,Account>();
         List<Lead__c> Leads = new List<Lead__c>();
+        List<Lead__c> Leads12 = new List<Lead__c>();
         List<Lead__c> salesLeads = new List<Lead__c>();
         List<Lead__c> afterLeads = new List<Lead__c>();
         List<Lead__c> salesaftersalesLeads = new List<Lead__c>();
+        Set<Account> accSet = new Set<Account>();
+        Lead__c oldLead = new Lead__c();
+        Lead__c newLead = new Lead__c();
+        boolean salesLeadPresent=false;
+        boolean aftersalesLeadPresent=false;
         
         if(LeadUtil.updateCustomerStageMethod){
-        for(Lead__C lead : listNewLeads)
+        for(Lead__c lead : listNewLeads)
         {
-            if(lead.MD__c == 'JP')
+            if(lead.MD__c == 'JP' || lead.Market__c=='JP')
             {
-                Lead__c oldLead = LeadOldMap.get(lead.id);
-                if(oldLead.CAC_Lead_Status__c != lead.CAC_Lead_Status__c && (lead.CAC_Lead_Status__c == 'Approved' || lead.CAC_Lead_Status__c == 'Allocated') && (lead.Dealer_Lead_Status__c != ('Purchased(Only Non BDC)') || lead.Dealer_Lead_Status__c !='Lost') )
+                oldLead = LeadOldMap.get(lead.id);
+                newLead = LeadNewMap.get(lead.id);
+                System.Debug('Dealer Lead Status Old and New '+oldLead.Dealer_Lead_Status__c+' ---- '+newLead.Dealer_Lead_Status__c+':::::'+oldLead.Lead_Latest_Phase__c +':::::'+newLead.Lead_Latest_Phase__c);
+                if((newLead.CAC_Lead_Status__c == 'Approved' || newLead.CAC_Lead_Status__c == 'Allocated') && newLead.Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' && newLead.Dealer_Lead_Status__c !='Lost' && newLead.Lead_Latest_Phase__c != 'Invoiced' && newLead.Lead_Latest_Phase__c != 'Lost')
                 {
-                    if(lead.Contact__c != null){
-                        contactIdsUpd.add(lead.Contact__c);         // ids of account(Contact__C) with new lead status "Approved"
-                    }
-                    if(lead.Assigned_Dealer__c != null){
-                        DealerIds.add(lead.Assigned_Dealer__c);     // Ids of Acccount(Assigned_Dealer__c) with new lead status "Approved"
-                    }
-                    ContactDealerMap.put(lead.contact__C,lead.Assigned_Dealer__c); // Contact Dealer map 
-                    
-                    if(lead.Contact__c != null && ((oldLead.CAC_Lead_Status__c != lead.CAC_Lead_Status__c) || (oldLead.Dealer_Lead_Status__c != lead.Dealer_Lead_Status__c)) && (lead.CAC_Lead_Status__c == 'Approved' || lead.CAC_Lead_Status__c == 'Allocated') && lead.Dealer_Lead_Status__c != ('Purchased(Only Non BDC)') && lead.Dealer_Lead_Status__c !='Lost')
+                  if(newLead.Contact__c != null )
                     {
-                    accountIds.add(lead.Contact__c);
+                        accountIds.add(newLead.Contact__c);
                     }
                 }
                 
-                if(oldLead.CAC_Lead_Status__c != lead.CAC_Lead_Status__c && (lead.CAC_Lead_Status__c == 'Purchased(Only Non BDC)' ||
-                                                                             lead.CAC_Lead_Status__c == 'Lost(CAC)' || 
-                                                                             lead.CAC_Lead_Status__c == 'Not Allocated'))
+                if(oldLead.Dealer_Lead_Status__c != newLead.Dealer_Lead_Status__c && (newLead.Dealer_Lead_Status__c == 'Purchased(Only Non BDC)' ||
+                                                                             newLead.Dealer_Lead_Status__c == 'Lost'))  
                 {
                    
                     if(lead.Contact__c != null){
@@ -1056,121 +1058,141 @@ public static void updateCustomerStageInform(list<Lead__C> listNewLeads,map<id,L
                     }
                     
                 }
+                if(oldLead.Dealer_Lead_Status__c == newLead.Dealer_Lead_Status__c && (newLead.Lead_Latest_Phase__c == 'Invoiced' || newLead.Lead_Latest_Phase__c == 'Lost'))  
+                {
+                   
+                    if(lead.Contact__c != null){
+                        contactIdsIns.add(lead.Contact__c);
+                    }
+                    
+                }
+                
             }
         }
-        if(accountIds !=null)
+        System.debug('accountIds@@@'+ accountIds.size());
+        System.debug('contactIdsIns@@@'+ contactIdsIns.size());
+        if(accountIds !=null && accountIds.size() >0)
         {
             
         AccountListUpd = [select id,Customer_Lifecycle_Phase__c from Account where id in :accountIds]; 
-        AggregateResult[] groupedResults  = [SELECT count(id) total,Contact__c,RecordTypeId FROM Lead__c where 
-        (Recordtypeid=:afterSalesRecordTypeId OR Recordtypeid=:salesRecordTypeId)
-        and Contact__c in:accountIds and ((Dealer_Lead_Status__c != 'Purchased(Only Non BDC)') 
-        and (Dealer_Lead_Status__c !='Lost')) group by contact__c,Recordtypeid];
-        
-        Map<string,set<string>> Accountwithstatus= new Map<string,set<String>>();
-        for (AggregateResult ar : groupedResults)  {
-            if(ar.get('Contact__c')!=null){
-                if(Accountwithstatus.containskey(string.valueof(ar.get('Contact__c')))){
-                    Accountwithstatus.get(string.valueof(ar.get('Contact__c'))).add(string.valueof(ar.get('RecordTypeId')));
-                }
-                else {
-                    Accountwithstatus.put(string.valueof(ar.get('Contact__c')), new set<string>{string.valueof(ar.get('RecordTypeId'))});
-                }
-            }
+        for(Account acc:AccountListUpd){
+                accountMap1.put(acc.id,acc);
+            }        
+            List<Lead__c> Leads11 = [select id,contact__c,CAC_Lead_Status__c,Dealer_Lead_Status__c,RecordTypeId from Lead__c where contact__c in : accountIds];
+            System.debug('Leads11 ::'+Leads11.size());
+            
+           for(Lead__c ld:Leads11){
+               LeadMap1.put(ld.id,ld);
+               if(!AccLeadMap1.containsKey(ld.contact__c)){
+                   AccLeadMap1.put(ld.contact__c, new List<Id>{ld.id});
+               }
+               else {
+                   AccLeadMap1.get(ld.contact__c).add(ld.Id);
+               }
+           }
+           for(Id accId:AccLeadMap1.keyset()){             
+               for(Id leadId: AccLeadMap1.get(accId)){
+                   if(LeadMap1.get(leadId).Dealer_Lead_Status__c != 'Lost' || LeadMap1.get(leadId).Dealer_Lead_Status__c != 'Purchased(Only Non BDC)'){
+                       if(LeadMap1.get(leadId).RecordTypeId == salesRecordTypeId){
+                           salesLeadPresent =true;
+                       }
+                       if(LeadMap1.get(leadId).RecordTypeId == afterSalesRecordTypeId){
+                           aftersalesLeadPresent =true;
+                       }
+                   }
+               }
+               if(salesLeadPresent && aftersalesLeadPresent){
+                   accountMap1.get(accId).Customer_Lifecycle_Phase__c='Sales & Service Lead';
+               }
+               if(!salesLeadPresent && aftersalesLeadPresent){
+                   accountMap1.get(accId).Customer_Lifecycle_Phase__c='Service Lead';
+               }
+               if(salesLeadPresent && !aftersalesLeadPresent){
+                   accountMap1.get(accId).Customer_Lifecycle_Phase__c='Sales Lead';
+               }
+               if(!salesLeadPresent && !aftersalesLeadPresent){
+                   accountMap1.get(accId).Customer_Lifecycle_Phase__c='Care';
+               }
+               accSet.add(accountMap1.get(accId));
+               salesLeadPresent=false;
+               aftersalesLeadPresent=false;     
+           }
+           
+           
         }
-        
-        if(!AccountListUpd.isEmpty())
-        {
-            system.debug('!!!!!!!!'+ 'inside acctupd loop');
-            for(Account acc : AccountListUpd)
-                {   if(Accountwithstatus.containskey(string.valueof(acc.id))){
-                        
-                            if(Accountwithstatus.get(acc.id).contains(salesRecordTypeId))
-                            {
-                            acc.Customer_Lifecycle_Phase__c = 'Sales Lead';
-                            }
-                            
-                            if(Accountwithstatus.get(acc.id).contains(afterSalesRecordTypeId))
-                            {
-                            acc.Customer_Lifecycle_Phase__c = 'Service Lead';
-                            }
-                            
-                            if(Accountwithstatus.get(acc.id).contains(salesRecordTypeId) && Accountwithstatus.get(acc.id).contains(afterSalesRecordTypeId))
-                            {
-                            acc.Customer_Lifecycle_Phase__c = 'Sales & Service Lead';
-                            }
-                                UpdateAcc.put(acc.id,acc);
-                        }
-                  else{
-                        acc.Customer_Lifecycle_Phase__c='Care';
-                  }
-                }
-            }
-            update UpdateAcc.values();
-         }
-        
-        
-        if( contactIdsIns!=null)
+
+
+
+
+        if( contactIdsIns!=null && contactIdsIns.size() >0 )
         {
             AccountListIns = [select id,Customer_Lifecycle_Phase__c from Account where id in : contactIdsIns];        
-            Leads = [select id,contact__c,CAC_Lead_Status__c from Lead__c where contact__c in : contactIdsIns and id not in :listNewLeads];
-            if(!Leads.isEmpty())
-            {
-                for(Lead__c lead : Leads)   // getting map of (Acc,List<Leads>) Account and list of leads associated with it.
-                {
-                    LeadMap.put(lead.id,lead);
-                    tempLeads = AccLeadMap.get(lead.contact__C);
-                    if (tempLeads == null){
-                        AccLeadMap.put(lead.contact__C, new List<Id>{lead.Id});
-                    }else{
-                        tempLeads.add(lead.Id);
-                    }
-                }
+            for(Account acc:AccountListIns){
+                accountMap.put(acc.id,acc);
             }
-        }
-        if(!AccountListIns.isEmpty())
-        {
-            for(Account Acc : AccountListIns)
-            {
-                system.debug('!!!!!!!!'+'inside 2nd case loop AccInsert');
-                boolean AccUpdFlag = true ;
-                leadIds = AccLeadMap.get(Acc.id);
-                if(leadIds != null)
-                {
-                    for(id LeadId : leadIds)
-                    {
-                        Lead__C tempLead = LeadMap.get(LeadId);
-                        Lead__c Currentlead = LeadNewMap.get(LeadId);
-                        if(tempLead.CAC_Lead_Status__c == 'Purchased(Only Non BDC)' || 
-                        tempLead.CAC_Lead_Status__c == 'Lost(CAC)'  || tempLead.CAC_Lead_Status__c == 'Not Allocated' || 
-                        (Currentlead != null && Currentlead.id == tempLead.id ) )
-                        { 
-                            continue;
-                        }
-                        else
-                        {
-                            AccUpdFlag = false ;
-                            break;
-                        }
-                        
-                      }
-                }
-                
-                if (AccUpdFlag == true)
-                {
-                    Acc.Customer_Lifecycle_Phase__c = 'Care';
-                    AccountsToBeUpdated.put(Acc.id, acc);
-                    
+            List<Lead__c> Leads1 = [select id,contact__c,CAC_Lead_Status__c,Dealer_Lead_Status__c,RecordTypeId,Lead_Latest_Phase__c from Lead__c where contact__c in : contactIdsIns and id not in :listNewLeads];
+            System.debug('Leads1 ::'+Leads1.size());
+            if(Leads1.size() == 0){
+                for(Account a: AccountListIns){
+                    a.Customer_Lifecycle_Phase__c='Care';
+                    accSet.add(a);
                 }
             }
             
-            
-            update AccountsToBeUpdated.values();
+           for(Lead__c ld:Leads1){
+               LeadMap.put(ld.id,ld);
+               if(!AccLeadMap.containsKey(ld.contact__c)){
+                   AccLeadMap.put(ld.contact__c, new List<Id>{ld.id});
+               }
+               else {
+                   AccLeadMap.get(ld.contact__c).add(ld.Id);
+               }
+           }
+           for(Id accId:AccLeadMap.keyset()){
+               if(AccLeadMap.get(accId).size()==0){                 
+                    accountMap.get(accId).Customer_Lifecycle_Phase__c='Care';
+                    accSet.add(accountMap.get(accId));
+                }
+               else {
+           
+               for(Id leadId: AccLeadMap.get(accId)){                
+                   if((LeadMap.get(leadId).Dealer_Lead_Status__c != 'Lost' || LeadMap.get(leadId).Dealer_Lead_Status__c != 'Purchased(Only Non BDC)') && (LeadMap.get(leadId).Lead_Latest_Phase__c != 'Invoiced' || LeadMap.get(leadId).Lead_Latest_Phase__c != 'Lost')){
+                       if(LeadMap.get(leadId).RecordTypeId == salesRecordTypeId){
+                           salesLeadPresent =true;
+                       }
+                       if(LeadMap.get(leadId).RecordTypeId == afterSalesRecordTypeId){
+                           aftersalesLeadPresent =true;
+                       }
+                   }
+               }
+               if(salesLeadPresent && aftersalesLeadPresent){
+                   accountMap.get(accId).Customer_Lifecycle_Phase__c='Sales & Service Lead';
+               }
+               if(!salesLeadPresent && aftersalesLeadPresent){
+                   accountMap.get(accId).Customer_Lifecycle_Phase__c='Service Lead';
+               }
+               if(salesLeadPresent && !aftersalesLeadPresent){
+                   accountMap.get(accId).Customer_Lifecycle_Phase__c='Sales Lead';
+               }
+               if(!salesLeadPresent && !aftersalesLeadPresent){
+                   accountMap.get(accId).Customer_Lifecycle_Phase__c='Care';
+               }
+               accSet.add(accountMap.get(accId));
+               }
+               salesLeadPresent=false;
+               aftersalesLeadPresent=false;     
+           }
+           }   
+
+        List<Account> acList = new List<Account>(accSet);
+        if(acList.size()>0 || !acList.isempty()){
+            update acList;
         }
+        
         if(!contactIdsUpd.isEmpty()){
             //createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
         }
         LeadUtil.updateCustomerStageMethod = false;
         }//
-    }    
+    } 
    }

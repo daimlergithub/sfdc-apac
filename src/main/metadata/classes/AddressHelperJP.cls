@@ -81,6 +81,7 @@ public with sharing class AddressHelperJP {
        public static void updatePrimaryAddressOnAccount(map<ID,Address__c> newMap)
     {
         list<Account> accountList = new list<Account>();
+        Map<Id,Account> updateAccJP=new Map<Id,Account>();
         List<Account> accList = new List<Account>();
         set<id> accids = new set<id>();
         string regexForNullValue ='null';
@@ -125,15 +126,22 @@ public with sharing class AddressHelperJP {
                     for(Account acc : accList)
                     {
                         system.debug('INsertedddd>>>>');
-                        if(addr.Customer__c == acc.id && addr.Address_Type__c == acc.Primary_Address_Reference__r.Address_Type__c)
+                        if(addr.Customer__c == acc.id)// && addr.Address_Type__c == acc.Primary_Address_Reference__r.Address_Type__c)
                         {
+                        acc.Primary_Address_Reference__c=addr.Id;
+                                                      
+                            if(addr.Address_Type__c == acc.Primary_Address_Reference__r.Address_Type__c){
                             if(addtrmap1.containsKey(addr.Province__c))
                             {
                                 province = addtrmap1.get(addr.Province__c);
                             }
+                            
                             acc.Primary_Address_Display__c = province+ ' ' +addr.City__c+ ' ' +addr.District__c+ ' ' +addr.Block__c+ ' ' +addr.Address_Line_1__c+ ' ' +addr.Address_Line_2__c;
                             acc.Primary_Address_Display__c = acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                            accountList.add(acc);
+                            }
+                          //  accountList.add(acc);
+                            updateAccJP.put(acc.id,acc);
+                        
                         }
                     }
                 }
@@ -144,7 +152,13 @@ public with sharing class AddressHelperJP {
         {
             update accountList; 
         }
+        // Japan Market update
+        if(!updateAccJP.isEmpty() || updateAccJP!=null)
+        {
+                Database.update(updateAccJP.values(),false);
+        }
     }
+   
      /**             
         * @Description: update Account on Delete of address       
         * @Date       : 15/11/2016
@@ -563,4 +577,10 @@ public with sharing class AddressHelperJP {
       }
       }
      }
+	 
+	 /*VB13.08.2018*/
+	public static void updateAddressCDMJP(List<Address__c> Address, string MarketDiscriminator, string updateType){
+		AddressHelperBase.updateAddressCDM(Address,MarketDiscriminator,updateType);
+    }
+	/*VB13.08.2018*/
 }

@@ -10,31 +10,25 @@ public with sharing class AddressHelperTR {
         Set<Id> AccIdSet = new Set<Id>();
         map<Id,Account> updateAccntMap = new map<Id,Account>();
         list<Account> updateAccntList = new list<Account>();
+        Map<String,string> countryMap = new map<string,string>();
+     for(CountryTranslation__mdt cmdt: [select id, Country__c,Country_Translation__c,Market__c from CountryTranslation__mdt where Market__c=:Label.TR])
+     {
+        countryMap.put(cmdt.Country__c,cmdt.Country_Translation__c);
+     }
         for(Address__c addr : listNewAddress){
             if(addr.preferred__c)
                 AccIdSet.add(addr.Customer__c);
         } 
         if(AccIdSet!=null && !AccIdSet.isEmpty()){
-            List<Account> accList = [select id,Primary_Address_Display__c,Primary_Address_Reference__c from Account where id in : AccIdSet Limit 10];     
+            List<Account> accList = [select id,Primary_Address_Display__c,Primary_Address_Reference__c,Market__C from Account where id in : AccIdSet Limit 10];     
             if(accList!=null && !accList.isEmpty()){
                 for(Account acc : accList){  
                     for(Address__c addr : listNewAddress){
                         if(acc.Id==addr.Customer__c){
-                            if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
-                                acc.Primary_Address_Display__c = addr.Address_Line_1__c;
-                            if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
-                                acc.Primary_Address_Display__c +=' '+ addr.Address_Line_2__c;
-              if(addr.City__c!=null && addr.City__c!='')
-                                acc.Primary_Address_Display__c +=' '+ addr.City__c;
-                            if(addr.Province__c!=null && addr.Province__c!='')
-                                acc.Primary_Address_Display__c +=' '+ addr.Province__c;
-              if(addr.District__c!=null && addr.District__c!='')
-                                acc.Primary_Address_Display__c +=' '+ addr.District__c;
-              
-                            if(addr.Country__c!=null && addr.Country__c!='')
-                                acc.Primary_Address_Display__c +=' '+ addr.Country__c;
-                            if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
-                                acc.Primary_Address_Display__c +=' '+ addr.ZipCode__c; 
+                             if(addr.Country__c != null && countryMap != null && countryMap.containskey(addr.Country__c))
+                                acc.Primary_Address_Display__c = addr.Address_Line_1__c + ' ' + addr.Address_Line_2__c+' '+addr.City__c+' '+addr.Province__c + ' ' +addr.District__c+' '+addr.Zipcode__c+countryMap.get(addr.Country__c);                  
+                             else 
+                                acc.Primary_Address_Display__c = addr.Address_Line_1__c + ' ' + addr.Address_Line_2__c+' '+addr.City__c+' '+addr.Province__c + ' ' +addr.District__c+' '+addr.Zipcode__c+' '+addr.Country__c;                  
                             system.debug(addr.Preferred__c+addr.Market__c);
                             if(addr.Preferred__c ==True && addr.Market__c=='TR')
                                 acc.Primary_Address_Reference__c =addr.Id; 
@@ -49,7 +43,13 @@ public with sharing class AddressHelperTR {
             }
         }
         if(updateAccntList != null && !updateAccntList.isEmpty()){
+        try{
             DMLManagerService.updateAsSystem(updateAccntList);  
+            }
+            catch(Exception e)
+            {    
+                system.debug('exception --> '+e);
+            }
             //update updateAccntList;
         }
     } 
@@ -98,6 +98,11 @@ public with sharing class AddressHelperTR {
         public static void updatePrimaryAddressOnAccount(map<ID,Address__c> newMap){
         set<id> accountId = new set<id>();  
         list<Account> accountList = new list<Account>();
+        Map<String,string> countryMap = new map<string,string>();
+        for(CountryTranslation__mdt cmdt: [select id, Country__c,Country_Translation__c,Market__c from CountryTranslation__mdt where Market__c=:Label.TR])
+        {
+            countryMap.put(cmdt.Country__c,cmdt.Country_Translation__c);
+        }
         //get the related accountIds
         for(Address__c add:newMap.values()){
             accountId.add(add.Customer__c);
@@ -107,8 +112,10 @@ public with sharing class AddressHelperTR {
                 if(newMap.get(acc.Primary_Address_Reference__c).Customer__c==acc.id){
                     Address__c add = newMap.get(acc.Primary_Address_Reference__c);
                     acc.Primary_Address_Display__c=add.Address_Line_1__c+add.Address_Line_2__c+add.zipcode__c+add.District__c+add.Province__c+add.City__c+add.Country__c;
-                     if(acc.Market__C == 'TR')
-                        acc.Primary_Address_Display__c = add.Address_Line_1__c + ' ' + add.Address_Line_2__c+' '+add.Zipcode__c+' '+add.District__c+' '+add.Province__c + ' ' + add.City__c+' ' +add.Country__c;                  
+                    if(add.Country__c != null && countryMap != null && countryMap.containskey(add.Country__c))
+                        acc.Primary_Address_Display__c = add.Address_Line_1__c + ' ' + add.Address_Line_2__c+' '+add.City__c+' '+add.Province__c + ' ' +add.District__c+' '+add.Zipcode__c+' ' +countryMap.get(add.Country__c);                  
+                    else 
+                        acc.Primary_Address_Display__c = add.Address_Line_1__c + ' ' + add.Address_Line_2__c+' '+add.City__c+' '+add.Province__c + ' ' +add.District__c+' '+add.Zipcode__c+' ' +add.Country__c;                  
                     acc.Primary_Address_Display__c =  acc.Primary_Address_Display__c.replaceAll('null','');   
                     system.debug('-----'+acc.Primary_Address_Display__c);
                     accountList.add(acc);
@@ -116,7 +123,13 @@ public with sharing class AddressHelperTR {
             }
         }
         if(!accountList.isEmpty()||accountList!=null){
+        try{
             DMLManagerService.updateAsSystem(accountList);  
+            }
+            catch(Exception e)
+            {
+                system.debug('exception ---> '+e);
+            }
             //update accountList; 
         }
     }

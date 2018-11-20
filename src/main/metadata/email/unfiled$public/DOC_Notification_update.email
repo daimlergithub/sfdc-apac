@@ -1,0 +1,13 @@
+Sayın İlgili,
+
+{!Account.Name} adlı kayda ait izin bilgileri aşağıdaki şekilde güncellenmiştir.
+
+Email izni - {!IF(Account.Opt_In_Email__c, "Evet", "Hayır")} 
+Posta izni - {!IF(Account.Postal_Opt_In__c, "Evet", "Hayır")} 
+Arama izni - {!IF(Account.Opt_In_Mobile__c, "Evet", "Hayır")} 
+SMS izni - {!IF(Account.Opt_In_SMS__c, "Evet", "Hayır")} 
+
+Detaylı bilgi almak ve güncelleme yapmak için  444 62 44 numaralı Mercedes-Benz Müşteri İletişim Merkezi'nden destek alabilirsiniz.
+
+Teşekkür ederiz,
+Mercedes-Benz Müşteri İletişim Merkezi

@@ -5,7 +5,7 @@
 History:
 Author                         Date                    Description
 **/
-public with sharing class SalesLeadController {
+public without sharing class SalesLeadController {
     
     
     //To fetch opportunity details
@@ -28,9 +28,14 @@ public with sharing class SalesLeadController {
     public integer j;
     public static integer chk;
     public static integer chkcomp;
-    public boolean valSuccess = true;
+   //public boolean valSuccess = true;
     //This is used for interested vehicle
     public list<Lead_Details__c> intVehicle {get;set;} 
+
+    //Boolean used to display error 
+    public boolean valSuccess = true;
+    public boolean valCompSuccess = true;
+    public boolean valTradeSuccess = true;
     
     //This is used for competitor vehicle
     public list<Lead_Details__c> compVehc {get;set;} 
@@ -49,8 +54,10 @@ public with sharing class SalesLeadController {
         if(chkcomp != 1)isHidecomp = true;
         opp = new opportunity();
         string accID = ApexPages.currentPage().getParameters().get('accID');
-        if(accID.length() != 0)
+        if(accID.length() != 0){
             opp.accountId = accID; 
+            Vehrel();
+        }
         recTypeId = UtilRecordType.getRecordTypeIdByName('Opportunity', System.Label.Sales_Lead);
         uObj = [SELECT Id,Market__c  FROM User WHERE Id=:UserInfo.getUserId()] ;
         userMarket = uObj.Market__c;
@@ -137,17 +144,30 @@ public with sharing class SalesLeadController {
     public void Vehrel(){
         system.debug('contact: ' + opp.AccountID);
         
-        vehRel = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
-        system.debug('vehRel: ' + vehRel);
+        //vehRel = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
+        //system.debug('vehRel: ' + vehRel);
+        //Rajesh - Get list of VRs for account and check for uniqueness of vehicle. Only 1 VR per vehicle needs to show in this page
+        List<Vehicle_Relationship__c> contactVRs = [Select Vehicle_ID__c,Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
+        String vehicleSet = '';
+        vehRel = new List<Vehicle_Relationship__c>();
+        for (Vehicle_Relationship__c vr : contactVRs){
+            String vehicleId = String.valueOf(vr.Vehicle_ID__c);
+            if (vehicleId != null && vehicleId != ''){
+                if (!vehicleSet.contains(vehicleId)){
+                    vehicleSet = vehicleSet + ',' + vehicleId;
+                    vehRel.add(vr);
+                }
+            }
+        }
     }
     //function to check Vehicle make in Tradin info is numeric.
     public void Vehmake(){
-        valSuccess = true;
+        valTradeSuccess = true;
           string  yom = tradeVehc[0].Year_of_Manufacture__c;
         if (yom != null && (!yom.isNumeric() || yom.length() != 4))
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, System.Label.IN_Year_Of_Make));
-            valSuccess = false;
+            valTradeSuccess = false;
         }
     }
     
@@ -181,7 +201,7 @@ public with sharing class SalesLeadController {
         chkcomp = 1;
         prefcountcomp = 0;
         isHidecomp = true;
-        valSuccess = true;
+        valCompSuccess = true;
         system.debug('size'+compVehc.size());
         if(compVehc!=null && compVehc.size()>0)
         {
@@ -198,7 +218,7 @@ public with sharing class SalesLeadController {
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Competitor_Preferred_vehicle));
                 isHidecomp = false;
-                valSuccess = false;
+                valCompSuccess = false;
             }
 
         }
@@ -206,7 +226,8 @@ public with sharing class SalesLeadController {
     
     public pageReference saveOpp(){
         Vehmake();     
-        
+        PreferredChk();
+        PreferredChkComp();        
                
         if(Opp.Market__c == 'AU' || Opp.Market__c == 'NZ')
         {	if(addRecommendation)
@@ -215,7 +236,7 @@ public with sharing class SalesLeadController {
 
 
         system.debug('valSuccess: '+valSuccess);
-        if(valSuccess) {
+        if(valSuccess && valCompSuccess && valTradeSuccess) {
             //added errFlag to prevent functionality around save of lead details
            Boolean oppErrFlag = false;
             try{
@@ -224,7 +245,8 @@ public with sharing class SalesLeadController {
             catch (DmlException e){
 				valSuccess = false ; 		
                 oppErrFlag = true;
-                ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
+                if(opp.Market__c != Label.TR)
+                    ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
             }
 
             if (oppErrFlag == true){
@@ -232,7 +254,7 @@ public with sharing class SalesLeadController {
             }
 			
 			//Sada added if condition as part of defect DF -272 on 2018/june/22
-			if(valSuccess) {
+			if(valSuccess && valCompSuccess && valTradeSuccess) {
             allVehicles = new list<Lead_Details__c>();
             //added for loops so that lead detail is not inserted if user oest not pick any model
             for(integer i=0;i<intVehicle.size();i++){
@@ -261,7 +283,10 @@ public with sharing class SalesLeadController {
          	   SalesLeadUtility.createLeadDetails(Opp, lstSelectedOptions, mapCarModel);
 
             try{
-                Insert allVehicles;
+                 if(Opp.Market__c == 'TR')
+                   VehicleSaveController vs = new VehicleSaveController(allVehicles);
+                else
+                    Insert allVehicles;
             }
             catch(DmlException e){
                 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          

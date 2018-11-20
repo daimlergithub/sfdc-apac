@@ -2,17 +2,17 @@ Dear Manager,
 
 This is a system generated auto escalation mail.
 
-we wish to inform  you that there has no action been taken by the {!Opportunity.Owner} on the assigned lead in last 24 business hours.
+we wish to inform  you that there has no action been taken by the {!Opportunity.OwnerFullName} on the assigned lead in last 24 business hours.
 
-You are therefore requested to reach out to the {!Opportunity.Owner} to ensure that immediate action is taken against the pending Lead in order to avoid any inconvenience or delay.
+You are therefore requested to reach out to the {!Opportunity.OwnerFullName} to ensure that immediate action is taken against the pending Lead in order to avoid any inconvenience or delay.
 
 Details below: 
 
-Lead Name                : {!Opportunity.Name} 
-Lead Id                       : {!Opportunity.Id}
-Lead Status                : {!Opportunity.StageName} 
-Lead Close Date        : {!Opportunity.CloseDate} 
-Opp SLA Time            : {!Opportunity.Opp_SLA_Time__c} 
+Lead Name                	: {!Opportunity.Name} 
+Lead Id                  	        : {!Opportunity.Id}
+Lead Status              	: {!Opportunity.StageName} 
+Lead Close Date             : {!Opportunity.CloseDate} 
+Opp SLA Time            	: {!Opportunity.Opp_SLA_Time__c} 
 
 Best regards, 
 Customer Contact Center

@@ -1,0 +1,11 @@
+<aura:documentation>
+	<aura:description>
+         <p><code>c:AccountNewMultiMarket</code> is used to create a new Account with or without an address.</p>
+        <p>This component uses <code>lightning:recordEditForm</code> to display input fields on the UI. These fields are fetched from a Custom Metadata type <code>Factory_Fields__mdt</code>.</p>
+        <ul Title="Used components inside">
+        <li>c:RecordTypeSelection</li>
+        <li>c:dynamicInputFields</li>
+        <li></li>
+        </ul>
+    </aura:description>
+</aura:documentation>

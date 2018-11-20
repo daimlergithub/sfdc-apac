@@ -47,9 +47,12 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
     }
     
     global void execute(Database.BatchableContext bc, List<Campaign_member__c> scope) {
-     List<Lead__c>leadLst = new List<Lead__c>();
-        List<Task>tskLst = new List<Task>();
-        List<Campaign_Lead__c> cLeadLst = new List<Campaign_Lead__c>();
+     //List<Lead__c>leadLst = new List<Lead__c>();
+     map<id,Lead__c>leadLst = new map<id,Lead__c>();
+        //List<Task>tskLst = new List<Task>();
+        map<id,task> tskLst = new map<id,task>();
+       // List<Campaign_Lead__c> cLeadLst = new List<Campaign_Lead__c>();
+       map<id,Campaign_Lead__c> cLeadLst = new map<id,Campaign_Lead__c>();
         List<Campaign >campLst = new List<Campaign>();
         List<Campaign_Member__c> campMemberLst = new List<Campaign_Member__c>();
         List<DM_Request__c> dmRequestList = New List<DM_Request__c>(); 
@@ -149,9 +152,9 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                             if(recTypeId != null) {
                                 lead.RecordTypeId = recTypeId;
                             }
-                            leadLst.add(lead);
-                            
-                            campaignMemberRec.Status__c = 'Executed';
+                           // leadLst.add(lead);
+                            leadLst.put(campaignMemberRec.id,lead);
+                            campaignMemberRec.Status__c = 'Responded';
                             campaignMemberRec.Convert_To_Lead_Flag__c = true;
                             campMemberLst.add(campaignMemberRec);
          }
@@ -184,16 +187,17 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                             task.Phone__c = campaignMemberRec.Contract_Phone1_1__c;
                             task.Phone_number__c= campaignMemberRec.Contract_Phone2_2__c;
                             task.Campaign_Member_ID__c = campaignMemberRec.Name;
-                            tskLst.add(task);
-                            
-                            campaignMemberRec.Status__c = 'Executed';
+                          //  tskLst.add(task);
+                            tskLst.put(campaignMemberRec.id,task);
+							// Commented by Venky, Changes related to JP-3600
+                           // campaignMemberRec.Status__c = 'Executed'; 
                             campMemberLst.add(campaignMemberRec);
 }
 
 else if (campaignMemberRec.Campaign_Id__r.Execution_Type__c == 'eMail' || campaignMemberRec.Campaign_Id__r.Execution_Type__c == 'DM'){
-    
-                            campaignMemberRec.Status__c = 'Executed';
-                            campMemberLst.add(campaignMemberRec);
+							// Commented by Venky, Changes related to JP-3600
+                          //  campaignMemberRec.Status__c = 'Executed';
+                          //  campMemberLst.add(campaignMemberRec);
                        }
                            
 
@@ -201,8 +205,26 @@ else if (campaignMemberRec.Campaign_Id__r.Execution_Type__c == 'eMail' || campai
     
     
     if(leadLst.size() >0){  
-            Database.insert(leadLst,false);
-             for(lead__c leadlsta:leadLst){
+          //  Database.insert(leadLst,false);
+                  List<Database.SaveResult> dsrs = Database.Insert(leadLst.Values(), false);
+            Integer index = 0;
+            for(Database.SaveResult dsr : dsrs){
+                if(dsr.issuccess())
+                {
+                successlist.add(dsr.id);            
+                }
+                if(!dsr.isSuccess()){
+                    for(Id key: leadLst.keySet())
+                    {
+                  String errMsg = dsr.getErrors()[0].getMessage();
+                    errorMap.put(key, errMsg);
+                    IdToSObjectMap.put(key, leadLst.values());                        
+                    }
+                    
+                }
+                index++;
+            }
+             for(lead__c leadlsta:leadLst.values()){
             if(camIdCamMemMap.size()>0){
             if(camIdCamMemMap.get(0).Interested_Model__c != null){
              system.debug('++++++Intersted model+++++++'+camIdCamMemMap.get(0).Interested_Model__c);
@@ -214,20 +236,61 @@ else if (campaignMemberRec.Campaign_Id__r.Execution_Type__c == 'eMail' || campai
         }
         
 if(tskLst.size() >0){
-            insert tskLst;
+           // insert tskLst;
+                   List<Database.SaveResult> dsrs = Database.Insert(tskLst.Values(), false);
+            Integer index = 0;
+            for(Database.SaveResult dsr : dsrs){
+                if(dsr.issuccess())
+                {
+                successlist.add(dsr.id);            
+                }
+                if(!dsr.isSuccess()){
+                    for(Id key: tskLst.keySet())
+                    {
+                  String errMsg = dsr.getErrors()[0].getMessage();
+                    errorMap.put(key, errMsg);
+                    IdToSObjectMap.put(key, tskLst.values());                        
+                    }
+                    
+                }
+                index++;
+            }
         } 
 if(campMemberLst.size() > 0) {
             update campMemberLst;
         }
          if(leadLst.size() >0){
-            for(Lead__c lead : leadLst){
+         
+         for(Campaign_Member__c campMemberRec : scope){
+            for(Lead__c lead : leadLst.values()){
                 Campaign_Lead__c cLead = new Campaign_Lead__c(); 
                 cLead.Lead__c = lead.id;
                 cLead.Campaign__c = lead.Source_Campaign__c;
-                cLeadLst.add(cLead);
+                cLead.Campaign_Member__c = campMemberRec.id;
+               // cLeadLst.add(cLead);
+               cLeadLst.put(lead.id,cLead);
                 newInsertedLeadId.add(lead.Id);
             }
-            insert cLeadLst;  
+            }
+           // insert cLeadLst;  
+                   List<Database.SaveResult> dsrs = Database.Insert(cLeadLst.Values(), false);
+            Integer index = 0;
+            for(Database.SaveResult dsr : dsrs){
+                if(dsr.issuccess())
+                {
+                successlist.add(dsr.id);            
+                }
+                if(!dsr.isSuccess()){
+                    for(Id key: cLeadLst.keySet())
+                    {
+                  String errMsg = dsr.getErrors()[0].getMessage();
+                    errorMap.put(key, errMsg);
+                    IdToSObjectMap.put(key, cLeadLst.values());                        
+                    }
+                    
+                }
+                index++;
+            }
         }
         
         

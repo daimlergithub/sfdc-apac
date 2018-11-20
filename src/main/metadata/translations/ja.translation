@@ -153,6 +153,10 @@
         <name>Accepted</name>
     </customLabels>
 	<customLabels>
+        <label>販売店情報を削除することはできません</label>
+        <name>Preferred_Dealer_cant_be_blank</name>
+    </customLabels>
+	<customLabels>
         <label>編集</label>
         <name>Vehicle_Edit</name>
     </customLabels>
@@ -160,6 +164,34 @@
         <label>お知らせ</label>
         <name>Announcements</name>
     </customLabels>
+	<customLabels>
+        <label>指定された車両顧客関係IDとアカウントIDが、統合顧客管理システムとマッチしていません</label>
+        <name>Customer_not_matched_with_VR_customer</name>
+    </customLabels>
+	<customLabels>
+        <label>指定された車両顧客関係IDと車両IDが、統合顧客管理システムとマッチしていません</label>
+        <name>Vehicle_not_matched_with_VR_Vehicle</name>
+    </customLabels>
+	<customLabels>
+        <label>活動単位が車両単位で、車両IDがブランクです。必須項目です。</label>
+        <name>Vehicle_missing_for_this_campaign_member</name>
+    </customLabels>
+	<customLabels>
+        <label>活動単位が車両単位で、車両顧客関係IDがブランクです。必須項目です。</label>
+        <name>VR_mandatory_for_Vehicle_base_segmentation</name>
+    </customLabels>
+	<customLabels>
+        <label>アカウントIDがブランクです。必須項目です。</label>
+        <name>Customer_mandatory_For_Retailcampaign</name>
+    </customLabels>
+	<customLabels>
+        <label>活動単位が契約単位で、アカウントIDがブランクです。必須項目です。</label>
+        <name>RC_matched_with_customer</name>
+    </customLabels>	 
+	 <customLabels>
+        <label>活動単位が契約単位で、契約IDがブランクです。必須項目です。</label>
+        <name>Retail_contract_mandatory</name>
+    </customLabels> 
 	  <customLabels>
         <label> 販売店キャンペーンメンバー追加を実施します</label>
         <name>Are_you_sure_to_create_Retail_Campaign</name>
@@ -199,6 +231,10 @@
     <customLabels>
         <label><!-- Account Cann&apos;t be Customer --></label>
         <name>Account_Cann_t_be_Customer</name>
+    </customLabels>
+	<customLabels>
+        <label>キャンペーンメンバーを登録してもよろしいでしょうか？</label>
+        <name>Csv_confirmation</name>
     </customLabels>
 	<customLabels>
         <label>マージ先のレコードに右記の住所区分の住所が存在しません：</label>
@@ -583,6 +619,10 @@
     <customLabels>
         <label>キャンペーンメンバーID</label>
         <name>CL_Member_Name</name>
+    </customLabels>
+	 <customLabels>
+        <label>活動単位が契約単位で、契約IDがブランクです。必須項目です。</label>
+        <name>RC_mandatory_for_Contract_RC</name>
     </customLabels>
     <customLabels>
         <label><!-- CL Retail Purchase Time --></label>
@@ -1451,6 +1491,10 @@
     <customLabels>
         <label>お客様から入会申込書を受領した場合のみ、実施してください</label>
         <name>Did_You_Get_Agreement_From_Customer</name>
+    </customLabels>
+	<customLabels>
+        <label>取込用のファイルを先に添付してください。</label>
+        <name>No_Attachment</name>
     </customLabels>
     <customLabels>
         <label>最低でも一度は自宅もしくは会社に訪問しましたか？</label>
@@ -2520,6 +2564,14 @@
 	<customLabels>
         <label>選択不可項目(マスタの値が反映される、または自動計算される項目)</label>
         <name>vehicle_Read_Only</name>
+    </customLabels>
+	<customLabels>
+        <label>統合元のリード（マスターリードでない方のリード）は、リード統合実施後削除され、オートライン側で登録報告などの後続処理ができなくなります。</label>
+        <name>Dealer_Lost_Message</name>
+    </customLabels>
+	<customLabels>
+        <label>統合先のマスターリードでオートラインの後続処理を進めてください。</label>
+        <name>Dealer_Lost_Message1</name>
     </customLabels>
 	<customLabels>
         <label>興味車両：マスタ</label>
@@ -3715,6 +3767,10 @@
 	<customLabels>
         <label>入会しない理由（入会しない場合必須）</label>
         <name>Reason</name>
+    </customLabels>
+	<customLabels>
+        <label>除外理由は対象者ステータスを除外にした場合のみ入力できます。</label>
+        <name>Reason_for_removal_field_value</name>
     </customLabels>
     <customLabels>
         <label><!-- Received By --></label>
@@ -5147,6 +5203,10 @@
     <customLabels>
         <label><!-- Three --></label>
         <name>Three</name>
+    </customLabels>
+	 <customLabels>
+        <label>この機能は使用できません。</label>
+        <name>This_function_cannot_be_used</name>
     </customLabels>
     <customLabels>
         <label><!-- Title - Retail Campaigns Mass Approve --></label>

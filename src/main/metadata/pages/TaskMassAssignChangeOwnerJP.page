@@ -22,19 +22,19 @@ JIRA NO             :    SFDCJP-1016 & SFDCJP-1020
         };
         
     </script>
-    <apex:sectionHeader title="Mass Assign Tasks"/>
+    <apex:sectionHeader title="{!$Label.Mass_Assign_Tasks}"/>
     <apex:form >
         <apex:pageMessages />
-        <apex:pageBlock title="Assign To" mode="Edit">       
+        <apex:pageBlock title="{!$Label.Assign_To}" mode="Edit">       
             <apex:pageBlockSection columns="2">         
                 <apex:pageBlockSectionitem > 
-                    <apex:outputLabel >New Owner</apex:outputLabel>          
+                    <apex:outputLabel >{!$Label.New_Owner}</apex:outputLabel>          
                     <apex:inputField value="{!task.ownerid}" label="Assign TO"/>                   
                 </apex:pageBlockSectionitem>       
            </apex:pageBlockSection>       
            <apex:pageBlockSection >         
                <apex:pageBlockSectionitem >            
-                   <apex:commandButton value="Confirm" action="{!assignToOwnerClick}" oncomplete="CloseTab()" />         
+                   <apex:commandButton value="{!$Label.Confirm}" action="{!assignToOwnerClick}" oncomplete="CloseTab()" />         
                </apex:pageBlockSectionitem>       
            </apex:pageBlockSection>     
         </apex:pageBlock>

@@ -55,6 +55,17 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Composite_Contract_relation_Identifier__c</fullName>
+        <externalId>false</externalId>
+        <formula>FS_Customer__r.BPID__c+"-"+ FS_Contract__r.Contract_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Composite Contract relation Identifier</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FS_Contract__c</fullName>
         <externalId>false</externalId>
         <label>FS Contract</label>

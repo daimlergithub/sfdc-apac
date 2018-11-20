@@ -6,12 +6,18 @@ public class TaskTriggerHandlerKR implements TriggerHandlerIf {
                 TaskHelper.updateCampaignMemberStatus(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
             
             //TaskHelperKR.updateAccountMobile(trigger.new);
+            //MBK Message Send Manage 6/26/2018
+            Map<Id,Task> dummap = new Map<Id,Task>();
+            TaskHelperKR.MessageSendManage((List<Task>)Trigger.new, dummap, 'Insert');            
         }
          if(trigger.isAfter && trigger.isUpdate)
         {
             
                 TaskHelper.updateCampaignMemberStatus(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
                 TaskHelperKR.updateExecutionCampaignSharing(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+                
+            //MBK Message Send Manage 6/26/2018
+            TaskHelperKR.MessageSendManage((List<Task>)Trigger.new, (Map<Id,Task>)trigger.oldmap, 'Update');                
         }
          if(trigger.isBefore && trigger.isInsert)
         {

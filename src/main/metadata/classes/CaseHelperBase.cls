@@ -598,4 +598,10 @@ public class CaseHelperBase {
                   }  
               }       
     }
+public static datetime escalationBusinessHour(Integer mins, BusinessHours bhrs,datetime dt){
+    
+                Long minisec = (mins*60000);
+                dt=BusinessHours.add(bhrs.id,dt,minisec);
+                return dt;
+            }	
 }

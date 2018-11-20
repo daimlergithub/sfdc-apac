@@ -1382,7 +1382,7 @@ system.debug('i am here');
                 campshare.add(shareRec1);  
             }  
            
-             for(id NDgroup:assgroupMap.values())
+            /* for(id NDgroup:assgroupMap.values())
              { 
                CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = cams.Id;
@@ -1390,10 +1390,10 @@ system.debug('i am here');
                 shareRec1.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec1); 
              
-             }
+             } */
         }   
         }
-     if(u.Contact.Account.Dealer_Type__c == 'Outlet' && u.Contact.Dealer_Complaint_Gate_Keeper__c == true && u.Contact.Dealer_Lead_Gate_Keeper__c == true)
+     /* if(u.Contact.Account.Dealer_Type__c == 'Outlet' && u.Contact.Dealer_Complaint_Gate_Keeper__c == true && u.Contact.Dealer_Lead_Gate_Keeper__c == true)
            {
              for(id NDgroup:assgroupMap.values())
              { 
@@ -1404,7 +1404,7 @@ system.debug('i am here');
                 campshare.add(shareRec1); 
              
              }
-           }            
+           }  */        
       }
      
      // IF Team Leader Share Process  
@@ -1423,7 +1423,7 @@ system.debug('i am here');
                 tlshareRec.CampaignAccessLevel = 'Edit';
                 campshare.add(tlshareRec);  
              }
-            for(id NDgroup:assgroupMap.values())
+            /* for(id NDgroup:assgroupMap.values())
              { 
                CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = camstl.Id;
@@ -1443,13 +1443,13 @@ system.debug('i am here');
                 topshareRec.CampaignAccessLevel = 'Edit';
                 campshare.add(topshareRec);
             }
-            }
+            } */
             
       }
     } 
     
     //Delaer company share
-     for(Campaign camsdq : campaignNew) {
+    /* for(Campaign camsdq : campaignNew) {
      if(!usershare.containsKey(camsdq.ownerid))continue;
             user dqshare = usershare.get(camsdq.ownerid);
          if((camsdq.recordtypeId == campPlngRecTypId || camsdq.recordtypeId == campDsgnRecTypId) && dqshare.Contact.Account.Dealer_Type__c == 'Company')
@@ -1476,7 +1476,7 @@ system.debug('i am here');
                }
                }            
             
-     }  
+     } */ 
      system.debug('campshare --'+campshare);
      If(campshare != null & campshare.size() > 0) {
         insert campshare;

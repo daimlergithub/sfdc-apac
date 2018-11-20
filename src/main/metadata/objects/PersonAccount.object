@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>SYSTEMPersonAccount</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>PersonAccountLTG</fullName>
+	  <fields>RecordTypeId</fields>
+	  <fields>Name</fields>
+	  <fields>OwnerId</fields>
+        <label>PersonAccountLTG</label>
+    </compactLayouts>
+   
     <enableHistory>true</enableHistory>
     <externalSharingModel>Private</externalSharingModel>
     <recordTypes>
         <fullName>PersonAccount</fullName>
         <active>true</active>
+		<compactLayoutAssignment>PersonAccountLTG</compactLayoutAssignment>
         <description>Record type for person account</description>
         <label>Person Account</label>
         <picklistValues>
@@ -56,6 +65,14 @@
         <picklistValues>
             <picklist>Age_Range__c</picklist>
             <values>
+                <fullName>0-16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>16-25</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>17-25</fullName>
                 <default>false</default>
             </values>
@@ -101,6 +118,30 @@
         </picklistValues>
         <picklistValues>
             <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 and more</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -812,7 +853,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Industrial%2F Trade Associations</fullName>
+                <fullName>Industrial / Trade associations</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -828,7 +869,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <fullName>Small &amp; medium enterprise / Corporate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1143,6 +1184,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Employee Referral%2FReferrals</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </values>
@@ -1188,6 +1233,10 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine%2FBrochure</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1263,6 +1312,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedez Me Connect</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
             </values>
@@ -1312,6 +1365,10 @@
             </values>
             <values>
                 <fullName>SUP %28Self Update Platform%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Media</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2317,6 +2374,14 @@
         <picklistValues>
             <picklist>Dealer_Group__c</picklist>
             <values>
+                <fullName>Akasya</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autoline</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Independent</fullName>
                 <default>false</default>
             </values>
@@ -2355,6 +2420,21 @@
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
                 <fullName>Dealer Sockets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Operation_Type__c</picklist>
+            <values>
+                <fullName>AfterSales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2451,6 +2531,10 @@
             </values>
             <values>
                 <fullName>Mbconnect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts Dealer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2791,6 +2875,10 @@
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
             <values>
+                <fullName>Affinity Scheme to Professional Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Business</fullName>
                 <default>false</default>
             </values>
@@ -2847,6 +2935,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Govt Federal</fullName>
                 <default>false</default>
             </values>
@@ -2859,6 +2951,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>IFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>IFA%2FNFA Employee</fullName>
                 <default>false</default>
             </values>
@@ -2868,6 +2964,10 @@
             </values>
             <values>
                 <fullName>Large Fleet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Company</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2884,6 +2984,10 @@
             </values>
             <values>
                 <fullName>Mining company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NFA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3410,6 +3514,10 @@
             </values>
             <values>
                 <fullName>Humanity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Humanity%2FCharity</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4116,6 +4224,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Emekliyim</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Emlak</fullName>
                 <default>false</default>
             </values>
@@ -4129,6 +4241,10 @@
             </values>
             <values>
                 <fullName>Enerji%2C Isı</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ev hanımıyım</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4248,7 +4364,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Öğrenciyim</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>İnşaat%2C Yapı%2C Tesisat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>İşsizim %2F Çalışmıyorum</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5725,6 +5849,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Divorced%2FSeparated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Married</fullName>
                 <default>false</default>
             </values>
@@ -5748,11 +5876,31 @@
         <picklistValues>
             <picklist>Market__c</picklist>
             <values>
+                <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5775,12 +5923,28 @@
                 <fullName>NZ</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>TR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>VN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6071,6 +6235,14 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Emekliyim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ev hanımıyım</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Fizyoterapist</fullName>
                 <default>false</default>
             </values>
@@ -6299,6 +6471,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Öğrenciyim</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Öğretmen</fullName>
                 <default>false</default>
             </values>
@@ -6308,6 +6484,10 @@
             </values>
             <values>
                 <fullName>İşletmeci</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>İşsizim %2F Çalışmıyorum</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6395,6 +6575,10 @@
             </values>
             <values>
                 <fullName>Carpenter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carpenter%2FPlumber%2FElectrician</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6534,11 +6718,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lawyer%2FLegal Expert</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Legal Expert</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Legislator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legislator%2FMagistrate%2FJudge</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6618,6 +6810,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Police Officer%2FLaw enforcement</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Politician</fullName>
                 <default>false</default>
             </values>
@@ -6659,6 +6855,10 @@
             </values>
             <values>
                 <fullName>Researcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Researcher%2FScientist</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6723,6 +6923,10 @@
             </values>
             <values>
                 <fullName>Writer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Writer%2FEditor</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9295,7 +9499,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Industrial%2F Trade Associations</fullName>
+                <fullName>Industrial / Trade associations</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9311,7 +9515,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <fullName>Small &amp; medium enterprise / Corporate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10666,6 +10870,21 @@
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
                 <fullName>Dealer Sockets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Operation_Type__c</picklist>
+            <values>
+                <fullName>AfterSales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15865,7 +16084,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Industrial%2F Trade Associations</fullName>
+                <fullName>Industrial / Trade associations</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15881,7 +16100,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <fullName>Small &amp; medium enterprise / Corporate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17184,6 +17403,21 @@
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
                 <fullName>Dealer Sockets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Operation_Type__c</picklist>
+            <values>
+                <fullName>AfterSales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22370,7 +22604,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Industrial%2F Trade Associations</fullName>
+                <fullName>Industrial / Trade associations</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22386,7 +22620,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <fullName>Small &amp; medium enterprise / Corporate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23677,6 +23911,21 @@
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
                 <fullName>Dealer Sockets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Operation_Type__c</picklist>
+            <values>
+                <fullName>AfterSales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28768,7 +29017,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Industrial%2F Trade Associations</fullName>
+                <fullName>Industrial / Trade associations</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28784,7 +29033,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <fullName>Small &amp; medium enterprise / Corporate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30119,6 +30368,21 @@
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
                 <fullName>Dealer Sockets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Operation_Type__c</picklist>
+            <values>
+                <fullName>AfterSales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -380,12 +380,30 @@
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>SG</controllingFieldValue>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>Others</valueName>
             </valueSettings>
             <valueSettings>
+								<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
@@ -393,6 +411,15 @@
                 <valueName>MB</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
@@ -401,13 +428,40 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>smart</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>EQ</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>MB Certified</valueName>
             </valueSettings>
@@ -730,6 +784,15 @@
                 </value>
             </valueSetDefinition>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
@@ -738,6 +801,15 @@
                 <valueName>Email</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
@@ -746,6 +818,15 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
@@ -753,6 +834,15 @@
                 <valueName>Call</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
@@ -760,6 +850,15 @@
                 <valueName>Website</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
@@ -767,6 +866,15 @@
                 <valueName>Social Media</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
@@ -774,15 +882,42 @@
                 <valueName>SMS</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <valueName>Mobile Showroom</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Survey</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Postal</valueName>
             </valueSettings>
@@ -1279,6 +1414,7 @@
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Sales</valueName>
             </valueSettings>
             <valueSettings>
@@ -1287,6 +1423,7 @@
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <valueName>After Sales</valueName>
             </valueSettings>
             <valueSettings>
@@ -1294,6 +1431,7 @@
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Finance</valueName>
             </valueSettings>
             <valueSettings>
@@ -1358,6 +1496,7 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>IN</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <valueName>Sales and After-Sales</valueName>
             </valueSettings>
             <valueSettings>
@@ -1818,6 +1957,21 @@
                     <default>false</default>
                     <label>smart fortwo Coupe</label>
                 </value>
+                <value>
+                    <fullName>smart EQ forfour Hatchback</fullName>
+                    <default>false</default>
+                    <label>smart EQ forfour Hatchback</label>
+                </value>
+                <value>
+                    <fullName>smart EQ fortwo Cabriolet</fullName>
+                    <default>false</default>
+                    <label>smart EQ fortwo Cabriolet</label>
+                </value>
+                <value>
+                    <fullName>smart EQ fortwo Coupé</fullName>
+                    <default>false</default>
+                    <label>smart EQ fortwo Coupé</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>MB</controllingFieldValue>
@@ -2086,17 +2240,14 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>smart</controllingFieldValue>
-                <controllingFieldValue>EQ</controllingFieldValue>
                 <valueName>smart forfour Hatchback</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>smart</controllingFieldValue>
-                <controllingFieldValue>EQ</controllingFieldValue>
                 <valueName>smart fortwo Cabriolet</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>smart</controllingFieldValue>
-                <controllingFieldValue>EQ</controllingFieldValue>
                 <valueName>smart fortwo Coupe</valueName>
             </valueSettings>
             <valueSettings>
@@ -2246,6 +2397,18 @@
             <valueSettings>
                 <controllingFieldValue>StarElite</controllingFieldValue>
                 <valueName>Others</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EQ</controllingFieldValue>
+                <valueName>smart EQ forfour Hatchback</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EQ</controllingFieldValue>
+                <valueName>smart EQ fortwo Cabriolet</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>EQ</controllingFieldValue>
+                <valueName>smart EQ fortwo Coupé</valueName>
             </valueSettings>
         </valueSet>
         <visibleLines>4</visibleLines>
@@ -2969,6 +3132,17 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>DM_Task__c</fullName>
+        <description>Created on 03-11-2019</description>
+        <externalId>false</externalId>
+        <label>DM Task</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>DM_Template__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup(DM Material)</description>
@@ -3100,6 +3274,15 @@
                 </value>
             </valueSetDefinition>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -3107,6 +3290,15 @@
                 <valueName>Campaign Organized by Central</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -3115,12 +3307,30 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Campaign Organized by Dealer</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
@@ -3466,28 +3676,73 @@
                 <valueName>loyalty_guift</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Road Show</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>KR</controllingFieldValue>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>   
+			   <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Test Drive</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Auto Show</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Festival</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>New Car Launch</valueName>
             </valueSettings>
@@ -3533,27 +3788,81 @@
                 <valueName>Sales_new model target</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Pop-Up Store</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Special Event for Fleet Clients</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Special Event for ÖMG</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Vehicle Display</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Dining Event</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Vehicle Launch Event</valueName>
             </valueSettings>
         </valueSet>
@@ -3665,6 +3974,15 @@
                 </value>
             </valueSetDefinition>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
@@ -3674,10 +3992,20 @@
                 <valueName>OB Call</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>DM</valueName>
             </valueSettings>
@@ -3687,6 +4015,15 @@
                 <valueName>Segmentation Only</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <valueName>MyM</valueName>
@@ -3709,6 +4046,15 @@
                 <valueName>eMail</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
@@ -3729,11 +4075,29 @@
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <valueName>MMS</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>SMS</valueName>
@@ -3741,6 +4105,15 @@
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>eDM</valueName>
@@ -3751,11 +4124,29 @@
                 <valueName>KakaoTalk</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Social Media</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+				<controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Postal</valueName>
             </valueSettings>
         </valueSet>
@@ -4168,9 +4559,10 @@
 IF(ISPICKVAL($User.Market__c, 'IN') ,'IN',  
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'ID'), 'ID',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA'))))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -4213,14 +4605,23 @@ IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA')))))))</defaultValue>
     </fields>
     <fields>
         <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+                <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
-IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',
+IF(ISPICKVAL($User.Market__c, 'VN'), 'VN',
+IF(ISPICKVAL($User.Market__c, 'SG'), 'SG',
+IF(ISPICKVAL($User.Market__c, 'RO'), 'RO',
+IF(ISPICKVAL($User.Market__c, 'HU'), 'HU',
+IF(ISPICKVAL($User.Market__c, 'SK'), 'SK',
+IF(ISPICKVAL($User.Market__c, 'AR'), 'AR',
+IF(ISPICKVAL($User.Market__c, 'CO'), 'CO',
+IF(ISPICKVAL($User.Market__c, 'EG'), 'EG',
+IF(ISPICKVAL($User.Market__c, 'ID'), 'ID','')))))))))))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -4268,6 +4669,51 @@ IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
                     <fullName>TR</fullName>
                     <default>false</default>
                     <label>TR</label>
+                </value>
+                <value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                    <label>ID</label>
+                </value>
+                <value>
+                    <fullName>VN</fullName>
+                    <default>false</default>
+                    <label>VN</label>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>false</default>
+                    <label>SG</label>
+                </value>
+                <value>
+                    <fullName>RO</fullName>
+                    <default>false</default>
+                    <label>RO</label>
+                </value>
+                <value>
+                    <fullName>HU</fullName>
+                    <default>false</default>
+                    <label>HU</label>
+                </value>
+                <value>
+                    <fullName>SK</fullName>
+                    <default>false</default>
+                    <label>SK</label>
+                </value>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                    <label>AR</label>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                    <label>CO</label>
+                </value>
+                <value>
+                    <fullName>EG</fullName>
+                    <default>false</default>
+                    <label>EG</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -4582,6 +5028,15 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
                 </value>
             </valueSetDefinition>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>CN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -4590,9 +5045,18 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
-                <valueName>Brand Enhancement</valueName>
+				<valueName>Brand Enhancement</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>CN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -4604,6 +5068,15 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
                 <valueName>Acquisition</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>CN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -4614,6 +5087,15 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
                 <valueName>Increase Sales</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>CN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -4625,6 +5107,15 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
                 <valueName>Loyalty</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>AU</controllingFieldValue>
                 <controllingFieldValue>CN</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
@@ -4635,6 +5126,15 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
                 <valueName>Increase after Sales</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Retention</valueName>
             </valueSettings>
@@ -6556,6 +7056,15 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Send_to_Marketing_Cloud__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Created on 03-11-2019</description>
+        <externalId>false</externalId>
+        <label>Send to Marketing Cloud</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Set_List_Maintenance_Flag__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Use to indicate if list maintenance is required for Joint Drive Campaign</description>
@@ -6766,6 +7275,15 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
                 </value>
             </valueSetDefinition>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -6774,24 +7292,60 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
                 <valueName>Contact</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Lead</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Vehicle</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Case</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <valueName>None</valueName>
@@ -7630,7 +8184,7 @@ if($UserRole.Name=='MBLT','TH-FS','')))</defaultValue>
             <operation>equals</operation>
             <value>Campaign.Campaign_Executiono,Campaign.Planning_Design_Campaign</value>
         </filters>
-        <label>All MBTH Campaigns</label>
+        <label>All Campaigns</label>
         <language>en_US</language>
         <sharedTo>
             <group>THUsers</group>
@@ -18878,6 +19432,18 @@ if($UserRole.Name=='MBLT','TH-FS','')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>smart EQ forfour Hatchback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart EQ fortwo Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart EQ fortwo Coupé</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>smart forfour Hatchback</fullName>
                 <default>false</default>
             </values>
@@ -19301,11 +19867,43 @@ if($UserRole.Name=='MBLT','TH-FS','')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+			            <values>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>CN</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19322,6 +19920,10 @@ if($UserRole.Name=='MBLT','TH-FS','')))</defaultValue>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>VN</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23129,6 +23731,18 @@ if($UserRole.Name=='MBLT','TH-FS','')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>smart EQ forfour Hatchback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart EQ fortwo Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart EQ fortwo Coupé</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>smart forfour Hatchback</fullName>
                 <default>false</default>
             </values>
@@ -23770,12 +24384,32 @@ if($UserRole.Name=='MBLT','TH-FS','')))</defaultValue>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>AR</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23792,6 +24426,22 @@ if($UserRole.Name=='MBLT','TH-FS','')))</defaultValue>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </values>
+           <values>
+                <fullName>VN</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28757,7 +29407,7 @@ $Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Planning_Design_Ca
         <fullName>Campaign_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of Campaign should be same as user's Market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', $Profile.Name != 'Marketing Administrator', NOT(isTestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
@@ -28797,7 +29447,7 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; !Act
     <validationRules>
         <fullName>Campaign_Type_and_Purpose_Mandatory</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( ISPICKVAL(Market__c, 'TR') ,$Profile.Name != 'IntegrationAPI',OR( ISPICKVAL( Campaign_Type__c , ''), ISPICKVAL( Purpose__c , '')  ))</errorConditionFormula>
+        <errorConditionFormula>AND( ISPICKVAL(Market__c, 'TR') ,$Profile.Name != 'IntegrationAPI',OR( ISPICKVAL( Campaign_Type__c , ''), ISPICKVAL( Purpose__c , '')  ),RecordType.DeveloperName = 'Planning_Design_Campaign')</errorConditionFormula>
         <errorMessage>Please enter Campaign Type and Campaign Purpose!</errorMessage>
     </validationRules>
     <validationRules>
@@ -28807,6 +29457,12 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; !Act
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAS Marketing Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
+	    <validationRules>
+        <fullName>Campaign_Type_and_Purpose_Mandatory_FM</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(CONTAINS( $CustomMetadata.Validation_Parameterization_FM__mdt.Campaign_Type_and_Purpose_Mandatory_FM.Market__c , UPPER( TEXT(Market__c) ))  ,$Profile.Name != 'IntegrationAPI',OR( ISPICKVAL( Campaign_Type__c , ''), ISPICKVAL( Purpose__c , '')  ),RecordType.DeveloperName = 'Planning_Design_Campaign')</errorConditionFormula>
+        <errorMessage>Please enter Campaign Type and Campaign Purpose!</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
@@ -28814,6 +29470,22 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; !Act
 OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),if(AND(ISPICKVAL(Market__c,'TR'),$Permission.TRGeneric),true,false)))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>DM_Material_is_Required_FM</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),
+CONTAINS( $CustomMetadata.Validation_Parameterization_FM__mdt.DM_Material_is_Required_FM.Market__c, UPPER( Text(Market__c ))))</errorConditionFormula>
+        <errorDisplayField>DM_Material__c</errorDisplayField>
+        <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
+	</validationRules>
+	<validationRules>
+        <fullName>End_Date_Mandatory_Execution_Campaign</fullName>
+        <active>true</active>
+        <description>End Date field is Mandatory in Execution campaign.</description>
+        <errorConditionFormula>AND(ISPICKVAL(Market__c, "TR") ,$Profile.Name != 'IntegrationAPI', ISBLANK(EndDate),RecordType.DeveloperName = 'Campaign_Executiono')</errorConditionFormula>
+        <errorDisplayField>EndDate</errorDisplayField>
+        <errorMessage>End Date field is Mandatory in Execution campaign.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Get_OBSMSTemplate_on_Courtesy_Greet</fullName>
@@ -28885,6 +29557,38 @@ ISCHANGED( Purpose__c )
 $Profile.Name != 'IntegrationAPI', OR(UPPER(MD__c) = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),if(AND(MD__c=='IN',$Permission.INGeneric),true,false)))</errorConditionFormula>
         <errorMessage>You cannot change this record when Status is published or closed.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Locked_for_Central_when_Published_FM</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+RecordType.Name =='Planning &amp; Design Campaign', 
+
+OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')), 
+OR( ISCHANGED( Campaign_Code__c ), 
+ISCHANGED( Name ), 
+ISCHANGED( Description ), 
+ISCHANGED( Brand__c ), 
+ISCHANGED( Plan_Start_Date__c ), 
+ISCHANGED( Plan_End_Date__c ), 
+ISCHANGED( Region__c ), 
+ISCHANGED( Actual_Region_Expense__c ), 
+ISCHANGED( Region_Budget__c ), 
+ISCHANGED( Media_Type__c ), 
+ISCHANGED( Event_Type__c ), 
+ISCHANGED( CBU_PbP__c ), 
+ISCHANGED( Other_Media_Type__c ), 
+ISCHANGED( Other_Event_Type__c ), 
+ISCHANGED( Car_Model__c ), 
+ISCHANGED( Campaign_Type__c ), 
+ISCHANGED( Driven__c ), 
+ISCHANGED( Min_Car_Age__c ), 
+ISCHANGED( Max_Car_Age__c ), 
+ISCHANGED( Purpose__c ) 
+), 
+$Profile.Name != 'IntegrationAPI', CONTAINS( $CustomMetadata.Validation_Parameterization_FM__mdt.Locked_for_Central_when_Published_FM.Market__c  , (UPPER(MD__c))))</errorConditionFormula>
+        <errorMessage>You cannot change this record when Status is published or closed.</errorMessage>
+    </validationRules>
+	
     <validationRules>
         <fullName>Parent_Campaign_Status_Ongoing</fullName>
         <active>true</active>
@@ -28920,6 +29624,13 @@ $Profile.Name != 'IntegrationAPI', OR(UPPER(MD__c) = 'TH',if(AND(MD__c=='MY',$Pe
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>Parent Campaign can't be active if there aren't any associated campaign execution record.</errorMessage>
     </validationRules>
+	    <validationRules>
+        <fullName>Planning_Design_Campaign_Active_FM</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(RecordType.Name ='Planning &amp; Design Campaign',ISNEW(),IsActive = True,  CONTAINS( $CustomMetadata.Validation_Parameterization_FM__mdt.Planning_Design_Campaign_Active_FM.Market__c , UPPER(MD__c)) ,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>IsActive</errorDisplayField>
+        <errorMessage>Parent Campaign can't be active if there aren't any associated campaign execution record.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Record_lock_on_campaign</fullName>
         <active>true</active>
@@ -28933,10 +29644,29 @@ PRIORVALUE(Consolidated_List_Completed__c) = TRUE,NOT(ISCHANGED(Child_Campaign_S
         <errorConditionFormula>AND( ISBLANK(Template__c), 
 OR( 
 ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICKVAL(Execution_Type__c ,"eDM") 
-),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'TH',ISPICKVAL(Market__c,'TR'))
+),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'TH')
 )</errorConditionFormula>
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Start_Date_Mandatory_Execution_Campaign</fullName>
+        <active>true</active>
+        <description>Start Date field is Mandatory in Execution campaign.</description>
+        <errorConditionFormula>AND(ISPICKVAL(Market__c, "TR") ,$Profile.Name != 'IntegrationAPI', ISBLANK(StartDate),RecordType.DeveloperName = 'Campaign_Executiono')</errorConditionFormula>
+        <errorDisplayField>StartDate</errorDisplayField>
+        <errorMessage>Start Date field is Mandatory in Execution campaign.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Status_Mandatory_Execution_Campaign</fullName>
+        <active>true</active>
+        <description>Status field will be mandatory in Execution campaign also</description>
+        <errorConditionFormula>AND( ISPICKVAL(Market__c, 'TR') ,
+$Profile.Name != 'IntegrationAPI',
+ISPICKVAL(  Status__c, ''),
+RecordType.DeveloperName = 'Campaign_Executiono')</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>Status is Mandatory for Campaign Execution</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>TH_publish_Date_Should_be_between_start</fullName>
@@ -28944,6 +29674,17 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorConditionFormula>MD__c ='TH' &amp;&amp;(StartDate &gt; Publish_Date__c ||Publish_Date__c&gt; EndDate)</errorConditionFormula>
         <errorDisplayField>Publish_Date__c</errorDisplayField>
         <errorMessage>Campaign Publish Date Should be Between Start  Date And  End Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Task_Created_By_Restriction</fullName>
+        <active>true</active>
+        <description>For the execution type=OB call, Task created by=contact and Create task check box are mandaotry</description>
+        <errorConditionFormula>AND( ISPICKVAL(Market__c, 'TR') ,
+$Profile.Name != 'IntegrationAPI',
+ISPICKVAL(  Execution_Type__c , 'OB Call'),
+NOT(ISPICKVAL(   Task_Created_By__c , 'Contact')),
+RecordType.DeveloperName = 'Campaign_Executiono')</errorConditionFormula>
+        <errorMessage>For OB Call Execution Type , Task Created By should be Contact</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>not_check_active_when_new_cac_camapgin</fullName>

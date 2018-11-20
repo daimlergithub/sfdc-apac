@@ -31,12 +31,12 @@ public class DMRequestHelperTRTest {
         upsert TriggerAddress;
 
         Profile taskprofile = [select id, Name from profile where Name='System Administrator' limit 1];
-        User user = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='sa2222222m@test.com.dev01',Market__c = 'TR');
+        User user = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='sa2222222m@test.com.dev01'+String.valueof(DateTime.now().getTime()),Market__c = 'TR');
         insert user;
         System.runas(user){       
             Profile profileCAC = [select Id from Profile where Name = :Label.IntProfileName];
             usr = new User();
-            usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';        
+            usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com'+String.valueof(DateTime.now().getTime());        
             if(profileCAC!=Null){
             usr.ProfileId = profileCAC.Id;}
             usr.LastName = 'Test User';
@@ -62,10 +62,10 @@ public class DMRequestHelperTRTest {
             account= new Account();
             account.Phone='09844650654';
             account.Email__c = 'testemail@test.com';
-			account.Market__c = 'TR';
+            account.Market__c = 'TR';
             account.firstName = 'firstname';
             account.lastName = 'lastname';
-			account.Data_Source__c = 'MBT Event';
+            account.Data_Source__c = 'MBT Event';
             account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account); 
 
             address=new Address__c();
@@ -79,6 +79,7 @@ public class DMRequestHelperTRTest {
             address.Address_Line_2__c='testaddress2';
             address.Customer__c=account.id;
 			address.Market__c='TR';
+			address.country__c = 'Turkey';
             insert address;  
 
             address1=new Address__c();
@@ -92,6 +93,7 @@ public class DMRequestHelperTRTest {
             address1.Address_Line_2__c='testaddress';
             address1.Customer__c=account.id;
 			address1.Market__c='TR';
+			address1.country__c = 'Turkey';
             insert address1; 
         } 
     }

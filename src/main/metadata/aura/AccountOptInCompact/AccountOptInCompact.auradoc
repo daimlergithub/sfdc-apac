@@ -1,0 +1,5 @@
+<aura:documentation>
+	<aura:description>Displays a set of boolean field values in the account object as icons for a quick glance
+    Pulls values from actual field labels. Used for "Opt-In Information": Contact options for customers and service functions for dealers
+    </aura:description>
+</aura:documentation>

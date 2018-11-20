@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" >
+	<article class="slds-card">        
+        <lightning:card iconName="standard:event" title="Calendar"   class="slds-text-heading_small">
+            <aura:set attribute="title">
+                <a href="/MBIndonesia/s/calendar" target="_blank">Calendar</a>
+            </aura:set>  
+        </lightning:card>       
+    </article>
+</aura:component>

@@ -1,4 +1,13 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created By:Narendra.I
+* Created Date:01-Aug-2018
+* Company:Infosys Ltd
+* Description: Component to upload file.			   
+* **********************************************************************************-->
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global">
-	<span class="slds-text-body_small slds-text-color_error">Note: Maximum File size you can upload is 5 MB</span> 
+	<!--<span class="slds-text-body_small slds-text-color_error">Note: Maximum File size you can upload is 5 MB</span>-->
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="fromVal" type="string" default=""/>    
     <lightning:fileUpload label="Attach Files" multiple="true" recordId="{!v.recordId}" onuploadfinished="{!c.handleUploadFinished}" />
 </aura:component>

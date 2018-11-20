@@ -1,8 +1,7 @@
 ({
-    handleUploadFinished: function (cmp, event) {
-        //var uploadedFiles = event.getParam("files");
-        //alert("Files uploaded : " + uploadedFiles.length);
-        var dismissActionPanel = $A.get("e.force:closeQuickAction");
-        dismissActionPanel.fire();  
+    handleUploadFinished: function (component, event) {
+       	$A.get('e.force:refreshView').fire();
+        if(component.get("v.fromVal")=='news') 
+            $A.get('e.force:refreshView').fire();        
     }
 })

@@ -21,7 +21,6 @@ public class TriggerLeadTriggerHandlerJP
         if(isBefore && isUpdate)
         {
             LeadHelperBase.updatemarket(Trigger.New);
-            LeadHelperJP.updateCustomerStage(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, (Map<Id,Lead__C>)Trigger.NewMap);
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);
             // LeadHelperAccountLinkCreateJP.updatingleadcontactDetails(trigger.new,isInsert, isUpdate);
              LeadHelperJP.createContactToContactAccounlink(trigger.new);  
@@ -34,6 +33,7 @@ public class TriggerLeadTriggerHandlerJP
         if(isAfter &&  isInsert)
         {
             System.debug('welcome');
+			
             LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             if(!system.isFuture() && LeadUtil.createAccountLinkRecord)
             {
@@ -47,6 +47,8 @@ public class TriggerLeadTriggerHandlerJP
         if(isAfter && isUpdate )
         {
             System.debug('welcome');
+			
+            LeadHelperJP.updateCustomerStage(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, (Map<Id,Lead__C>)Trigger.NewMap);
             LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             LeadHelperJp.afterInsertUpdateEvent(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap,isInsert,isUpdate);
             if(!system.isFuture() && LeadUtil.createAccountLinkRecord)
@@ -97,7 +99,7 @@ public class TriggerLeadTriggerHandlerJP
             system.debug('******************************************Target Lead No.:' + lead.Name + '*************************************');
             system.debug('******************************************Target Lead Assigned Dealer.:' + lead.Assigned_Dealer__c + '*************************************');
         }
-        if(isBefore && isUpdate)
+        if(Isafter && isUpdate)
         {
          LeadHelperJP.updateCustomerStage(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, (Map<Id,Lead__C>)Trigger.NewMap);
          }

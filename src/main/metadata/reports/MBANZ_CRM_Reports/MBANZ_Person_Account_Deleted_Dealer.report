@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.fromRole__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.toRole__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.Retail_Delete_Flag__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.RetailDealer_ND_Code__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.Retail_Dealer_CompanyCode__c</field>
+    </columns>
+    <description>Person accoutn Deleted retail Customer Relationship</description>
+    <filter>
+        <criteriaItems>
+            <column>Account_Link__c.Retail_Delete_Flag__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account_Link__c.Market__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>AU,NZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account_Link__c.Retail_Person</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>MBANZ Person Account Deleted Dealer</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Account_Link__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account_Link__c.Alk_Record_Created_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

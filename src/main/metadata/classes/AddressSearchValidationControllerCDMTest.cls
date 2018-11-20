@@ -665,7 +665,7 @@ INAcccontroller.First();
             AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
             PageReference pageRef = Page.AddressSearchValidationCDM;
             INAcccontroller.market = 'IN';
-            INAcccontroller.objPersonAccount = personAcc;
+            //INAcccontroller.objPersonAccount = personAcc;
             INAcccontroller.recordType = 'Person Account';
             INAcccontroller.selectedRecordType = 'Person Account';
             INAcccontroller.objAccount = personAcc; 
@@ -723,7 +723,7 @@ INAcccontroller.First();
               ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
         AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
             INAcccontroller.market='IN';
-            INAcccontroller.objPersonAccount = personAcc;
+            //INAcccontroller.objPersonAccount = personAcc;
             INAcccontroller.recordType = 'Person Account';
             INAcccontroller.selectedRecordType = 'Person Account';
            INAcccontroller.objAccount = personAcc;
@@ -748,7 +748,7 @@ INAcccontroller.First();
             personAcc1.Name='New Organization';
              ApexPages.StandardController objSc1 = new ApexPages.StandardController(personAcc1);
         AddressSearchValidationControllerCDM INAcccontroller1= new AddressSearchValidationControllerCDM(objSc1);
-           INAcccontroller1.objPersonAccount = personAcc1;
+          // INAcccontroller1.objPersonAccount = personAcc1;
             INAcccontroller1.recordType = 'Company';
             INAcccontroller1.selectedRecordType = 'Company';
             INAcccontroller1.objAccount = personAcc1;
@@ -804,10 +804,14 @@ INAcccontroller.First();
             insert rm;
             objAccount= new Account();
             objAccount.RecordtypeId= companyAccRecordTypeId;
-            objAccount.Name='Test Person 1st';
+            objAccount.Name='Test Person first';
             objAccount.Status__c='Active';
-            objAccount.Province__c='Province1';
-            objAccount.City__c='Test';
+            if(user1.Market__c == 'IN' || user1.Market__c == null){
+                objAccount.Corporate_Category__c = 'Corporate Loyalty';
+                objAccount.Market__c = 'IN';
+            }
+            objAccount.Province__c='ProvinceTest';
+            objAccount.City__c='TestCity';
             objAccount.Email__c='abcf@hji.com';
             objAccount.ID_Type__c='National ID';
             objAccount.ID_Number__c='1234567891234';
@@ -815,12 +819,10 @@ INAcccontroller.First();
             User us=[select market__c from user where id=:UserInfo.getUserId()];
             if(us.market__c=='TH'||us.market__c=='KR'){
                 objAccount.ZipCode__c = '42875';
-                
             }
             else{
                 objAccount.ZipCode__c = '123456';
             }
-            
             objAccount.Email__c='test@mbj.com';  
             objAccount.Mobile__c='+911234567890';
             objAccount.Preferred_Language__c='English';      
@@ -830,13 +832,14 @@ INAcccontroller.First();
             objAccount.Vat_No__c='kdjid';
             objAccount.Preferred_Language__c='English';
             objAccount.Province__c='apdff';
-            
-            
-            
             insert objAccount;
             
             objAccount1 = new Account();
             objAccount1.RecordtypeId= companyAccRecordTypeId;
+            if(user1.Market__c == 'IN' || user1.Market__c == null){
+                objAccount1.Corporate_Category__c = 'Corporate Loyalty';
+                objAccount1.Market__c = 'IN';
+            }
             objAccount1.Name='Test Person 1st';
             objAccount1.ID_Type__c='National ID';
             objAccount1.ID_Number__c='1234567891234';
@@ -849,11 +852,13 @@ INAcccontroller.First();
             
             personAcc= new Account();
             personAcc.RecordtypeId= strPerson;
-            personAcc.LastName='Test123';
-                personAcc.FirstName='Test123';
+            personAcc.LastName='TestLast';
+                personAcc.FirstName='TestFirst';
             personAcc.Status__c='Active';
-            personAcc.Province__c='Province1';
-            personAcc.City__c='Test';
+            personAcc.Province__c='ProvinceOne';
+            personAcc.City__c='TestCity';
+            if(user1.Market__c == 'IN' || user1.Market__c == null)
+                personAcc.Market__c = 'IN';
             personAcc.ID_Type__c='National ID';
             personAcc.ID_Number__c='1234567891234';
             if(us.market__c=='TH'||us.market__c=='KR'){
@@ -868,7 +873,7 @@ INAcccontroller.First();
             personAcc.Preferred_Language__c='Engmmm';        
             personAcc.MBK_Data_Source__c ='Email';
             personAcc.Phone = '08022420181';
-            personAcc.Province__c = 'Province1';
+            personAcc.Province__c = 'ProvinceOn';
             personAcc.Commercial_Reg_No__c='adfgrt';
             personAcc.Vat_No__c='kdjid';
             personAcc.Preferred_Language__c='telugu';
@@ -876,7 +881,7 @@ INAcccontroller.First();
             
             personAcc1 = new Account();
             personAcc1.RecordtypeId= strPerson;
-            personAcc1.LastName='Test Person 2nd';
+            personAcc1.LastName='Test Person Second';
             personAcc1.ID_Type__c='National ID';
             personAcc1.ID_Number__c='1234567891234';
             try{insert personAcc1;}
@@ -891,13 +896,18 @@ INAcccontroller.First();
             addressobj.Address_Type__c = 'Home';
             addressobj.Address_Line_1__c = 'line 1';
             addressobj.Address_Line_2__c = 'line 2';
-            addressobj.Block__c = 'Block';
+            addressobj.City__c='TestCity';
+            addressobj.District__c='testDist';
+            addressobj.Block__c='testBlock';
             addressobj.Customer__c = objAccount.id;
-            addressobj.ZipCode__c = '14941';
+            if(user1.Market__c == 'IN' || user1.Market__c == null)
+                addressobj.ZipCode__c = '123456';
+            else
+              addressobj.ZipCode__c = '14941';
             addressobj.Province__c ='Maharashtra';
             addressobj.TitleOfHonor__c = 'To Person';
             addressobj.Market__c='IN';
-            addressobj.Foreign_Nationals__c = true;
+            addressobj.Foreign_Nationals__c = false;
             addressobj.Country__c = 'India';
             insert addressobj;
         }
@@ -953,7 +963,8 @@ INAcccontroller.First();
             else{
                 objAccount.ZipCode__c = '123456';
             }
-            
+            if(us.Market__c == 'IN' || us.Market__c == null)
+              objAccount.Corporate_Category__c = 'Corporate Loyalty';
             objAccount.Email__c='test@mbj.com';  
             objAccount.Mobile__c='4444-4444';
             objAccount.Preferred_Language__c='English';      
@@ -982,9 +993,10 @@ INAcccontroller.First();
             
             personAcc= new Account();
             personAcc.RecordtypeId= strPerson;
-            personAcc.LastName='Test123';
+            personAcc.LastName='TestLast';
+            personAcc.FirstName ='TestLast';
             personAcc.Status__c='Active';
-            personAcc.Province__c='Province1';
+            personAcc.Province__c='ProvinceTest';
             personAcc.City__c='Test';
             personAcc.ID_Type__c='National ID';
             personAcc.ID_Number__c='1234567891234';
@@ -996,11 +1008,13 @@ INAcccontroller.First();
                 personAcc.ZipCode__c = '123456';
             }
             personAcc.Email__c='test@mbj.com';
+            personAcc.Phone ='+911234567890';
+            personAcc.Home_Phone_2__c ='+911234567890';
             personAcc.Mobile__c='+911234567890';
             personAcc.Preferred_Language__c='Engmmm';        
             personAcc.MBK_Data_Source__c ='Email';
             personAcc.Phone = '08022420181';
-            personAcc.Province__c = 'Province1';
+            personAcc.Province__c = 'ProvinceTest';
             personAcc.Commercial_Reg_No__c='adfgrt';
             personAcc.Vat_No__c='kdjid';
             personAcc.Preferred_Language__c='telugu';
@@ -1008,7 +1022,8 @@ INAcccontroller.First();
             
             personAcc1 = new Account();
             personAcc1.RecordtypeId= strPerson;
-            personAcc1.LastName='Test Person 2nd';
+            personAcc1.Phone ='+911234567890';
+            personAcc1.LastName='Test Person Other';
             personAcc1.ID_Type__c='National ID';
             personAcc1.ID_Number__c='1234567891234';
             try{
@@ -1020,12 +1035,17 @@ INAcccontroller.First();
             addressobj =  new Address__C();
             addressobj.Customer__c = objAccount.Id;
             addressobj.Address_Type__c = 'Home';
+            addressobj.City__c='TestCity';
+            addressobj.District__c='testDist';
             addressobj.Address_Line_1__c = 'line 1';
             addressobj.Address_Line_2__c = 'line 2';
             addressobj.Address_Line_3__c = 'line 3';
             addressobj.Block__c = 'Block';
             addressobj.Customer__c = objAccount.id;
-            addressobj.ZipCode__c = '14941';
+            if(us.Market__c == 'IN' || us.Market__c == null)
+                addressobj.ZipCode__c = '123456';
+            else
+              addressobj.ZipCode__c = '14941';
             addressobj.Province__c ='Maharashtra';
             addressobj.TitleOfHonor__c = 'To Person';
             addressobj.Market__c='IN';
@@ -1092,8 +1112,6 @@ INAcccontroller.First();
                 objAccount.Vat_No__c='8360043469';
                 //objAccount.Preferred_Language__c='English';
                 objAccount.Province__c='ayas';
-                
-                
                 
                 insert objAccount;
                 
@@ -1201,7 +1219,7 @@ INAcccontroller.First();
                 insert rm;
                 objAccount= new Account();
                 objAccount.RecordtypeId= companyAccRecordTypeId;
-                objAccount.Name='Test Person 1st';
+                objAccount.Name='Test Person fst';
                 objAccount.Status__c='Prospect';
                 objAccount.Data_source__c='MBT Event';
                 objAccount.Province__c='ayas';
@@ -1227,14 +1245,14 @@ INAcccontroller.First();
                 objAccount.Vat_No__c='8360043469';
                 //objAccount.Preferred_Language__c='English';
                 //objAccount.Province__c='apdff';
-                
-                
+                //if(user1.Market__c == 'IN' || user1.Market__c == null)
+              objAccount.Corporate_Category__c = 'Corporate Loyalty';
                 
                 insert objAccount;
                 
                 objAccount1 = new Account();
                 objAccount1.RecordtypeId= companyAccRecordTypeId;
-                objAccount1.Name='Test Person 1st';
+                objAccount1.Name='Test Person frst';
                 objAccount1.Market__c='TR';
                 objAccount1.Vat_No__c='42970854504';
                 //objAccount1.ID_Type__c='National ID';
@@ -1248,8 +1266,8 @@ INAcccontroller.First();
                 
                 personAcc= new Account();
                 personAcc.RecordtypeId= strPerson;
-                personAcc.LastName='Test123';
-                personAcc.FirstName='Test123';
+                personAcc.LastName='TestLst';
+                personAcc.FirstName='TestFrst';
                 personAcc.Status__c='Active';
                 personAcc.data_source__c='MBT Event';
                 personAcc.Province__c='ayas';
@@ -1278,7 +1296,7 @@ INAcccontroller.First();
                 personAcc1.RecordtypeId= strPerson;
                 personAcc1.Market__c='TR';
                 personAcc1.FirstName='TR Name';
-                personAcc1.LastName='Test Person 2nd';
+                personAcc1.LastName='Test Person secnd';
                 //personAcc1.opt_in_email__c = true;
                 //personAcc1.Social_ID__c=Decimal.valueof('31915677582');
                 personAcc1.Status__c='Prospect';
@@ -1295,6 +1313,8 @@ INAcccontroller.First();
                 addressobj =  new Address__C();
                 addressobj.Customer__c = objAccount.Id;
                 addressobj.Address_Type__c = 'Home';
+                addressobj.City__c ='TestCity';
+                addressobj.District__c ='testDist';
                 addressobj.Address_Line_1__c = 'line 1';
                 addressobj.Address_Line_2__c = 'line 2';
                 //addressobj.Block__c = 'Block';
@@ -1525,7 +1545,7 @@ INAcccontroller.First();
             TRAcccontroller.objAccount.Phone='null'; 
             TRAcccontroller.objAccount.Email__c=null; 
             //TRAcccontroller.objAccount.Email2__c='test@test.com';
-	    TRAcccontroller.objAccount.Social_ID__c='11900313862'; 
+      TRAcccontroller.objAccount.Social_ID__c='11900313862'; 
             TRAcccontroller.RecordType = 'Person Account';
             test.startTest();      
             TRAcccontroller.hmphoneNumber= '345'; 
@@ -1631,5 +1651,600 @@ INAcccontroller.First();
             TRAcccontroller.cancel();     
             test.stopTest();
         }
-       
+           /*********************************** JP related test method starts here *******************************************/
+/*
+Created By: Dheeraj
+Created Date: 03/08/2018
+*/
+    public static Address__c addObj;
+    public static User jpUser;
+    public static Account jpPersonAccount;
+    public static Account jpCompanyAccount;
+    public static String companyAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    public static String personAccRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static void insertTestRecords(){
+        
+        Profile adminProfile = [SELECT id,name FROM profile WHERE Name='System Administrator'];  
+        jpUSer = new User(Alias = 'standt', Email='01wwtestUser@testorg.com', 
+                             EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                             LocaleSidKey='en_US', ProfileId = adminProfile.Id, Market__c='JP',
+                             TimeZoneSidKey='America/Los_Angeles', UserName='0123atestuserJP@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert jpUSer;
+        
+        addObj = new Address__c();
+        addObj.Address_Type__c = 'Home';
+        addObj.Address_Line_1__c = 'line 1';
+        addObj.Address_Line_2__c = 'line 2';
+        addObj.Block__c = 'Block';
+        addObj.ZipCode__c = '0160000';
+        addObj.Province__c ='Tokyo';
+        addObj.Market__c='JP';
+        addObj.Country__c = 'Japan';
+        
+        jpPersonAccount = new Account();
+        jpPersonAccount.recordTypeId = personAccRT;
+        jpPersonAccount.Data_source__C = 'Event';
+        jpPersonAccount.LastName = 'ェネレータ';
+        jpPersonAccount.LastName_Native_1__c = 'ェネレータ';
+        jpPersonAccount.FirstName_Native_1__c = 'ェネレータ';
+        jpPersonAccount.FirstName = 'ェネレータ';
+        jpPersonAccount.Market__c = 'JP';
+        jpPersonAccount.PersonBirthdate = System.Today().addYears(-20);
+        jpPersonAccount.Email__c = 'test@gmail.com';
+        jpPersonAccount.Email2__c = 'test21@gmail.com';
+        
+        jpCompanyAccount = new Account();
+        jpCompanyAccount.recordTypeId = CompanyAccRT;
+        jpCompanyAccount.Data_source__C = 'Event';
+        jpCompanyAccount.Name = 'ェネレータ';
+        //jpCompanyAccount.LastName_Native_1__c = 'ェネレータ';
+        //jpCompanyAccount.FirstName_Native_1__c = 'ェネレータ';
+        //jpCompanyAccount.FirstName = 'ェネレータ';
+        jpCompanyAccount.Market__c = 'JP';
+        //jpCompanyAccount.PersonBirthdate = System.Today().addYears(-20);
+        jpCompanyAccount.Email__c = 'test@gmail.com';
+        jpCompanyAccount.Email2__c = 'test21@gmail.com';
+        
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+        cs.DEFAULT_CALLOUT_TIME__c='1000';
+        cs.MAX_CALLOUT_TIME__c='5000';
+        cs.Name='CalloutValues';
+        insert cs;
+    }
+    public static void createRuleRecordsJP(){
+        Map<String, Configuration_Rule__c> configRuleMap = new Map<String, Configuration_Rule__c>();
+        List<Configuration_Rule_Item__c> crItemList = new List<Configuration_Rule_Item__c>();
+        
+        Configuration_Rule__c crLandscape = new Configuration_Rule__c();
+        crLandscape.Active__c = true;
+        crLandscape.type__c = 'Landscape';
+        crLandscape.Market__c = 'JP';
+        //crCompany.Sub_Type__c = 'Company';
+        configRuleMap.put('Landscape', crLandscape);
+        
+        Configuration_Rule__c crCompany = new Configuration_Rule__c();
+        crCompany.Active__c = true;
+        crCompany.type__c = 'Deduplication';
+        crCompany.Market__c = 'JP';
+        crCompany.Sub_Type__c = 'Company';
+        configRuleMap.put('Company', crCompany);
+        
+        Configuration_Rule__c crPersonAccount = new Configuration_Rule__c();
+        crPersonAccount.Active__c = true;
+        crPersonAccount.type__c = 'Deduplication';
+        crPersonAccount.Market__c = 'JP';
+        crPersonAccount.Sub_Type__c = 'Person Account';
+        configRuleMap.put('Person Account', crPersonAccount);
+        
+        insert configRuleMap.values();
+        
+        Configuration_Rule_Item__c crItemCompany1 = new Configuration_Rule_Item__c();
+        crItemCompany1.Order__c = 1;
+        crItemCompany1.Source__c = 'Name';
+        crItemCompany1.Destination__c = 'firstName';
+        crItemCompany1.Active__c = true;
+        crItemCompany1.Object_API__c = 'Account';
+        crItemCompany1.Configuration_Rule__c = configRuleMap.get('Company').Id;
+        crItemList.add(crItemCompany1);
+        
+        Configuration_Rule_Item__c crItemCompany2 = new Configuration_Rule_Item__c();
+        crItemCompany2.Order__c = 2;
+        crItemCompany2.Source__c = 'Country__c';
+        crItemCompany2.Destination__c = 'Country';
+        crItemCompany2.Active__c = true;
+        crItemCompany2.Object_API__c = 'Address__c';
+        crItemCompany2.Configuration_Rule__c = configRuleMap.get('Company').Id;
+        crItemList.add(crItemCompany2);
+        
+        Configuration_Rule_Item__c crItemCompany3 = new Configuration_Rule_Item__c();
+        crItemCompany3.Order__c = 3;
+        crItemCompany3.Source__c = 'ip_SendAddFlag';
+        crItemCompany3.Destination__c = 'ip_SendAddFlag';
+        crItemCompany3.Active__c = true;
+        crItemCompany3.Object_API__c = 'Default';
+        crItemCompany3.Configuration_Rule__c = configRuleMap.get('Company').Id;
+        crItemList.add(crItemCompany3);
+        
+        Configuration_Rule_Item__c crItemPersonAccount1 = new Configuration_Rule_Item__c();
+        crItemPersonAccount1.Order__c = 1;
+        crItemPersonAccount1.Source__c = 'firstName';
+        crItemPersonAccount1.Destination__c = 'firstName';
+        crItemPersonAccount1.Active__c = true;
+        crItemPersonAccount1.Object_API__c = 'Account';
+        crItemPersonAccount1.Configuration_Rule__c = configRuleMap.get('Person Account').Id;
+        crItemList.add(crItemPersonAccount1);
+        
+        Configuration_Rule_Item__c crItemPersonAccount2= new Configuration_Rule_Item__c();
+        crItemPersonAccount2.Order__c = 2;
+        crItemPersonAccount2.Source__c = 'Country__c';
+        crItemPersonAccount2.Destination__c = 'Country';
+        crItemPersonAccount2.Active__c = true;
+        crItemPersonAccount2.Object_API__c = 'Address__c';
+        crItemPersonAccount2.Configuration_Rule__c = configRuleMap.get('Person Account').Id;
+        crItemList.add(crItemPersonAccount2);
+        
+        Configuration_Rule_Item__c crItemPersonAccount3= new Configuration_Rule_Item__c();
+        crItemPersonAccount3.Order__c = 3;
+        crItemPersonAccount3.Source__c = 'ip_SendAddFlag';
+        crItemPersonAccount3.Destination__c = 'ip_SendAddFlag';
+        crItemPersonAccount3.Active__c = true;
+        crItemPersonAccount3.Object_API__c = 'Default';
+        crItemPersonAccount3.Configuration_Rule__c = configRuleMap.get('Person Account').Id;
+        crItemList.add(crItemPersonAccount3);
+        
+        Configuration_Rule_Item__c crItemLandscape1 = new Configuration_Rule_Item__c();
+        crItemLandscape1.Order__c = 1;
+        crItemLandscape1.Source__c = 'ip_Address_Line_1';
+        crItemLandscape1.Destination__c = 'Address_Line_1__c';
+        crItemLandscape1.Active__c = true;
+        crItemLandscape1.Object_API__c = 'Address__c';
+        crItemLandscape1.Configuration_Rule__c = configRuleMap.get('Landscape').Id;
+        crItemList.add(crItemLandscape1);
+        
+        Configuration_Rule_Item__c crItemLandscape2 = new Configuration_Rule_Item__c();
+        crItemLandscape2.Order__c = 2;
+        crItemLandscape2.Source__c = 'ip_JPAutofill';
+        crItemLandscape2.Destination__c = 'ip_JPAutofill';
+        crItemLandscape2.Active__c = true;
+        crItemLandscape2.Object_API__c = 'Default';
+        crItemLandscape2.Configuration_Rule__c = configRuleMap.get('Landscape').Id;
+        crItemList.add(crItemLandscape2);
+        
+        insert crItemList;    
+    }
+    
+    public static void createTestRecordsForJP(){
+        createRuleRecordsJP();
+        List<CDM_Integration_URLs__c> cdmURLList = new List<CDM_Integration_URLs__c>();
+        List<JP_Switch__c> jpSwitchList = new List<JP_Switch__c>();
+        
+        JP_Switch__c jpSwitchRuleItem = new JP_Switch__c();
+        jpSwitchRuleItem.Name = 'CustomerSearchRuleIem';
+        jpSwitchRuleItem.Enable_Flag__c = true;
+        jpSwitchList.add(jpSwitchRuleItem);
+        
+        insert jpSwitchList;
+        
+        CDM_Integration_URLs__c cdm=new CDM_Integration_URLs__c();
+        cdm.Country__c='JP';
+        cdm.type__c='Person Account';
+        cdm.Context__c='Person Account';
+        cdm.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-IN-SearchPersonAccount?';
+        cdm.Name='SearchPersonAccount';
+        cdmURLList.add(cdm);
+        
+        CDM_Integration_URLs__c cdm1=new CDM_Integration_URLs__c();
+        cdm1.Country__c='JP';
+        cdm1.type__c='Company';
+        cdm1.Context__c='Company';
+        cdm1.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-IN-SearchCompanyAccount?';
+        cdm1.Name='SearchCompanyAccount';
+        cdmURLList.add(cdm1);
+        
+        insert cdmURLList;
+        
+    }
+   
+    public static testMethod void JPPersonAccount(){
+        createRuleRecordsJP();
+        insertTestRecords();
+        List<JP_Switch__c> jpSwitchList = new List<JP_Switch__c>();
+        
+        JP_Switch__c jpLandscapeSwitch = new JP_Switch__c();
+        jpLandscapeSwitch.Name = 'Landscape';
+        jpLandscapeSwitch.Enable_Flag__c = True;
+        jpSwitchList.add(jpLandscapeSwitch);
+        insert jpSwitchList;
+        
+        System.RunAs(jpUSer){
+            
+            List<account> acclist= new list<account>();
+            for(integer i=0;i<2;i++){
+                Account personAcc =new Account();
+                personAcc.recordTypeId = personAccRT;
+                personAcc.firstname= 'ネレータ';
+                personAcc.lastname= 'ネレータ';
+                personAcc.UCID__c='12345'+i;
+                personAcc.market__c='JP';
+                personAcc.Email2__c = 'test123@gmail.com';
+                acclist.add(personAcc);
+            }
+            insert accList;
+            
+            List<Address__c> addressList = new List<Address__c>();
+            for(Account acc : accList){
+                Address__c addressobj =  new Address__C();
+                addressobj.Customer__c = acc.Id;
+                addressobj.Address_Type__c = 'Home';
+                addressobj.Address_Line_1__c = 'line 1';
+                addressobj.Address_Line_2__c = 'line 2';
+                addressobj.Block__c = 'Block';
+                addressobj.ZipCode__c = '1494112';
+                addressobj.Province__c ='Tokyo';
+                addressobj.Market__c='JP';
+                addressobj.Country__c = 'Japan';
+                addressList.add(addressobj);
+            }
+            insert addressList;
+            
+            accList[0].Primary_Address_Display__c = accList[0].Id;
+            update accList[0];
+            
+            ApexPages.StandardController objSc = new ApexPages.StandardController(jpPersonAccount);
+            AddressSearchValidationControllerCDM jpController = new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            jpController.objAccount = jpPersonAccount;
+            jpController.selectedRecordType = 'Person Account';
+            jpController.recordType = 'Person Account';
+            
+            Test.StartTest();
+            Test.setMock(HttpCalloutMock.class, new MockHttpResponseGeneratorForAddress());
+            jpController.addressObj = addObj;
+            jpController.addresspicklist = 'Home';
+            jpController.AutoFillAddress();
+            jpController.validateAddressByZipCode();
+            jpController.getAddressOptions();
+            AddressSearchValidationControllerCDM.addressSelectionWrapper addWrap = new AddressSearchValidationControllerCDM.addressSelectionWrapper(jpController.addressObj);
+            addWrap.isSelected = true;
+            jpController.mapAddressResponse.add(addWrap);
+            
+            jpController.SelectedAddress();
+            jpController.OnlineDeduplicationJP();
+            jpController.dedupAccountList.addall(acclist);
+            jpController.constructAddressMap();
+            jpController.saveAccountJP();
+            jpController.reInitializeAccountAddressObject();
+            jpController.canceljp();
+            Test.StopTest();
+        }
+    }//end of create test data for JP.
+    
+    
+    
+    public static testMethod void JPPersonAccountWithAddressEP(){
+        insertTestRecords();
+        System.RunAs(jpUSer){
+            
+            ApexPages.StandardController objSc = new ApexPages.StandardController(jpPersonAccount);
+            AddressSearchValidationControllerCDM jpController = new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            jpController.objAccount = jpPersonAccount;
+            jpController.selectedRecordType = 'Person Account';
+            jpController.recordType = 'Person Account';
+            jpController.addressObj = addObj;
+            jpController.addresspicklist = 'Home';
+            Test.setMock(WebServiceMock.class, new WebServiceMockImpl()); 
+            Test.StartTest();
+            jpController.validateAddressByZipCode();
+            //jpController.AutoFillAddress();
+            Test.StopTest();
+            
+        }
+    }//end of create test data for JP.
+    
+    public static testMethod void JPPersonAccountWithAddressEPAutofill(){
+        insertTestRecords();
+        System.RunAs(jpUSer){
+            
+            ApexPages.StandardController objSc = new ApexPages.StandardController(jpPersonAccount);
+            AddressSearchValidationControllerCDM jpController = new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            jpController.objAccount = jpPersonAccount;
+            jpController.selectedRecordType = 'Person Account';
+            jpController.recordType = 'Person Account';
+            jpController.addressObj = addObj;
+            jpController.addresspicklist = 'Home';
+            Test.setMock(WebServiceMock.class, new WebServiceMockImplAutofill()); 
+            Test.StartTest();
+            //jpController.validateAddressByZipCode();
+            jpController.AutoFillAddress();
+            Test.StopTest();
+            
+        }
+    }//end of create test data for JP.
+    
+    public static testMethod void JPPersonAccountWithAddressEPFail(){
+        insertTestRecords();
+        System.RunAs(jpUSer){
+            
+            ApexPages.StandardController objSc = new ApexPages.StandardController(jpPersonAccount);
+            AddressSearchValidationControllerCDM jpController = new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            jpController.objAccount = jpPersonAccount;
+            jpController.selectedRecordType = 'Person Account';
+            jpController.recordType = 'Person Account';
+            jpController.addressObj = addObj;
+            jpController.addresspicklist = 'Home';
+            Test.setMock(WebServiceMock.class, new WSMockAddressValidationResponseFailure ());
+            Test.StartTest();
+            jpController.validateAddressByZipCode();
+            //jpController.AutoFillAddress();
+            Test.StopTest();
+            
+        }
+    }//end of create test data for JP.
+    
+    public static testMethod void createTestDataForJPCompanyAccount(){
+        insertTestRecords();
+        System.RunAs(jpUSer){
+            
+            List<account> acclist= new list<account>();
+            for(integer i=0;i<2;i++){
+                Account personAcc =new Account();
+                personAcc.recordTypeId = companyAccRT;
+                personAcc.Name = 'ネレータ';
+                personAcc.UCID__c='12345'+i;
+                personAcc.market__c='JP';
+                personAcc.Email2__c = 'test123@gmail.com';
+                acclist.add(personAcc);
+            }
+            insert accList;
+            
+            List<Address__c> addressList = new List<Address__c>();
+            for(Account acc : accList){
+                Address__c addressobj =  new Address__C();
+                addressobj.Customer__c = acc.Id;
+                addressobj.Address_Type__c = 'Home';
+                addressobj.Address_Line_1__c = 'line 1';
+                addressobj.Address_Line_2__c = 'line 2';
+                addressobj.Block__c = 'Block';
+                addressobj.ZipCode__c = '1494112';
+                addressobj.Province__c ='Tokyo';
+                addressobj.Market__c='JP';
+                addressobj.Country__c = 'Japan';
+                addressList.add(addressobj);
+            }
+            insert addressList;
+            
+            accList[0].Primary_Address_Display__c = accList[0].Id;
+            update accList[0];
+            
+            ApexPages.StandardController objSc = new ApexPages.StandardController(jpCompanyAccount);
+            AddressSearchValidationControllerCDM jpController = new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            jpController.objAccount = jpCompanyAccount;
+            jpController.selectedRecordType = 'Company';
+            jpController.recordType = 'Company';
+            jpController.OnlineDeduplicationJP();
+            jpController.dedupAccountList.addall(acclist);
+            jpController.constructAddressMap();
+            jpController.saveAccountJP();
+            jpController.reInitializeAccountAddressObject();
+        }
+    }//end of create test data for JP.
+    
+    public static testMethod void createTestDataForJPPersonAccountSave(){
+        insertTestRecords();
+        System.RunAs(jpUSer){
+            
+            List<account> acclist= new list<account>();
+            for(integer i=0;i<2;i++){
+                Account personAcc =new Account();
+                personAcc.recordTypeId = personAccRT;
+                personAcc.lastName = 'ネレータ';
+                personAcc.UCID__c='12345'+i;
+                personAcc.market__c='JP';
+                personAcc.Email2__c = 'test123@gmail.com';
+                acclist.add(personAcc);
+            }
+            insert accList;
+            
+            List<Address__c> addressList = new List<Address__c>();
+            for(Account acc : accList){
+                Address__c addressobj =  new Address__C();
+                addressobj.Customer__c = acc.Id;
+                addressobj.Address_Type__c = 'Home';
+                addressobj.Address_Line_1__c = 'line 1';
+                addressobj.Address_Line_2__c = 'line 2';
+                addressobj.Block__c = 'Block';
+                addressobj.ZipCode__c = '1494112';
+                addressobj.Province__c ='Tokyo';
+                addressobj.Market__c='JP';
+                addressobj.Country__c = 'Japan';
+                addressList.add(addressobj);
+            }
+            insert addressList;
+            
+            accList[0].Primary_Address_Display__c = accList[0].Id;
+            update accList[0];
+            
+            ApexPages.StandardController objSc = new ApexPages.StandardController(jpPersonAccount);
+            AddressSearchValidationControllerCDM jpController = new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            jpController.objAccount = jpPersonAccount;
+            jpController.selectedRecordType = 'Person Account';
+            jpController.recordType = 'Person Account';
+            jpController.OnlineDeduplicationJP();
+            jpController.dedupAccountList.addall(acclist);
+            jpController.constructAddressMap();
+            jpController.saveAccountJP();
+            jpController.reInitializeAccountAddressObject();
+        }
+    }//end of create test data for JP.
+    
+    public static testMethod void JPCompanyAccountWithAddress(){
+        insertTestRecords();
+        System.RunAs(jpUSer){
+            
+            List<account> acclist= new list<account>();
+            for(integer i=0;i<2;i++){
+                Account personAcc =new Account();
+                personAcc.recordTypeId = companyAccRT;
+                personAcc.Name = 'ネレータ';
+                personAcc.UCID__c='12345'+i;
+                personAcc.market__c='JP';
+                personAcc.Email2__c = 'test123@gmail.com';
+                acclist.add(personAcc);
+            }
+            insert accList;
+            
+            List<Address__c> addressList = new List<Address__c>();
+            for(Account acc : accList){
+                Address__c addressobj =  new Address__C();
+                addressobj.Customer__c = acc.Id;
+                addressobj.Address_Type__c = 'Home';
+                addressobj.Address_Line_1__c = 'line 1';
+                addressobj.Address_Line_2__c = 'line 2';
+                addressobj.Block__c = 'Block';
+                addressobj.ZipCode__c = '1494112';
+                addressobj.Province__c ='Tokyo';
+                addressobj.Market__c='JP';
+                addressobj.Country__c = 'Japan';
+                addressList.add(addressobj);
+            }
+            insert addressList;
+            
+            accList[0].Primary_Address_Display__c = accList[0].Id;
+            update accList[0];
+            
+            ApexPages.StandardController objSc = new ApexPages.StandardController(jpCompanyAccount);
+            AddressSearchValidationControllerCDM jpController = new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            jpController.objAccount = jpCompanyAccount;
+            jpController.addressObj = addObj;
+            jpController.selectedRecordType = 'Company';
+            jpController.recordType = 'Company';
+            jpController.OnlineDeduplicationJP();
+            jpController.dedupAccountList.addall(acclist);
+            jpController.constructAddressMap();
+            jpController.Address_Validated_Flag = true;
+            jpController.saveAccountJP();
+            jpController.reInitializeAccountAddressObject();
+        }
+    }//end of create test data for JP.
+  
+    public static testMethod void JPPersonAccountWithAddress(){
+        createTestRecordsForJP();
+        insertTestRecords();
+        Account jpDupPersonAccount = new Account();
+        List<JP_Switch__c> jpSwitchList = new List<JP_Switch__c>();
+        
+        JP_Switch__c jpLandscapeSwitch = new JP_Switch__c();
+        jpLandscapeSwitch.Name = 'Landscape';
+        jpLandscapeSwitch.Enable_Flag__c = True;
+        jpSwitchList.add(jpLandscapeSwitch);
+        
+        JP_Switch__c jpNonConti = new JP_Switch__c();
+        jpNonConti.Name = 'Non-Continuation Method';
+        jpNonConti.Enable_Flag__c = False;
+        jpSwitchList.add(jpNonConti);
+
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+        cs.DEFAULT_CALLOUT_TIME__c='1000';
+        cs.MAX_CALLOUT_TIME__c='5000';
+        cs.Name='CalloutValues';
+        insert cs;
+
+
+        System.RunAs(jpUSer){
+            jpDupPersonAccount.recordTypeId = personAccRT;
+            jpDupPersonAccount.Data_source__C = 'Event';
+            jpDupPersonAccount.LastName = 'ェネレータ';
+            jpDupPersonAccount.LastName_Native_1__c = 'ェネレータ';
+            jpDupPersonAccount.FirstName_Native_1__c = 'ェネレータ';
+            jpDupPersonAccount.FirstName = 'ェネレータ';
+            jpDupPersonAccount.Market__c = 'JP';
+            jpDupPersonAccount.PersonBirthdate = System.Today().addYears(-20);
+            jpDupPersonAccount.Email__c = 'test@gmail.com';
+            jpDupPersonAccount.Email2__c = 'test21@gmail.com';
+            jpDupPersonAccount.UCID__c = 'JSP000052404150';
+            insert jpDupPersonAccount;
+            
+            List<account> acclist= new list<account>();
+            for(integer i=0;i<2;i++){
+                Account personAcc =new Account();
+                personAcc.recordTypeId = personAccRT;
+                personAcc.firstname= 'ネレータ';
+                personAcc.lastname= 'ネレータ';
+                personAcc.UCID__c='12345'+i;
+                personAcc.market__c='JP';
+                personAcc.Email2__c = 'test123@gmail.com';
+                acclist.add(personAcc);
+            }
+            insert accList;
+            
+            List<Address__c> addressList = new List<Address__c>();
+            for(Account acc : accList){
+                Address__c addressobj =  new Address__C();
+                addressobj.Customer__c = acc.Id;
+                addressobj.Address_Type__c = 'Home';
+                addressobj.Address_Line_1__c = 'line 1';
+                addressobj.Address_Line_2__c = 'line 2';
+                addressobj.Block__c = 'Block';
+                addressobj.ZipCode__c = '1160000';
+                addressobj.Province__c ='Tokyo';
+                addressobj.Market__c='JP';
+                addressobj.Country__c = 'Japan';
+                addressList.add(addressobj);
+            }
+            insert addressList;
+            
+            accList[0].Primary_Address_Display__c = accList[0].Id;
+            update accList[0];
+            
+            ApexPages.StandardController objSc = new ApexPages.StandardController(jpPersonAccount);
+            AddressSearchValidationControllerCDM jpController = new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            jpController.objAccount = jpPersonAccount;
+            jpController.selectedRecordType = 'Person Account';
+            jpController.recordType = 'Person Account';
+            jpController.addressObj = addObj;
+            jpController.addresspicklist = 'Home';
+            
+            
+            Test.setMock(WebServiceMock.class, new WebServiceMockImpl()); 
+            jpController.validateAddressByZipCode();
+            //jpController.AutoFillAddress();
+            
+            Test.StartTest();
+
+            //Test.setMock(HttpCalloutMock.class, new MockHttpResponseGeneratorForAddress());
+            insert jpSwitchList;
+            jpController.validateAddressByZipCode();
+            jpController.AutoFillAddress();
+            
+            jpController.Address_Validated_Flag = true;
+            jpController.AutoFillAddress();
+            
+            // Invoke the continuation by calling the action method
+            Continuation conti = (Continuation)jpController.OnlineDeduplicationJP();
+            
+            jpController.OnlineDeduplicationJP();
+            
+            HttpResponse response = new HttpResponse();
+            response.setBody('{"out_JSON_UCID_List": [{"AdminClientNum":"JSP000052404150", "AdminSystemType":"1001", "AdminSystemValue":"SFDC", "ComponentID":"1014", "IdentificationNum":"JSP000052404150", "IdentificationType":"1001", "IdentificationTypeValue":"UCID"}]}');
+            //Test.setContinuationResponse(jpController.requestLabel, response);
+            //Object result = Test.invokeContinuationMethod(jpController, conti);
+            jpController.ProcessResponseForJP(response);
+            jpController.dedupAccountList.addall(acclist);
+            jpController.constructAddressMap();
+            jpController.saveAccountJP();
+            jpController.reInitializeAccountAddressObject();
+            
+            jpController.addressObj.ZipCode__c = null;
+            jpController.validateAddressByZipCode();
+            Test.StopTest();
+        }
+    }//end of create test data for JP.
+    /*********************************** JP related test method starts here *******************************************/
     }

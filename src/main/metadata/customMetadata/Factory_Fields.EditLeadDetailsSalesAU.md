@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>EditLeadDetailsSalesAU</label>
+    <protected>false</protected>
+    <values>
+        <field>Buttons__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Class_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Component_Name__c</field>
+        <value xsi:type="xsd:string">LeadDetailsEdit</value>
+    </values>
+    <values>
+        <field>Data_Table_Actions__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Display_Fields__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Input_Fields__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>MandatoryFields__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Market__c</field>
+        <value xsi:type="xsd:string">AU</value>
+    </values>
+    <values>
+        <field>MaxAddressCount__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Output_Fields__c</field>
+        <value xsi:type="xsd:string">Lead Information~4!@FieldsetName:ANZSales_LeadInfoLTG,Dealer Information!@FieldsetName:GenericSales_DealerInfoLTG,Lead Lost Information~4!@FieldsetName:ANZsales_LostInfoLTG,Vehicle Information!@FieldsetName:ANZVehicleInformationLTG,Lead Processing Information!@FieldsetName:ANZsales_LeadProcesLTG,Activity Date Information~3!@FieldsetName:ANZSalesActivityDateInfoLTG,Date Information~3!@FieldsetName:ANZSalesDateInfoLTG,System Information~3!@FieldsetName:ANZSystemInformationLTG</value>
+    </values>
+    <values>
+        <field>PrePopulated_Values__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Record_Type__c</field>
+        <value xsi:type="xsd:string">Sales Lead</value>
+    </values>
+    <values>
+        <field>Table_Columns__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Tile_Heading__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>sObject__c</field>
+        <value xsi:type="xsd:string">Opportunity</value>
+    </values>
+    <values>
+        <field>show_records__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

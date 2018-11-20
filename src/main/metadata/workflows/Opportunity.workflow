@@ -12,13 +12,37 @@
         <template>unfiled$public/FS_Lead_Escalation_After_3_Working_Days_IN</template>
     </alerts>
     <alerts>
+        <fullName>Customer_Satisfaction_Survey</fullName>
+        <description>Customer Satisfaction Survey</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Account_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@mercedes-benz.com.tr</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/TDS_HTML_template</template>
+    </alerts>
+    <alerts>
         <fullName>Email_to_Dealer_Gatekeeper_Lead</fullName>
         <description>Email to Dealer Gatekeeper Lead</description>
         <protected>false</protected>
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>donotreply@mercedes-benz.com.tr</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Assign_to_Dealer_Gatekeeper_Opportunity_TR</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_to_Supervisor</fullName>
+        <description>Email to Supervisor</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>donotreply@mercedes-benz.com.tr</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Assign_to_Dealer_Gatekeeper_Opportunity_TR</template>
     </alerts>
     <alerts>
@@ -30,8 +54,22 @@
             <field>Lead_eMail__c</field>
             <type>email</type>
         </recipients>
+        <senderAddress>donotreply@mercedes-benz.com.tr</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/TDS_HTML_template</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_Email_To_Dealer_GateKeeper</fullName>
+
+        <description>Lead Email To Dealer GateKeeper</description>
+        <protected>false</protected>
+        <recipients>
+
+            <type>owner</type>
+        </recipients>
+
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TR_Lead_Survey_Template</template>
+        <template>unfiled$public/Email_to_Dealer_GateKeeper</template>
     </alerts>
     <fieldUpdates>
         <fullName>Accepted_Date_Time_Update</fullName>
@@ -41,6 +79,17 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Accepted_Date_Time_Update_FM</fullName>
+        <description>Flow to update the Accepted Date Time field</description>
+        <field>Accepted_Date_Time__c</field>
+        <formula>Now()</formula>
+        <name>Accepted Date Time_Update FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
 		<fullName>Change_Opp_Owner</fullName>
@@ -64,6 +113,15 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Email_field_update</fullName>
+        <field>Account_Email__c</field>
+        <formula>Account.Email__c</formula>
+        <name>Email field update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Lead_qualified_date_time_will_be_the_cur</fullName>
         <description>When the lead status is set to &quot;Qualified&quot; then the &quot;Lead qualified &quot; date time field need to be updated with current time</description>
         <field>Qualified_Date_Time__c</field>
@@ -79,6 +137,15 @@
         <field>Order_Placed_Date__c</field>
         <formula>NOW()</formula>
         <name>Order Placed Date_Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Order_Placed_Date_Update_FM</fullName>
+        <field>Order_Placed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Order Placed Date_Update FM</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -117,6 +184,27 @@
         <field>Assigned_Date_Time__c</field>
         <formula>Now()</formula>
         <name>Update Assigned Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Assigned_Time_FM</fullName>
+        <description>Update Assigned Time</description>
+        <field>Assigned_Date_Time__c</field>
+        <formula>Now()</formula>
+        <name>Update Assigned Time FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Closed_Date_FM</fullName>
+        <field>CloseDate</field>
+        <formula>Now()</formula>
+        <name>Update Closed Date FM</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -162,6 +250,17 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Lead_Escalated_flag_FM</fullName>
+        <description>After 24 hours of Assiged date, Escalated flag will be updated to true if Lead status is not Accepted</description>
+        <field>Escalated_flag__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Lead Escalated flag FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Lead_Mobile</fullName>
         <description>Update Lead Mobile from Account</description>
         <field>Lead_Mobile__c</field>
@@ -183,6 +282,16 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Lost_Date_Time_FM</fullName>
+        <description>When the lead status is set to &quot;Lost&quot; then the &quot;Lead Lost &quot; date time field will be updated with current time</description>
+        <field>Lost_Date__c</field>
+        <formula>Now()</formula>
+        <name>Update Lost Date Time FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Purchase_Date</fullName>
         <description>When status is Closed Won, the purchase date need to be updated</description>
         <field>Purchase_Date__c</field>
@@ -192,6 +301,16 @@
         <operation>Formula</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Purchase_Date_FM</fullName>
+        <description>When status is Closed Won, the purchase date need to be updated</description>
+        <field>Purchase_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Purchase Date FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Receieved_date_time_OPP</fullName>
@@ -266,10 +385,21 @@ ISPICKVAL(Lead_DataSource__c , &apos;Insurance&apos;) ),
         </actions>
         <active>true</active>
         <description>This flow is used to send email to dealer gatekeper. This is on case object when dealer account associated with the case and that dealers account contact (gate keeper) becomes the new owner of the case.</description>
-        <formula>NOT(ISNULL( Assigned_Dealer__c )) &amp;&amp; ISCHANGED(Assigned_Dealer__c ) &amp;&amp; PRIORVALUE(OwnerId) != OwnerId &amp;&amp;  ISPICKVAL(Market__c, &apos;TR&apos;)</formula>
+        <formula>(PRIORVALUE(OwnerId) != OwnerId || ISNEW()) &amp;&amp;  ISPICKVAL(Market__c, &apos;TR&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>	
-    <rules>
+	<rules>
+        <fullName>Email To Dealer GateKeeper</fullName>
+        <actions>
+            <name>Lead_Email_To_Dealer_GateKeeper</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>IN market added to send email to dealer gatekeeper when a Lead is assigned.</description>
+        <formula>AND($Permission.INGeneric, $Profile.Name != &apos;IntegrationAPI&apos;,NOT( ISBLANK( Assigned_Dealer__c ) ) ,   ISPICKVAL(Market__c, &apos;IN&apos;) , PRIORVALUE( OwnerId )  &lt;&gt; OwnerId)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
         <fullName>Lead status %3D assigned then Assigned Time will be updated</fullName>
         <actions>
             <name>Update_Assigned_Time</name>
@@ -278,6 +408,39 @@ ISPICKVAL(Lead_DataSource__c , &apos;Insurance&apos;) ),
         <active>true</active>
         <description>When status is assigned the Assigned Time will be updated</description>
         <formula>AND(ISPICKVAL(StageName, &apos;Assigned&apos;),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead status %3D assigned then Assigned Time will be updated _FM</fullName>
+        <actions>
+            <name>Update_Assigned_Time_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>When status is assigned the Assigned Time will be updated</description>
+        <formula>AND(ISPICKVAL(StageName, &apos;Assigned&apos;),$Profile.Name != $Label.Integration_API_User)&amp;&amp;CONTAINS(TEXT( Market__c ) ,$Label.FM_Assigned_Date_Update)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Notify Customer on Test Drive Completion</fullName>
+        <actions>
+            <name>Customer_Satisfaction_Survey</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Notifying Customer on Test Drive Completion. Added for Turkey market.</description>
+        <formula>AND(ISPICKVAL(StageName, &quot;Test drive completed&quot;),  ISPICKVAL(Market__c, &quot;TR&quot;),  ISCHANGED(StageName), RecordType.Name=&apos;Sales Lead&apos; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Notify_CallCenter_Supervisor</fullName>
+        <actions>
+            <name>Email_to_Supervisor</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>AND( ISPICKVAL(Market__c, &apos;TR&apos;),
+  Owner.CommunityNickname = &apos;mbtrsupport&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -319,7 +482,7 @@ ISPICKVAL(Lead_DataSource__c , &apos;Insurance&apos;) ),
             <name>TDS_Survey_Auto_email_upon_Lead_Status</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+		<active>true</active>
         <formula>AND( ISPICKVAL(Market__c, &apos;TR&apos;),
 NOT(ISPICKVAL(PRIORVALUE(StageName), &apos;Test drive completed&apos;) ) ,
  ISPICKVAL(StageName, &apos;Test drive completed&apos;)   )</formula>
@@ -333,6 +496,13 @@ NOT(ISPICKVAL(PRIORVALUE(StageName), &apos;Test drive completed&apos;) ) ,
         </actions>
         <active>true</active>
         <description>If a preferred contact date is added, then a task needs to be created for that user for that day</description>
+        <formula>AND($Permission.INGeneric,    $Profile.Name != &apos;IntegrationAPI&apos;,     NOT(ISNULL(Preferred_Contact_Time__c)),     OR((ISCHANGED(Preferred_Contact_Time__c)),      ISNEW()))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Task Need To Be Created FM</fullName>
+        <active>false</active>
+        <description>If a preferred contact date is added, then a task needs to be created for that user for that day</description>
         <formula>AND($Permission.INGeneric,     $Profile.Name != &apos;IntegrationAPI&apos;,     NOT(ISNULL(Preferred_Contact_Time__c)),     OR((ISCHANGED(Preferred_Contact_Time__c)),      ISNEW()))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -344,7 +514,18 @@ NOT(ISPICKVAL(PRIORVALUE(StageName), &apos;Test drive completed&apos;) ) ,
         </actions>
         <active>true</active>
         <description>To update Accepted Date Time field with current date time value when StageName is changed to Accepted</description>
-        <formula>AND(ISPICKVAL(StageName, &apos;Accepted&apos;),OR($Permission.INGeneric,$Permission.TRGeneric),$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <formula>AND(ISPICKVAL(StageName, &apos;Accepted&apos;),OR (CONTAINS( TEXT(Market__c), $Label.Market_to_check_AcceptedDateWorkflow ) ,$Profile.Name != $Label.Integration_API_User))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Accepted Date Time_FM</fullName>
+        <actions>
+            <name>Accepted_Date_Time_Update_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>To update Accepted Date Time field with current date time value when StageName is changed to Accepted</description>
+        <formula>AND(ISPICKVAL(StageName, &apos;Accepted&apos;),OR (CONTAINS( TEXT(Market__c), $Label.Market_to_check_AcceptedDateWorkflow ) ,$Profile.Name != $Label.Integration_API_User))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -354,8 +535,21 @@ NOT(ISPICKVAL(PRIORVALUE(StageName), &apos;Test drive completed&apos;) ) ,
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <description>This rule is used for IN market to update closed date when status changed to closed won/lost</description>
-        <formula>AND(OR(ISPICKVAL(StageName, &apos;Closed Won&apos;),ISPICKVAL(StageName, &apos;Closed Lost&apos;)),OR(ISPICKVAL(Market__c, &apos;IN&apos;),ISPICKVAL(Market__c, &apos;TR&apos;)))</formula>
+		<description>This rule is used for India market to update closed date when status changed to closed won/lost</description>
+        <formula>AND(OR(ISPICKVAL(StageName, &apos;Closed Won&apos;),ISPICKVAL(StageName, &apos;Closed Lost&apos;)),OR(ISPICKVAL(Market__c, &apos;IN&apos;),ISPICKVAL(Market__c, &apos;TR&apos;)),$Profile.Name != 'IntegrationAPI')
+		</formula>
+		<triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Closed Date FM</fullName>
+        <actions>
+            <name>Update_Closed_Date_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>This rule is used for FM market to update closed date when status changed to closed won/lost</description>
+        <formula>AND(OR(ISPICKVAL(StageName, &apos;Closed Won&apos;),ISPICKVAL(StageName, &apos;Closed Lost&apos;)),OR(CONTAINS(TEXT( Market__c ) ,$Label.Update_Closed_Date)))
+		</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -399,14 +593,36 @@ NOT(ISPICKVAL(PRIORVALUE(StageName), &apos;Test drive completed&apos;) ) ,
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Update Lead Escalated flag FM</fullName>
+        <actions>
+            <name>Update_Lead_Escalated_flag_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Update Lead Escalated flag if an assigned opportunity is not accepted in 24 hours</description>
+        <formula>AND(ISPICKVAL(StageName, &apos;Assigned&apos;),$Permission.INGeneric,$Profile.Name != $Label.Integration_API_User,ISNULL(Accepted_Date_Time__c),(CONTAINS( TEXT(Market__c),  $Label.Update_Lead_Escalated_flag_FM  )))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Lead Qualified Date Time</fullName>
         <actions>
             <name>Lead_qualified_date_time_will_be_the_cur</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Update qualified date when status is made qualified</description>
         <formula>AND(ISPICKVAL(StageName, &apos;Qualified&apos;), ISNULL(Qualified_Date_Time__c),  OR($Permission.INGeneric,$Permission.AUGeneric,$Permission.NZGeneric,$Permission.TRGeneric), $Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Lead Qualified Date Time FM</fullName>
+        <actions>
+            <name>Lead_qualified_date_time_will_be_the_cur</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Update qualified date when status is made qualified</description>
+        <formula>AND(ISPICKVAL(StageName, &apos;Qualified&apos;), ISNULL(Qualified_Date_Time__c),  OR (CONTAINS( TEXT(Market__c), $Label.Update_Lead_Qualified_Date_Time_FM  ) , $Profile.Name != $Label.Integration_API_User))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -421,6 +637,17 @@ NOT(ISPICKVAL(PRIORVALUE(StageName), &apos;Test drive completed&apos;) ) ,
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Update Lost Date Time FM</fullName>
+        <actions>
+            <name>Update_Lost_Date_Time_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>When the lead status is set to &quot;Lost&quot; then the &quot;Lead Lost &quot; date time field need to be updated with current time</description>
+        <formula>AND(ISPICKVAL(StageName, &apos;Closed Lost&apos;), ISNULL(Lost_Date__c),OR (CONTAINS( TEXT(Market__c), $Label.Update_Lost_Date_Time_FM  ) ,$Profile.Name != $Label.Integration_API_User))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Order Placed Date</fullName>
         <actions>
             <name>Order_Placed_Date_Update</name>
@@ -431,6 +658,18 @@ NOT(ISPICKVAL(PRIORVALUE(StageName), &apos;Test drive completed&apos;) ) ,
         <formula>AND(ISPICKVAL(StageName, &apos;Order placed&apos;), ISNULL(Order_Placed_Date__c), $Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+	<rules>
+        <fullName>Update Order Placed Date FM</fullName>
+        <actions>
+            <name>Order_Placed_Date_Update_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Update order placed date when status is made Order placed</description>
+        <formula>AND(ISPICKVAL(StageName, &apos;Order placed&apos;), ISNULL(Order_Placed_Date__c), (CONTAINS( TEXT(Market__c), $Label.Update_Lost_Date_Time_FM  )),$Profile.Name !=  $Label.Integration_API_User)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+
     <rules>
         <fullName>WF_Opportunity_Escalation_IN</fullName>
         <active>true</active>
@@ -452,6 +691,17 @@ NOT(ISPICKVAL(PRIORVALUE(StageName), &apos;Test drive completed&apos;) ) ,
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
+<rules>
+        <fullName>Update Purchase Date FM</fullName>
+        <actions>
+            <name>Update_Purchase_Date_FM</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>When status is made Closed Won, the purchase date need to be updated</description>
+        <formula>AND(ISPICKVAL(StageName, &apos;Closed Won&apos;), ISNULL(Purchase_Date__c),OR(CONTAINS( TEXT(Market__c), $Label.Update_Purchase_Date_FM )),$Profile.Name != $Label.Integration_API_User)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <rules>
         <fullName>Update Purchase Date</fullName>
         <actions>
@@ -472,6 +722,25 @@ NOT(ISPICKVAL(PRIORVALUE(StageName), &apos;Test drive completed&apos;) ) ,
         <active>false</active>
         <formula>AND( Assigned_Dealer__c &lt;&gt;null, ISPICKVAL(Market__c, &apos;TR&apos;) ,or(RecordType.Name=&apos;Sales Lead&apos;,RecordType.Name=&apos;Aftersales Lead&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update email in opportunity with account%27s email</fullName>
+        <actions>
+            <name>Email_field_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Email__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Added the workflow to get the email of account associated with the opportunity to send email alert for test drive completion for Turkey market.</description>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update stage to Closed Won ANZ</fullName>

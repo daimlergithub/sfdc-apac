@@ -1,0 +1,28 @@
+<aura:component implements="force:hasRecordId" access="global" >
+    <aura:attribute name="tileHeading" type="String"/>
+    <aura:attribute name="value" type="String"/>
+    <aura:attribute name="status" type="String"/>
+    <aura:attribute name="lastUpdateBy" type="String"/>
+    <aura:attribute name="lastUpdateDate" type="String"/>
+    <aura:attribute name="iconName" type="String"/>
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="lineId" type="String" />
+
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <li>
+        <aura:if isTrue="{!v.value}">
+            <p class="{!v.status}">
+                <lightning:icon iconName="{!v.iconName}" id="{!v.lineId}" onclick="{!c.showDetails}"/>
+                &nbsp;{!v.tileHeading}:&nbsp;&nbsp;
+                <aura:if isTrue="{!v.type=='phone'}">
+                    <lightning:formattedPhone title="{!v.tileHeading}" value="{!v.value}" />
+                    <aura:set attribute="else">
+                        <lightning:formattedEmail value="{!v.value}" />
+                    </aura:set>
+                </aura:if>
+                <!-- For a hover {!v.lastUpdateBy} {!v.lastUpdateDate} Date relative -->
+            </p>
+        </aura:if> 
+    </li>    
+</aura:component>

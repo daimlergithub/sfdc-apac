@@ -814,7 +814,7 @@ public with sharing  class  CaseHelper{
             }
         
             for(Case caseNew : cases) {
-            if (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId || C_MB_RECORD_TYPE == caseNew.RecordTypeId){
+            if (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId || C_MB_RECORD_TYPE == caseNew.RecordTypeId || (C_INQUIRY_RECORD_TYPE == caseNew.RecordTypeId && caseNew.Market__c == Label.TR)){
                 if (isInsert) {
                     if(caseNew.ParentId != null){
                         parentIds.add(caseNew.ParentId);
@@ -1207,11 +1207,13 @@ public with sharing  class  CaseHelper{
                         IsReminderSet = true
                         ));
                 }
-                if (caseNew.CheckFlag_48H__c) caseNew.CheckFlag_48H__c = false;
-				//Added for TR Market
-				if (caseNew.CheckFlag_24H__c) caseNew.CheckFlag_24H__c = false;
-				if (caseNew.CheckFlag_96H__c) caseNew.CheckFlag_96H__c = false;
-                if (caseNew.CheckFlag_72H__c) caseNew.CheckFlag_72H__c = false;
+                if(caseNew.Market__c!=Label.TR){
+                    if (caseNew.CheckFlag_48H__c) caseNew.CheckFlag_48H__c = false;
+                    //Added for TR Market
+                    if (caseNew.CheckFlag_24H__c) caseNew.CheckFlag_24H__c = false;
+                    if (caseNew.CheckFlag_96H__c) caseNew.CheckFlag_96H__c = false;
+                    if (caseNew.CheckFlag_72H__c) caseNew.CheckFlag_72H__c = false;
+                }
                 // Add End - Release 1.3 - Added by Cyril
                 
                 if (caseNew.Status != caseOld.Status) {

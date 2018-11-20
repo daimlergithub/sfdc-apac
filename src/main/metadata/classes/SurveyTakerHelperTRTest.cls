@@ -103,11 +103,12 @@ public static  testmethod void afterInsertEvent_test1()
            TriggerUtil.userCreate=false;
             Survey__c sur= new Survey__c();
           sur.name = 'testsurvey';
+          sur.MD__C='TR';
           insert sur;
            SurveyTaker__c st = new SurveyTaker__c();
             st.dealer_account__c= DealerAccount.id;
              st.survey__c = sur.id;
-            
+            st.MD__C='TR';
            insert st;
            st.dealer_account__c= DealerAccount1.id;
            update st;
@@ -116,7 +117,7 @@ public static  testmethod void afterInsertEvent_test1()
   }
   static void createTestData()
     {
-        Trigger__c TriggerSurveTaker=new Trigger__c(Name='TriggerSurveyTaker',Trigger_Name__c='TriggerSurveyTaker',Trigger_Handler__c='TriggerSurveyTakerTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+        Trigger__c TriggerSurveTaker=new Trigger__c(Name='TriggerSurveyTakerTR',Trigger_Name__c='TriggerSurveyTaker',Trigger_Handler__c='TriggerSurveyTakerTriggerHandlerTR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='TR');
              insert TriggerSurveTaker;
      
         
@@ -163,7 +164,7 @@ public static  testmethod void afterInsertEvent_test1()
         
         insert objAccount;    
         //inserted new address record
-        Address__c addr = new Address__c(Customer__c = objAccount.id, Address_Type__c = 'Home', Province__c = 'Hokkaido');
+        Address__c addr = new Address__c(Customer__c = objAccount.id, Address_Type__c = 'Home', Province__c = 'Hokkaido',Address_Line_1__c='Test',Country__c='Australia',ZipCode__c='1234',State_City__c='ACT');
         insert addr;
         //added address reference to address 
         Account objacc = new Account(id = objAccount.id, Primary_Address_Reference__c = addr.id); 

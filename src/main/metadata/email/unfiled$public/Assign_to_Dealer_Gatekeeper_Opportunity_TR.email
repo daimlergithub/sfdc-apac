@@ -1,17 +1,15 @@
-Greetings,
+Sayın İlgili,
 
-A new Lead has been brought in.
+Tarafınıza yeni bir Lead atanmıştır. Lütfen belirtilen süre içerisinde Lead sürecine ait aksiyon alınız.
 
-Please expedite the Lead.
+Kontak: {! Opportunity.Account}
+Bayi adı: {! Opportunity.Assigned_Dealer__c}
+Lead numarası: {! Opportunity.Lead_No__c}
 
-Customer Name: {! Opportunity.Account}
-Contact dealer: {! Opportunity.Assigned_Dealer__c}
-Lead number: {! Opportunity.Lead_No__c}
+Lead tipi: {! Opportunity.Lead_Type__c} 
 
-Lead Type : {! Opportunity.Lead_Type__c}
-
-You can find more information about this Opportunity through the link below.
+İlgili Lead'e ait daha detaylı bilgiye ulaşmak için aşağıdaki linke tıklayınız.
 
 {! Opportunity.Link}
 
-- MBTR Customer Center -
+- Mercedes-Benz Türk-

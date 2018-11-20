@@ -1,0 +1,8 @@
+<aura:documentation>
+	<aura:description>
+        This component is used to display the List of Service Retail Tasks for a particular Account.
+    </aura:description>
+	<!--<aura:example name="Name" ref="c:ServiceRetailTask" label="Label">
+	
+	</aura:example>-->
+</aura:documentation>

@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
+        <fullName>AU_Retail_Task_Edit_to_MB_AU</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of Retail Task with MD__c = &apos;AU&apos; for all Dealer User Roles used in Australia</description>
+        <label>AU_Retail Task_Edit_to_MB_AU</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>JP_MarketRetail_Task_Readable_to_MBJ_Dealers</fullName>
         <accessLevel>Read</accessLevel>
         <description>View all records of Retail Task with MD__c = &apos;JP&apos; for all Dealer User Roles used in Japan</description>
@@ -57,6 +76,82 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>MBFS_Service_history_records_sharing_rule</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBFS Service history records share to all FS users with Read access.</description>
+        <label>MBFS Service history records sharing rule</label>
+        <sharedTo>
+            <roleAndSubordinates>MBFS_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBIN_Service_history_records_share_to_all_MPC_and_FS_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBIN Service history records share to all MPC and FS users with Read access.</description>
+        <label>MBIN Service history records share to all MPC and FS users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBIN_Service_history_records_share_to_all_MPC_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBIN Service history records share to all MPC users with Read access.</description>
+        <label>MBIN Service history records share to all MPC users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBIndiaFS_Service_history_records_sharing_rule</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBFS Service history records share to all FS users with Read access.</description>
+        <label>MBIndiaFS Service history records sharing rule</label>
+        <sharedTo>
+            <roleAndSubordinates>MBIndiaFS_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>MBMY_Service_history_records_share_to_all_MY_users</fullName>
         <accessLevel>Read</accessLevel>
         <description>MBMY Service history records share to all MY users with Read access.</description>
@@ -68,6 +163,25 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NZ_Retail_Task_Edit_to_MB_NZ</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of Retail Task with MD__c = &apos;NZ&apos; for all Dealer User Roles used in New Zealanad</description>
+        <label>NZ_Retail Task_Edit_to_MB_NZ</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
         </criteriaItems>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -175,4 +289,112 @@
             <value>Retail Activity,Service</value>
         </criteriaItems>
     </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>MBAR_Service_history_records_share_to_all_AR_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBAR Service history records share to all AR users with read access only.</description>
+        <label>MBAR Service history records share to all AR users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBAR</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBAR</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBCO_Service_history_records_share_to_all_CO_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBCO Service history records share to all CO users with read only access.</description>
+        <label>MBCO Service history records share to all CO users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBCO</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBCO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBEG_Service_history_records_share_to_all_EG_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBEG Service history records share to all EG users with read access only</description>
+        <label>MBEG Service history records share to all EG users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBEG</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBEG</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBHU_Service_history_records_share_to_all_HU_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBHU Service history records share to all HU users with read access only</description>
+        <label>MBHU Service history records share to all HU users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBHU</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBHU</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBID_Service_history_records_share_to_all_ID_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBID Service history records share to all ID users with read access only</description>
+        <label>MBID Service history records share to all ID users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBID</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBID</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBRO_Service_history_records_share_to_all_RO_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBRO Service history records share to all RO users with read only access.</description>
+        <label>MBRO Service history records share to all RO users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBRO</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBRO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBSG_Service_history_records_share_to_all_SG_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBSG Service history records share to all SG users with read only access</description>
+        <label>MBSG Service history records share to all SG users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBSG</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBSG</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBSK_Service_history_records_share_to_all_SK_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBSK Service history records share to all SK users with read access only.</description>
+        <label>MBSK Service history records share to all SK users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBSK</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBSK</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MBVN_Service_history_records_share_to_all_VN_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MBVN Service history records share to all VN users with read only access.</description>
+        <label>MBVN Service history records share to all VN users</label>
+        <sharedTo>
+            <roleAndSubordinates>MBVN</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBVN</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
 </SharingRules>

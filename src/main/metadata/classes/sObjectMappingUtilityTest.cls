@@ -89,7 +89,7 @@ public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTy
         addressobj.Province__c ='Fukushima';
         addressobj.TitleOfHonor__c = 'To Person';
         addressobj.Market__c='AU';
-        
+        addressobj.State_City__c='VIC';
         insert addressobj;
        
     }

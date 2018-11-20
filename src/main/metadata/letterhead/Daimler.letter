@@ -17,7 +17,7 @@
         <backgroundColor>#000000</backgroundColor>
         <height>80</height>
         <horizontalAlignment>Right</horizontalAlignment>
-        <logo>Bbq_Folder/Daimler_Image.jpg</logo>
+        <!--<logo>Bbq_Folder/Daimler_Image.jpg</logo>-->
         <verticalAlignment>Middle</verticalAlignment>
     </header>
     <middleLine>

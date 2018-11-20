@@ -442,6 +442,10 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_Marketing_Manager_Email__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FS_Gate_Keeper__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

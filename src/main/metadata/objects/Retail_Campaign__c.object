@@ -518,6 +518,15 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Add_dealer_information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Add dealer information</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Apply_Status__c</fullName>
         <description>The apply status of the campaign</description>
         <externalId>false</externalId>
@@ -5647,6 +5656,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     </fields>
     <label>Retail Campaign</label>
     <listViews>
+        <fullName>ALL_MBJ</fullName>
+        <columns>NAME</columns>
+        <columns>Dealer_Name__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>ALL</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
         <fullName>AS_Retail_Campaign</fullName>
         <columns>NAME</columns>
         <columns>Campaign_Code__c</columns>
@@ -5707,19 +5725,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Dealer_Name__c</columns>
         <columns>Record_Type_Name__c</columns>
         <columns>Status__c</columns>
         <columns>Start_Date__c</columns>
         <columns>Close_Date__c</columns>
         <columns>Campaign_Type__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>NAME</field>
-            <operation>contains</operation>
-            <value>新6</value>
-        </filters>
-        <label>車点検（Minami）</label>
+        <label>All</label>
         <language>zh_CN</language>
     </listViews>
     <listViews>
@@ -5743,7 +5755,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <operation>equals</operation>
             <value>Retail_Campaign__c.Retail_Execution_Campaign,Retail_Campaign__c.Retail_Parent_Campaign</value>
         </filters>
-        <label>All MBTH Retail Campaigns</label>
+        <label>All Retail Campaigns</label>
         <language>en_US</language>
         <sharedTo>
             <group>THUsers</group>
@@ -17519,6 +17531,30 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <visibility>Public</visibility>
     <webLinks>
+        <fullName>Create_Campaign_Member_CSV</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Campaign Member CSV</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var attachments = sforce.connection.query("SELECT Id, ParentId FROM Attachment WHERE ParentId = '{!Retail_Campaign__c.Id}'"); 
+records = attachments.getArray("records"); 
+if(records.length ==0  || records.length ==null)
+{ 
+alert("{!$Label.No_Attachment}"); 
+}
+else if(records.length &gt;0)
+{
+if(confirm("{!$Label.Csv_confirmation}"))  { 
+var show1 = sforce.apex.execute("CreateCampaignMemberCsv","FileUpload",{camid:"{!Retail_Campaign__c.Id}"});
+window.top.location.reload(); 
+}
+}</url>
+    </webLinks>
+    <webLinks>
         <fullName>Create_Child_Retail_Campaign</fullName>
         <availability>online</availability>
         <description>It will create child campaign</description>
@@ -17533,14 +17569,14 @@ var userMarket = sforce.connection.query("Select Id, Market__c from User where I
 records = userMarket.getArray("records"); 
 var accid = records[0].Market__c; 
 if(accid=='TH'){ 
-window.open("{!URLFOR($Site.Prefix)}/a16/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CF00N2800000IkqaW={!URLENCODE(Retail_Campaign__c.Name)}&amp;CF00N2800000IkqaW_lkid={!Retail_Campaign__c.Id}&amp;CF00N2800000A9CoY={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!URLENCODE(Retail_Campaign__c.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
 }
 else if(accid=='{!$Label.MarketMY}')
- {  window.open("{!URLFOR($Site.Prefix)}/a16/e?RecordType=01228000001Dg4E&amp;ent=Retail_Campaign__c&amp;CF00N2800000IkqaW={!URLENCODE(Retail_Campaign__c.Name)}&amp;CF00N2800000IkqaW_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
+ {  window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=01228000001Dg4E&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!URLENCODE(Retail_Campaign__c.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
  }
 else
  { 
- window.open("{!URLFOR($Site.Prefix)}/a16/e?RecordType=01228000001Dg4E&amp;ent=Retail_Campaign__c&amp;CF00N2800000IkqaW={!URLENCODE(Retail_Campaign__c.Name)}&amp;CF00N2800000IkqaW_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
+ window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!URLENCODE(Retail_Campaign__c.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
  }</url>
     </webLinks>
     <webLinks>
@@ -17561,7 +17597,7 @@ else
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>{!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}/e?clone=1&amp;retURL=%2F{!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID=&amp;CF00N2800000IkqaL_lkid={!Retail_Campaign__c.Id}&amp;CF00N2800000IkqaL={!Retail_Campaign__c.Name}</url>
+        <url>{!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}/e?clone=1&amp;retURL=%2F{!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID={!Retail_Campaign__c.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>Export_Retail_Campaign_Member</fullName>
@@ -17712,7 +17748,7 @@ alert(result[0].errors.message);
 if({!Campaign.IsActive}){ 
 
 if('{!Campaign.MD__c}' == 'TH') { 
-window.open("{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000IkqaO={!URLENCODE(Campaign.Description)}&amp;00N2800000Ikqad={!Campaign.Status}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9Cpq={!URLENCODE(Campaign.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PUBLISH_DATE_FIELD_ID_TH={!Campaign.Publish_Date__c}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}"); 
+window.open("{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;ent={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!URLENCODE(Campaign.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PUBLISH_DATE_FIELD_ID_TH={!Campaign.Publish_Date__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}"); 
 
 } 
 
@@ -17727,7 +17763,7 @@ campaignObj.id="{!Campaign.Id}";
 campaignObj.Activate_for_retail_campaign__c=true;
 campaignObj.IsActive=true; 
 result = sforce.connection.update([campaignObj]);
-window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000IkqaO={!URLENCODE(Campaign.Description)}&amp;00N2800000Ikqad={!Campaign.Status}&amp;Name={!Campaign.Name}&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PUBLISH_DATE_FIELD_ID_TH={!Campaign.Publish_Date__c}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;ent={!Retail_Campaign__c.Id}","_self";
+window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;Name={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PUBLISH_DATE_FIELD_ID_TH={!Campaign.Publish_Date__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;ent={!Retail_Campaign__c.Id}","_self";
 
 }
 

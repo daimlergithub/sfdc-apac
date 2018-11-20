@@ -5,7 +5,7 @@
 ** Date         : 29/03/2018
 **/
 
-public with sharing class AfterSalesLeadEditController {
+public without sharing class AfterSalesLeadEditController {
     
     //This map is used for all vehicles
     public map<String, List<Lead_Details__c>> allVehiclesMap {get;set;}
@@ -33,24 +33,28 @@ public with sharing class AfterSalesLeadEditController {
         compPreferredCount = 0;
 		//Sada added New Fields as per usMBANZ-157,158
 		//Madhu added New Fileds as per usMBANZ-384
-        opp=[SELECT id,Name ,RecordType.Name,StageName,Case__c,CreatedDate,Campaign.Name,Visited_Showroom_Date_Time__c,Market__c, Type_of_Sale__c,
-             Lead_Additional_Service__c,Pickup_Date_Time__c,Order_Placed_Date__c,Quotation_Date__c,Quotation_Amount__c,Order_No__c, Lost_To_Competitor_Name__c,
-             Order_Print_Date__c,Order_Confirmation_Date__c,Registration_No__c,Network_Registration_Date__c,Bought_Vehicle_Brand__c,Next_Contact_Customer_Date__c,
-             Bought_Vehicle_Class__c,Bought_Vehicle_Model__c,Invoice_Number__c,Invoice_Date__c,Purchase_Time__c,Received_Date_Time__c,
-             Invoice_Amount__c,Qualified_Date_Time__c,UCID__c,UCID_account__c,Desired_Contact_Date__c,Price_Range__c,Test_Drive_Date__c,Preferred_Contact_Time__c,Assigned_Service_Advisor__c,
-             Accepted_Date_Time__c,Purchase_Date__c,Quotation_Print_Date__c,Quotation_No__c,Assigned_Date_Time__c,Preferred_Contact_Method__c,
-             Lead_Latest_Phase__c,Contact__c,Sales_Consultant__c,Dealer_Comment__c,Customer_Preferred_Representative__c, Referal_Referee_Note__c,Description,Purchased_Vehicle__c,
-             Customer_Specified_Dealer__c,Lead_Type__c,Assigned_Dealer__c,CloseDate,Lead_Sub_Type__c,Lead_DataSource__c,Handover_Date__c, Lost_to_OEM_Name__c,
-             CAC_Lost_Reason__c,Lead_DataSubSource__c,Lost_Reason_text__c,Lead_Desired_Service__c,Last_Successful_Call__c, Lost_to_Co_Dealer_Name__c,Current_Vehicle_1_Text__c,Current_Vehicle_2_Text__c,
-             Lead_Source__c,Lead_Priority__c,Lost_To__c,Lost_Situation__c,Lead_No__c,Allow_Data_Sharing__c,OwnerId,Is_Active__c,LeadSource,AccountId,Payment_Mode__c,Lost_Date__c,CreatedById,LastModifiedById,Service_Requested_date__c,Quotation_No_History__c,
-             WIP_Number__c,WIP_Created_Date__c,Job_Card_Number__c,Job_Card_Date__c,Check_In_Date__c,Check_Out_Date__c,Needs_Check_Date__c,Product_Proposal_Date__c,Finance_Proposal_Date__c,Insurance_Proposal_Date__c,Service_Program_Proposal_Date__c,Simple_Estimation_Date__c,
-             company_account__c,Pick_up_Time__c ,Lost_Dealer_Date__c ,Policy_Inception_Date__c ,Existing_Contract__c ,Drop_off_Time__c ,Vehicle_Need__c ,Vehicle_Year_Current__c ,VIN__c,First_Contact_Customer_Date_Time__c ,Lost_Dealer_Date_Time__c ,CAC_Lead_Status__c ,Deposit__c ,Deposit_Payment_Date__c ,Compared_Vehicle__c ,New_Insurance_Policy_Number__c,Lost_CAC_Date__c,Price_Range_From__c,Price_Range_To__c ,Assigned_to_Dealer_Directly__c ,Dealer_Owner_Email__c ,Dealer_Aftersales_Manager_Email__c ,Dealer_Lead_Status__c ,Finance_Product_Name__c,Trade_in_Date__c,Portal_Request_ID__c,Contact_Timing__c ,Lost_CAC_Date_Time__c ,Contact_Failed_For_3_Days_Date_Time__c ,CommissionNumber__c ,Finance_Quotation_No_History__c,Finance_Quotation_Date__c,Finance_Quotation_No__c,CA_Updated_Date__c,Quotation_Model__c,Average_Driving__c,Service_date__c,Preferred_Delivery_Date__c,Express_Service__c,Form_Title__c,Entity__c,Assigned_Service_Parts_Advisor__c,Lost_Sub_Type__c,ZipCode__c,Lead_eMail__c,Lead_Mobile__c,Aftersales_Vehicle_Relationship__c, Year__c,  Preferred_Pick_up_times__c,  Preferred_drop_off__c,  VIN_number__c,  Registration_number__c,  Km_service_due__c,  Wholesale_Comment__c, Pickup_Date__c FROM opportunity WHERE Id =: ApexPages.currentPage().getParameters().get('id')];
+        Id oppId = ApexPages.currentPage().getParameters().get('id');
+        String aftQuery = 'SELECT id,Name ,Related_Leads__c,RecordType.Name,StageName,Case__c,CreatedDate,Campaign.Name,Visited_Showroom_Date_Time__c,Market__c, Type_of_Sale__c,Lead_Additional_Service__c,Pickup_Date_Time__c,Order_Placed_Date__c,Quotation_Date__c,Quotation_Amount__c,Order_No__c, Lost_To_Competitor_Name__c,Order_Print_Date__c,Order_Confirmation_Date__c,Registration_No__c,Network_Registration_Date__c,Bought_Vehicle_Brand__c,Next_Contact_Customer_Date__c,Bought_Vehicle_Class__c,Bought_Vehicle_Model__c,Invoice_Number__c,Invoice_Date__c,Purchase_Time__c,Received_Date_Time__c,Invoice_Amount__c,Qualified_Date_Time__c,UCID__c,UCID_account__c,Desired_Contact_Date__c,Price_Range__c,Test_Drive_Date__c,Preferred_Contact_Time__c,Assigned_Service_Advisor__c,Accepted_Date_Time__c,Purchase_Date__c,Quotation_Print_Date__c,Quotation_No__c,Assigned_Date_Time__c,Preferred_Contact_Method__c,Lead_Latest_Phase__c,Contact__c,Sales_Consultant__c,Dealer_Comment__c,Customer_Preferred_Representative__c, Referal_Referee_Note__c,Description,Purchased_Vehicle__c,Customer_Specified_Dealer__c,Lead_Type__c,Assigned_Dealer__c,CloseDate,Lead_Sub_Type__c,Lead_DataSource__c,Handover_Date__c, Lost_to_OEM_Name__c,CAC_Lost_Reason__c,Lead_DataSubSource__c,Lost_Reason_text__c,Lead_Desired_Service__c,Last_Successful_Call__c, Lost_to_Co_Dealer_Name__c,Current_Vehicle_1_Text__c,Current_Vehicle_2_Text__c,Lead_Source__c,Lead_Priority__c,Lost_To__c,Lost_Situation__c,Lead_No__c,Allow_Data_Sharing__c,OwnerId,Is_Active__c,LeadSource,AccountId,Payment_Mode__c,Lost_Date__c,CreatedById,LastModifiedById,Service_Requested_date__c,Quotation_No_History__c,WIP_Number__c,WIP_Created_Date__c,Job_Card_Number__c,Job_Card_Date__c,Check_In_Date__c,Check_Out_Date__c,Needs_Check_Date__c,Product_Proposal_Date__c,Finance_Proposal_Date__c,Insurance_Proposal_Date__c,Service_Program_Proposal_Date__c,Simple_Estimation_Date__c,Product_Name__c,Product_Price__c,company_account__c,Pick_up_Time__c ,Lost_Dealer_Date__c ,Policy_Inception_Date__c ,Existing_Contract__c ,Drop_off_Time__c ,Vehicle_Need__c ,Vehicle_Year_Current__c ,VIN__c,First_Contact_Customer_Date_Time__c ,Lost_Dealer_Date_Time__c ,CAC_Lead_Status__c ,Deposit__c ,Deposit_Payment_Date__c ,Compared_Vehicle__c ,New_Insurance_Policy_Number__c,Lost_CAC_Date__c,Price_Range_From__c,Price_Range_To__c ,Assigned_to_Dealer_Directly__c ,Dealer_Owner_Email__c ,Dealer_Aftersales_Manager_Email__c ,Dealer_Lead_Status__c ,Finance_Product_Name__c,Trade_in_Date__c,Portal_Request_ID__c,Contact_Timing__c ,Lost_CAC_Date_Time__c ,Contact_Failed_For_3_Days_Date_Time__c ,CommissionNumber__c ,Finance_Quotation_No_History__c,Finance_Quotation_Date__c,Finance_Quotation_No__c,CA_Updated_Date__c,Quotation_Model__c,Average_Driving__c,Service_date__c,Preferred_Delivery_Date__c,Express_Service__c,Form_Title__c,Entity__c,Assigned_Service_Parts_Advisor__c,Lost_Sub_Type__c,ZipCode__c,Lead_eMail__c,Lead_Mobile__c,Aftersales_Vehicle_Relationship__c, Year__c,  Preferred_Pick_up_times__c,  Preferred_drop_off__c,  VIN_number__c,  Registration_number__c,  Km_service_due__c,  Wholesale_Comment__c, Pickup_Date__c FROM opportunity WHERE Id =: oppId';
+        opp=Database.query(aftQuery);
         
         if (opp != null){
             userMarket = opp.Market__c;
         }
                
-        currentVehicleList = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
+        //currentVehicleList = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
+        //Rajesh - Get list of VRs for account and check for uniqueness of vehicle. Only 1 VR per vehicle needs to show in this page
+        List<Vehicle_Relationship__c> contactVRs = [Select Vehicle_ID__c,Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
+        String vehicleSet = '';
+        currentVehicleList = new List<Vehicle_Relationship__c>();
+        for (Vehicle_Relationship__c vr : contactVRs){
+            String vehicleId = String.valueOf(vr.Vehicle_ID__c);
+            if (vehicleId != null && vehicleId != ''){
+                if (!vehicleSet.contains(vehicleId)){
+                    vehicleSet = vehicleSet + ',' + vehicleId;
+                    currentVehicleList.add(vr);
+                }
+            }
+        }
         for(Lead_Details__c ld : [Select Id, recordTypeId, Car_Model_Competitor__c, Brand__c, Car_Model__c, Class__c, Color__c, Market__c, Mileage__c, Preferred__c, Related_Lead__c, Trade_In_Vehicle__c, Trim__c, Type__c, Vehicle_Model_Type__c, Year_of_Manufacture__c,brand_picklist__c,class_picklist__c From Lead_Details__c Where Related_Lead__c =: ApexPages.currentPage().getParameters().get('id')]){
             // Add vehicles separately
             String leadDetailRecordTypeName = UtilRecordType.getRecordTypeNameById('Lead_Details__c', ld.RecordTypeId);
@@ -182,6 +186,8 @@ public with sharing class AfterSalesLeadEditController {
     // To save the lead record and upsert all the associated lead details record.
     public PageReference saveOpp(){
         UpdateModInfoCtrl();
+        checkIntVehiclePreferred();
+        checkCompVehiclePreferred();
         List<Lead_Details__c> finalAllVehicleList = new List<Lead_Details__c>();
         for(Lead_Details__c ledDet : allVehiclesList){
             if(!(ledDet.Car_Model__c == null && ledDet.Car_Model_Competitor__c == null && ledDet.Brand_Picklist__c == null && ledDet.Class_Picklist__c == null && ledDet.RecordTypeId != UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_TradeIn_Record_Type)))

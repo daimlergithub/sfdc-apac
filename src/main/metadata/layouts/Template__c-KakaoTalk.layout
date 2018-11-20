@@ -16,6 +16,10 @@
                 <field>TemplateID__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Template_ID__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Message_Detail__c</field>
             </layoutItems>
@@ -34,6 +38,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MasterTemplate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Template18DigitID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

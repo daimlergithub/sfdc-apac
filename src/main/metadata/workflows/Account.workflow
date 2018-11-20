@@ -11,7 +11,42 @@
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
-	<fieldUpdates>
+    <alerts>
+        <fullName>Doc_Notification_On_Insert</fullName>
+        <description>Doc Notification On Insert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@mercedes-benz.com.tr</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/DOC_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Doc_Notification_On_Update</fullName>
+        <description>Doc Notification On Update</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply@mercedes-benz.com.tr</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/DOC_Notification_update</template>
+    </alerts>
+    <alerts>
+        <fullName>MB_ANZ_Deceased_Flag_Changed_Notification_Email_Alert</fullName>
+        <ccEmails>mukul.goel@infosys.com</ccEmails>
+        <ccEmails>daimlersupport@id-dbm.com.au</ccEmails>
+		<ccEmails>Ragesh_Vellat@infosys.com</ccEmails>
+		<ccEmails>digital_aunz@daimler.com</ccEmails>
+        <description>MB ANZ Deceased Flag Changed Notification Email Alert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>MB_ANZ_Email_Template/MB_ANZ_Deceased_Flag_Changed_Notification_Email_Template</template>
+    </alerts>
+    <fieldUpdates>
         <fullName>Agreement_Date_for_Marketing_Consent_fie</fullName>
         <field>Agreement_Date_for_Marketing_Consent__c</field>
         <formula>TODAY()</formula>
@@ -221,6 +256,16 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>	
+	<fieldUpdates>
+        <fullName>System_Data_Source_FM</fullName>
+        <description>System Data Source equals to Salesforce</description>
+        <field>System_Data_Source__c</field>
+        <formula>&apos;Salesforce&apos;</formula>
+        <name>System Data Source FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>UpdateData_Source_to_Others</fullName>
         <field>Data_Source__c</field>
@@ -270,6 +315,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Consent_Date_FM</fullName>
+        <description>Update Consent Date to Today&apos;s date</description>
+        <field>Updated_Consent_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Consent Date FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Consent_User</fullName>
         <description>Update Consent User as the current username</description>
         <field>Updated_Consent_User__c</field>
@@ -279,7 +334,17 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Consent_User_FM</fullName>
+        <description>Update Consent User as the current username</description>
+        <field>Updated_Consent_User__c</field>
+        <formula>$User.FirstName + &apos; &apos; + $User.LastName</formula>
+        <name>Update Consent User FM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Country_Field_AU</fullName>
         <field>Country__c</field>
         <literalValue>Australia</literalValue>
@@ -352,6 +417,15 @@
         <field>Customer_LastUpdatedDate__c</field>
         <formula>Now()</formula>
         <name>Update Customer LastUpdatedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_PersonEmail</fullName>
+        <field>PersonEmail</field>
+        <formula>Email__c</formula>
+        <name>Update PersonEmail</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -513,6 +587,37 @@
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
+    <rules>
+        <fullName>Account_DOC_Notification</fullName>
+        <actions>
+            <name>Doc_Notification_On_Insert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <description>When a form is submitted by the user, an email should get triggered to the user with the DOC details filled by them after service cloud record creation</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account_DOC_Notification_Update</fullName>
+        <actions>
+            <name>Doc_Notification_On_Update</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>When DOC details are updated from service cloud a notification email should be triggered to the user from service cloud</description>
+        <formula>AND( ISPICKVAL(Market__c, &apos;TR&apos;) ,
+NOT( ISNEW() ),
+OR( ISCHANGED(Opt_In_Email__c),
+ISCHANGED(Opt_In_Mobile__c),
+ISCHANGED(Opt_In_SMS__c),
+ISCHANGED(Postal_Opt_In__c) ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
 	<rules>
         <fullName>Agreement date CC New field update</fullName>
         <actions>
@@ -571,7 +676,7 @@
         </actions>
         <active>true</active>
         <description>This will Change Account Status To Prospect for thailand accounts at the time of create depends on vehicle amount</description>
-        <formula>AND(OR(ISBLANK(Vehicle_Amount__c ),Vehicle_Amount__c  = 0 ),MD__c=&apos;TH&apos;)</formula>
+        <formula>AND(OR(ISBLANK(Vehicle_Amount__c ),Vehicle_Amount__c  = 0 ),OR(MD__c=&apos;TH&apos;, ISPICKVAL(Market__c, &apos;TR&apos;)))</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
@@ -612,98 +717,39 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
 	<rules>
+        <fullName>MB ANZ Deceased Flag Changed Notification</fullName>
+        <actions>
+            <name>MB_ANZ_Deceased_Flag_Changed_Notification_Email_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Send a notification to ID Data team once the deceased flag is modified by user</description>
+        <formula>AND(ISCHANGED( Deceased__c ),(ISPICKVAL( Market__c , &quot;AU&quot;)||ISPICKVAL( Market__c , &quot;NZ&quot;)))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>MBAU update data source_Retailer added</fullName>
         <actions>
             <name>update_data_source_Retail_added</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 5) AND 6 AND 7</booleanFilter>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>startsWith</operation>
-            <value>C-1</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>startsWith</operation>
-            <value>C-2</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>startsWith</operation>
-            <value>C-3</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>startsWith</operation>
-            <value>C-4</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>startsWith</operation>
-            <value>C-5</value>
-        </criteriaItems>
-		 <criteriaItems>
-            <field>Account.Market__c</field>
-            <operation>contains</operation>
-            <value>AU,NZ</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.RecordTypeId</field>
-            <operation>contains</operation>
-            <value>Company,Person Account</value>
-        </criteriaItems>
         <description>If the customer number sequence is 
 • If customer number is between 10,000,001 – 59,999,999  = Retailer added</description>
+        <formula>IF(($Profile.Name == &apos;IntegrationAPI&apos; &amp;&amp; (  BEGINS(&apos;C-1&apos;, Customer_Number__c) || BEGINS(&apos;C-2&apos;, Customer_Number__c) || BEGINS(&apos;C-3&apos;, Customer_Number__c) || BEGINS(&apos;C-4&apos;, Customer_Number__c) || BEGINS(&apos;C-5&apos;, Customer_Number__c) )) || (ISPICKVAL( $User.UserType ,&apos;PowerPartner&apos;) ) &amp;&amp; (RecordType.Name == &apos;Company&apos; || RecordType.Name == &apos;Person Account&apos;) &amp;&amp; (ISPICKVAL( Market__c ,&apos;NZ&apos;) || ISPICKVAL( Market__c ,&apos;AU&apos;)),true, false)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
+     <rules>
         <fullName>MBAU update data source_wholesale added</fullName>
         <actions>
             <name>update_data_source</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2 OR 3 OR 4) AND 5 AND 6 AND 7</booleanFilter>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>startsWith</operation>
-            <value>C-0</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>startsWith</operation>
-            <value>C-6</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>startsWith</operation>
-            <value>C-7</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>startsWith</operation>
-            <value>C-8</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Customer_Number__c</field>
-            <operation>notContain</operation>
-            <value>C-1</value>
-        </criteriaItems>
-		<criteriaItems>
-            <field>Account.Market__c</field>
-            <operation>contains</operation>
-            <value>AU,NZ</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.RecordTypeId</field>
-            <operation>contains</operation>
-            <value>Company,Person Account</value>
-        </criteriaItems>
         <description>If the customer number sequence is 
 • 1 to 10000000 this is mapped to Wholesale added
 • 60000000 to 80000000  this is mapped to Wholesale added</description>
+        <formula>IF(($Profile.Name == &apos;IntegrationAPI&apos; &amp;&amp; (  BEGINS(&apos;C-0&apos;, Customer_Number__c) || BEGINS(&apos;C-6&apos;, Customer_Number__c) || BEGINS(&apos;C-7&apos;, Customer_Number__c) || BEGINS(&apos;C-8&apos;, Customer_Number__c)  )) || (ISPICKVAL( $User.UserType ,&apos;Standard&apos;) ) &amp;&amp; (RecordType.Name == &apos;Company&apos; || RecordType.Name == &apos;Person Account&apos;) &amp;&amp; (ISPICKVAL( Market__c ,&apos;NZ&apos;) || ISPICKVAL( Market__c ,&apos;AU&apos;)),true, false)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     
@@ -761,7 +807,7 @@
         </actions>
         <active>true</active>
         <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;No&quot;</description>
-        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;No&apos;),  OR( MD__c = &apos;TH&apos; , ISPICKVAL( Market__c , &apos;TR&apos;) ))</formula>
+        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;No&apos;),  OR( MD__c = &apos;TH&apos; , AND(ISPICKVAL( Market__c , &apos;TR&apos;),$Profile.Name != &apos;IntegrationAPI&apos;) ))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -783,8 +829,33 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>(1 AND (3 OR (4 AND 5))) OR (2 AND (4 AND 5))</booleanFilter>
+        <criteriaItems>
+            <field>Account.Personal_Agreement__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Personal_Agreement__c</field>
+            <operation>equals</operation>
+            <value>Unknown</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>IntegrationAPI</value>
+        </criteriaItems>
         <description>Update the Data Source,Update Consent User and Update Consent Date when Personal_Agreement__c is &quot;Yes&quot;</description>
-        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;Yes&apos;),  OR(MD__c = &apos;TH&apos;, ISPICKVAL( Market__c , &apos;TR&apos;) )  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -926,6 +997,17 @@ ISCHANGED( Mobile__c ), ISCHANGED( Individual_Home_Phone__c ), ISCHANGED( Mobile
 ISCHANGED( Phone ), ISCHANGED( Fax ), ISCHANGED( Fax2__c ), ISCHANGED( Email3__c ),ISCHANGED( Primary_Phone__c ), ISCHANGED( Primary_Fax__c ), ISCHANGED(Primary_Address_Reference__c),
 ISCHANGED(Main_Dealer__c)
 )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update PersonEmail from Email%5F%5Fc</fullName>
+        <actions>
+            <name>Update_PersonEmail</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Copies value from Email__c to PersonEmail</description>
+        <formula>MD__c = &apos;TH&apos; &amp;&amp;  RecordType.Name = &apos;Person Account&apos; &amp;&amp; (ISCHANGED(Email__c) || (ISNEW() &amp;&amp; NOT(ISNULL(Email__c))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 	<rules>

@@ -31,6 +31,10 @@
                 <behavior>Edit</behavior>
                 <field>Service_Advisor__c</field>
             </layoutItems>
+						<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Check_in_Responsible__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -163,6 +167,10 @@
                 <behavior>Edit</behavior>
                 <field>Check_In_Date__c</field>
             </layoutItems>
+						            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Check_Out_Planed_DateTime__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Check_Out_Date__c</field>
@@ -224,6 +232,9 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Additional_Services__c</field>
+            </layoutItems>
+			            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -373,6 +384,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Dealer_Date_Time__c</field>
+            </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Automatic_Lost_date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

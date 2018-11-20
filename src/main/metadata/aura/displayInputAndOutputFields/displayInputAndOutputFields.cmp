@@ -1,0 +1,37 @@
+<!-- File Name   : displayInputAndOutputFields -->
+<!-- Description : displayInputAndOutputFields Lightening component -->
+<!-- Copyright   : Infosys Limited Copyright (c) 2018  -->
+<!-- @author     : Sarath -->
+<!-- Author Modification & Ver.Date : Sarath & 06-July-2018  -->
+<aura:component implements="force:hasRecordId" access="global" >
+	<aura:attribute name="inputFieldList" type="String[]" />
+    <aura:attribute name="outputFieldList" type="String[]" />
+    <aura:attribute name="outputFieldListExists" type="Boolean" />
+    <aura:attribute name="InputFieldListExists" type="Boolean" /> 
+    <aura:attribute name="multipleRowsallowed" type="Boolean" />
+    <aura:attribute name="layoutSize" type="Integer" />
+    <aura:registerEvent name="onchange" type="c:SectionheaderEvent"/>
+	
+    <aura:if isTrue="{!v.outputFieldListExists}">  
+        <lightning:layout  multipleRows="{!v.multipleRowsallowed}" horizontalAlign="spread" >
+            <aura:iteration items="{!v.outputFieldList}" var="item" >
+                <lightning:layoutItem size="{!v.layoutSize}">
+                    <lightning:outputField fieldName="{!item}"/>
+                </lightning:layoutItem>               
+            </aura:iteration>   
+        </lightning:layout>
+	</aura:if>
+    
+    <aura:if isTrue="{!v.InputFieldListExists}">    
+        <lightning:layout  multipleRows="{!v.multipleRowsallowed}" horizontalAlign="spread" >
+            <aura:iteration items="{!v.inputFieldList}" var="item" >
+                <lightning:layoutItem size="{!v.layoutSize}" padding="slds-p-*_medium">
+                    <lightning:inputField fieldName="{!item}" onchange="{!c.inputValuePass}"/> 
+                </lightning:layoutItem>               
+            </aura:iteration>   
+        </lightning:layout>
+    </aura:if>
+    
+    
+    
+</aura:component>

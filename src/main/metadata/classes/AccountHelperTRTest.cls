@@ -75,8 +75,8 @@ public class AccountHelperTRTest {
             Account_Link__c CAcclink = TestUtils.createAccLink('Retail Person', acc2.Id);//company account
             AccountHelperTR.updateRetailCopy(True,True,True,list3);
             AccountHelperTR.createUCID(list2,True);
-            AccountHelperTR.errorOnDOCPermissions(list2);
-            AccountHelperTR.errorOnDOCPermissions(list3);
+            AccountHelperTR.errorOnDOCPermissions(list2,false);
+            AccountHelperTR.errorOnDOCPermissions(list3,false);
             List<Account_Link__c>  retailCopyList = [select id from Account_Link__c where toRole__c =:acc.Id AND (RecordtypeId =:retailPerson_RecordTypeId OR RecordtypeId =:retailCompany_RecordTypeId)];
             
            
@@ -132,8 +132,8 @@ public class AccountHelperTRTest {
             }catch(Exception e){}
            
             AccountHelperTR.createUCID(list2,True);
-           AccountHelperTR.errorOnDOCPermissions(list2);
-            AccountHelperTR.errorOnDOCPermissions(list3);
+           AccountHelperTR.errorOnDOCPermissions(list2,true);
+            AccountHelperTR.errorOnDOCPermissions(list3,true);
             AccountHelperTR.updateRetailCopy(True,True,True,list2);
            
             test.stopTest();

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Public</fullName>
+        <default>false</default>
+        <label>Public</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Special</fullName>
+        <default>false</default>
+        <label>Special</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Subsidiaries</fullName>
+        <default>false</default>
+        <label>Subsidiaries</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+</StandardValueSet>

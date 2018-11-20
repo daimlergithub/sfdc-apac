@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Events_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Event_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Event_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Start_Time__c</fields>
+        <fields>End_Time__c</fields>
+        <fields>Location__c</fields>
+        <label>Event Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Custom Events</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Agenda__c</fullName>
+        <externalId>false</externalId>
+        <label>Agenda</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Community_Link__c</fullName>
+        <description>Community Portal URL</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK('https://asiadvdcp1-daimlerasia.cs5.force.com/MBIndonesia/s/detail/'+ Id,  Name )</formula>
+        <label>Community Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Details__c</fullName>
+        <description>Details of an Event</description>
+        <externalId>false</externalId>
+        <label>Details</label>
+        <length>130000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>End_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>End Time</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Expired__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This is used to expire the Events based on End date</description>
+        <externalId>false</externalId>
+        <label>Expired</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mail_Sent__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>To know the status of the news weather sent email notification or not using batchClassForNewsSubscribers apex class.</description>
+        <externalId>false</externalId>
+        <label>Mail Sent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Registrations__c</fullName>
+        <description>Number of registrations available for an event</description>
+        <externalId>false</externalId>
+        <label>Number of Registrations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Registration_End_Time__c</fullName>
+        <description>End time of the registration</description>
+        <externalId>false</externalId>
+        <label>Registration End Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Registration_Start_Time__c</fullName>
+        <description>Start time of the Registration for a event</description>
+        <externalId>false</externalId>
+        <label>Registration Start Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Time</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <label>Event</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Start_Time__c</columns>
+        <columns>Location__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Expired__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Expired_Events</fullName>
+        <columns>NAME</columns>
+        <columns>Start_Time__c</columns>
+        <columns>End_Time__c</columns>
+        <columns>Location__c</columns>
+        <columns>Expired__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Expired__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Expired Events</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBDINA_RCP_Admin</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <label>Title</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Events</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Start_Time__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Location__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>End_Time_greater_than_Start_Time</fullName>
+        <active>true</active>
+        <description>End_Time_greater_than_Start_Time</description>
+        <errorConditionFormula>End_Time__c &lt; Start_Time__c</errorConditionFormula>
+        <errorDisplayField>End_Time__c</errorDisplayField>
+        <errorMessage>End Time should be greater than Start Time.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>End_Time_greater_than_today</fullName>
+        <active>true</active>
+        <description>End_Time_greater_than_today</description>
+        <errorConditionFormula>End_Time__c &lt; DATETIMEVALUE(TODAY())</errorConditionFormula>
+        <errorDisplayField>End_Time__c</errorDisplayField>
+        <errorMessage>End Time should be greater than or equal to today's time.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expired_Events_Rule</fullName>
+        <active>true</active>
+        <description>Do Not allow Users to EDIT Expired Events</description>
+        <errorConditionFormula>Expired__c  = true</errorConditionFormula>
+        <errorMessage>Event was already Expired.You are not allowed to EDIT Expired Event.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Reg_End_Time_greater_than_Start_Time</fullName>
+        <active>true</active>
+        <description>Reg_End_Time_greater_than_Start_Time</description>
+        <errorConditionFormula>Registration_End_Time__c  &lt;  Registration_Start_Time__c</errorConditionFormula>
+        <errorDisplayField>Registration_End_Time__c</errorDisplayField>
+        <errorMessage>Registration End Time should be greater than Registration Start Time.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Reg_End_Time_greater_than_today</fullName>
+        <active>false</active>
+        <description>Reg_End_Time_greater_than_today</description>
+        <errorConditionFormula>Registration_End_Time__c &lt; DATETIMEVALUE(TODAY())</errorConditionFormula>
+        <errorDisplayField>Registration_End_Time__c</errorDisplayField>
+        <errorMessage>Registration End Time should be greater than or equal to today's time.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Reg_End_Time_less_than_Event_End_Time</fullName>
+        <active>true</active>
+        <description>Reg_End_Time_less_than_Event_End_Time</description>
+        <errorConditionFormula>Registration_End_Time__c  &gt; End_Time__c</errorConditionFormula>
+        <errorDisplayField>Registration_End_Time__c</errorDisplayField>
+        <errorMessage>Registration End Time should be less than Event End Time.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Reg_Start_Time_greater_than_today</fullName>
+        <active>true</active>
+        <description>Reg_Start_Time_less_than_Event_End_Time</description>
+        <errorConditionFormula>Registration_Start_Time__c &gt; End_Time__c</errorConditionFormula>
+        <errorDisplayField>Registration_Start_Time__c</errorDisplayField>
+        <errorMessage>Registration Start Time should be less than Event End Time.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Start_Time_greater_than_today</fullName>
+        <active>true</active>
+        <description>Start_Time_greater_than_today</description>
+        <errorConditionFormula>Start_Time__c &lt; DATETIMEVALUE(TODAY())</errorConditionFormula>
+        <errorDisplayField>Start_Time__c</errorDisplayField>
+        <errorMessage>Start Time should be greater than or equal to today's time.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

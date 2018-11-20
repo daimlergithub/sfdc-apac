@@ -1,4 +1,8 @@
-//SB2017
+/**
+* Utility for Trigger on Case to handle business logic
+* Author:Madhusudhan
+* Created Date : 11th Oct 2018
+*/
 @istest
 public class CaseHelperAUTest {
 
@@ -50,12 +54,6 @@ public class CaseHelperAUTest {
     insert CaseFieldsList;
     }
     }
-    //SB2017
-    /*
-      Name:Sushma Bharti
-      Description:Added to update the code coverage of the method for MY
-      Modified Date: 2017-10-09
-  */
     static testmethod void testCaseHelperAU1(){
     Profile p1 = [select id from profile where Name='System Administrator' limit 1];
     

@@ -1,0 +1,58 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false" docType="html-5.0"
+           controller="OnlineDeduplicationVFController">
+    <html>
+        <head>
+            <script>
+			var FMCountries="{!$Label.FMCountries}";
+		var lcBaseURL = '';
+            console.log(lcBaseURL);
+            // Listen for messages from the Lightning Component
+            window.addEventListener("message", function (event) {
+                console.log(event.origin);
+if(event.data.isCommunity == 'true'){
+                    var lcBaseURL = "{!$Setup.lightningBaseURLCommunity__c.URL__c}";
+                }else{
+                    var lcBaseURL = "{!$Setup.lightningBaseURL__c.URL__c}";
+                }
+                if (event.origin !== lcBaseURL) {
+                    // Not the expected origin: reject message
+                    return;
+                }
+                console.log(event.data);
+                // Only handle messages we are interested in            
+                if (event.data.topic === "com.mycompany.message") {
+                    var Recordtype = event.data.selectedRecordId;
+                    var objAccountString = event.data.objAccount;
+                    var firstsave = event.data.firstsave;
+                    var market = event.data.userMarket;
+                    var AddressObjString = event.data.objAddress;
+                    
+                    //implemented to FM markets
+                    if(FMCountries.indexOf(market) !== -1)
+                    {
+                        Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.OnlineDeduplicationVFController.onLineDeduplicationFM}',Recordtype,firstsave,market,objAccountString,AddressObjString,function (result) {
+                            // Send result to Lightning Component
+                            var message = {
+                                topic: "com.mycompany.message",
+                                result: result
+                            };
+                            parent.postMessage(message, lcBaseURL);
+                        });
+                    }
+                    else
+                    {
+                        Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.OnlineDeduplicationVFController.onLineDeduplicationANZ}',Recordtype,firstsave,market,objAccountString,AddressObjString,function (result) {
+                            // Send result to Lightning Component
+                            var message = {
+                                topic: "com.mycompany.message",
+                                result: result
+                            };
+                            parent.postMessage(message, lcBaseURL);
+                        });
+                    }   
+                }
+            }, false);
+            </script>
+        </head>
+    </html>
+</apex:page>

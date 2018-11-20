@@ -77,13 +77,13 @@ public  with sharing class coverttolead1controller
              if(campaignMemberObj.Campaign_ID__c != null)
              {
                  
-                 existingLeadList = [Select Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c,Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
+                 existingLeadList = [Select Cross_point_month_and_year__c,Campaign_Member__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c,Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
                                         from Lead__c where Source_Campaign__c =: campaignMemberObj.Campaign_ID__c]; 
                   CampaingCheck =false;           
              }
              else if(campaignMemberObj.Retail_Campaign_Id__c != null)
              {
-                 existingLeadList = [Select Cross_point_month_and_year__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c, Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
+                 existingLeadList = [Select Cross_point_month_and_year__c,Campaign_Member__c,Evaluation_Result_P1_P2_Blank__c,Final_GAP_Amount__c,Outstanding_Balance_amount__c,Proto_Market_Value_amount__c, Source_Campaign__c, Contact__c, Lead_Type__c, Lead_Sub_Type__c, Interested_Vehicle_Model__c 
                                         from Lead__c where Source_Campaign__c =: campaignMemberObj.Retail_Campaign_Id__c];
                RetailCheck = false;
              }
@@ -175,7 +175,7 @@ public  with sharing class coverttolead1controller
         {
             leadRec.Source_Campaign__c = campaignMember.Campaign_ID__c;
            // leadRec.OwnerId = campaignMember.Campaign_ID__r.OwnerId; Commented as part of 0043627773
-		   leadRec.OwnerId = UserInfo.getUserId(); 
+           leadRec.OwnerId = UserInfo.getUserId(); 
         } else if(campaignMember.Retail_Campaign_Id__c != null) 
         {
             leadRec.Retail_Campaign_Name__c = campaignMember.Retail_Campaign_Id__c;
@@ -190,14 +190,19 @@ public  with sharing class coverttolead1controller
         leadRec.CAC_Lead_Status__c = 'New';
        leadRec.Lead_DataSource__c='Dealer Outlet';
         }
-       
+       leadRec.Campaign_Member__c=campaignMember.id;
         leadRec.Contact__c = campaignMember.Contact_Id__c;
         leadRec.Cross_point_month_and_year__c= campaignMember.Cross_point_month_and_year__c;
        leadRec.Evaluation_Result_P1_P2_Blank__c = campaignMember.Evaluation_Result_P1_P2_Blank__c;
        leadRec.Final_GAP_Amount__c = campaignMember.Final_GAP_Amount__c;
        leadRec.Outstanding_Balance_amount__c = campaignMember.Outstanding_Balance_amount__c;
        leadRec.Proto_Market_Value_amount__c = campaignMember.Proto_Market_Value_amount__c;
+        if(campaignMember.Lead_Type__c !=null){
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
+        } else {
+        leadRec.Lead_Type__c ='New Car';
+        }
+        
         leadRec.Lead_Sub_Type__c = campaignMember.Lead_Sub_Type__c;
         leadRec.Existing_Contract__c=campaignMember.Contract__c;
         leadRec.Interested_Vehicle_Model__c = campaignMember.Interested_Model__c;
@@ -216,7 +221,7 @@ public  with sharing class coverttolead1controller
         {
          leadRec.Company_Account__c = campaignMember.Contract__r.Finance_Contractor__c;
         }
-        leadRec.Lead_DataSource__c='Campaign';
+       // leadRec.Lead_DataSource__c='Campaign';
         leadRec.UsVIN__c=campaignMember.UsVIN__c;
         
         if(recordtypevalue!= null && recordtypevalue == 'Aftersales_leads') 
@@ -268,6 +273,8 @@ public  with sharing class coverttolead1controller
     {
         Campaign_Lead__c cLeadRec = new Campaign_Lead__c(); 
         cLeadRec.Lead__c = leadRec.Id;
+        cLeadRec.Campaign_member__c= leadRec.Campaign_Member__c;
+        
         if(CampaingCheck  == false) 
         {
             cLeadRec.Campaign__c = leadRec.Source_Campaign__c;

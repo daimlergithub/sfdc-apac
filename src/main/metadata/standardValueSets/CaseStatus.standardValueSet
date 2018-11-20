@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>CM Inputting</fullName>
+        <default>true</default>
+        <label>CM Inputting</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Waiting for Response approval</fullName>
+        <default>false</default>
+        <label>Waiting for Response approval</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Response approved</fullName>
+        <default>false</default>
+        <label>Response approved</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Feedback From Dealer</fullName>
+        <default>false</default>
+        <label>Awaiting Feedback From Dealer</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Feedback From MBT Contact</fullName>
+        <default>false</default>
+        <label>Awaiting Feedback From MBT Contact</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Feedback From MPC</fullName>
+        <default>false</default>
+        <label>Awaiting Feedback From MPC</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Feedback From Supplier</fullName>
+        <default>false</default>
+        <label>Awaiting Feedback From Supplier</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Feedback Approval</fullName>
+        <default>false</default>
+        <label>Awaiting Feedback Approval</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting Final Statement</fullName>
+        <default>false</default>
+        <label>Awaiting Final Statement</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Open</fullName>
+        <default>false</default>
+        <label>Open</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>In progress</fullName>
+        <default>false</default>
+        <label>In progress</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Escalation Confirmed</fullName>
+        <default>false</default>
+        <label>Escalation Confirmed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Escalation Request</fullName>
+        <default>false</default>
+        <label>Escalation Request</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed</fullName>
+        <default>false</default>
+        <label>Closed</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Waiting for final approval</fullName>
+        <default>false</default>
+        <label>Waiting for final approval</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Post-handling process requested</fullName>
+        <default>false</default>
+        <label>Post-handling process requested</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Solved</fullName>
+        <default>false</default>
+        <label>Solved</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Escalation Raised</fullName>
+        <default>false</default>
+        <label>Escalation Raised</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Prospect</fullName>
+        <default>false</default>
+        <label>Prospect</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Awaiting MB</fullName>
+        <default>false</default>
+        <label>Awaiting MB</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Escalation Raised &amp; Confirmed</fullName>
+        <default>false</default>
+        <label>Escalation Raised &amp; Confirmed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Final approval rejected</fullName>
+        <default>false</default>
+        <label>Final approval rejected</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Final approval done</fullName>
+        <default>false</default>
+        <label>Final approval done</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>TS transfer</fullName>
+        <default>false</default>
+        <label>TS transfer</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Call waiting</fullName>
+        <default>false</default>
+        <label>Call waiting</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Has been upgraded</fullName>
+        <default>false</default>
+        <label>Has been upgraded</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>New</fullName>
+        <default>false</default>
+        <label>New</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Investigating</fullName>
+        <default>false</default>
+        <label>Investigating</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Suspended</fullName>
+        <default>false</default>
+        <label>Suspended</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Final Position Released</fullName>
+        <default>false</default>
+        <label>Final Position Released</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>2nd Final Position Released</fullName>
+        <default>false</default>
+        <label>2nd Final Position Released</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed (Final)</fullName>
+        <default>false</default>
+        <label>Closed (Final)</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reopened</fullName>
+        <default>false</default>
+        <label>Reopened</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Insufficient Document</fullName>
+        <default>false</default>
+        <label>Insufficient Document</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Requires Manager Review</fullName>
+        <default>false</default>
+        <label>Requires Manager Review</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Waiting for Reply</fullName>
+        <default>false</default>
+        <label>Waiting for Reply</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Waiting Process</fullName>
+        <default>false</default>
+        <label>Waiting Process</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Need track</fullName>
+        <default>false</default>
+        <label>Need track</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Have tracked</fullName>
+        <default>false</default>
+        <label>Have tracked</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Finished</fullName>
+        <default>false</default>
+        <label>Finished</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Processed</fullName>
+        <default>false</default>
+        <label>Processed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Uploaded</fullName>
+        <default>false</default>
+        <label>Uploaded</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>No approval needed</fullName>
+        <default>false</default>
+        <label>No approval needed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+        <label>Rejected</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Cancel</fullName>
+        <default>false</default>
+        <label>Cancel</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>waiting for check by L1 support</fullName>
+        <default>false</default>
+        <label>waiting for check by L1 support</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>waiting for modify uploaded file by dealer</fullName>
+        <default>false</default>
+        <label>waiting for modify uploaded file by dealer</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Approval Request</fullName>
+        <default>false</default>
+        <label>Approval Request</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved</fullName>
+        <default>false</default>
+        <label>Approved</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Reassign requested</fullName>
+        <default>false</default>
+        <label>Reassign requested</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Escalation requested</fullName>
+        <default>false</default>
+        <label>Escalation requested</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Post-handling process completed</fullName>
+        <default>false</default>
+        <label>Post-handling process completed</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Rehandling requested</fullName>
+        <default>false</default>
+        <label>Rehandling requested</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>MBK escalation requested</fullName>
+        <default>false</default>
+        <label>MBK escalation requested</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>MBK escalation completed</fullName>
+        <default>false</default>
+        <label>MBK escalation completed</label>
+        <closed>false</closed>
+    </standardValue>
+</StandardValueSet>

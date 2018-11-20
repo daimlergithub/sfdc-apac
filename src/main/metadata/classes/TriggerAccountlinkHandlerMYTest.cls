@@ -27,8 +27,8 @@ public class TriggerAccountlinkHandlerMYTest {
  public  Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     
 public static void prepareTestData(String testCase){
-	// Trigger__c TriggerAccountMY=new Trigger__c(Name='TriggerAccountMY',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
-	Trigger__c TriggerAccountLinkMY=new Trigger__c(Name='TriggerAccountLink',Trigger_Name__c='TriggerAccountLink',Trigger_Handler__c='TriggerAccountlinkHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
+  // Trigger__c TriggerAccountMY=new Trigger__c(Name='TriggerAccountMY',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
+  Trigger__c TriggerAccountLinkMY=new Trigger__c(Name='TriggerAccountLink',Trigger_Name__c='TriggerAccountLink',Trigger_Handler__c='TriggerAccountlinkHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
     List<Trigger__c> lsttrg = new List<Trigger__C>();
     lsttrg.add(TriggerAccountLinkMY);
     // lsttrg.add(TriggerAccountMY);
@@ -108,8 +108,8 @@ public static void prepareTestData(String testCase){
      system.runAs(us1)
      {
          ps = new PermissionSet();
-         ps.Name = 'Test';
-         ps.Label = 'Test';
+         ps.Name = 'Test3';
+         ps.Label = 'Test3';
          insert ps;  
          CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYGeneric ];
          

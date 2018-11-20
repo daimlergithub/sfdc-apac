@@ -17,11 +17,14 @@ public class TriggerAddressTriggerHandlerIN implements TriggerHandlerIf{
         /*  code that may use any trigger functionality like trigger.isBefore, trigger.new, ... */
         
         if ((isBefore && isUpdate)||(isBefore && isInsert)){
-          
-        //prevent duplicate address type  
-      if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){
-        AddressHelperIN.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
-      }
+            //prevent duplicate address type  
+          if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){
+            AddressHelperIN.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+          }
+          //while inserting address if customer does not have a preferred address, set it as preferred automatically
+          if (isInsert){
+                    AddressHelperIN.setPreferredFlag(trigger.new);
+          }
         }
         //update primary address on account
         if ((isAfter && (isInsert || isUpdate))){

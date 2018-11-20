@@ -8,6 +8,10 @@ public without sharing class createRetailCopy {
         get;
         set;
     }
+    public list<Account_link__c> accLinkList {
+        get;
+        set;
+    }
     Public static String AccId {
         get;
         set;
@@ -70,6 +74,7 @@ public without sharing class createRetailCopy {
         get;
         set;
     }
+    Public Map<String,string> countryMap = new map<string,string>();
     public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
@@ -81,6 +86,7 @@ public without sharing class createRetailCopy {
         ListAddress = new List < Address__c > ();
         SelectedAdd = new List < Address__c > ();
         InsertAlk = new List < Account_Link__c > ();
+        accLinkList = new list< Account_Link__c >();
         account = new Account();
         ShowHideError = false;
 
@@ -92,7 +98,7 @@ public without sharing class createRetailCopy {
         }
         account = (Account) controller.getRecord();
         if (AccId != null) {
-            ListAddress = [select id, Name, Customer__c, Address_Type__c, Sub_District__c, ZipCode__c, Province__c, Province_Native__c, City__c, City_Native__c, District__c, District_Native__c, Block__c, Block_Native__c, Address_Line_1__c, Address_Line_1_Native__c, Address_Line_2__c, Address_Line_2_Native__c, Company_Name__c, Company_Name_Native__c, TitleOfHonor__c, Status__c, Temp_ZipCode__c, Temp_Address__c,Address_Line_3__c,State_City__c,Suburb__c FROM Address__c where Customer__c =: AccId];
+            ListAddress = [select id, Name, Customer__c, LastModifiedDate,Address_Type__c, Sub_District__c, ZipCode__c, Province__c, Province_Native__c, City__c, City_Native__c, District__c, District_Native__c, Block__c, Block_Native__c, Address_Line_1__c, Address_Line_1_Native__c, Address_Line_2__c, Address_Line_2_Native__c, Company_Name__c, Company_Name_Native__c, TitleOfHonor__c, Status__c, Temp_ZipCode__c, Temp_Address__c,Address_Line_3__c,State_City__c,Suburb__c FROM Address__c where Customer__c =: AccId];
         }
 
         system.debug('+++++++++++++' + account);
@@ -102,6 +108,13 @@ public without sharing class createRetailCopy {
             MarketDiscriminator = CurrentUsr.Market__c;
         }
 
+        if(CurrentUsr.Market__c == 'TR')
+        {
+        for(CountryTranslation__mdt cmdt: [select id, Country__c,Country_Translation__c,Market__c from CountryTranslation__mdt where Market__c=:Label.TR])
+         {
+             countryMap.put(cmdt.Country__c,cmdt.Country_Translation__c);
+         }
+        }
     } // Constructor  end
 
 
@@ -138,12 +151,18 @@ public without sharing class createRetailCopy {
         AccId = ApexPages.currentPage().getParameters().get('id');
 
         //accList = [Select Id, MD__c,market__c, LastModifiedDate, Foundation_Date__c, ID_Type__c,ID_Number__c,Country__c,createdDate,Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c,Postal_Opt_In__c, LastName_Native_1__c, FirstName_Native_1__c,SMSOptOut__pc, Special_Needs_Class__c, Preferred_Language__c, Allow_Data_Sharing2__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c,Opt_In_Email__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c,Opt_In_SMS__c,Updated_Consent_User__c, First_Consent_User__c,First_Consent_Date__c,Updated_Consent_Date__c,Company_Name__c,Race__c,Title__c from account where id =: AccId];
-        accList = [Select Id, MD__c,market__c, LastModifiedDate,Social_ID__c, Foundation_Date__c, ID_Type__c,ID_Number__c,Country__c,createdDate,Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c,Postal_Opt_In__c, LastName_Native_1__c, FirstName_Native_1__c,SMSOptOut__pc, Special_Needs_Class__c, Preferred_Language__c, Allow_Data_Sharing2__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c,Opt_In_Email__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c,Opt_In_SMS__c,Updated_Consent_User__c, First_Consent_User__c,First_Consent_Date__c,Updated_Consent_Date__c,Company_Name__c,Race__c,Title__c, Retail_Work_Phone__c, Special_Mark_on_Account__c, Opt_In_Mail__c, Opt_In_Phone__c,Opt_In_SMS3__c from account where id =: AccId];
-        
-        accc = [Select id, Main_Dealer__c from account where id =: account.Main_Dealer__c limit 1];
+
+			accList = [Select Id, MD__c,market__c, LastModifiedDate,Social_ID__c, Foundation_Date__c, ID_Type__c,ID_Number__c,Country__c,createdDate,Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c,Postal_Opt_In__c, LastName_Native_1__c, FirstName_Native_1__c,SMSOptOut__pc, Special_Needs_Class__c, Preferred_Language__c, Allow_Data_Sharing2__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c,Opt_In_Email__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c,Opt_In_SMS__c,Updated_Consent_User__c, First_Consent_User__c,First_Consent_Date__c,Updated_Consent_Date__c,Company_Name__c,Race__c,Title__c, Retail_Work_Phone__c, Special_Mark_on_Account__c, Opt_In_Mail__c, Opt_In_Phone__c,Opt_In_SMS3__c,ACN__c,MB_Online_Id__c from account where id =: AccId];        
+
+        accc = [Select id, Main_Dealer__c,Dealer_GC_Code__c  from account where id =: account.Main_Dealer__c limit 1];
+        string GCCode;
+        if(accc != null && !accc.isEmpty())
+            GCCode = accc[0].Dealer_GC_Code__c;
+        accLinkList = [select id,Retail_Email_OptIn__c ,Retail_Phone_OptIn__c , Retail_Postal_OptIn__c ,Retail_SMS_OptIn__c,fromRole__r.Dealer_GC_Code__c  from account_link__c where fromRole__c!=null and fromRole__r.Dealer_GC_Code__c=:GCCode and (recordtypeid =:alkPerson_RecordTypeId OR recordtypeid =: alkCompany_RecordTypeId) and toRole__c=:AccId order by lastmodifieddate DESC limit 1];
         system.debug('+++++++++' + addId);
         System.debug('##################' + accc);
         System.debug('#################' + AccId);
+        System.debug('################# link list' + accLinkList);
         if (addId != null) {
             SelectedAdd = [select id,Foreign_Nationals__c, createddate, lastmodifieddate, Name, Customer__c, Sub_District__c, Address_Type__c, ZipCode__c, Province__c, Province_Native__c, Country__c, City__c, City_Native__c, District__c, District_Native__c, Block__c, Block_Native__c, Address_Line_1__c, Address_Line_1_Native__c, Address_Line_2__c, Address_Line_2_Native__c, Company_Name__c, Company_Name_Native__c, TitleOfHonor__c, Status__c, Temp_ZipCode__c, Temp_Address__c,Address_Line_3__c,State_City__c,Suburb__c FROM Address__c where id =: addId Limit 1];
         }
@@ -152,7 +171,7 @@ public without sharing class createRetailCopy {
 
         // For Dealer User Creating retail copy
         if (CurrentUsr.ContactId != null) {
-            Usr = [SELECT Market__c, contactid, IsPortalEnabled, Id, contact.AccountId FROM User WHERE Id =: UserInfo.getUserId() and User.Profile.UserLicense.Name = 'Partner Community'];
+            Usr = [SELECT Market__c, contactid, IsPortalEnabled, Id, contact.AccountId, contact.Account.Dealer_ND_Code__c, Dealer_ND_Code__c FROM User WHERE Id =: UserInfo.getUserId() and User.Profile.UserLicense.Name = 'Partner Community'];
 
 
             if (Usr.ContactId != null) {
@@ -164,10 +183,17 @@ public without sharing class createRetailCopy {
                     }
                 }
                 if (accList.RecordtypeId == accPerson_RecordTypeId) {
-                    Accountlinklist = [select id, fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId AND Retail_Delete_Flag__c = false and Retail_Duplicate_Flag__c = false];
+				
+						if(CurrentUsr.Market__c == 'AU' || CurrentUsr.Market__c == 'NZ')
+						Accountlinklist = [select id, IsDeleted__c,fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId AND Retail_Duplicate_Flag__c = false];
+					else
+						Accountlinklist = [select id, IsDeleted__c,fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId AND Retail_Delete_Flag__c = false and Retail_Duplicate_Flag__c = false];
                 }
                 if (accList.RecordtypeId == accCompany_RecordTypeId) {
-                    Accountlinklist = [select id, fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId AND Retail_Delete_Flag__c = false and Retail_Duplicate_Flag__c = false];
+						if(CurrentUsr.Market__c == 'AU' || CurrentUsr.Market__c == 'NZ')
+							Accountlinklist = [select id, IsDeleted__c,fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId and Retail_Duplicate_Flag__c = false];
+						else
+							Accountlinklist = [select id, IsDeleted__c,fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId AND Retail_Delete_Flag__c = false and Retail_Duplicate_Flag__c = false];
                 }
 
 
@@ -204,26 +230,38 @@ public without sharing class createRetailCopy {
                         //Added condition for TR  Market
             
                         if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
-                            if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
-                                newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
-                                newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
-                                If(SelectedAdd[0].Foreign_Nationals__c != true && accList.Market__c == 'TR')
-                                    newAlk.Retail_Country__c ='Turkey';
-                                //Fix for MT - 32
-                                else 
-                                    newAlk.Retail_Country__c =SelectedAdd[0].Country__c;
-                                //Added for TR market
-                                 if(accList.Market__c == 'TR')
-                                    newAlk.Retail_City__c = SelectedAdd[0].City__c ;
-                                newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
-                                newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
-                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
-                                newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
-                            }
-                            newAlk.Retail_Salutation__c = acclist.Salutation__c;
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null && accList.MD__c == 'TH') {
+                            newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
+                            newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
+                            newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
+                            
+                            newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
+                            newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
+                            newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
+                            newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
+                            newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
+                            newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                            newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
+                        }
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null && accList.Market__c == 'TR') {
+                            newAlk.Retail_Province__c = (SelectedAdd[0].Province__c != null ? SelectedAdd[0].Province__c : '');
+                            
+                            If(SelectedAdd[0].Country__c != null && countryMap != null && countryMap.containskey(SelectedAdd[0].Country__c))
+                              newAlk.Retail_Country__c = countryMap.get(SelectedAdd[0].Country__c);
+                            //Fix for MT - 32
+                            else
+                                newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
+                            newAlk.Retail_City__c = (SelectedAdd[0].City__c != null ? SelectedAdd[0].City__c : '').left(17);
+                            newAlk.Retail_Distinct__c = (SelectedAdd[0].District__c != null ? SelectedAdd[0].District__c : '');
+                            newAlk.Retail_Address_Line_1__c = ((SelectedAdd[0].Address_Line_1__c) != null ? SelectedAdd[0].Address_Line_1__c : '').left(17);
+                            newAlk.Retail_Address_Line_2__c = ((SelectedAdd[0].Address_Line_2__c) != null ? SelectedAdd[0].Address_Line_2__c : '').left(17);
+                            newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
+                            newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
+                            newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                            newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
+                        }
+                        newAlk.Retail_Salutation__c = acclist.Salutation__c;
+                        if(accList.Market__c != 'TR')
                             newAlk.Retail_Country__c = acclist.country__c;
                             newAlk.Retail_ID_Type__c = acclist.ID_Type__c;
                             newAlk.Retail_ID_Number__c = acclist.ID_Number__c;
@@ -282,6 +320,13 @@ public without sharing class createRetailCopy {
                                // newAlk.Retail_Opt_In_Mobile__c = accList.Opt_In_SMS__c;
                                 newAlk.Retail_Full_Name_Title__c = accList.LastName + ' ' + accList.FirstName;
                                 newAlk.Retail_Social_ID__c = accList.Social_ID__c;
+                            if(accLinkList != null && !accLinkList.isEmpty() && accLinkList[0] != null)
+                            {
+                                newAlk.Retail_Email_OptIn__c  = accLinkList[0].Retail_Email_OptIn__c;
+                                newAlk.Retail_Phone_OptIn__c   = accLinkList[0].Retail_Phone_OptIn__c ;
+                                newAlk.Retail_Postal_OptIn__c    = accLinkList[0].Retail_Postal_OptIn__c  ;
+                                newAlk.Retail_SMS_OptIn__c   = accLinkList[0].Retail_SMS_OptIn__c ;
+                            }
                             }
                         }
                         // if market is MY
@@ -386,23 +431,34 @@ public without sharing class createRetailCopy {
                             if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                                 newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
-                                  If(SelectedAdd[0].Foreign_Nationals__c != true && accList.Market__c == 'TR')
-                                    newAlk.Retail_Country__c ='Turkey';
-                                //Fix for MT - 32
-                                else
-                                    newAlk.Retail_Country__c =SelectedAdd[0].Country__c;
-                                //Added for TR market
-                                 if(accList.Market__c == 'TR')
-                                    newAlk.Retail_City__c = SelectedAdd[0].City__c ;
-                                newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
-                                newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
-                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
-                                newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
-                            }
-                            newAlk.Retail_UCID__c = accList.UCID__c;
+                            newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
+                            newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
+                            newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
+                            newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
+                            newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
+                            newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
+                            newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                            newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
+                        }
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null && accList.Market__c == 'TR') {
+                            newAlk.Retail_Province__c = (SelectedAdd[0].Province__c != null ? SelectedAdd[0].Province__c : '');
+                            
+                           If(SelectedAdd[0].Country__c != null && countryMap != null && countryMap.containskey(SelectedAdd[0].Country__c))
+                              newAlk.Retail_Country__c = countryMap.get(SelectedAdd[0].Country__c);
+                            //Fix for MT - 32
+                            else
+                                newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
+                            newAlk.Retail_City__c = (SelectedAdd[0].City__c != null ? SelectedAdd[0].City__c : '').left(17);
+                            newAlk.Retail_Distinct__c = (SelectedAdd[0].District__c != null ? SelectedAdd[0].District__c : '');
+                            newAlk.Retail_Address_Line_1__c = ((SelectedAdd[0].Address_Line_1__c) != null ? SelectedAdd[0].Address_Line_1__c : '').left(17);
+                            newAlk.Retail_Address_Line_2__c = ((SelectedAdd[0].Address_Line_2__c) != null ? SelectedAdd[0].Address_Line_2__c : '').left(17);
+                            newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
+                            newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
+                            newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                            newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
+                        }
+                        newAlk.Retail_UCID__c = accList.UCID__c;
+                        if(accList.Market__c != 'TR')
                             newAlk.Retail_Country__c = acclist.country__c;
                             newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                             newAlk.createddate__c = accList.createdDate;
@@ -446,7 +502,14 @@ public without sharing class createRetailCopy {
                                 newAlk.Retail_Individual_Home_Phone__c = accList.Individual_Home_Phone__c;
                                 newAlk.Retail_Work_Phone__c = accList.Work_Phone__c;
                                 newAlk.Retail_Social_ID__c = accList.Social_ID__c;
+                            if(accLinkList != null && !accLinkList.isEmpty() && accLinkList[0] != null)
+                            {
+                                newAlk.Retail_Email_OptIn__c  = accLinkList[0].Retail_Email_OptIn__c;
+                                newAlk.Retail_Phone_OptIn__c   = accLinkList[0].Retail_Phone_OptIn__c ;
+                                newAlk.Retail_Postal_OptIn__c    = accLinkList[0].Retail_Postal_OptIn__c  ;
+                                newAlk.Retail_SMS_OptIn__c   = accLinkList[0].Retail_SMS_OptIn__c ;
                             }
+                        }
                              
                         }
                         //if market is MY
@@ -501,7 +564,16 @@ public without sharing class createRetailCopy {
                         System.debug('newAlk newAlk%%%%%%%' + newAlk);
 
                     }
-                } else if (Accountlinklist != null) {
+                }else if (Accountlinklist != null) {
+					if(CurrentUsr.Market__c == 'AU' || CurrentUsr.Market__c == 'NZ')
+					{
+						for (account_link__c acl : 	Accountlinklist)
+						{
+							acl.Retail_Delete_Flag__c = false;
+						}
+						        if (Accountlinklist != null && Accountlinklist.size() > 0) { update Accountlinklist;	}
+		
+					}						
                     ShowHideError = true;
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning, Label.Retail_copy_is_already_present));
                 }
@@ -520,10 +592,16 @@ public without sharing class createRetailCopy {
             }
             System.debug('CurrentUsr %%%%%%%' + CurrentUsr);
             if (accList.RecordtypeId == accPerson_RecordTypeId) {
-                Accountlinklist = [select id, fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId AND Retail_Delete_Flag__c = false and Retail_Duplicate_Flag__c = false];
+				if(CurrentUsr.Market__c == 'AU' || CurrentUsr.Market__c == 'NZ')
+				Accountlinklist = [select id,IsDeleted__c, fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId and Retail_Duplicate_Flag__c = false];
+				else			
+                Accountlinklist = [select id,IsDeleted__c, fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId AND Retail_Delete_Flag__c = false and Retail_Duplicate_Flag__c = false];
             }
             if (accList.RecordtypeId == accCompany_RecordTypeId) {
-                Accountlinklist = [select id, fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId AND Retail_Delete_Flag__c = false and Retail_Duplicate_Flag__c = false];
+				if(CurrentUsr.Market__c == 'AU' || CurrentUsr.Market__c == 'NZ')
+					Accountlinklist = [select id,IsDeleted__c, fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId  and Retail_Duplicate_Flag__c = false];
+					else
+                Accountlinklist = [select id,IsDeleted__c, fromRole__c, toRole__c, Retail_Duplicate_Flag__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId AND Retail_Delete_Flag__c = false and Retail_Duplicate_Flag__c = false];
             }
 
             System.debug('#$#$#$####$' + account.Main_Dealer__c);
@@ -565,17 +643,10 @@ public without sharing class createRetailCopy {
 
                         
                     if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
-                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null && accList.Market__c == 'TH') {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
-                              If(SelectedAdd[0].Foreign_Nationals__c != true && accList.Market__c == 'TR')
-                                    newAlk.Retail_Country__c ='Turkey';
-                                //Fix for MT - 32
-                                else
-                                    newAlk.Retail_Country__c =SelectedAdd[0].Country__c;
-                            //Added for TR market
-                            if(accList.Market__c == 'TR')
-                                newAlk.Retail_City__c = SelectedAdd[0].City__c ;
+                            newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
                             newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                             newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                             newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
@@ -584,8 +655,26 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
                             newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                         }
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null && accList.Market__c == 'TR') {
+                            newAlk.Retail_Province__c = (SelectedAdd[0].Province__c != null ? SelectedAdd[0].Province__c : '');
+                            
+                           If(SelectedAdd[0].Country__c != null && countryMap != null && countryMap.containskey(SelectedAdd[0].Country__c))
+                              newAlk.Retail_Country__c = countryMap.get(SelectedAdd[0].Country__c);
+                            //Fix for MT - 32
+                            else
+                                newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
+                            newAlk.Retail_City__c = (SelectedAdd[0].City__c != null ? SelectedAdd[0].City__c : '').left(17);
+                            newAlk.Retail_Distinct__c = (SelectedAdd[0].District__c != null ? SelectedAdd[0].District__c : '');
+                            newAlk.Retail_Address_Line_1__c = ((SelectedAdd[0].Address_Line_1__c) != null ? SelectedAdd[0].Address_Line_1__c : '').left(17);
+                            newAlk.Retail_Address_Line_2__c = ((SelectedAdd[0].Address_Line_2__c) != null ? SelectedAdd[0].Address_Line_2__c : '').left(17);
+                            newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
+                            newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
+                            newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                            newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
+                        }
                         newAlk.Retail_Salutation__c = acclist.Salutation__c;
-                        newAlk.Retail_Country__c = acclist.country__c;
+                        if(accList.Market__c != 'TR')
+                            newAlk.Retail_Country__c = acclist.country__c;
                         newAlk.Retail_ID_Type__c = acclist.ID_Type__c;
                         newAlk.Retail_ID_Number__c = acclist.ID_Number__c;
                         newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
@@ -651,6 +740,13 @@ public without sharing class createRetailCopy {
                                  newAlk.Retail_Individual_Home_Phone__c = accList.Individual_Home_Phone__c;
                                 newAlk.Retail_Work_Phone__c = accList.Work_Phone__c;
                             //newAlk.Retail_Postal_OptIn__c = accList.Postal_Opt_In__c;
+                            if(accLinkList != null && !accLinkList.isEmpty() && accLinkList[0] != null)
+                            {
+                                newAlk.Retail_Email_OptIn__c  = accLinkList[0].Retail_Email_OptIn__c;
+                                newAlk.Retail_Phone_OptIn__c   = accLinkList[0].Retail_Phone_OptIn__c ;
+                                newAlk.Retail_Postal_OptIn__c    = accLinkList[0].Retail_Postal_OptIn__c  ;
+                                newAlk.Retail_SMS_OptIn__c   = accLinkList[0].Retail_SMS_OptIn__c ;
+                            }
                         }
                     }
                     // if market is MY
@@ -754,17 +850,10 @@ public without sharing class createRetailCopy {
                         
                     //Added condition for TR market
                     if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
-                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null && accList.MD__C == 'TR') {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
-                            If(SelectedAdd[0].Foreign_Nationals__c != true && accList.Market__c == 'TR')
-                                    newAlk.Retail_Country__c ='Turkey';
-                                //Fix for MT - 32
-                                else
-                                    newAlk.Retail_Country__c =SelectedAdd[0].Country__c;
-                            //Added for TR market
-                            if(accList.Market__c == 'TR')
-                                newAlk.Retail_City__c = SelectedAdd[0].City__c ;
+                            newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
                             newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                             newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                             newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
@@ -773,9 +862,27 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
                             newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                         }
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null && accList.Market__c == 'TR') {
+                            newAlk.Retail_Province__c = (SelectedAdd[0].Province__c != null ? SelectedAdd[0].Province__c : '');
+                            
+                           If(SelectedAdd[0].Country__c != null && countryMap != null && countryMap.containskey(SelectedAdd[0].Country__c))
+                              newAlk.Retail_Country__c = countryMap.get(SelectedAdd[0].Country__c);
+                            //Fix for MT - 32
+                            else
+                                newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
+                            newAlk.Retail_City__c = (SelectedAdd[0].City__c != null ? SelectedAdd[0].City__c : '').left(17);
+                            newAlk.Retail_Distinct__c = (SelectedAdd[0].District__c != null ? SelectedAdd[0].District__c : '');
+                            newAlk.Retail_Address_Line_1__c = ((SelectedAdd[0].Address_Line_1__c) != null ? SelectedAdd[0].Address_Line_1__c : '').left(17);
+                            newAlk.Retail_Address_Line_2__c = ((SelectedAdd[0].Address_Line_2__c) != null ? SelectedAdd[0].Address_Line_2__c : '').left(17);
+                            newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
+                            newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
+                            newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                            newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
+                        }
                         newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                         newAlk.createddate__c = accList.createdDate;
-                        newAlk.Retail_Country__c = acclist.country__c;
+                        if(accList.Market__c != 'TR')
+                            newAlk.Retail_Country__c = acclist.country__c;
                         newAlk.Retail_Email__c = accList.email__c;
                         newAlk.Retail_UCID__c = accList.UCID__c;
                         newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
@@ -822,6 +929,13 @@ public without sharing class createRetailCopy {
                               //fix for MT -32
                                  newAlk.Retail_Individual_Home_Phone__c = accList.Individual_Home_Phone__c;
                                 newAlk.Retail_Work_Phone__c = accList.Work_Phone__c;
+                            if(accLinkList != null && !accLinkList.isEmpty() && accLinkList[0] != null)
+                            {
+                                newAlk.Retail_Email_OptIn__c  = accLinkList[0].Retail_Email_OptIn__c;
+                                newAlk.Retail_Phone_OptIn__c   = accLinkList[0].Retail_Phone_OptIn__c ;
+                                newAlk.Retail_Postal_OptIn__c    = accLinkList[0].Retail_Postal_OptIn__c  ;
+                                newAlk.Retail_SMS_OptIn__c   = accLinkList[0].Retail_SMS_OptIn__c ;
+                            }
                             
                         }
                         
@@ -878,7 +992,18 @@ public without sharing class createRetailCopy {
                     System.debug('newAlk newAlk%%%%%%%' + newAlk);
 
                 }
-            } else if (Accountlinklist != null && account.Main_Dealer__c != null) {
+            }else if (Accountlinklist != null && account.Main_Dealer__c != null) {
+				
+					if(CurrentUsr.Market__c == 'AU' || CurrentUsr.Market__c == 'NZ')
+					{
+						for (account_link__c acl : 	Accountlinklist)
+						{
+							acl.Retail_Delete_Flag__c = false;
+						}
+						        if (Accountlinklist != null && Accountlinklist.size() > 0) { update Accountlinklist;	}
+		
+					}
+					
                 ShowHideError = true;
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning, Label.Retail_copy_is_already_present));
             }

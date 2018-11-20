@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Community_Files__c.SelectedUsers__c</field>
+    </columns>
+    <columns>
+        <field>Community_Files__c.SelectedGroups__c</field>
+    </columns>
+    <columns>
+        <field>Community_Files__c.Expiration_Date__c</field>
+    </columns>
+    <description>Report gives the Community Files created this week.</description>
+    <format>Tabular</format>
+    <name>Community Files Created This Week Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Community_Files__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_THISWEEK</interval>
+    </timeFrameFilter>
+</Report>

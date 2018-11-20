@@ -1,25 +1,25 @@
 <!-- VF page added For Creation of Sales Leads;  Lead2Opty -->
 <apex:page standardController="opportunity" extensions="SalesLeadController" lightningStylesheets="true">   
-    <apex:sectionHeader title="New Sales Lead" subtitle="{!opp.Name}"/>
+    <apex:sectionHeader title="{!$Label.Sales_Lead_Header}" subtitle="{!opp.Name}"/>
     <apex:form >
-        <apex:pageBlock title="Sales Lead" mode="edit">
+        <apex:pageBlock title="{!$Label.Sales_Lead_Title}" mode="edit">
             <apex:pageMessages id="msg" />
         <!--------------  Lead Info Section -------------->
         <!--Sada Commented for ANZ Market as per Defect DF-17-->
-			<apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+			<apex:pageBlockSection title="{!$Label.Lead_Information_Title}" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_LeadInfo}"  var="f">
                             <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
             
-            <apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+            <apex:pageBlockSection title="{!$Label.Lead_Information_Title}" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.ANZSales_LeadInfo}"  var="f">
                             <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
 			
         <!--------------  Dealer Info Section -------------->
-            <apex:pageBlockSection title="Dealer Information" columns="2">
+            <apex:pageBlockSection title="{!$Label.Dealer_Information_Title}" columns="2">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DealerInfo}"  var="f">
                             <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
@@ -34,24 +34,25 @@
             </apex:pageBlockSection>                         
             
         <!--------------  Lead Customer Info Section ------------>
-            <apex:pageBlockSection title="Lead Customer Information" columns="2">
+            <apex:pageBlockSection title="{!$Label.Lead_Customer_Information_Title}" columns="2">
                 <!--<apex:inputField value="{!opp.AccountId}" onchange="Vehrel(this.value)"/>-->
                 <apex:inputField value="{!opp.AccountId}"  required="true">
                     <apex:actionSupport event="onchange" action="{!Vehrel}" rerender="pb4"/> 
                 </apex:inputField>
 				<apex:inputField value="{!opp.Contact__c}" required="true" /> <!-- Added By Madhusudhan as per MBANZ-148 R1/S2 -->
+                <apex:inputField value="{!opp.Related_Leads__c}" />
             </apex:pageBlockSection>
 
         <!--------------  Lead DMS Info Section -------------->
 		<!--Sada removed this section for AU/NZ as per US MBANZ-142/137 -->
-            <apex:pageBlockSection title="Lead DMS Information" columns="2"  rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+            <apex:pageBlockSection title="{!$Label.Lead_DMS_Information_Title}" columns="2"  rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DMSInfo}"  var="f">
                             <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
             
         <!--------------  Vehicle Info Section -------------->      
-            <apex:pageBlockSection title="Vehicle Information" columns="2">
+            <apex:pageBlockSection title="{!$Label.Vehicle_Information_Title}" columns="2">
                 <apex:inputField value="{!opp.Current_Vehicle_1_Text__c}" required="false"/>
                 <apex:inputField value="{!opp.Description}" required="false"/>
                 <apex:inputField value="{!opp.Current_Vehicle_2_Text__c}" required="false"/>
@@ -63,32 +64,32 @@
         <!--------------  Lead Processing Info Section -------------->      
         <!--Sada Commented for ANZ Market as per Defect DF-217-->
 
-            <apex:pageBlockSection title="Lead Processing Information" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+            <apex:pageBlockSection title="{!$Label.Lead_Processing_Information_Title}" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_ProcessInfo}"  var="f">
                             <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
-            <apex:pageBlockSection title="Lead Processing Information" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+            <apex:pageBlockSection title="{!$Label.Lead_Processing_Information_Title}" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.ANZsales_LeadProces}"  var="f">
                             <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
         <!--------------  Activity Date Info Section -------------->        
-            <apex:pageBlockSection title="Activity Date Information" columns="1">
+            <apex:pageBlockSection title="{!$Label.Activity_Date_Information_Title}" columns="1">
                 <apex:inputField value="{!opp.Pickup_Date_Time__c}" required="false"/>
             </apex:pageBlockSection>
             
         <!--------------  Date Info Section -------------->     
-            <apex:pageBlockSection title="Date Information" columns="2">
+            <apex:pageBlockSection title="{!$Label.Date_Information_Title}" columns="2">
                 <apex:inputField value="{!opp.Visited_Showroom_Date_Time__c}" required="false"/>
-                <apex:inputField value="{!opp.First_Contact_Customer_Date_Time__c}" required="false" rendered="{!(userMarket == 'TR')}"/>
+                
                 
                 <!----Sada 2018/June/18 added as per defect DF-232-->
                 <apex:inputField value="{!opp.Test_Drive_Date__c}" required="false" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric ),true,false)}"/>                
             </apex:pageBlockSection>
 
         <!--------------  System Info Section -------------->     
-            <apex:pageBlockSection title="System Information" columns="2">
+            <apex:pageBlockSection title="{!$Label.System_Information_Title}" columns="2">
                 <apex:outputField value="{!opp.createdById}"/>
                 <apex:outputField value="{!opp.lastmodifiedbyId}"/>
                 <apex:inputField value="{!opp.Market__c}"/>
@@ -98,8 +99,8 @@
             <br></br>
         
             <apex:pageBlockSection title="{!$Label.IntVehicle}" columns="1" id="IVSection">
-             <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
-			<span style="font-size:10px">Search Format ({!$Label.CarSearchFormatText}) </span>
+             <apex:outputText rendered="{!(userMarket != 'TR')}">{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
+            <span style="font-size:10px">Search Format ({!$Label.CarSearchFormatText}) </span>
             <apex:pageMessages id="pgmsg"/>  
             <c:MultiselectAutocompleteComponent AvailableOptions="{!lstAvailableOptions}" SelectedOptions="{!lstSelectedOptions}" rendered="{!If(AND(isHide,OR(opp.Market__c =='NZ',opp.Market__c =='AU')),true,false)}"/>
             <apex:inputCheckbox label="Add Recommended Models" value="{!addRecommendation}"  rendered="{!If(AND(isHide,OR(opp.Market__c =='NZ',opp.Market__c =='AU')),true,false)}" />
@@ -141,7 +142,7 @@
             <br></br>
             
             <apex:pageBlockSection title="{!$Label.CompVehicle}" columns="1">
-                <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
+                <apex:outputText rendered="{!(userMarket != 'TR')}">{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
                 <apex:pageMessages id="pgmsg1"/>
                 <apex:commandButton value=" {!$Label.AddCompVehicle}" action="{!AddCompRecord}" reRender="pb2, pgmsg1" rendered="{!isHidecomp}"/>
                 <apex:pageBlockTable id="pb2" value="{!compVehc}"  var="item" title="Vehicle Information">

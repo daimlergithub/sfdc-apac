@@ -1,0 +1,12 @@
+<aura:documentation>
+	<aura:description>
+      <p><code>c:TradeInVehicle</code>component to add/edit TaadeInVehicle on Opportunity page(LeadDetailsWizard.cmp)</p>
+      <p>This Component can be displayed in Table as well as Card layout based on the input provided from Design attributes.</p>
+      <p>Can be added on sidebar as well as detail page</p>
+      <br/>Component is responsive and size in <code>lightning:DataTable</code>and<code>lightning:tile</code> 
+      controls the responsiveness based on the devices.<br/> 
+    </aura:description>  
+        <!--<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		Example Description
+	</aura:example> -->
+</aura:documentation>

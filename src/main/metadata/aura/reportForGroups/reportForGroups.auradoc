@@ -1,0 +1,7 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:reportForGroups</code> component displays <code>public groups</code> of <code>type regular</code> and <code>members(users)</code> of the groups.
+            <br/>component uses <code>lightning:datatable</code> to display data dynamically.
+        </p>        
+    </aura:description>  
+</aura:documentation>

@@ -1,0 +1,132 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created By:Narendra.I
+* Created Date:23-Aug-2018
+* Company:Infosys Ltd
+* Description: Component to edit News and to show related files and upload/delete files.
+* **********************************************************************************-->
+<aura:component implements="lightning:actionOverride,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >    
+    <aura:html tag="style">
+        .slds-modal__container {
+        width : 90% !important;
+        max-width : 90% !important;
+        }
+    </aura:html>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="spinner" type="Boolean" default="true" />
+    <aura:if isTrue="{!v.spinner}">
+        <div class="backgroundInverse">
+            <lightning:spinner alternativeText="Loading" variant="brand" />
+        </div>
+    </aura:if>
+    <c:relatedFilesCMP newsId="{!v.recordId}"/>
+    <lightning:recordEditForm aura:id="editForm" recordId="{!v.recordId}" objectApiName="News__c" onload="{!c.handleloader}" onsuccess="{!c.handleSuccess}" onerror="{!c.handleError}">
+        <lightning:messages/> 
+        <div class="slds-align_absolute-center">
+            <lightning:card title="Edit News">                        
+            </lightning:card>                    
+        </div>
+        <br/>
+        <div class="slds-section-title--divider">
+            <strong>Header</strong>
+        </div>
+        <fieldset class="slds-form--compound">
+            <div class="slds-show slds-form-element_group">
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:inputField fieldName="Document_Status__c" /> 
+                    </div>
+                </div>
+                
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:outputField fieldName="Name" />  
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--2-of-2">
+                        <lightning:inputField fieldName="Title__c" required="true"/> 
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:inputField fieldName="Start_Date__c" /> 
+                    </div>
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:inputField fieldName="Expiration_Date__c" /> 
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:inputField fieldName="Share_With_Groups__c" /> 
+                    </div>
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:inputField fieldName="Category_Type__c" />
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:inputField fieldName="Save_As_Draft__c" />
+                    </div>
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:outputField fieldName="Owner_Name__c" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="slds-section-title--divider">
+            <strong>Content</strong>
+        </div>
+        <fieldset class="slds-form--compound">
+            <div class="slds-show slds-form-element_group">
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--2-of-2">
+                        <lightning:inputField fieldName="Description__c" required="true" /> 
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--2-of-2">
+                        <lightning:inputField fieldName="Remarks__c" /> 
+                    </div>                       
+                </div>  
+            </div>
+        </fieldset>
+        <div class="slds-section-title--divider">
+            <strong>Approval Information</strong>
+        </div>
+        <fieldset class="slds-form--compound">
+            <div class="slds-show slds-form-element_group">
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:inputField fieldName="Need_Approval__c" /> 
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:inputField fieldName="WorkFlow_Group__c" />
+                    </div>
+                </div>
+                <!-- Approval information alignment in News  -->
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:inputField fieldName="Approver_List__c" />
+                    </div>
+                </div>
+                <div class="slds-form-element__row">
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:outputField fieldName="CreatedById" />
+                    </div>
+                    <div class="slds-p-horizontal_xx-large slds-form-element slds-medium-size--1-of-2">
+                        <lightning:outputField fieldName="LastModifiedById" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </lightning:recordEditForm>
+    
+    <div class="slds-align_absolute-center">                
+        <lightning:button class="slds-m-top_small" variant="Neutral" type="button" name="cancel" label="Cancel" onclick="{!c.cancel}" />    
+        <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Update" onclick="{!c.update}" />    
+    </div>
+    
+</aura:component>

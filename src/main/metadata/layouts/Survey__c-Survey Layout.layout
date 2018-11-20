@@ -89,6 +89,10 @@
                 <behavior>Edit</behavior>
                 <field>Selected_Questions_to_Display__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Survey_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

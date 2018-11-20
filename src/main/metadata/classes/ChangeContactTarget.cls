@@ -1,4 +1,9 @@
-public class ChangeContactTarget {
+/*
+Modification History:
+Last Modified By:                Last Modified Date:            Description:
+Dheeraj                            30/10/2018                    Added recursive flag check.
+*/
+public with sharing class ChangeContactTarget {
 
 private static final String VehicleExternalLinkRT = Schema.sObjectType.account_link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
 private static final String RetailPerson = Schema.sObjectType.account_link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
@@ -181,6 +186,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                              
                     }   
                 }
+				TriggerRecursiveCheck.runVandVR = true;
                 update vrlisttoUpdate; 
                    
             }

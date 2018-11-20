@@ -1,0 +1,196 @@
+<!-- File Name   : createRetailCopyhover -->
+<!-- Description : createRetailCopyhover- Extension for comp createRetailCopyLC Lightening component -->
+<!-- Copyright   : Infosys Limited Copyright (c) 2018  -->
+<!-- @author     : Sarath -->
+<!-- Author Modification & Ver.Date : Sarath & 18-June-2018  -->
+
+<aura:component implements="force:appHostable,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="selectedAddRechover" type="Address__c"/>
+    <aura:attribute name="fieldLabelMaphover" type="Map" />
+    <aura:attribute name="tableSelectedhover" type="String" />
+    <aura:attribute name="enable" type="Boolean" default="true" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="deviceaccessed" type="String" />
+    <aura:attribute name="isNotDesktp" type="Boolean" />
+    
+    <aura:if isTrue="{!v.enable}"> 
+        <div role="tooltip" id="help" style="position:absolute;top:-4px;" aura:id="tooltipdiv" class="slds-scrollable">
+            <!--<section aria-labelledby="panel-heading-id" class="slds-popover slds-popover_walkthrough slds-popover_feature slds-nubbin_top-right slds-popover_large slds-popover__body_scrollable positionclassabs" role="dialog">-->
+              <section aria-labelledby="panel-heading-id" class="slds-popover slds-popover_walkthrough slds-popover_feature slds-nubbin_left-top slds-popover_medium slds-popover__body_scrollable" role="dialog">   
+                <div class="slds-popover__header">
+                    <header class="slds-media slds-media_center slds-m-bottom_small">
+                        <div class="slds-media__body">
+                            <aura:if isTrue="{!v.isNotDesktp}">
+                                <button class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close slds-button_icon-inverse" title="Close" onclick="{!c.closepopOver}">
+                                    <lightning:icon iconName="utility:jump_to_top" size="small" alternativeText="Address" />
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                            </aura:if>
+                            <h2 class="slds-text-heading_medium slds-hyphenate" id="panel-heading-id">{! v.selectedAddRechover.Address_Type__c}</h2>
+                        </div>
+                    </header>
+                    <footer class="slds-grid slds-wrap slds-grid_pull-padded">
+                        <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                            <dl>
+                                <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong> {! v.fieldLabelMaphover.Name }</strong></label></dt>
+                                <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Name}" /></dd>
+                            </dl>
+                        </div>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Province_Native__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Province_Native__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.City_Native__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.City_Native__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1') || (v.tableSelectedhover == 't2')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.District__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.District__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't2')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Sub_District__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Sub_District__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.District_Native__c }</strong></label></dt>
+                                    <dd> <ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.District_Native__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Sub_District__c }</strong></label> </dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Sub_District__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1') || (v.tableSelectedhover == 't2')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Block__c }</strong></label></dt>
+                                    <dd> <ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Block__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Block_Native__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Block_Native__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1') || (v.tableSelectedhover == 't2')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Address_Line_1__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Address_Line_1__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Address_Line_1_Native__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Address_Line_1_Native__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't2')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Address_Line_3__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Address_Line_3__c}" /> </dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1') || (v.tableSelectedhover == 't2')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Address_Line_2__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Address_Line_2__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Address_Line_2_Native__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Address_Line_2_Native__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Company_Name__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Company_Name__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Company_Name_Native__c }</strong></label></dt>
+                                    <dd> <ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Company_Name_Native__c}" /></dd></dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.TitleOfHonor__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.TitleOfHonor__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1') || (v.tableSelectedhover == 't2')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Status__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Status__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Temp_ZipCode__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Temp_ZipCode__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.tableSelectedhover == 't1')}">
+                            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small slds-border_bottom">
+                                <dl>
+                                    <dt><label class="lbl-ip-space slds-text-title_caps slds-wrap"> <strong>{! v.fieldLabelMaphover.Temp_Address__c }</strong></label></dt>
+                                    <dd><ui:outputText class="slds-wrap" value="{! v.selectedAddRechover.Temp_Address__c}" /></dd>
+                                </dl>
+                            </div>
+                        </aura:if>
+                    </footer>
+                </div>
+            </section>
+         </div> 
+    </aura:if> 
+</aura:component>

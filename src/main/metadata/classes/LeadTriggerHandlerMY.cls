@@ -89,9 +89,26 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
         }
   
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-    {
-      // Implementation to addedd as required in market
+    public void handleIntegrationTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
+        // Implementation to addedd as required in market
+		//Added below code for Calling Informatica service for Integration user By Ashish Jadhav 5th Oct, 2018 
+		LeadHelperMY leadRS = new LeadHelperMY();
+        List<Lead__c> leadList = Trigger.new;
+        if(!isDelete){
+            if(leadList != null && leadList.size() > 0 && leadList[0].MD__c == 'MY'){
+                if (Trigger.isafter && Trigger.isinsert) {
+                    Map<Id, Lead__c> ldForCDM = new Map<Id, Lead__c>();
+                    for (Lead__c ld: leadList){
+                        if (String.isnotblank(ld.StouchLeadID__c)){
+                            ldForCDM.put(ld.id,ld);
+                        }
+                    }
+                    System.debug('call to CDM Service');
+                    if(ldForCDM != null && ldForCDM.size() > 0)
+                        leadRS.CdmLeadcreate(trigger.new, (Map < Id, Lead__C > ) ldForCDM,label.MY);
+                }
+            }
+        }
     }
     
 }

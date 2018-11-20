@@ -1,0 +1,3 @@
+<aura:documentation>
+	<aura:description>Renders fields with default values from Meta Data for input</aura:description>
+</aura:documentation>

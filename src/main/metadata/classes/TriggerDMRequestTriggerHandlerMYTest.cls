@@ -237,6 +237,10 @@ static testMethod void testTriggerDMRequestTriggerHandlerMY2() {
         DMReqFieldslIst[0].Actual_DM_Material1__c=dmtrl1.id;
         DMReqFieldslIst[0].Actual_DM_Material2__c=dmtrl2.id;
         DMReqFieldslIst[0].Actual_DM_Material3__c=dmtrl3.id;
+        DMReqFieldslIst[0].Status1__c='Success';
+        DMReqFieldslIst[0].Status2__c='Success';
+        DMReqFieldslIst[0].Status3__c='Success';
+        DMReqFieldslIst[0].Market__c='MY';
         update DMReqFieldsList;          
         test.stoptest();
           

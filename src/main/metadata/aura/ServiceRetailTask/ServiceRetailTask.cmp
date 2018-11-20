@@ -1,0 +1,17 @@
+<aura:component controller="ServiceRetailTaskLTG" implements="flexipage:availableForRecordHome,force:hasRecordId" >
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object[]" description="The array of data to be displayed."/>
+    <aura:attribute name="Tablecolumns" type="List" description="It contains the API names of the fields of Retail Task to be displayed in the lightning:datatable"/>
+    <aura:attribute name="recordId" type="Id" description="The Id of the Parent Account of the Reatil Task."/>
+    <aura:attribute name="Allcolumns" type="List" description="The complete list of Retail Task fields to be displayed when viewed in a modal box."/>
+    <!-- handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+         
+    <c:RecordViewForm data="{!v.data}"
+                      Tablecolumns="{!v.Tablecolumns}"
+                      Allcolumns="{!v.Allcolumns}"
+                      objectApiName="Retail_Task__c"
+                      Heading="{!$Label.c.List_of_Service_Retail_Task_Only}"
+                      iconName="custom:custom14"/>
+    
+</aura:component>

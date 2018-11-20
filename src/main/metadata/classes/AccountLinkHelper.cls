@@ -50,11 +50,12 @@ public class AccountLinkHelper
         */
     public static void ExportNotification (List<Account_Link__c> accountLinkList,Map<id,Account_Link__c> oldals) 
     {
+        if(LeadUtil.isExportNotification){
         List<Account_Link__c> acclinkList = new List<Account_Link__c>();
         set<id> acclknkIds = new set<id>();
         List<EP_Export_Notification__c> epList = New list<EP_Export_Notification__c>();
         List<EP_Export_Notification__c> existingEpList = new List<EP_Export_Notification__c>();
-		//SN2018- define DealerAccList to check for non Yansee dealer
+        //SN2018- define DealerAccList to check for non Yansee dealer
         Map<ID,Account> DealerAccList = new Map<Id,Account>();
         for(Account_Link__c als : accountLinkList){
             if(als.RecordTypeId == AccountLink_RetailPersonRecordTypeId || als.RecordTypeId == AccountLink_RetailCompanyRecordTypeId && string.isnotblank(als.fromRole__c))
@@ -107,7 +108,7 @@ public class AccountLinkHelper
                     als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
                     als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c))
             {
-				//SN20180531- updated to check for non Yansee dealer   
+                //SN20180531- updated to check for non Yansee dealer   
                 System.debug('@@@'+Label.NonALEPNotification+'@@@'+als.Retail_Dealer_CompanyCode__c);                 
                 //if(DealerAccList.size()>0 &&  !Label.NonALEPNotification.contains(DealerAccList.get(als.fromRole__c).Dealer_GC_code__c))  
                 if(DealerAccList.size()>0 && string.isnotblank(DealerAccList.get(als.fromRole__c).Dealer_GC_code__c) &&!Label.NonALEPNotification.contains(DealerAccList.get(als.fromRole__c).Dealer_GC_code__c))                                                                                                                                              
@@ -116,7 +117,7 @@ public class AccountLinkHelper
         }
         system.debug('acclknkIds>>><>' + acclknkIds);
         if(!acclknkIds.isEmpty() && acclknkIds != null)
-        {	//SN20180602-- updated to check for non Yansee dealer			
+        {   //SN20180602-- updated to check for non Yansee dealer           
             acclinkList = [select id,MD__c,Retail_Dealer_CompanyCode__c from Account_Link__c where id =:acclknkIds AND fromrole__r.Dealer_Rollout_Status__c = 'Done'];
             existingEpList = [select id,Status__c,SFDC_object_id__c from EP_Export_Notification__c where SFDC_object_id__c =:acclknkIds AND Status__c = 'New'];
         }
@@ -134,8 +135,8 @@ public class AccountLinkHelper
                     epe.MD__c = acnkl.MD__c;
                     epe.Type__c = 'Account_Link__c';
                     epe.SFDC_object_id__c = acnkl.id;
-					//SN20180602- updated to check for non Yansee dealer			
-					if(!label.NonALEPNotification.contains(acnkl.Retail_Dealer_CompanyCode__c))																		   
+                    //SN20180602- updated to check for non Yansee dealer            
+                    if(!label.NonALEPNotification.contains(acnkl.Retail_Dealer_CompanyCode__c))                                                                        
                     epList.add(epe);
                 }
             }
@@ -145,6 +146,8 @@ public class AccountLinkHelper
         {
             insert epList;
         }
+        }
+        LeadUtil.isExportNotification = false;
     }
       /*
         * Added By: Siva Krishna
@@ -1105,6 +1108,7 @@ public class AccountLinkHelper
                    acclnk.Retail_Delete_Flag__c != oldacclnkMap.get(acclnk.Id).Retail_Delete_Flag__c ||
                    acclnk.Retail_Email_OptOut__c != oldacclnkMap.get(acclnk.Id).Retail_Email_OptOut__c ||
                    acclnk.Retail_Fax_OptOut__c != oldacclnkMap.get(acclnk.Id).Retail_Fax_OptOut__c ||
+           acclnk.Missing_Flag__c != oldacclnkMap.get(acclnk.Id).Missing_Flag__c ||
                    acclnk.Retail_Phone_OptOut__c != oldacclnkMap.get(acclnk.Id).Retail_Phone_OptOut__c ||
                    acclnk.Retail_Position__c != oldacclnkMap.get(acclnk.Id).Retail_Position__c ||
                    acclnk.Retail_Visit_OptOut__c != oldacclnkMap.get(acclnk.Id).Retail_Visit_OptOut__c ||
@@ -1583,15 +1587,16 @@ public class AccountLinkHelper
     [CISM:0038992405]
      Desc:Retail_Copy_Accountlink_Retail_Address_Reference.
      Update date:07/12/2016*/
-      
+   
       public static void updateAccountlinks(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
+     if(LeadUtil.updateprimaryAddressAccounlink){
      Set<Id> accountId = new Set<Id>();
      List<Account_Link__c> accountList = new List<Account_Link__c>();
      List<Account_Link__c> accountList1 = new List<Account_Link__c>();
      for(Account_Link__c acc :list_AccountLink)
      {
          if(acc.Retail_Address_Reference__c != null && acc.MD__c == label.MarketJP){
-                if(isInsert || (isUpdate && acc.Retail_Address_Reference__c != oldMap.get(acc.id).Retail_Address_Reference__c)){
+                if((isUpdate && acc.Retail_Address_Reference__c != oldMap.get(acc.id).Retail_Address_Reference__c)){
                     accountId.add(acc.Retail_Address_Reference__c);
                 }
         } 
@@ -1610,7 +1615,7 @@ public class AccountLinkHelper
             for(Account_Link__c acc: accountList){            
                 acc.Retail_Address_Type__c = acc.Retail_Address_Reference__r.Address_Type__c;                       
                 acc.Retail_City__c = acc.Retail_Address_Reference__r.City__c;
-                acc.Retail_Distinct__c = acc.Retail_Address_Reference__r.District__c  ;
+                acc.Retail_Distinct__c = acc.Retail_Address_Reference__r.District__c + acc.Retail_Address_Reference__r.Block__c ;
                 acc.Retail_Address_Line_1__c  = acc.Retail_Address_Reference__r.Address_Line_1__c;
                 acc.Retail_Address_Line_2__c =  acc.Retail_Address_Reference__r.Address_Line_2__c;
                 acc.Retail_ZipCode__c = acc.Retail_Address_Reference__r.ZipCode__c;
@@ -1629,6 +1634,8 @@ public class AccountLinkHelper
             {
                 update accountList1; 
             }
+     }
+     LeadUtil.updateprimaryAddressAccounlink = false;
   }
     //Added venky changes related to SFDCJP-2617
     public static void Sharecontact2conatct(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst)
@@ -1655,31 +1662,55 @@ public class AccountLinkHelper
         for(Account_Link__c alk:accLst)
         {
             acclnkid.add(alk.id);
-            if(alk.RecordtypeID== AccountLink_Contact2ContactRecordTypeId )
+            if(alk.RecordtypeID== AccountLink_Contact2ContactRecordTypeId && alk.Market__c=='JP')
             {
-                FromRoleID.add(alk.fromRole__c);
-                ToRoleID.add(alk.toRole__c);
+            if(alk.fromRole__c !=null)
+            {
+            FromRoleID.add(alk.fromRole__c);
+            }
+            if(alk.toRole__c !=null)
+            {
+             ToRoleID.add(alk.toRole__c);
+            }
+              
+               
             }
             if(alk.RecordtypeID== AccountLink_RetailPersonRecordTypeId)
             {
-                RetailPersonDealerID.add(alk.fromRole__c);  // Dealer Acc
-                RetailPersonID.add(alk.toRole__c);        //Customer Acc
+            if(alk.fromRole__c !=null)
+            {
+            RetailPersonDealerID.add(alk.fromRole__c);  // Dealer Acc
+            }
+            if(alk.toRole__c !=null)
+            {
+             RetailPersonID.add(alk.toRole__c);        //Customer Acc
+            }
+                
+               
             }
             if(alk.RecordtypeID== AccountLink_RetailCompanyRecordTypeId )
             {
-                RetailcompanyDealerID.add(alk.fromRole__c);  // Dealer Acc
-                RetailcompanyID.add(alk.toRole__c);     //Customer Acc
+             if(alk.fromRole__c !=null)
+            {
+            RetailcompanyDealerID.add(alk.fromRole__c);  // Dealer Acc
+            }
+            if(alk.toRole__c !=null)
+            {
+             RetailcompanyID.add(alk.toRole__c);     //Customer Acc
+            }
+               
+                
             }
         }
 
         if(RetailcompanyID !=null && RetailPersonID !=null)
         {
-            lstC2c=[Select id,fromRole__c,Retail_Delete_Flag__c ,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where  ( (fromRole__c=: RetailPersonID OR fromRole__c=:RetailcompanyID) OR (toRole__c=: RetailPersonID OR toRole__c=:RetailcompanyID)) and RecordtypeId=:AccountLink_Contact2ContactRecordTypeId  ];
+            lstC2c=[Select id,market__c,fromRole__c,Retail_Delete_Flag__c ,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where  ( (fromRole__c=: RetailPersonID OR fromRole__c=:RetailcompanyID) OR (toRole__c=: RetailPersonID OR toRole__c=:RetailcompanyID)) and RecordtypeId=:AccountLink_Contact2ContactRecordTypeId  and market__c='JP' ];
         }
 
         if( ToRoleID !=null && FromRoleID!=null)
         {
-            lstPersonCompany=[ Select id,Retail_Delete_Flag__c ,fromRole__c,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where (toRole__c =:ToRoleID OR toRole__c=:FromRoleID) AND (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId=:AccountLink_RetailCompanyRecordTypeId)];
+            lstPersonCompany=[ Select id,market__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c,fromRole__r.Name,fromRole__r.Dealer_GC_Code__c from Account_Link__c  where (toRole__c =:ToRoleID OR toRole__c=:FromRoleID) AND (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId=:AccountLink_RetailCompanyRecordTypeId) and market__c='JP'];
         }
 
         if(lstC2c!=null)
@@ -1689,7 +1720,10 @@ public class AccountLinkHelper
                 if(accountLink.Retail_Delete_Flag__c == false)
                 {   
                     dealerAccNameSet.add(accountLink.fromRole__r.Name);
+                    if(accountLink.fromRole__r.Dealer_GC_Code__c !=null)
+                    {
                     GcCode.add(accountLink.fromRole__r.Dealer_GC_Code__c);
+                    }
                 }
             }
         }
@@ -1712,7 +1746,7 @@ public class AccountLinkHelper
         if(  dealerAccNameSet !=null)
         {
             
-            dealerAccList = [select Name from Account where Dealer_GC_Code__c=:GcCode and RecordtypeId=:DealerAccid];
+            dealerAccList = [select Name,market__c,Dealer_GC_Code__c from Account where Dealer_GC_Code__c=:GcCode and RecordtypeId=:DealerAccid and market__c='JP' and Dealer_GC_Code__c !=null];
             system.debug('dealerAccList>>>> ' + dealerAccList );
         }
         

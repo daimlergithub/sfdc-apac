@@ -123,8 +123,6 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Opt_In_Mobile__c</field>
             </layoutItems>
-           
-            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Advisor__c</field>
@@ -133,6 +131,18 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction_Comment__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBonline_Sales_Consultant__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Service_Advisor__c</field>
+            </layoutItems>	
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Delete_Flag__c</field>
+            </layoutItems>				
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

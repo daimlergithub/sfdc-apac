@@ -1,0 +1,39 @@
+<!--************************************************************************************
+* Project: RCP: Community Portal
+* Created By:Surendranath
+* Created Date:27-Sep-2018
+* Company:Infosys Ltd
+* Description: Component to display News workflow groups and its Approval list values(using as tab).
+* **********************************************************************************-->
+<aura:component controller="GetDependentPicklistValues" implements="force:appHostable,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:lightningQuickAction" access="global"  >
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="data" type="List" />
+    <aura:attribute name="dependPicklistName" type="String" default="News__c.Approver_List__c"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <article class="slds-card">
+        <div class="slds-page-header slds-page-header_record-home">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-report" title="Report">	                        
+                                <lightning:icon iconName="standard:report" alternativeText="Report" />
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span>REPORT</span>
+                                        <span class="slds-page-header__title slds-truncate" title="News Workflows">News WorkFlow Groups and Approver List</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>  
+        <lightning:datatable class="table-test" keyField="name" columns="{!v.columns}" data="{!v.data}" hideCheckboxColumn="true" showRowNumberColumn="true"/>            
+    </article>
+</aura:component>

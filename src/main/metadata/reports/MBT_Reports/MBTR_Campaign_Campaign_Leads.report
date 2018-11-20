@@ -50,8 +50,8 @@
         </criteriaItems>
         <criteriaItems>
             <column>CAMPAIGN_SOURCE</column>
-            <operator>equals</operator>
-            <value>L2_XXX_YYYY</value>
+            <operator>notEqual</operator>
+            <value></value>
         </criteriaItems>
         <criteriaItems>
             <column>STAGE_NAME</column>
@@ -61,7 +61,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>MBTR Campaign &amp; Campaign Leads</name>
+    <name>MBT Campaign &amp; Campaign Leads</name>
     <params>
         <name>open</name>
         <value>all</value>

@@ -137,6 +137,17 @@
         </displayedFields>
         <label>Vehicle Details</label>
     </fieldSets>
+	<fields>
+        <fullName>EDLExternalID__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Date External Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>AMG__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1201,24 +1212,55 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 </value>
             </valueSetDefinition>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>				
                 <valueName>Mercedes-Benz</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>	
                 <valueName>Maybach</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>	
                 <valueName>smart</valueName>
             </valueSettings>
             <valueSettings>
@@ -1227,7 +1269,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <valueName>BMW</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>JP</controllingFieldValue>
+			    <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <valueName>Audi</valueName>
             </valueSettings>
@@ -1942,13 +1984,26 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>AMG</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>	
                 <valueName>Other</valueName>
             </valueSettings>
             <valueSettings>
@@ -2233,14 +2288,144 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
                 </value>
             </valueSetDefinition>
             <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>A-Class</valueName>		
+			</valueSettings>	
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>B-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <controllingFieldValue>AMG</controllingFieldValue>
+                <valueName>C-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <controllingFieldValue>AMG</controllingFieldValue>
+                <valueName>CLA-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>CL-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>CLK-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>CLS-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <controllingFieldValue>AMG</controllingFieldValue>
+                <valueName>E-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>G-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>GLA-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>GL-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>GLK-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
                 <controllingFieldValue>Maybach</controllingFieldValue>
                 <valueName>Maybach</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>M-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>R-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <controllingFieldValue>AMG</controllingFieldValue>
+                <valueName>S-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>SL-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>SLC-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>SLK-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+				<controllingFieldValue>Mercedes-Benz</controllingFieldValue>
                 <controllingFieldValue>smart</controllingFieldValue>
                 <valueName>smart</valueName>
             </valueSettings>
-        </valueSet>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>VIANO</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>VITO</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>smart fortwo</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>smart forfour</valueName>	
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>smart roadster</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>GLC-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <controllingFieldValue>AMG</controllingFieldValue>
+                <valueName>GLE-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>SLR-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>SLS-Class</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>VANEO</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AMG</controllingFieldValue>
+                <valueName>AMG GT</valueName>		
+			</valueSettings>			
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>Unknown</valueName>		
+			</valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>GLS-Class</valueName>		
+			</valueSettings>
+			</valueSet>
     </fields>
     <fields>
         <fullName>Class_and_Body__c</fullName>
@@ -3462,157 +3647,388 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Methanol</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Gasoline</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Kerosene</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Light Oil</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Gasoline/LPG</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Gasoline/Kerosene</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Electricity</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Ethanol</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Hydrogen</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Gasoline/Electricity</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>LPG/Electricity</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Light Oil/Electricity</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Others</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>U</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>D</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>E</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>LPG</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>CNG</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>LNG</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>ANG</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Petrol</valueName>
             </valueSettings>
         </valueSet>
@@ -4217,6 +4633,26 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Last_Processed_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Processed Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Last_Processed_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Processed Status</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Latest_Contract_Date__c</fullName>
         <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_LatestSalesContractDateÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
@@ -4292,13 +4728,14 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU',
+IF(ISPICKVAL($User.Market__c, 'NZ'),'NZ',		
 IF(ISPICKVAL($User.Market__c, 'CN'),'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'),'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'),'MY',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -4319,14 +4756,24 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
     </fields>
     <fields>
         <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU',
+IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ',		
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
-IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'ID'), 'ID',
+IF(ISPICKVAL($User.Market__c, 'RO'), 'RO',
+IF(ISPICKVAL($User.Market__c, 'SG'), 'SG',
+IF(ISPICKVAL($User.Market__c, 'VN'), 'VN',
+IF(ISPICKVAL($User.Market__c, 'HU'), 'HU',
+IF(ISPICKVAL($User.Market__c, 'SK'), 'SK',
+IF(ISPICKVAL($User.Market__c, 'AR'), 'AR',
+IF(ISPICKVAL($User.Market__c, 'CO'), 'CO',
+IF(ISPICKVAL($User.Market__c, 'EG'), 'EG',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))))))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -4341,6 +4788,11 @@ IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
                     <default>false</default>
                     <label>AU</label>
                 </value>
+                <value>
+                    <fullName>NZ</fullName>
+                    <default>false</default>
+                    <label>NZ</label>
+                </value>				
                 <value>
                     <fullName>CN</fullName>
                     <default>false</default>
@@ -4375,6 +4827,386 @@ IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
                     <fullName>TR</fullName>
                     <default>false</default>
                     <label>TR</label>
+                </value>
+                <value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                    <label>ID</label>
+                </value>
+                <value>
+                    <fullName>RO</fullName>
+                    <default>false</default>
+                    <label>RO</label>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>false</default>
+                    <label>SG</label>
+                </value>
+                <value>
+                    <fullName>VN</fullName>
+                    <default>false</default>
+                    <label>VN</label>
+                </value>
+                <value>
+                    <fullName>HU</fullName>
+                    <default>false</default>
+                    <label>HU</label>
+                </value>
+                <value>
+                    <fullName>SK</fullName>
+                    <default>false</default>
+                    <label>SK</label>
+                </value>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                    <label>AR</label>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                    <label>CO</label>
+                </value>
+                <value>
+                    <fullName>EG</fullName>
+                    <default>false</default>
+                    <label>EG</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Marketing_Body_Type__c</fullName>
+        <description>Indicates the Body type of vehicle for ANZ Market</description>
+        <externalId>false</externalId>
+        <label>Marketing Body Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MPV</fullName>
+                    <default>false</default>
+                    <label>MPV</label>
+                </value>
+                <value>
+                    <fullName>SUV</fullName>
+                    <default>false</default>
+                    <label>SUV</label>
+                </value>
+                <value>
+                    <fullName>SEDAN</fullName>
+                    <default>false</default>
+                    <label>SEDAN</label>
+                </value>
+                <value>
+                    <fullName>SHOOTING BRAKE</fullName>
+                    <default>false</default>
+                    <label>SHOOTING BRAKE</label>
+                </value>
+                <value>
+                    <fullName>SPORTCOUPE</fullName>
+                    <default>false</default>
+                    <label>SPORTCOUPE</label>
+                </value>
+                <value>
+                    <fullName>4 DOOR COUPE</fullName>
+                    <default>false</default>
+                    <label>4 DOOR COUPE</label>
+                </value>
+                <value>
+                    <fullName>HATCHBACK</fullName>
+                    <default>false</default>
+                    <label>HATCHBACK</label>
+                </value>
+                <value>
+                    <fullName>ESTATE</fullName>
+                    <default>false</default>
+                    <label>ESTATE</label>
+                </value>
+                <value>
+                    <fullName>COUPE</fullName>
+                    <default>false</default>
+                    <label>COUPE</label>
+                </value>
+                <value>
+                    <fullName>CABRIO</fullName>
+                    <default>false</default>
+                    <label>CABRIO</label>
+                </value>
+                <value>
+                    <fullName>ROADSTER</fullName>
+                    <default>false</default>
+                    <label>ROADSTER</label>
+                </value>
+                <value>
+                    <fullName>Limousine</fullName>
+                    <default>false</default>
+                    <label>Limousine</label>
+                </value>
+                <value>
+                    <fullName>Saloon</fullName>
+                    <default>false</default>
+                    <label>Saloon</label>
+                </value>
+                <value>
+                    <fullName>Sports car</fullName>
+                    <default>false</default>
+                    <label>Sports car</label>
+                </value>
+                <value>
+                    <fullName> SUVs</fullName>
+                    <default>false</default>
+                    <label> SUVs</label>
+                </value>
+                <value>
+                    <fullName>Truck</fullName>
+                    <default>false</default>
+                    <label>Truck</label>
+                </value>
+                <value>
+                    <fullName>Two-door family sedan</fullName>
+                    <default>false</default>
+                    <label>Two-door family sedan</label>
+                </value>
+                <value>
+                    <fullName>RV</fullName>
+                    <default>false</default>
+                    <label>RV</label>
+                </value>
+                <value>
+                    <fullName>Bus</fullName>
+                    <default>false</default>
+                    <label>Bus</label>
+                </value>
+                <value>
+                    <fullName>Car</fullName>
+                    <default>false</default>
+                    <label>Car</label>
+                </value>
+                <value>
+                    <fullName>Commercial vehicle</fullName>
+                    <default>false</default>
+                    <label>Commercial vehicle</label>
+                </value>
+                <value>
+                    <fullName>Pullman</fullName>
+                    <default>false</default>
+                    <label>Pullman</label>
+                </value>
+                <value>
+                    <fullName>Hatch</fullName>
+                    <default>false</default>
+                    <label>Hatch</label>
+                </value>
+                <value>
+                    <fullName>Default</fullName>
+                    <default>false</default>
+                    <label>Default</label>
+                </value>
+                <value>
+                    <fullName>Convertible</fullName>
+                    <default>false</default>
+                    <label>Convertible</label>
+                </value>
+                <value>
+                    <fullName>Sports Tourer</fullName>
+                    <default>false</default>
+                    <label>Sports Tourer</label>
+                </value>
+                <value>
+                    <fullName>Cabriolet</fullName>
+                    <default>false</default>
+                    <label>Cabriolet</label>
+                </value>
+                <value>
+                    <fullName>All-Terrain</fullName>
+                    <default>false</default>
+                    <label>All-Terrain</label>
+                </value>
+                <value>
+                    <fullName>Wagon</fullName>
+                    <default>false</default>
+                    <label>Wagon</label>
+                </value>
+                <value>
+                    <fullName>Van</fullName>
+                    <default>false</default>
+                    <label>Van</label>
+                </value>
+                <value>
+                    <fullName>Transfer Minibus</fullName>
+                    <default>false</default>
+                    <label>Transfer Minibus</label>
+                </value>
+                <value>
+                    <fullName>People Mover</fullName>
+                    <default>false</default>
+                    <label>People Mover</label>
+                </value>
+                <value>
+                    <fullName>Crew Cab</fullName>
+                    <default>false</default>
+                    <label>Crew Cab</label>
+                </value>
+                <value>
+                    <fullName>Valente</fullName>
+                    <default>false</default>
+                    <label>Valente</label>
+                </value>
+                <value>
+                    <fullName>Marco polo Activity</fullName>
+                    <default>false</default>
+                    <label>Marco polo Activity</label>
+                </value>
+                <value>
+                    <fullName>UTE</fullName>
+                    <default>false</default>
+                    <label>UTE</label>
+                </value>
+                <value>
+                    <fullName>Cab Chassis</fullName>
+                    <default>false</default>
+                    <label>Cab Chassis</label>
+                </value>
+                <value>
+                    <fullName>ACTIVITY</fullName>
+                    <default>false</default>
+                    <label>ACTIVITY</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Marketing_Class__c</fullName>
+        <externalId>false</externalId>
+        <label>Marketing Class</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A-Class</fullName>
+                    <default>false</default>
+                    <label>A-Class</label>
+                </value>
+                <value>
+                    <fullName>B-Class</fullName>
+                    <default>false</default>
+                    <label>B-Class</label>
+                </value>
+                <value>
+                    <fullName>C-Class</fullName>
+                    <default>false</default>
+                    <label>C-Class</label>
+                </value>
+                <value>
+                    <fullName>CLA</fullName>
+                    <default>false</default>
+                    <label>CLA</label>
+                </value>
+                <value>
+                    <fullName>CLS</fullName>
+                    <default>false</default>
+                    <label>CLS</label>
+                </value>
+                <value>
+                    <fullName>E-Class</fullName>
+                    <default>false</default>
+                    <label>E-Class</label>
+                </value>
+                <value>
+                    <fullName>GLA</fullName>
+                    <default>false</default>
+                    <label>GLA</label>
+                </value>
+                <value>
+                    <fullName>GLC</fullName>
+                    <default>false</default>
+                    <label>GLC</label>
+                </value>
+                <value>
+                    <fullName>GLE</fullName>
+                    <default>false</default>
+                    <label>GLE</label>
+                </value>
+                <value>
+                    <fullName>GLS</fullName>
+                    <default>false</default>
+                    <label>GLS</label>
+                </value>
+                <value>
+                    <fullName>G-Class</fullName>
+                    <default>false</default>
+                    <label>G-Class</label>
+                </value>
+                <value>
+                    <fullName>G-Professional</fullName>
+                    <default>false</default>
+                    <label>G-Professional</label>
+                </value>
+                <value>
+                    <fullName>SL</fullName>
+                    <default>false</default>
+                    <label>SL</label>
+                </value>
+                <value>
+                    <fullName>SLC</fullName>
+                    <default>false</default>
+                    <label>SLC</label>
+                </value>
+                <value>
+                    <fullName>S-Class</fullName>
+                    <default>false</default>
+                    <label>S-Class</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-AMG GT</fullName>
+                    <default>false</default>
+                    <label>Mercedes-AMG GT</label>
+                </value>
+                <value>
+                    <fullName>Maybach</fullName>
+                    <default>false</default>
+                    <label>Maybach</label>
+                </value>
+                <value>
+                    <fullName>Sprinter</fullName>
+                    <default>false</default>
+                    <label>Sprinter</label>
+                </value>
+                <value>
+                    <fullName>V-Class</fullName>
+                    <default>false</default>
+                    <label>V-Class</label>
+                </value>
+                <value>
+                    <fullName>Vito</fullName>
+                    <default>false</default>
+                    <label>Vito</label>
+                </value>
+                <value>
+                    <fullName>Valente</fullName>
+                    <default>false</default>
+                    <label>Valente</label>
+                </value>
+                <value>
+                    <fullName>Marco Polo</fullName>
+                    <default>false</default>
+                    <label>Marco Polo</label>
+                </value>
+                <value>
+                    <fullName>X-Class</fullName>
+                    <default>false</default>
+                    <label>X-Class</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -8083,20 +8915,75 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ModelY
                     <default>false</default>
                     <label>None</label>
                 </value>
+                <value>
+                    <fullName>Demo</fullName>
+                    <default>false</default>
+                    <label>Demo</label>
+                </value>
+                <value>
+                    <fullName>PS POV</fullName>
+                    <default>false</default>
+                    <label>PS POV</label>
+                </value>
+                <value>
+                    <fullName>Import</fullName>
+                    <default>false</default>
+                    <label>Import</label>
+                </value>
+								
             </valueSetDefinition>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>New</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Used</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <valueName>None</valueName>
+            </valueSettings>
+			<valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>Demo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>PS POV</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
+                <valueName>Import</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -8767,82 +9654,203 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_Transmi
                 </value>
             </valueSetDefinition>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>AT</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>MT</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Unknown</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>7-speed automatic transmission</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>4-speed automatic transmission</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>4-speed manual transmission</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>5-speed automatic transmission</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>5-speed manual transmission</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>CVT</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Hand Automatic Transmission</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <controllingFieldValue>TR</controllingFieldValue>
+				<controllingFieldValue>AU</controllingFieldValue>
+                <controllingFieldValue>NZ</controllingFieldValue>
                 <valueName>Stepless automatic one hand transmission</valueName>
             </valueSettings>
             <valueSettings>
@@ -9079,9 +10087,23 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                     <default>false</default>
                     <label>Repossessed</label>
                 </value>
+				<value>
+                    <fullName>Repossessed vehicle</fullName>
+                    <default>false</default>
+                    <label>Repossessed vehicle</label>
+                </value>	
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9090,6 +10112,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9098,6 +10129,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9105,6 +10145,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Eternal scrap</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9112,6 +10161,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Current vehicle</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9119,6 +10177,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Demo/courtesy vehicle</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9126,6 +10193,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Invoiced vehicle</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9133,6 +10209,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Vehicle to be ordered</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9140,6 +10225,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Previous vehicle</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9147,6 +10241,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Quoted Vehicle</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9154,6 +10257,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Vehicle Required</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9161,6 +10273,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Vehicle in stock</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
@@ -9168,10 +10289,31 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <valueName>Part exchange vehicle</valueName>
             </valueSettings>
             <valueSettings>
+				<controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+				<controllingFieldValue>ID</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
                 <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Repossessed</valueName>
+            </valueSettings>
+			<valueSettings>
+                <controllingFieldValue>RO</controllingFieldValue>
+                <controllingFieldValue>SG</controllingFieldValue>
+                <controllingFieldValue>VN</controllingFieldValue>
+                <controllingFieldValue>HU</controllingFieldValue>
+                <controllingFieldValue>SK</controllingFieldValue>
+                <controllingFieldValue>AR</controllingFieldValue>
+                <controllingFieldValue>CO</controllingFieldValue>
+                <controllingFieldValue>EG</controllingFieldValue>
+                <controllingFieldValue>ID</controllingFieldValue>
+                <valueName>Repossessed vehicle</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -9302,8 +10444,29 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                     <label>None</label>
                 </value>
                 <value>
+                    <fullName>Legal Warranty Period</fullName>
+                    <default>false</default>
+                    <label>Legal Warranty Period</label>
+                </value>
+                <value>
+                    <fullName>Service Plus</fullName>
+                    <default>false</default>
+                    <label>Service Plus</label>
+                </value>
+                <value>
+                    <fullName>Advantage Plus</fullName>
+                    <default>false</default>
+                    <label>Advantage Plus</label>
+                </value>
+                <value>
+                    <fullName>Used Vehicle Warranty</fullName>
+                    <default>false</default>
+                    <label>Used Vehicle Warranty</label>
+                </value>
+                <value>
                     <fullName>Legal</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Legal</label>
                 </value>
             </valueSetDefinition>
@@ -9415,7 +10578,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <operation>equals</operation>
             <value>Vehicle__c.Competitor,Vehicle__c.MB,Vehicle__c.Vehicle_Product</value>
         </filters>
-        <label>All MBTH Vehicles</label>
+        <label>All Vehicles</label>
         <language>en_US</language>
         <sharedTo>
             <group>THUsers</group>
@@ -11222,6 +12385,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>
@@ -11435,7 +12602,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>New_Used__c</picklist>
             <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11582,11 +12757,23 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Warranty_Type__c</picklist>
             <values>
-                <fullName>Legal</fullName>
+                <fullName>Advantage Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Warranty Period</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used Vehicle Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11657,7 +12844,311 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
+               <fullName>AMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMC Jeep</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+	<fullName>Abarth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alfa Romeo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arutega</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aston Martin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Austin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autobianchi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avanti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BMW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BMW Alpina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bandenpura</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bentley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bertone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Birkin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brabus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bugatti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Burstner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT%26T</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cadillac</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada Honda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carb Deeds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carlson</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Caterham</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chevrolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chrysler</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Citroen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daihatsu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Detomaso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dodge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Domestic car Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Donkervoort</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eagle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferrari</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fiat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fisker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GM Daewoo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GM Matiz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ginetta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gumpert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hino Motors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Holden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Honda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hummer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hyundai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Imported car Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Innocenti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Isuzu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jaguar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeep</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KTM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Koenigsegg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lamborghini</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lancia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Land Rover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lexus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lincoln</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>London taxi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lotus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MVS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marcos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Martin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maserati</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maurice</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11665,7 +13156,51 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+				<fullName>Mazda Motor Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mclaren</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+<fullName>Mercury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mini</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mitsubishi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mitsuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moke</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morgan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nissan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oldsmobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opel</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11673,7 +13208,239 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+	<fullName>PGO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pagani</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Panther</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peugeot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plymouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pontiac</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Porsche</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proton</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reliant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renault</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Riley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Trek</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rolls-Royce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ruf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saleen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saturn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spiker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ssangyong</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Starcraft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subaru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suzuki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TVR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Talbot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teilhol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tesla</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand Toyota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tiara</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tommykaira</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toyota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Triumph</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UD Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Acura</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Honda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Infiniti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Lexus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Mazda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Mitsubishi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Nissan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Scion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Subaru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Suzuki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Toyota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uzurei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venturi Automobiles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volkswagen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volvo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Westfield</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Winnebago</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>YES%21</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Zero Sports</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>vector</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11792,6 +13559,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>SLS-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12496,6 +14267,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+				<fullName>Petrol</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>U</fullName>
                 <default>false</default>
             </values>
@@ -12733,11 +14508,35 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Market__c</picklist>
             <values>
+				<fullName>AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+				<fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12757,11 +14556,277 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+				<fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>TR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>VN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Marketing_Body_Type__c</picklist>
+            <values>
+                <fullName>%C2%A0SUVs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 DOOR COUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ACTIVITY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>All-Terrain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CABRIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cab Chassis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Convertible</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crew Cab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Default</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ESTATE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HATCHBACK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hatch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Limousine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marco polo Activity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>People Mover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pullman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ROADSTER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEDAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHOOTING BRAKE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SPORTCOUPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saloon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports Tourer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer Minibus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Two-door family sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UTE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Van</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wagon</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Marketing_Class__c</picklist>
+            <values>
+                <fullName>A-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-Professional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sprinter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vito</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X-Class</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14605,13 +16670,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>New_Used__c</picklist>
             <values>
+                <fullName>Demo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PS POV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>SalesType__c</picklist>
-            <values>
+			    <values>
                 <fullName>Fleet</fullName>
                 <default>false</default>
             </values>
@@ -14685,11 +16770,44 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Transmission__c</picklist>
             <values>
-                <fullName>AT</fullName>
+				<fullName>4-speed automatic transmission</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>4-speed manual transmission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5-speed automatic transmission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5-speed manual transmission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7-speed automatic transmission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AT</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CVT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hand Automatic Transmission</fullName>
+                <default>false</default>
+            </values>
+
+            <values>
                 <fullName>MT</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Stepless automatic one hand transmission</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14719,11 +16837,51 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>true</default>
             </values>
             <values>
+				<fullName>Current vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo%2Fcourtesy vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </values>
             <values>
+				<fullName>Invoiced vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Part exchange vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quoted Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repossessed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Temporary scrap</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Vehicle Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle in stock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle to be ordered</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14768,11 +16926,23 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Warranty_Type__c</picklist>
             <values>
-                <fullName>Legal</fullName>
+                <fullName>Advantage Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Warranty Period</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used Vehicle Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16479,6 +18649,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklist>Market__c</picklist>
             <values>
                 <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18350,6 +20524,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Used</fullName>
                 <default>false</default>
             </values>
@@ -18561,11 +20739,23 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Warranty_Type__c</picklist>
             <values>
-                <fullName>Legal</fullName>
+                <fullName>Advantage Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Warranty Period</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used Vehicle Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20280,6 +22470,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklist>Market__c</picklist>
             <values>
                 <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22382,11 +24576,23 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Warranty_Type__c</picklist>
             <values>
-                <fullName>Legal</fullName>
+                <fullName>Advantage Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Warranty Period</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used Vehicle Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24096,6 +26302,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>
@@ -25532,11 +27742,23 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Warranty_Type__c</picklist>
             <values>
-                <fullName>Legal</fullName>
+                <fullName>Advantage Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Warranty Period</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used Vehicle Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25580,6 +27802,25 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
     <validationRules>
+        <fullName>ALLOW_New_User_Change_ANZ</fullName>
+        <active>true</active>
+        <description>Allow Chnage of New/Used type from “New”, ”Demo”  to ps pov</description>
+        <errorConditionFormula>AND( ISCHANGED(New_Used__c), NOT(ISPICKVAL(New_Used__c,'PS POV')),   PRIORVALUE(New_Used__c) != 'New', PRIORVALUE(New_Used__c) != 'Demo',
+RecordType.DeveloperName == 'MB', 
+$Profile.Name != 'IntegrationAPI',if(OR(AND(MD__c=='AU',$Permission.AUGeneric), AND(MD__c=='NZ',$Permission.NZGeneric)),true,false))</errorConditionFormula>
+        <errorDisplayField>New_Used__c</errorDisplayField>
+        <errorMessage>Only allowed to Change to PSPOV from New,Demo</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ANZ_Eurovin_Validation</fullName>
+        <active>true</active>
+        <description>EuroVin Validation for ANZ</description>
+        <errorConditionFormula>AND(NOT(ISBLANK( EuroVIN__c )),
+NOT(REGEX( EuroVIN__c ,  '^[a-zA-Z0-9]{17}$')), $Profile.Name != 'IntegrationAPI', RecordType.DeveloperName = 'MB', if(OR(AND(MD__c=='AU',$Permission.AUGeneric), AND(MD__c=='NZ',$Permission.NZGeneric)),true,false))</errorConditionFormula>
+        <errorDisplayField>EuroVIN__c</errorDisplayField>
+        <errorMessage>Only Alphanumeric is allowed of length 17</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>CP_EURO_VIN_Lenght_Check</fullName>
         <active>true</active>
         <description>/* 
@@ -25607,6 +27848,31 @@ OR(ISPICKVAL($User.Market__c, 'KR'),ISPICKVAL($User.Market__c , 'IN')
         <errorMessage>EURO-VIN must be 17 or 18 characters.</errorMessage>
     </validationRules>
     <validationRules>
+		<fullName>CP_EURO_VIN_Lenght_Check_FM</fullName>
+        <active>true</active>
+        <description>/* 
+Created by: Mouse Liu 
+Used by: US-CP-004 
+Function: 
+1. CP means Contact Portfolio 
+2. EURO-VIN must be 17 or 18 characters. 
+Used in: 
+
+Modify History 
+Modify By: 
+Modify Reason: 
+*/</description>
+        <errorConditionFormula>AND (
+	NOT(ISNULL( EuroVIN__c )),
+	NOT(ISBLANK( EuroVIN__c )),
+	LEN( EuroVIN__c ) &lt;&gt; 17,
+	LEN( EuroVIN__c ) &lt;&gt; 18,
+$Profile.Name != $Label.Integration_API_User,RecordType.DeveloperName = 'MB',
+CONTAINS( $CustomMetadata.Validation_Parameterization_FM__mdt.CP_EURO_VIN_Lenght_Check_FM.Market__c , '"'+TEXT(Market__c)+'"' ))</errorConditionFormula>
+        <errorDisplayField>EuroVIN__c</errorDisplayField>
+        <errorMessage>EURO-VIN must be 17 or 18 characters..</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>CP_US_VIN_Length_Check</fullName>
         <active>true</active>
         <description>/* 
@@ -25631,6 +27897,40 @@ OR(UPPER( MD__c ) = 'JP' ,UPPER( MD__c ) = 'IN')&amp;&amp;
         <errorMessage>US VIN must be 17 digits when the record type is MB.</errorMessage>
     </validationRules>
     <validationRules>
+		<fullName>CP_US_VIN_Length_Check_FM</fullName>
+        <active>false</active>
+        <description>/* 
+Created by: Mouse Liu 
+Used by: US-CP-004 
+Function: 
+1. CP means Contact Portfolio 
+2. US-VIN must be 17 characters. 
+Used in: 
+
+Modify History 
+Modify By: 
+Modify Reason: 
+*/</description>
+        <errorConditionFormula>AND(
+NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
+(LEN(  UsVIN__c  )  &lt;&gt; 17) &amp;&amp;  
+(RecordType.DeveloperName = 'MB') &amp;&amp;
+OR(CONTAINS( $CustomMetadata.Validation_Parameterization_FM__mdt.CP_US_VIN_Length_Check_FM.Market__c , '"'+TEXT( Market__c )+'"' ))&amp;&amp; 
+($Profile.Name != $Label.Integration_API_User))</errorConditionFormula>
+        <errorDisplayField>UsVIN__c</errorDisplayField>
+        <errorMessage>US VIN must be 17 digits when the record type is MB.  Testing</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EuroVIN_is_Required_ANZ</fullName>
+        <active>true</active>
+        <description>EuroVIN field is required for ANZ</description>
+        <errorConditionFormula>AND(ISBLANK(EuroVIN__c),
+RecordType.DeveloperName = 'MB',
+$Profile.Name != 'IntegrationAPI',if(OR(AND(MD__c=='AU',$Permission.AUGeneric), AND(MD__c=='NZ',$Permission.NZGeneric)),true,false))</errorConditionFormula>
+        <errorDisplayField>EuroVIN__c</errorDisplayField>
+        <errorMessage>EuroVIN field is required</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Euro_VIN_Invalid_Syntax</fullName>
         <active>true</active>
         <description>VIN is not allowed to have invalid syntax: $,%,^, ?, -, _, (, ), Space , *, @, punctuation, Chinese character.</description>
@@ -25638,6 +27938,15 @@ OR(UPPER( MD__c ) = 'JP' ,UPPER( MD__c ) = 'IN')&amp;&amp;
 	NOT(ISBLANK( EuroVIN__c )),NOT(REGEX( EuroVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI',  RecordType.DeveloperName = 'MB')</errorConditionFormula>
         <errorDisplayField>EuroVIN__c</errorDisplayField>
         <errorMessage>Euro VIN Has Invalid Syntax.</errorMessage>
+    </validationRules>
+    <validationRules>
+		<fullName>Euro_VIN_Invalid_Syntax_FM</fullName>
+        <active>false</active>
+        <description>VIN is not allowed to have invalid syntax: $,%,^, ?, -, _, (, ), Space , *, @, punctuation, Chinese character.</description>
+        <errorConditionFormula>AND(	NOT(ISNULL( EuroVIN__c )),
+	NOT(ISBLANK( EuroVIN__c )),NOT(REGEX( EuroVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != $Label.Integration_API_User,  RecordType.DeveloperName = 'MB')</errorConditionFormula>
+        <errorDisplayField>EuroVIN__c</errorDisplayField>
+        <errorMessage>Euro VIN Has Invalid Syntax. Testing</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_Start_End_Date</fullName>
@@ -25651,6 +27960,28 @@ Related_From__c  &gt;  Related_To__c)) &amp;&amp;
 ($Profile.Name != 'IntegrationAPI') &amp;&amp; UPPER(MD__c) = 'JP'</errorConditionFormula>
         <errorDisplayField>Related_To__c</errorDisplayField>
         <errorMessage>End date should not before Start date.</errorMessage>
+    </validationRules>
+    <validationRules>
+		<fullName>Invalid_Start_End_Date_FM</fullName>
+        <active>false</active>
+        <description>End date should not before Start date.</description>
+        <errorConditionFormula>AND (
+NOT(ISNULL( Related_From__c )),
+AND (
+NOT(ISNULL( Related_To__c )),
+Related_From__c  &gt;  Related_To__c)) &amp;&amp;
+($Profile.Name != $Label.Integration_API_User) &amp;&amp; CONTAINS( $CustomMetadata.Validation_Parameterization_FM__mdt.Invalid_Start_End_Date_FM.Market__c , '"'+TEXT( Market__c )+'"' )</errorConditionFormula>
+        <errorDisplayField>Related_To__c</errorDisplayField>
+        <errorMessage>End date should not before Start date. Testing</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>New_Used_ANZ</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISNEW(),NOT(ISPICKVAL(New_Used__c,'Import')),
+RecordType.DeveloperName == 'MB', 
+$Profile.Name != 'IntegrationAPI',if(OR(AND(MD__c=='AU',$Permission.AUGeneric), AND(MD__c=='NZ',$Permission.NZGeneric)),true,false))</errorConditionFormula>
+        <errorDisplayField>New_Used__c</errorDisplayField>
+        <errorMessage>Only Import Vehicle is allowed to Create</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>RequiredFields</fullName>
@@ -25670,12 +28001,31 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <errorMessage>US VIN Has Invalid Syntax.</errorMessage>
     </validationRules>
     <validationRules>
+		<fullName>US_VIN_Invalid_Syntax_FM</fullName>
+        <active>false</active>
+        <description>VIN is not allowed to have invalid syntax: $,%,^, ?, -, _, (, ), Space , *, @, punctuation, Chinese character.</description>
+        <errorConditionFormula>AND(	NOT(ISNULL( UsVIN__c )),
+	NOT(ISBLANK( UsVIN__c )),NOT(REGEX( UsVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != $Label.Integration_API_User)</errorConditionFormula>
+        <errorDisplayField>UsVIN__c</errorDisplayField>
+        <errorMessage>US VIN Has Invalid Syntax. Testing</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>UsVIN_Read_Only</fullName>
         <active>true</active>
         <description>If the vehicle is imported from interface, it's not allowed to change UsVIN in salesforce manually by CAC user.</description>
         <errorConditionFormula>AND($Profile.Name &lt;&gt; "IntegrationAPI",ISCHANGED( UsVIN__c ) , NOT( ISBLANK(Created_By_EP_Transaction__c ) ), UPPER(MD__c) = 'JP',$Profile.Name &lt;&gt; "Japan Data Manager")</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>It's not allowed to change UsVIN for a vehicle from interface.</errorMessage>
+    </validationRules>
+    <validationRules>
+		<fullName>UsVIN_Read_Only_FM</fullName>
+        <active>false</active>
+        <description>If the vehicle is imported from interface, it's not allowed to change UsVIN in salesforce manually by CAC user.</description>
+        <errorConditionFormula>AND( $Profile.Name != $Label.Integration_API_User,ISCHANGED( UsVIN__c ) , 
+	 NOT( ISBLANK(Created_By_EP_Transaction__c ) ), 
+	 CONTAINS( $CustomMetadata.Validation_Parameterization_FM__mdt.UsVIN_Read_Only_FM.Market__c , '"'+TEXT( Market__c )+'"' ))</errorConditionFormula>
+        <errorDisplayField>UsVIN__c</errorDisplayField>
+        <errorMessage>It's not allowed to change UsVIN for a vehicle from interfaceIntegrationAPI Testing</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Vehicle_Market_Cannot_be_Changed</fullName>

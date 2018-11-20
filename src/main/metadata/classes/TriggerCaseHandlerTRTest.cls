@@ -3,6 +3,8 @@ public with sharing class TriggerCaseHandlerTRTest{
 
 public static User user1;
 public static User user2;
+//public static User user3;
+public static User user3 = TestUtils.IntegrationAPIUser();
 public static Market__c market_Obj;
 public static Functionality_Access_Master__c functionality_access_master_Obj ;
 public static Persona__c persona_Obj; 
@@ -63,15 +65,17 @@ static testMethod void testTriggerCaseHandlerTR1() {
         AccountFields.add('Market__c');
         List<Account> AccountFieldsList=DataFactoryServices.createRecords('Account',AccountFields,'',2);
         AccountFieldsList[0].RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        AccountFieldsList[0].Lastname='Lastname1';
-		AccountFieldsList[0].firstname='firstnamestname1';
+        AccountFieldsList[0].Lastname='Lastname';
+		AccountFieldsList[0].firstname='firstnamestname';
         AccountFieldsList[0].Mobile__c='+609856321478';
         AccountFieldsList[0].Market__c='TR';
 		AccountFieldsList[0].Data_Source__c='MBT Event';
+		AccountFieldsList[0].Opt_In_Mobile__c=true;
         AccountFieldsList[1].RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
         AccountFieldsList[1].Name = 'test company';
         AccountFieldsList[1].Mobile__c='+609856321479';
         AccountFieldsList[1].Market__c='TR';
+		AccountFieldsList[1].Opt_In_Mobile__c=true;
 		AccountFieldsList[1].Data_Source__c='MBT Event';
         //AccountFieldsList[0].market__C='MY';
         insert AccountFieldsList;
@@ -87,7 +91,8 @@ static testMethod void testTriggerCaseHandlerTR1() {
         address.Address_Line_2__c='testaddress2';
         address.Customer__c=AccountFieldsList[0].id;
         address.TitleOfHonor__c = 'To Person';             
-		address.Market__c = 'TR';             
+		address.Market__c = 'TR';    
+		address.Country__c = 'Turkey';
         insert address;
         
         AccountFieldsList[0].primary_address_reference__c = address.id;
@@ -119,7 +124,11 @@ static testMethod void testTriggerCaseHandlerTR1() {
         dealer.Dealer_Rollout_Status__c = 'Done';
 		dealer.market__c='TR';
         insert dealer;
-        
+        contact ct = new contact();
+            ct.lastname ='last name';
+            ct.accountid = dealer.Id;
+            ct.market__c='TR';
+            insert ct;
         List<String> CaseFields=new List<String>();
         CaseFields.add('Status');
         CaseFields.add('Case_RepeatCause__c');
@@ -135,7 +144,14 @@ static testMethod void testTriggerCaseHandlerTR1() {
         CaseFieldsList[0].status='Open';
         CaseFieldsList[0].Case_RepeatCause__c='';
         CaseFieldsList[0].priority='A';
+ 		CaseFieldsList[0].contactId = ct.id;
+            CaseFieldsList[0].subject ='case 1 ';
         CaseFieldsList[0].case_dealer__c = dealer.id;
+       CaseFieldsList[0].Description = 'case 1 ';
+	 CaseFieldsList[0].case_class__c = 'Satisfaction';
+	 CaseFieldsList[0].Case_Type_tr__c = 'Ürün';
+        CaseFieldsList[0].Case_Sub_Type__c = 'Reklam teklifleri';
+        CaseFieldsList[0].Case_Sub_Type_Detail_tr__c ='Sorular';
         //CaseFieldsList[0].market__C='MY';
         CaseFieldsList[1].RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         CaseFieldsList[1].accountid=AccountFieldsList[1].id;
@@ -143,13 +159,137 @@ static testMethod void testTriggerCaseHandlerTR1() {
         CaseFieldsList[1].status='Open';
         CaseFieldsList[1].Case_RepeatCause__c='';
         CaseFieldsList[1].priority='Green <= 2';
+	CaseFieldsList[1].contactId = ct.id;
+            CaseFieldsList[1].subject ='case 1 ';
+	     CaseFieldsList[1].Description = 'case 1 ';
+ CaseFieldsList[0].case_class__c = 'Satisfaction';
         CaseFieldsList[1].case_dealer__c = dealer.id;
+	 CaseFieldsList[1].Case_Type_tr__c = 'Ürün';
+        CaseFieldsList[1].Case_Sub_Type__c = 'Reklam teklifleri';
+        CaseFieldsList[1].Case_Sub_Type_Detail_tr__c ='Sorular';
         //CaseFieldsList[0].market__C='MY';
         insert CaseFieldsList;
         system.assertEquals(CaseFieldsList[0].id,[select id from Case where id=:CaseFieldsList[0].id limit 1].id);
         update CaseFieldsList;
+        Case cs = CaseFieldsList[1];
+        cs.status ='Closed';
+        cs.Evaluation_Competence_and_domination__c ='1';
+        cs.Evaluation_Necessity__c ='1';
+        cs.Evaluation_Sufficiency__c ='1';
+        cs.Evaluation_Time_Managment__c ='1';
+		cs.Goodwill_Requested__c = 'No';
+		cs.Goodwill_Granted__c = 'No';
+        update cs;
         delete CaseFieldsList;
         test.stoptest();
     }     
     }
+    //To cover integration handler section in triggerCasehandlertr
+    static testMethod void testintegrationHandlerTR() {
+		Profile p1 = [select id, name from profile where Name='IntegrationAPI' limit 1];
+    	String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Profile p2 = [select id, name from profile where Name='System Administrator' limit 1];
+    	user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+        EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+        LocaleSidKey='en_US', ProfileId = p2.Id, Market__c='TR',
+        TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert user1;
+		
+        List < Group > gr = new List < group > {
+            new Group(Name = 'TR12345',developername = 'testndgroup1'),
+            new Group(Name = 'TR12346',developername = 'testndgroup2')
+        };
+        insert gr;
+		system.runAs(user3) {
+			test.starttest();
+            TriggerUtil.userCreate = false;
+            Trigger__c CaseTriggerMY= new Trigger__c(Name='CaseTriggerTR',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='triggercaseHandlerTR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='TR');
+        	insert CaseTriggerMY;
+            //insert casewith primary dealer as dealer1
+			list<Account> dealersList = new list<Account>();
+            Account dealer1 = new Account(Dealer_Rollout_Status__c = 'Done', Dealer_DMS_CRM_Code__c = 'DealerCode', Market__c = 'TR', Individual_Home_Phone__c = '+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer', Dealer_GC_Code__c = '123456', Dealer_nd_Code__C = '12345');
+        	dealersList.add(dealer1);		
+			Account dealer2 = new Account(Dealer_Rollout_Status__c = 'Done', Dealer_DMS_CRM_Code__c = 'DealerCode', Market__c = 'TR', Individual_Home_Phone__c = '+66-9885857858', RecordTypeId = dealerType, Name = 'test dealerr', Dealer_GC_Code__c = '123457', Dealer_nd_Code__C = '12346');
+        	dealersList.add(dealer2);
+            Account dealer3 = new Account(Dealer_Rollout_Status__c = 'Done', Dealer_DMS_CRM_Code__c = 'DealerCode', Market__c = 'TR', Individual_Home_Phone__c = '+66-9885857859', RecordTypeId = dealerType, Name = 'test dealerrr', Dealer_GC_Code__c = '123457', Dealer_nd_Code__C = Null);
+        	dealersList.add(dealer3);
+			insert dealersList;
+			List<String> CaseFields=new List<String>();
+			CaseFields.add('Status');
+			CaseFields.add('Recordtypeid');   
+			CaseFields.add('Market__c');
+			CaseFields.add('Case_Dealer__c');
+			List<Case> CaseFieldsList;
+			CaseFieldsList=DataFactoryServices.createRecords('Case',CaseFields,'',2);
+			
+			CaseFieldsList[0].RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('S24h - MMC').getRecordTypeId();
+			CaseFieldsList[0].Market__c='TR';
+			CaseFieldsList[0].status='Open';
+			CaseFieldsList[0].Case_Dealer__c=dealer1.Id;
+            CaseFieldsList[1].RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('S24h - MMC').getRecordTypeId();
+			CaseFieldsList[1].Market__c='TR';
+			CaseFieldsList[1].status='Open';
+			CaseFieldsList[1].Case_Dealer__c=Null;
+			insert CaseFieldsList;
+			//update primary case dealer to dealer2
+			CaseFieldsList[0].Case_Dealer__c=dealer2.Id;
+            CaseFieldsList[1].Case_Dealer__c=dealer2.Id;
+            update CaseFieldsList;
+            
+			test.stoptest();
+        }
+	}
+	static testMethod void testintegrationHandlerTR2() {
+		Profile p1 = [select id, name from profile where Name='IntegrationAPI' limit 1];
+    	String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Profile p2 = [select id, name from profile where Name='System Administrator' limit 1];
+    	user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+        EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+        LocaleSidKey='en_US', ProfileId = p2.Id, Market__c='TR',
+        TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert user1;
+		
+        List < Group > gr = new List < group > {
+            new Group(Name = 'TR12345',developername = 'testndgroup1'),
+            new Group(Name = 'TR12346',developername = 'testndgroup2')
+        };
+        insert gr;
+		
+		system.runAs(user3) {
+			test.starttest();
+            TriggerUtil.userCreate = false;
+            Trigger__c CaseTriggerMY= new Trigger__c(Name='CaseTriggerTR',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='triggercaseHandlerTR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='TR');
+        	insert CaseTriggerMY;
+            //insert casewith primary dealer as dealer1
+			list<Account> dealersList = new list<Account>();
+            Account dealer1 = new Account(Dealer_Rollout_Status__c = 'Done', Dealer_DMS_CRM_Code__c = 'DealerCode', Market__c = 'TR', Individual_Home_Phone__c = '+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer', Dealer_GC_Code__c = '123456', Dealer_nd_Code__C = '12345');
+        	dealersList.add(dealer1);	
+            Account dealer3 = new Account(Dealer_Rollout_Status__c = 'Done', Dealer_DMS_CRM_Code__c = 'DealerCode', Market__c = 'TR', Individual_Home_Phone__c = '+66-9885857859', RecordTypeId = dealerType, Name = 'test dealerrr', Dealer_GC_Code__c = '123457', Dealer_nd_Code__C = Null);
+        	dealersList.add(dealer3);
+			insert dealersList;
+			List<String> CaseFields=new List<String>();
+			CaseFields.add('Status');
+			CaseFields.add('Recordtypeid');   
+			CaseFields.add('Market__c');
+			CaseFields.add('Case_Dealer__c');
+			List<Case> CaseFieldsList;
+			CaseFieldsList=DataFactoryServices.createRecords('Case',CaseFields,'',2);
+			
+			CaseFieldsList[0].RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('S24h - MMC').getRecordTypeId();
+			CaseFieldsList[0].Market__c='TR';
+			CaseFieldsList[0].status='Open';
+			CaseFieldsList[0].Case_Dealer__c=dealer1.Id;
+            CaseFieldsList[1].RecordTypeId=Schema.SObjectType.Case.getRecordTypeInfosByName().get('S24h - MMC').getRecordTypeId();
+			CaseFieldsList[1].Market__c='TR';
+			CaseFieldsList[1].status='Open';
+			CaseFieldsList[1].Case_Dealer__c=Null;
+			insert CaseFieldsList;
+			CaseFieldsList[0].Case_Dealer__c=dealer3.Id;
+            update CaseFieldsList;
+            CaseFieldsList[0].ownerid=user1.Id;
+            CaseFieldsList[1].ownerid=user1.Id;
+			update CaseFieldsList;
+			test.stoptest();
+        }
+	}
 }

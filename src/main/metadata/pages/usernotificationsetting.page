@@ -134,6 +134,46 @@ Description       : usernotificationsetting
                 </tbody>
             </table>
         </apex:outputPanel>
+       <br></br><br></br>
+        <b> <apex:outputLabel value="{!$Label.Notification_Campaign}"/></b>
+        <apex:outputPanel id="multiselectPanel4" layout="block" styleClass="duelingListBox">
+            <table class="layout">
+                <tbody>
+                    <tr>
+                        <td class="selectCell">
+                            <apex:outputPanel layout="block" styleClass="selectTitle">
+                                <apex:outputLabel value="{!$Label.Available_Contacts}" for="multiselectPanel:leftList" />
+                            </apex:outputPanel>
+                            <apex:selectList id="availableUsersBlock4" value="{!selectedUserIds4}" multiselect="true" size="5" style="width: 200px;">
+                                <apex:selectOptions value="{!availableUsers4}"/>
+                            </apex:selectList>
+                        </td>
+                        <td class="buttonCell">
+                            <apex:outputPanel layout="block" styleClass="text">{!$Label.Add}</apex:outputPanel>
+                            <apex:outputPanel layout="block" styleClass="text">
+                                <apex:commandLink action="{!add4}" rerender="availableUsersBlock4, selectedUsersBlock4" id="btnRight4"> 
+                                    <apex:image value="/s.gif" alt="Add" styleClass="rightArrowIcon" title="Add" />
+                                </apex:commandLink>
+                            </apex:outputPanel>
+                            <apex:outputPanel layout="block" styleClass="text">
+                                <apex:commandLink action="{!remove4}" rerender="availableUsersBlock4, selectedUsersBlock4" id="btnLeft4">
+                                    <apex:image value="/s.gif" alt="Remove" styleClass="leftArrowIcon" title="Remove" />
+                                </apex:commandLink>
+                                <apex:outputPanel layout="block" styleClass="duelingText">{!$Label.Remove}</apex:outputPanel>
+                            </apex:outputPanel>
+                        </td>
+                        <td class="selectCell">
+                            <apex:outputPanel layout="block" styleClass="selectTitle">
+                                <apex:outputLabel value="{!$Label.Selected_Contacts}" for="multiselectPanel:rightList" />
+                            </apex:outputPanel>
+                            <apex:selectList id="selectedUsersBlock4" value="{!removedUserIds4}" multiselect="true" size="5" style="width: 200px;">
+                                <apex:selectOptions value="{!selectedUsers4}"/>
+                            </apex:selectList>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </apex:outputPanel>
         <br></br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -142,3 +182,4 @@ Description       : usernotificationsetting
       </apex:pageBlock>
     </apex:form>
 </apex:page>
+

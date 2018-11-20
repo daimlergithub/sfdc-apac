@@ -461,6 +461,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Template18DigitID__c</fullName>
+        <description>This field can be referred by user while he / she specifies the template to be used in Marketing Cloud ( Object Activity ) --Journey Builder</description>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Template18DigitID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>TemplateID__c</fullName>
         <displayFormat>TA-{YYYY}-{000000}</displayFormat>
         <externalId>false</externalId>

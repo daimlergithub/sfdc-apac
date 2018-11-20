@@ -1,0 +1,27 @@
+<!--************************************************************************************
+* Created By:Anwesh K
+* Created Date:07-July-2018
+* Company:Infosys Ltd
+* Description: Component to display recent 5 Links based on created date.
+* **********************************************************************************-->
+<aura:component controller="RecentLinkCtrl" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="Link" type="Link__c[]" />
+    
+    <lightning:card iconName="custom:custom95"  class="card">
+        <aura:set attribute="title">
+            <a href="/MBIndonesia/s/link/Link__c/Recent" target="_blank">Recent Links</a>
+        </aura:set>
+        <div class="slds-p-left--medium slds-p-right--medium">
+            <ul class="slds-list--vertical slds-has-dividers--top-space">
+                <aura:iteration items="{!v.Link}" var="item" indexVar="i" >
+                    <li class="slds-list__item">                   
+                        <a href="{!item.URL__c}" target="_blank" id="{!item.Id}" > {!item.Name}</a>
+                    </li>
+                </aura:iteration>
+            </ul>
+        </div>
+        <div class="slds-text-body_small slds-text-color_error">{!v.message} </div>
+    </lightning:card>
+</aura:component>

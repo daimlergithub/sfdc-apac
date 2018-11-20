@@ -22,7 +22,16 @@ public class AccountlinkhelperAU{
         alb.RevokeApexSharingAfterUpdate(newacclinkmap,oldacclinkmap,oldrec);
     }
   
+    public  void RevokeApexSharingBeforeUpdateDeleteFlag(List<Account_Link__c> newacclinkmap,Map<Id, Account_Link__c> oldacclinkmap,List<Account_Link__c> oldrec){
+        alb.RevokeApexSharingBeforeUpdateDeleteFlag(newacclinkmap,oldacclinkmap,oldrec);
+    }
   public void InvokeCDMAccountlinkContaxt(List<Account_link__C> acclinklist,String Market,string context ){
         AccountLinkHelperBase.CDMAccountlinkContextGroup(acclinklist,market,context );
     }
+    
+    //Added as part of MBANZ - 419
+    public void RemoveAccessofUsers(List<Account_Link__c> alinks){
+        AccountLinkHelperBase.RemoveAccessofUsers(alinks,Label.AU);
+    }
+    
 }

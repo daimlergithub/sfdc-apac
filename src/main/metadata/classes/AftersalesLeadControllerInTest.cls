@@ -84,5 +84,34 @@ public class AftersalesLeadControllerInTest {
         }
         test.stopTest();
     }
+     @IsTest
+    private static void testSaveOpportunity3() {
+        test.startTest();
+        User usr = TestUtils.createGenericAdminUser('Turkey', 'Asia/Kolkata', 'TR');
+        System.runAs(usr){
+            initData();
+            Account acc = [Select Id, Name From Account limit 1];
+            oppty = [Select Id, Name, AccountId,closedate From Opportunity Where AccountId =: acc.Id];
+            System.debug('oppty===>' + oppty);
+            ApexPages.currentPage().getParameters().put('recordType','AfterSales Lead');
+            ApexPages.currentPage().getParameters().put('accID', acc.Id);
+            ApexPages.StandardController objStdCtrl = new ApexPages.StandardController(oppty);
+            AfterSalesLeadController asLeadCtrl = new AfterSalesLeadController(objStdCtrl);
+            
+            List<Car_Model__c> carModelList = TestUtils.createBulkCarModel(7);
+            list<Lead_Details__c> ldList = TestUtils.createBulkLeadDetails(oppty, carModelList);
+            for(Lead_Details__c ld : ldList){
+                ld.Preferred__c = true;
+                asLeadCtrl.allVehicles.add(ld);
+            }
+            asLeadCtrl.PreferredChk();
+            asLeadCtrl.PreferredChkComp();
+            asLeadCtrl.UpdateModInfo();
+            asLeadCtrl.opp.Name = oppty.Name;
+            asLeadCtrl.opp.closedate = oppty.CloseDate;
+            asLeadCtrl.saveOpp();
+        }
+        test.stopTest();
+    }
     
 }

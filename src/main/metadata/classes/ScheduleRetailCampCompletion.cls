@@ -84,7 +84,7 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Retail_Campaign_
  }
  }
   system.debug('#$#$# ChildCamId#$#$ d'+ChildCamId);
-  
+  /*
   
  if(ChildCamId!=null)
  {
@@ -99,10 +99,10 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Retail_Campaign_
  UpdateCampaignmember.add(cmm);
  }
  }
- }
+ } */
  
- Update UpdateCampaignmember;
+ //Update UpdateCampaignmember;
  
- system.debug('#$#$# UpdateCampaignmember#$#$ d'+UpdateCampaignmember);
+ //system.debug('#$#$# UpdateCampaignmember#$#$ d'+UpdateCampaignmember);
  }
 }

@@ -14,6 +14,10 @@
                 <behavior>Edit</behavior>
                 <field>Subject</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>ClosedDate</field>
@@ -42,6 +46,10 @@
                 <behavior>Edit</behavior>
                 <field>Case_Type__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Case_Type_tr__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBTH_Case_Subtype__c</field>
@@ -53,6 +61,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Case_Sub_Type_Detail__c</field>
+            </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Case_Sub_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Case_Sub_Type_Detail_tr__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -73,6 +89,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Turnaround_Time__c</field>
+            </layoutItems>
+	    <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Turn_Around_Time__c</field>
+            </layoutItems>
+	     <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Turnaround_Time_In_Days__c</field>
             </layoutItems>
 	    <layoutItems>
                 <behavior>Edit</behavior>
@@ -133,10 +157,7 @@
                 <behavior>Edit</behavior>
                 <field>Critical_Complaint__c</field>
             </layoutItems>
-  <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Customer_Satisfaction__c</field>
-            </layoutItems>
+  
 	    <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Date_of_Warranty_Expiry__c</field>
@@ -161,14 +182,8 @@
                 <behavior>Edit</behavior>
                 <field>Resolved_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Handling_Level__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Date_Received__c</field>
-            </layoutItems>
+           
+           
 	    <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Generated_by__c</field>
@@ -182,11 +197,18 @@
                 <behavior>Edit</behavior>
                 <field>Resolution__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Customer_Satisfaction__c</field>
+            </layoutItems>
              <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CareCall__c</field>
             </layoutItems>
-            
+             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Date_Received__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -252,10 +274,15 @@
                 <behavior>Edit</behavior>
                 <field>CarModelThree__c</field>
             </layoutItems>
+	      <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Handling_Level__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Improvement_Department__c</field>
             </layoutItems>
+	   
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Other_Type_Comments__c</field>
@@ -268,10 +295,7 @@
                 <behavior>Edit</behavior>
                 <field>Customer_Satisfied__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Defective_Item__c</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Date_of_1st_Registration__c</field>
@@ -337,6 +361,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Feedback_to_CAC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Feedback_to_CCC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -415,14 +443,7 @@
                 <behavior>Edit</behavior>
                 <field>Escalation_to_Department__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Customer_Requests_Transport__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Provides_Transport__c</field>
-            </layoutItems>
+           
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Support_Dealer_1__c</field>
@@ -537,10 +558,7 @@
         <editHeading>true</editHeading>
         <label>Description Information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Description</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MPC_Internal_Notes__c</field>
@@ -616,6 +634,9 @@
         <fields>TASK.PRIORITY</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEmailMessageList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedAttachmentList</relatedList>

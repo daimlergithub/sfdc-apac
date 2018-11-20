@@ -1,4 +1,4 @@
-public class cSendVehicleInformationtoSPOJP {
+public with sharing class cSendVehicleInformationtoSPOJP {
 
 public String recordTypeId2 { get; set; }
     public String recordTypeId1 { get; set; }
@@ -11,7 +11,7 @@ public String recordTypeId2 { get; set; }
     public set<ID> accID {get; set;}
     public List<Account> newacc {get; set;}
     public Id aeeId {get; set;}
-	//Changes realted to SFDCJP-2848
+    //Changes realted to SFDCJP-2848
     public static Id vehicleRelationship_VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
    //public string SelectedType {get; set;}
     

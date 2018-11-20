@@ -15,8 +15,8 @@ public class AccountHelperTH {
      **  Created By: Mohammed Touseef Ahmed
      **  Date: 2017-20-02
      **/
-	public static Id accPersonsd_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Person Account Soft Deleted');
-    public static Id accCompanysd_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Company Soft Deleted');
+    //public static Id accPersonsd_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Person Account Soft Deleted');
+    //public static Id accCompanysd_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Company Soft Deleted');
     public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Person Account');
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Company');
     public static Id dealer_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Dealer');
@@ -309,39 +309,38 @@ public class AccountHelperTH {
         for (Account acc: ListAccount) {
             if (acc.ID_Type__c == 'National ID') {
                 if (String.isBlank(acc.ID_Number__c)) {
-                    acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
-
-                } else {
-                    Pattern p = Pattern.compile('[0-9]{13}');
+                    acc.ID_Number__c.addError('If ID Type is National ID, ID Number must not be empty');
+                }
+        else
+        {
+                    Pattern p = Pattern.compile('[1-8]{1}[0-9]{12}'); // CISM - 0044905952
                     Matcher m = p.matcher(acc.ID_Number__c);
                     if (!m.matches()) {
-                        acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty and should be of 13 characters containing only number');
-                    } else {
+                        acc.ID_Number__c.addError('If ID Type is National ID, ID Number must not be empty and should be of 13 characters containing only digits, and must not start with either 0 or 9'); // CISM - 0044905952
+                    }
+          else
+          {
                         integer sum = 0;
                         Integer Remainder;
                         for (integer i = 0; i < acc.ID_Number__c.length() - 1; i++) {
                             sum = sum + (integer.valueOf(acc.ID_Number__c.substring(i, i + 1))) * (13 - i);
                         }
-						remainder=11-(math.mod(sum,11));
-                        if(remainder==11){
+            remainder=math.mod(11-(math.mod(sum,11)),10);
+                        /*
+            if(remainder==11){
                             if (integer.valueOf(acc.ID_Number__c.substring(12, 13))!=1) {
                             acc.ID_Number__c.addError('ID Number: Invalid National ID');
 
 
                         }
                         }
-                        else if (remainder != integer.valueOf(acc.ID_Number__c.substring(12, 13))) {
-                            acc.ID_Number__c.addError('ID Number: Invalid National ID');
-
-
+                        else */
+            if (remainder != integer.valueOf(acc.ID_Number__c.substring(12, 13))) {
+                            acc.ID_Number__c.addError('Invalid National ID');
                         }
                     }
-
                 }
-
             }
-
-
         }
     }
 
@@ -523,19 +522,21 @@ public class AccountHelperTH {
                     Acc.Work_Phone_Last_Modified_By2__c = UserInfo.getName();
                     Acc.Work_Phone_Last_Modified_Date2__c = System.now();
                 }
-
                 if (Acc.Email__c != OldAcc.Email__c) {
-                    if (acc.RecordTypeId == accPerson_RecordTypeId && acc.Market__c == 'TH') {
+                    /*
+          if (acc.RecordTypeId == accPerson_RecordTypeId && acc.Market__c == 'TH') {
                         Acc.PersonEmail = Acc.Email__c;
-                    }
+                    }*/
                     Acc.Email_Last_Modified_By__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date__c = System.now();
                 }
-                if (Acc.Email__c != OldAcc.Email__c && Acc.Email__c == null) {
+                /*
+        if (Acc.Email__c != OldAcc.Email__c && Acc.Email__c == null) {
                     if (acc.RecordTypeId == accPerson_RecordTypeId && acc.Market__c == 'TH') {
                         Acc.PersonEmail = Null;
                     }
                 }
+        */
                 if (Acc.Email2__c != OldAcc.Email2__c) {
                     Acc.Email_Last_Modified_By2__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date2__c = System.now();
@@ -598,7 +599,6 @@ public class AccountHelperTH {
 
                 }
             }
-
         }
     }
 
@@ -654,7 +654,7 @@ public class AccountHelperTH {
                         acclnk.RecordTypeId = retailCompany_RecordTypeId;
                         acclnk.fromRole__c = usr.Contact.AccountId;
                         acclnk.toRole__c = retailacc.Id;
-                        acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
+                        //acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
                         acclnk.Retail_Company_Name__c = retailacc.name;
                         acclnk.Retail_Mobile__c = retailacc.Mobile__c;
                         acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
@@ -692,11 +692,10 @@ public class AccountHelperTH {
                         acclnk.Retail_Special_Care__c = retailacc.Special_Care__c;
                         acclnk.Retail_LastName_Native__c = retailacc.LastName_Native_1__c;
                         acclnk.Retail_FirstName_Native__c = retailacc.FirstName_Native_1__c;
-                        acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
+                        //acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
                         acclnk.RecordTypeId = retailPerson_RecordTypeId;
                         acclnk.fromRole__c = usr.Contact.AccountId;
                         acclnk.toRole__c = retailacc.Id;
-                        acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
                         acclnk.Retail_Full_Name__c = retailacc.FirstName + ' ' + retailacc.LastName;
                         acclnk.Retail_LastName__c = retailacc.LastName;
                         acclnk.Retail_FirstName__c = retailacc.FirstName;
@@ -707,7 +706,7 @@ public class AccountHelperTH {
                         acclnk.Retail_Mobile__c = retailacc.PersonMobilePhone;
                         acclnk.Retail_Individual_Home_Phone__c = retailacc.Individual_Home_Phone__c;
                         acclnk.Retail_Work_Phone__c = retailacc.Work_Phone__c;
-                        acclnk.Retail_Email__c = retailacc.PersonEmail;
+                        acclnk.Retail_Email__c = retailacc.Email__c;
                         acclnk.Retail_Fax__c = retailacc.Fax;
                         acclnk.Retail_Preferred_Contact_Method__c = retailacc.Preferred_Contact_Method__c;
                         acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
@@ -723,14 +722,10 @@ public class AccountHelperTH {
                         acclnk.Retail_Gender__c = retailacc.Gender__c;
                         acclnk.Retail_Industry__c = retailacc.industry;
                         acclnk.Retail_WebSite__c = retailacc.Website;
-                        //acclnk.Retail_Company_Name_Native1__c = retailacc.Company_Name_Native_1__c; 
-                        acclnk.Retail_Commercial_Reg_No__c = retailacc.Commercial_Reg_No__c;
-
                         acclnk.Retail_Agreement__c = retailacc.Personal_Agreement__c;
                         acclnk.Retail_Information_Third_Party_Release__c = retailacc.Personal_Information_Third_Party_Release__c;
                         acclnk.Retail_Abroad_Agreement__c = retailacc.Personal_Abroad_Agreement__c;
                         acclnk.Retail_Agreement_Info_Processing__c = retailacc.Agreement_to_commit_info_processing__c;
-                        acclnk.Retail_Vat_No__c = retailacc.Vat_No__c;
                         if (retailacc.Foundation_Date__c != null) {
                             acclnk.Retail_Foundation_Month__c = String.valueOf(retailacc.Foundation_Date__c.year()) + (String.ValueOf(retailacc.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(retailacc.Foundation_Date__c.month())) : String.ValueOf(retailacc.Foundation_Date__c.month())) + (String.ValueOf(retailacc.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(retailacc.Foundation_Date__c.day())) : String.ValueOf(retailacc.Foundation_Date__c.day()));
                         }
@@ -929,7 +924,7 @@ public class AccountHelperTH {
                 acclnk.Retail_ZipCode__c = (acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c : '');
                 acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
                 acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
-				acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
+        acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
 
             } //End if for Sales Address
 
@@ -1152,8 +1147,8 @@ It would be replaced by Informatica/Middleware  */
             softDeletedAccountIdLst.add(acc.Id);
             UCIDLst.add(acc.UCID__c);
         }
-        List<Account> goldenAccountLst=[select Id,UCID__c from Account where ID NOT IN:softDeletedAccountIdLst and UCID__c IN:UCIDLst];
-        List<Account_Link__c> accLinkLst=[Select fromRole__c,toRole__r.UCID__c,RetailDealer_ND_Code__c from Account_Link__c where toRole__c IN:softDeletedAccountIdLst and (recordtypeId=:retailPerson_RecordTypeId or recordTypeId=:retailCompany_RecordTypeId)];
+        List<Account> goldenAccountLst=[select Id,UCID__c from Account where ID NOT IN:softDeletedAccountIdLst and UCID__c IN:UCIDLst LIMIT 50000];
+        List<Account_Link__c> accLinkLst=[Select fromRole__c,toRole__r.UCID__c,RetailDealer_ND_Code__c from Account_Link__c where toRole__c IN:softDeletedAccountIdLst and (recordtypeId=:retailPerson_RecordTypeId or recordTypeId=:retailCompany_RecordTypeId) LIMIT 50000];
         List<String> grpNameLst=new List<String>();
         Map<String,String> softDeletedAccountUCID2GrpNameMap=new Map<String,String>();
         
@@ -1200,7 +1195,8 @@ It would be replaced by Informatica/Middleware  */
                 insert accShareLst;
         }
     }
-	public static void revokesoftdeleteAccess(Set<Id> accids)
+    
+    public static void revokesoftdeleteAccess(Set<Id> accids)
     {
         
         List<Accountshare> accsharelist = new List<Accountshare> ([select id from Accountshare where accountid in : accids and RowCause = 'Manual']);
@@ -1209,7 +1205,9 @@ It would be replaced by Informatica/Middleware  */
             Database.delete(accsharelist, false);
         }
     }
-	public static void accesschange(List<Account> accountNewList, Map<Id,SObject> accountOldMap)
+    
+    /* Commented on 31-Oct-2018 as Dealer Delegate Admin Users don't need to see Soft-Deleted Account records as same as rest of the Dealer profile users
+    public static void accesschange(List<Account> accountNewList, Map<Id,SObject> accountOldMap)
     {
         Map<Id,Id>UserAccountMap = new Map<Id,Id>();
         Set<Id> Userids=new Set<Id>();
@@ -1248,7 +1246,7 @@ It would be replaced by Informatica/Middleware  */
                 
         }
         if(UserAccountMap.size() > 0)
-        grantDelegateAdminAccess(accountNewList, UserAccountMap);
+      grantDelegateAdminAccess(accountNewList, UserAccountMap);
     }
     
     public static void grantDelegateAdminAccess(list<Account> alst, Map<Id,Id> AccDelegateGroupmap)
@@ -1272,4 +1270,61 @@ It would be replaced by Informatica/Middleware  */
              Database.insert(accShareLst, false);
             
     }
+    */
+  
+  /*Start - ********************* CISM-0044841681 ***************************/
+  public static void updateOptInFields(list<Account> lNewAcc, Map<ID,Account> mOldAccMap, Boolean isInsert , Boolean isUpdate){
+    if(isInsert){
+      for(Account Acc : lNewAcc){
+        if(Acc.Market__c == 'TH' && (Acc.RecordTypeId == accCompany_RecordTypeId || Acc.RecordTypeId == accPerson_RecordTypeId)){
+          if(Acc.Individual_Home_Phone__c != NULL)
+          Acc.Opt_In_Home_Phone__c = TRUE;
+          if(Acc.Mobile__c != NULL)
+          Acc.Opt_In_Mobile__c = TRUE;
+          if(Acc.Work_Phone__c != NULL)
+          Acc.Opt_In_Work_Phone__c = TRUE;
+          if(Acc.Email__c != NULL)
+          Acc.Opt_In_Email__c = TRUE;
+          if (Acc.RecordTypeId == accPerson_RecordTypeId){
+            Acc.Personal_Agreement__c = 'Yes';
+            Acc.Lastest_Consent_Date__c = Date.Today();
+          }
+        }
+      }
+    }
+    if(isUpdate){
+      for(Account Acc : lNewAcc){
+        if(Acc.Market__c == 'TH'){
+          if (Acc.RecordTypeId == accPerson_RecordTypeId && Acc.Personal_Agreement__c == 'Yes'){
+          if(Acc.Individual_Home_Phone__c != NULL && (mOldAccMap.get(Acc.id).Individual_Home_Phone__c == NULL || mOldAccMap.get(Acc.id).Individual_Home_Phone__c == ''))
+          Acc.Opt_In_Home_Phone__c = TRUE;
+          if(Acc.Mobile__c != NULL && (mOldAccMap.get(Acc.id).Mobile__c == NULL || mOldAccMap.get(Acc.id).Mobile__c == ''))
+          Acc.Opt_In_Mobile__c = TRUE;
+          if(Acc.Work_Phone__c != NULL && (mOldAccMap.get(Acc.id).Work_Phone__c == NULL || mOldAccMap.get(Acc.id).Work_Phone__c == ''))
+          Acc.Opt_In_Work_Phone__c = TRUE;
+          if(Acc.Email__c != NULL && (mOldAccMap.get(Acc.id).Email__c == NULL || mOldAccMap.get(Acc.id).Email__c == ''))
+          Acc.Opt_In_Email__c = TRUE;
+        }
+          else if (Acc.RecordTypeId == accPerson_RecordTypeId && Acc.Personal_Agreement__c != mOldAccMap.get(Acc.id).Personal_Agreement__c && (Acc.Personal_Agreement__c == 'No' || Acc.Personal_Agreement__c == 'Withdrawn')){
+            Acc.Opt_In_Home_Phone__c = FALSE;
+            Acc.Opt_In_Mobile__c = FALSE;
+            Acc.Opt_In_Work_Phone__c = FALSE;
+            Acc.Opt_In_Email__c = FALSE;
+            Acc.Lastest_Consent_Date__c = Date.Today();
+          }
+          else if (Acc.RecordTypeId == accCompany_RecordTypeId){
+            if(Acc.Individual_Home_Phone__c != NULL && (mOldAccMap.get(Acc.id).Individual_Home_Phone__c == NULL || mOldAccMap.get(Acc.id).Individual_Home_Phone__c == ''))
+            Acc.Opt_In_Home_Phone__c = TRUE;
+            if(Acc.Mobile__c != NULL && (mOldAccMap.get(Acc.id).Mobile__c == NULL || mOldAccMap.get(Acc.id).Mobile__c == ''))
+            Acc.Opt_In_Mobile__c = TRUE;
+            if(Acc.Work_Phone__c != NULL && (mOldAccMap.get(Acc.id).Work_Phone__c == NULL || mOldAccMap.get(Acc.id).Work_Phone__c == ''))
+            Acc.Opt_In_Work_Phone__c = TRUE;
+            if(Acc.Email__c != NULL && (mOldAccMap.get(Acc.id).Email__c == NULL || mOldAccMap.get(Acc.id).Email__c == ''))
+            Acc.Opt_In_Email__c = TRUE;
+          }
+        }
+      }
+    }
+  }
+/*End - ********************* CISM-0044841681 ***************************/
 }

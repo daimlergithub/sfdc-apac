@@ -27,6 +27,8 @@
     <apex:includeScript value="/soap/ajax/28.0/apex.js"/>
     <apex:pageMessages />     
     <apex:form id="theForm">
+	 <apex:outputText value="{!$Label.Dealer_Lost_Message}"></apex:outputText><br></br>
+         <apex:outputText value="{!$Label.Dealer_Lost_Message1}"></apex:outputText><br></br> 
     <apex:pageBlock title="{!$Label.Current_Lead}">
         <apex:pageBlockTable value="{!leads}" var="leads">
                 <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Name.Label}">

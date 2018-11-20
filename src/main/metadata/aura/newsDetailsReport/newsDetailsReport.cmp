@@ -1,0 +1,42 @@
+<aura:component controller="newsReport" implements="force:appHostable,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:lightningQuickAction" access="global"  >
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="data" type="List" />
+    <aura:attribute name="total" type="Integer"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <article class="slds-card">   
+        <div class="slds-page-header slds-page-header_record-home">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-report" title="Report">	                        
+                                <lightning:icon iconName="standard:report" alternativeText="Report" />
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span>REPORT</span>
+                                        <span class="slds-page-header__title slds-truncate" title="News Report">Report on News</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>        
+        <div class="slds-card__body slds-card__body_inner">            
+            <span class="reportsMetricsHeader" data-aura-class="reportsMetricsHeader" data-animationdone="true">
+                <ul>
+                    <li class="metric" data-aggrname="RowCount">
+                        <div class="title">Total Records</div>
+                        <div class="value">{!v.total}</div>
+                    </li>
+                </ul>
+            </span>
+            <lightning:datatable class="table-test" keyField="name" columns="{!v.columns}" data="{!v.data}" hideCheckboxColumn="true" showRowNumberColumn="true"/>    
+        </div>
+    </article>
+</aura:component>

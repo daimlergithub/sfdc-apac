@@ -293,14 +293,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AddingMemberstoChatterGroup</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AddingMemberstoChatterGroup_test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AddressDisplayInlineEditController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2570,79 +2562,15 @@
     </classAccesses>
     <customPermissions>
         <enabled>true</enabled>
+        <name>INGeneric</name>
+    </customPermissions>
+     <customPermissions>
+        <enabled>true</enabled>
+        <name>INRetail</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
         <name>CreateRetailCopy</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>AccCDM</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>AccountLinkAL</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>LeadAL</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>MYRetail</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>addressupdateRT</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>CDMAccountlinkContext</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>CDMAccountlinkContextGroup</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>createAccountLink</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>createUpdateCDMUCID</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>LeadShareRecordswithDealers</name>
-    </customPermissions>
-    <customPermissions>
-        <enabled>true</enabled>
-        <name>ExportNotification</name>
-    </customPermissions>
-    <customPermissions>
-        <enabled>true</enabled>
-        <name>MYGeneric</name>
-    </customPermissions>
-    <customPermissions>
-        <enabled>true</enabled>
-        <name>onLineDeduplication</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>RSVP</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>ALAddressUpdate</name>
-    </customPermissions>
-	<customPermissions>
-        <enabled>true</enabled>
-        <name>PreferreddALKAddress</name>
-    </customPermissions>
-    <customPermissions>
-        <enabled>true</enabled>
-        <name>updateAccountlinks</name>
-    </customPermissions>
-    <customPermissions>
-        <enabled>true</enabled>
-        <name>updateRetailCopy</name>
     </customPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -26293,7 +26221,7 @@
         <name>ManageHealthCheck</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ManageInternalUsers</name>
     </userPermissions>
     <userPermissions>

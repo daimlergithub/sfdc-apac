@@ -21,6 +21,8 @@ private class UtilRecordTypeTest {
         System.assert(recordTypeName == 'Dealer');
         // Test getRecordTypeNameByName method
         String recordTypeName1 = UtilRecordType.getRecordTypeNameByName('Account', 'Dealer');
+        // Test GetAvailableRecordTypeNamesForSObject method
+		List<String> availableCaseTypes =  UtilRecordType.GetAvailableRecordTypeNamesForSObject(Opportunity.SObjectType );
         Test.stopTest();
         System.assert(recordTypeName == 'Dealer');
     }

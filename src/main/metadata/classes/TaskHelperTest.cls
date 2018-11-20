@@ -576,4 +576,20 @@ private class TaskHelperTest {
         system.assertEquals(leadresult.Handover_Date__c,task.Activity_Date__c);
     }
     
+     @isTest
+    public static void testUpdateLinkedLeadscheckin()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Lead__c lead = new Lead__c(Contact__c =acc.Id, RecordTypeId = SalesLeadRecordTypeId, MD__c='JP');
+        insert lead;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = lead.Id, intention_status__c='Check In', Activity_Date__c = Date.newInstance(2017, 12, 25), Status='Closed', MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        TaskHelper.UpdateLinkedLeads(tasks, null, true, false);
+        Lead__c leadresult = [Select Check_Out_Date__c from Lead__c where Id = :lead.Id];
+        //system.assertEquals(leadresult.Check_Out_Date__c,task.Activity_Date__c);
+    }
+    
 }

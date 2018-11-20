@@ -86,6 +86,18 @@ public class LeadHelperAccountLinkCreateJPTest {
         address1.TitleOfHonor__c = 'To Person'; 
         address1.Preferred__c=true;            
         insert address1;
+        Address__c address2=new Address__c();
+        address2.Address_Type__c='Home';
+        address2.Province__c='Tokyo';
+        address2.City__c='bangalore';
+        address2.District__c='test2';
+        address2.Block__c='test3';
+        address2.Address_Line_1__c='testaddress1';
+        address2.Address_Line_2__c='testaddress2';
+        address2.Customer__c=accobj1.id;
+        address2.TitleOfHonor__c = 'To Person'; 
+        address2.Preferred__c=true;            
+        insert address2;
          accobj1.primary_address_reference__c = address1.id;
       update accobj2;
       leadobj = new Lead__c();

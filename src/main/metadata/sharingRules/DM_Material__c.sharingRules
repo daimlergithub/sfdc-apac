@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
+        <fullName>DM_Material_Permission_TR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DM Material Permission TR</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DM_Material_Sharing_with_All_FS_Users_of_India</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>DM Material Sharing with All FS Users of India</label>
+        <sharedTo>
+            <roleAndSubordinates>MBIndiaFS_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>DM_Material_Sharing_with_All_MY_Dealers</fullName>
         <accessLevel>Read</accessLevel>
         <label>DM Material Sharing with All MY Dealers</label>
@@ -93,6 +119,105 @@
             <value>MY</value>
         </criteriaItems>
     </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>Share_DM_Material_With_Roles_and_Subordinates_AR_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share DM Material With Roles and Subordinates AR FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>AR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBAR</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_DM_Material_With_Roles_and_Subordinates_CO_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share DM Material With Roles and Subordinates CO FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CO_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBCO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_DM_Material_With_Roles_and_Subordinates_EG_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share DM Material With Roles and Subordinates EG FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBEG</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>EG_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_DM_Material_With_Roles_and_Subordinates_HU_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share DM Material With Roles and Subordinates HU FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBHU</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>HU_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_DM_Material_With_Roles_and_Subordinates_ID_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share DM Material With Roles and Subordinates ID FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBID</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>ID_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_DM_Material_With_Roles_and_Subordinates_RO_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share DM Material With Roles and Subordinates RO FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBRO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>RO_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_DM_Material_With_Roles_and_Subordinates_SG_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share DM Material With Roles and Subordinates SG FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBSG</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>SG_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_DM_Material_With_Roles_and_Subordinates_SK_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share DM Material With Roles and Subordinates SK FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBSK</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>SK_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_DM_Material_With_Roles_and_Subordinates_VN_FM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share DM Material With Roles and Subordinates VN FM</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBVN</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>VN_Management</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
     <sharingOwnerRules>
         <fullName>Share_with_Data_Fulfillment_user_with_R_W</fullName>
         <accessLevel>Read</accessLevel>

@@ -1,0 +1,24 @@
+<aura:component >
+    <aura:attribute name="sObjectId" type="Id" description="A simplified view record object to be displayed"/>
+    <aura:attribute name="displayOutputFieldListAddress" type="String[]"/>    
+        
+	<lightning:recordViewForm 
+            aura:id="recordViewForm" 
+            recordId="{!v.sObjectId}"
+            objectApiName="Address__c">
+        <div class="slds-media">
+            <div class="slds-media__body">
+                <div aura:id="addressDetails" class="slds-m-top--small slds-m-left--large">
+                    <div class="slds-grid slds-gutters slds-wrap">                     
+                 	<aura:iteration items="{!v.displayOutputFieldListAddress}" var="item" >
+                         <div class="slds-size_1-of-2 slds-form-element_separator">
+                                <lightning:outputField fieldName="{!item}" />   
+                         </div>
+                     </aura:iteration> 
+                     
+                     </div>
+                 </div>
+            </div>
+        </div>
+     </lightning:recordViewForm>
+</aura:component>

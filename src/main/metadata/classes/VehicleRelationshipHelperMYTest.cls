@@ -20,7 +20,7 @@ public class VehicleRelationshipHelperMYTest{
     static void setupTestData(){    
     
     Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
-       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
+       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()),UserName='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()));
        insert user1;
        System.runAs (user1) {  
         List<String> AccountFields=new List<String>();
@@ -99,7 +99,7 @@ public class VehicleRelationshipHelperMYTest{
  /*   static testmethod void testVehicleRelationshipHelperMY1(){
     
     Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
-       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral1.com.dev01');
+       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()),UserName='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()));
        insert user1;
        System.runAs (user1) {  
       test.startTest();

@@ -55,7 +55,17 @@
         </div>
     </apex:facet>
 </apex:actionStatus>
-  <apex:pageMessages id="msgs" escape="false"/>
+<apex:actionStatus id="status">
+                    <apex:facet name="start">
+                    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.75; z-index: 1000; background-color: black;">
+                        &nbsp;
+                    </div>
+                    <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 30% 50%">
+                        <img src="http://upload.wikimedia.org/wikipedia/commons/e/ed/Cursor_Windows_Vista.gif" />
+                    </div>
+                    </apex:facet>
+</apex:actionStatus>
+  <apex:pageMessages id="msgs" escape="false" rendered="{!IF(ISPICKVAL($User.Market__c,'TR'),false, true )}"/>
   <apex:includeScript value="/support/console/20.0/integration.js"/>
   <apex:includeScript value="{!$Resource.jQuery}" />
     <script type="text/javascript">
@@ -99,16 +109,19 @@
         }
         
     </script>
+    <apex:outputPanel id="errmsg" rendered="{!If(ISPICKVAL($User.Market__c,'TR') , true, false) }">
+    <apex:pageMessages id="msgs1" escape="false"/>
+    </apex:outputPanel>
     <apex:form id="form">
             <apex:pageBlock mode="edit" title="{!$Label.New_Account_Information}"  >
         <!--  Record Type Selection - Start -->
                 <!--Add condition for respective market to show this block here-->
 				<apex:outputPanel id="recordTypeJP">								  
-                <apex:pageBlockSection rendered="{!If((ISPICKVAL($User.Market__c,'IN') || ISPICKVAL($User.Market__c,'TR')|| (ISPICKVAL($User.Market__c,'JP')&& Editmode)),true,false)}">
+                <apex:pageBlockSection rendered="{!If((ISPICKVAL($User.Market__c,'IN') || (ISPICKVAL($User.Market__c,'JP')&& Editmode)),true,false)}">
                     <apex:pageBlockSectionItem >
 					<apex:outputPanel>
                         <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}" rendered="{!If((ISPICKVAL($User.Market__c,'JP')) ,true,false)}" />
-                        <apex:outputLabel value="{!$Label.RecordTypeId}" rendered="{!If((ISPICKVAL($User.Market__c,'IN') || ISPICKVAL($User.Market__c,'TR')) ,true,false)}"/> 
+                        <apex:outputLabel value="{!$Label.RecordTypeId}" rendered="{!If((ISPICKVAL($User.Market__c,'IN') ) ,true,false)}"/> 
 					</apex:outputPanel>
 					<apex:outputPanel styleClass="requiredInput" layout="block">
                          <apex:outputPanel styleClass="requiredBlock" layout="block"/>
@@ -124,6 +137,26 @@
                 </apex:pageBlockSection>          
 				</apex:outputPanel>				  
         <!--  Record Type Selection - End -->   
+              <apex:outputPanel id="recordTypeTR">								  
+                <apex:pageBlockSection rendered="{!If(ISPICKVAL($User.Market__c,'TR'),true,false)}">
+                    <apex:pageBlockSectionItem >
+					<apex:outputPanel >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}" rendered="{!If((ISPICKVAL($User.Market__c,'JP')) ,true,false)}" />
+                        <apex:outputLabel value="{!$Label.RecordTypeId}" rendered="{!If((ISPICKVAL($User.Market__c,'TR')) ,true,false)}"/> 
+					</apex:outputPanel>
+					<apex:outputPanel styleClass="requiredInput" layout="block">
+                         <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                            <apex:selectList id="selectRecType" value="{!RecordType}" size="1" required="true" >
+                                <apex:selectOption itemValue="Select" itemLabel="--{!$Label.select}--" />
+                                <apex:selectOption itemValue="Person Account" itemLabel="Person Account" />
+                                <apex:selectOption itemValue="Company" itemLabel="Company"/>
+                                <!--Add condition for rerendering section based on change of record type -->
+                                <apex:actionSupport event="onchange" action="{!reInitializeAccountAddressObject}" reRender="errmsg,personAccountPanelTR,companyAccountPanelTR,addressTR,buttonTR,mergeWarning"/>
+                            </apex:selectList>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>          
+				</apex:outputPanel>				 
 		<!-- ************************************ -->
          <!--  Record Type Selection - Readonly Start --> 
          <apex:outputPanel id="recordTypeJPRD">
@@ -248,7 +281,7 @@
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Email__c.Label}" />
-                        <apex:inputField value="{!objAccount.Email__c}" />
+                        <apex:inputText value="{!objAccount.Email__c}" />
 
                     </apex:pageBlockSectionItem>
                     
@@ -439,8 +472,7 @@
 
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Email__c.Label}" />
-                        <apex:inputField value="{!objAccount.Email__c}" />
-
+                        <apex:inputText value="{!objAccount.Email__c}" />
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Data_Source__c.Label}" />
@@ -763,8 +795,9 @@
                         <apex:outputLabel value="{!$Label.City}" />
                         <!--<apex:outputPanel styleClass="requiredInput" layout="block">
                             <apex:outputPanel styleClass="requiredBlock" layout="block" />-->
-                            <apex:selectList size="1" value="{!city}" id="slCityTR" onchange="loadProvince(this.value)">
+                            <apex:selectList size="1" value="{!city}" id="slCityTR" >
                                 <apex:selectOptions value="{!lstCity}" />
+                                <apex:actionSupport event="onchange" action="{!loadProvince}" reRender="addressTR" status="status"/>
                             </apex:selectList>
                         <!--</apex:outputPanel>-->
                     </apex:pageblockSectionItem>
@@ -778,8 +811,9 @@
 
                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">
                         <apex:outputLabel value="{!$Label.S5_City}" />
-                        <apex:selectList size="1" value="{!province}" id="slDistrictTR" onchange="loadDistrict(this.value)">
+                        <apex:selectList size="1" value="{!province}" id="slDistrictTR" >
                                 <apex:selectOptions value="{!lstProvince}" />
+                             <apex:actionSupport event="onchange" action="{!loadDistrict}" reRender="addressTR" status="status"/>
                             </apex:selectList>
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
@@ -843,7 +877,9 @@
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem rendered="True">      
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Country__c.Label}"/>       
-                        <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;"/>        
+                        <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;" id="checkSelectedCountry" >        
+                    		<apex:actionSupport event="onchange" action="{!ChangeProvince}" reRender="addressIN"/>
+                        </apex:inputField>
                     </apex:pageBlockSectionItem>    
                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
                         <apex:outputLabel value="State/Province"/>      
@@ -989,11 +1025,11 @@
                 <apex:outputPanel id="buttonTR" >
                         <apex:actionFunction name="rerendersection" reRender="form" />
                  <!--- Added Button for Turkey-->
-                        <apex:commandButton action="{!onLineDeduplicationTR}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),ISPICKVAL($User.Market__c,'TR')) ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()" />
+                        <apex:commandButton action="{!onLineDeduplicationTR}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),ISPICKVAL($User.Market__c,'TR')) ,true,false)}" reRender="form,errmsg" oncomplete="rerendersection()" status="status"     />
                  <!--END-->
                  <apex:outputPanel rendered="{!firstsave}">
                     <!--- Added Button for Turkey-->
-                    <apex:commandButton id="SavebtnTR" action="{!saveAccountTR}" value="{!$Label.Save_Button}" rendered="{!if(Market =='TR',True,false)}" rerender="redirectPanel,msgs" status="actStatusId" />
+                    <apex:commandButton id="SavebtnTR" action="{!saveAccountTR}" value="{!$Label.Save_Button}" rendered="{!if(Market =='TR',True,false)}" rerender="redirectPanel,errmsg" status="status" />
                     <!--END-->
                   </apex:outputPanel>
                    <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),ISPICKVAL($User.Market__c,'TR')) ,true,false)}"/>  `
@@ -1016,7 +1052,7 @@
             <apex:column value="{!item.add.Address_Line_2__c}"/>           
         </apex:pageBlockTable>																						  
             </apex:pageBlock>
-        <apex:pageBlock title="Match Found" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">  
+        <apex:pageBlock title="{!$Label.Match_found}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">  
             <apex:pageBlockSection columns="1" rendered="{!IF((displayAccList.size!=0 && ($Permission.INGeneric || $Permission.TRGeneric ||  ISPICKVAL($User.Market__c,'JP'))), true, false)}">                 
                 <apex:pageBlockTable value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Person Account'}">       
                     <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">         
@@ -1028,7 +1064,7 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                           
                         <apex:outputField value="{!cr.firstName}"/>     
                     </apex:Column>      
-					<apex:Column headerValue="{!$ObjectType.Account.fields.Phone}" rendered="{!ISPICKVAL($User.Market__c,'JP')}">                           
+					<apex:Column headerValue="{!$ObjectType.Account.fields.Phone.label}" rendered="{!ISPICKVAL($User.Market__c,'JP')}">                           
                         <apex:outputField value="{!cr.Mobile__c}"/>     
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Mobile__c.Label}" rendered="{!!ISPICKVAL($User.Market__c,'JP')}">                                                     
@@ -1045,16 +1081,16 @@
                     </apex:Column> 											 
                 </apex:pageBlockTable>     
                 <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Company'}">      
-					<apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!AND($User.ContactId !=null, ISPICKVAL($User.Market__c,'JP'))}">  
-                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!AND($User.ContactId !=null, ISPICKVAL($User.Market__c,'JP'))}">{!cr.Name}</apex:outputLink>    
-                    </apex:Column>
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId ==null}">       
+                  <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!AND($User.ContactId !=null, ISPICKVAL($User.Market__c,'JP'))}">       
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!AND($User.ContactId !=null, ISPICKVAL($User.Market__c,'JP'))}">{!cr.Name}</apex:outputLink>            
+                    </apex:Column>  
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!AND($User.ContactId !=null,OR($Permission.TRGeneric,$Permission.INGeneric))}">         
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.Name}</apex:outputLink>            
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!AND($User.ContactId ==null,OR($Permission.TRGeneric,$Permission.INGeneric))}">       
                         <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.Name}</apex:outputLink>            
-                    </apex:Column>
-					<apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}" rendered="{!ISPICKVAL($User.Market__c,'JP')}">                    
-                        <apex:outputField value="{!cr.VIN__c}"/>
-                    </apex:Column>					
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Work_Phone__c.Label}" rendered="{!!ISPICKVAL($User.Market__c,'JP')}">                                                        
+                    </apex:Column>           
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Work_Phone__c.Label}">                            
                         <apex:outputField value="{!cr.Work_Phone__c}"/>      
                     </apex:Column>      
 					<apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" rendered="{!ISPICKVAL($User.Market__c,'JP')}">                    
@@ -1073,10 +1109,10 @@
                 </apex:PageBlockTable>      
             </apex:pageBlockSection>       
             <apex:pageblockButtons >       
-                <apex:commandButton value="First" action="{!first}" reRender="frmCDM" disabled="{!first}"/>       
-                <apex:commandButton value="Previous" action="{!previous}" reRender="frmCDM" disabled="{!previous}"/>      
-                <apex:commandButton value="Next"  disabled="{!next}" reRender="frmCDM" action="{!next}"/>     
-                <apex:commandButton value="Last" disabled="{!last}" reRender="frmCDM" action="{!last}"/>      
+                <apex:commandButton value="{!$Label.First}" action="{!first}" reRender="frmCDM" disabled="{!first}"/>       
+                <apex:commandButton value="{!$Label.Previous}" action="{!previous}" reRender="frmCDM" disabled="{!previous}"/>      
+                <apex:commandButton value="{!$Label.Next}"  disabled="{!next}" reRender="frmCDM" action="{!next}"/>     
+                <apex:commandButton value="{!$Label.Last}" disabled="{!last}" reRender="frmCDM" action="{!last}"/>      
             </apex:pageblockButtons>
         </apex:pageBlock>
         <apex:outputPanel id="mergeWarning">

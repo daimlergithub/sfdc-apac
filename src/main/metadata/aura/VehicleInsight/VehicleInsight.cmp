@@ -1,0 +1,33 @@
+<aura:component  controller = "VehicleInsightController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,flexipage:availableForRecordHome,lightning:actionOverride,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >    
+    <aura:attribute name = "SurveyType" type = "String" default="Vehicle"/>
+    <aura:attribute name = "Context" type = "String" default="Account"/>	
+    <aura:attribute name = "Vehicle" type = "object"/>    
+	<aura:handler name="init" action="{!c.myAction}" value="{!this}"/>    
+    
+    <h3 class="slds-section-title--divider"> Vehicle Insights</h3><br/>
+    <div style="margin-left:10px">
+        <c:InsightQuestions SurveyType = "Vehicle-Generic" Context = "{!v.Context}" recordId = "{!v.recordId}"/><br/><br/>
+    <h3 class="slds-section-title--divider"> Customer Vehicles</h3><br/>   
+    <lightning:accordion  allowMultipleSectionsOpen="true" aura:id="accordion">
+      <aura:iteration items= "{!v.Vehicle}" var = "varVehicle">             
+        <lightning:accordionSection name="{!varVehicle.vehicleId}" label="{!varVehicle.vehicleName}">
+            <aura:set attribute="body">
+               <div style="margin-left:10px;min-height: 100px">     
+                   <lightning:layout horizontalAlign="left" verticalAlign="top" multipleRows="true">
+                        <lightning:layoutItem size="12">
+                            <h3 class="slds-section-title--divider"> Customer Vehicle Data</h3>
+                        </lightning:layoutItem><br />
+                       <aura:iteration items = "{!varVehicle.lstPIW}" var = "PIW">
+                         <lightning:layoutItem size="6" padding="around-medium">
+                             <c:renderInput fieldlabel = "{!PIW.questiontext}" selectedAnswer = "{!PIW.answerText}" fieldtype="Prepopulate"/>                            
+                         </lightning:layoutItem>                   
+                       </aura:iteration>
+                   </lightning:layout>
+                   <c:InsightQuestions SurveyType = "{!v.SurveyType}" Context = "{!v.Context}" recordId = "{!varVehicle.vehicleId}"/><br/>
+                </div>
+    		</aura:set>
+        </lightning:accordionSection>
+        </aura:iteration>
+        </lightning:accordion>
+    </div>    
+</aura:component>

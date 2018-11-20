@@ -213,14 +213,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AddingMemberstoChatterGroup</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AddingMemberstoChatterGroup_test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AddressDisplayInlineEditController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -3562,7 +3554,27 @@
     </classAccesses>
     <customPermissions>
         <enabled>true</enabled>
+		<name>AccountLinkAL</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>CreateRetailCopy</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
         <name>INGeneric</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>INRetail</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>addressupdateRT</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>updateRetailCopy</name>
     </customPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19382,12 +19394,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Created_by_Segment__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.CurrentGenerators__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Current_Vehicle__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19407,6 +19424,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Dealer_Aftersales_Manager_Email__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.DMS_Lead_Id__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

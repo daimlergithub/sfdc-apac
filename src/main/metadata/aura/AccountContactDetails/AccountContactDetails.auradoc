@@ -1,0 +1,15 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:AccountContactDetails</code> component displays the Person Contact Details for a specific Account.This Component uses Tiles to display individual Contact Details by
+            receiving Market specific fields from the Factory model to display fields pertaining to each Market, using <code>lightning:recordEditForm</code>.
+            <br/>Component is responsive and size in <code>lightning:layout</code> controls the responsiveness based on the devices.
+            <br/><code>c:AccountContactDetailsTile</code> is a Child Component which is used to display grouping of fields in each Tile based on Tile Headings. 
+            Tile component iterates the fields, icons and labels received from Factory to create the grouping for each tile.
+        </p>
+        <!--More markup here, such as <pre> for code samples--> 
+    </aura:description>
+    
+    <!-- <aura:example name="myComponentExample" ref="c:myComponentExample" label="Using the c:AccountContactDetails Component">
+                                                                              
+    </aura:example>-->
+</aura:documentation>

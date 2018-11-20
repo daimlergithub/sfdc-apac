@@ -1,0 +1,33 @@
+.THIS .reportsMetricsHeader {
+    display: block;
+    border-bottom: solid 1px rgb(221, 219, 218);
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.THIS .reportsMetricsHeader ul {
+    display: table;
+    margin: 0;
+    padding: 0;
+}
+.THIS .reportsMetricsHeader .metric {
+    display: table-cell;
+    padding-left: 1.5rem;
+}
+.THIS .reportsMetricsHeader .metric .title {
+    color: rgb(62, 62, 60);
+    font-size: .75rem;
+    line-height: 1.25;
+    white-space: nowrap;
+    padding-top: 1rem;
+}
+.THIS .reportsMetricsHeader .metric .value {
+    color: rgb(8, 7, 7);
+    font-weight: 300;
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.5;
+    white-space: nowrap;
+    padding-bottom: 1rem;
+}

@@ -22,7 +22,7 @@ public class VehicleRelationshipHelperBaseTest {
         user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
                          EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
                          LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
-                         TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+                         TimeZoneSidKey='America/Los_Angeles', UserName='test'+Math.rint(Math.random()*100000)+'@daimler.com'+String.valueof(DateTime.now().getTime()), isActive=true);
         System.runAs (user1) {
             PermissionSet ps = new PermissionSet();
             ps.Name = 'Test';

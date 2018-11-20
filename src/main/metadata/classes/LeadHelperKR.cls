@@ -873,8 +873,8 @@ public class LeadHelperKR
                       }
            }
     }*/
-	
-	//---------------------------- Lead Share - SFDCKR-964 ----------------------------
+    
+    //---------------------------- Lead Share - SFDCKR-964 ----------------------------
     // Added By - Sreenivasareddy
     
     public static void leadsharehierarchy(List<lead__c> Lstnewlead) {
@@ -885,7 +885,7 @@ public class LeadHelperKR
           if(l.MD__c=='KR') {
              ownerids.add(l.OwnerId);
              system.debug('*****leadownerlist' +ownerids);
-		  }	 
+          }  
        }
        if(!Test.isRunningTest()){
        //before insert new casesharings need to delete old Leadsharings***...
@@ -947,7 +947,7 @@ public class LeadHelperKR
           insert leadShar;
        }
     }
-	 @future
+     @future
      public static void sendEmailToQueue(map<string,string> leadOwnerIds) 
      {
      system.debug('Entered Email Notification Method'+leadOwnerIds.keySet());
@@ -976,7 +976,7 @@ public class LeadHelperKR
           EmailTemplate templateId  =[select id,name,Subject from EmailTemplate WHERE name = 'Lead owner is updated to Queue'];
           Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
            List<Id> ccDeatils=new List<Id>();
-		   List<Id> updatedCcDeatils=new List<Id>();
+           List<Id> updatedCcDeatils=new List<Id>();
            for(string leadOwnrId: leadOwnerIds.keySet())
           {   
               for(GroupMember grmMbr: ownerids)
@@ -991,7 +991,7 @@ public class LeadHelperKR
                   }              
               }
           }
-				  System.debug('ccDeatils----'+ccDeatils);
+                  System.debug('ccDeatils----'+ccDeatils);
                   List<User> activeUser=[select Id from User where id in:ccDeatils and isActive=TRUE];
                   System.debug('activeUser----'+activeUser);
                   for(User u:activeUser){
@@ -1022,4 +1022,22 @@ public class LeadHelperKR
         }
         LeadUtil.recurssionchecksendmaillead = false;
         }
+    /**
+     *
+     * @param Leads
+     */
+    //MBK Message Send Manage 6/26/2018
+    public static void MessageSendManage(List<Lead__c> Leads, map<Id,Lead__c> oldLeadMap, String action){
+
+        List<String> leadIds = new List<String>();
+        for(Lead__c temp:Leads){
+            If(action == 'Update'){
+                Lead__c oldLead = oldLeadMap.get(temp.Id);
+                if(temp.Lead_Latest_Phase__c <> oldLead.Lead_Latest_Phase__c || temp.Dealer_Lead_Status__c <> oldLead.Dealer_Lead_Status__c){
+                    leadIds.add(temp.Id);
+                }
+            }else leadIds.add(temp.Id);
+        }
+        MBKSendManageHelperKR.messageManageValidationCheck(leadIds, 'Lead', action);
+    }        
 }

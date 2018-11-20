@@ -2,7 +2,7 @@
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
         <fullName>FS_Contract_Sharing</fullName>
-        <accessLevel>Read</accessLevel>
+        <accessLevel>Edit</accessLevel>
         <description>Share FS contract to MBLT users.</description>
         <label>FS Contract Sharing</label>
         <sharedTo>
@@ -12,6 +12,47 @@
             <field>Market__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FS_Contract_Sharing_IN</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share FS contracts to MBIndia FS users.</description>
+        <label>FS Contract Sharing IN</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FS_Contract_Sharing_MY</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share FS contract to MY MBFS users.</description>
+        <label>FS Contract Sharing MY</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FS_Contract_records_to_be_shared_with_all_wholesale_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FS Contract records to be shared with all wholesale users</label>
+        <sharedTo>
+            <group>All_Wholesale_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
     </sharingCriteriaRules>
 </SharingRules>

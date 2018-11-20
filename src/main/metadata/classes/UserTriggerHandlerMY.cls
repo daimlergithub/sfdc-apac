@@ -20,7 +20,7 @@ public class UserTriggerHandlerMY implements TriggerHandlerIf {
 		
 		if(Trigger.isAfter && (trigger.isUpdate||trigger.isInsert)){
             //UserHelperTH.ShareUsersToDealersAfterInsertAndUpdate(Trigger.new,Trigger.isupdate,trigger.old);
-            UserHelperMY.shareRecordsAfterInsertAndUpdate(Trigger.new,label.MY);
+            //UserHelperMY.shareRecordsAfterInsertAndUpdate(Trigger.new,label.MY);		//commented as a new scheduled batch class is created for the same
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

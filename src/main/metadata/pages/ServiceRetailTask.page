@@ -92,7 +92,7 @@
                     </apex:column>
                        -->
                     
-                      <apex:facet name="footer">Showing Page # {!pageNumber} of {!totalPages}</apex:facet>
+                      <apex:facet name="footer">{!$Label.ShowingPage} {!pageNumber} {!$Label.of} {!totalPages}</apex:facet>
                         </apex:pageBlockTable>   
                         </apex:outputPanel>  
                          

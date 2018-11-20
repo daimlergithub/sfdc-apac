@@ -40,6 +40,7 @@
     <sharingCriteriaRules>
         <fullName>MBMY_Leads_Sharing_Rule</fullName>
         <accessLevel>Edit</accessLevel>
+        <description>sharing all the Malaysia Sales and Aftersales Leads records to wholesale Users with read and edit access</description>
         <label>MBMY Leads Sharing Rule</label>
         <sharedTo>
             <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
@@ -49,12 +50,55 @@
             <operation>equals</operation>
             <value>MY</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads,Aftersales Leads</value>
+        </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>MY_Sharing_Leads_to_All_other_MY_users</fullName>
+        <fullName>MY_Sharing_Finance_Leads_to_Wholesale_MY_users_EDIT_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>sharing all the Malaysia Finance Leads records to wholesale Users with read and edit access</description>
+        <label>MY_Sharing Finance Leads to Wholesale My users with Edit Access</label>
+        <sharedTo>
+            <group>All_Wholesale_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Lead</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_Sharing_Leads_to_All_other_MY_users_EDIT_Access</fullName>
         <accessLevel>Edit</accessLevel>
         <description>sharing all the Malaysia Leads records to all the Malaysia Users with read and edit access</description>
-        <label>MY_Sharing Leads to All other My users</label>
+        <label>MY_Sharing Leads to All other My users with edit access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Lead</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_Sharing_Leads_to_All_other_MY_users_Read_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>sharing all the Malaysia Leads records to all the Malaysia Users with read access</description>
+        <label>MY_Sharing Leads to All other My users with Read Access</label>
         <sharedTo>
             <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
         </sharedTo>
@@ -62,6 +106,49 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Lead</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_Sharing_Sales_AfterSales_Leads_to_FS_manager_users_EDIT_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>sharing all the Malaysia Sales and Aftersales Leads records to FS manager  Users with read and edit access</description>
+        <label>MY_Sharing Leads to All other My users</label>
+        <sharedTo>
+            <group>All_FS_Manger_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads,Aftersales Leads</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_Sharing_Sales_AfterSales_Leads_to_FS_users_Read_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>sharing all the Malaysia Sales and Aftersales Leads records to FS Users with read  access</description>
+        <label>MY_Sharing Leads to All other My users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads,Aftersales Leads</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -149,8 +236,8 @@
         </criteriaItems>
         <criteriaItems>
             <field>RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Finance Lead</value>
+            <operation>equals</operation>
+            <value>Sales Leads,Aftersales Leads</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingOwnerRules>

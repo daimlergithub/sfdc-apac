@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Company</fullName>
+        <default>false</default>
+        <label>Company</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Personal</fullName>
+        <default>false</default>
+        <label>Personal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>PR</fullName>
+        <default>false</default>
+        <label>PR</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Benz Employees</fullName>
+        <default>false</default>
+        <label>Benz Employees</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Secondary Agent</fullName>
+        <default>false</default>
+        <label>Secondary Agent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dealer Employees</fullName>
+        <default>false</default>
+        <label>Dealer Employees</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Army</fullName>
+        <default>false</default>
+        <label>Army</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Government Agencies</fullName>
+        <default>false</default>
+        <label>Government Agencies</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Others</fullName>
+        <default>false</default>
+        <label>Others</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unknown</fullName>
+        <default>true</default>
+        <label>Unknown</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Media</fullName>
+        <default>false</default>
+        <label>Media</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Benz employee&apos;s lineal relative</fullName>
+        <default>false</default>
+        <label>Benz employee&apos;s lineal relative</label>
+    </standardValue>
+    <standardValue>
+        <fullName>China Mobile specific customer</fullName>
+        <default>false</default>
+        <label>China Mobile specific customer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fengshun driving acedemy VIP customer</fullName>
+        <default>false</default>
+        <label>Fengshun driving acedemy VIP customer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Weibo fans</fullName>
+        <default>false</default>
+        <label>Weibo fans</label>
+    </standardValue>
+</StandardValueSet>

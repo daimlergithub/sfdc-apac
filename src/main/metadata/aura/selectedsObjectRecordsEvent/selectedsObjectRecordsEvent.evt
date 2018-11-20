@@ -1,0 +1,13 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created By:Narendra.I
+* Created Date:31-August-2018
+* Company:Infosys Ltd
+* Description: by this event we are passing the selected sObject(lookup list record) in the parent component.
+* **********************************************************************************-->
+<aura:event type="COMPONENT" description="by this event we are passing the selected sObject(lookup list record) in the parent component">
+<!-- comments-->    
+	
+	<aura:attribute name="recordByEvent" type="sObject"/>
+	
+</aura:event>

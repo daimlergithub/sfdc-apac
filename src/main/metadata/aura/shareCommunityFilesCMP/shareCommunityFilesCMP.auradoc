@@ -1,0 +1,8 @@
+<aura:documentation>
+    <aura:description>
+        <p> <code>c:shareCommunityFilesCMP</code> 
+            component displays the <code>User(s)</code> and <code>Group(s)</code> selection.            
+            <br/><code>c:reUsableMultiSelectLookup</code> is a child component which is used to display 5 records based on the <code>Search</code> string and <code>Sobject</code>.            
+        </p>        
+    </aura:description>  
+</aura:documentation>

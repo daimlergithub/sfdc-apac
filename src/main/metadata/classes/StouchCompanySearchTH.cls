@@ -1,8 +1,20 @@
+/**  
+* Class Name: StouchCompanySearchTH
+* Description : This class is for 'TH' (Thiland) Market Company Search API for Stouch App.
+* Author : Narendra Nimmana
+* Modification Log *
+=============================================================== 
+Ver 	Date 			Author 				Modification --- ---- ------ -------------
+C1.0     24/07/2018		Ashish Jadhav		Added the Fields to response:- Commercial Register Number : Account.Commercial_Reg_No__c
+																		   Mobile :Account_link__c.Retail_Mobile__c
+											Removed Fields from response:- Fax : Account_link__c.Retail_Fax__c
+=============================================================== 
+* */ 
 public class StouchCompanySearchTH {
     public static List<Object> companySearchResultsTH(list<String> accountlinkIds, Id contactToContactRecordTypeId){
-        list<Account_link__c> accountlinklist=[select Retail_Company_Name__c,Retail_Email__c,Retail_Company_Phone__c,Retail_Fax__c,Retail_Company_Other_Phone__c,toRole__c,toRole__r.Name,Retail_UCID__c,Retail_Related_Company__c,Ownerid,
+        list<Account_link__c> accountlinklist=[select Retail_Company_Name__c,Retail_Email__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Fax__c,Retail_Company_Other_Phone__c,toRole__c,toRole__r.Name,Retail_UCID__c,Retail_Related_Company__c,Ownerid,
                                                //Added below field in query as per changes recommended by FE team approved by Shini   BY:Ashish Jadhav date:20th July 2018.
-                                               toRole__r.Data_Source__c,
+                                               toRole__r.Data_Source__c,toRole__r.Commercial_Reg_No__c,
                                               (select id,toRole__c,toRole__r.LastName,Retail_Mobile__c,Retail_Email__c,Retail_UCID__c,Ownerid,Retail_ID_Type__c,Retail_Work_Phone__c,Retail_Full_Name__c  from Account_Link__r limit 3) 
                                                from account_link__c where id=:accountlinkIds order by Retail_Company_Name__c];
         List<id> userIds=new List<Id>();
@@ -21,13 +33,15 @@ public class StouchCompanySearchTH {
             companyResults.put('Company_Name__c', string.ISBlank(ac.Retail_Company_Name__c)?' ':ac.Retail_Company_Name__c);
             companyResults.put('Email', string.ISBlank(ac.Retail_Email__c )?' ':ac.Retail_Email__c);
             companyResults.put('HomePhone', string.ISBlank(ac.Retail_Company_Phone__c )? ' ':ac.Retail_Company_Phone__c );
-            companyResults.put('Fax', string.ISBlank(ac.Retail_Fax__c )?' ':ac.Retail_Fax__c);
+            //companyResults.put('Fax', string.ISBlank(ac.Retail_Fax__c )?' ':ac.Retail_Fax__c);
             companyResults.put('WorkPhone', string.ISBlank(ac.Retail_Company_Other_Phone__c)?' ':ac.Retail_Company_Other_Phone__c);
             companyResults.put('AccountName', string.ISBlank(ac.toRole__r.Name)? ' ':ac.toRole__r.Name);
             companyResults.put('Company__c', string.ISBlank(ac.Retail_Related_Company__c)? ' ':ac.Retail_Related_Company__c);
-            companyResults.put('Company_UCID__c', string.ISBlank(ac.Retail_UCID__c)? ' ':ac.Retail_UCID__c);            
+            companyResults.put('Company_UCID__c', string.ISBlank(ac.Retail_UCID__c)? ' ':ac.Retail_UCID__c);  
             //Added below field in query as per changes recommended by FE team approved by Shini   BY:Ashish Jadhav date:20th July 2018.
-            companyResults.put('Data_Source__c', string.ISBlank(ac.toRole__r.Data_Source__c)? ' ':ac.toRole__r.Data_Source__c); 
+            companyResults.put('Data_Source__c', string.ISBlank(ac.toRole__r.Data_Source__c)? ' ':ac.toRole__r.Data_Source__c);
+            companyResults.put('Commercial Register Number', string.ISBlank(ac.toRole__r.Commercial_Reg_No__c)? ' ':ac.toRole__r.Commercial_Reg_No__c); 
+            companyResults.put('Mobile', string.ISBlank(ac.Retail_Mobile__c)? ' ':ac.Retail_Mobile__c); 
             List<Object> contacts=new List<Object>();
             
             if(ac.Account_Link__r.size()==0){

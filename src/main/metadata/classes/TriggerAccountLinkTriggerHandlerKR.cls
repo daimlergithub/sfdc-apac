@@ -1,15 +1,26 @@
-public class TriggerAccountLinkTriggerHandlerKR 
-    implements TriggerHandlerIf
+public class TriggerAccountLinkTriggerHandlerKR implements TriggerHandlerIf
 {
     User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
+    //added sravanthi gudibandi for switch
+     Map<String, KR_Switch__c> KRSwitchMap = KR_Switch__c.getAll();
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
-    {   system.debug('Trigger 1 :');
+     {  
+      //added sravanthi gudibandi for switch 
+     Boolean CDMRCCreation = false;  
+      if(!KRSwitchMap.isEmpty() && KRSwitchMap.containsKey('CDM RC Creation and Update')){
+           CDMRCCreation  = KRSwitchMap.get('CDM RC Creation and Update').Enable_Flag__c;
+        }
+      system.debug('Trigger 1 :');
         if(isAfter && isInsert){
             system.debug('Trigger 2 :');
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelperKR.afterInsertEvent(Trigger.new);
             AccountLinkHelperKR.updateRetailPositionfromC2C(Trigger.isUpdate, Trigger.isAfter ,Trigger.isInsert, trigger.new);
             system.debug('Trigger 3 :');
+             //added sravanthi gudibandi for switch 
+             if (!System.isFuture() && CDMRCCreation) {
+                    AccountLinkHelperBase.CDMAccountlinkContextGroup(trigger.new,'KR',Label.InsertContext );
+                }
         }
         if(isAfter && isUpdate){
             system.debug('Trigger 4 :');
@@ -18,10 +29,19 @@ public class TriggerAccountLinkTriggerHandlerKR
             //if(Leadutil.testadd=false){
                AccountLinkHelperKR.afterUpdateEvent(Trigger.new, oldmap);
                AccountLinkHelperKR.updateRetailPositionfromC2C(Trigger.isUpdate, Trigger.isAfter ,Trigger.isInsert, trigger.new);
+                if(!CDMRCCreation){
                AccountLinkHelperKR.ExportNotification(Trigger.new, oldmap);
+                }
                system.debug('Entered After TRIGGER');
                //AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
                system.debug('Trigger 5 :');
+                //added sravanthi gudibandi for switch 
+                if (!System.isFuture() && CDMRCCreation) {
+                 if (TriggerRecursiveCheck.run2 && !System.isFuture()) {
+                     TriggerRecursiveCheck.runOnce2();
+                     AccountLinkHelperBase.CDMAccountlinkContextGroup(trigger.new, 'KR', Label.UpdateContext); 
+                    }   
+                }
             //}
         }     
         if(isBefore && isInsert)

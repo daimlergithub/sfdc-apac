@@ -1,0 +1,45 @@
+<!--************************************************************************************
+* Project:RCP Indonesia : Dealer Community Indonesia
+* Created By:Narendra.I
+* Created Date:31-Aug-2018
+* Company:Infosys Ltd
+* Description: Component to select users and groups.
+* **********************************************************************************-->
+<aura:component controller="reUsableMultiSelectLookupCtrl" implements="lightning:actionOverride,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" >     
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="selectedLookUpRecords" type="sObject[]" default="[]"/>
+    <aura:attribute name="selectedGroupRecords" type="sObject[]" default="[]"/>
+    <aura:attribute name="showError" type="boolean" default="false"/>              
+    <article class="slds-card">
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="slds-section-title--divider">
+                <center><strong>Share With</strong></center>
+            </div><br/>
+            <aura:if isTrue="{!v.showError}">
+                <center>
+                    <div class="slds-box slds-theme–alert-texture slds-theme_error">
+                        <lightning:icon iconName="utility:error" alternativeText="Error!" variant="error"/>&nbsp;
+                        <span class="slds-text-body–regular">                            
+                            <b> Please select atleast one User or Group.</b>                            
+                        </span>
+                        <!--<lightning:icon iconName="action:close" alternativeText="Close" size="xx-small"/>-->
+                    </div>
+                </center>
+            </aura:if>                    
+            <c:reUsableMultiSelectLookup objectAPIName="User"
+                                         IconName="standard:user"
+                                         lstSelectedRecords="{!v.selectedLookUpRecords}"
+                                         label="User Name"
+                                         recId="{!v.recordId}"/><br/>
+            <c:reUsableMultiSelectLookup objectAPIName="Group"
+                                         IconName="standard:groups"
+                                         lstSelectedRecords="{!v.selectedGroupRecords}"
+                                         label="Groups"
+                                         recId="{!v.recordId}"/><br/><br/>
+            <center>               
+                <lightning:button variant="Neutral" label="Close" title="Share" onclick="{! c.handleClose }"/>
+                <lightning:button variant="brand" label="Share" title="Share" onclick="{! c.handleShare }"/>
+            </center>
+        </div>
+    </article>        
+</aura:component>

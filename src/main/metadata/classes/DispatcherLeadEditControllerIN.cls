@@ -14,18 +14,30 @@ public class DispatcherLeadEditControllerIN {
         opp = [Select id, recordtypeid From Opportunity Where Id = :ApexPages.currentPage().getParameters().get('id')];
         recTypeName = UtilRecordType.getRecordTypeNameById('Opportunity', opp.RecordTypeId);
         if(recTypeName == System.Label.Aftersales_Lead){
+            if(UserInfo.getUIThemeDisplayed() == 'Theme3'){
             PageReference leadPage = new PageReference('/apex/AfterSalesLeadEditPage');
             leadPage.getParameters().put('id', opp.id);
             leadPage.setRedirect(true);
             return leadPage;
+            }
+            else{
+            PageReference leadPage = new PageReference('/'+opp.id+'/e?nooverride=1&retURL=%2F'+opp.id);
+            return leadPage;
+            }
         }
         else if(recTypeName == System.Label.Sales_Lead)
 
         {
+        if(UserInfo.getUIThemeDisplayed() == 'Theme3'){
             PageReference leadPage = new PageReference('/apex/SalesLeadEditPage');
             leadPage.getParameters().put('id', opp.id);
             leadPage.setRedirect(true);
-            return leadPage;            
+            return leadPage;  
+            }
+            else{
+            PageReference leadPage = new PageReference('/'+opp.id+'/e?nooverride=1&retURL=%2F'+opp.id);
+            return leadPage;
+            }        
         }
         else if(recTypeName == 'Finance Lead'){
             PageReference leadPage = new PageReference('/'+opp.id+'/e?nooverride=1&retURL=%2F'+opp.id);

@@ -16,12 +16,124 @@ public static Account_Link__c acclink;
 public static List<Contact> contacts;
 public static User user1;
 public static User user2;
-public static User portaluser;
+public static User portaluser; 
 public static User portaluser1;    
 public static Market__c market_Obj;
 public static Functionality_Access_Master__c functionality_access_master_Obj ;
 public static Persona__c persona_Obj; 
 
+    @TestSetup
+    static void dataSetup(){
+        Profile p1 = [select id from profile where Name='System Administrator' limit 1];
+        User user1 = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='samxy@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()), Market__c='MY');
+        insert user1;
+        
+        User user2 = new User(LastName='GEORGE',country='Australia',ProfileId=p1.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='georgeabcd@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()), Market__c='MY');
+        insert user2;
+        System.runAs (user1) {
+        
+        Account dealer = new Account();
+            dealer.Dealer_Alternate_Name__c = 'Test Alternate';
+            dealer.Phone = '12332121';
+            dealer.Dealer_GC_Code__c = 'gc code';
+            dealer.Dealer_GS_Code__c = 'gs code';
+            dealer.Name = 'test dealer';
+            dealer.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            dealer.Star_Elite_Account_Owner__c = user1.Id;
+            dealer.Smart_Account_Owner__c = user1.Id;
+            dealer.Dealer_Lead_System__c = 'salesforce';
+            dealer.Dealer_Lead_Gate_Keeper__c = user1.id;
+            dealer.Allow_Data_Sharing__c = 'yes';
+            dealer.Province__c = 'jiangsu';
+            dealer.City__c = 'nanjing';
+            dealer.Preferred_Language__c = 'english';
+            dealer.Dealer_Lead_System__c = 'salesforce';
+            dealer.Gender__c = '0=Male';
+            dealer.ZipCode__c = '200235';
+            dealer.Type = '0=Company';
+            dealer.Status__c = '0=contac1';
+            dealer.Dealer_Active__c=true;
+            dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
+            dealer.Dealer_Region__c = 'EAST';
+            dealer.Dealer_nd_code__c='123';
+            dealer.Dealer_Rollout_Status__c='Done';
+            dealer.Market__c='MY';
+            dealer.MD__c = 'MY';
+            insert dealer;
+        
+            Account dealer1 = new Account();
+            dealer1.Dealer_Alternate_Name__c = 'Test Alternate';
+            dealer1.Phone = '12332121';
+            dealer1.Dealer_GC_Code__c = 'gc code';
+            dealer1.Dealer_GS_Code__c = 'gs code';
+            dealer1.Name = 'test dealer';
+            dealer1.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            dealer1.Star_Elite_Account_Owner__c = user2.Id;
+            dealer1.Smart_Account_Owner__c = user2.Id;
+            dealer1.Dealer_Lead_System__c = 'salesforce';
+            dealer1.Dealer_Lead_Gate_Keeper__c = user2.id;
+            dealer1.Allow_Data_Sharing__c = 'yes';
+            dealer1.Province__c = 'jiangsu';
+            dealer1.City__c = 'nanjing';
+            dealer1.Preferred_Language__c = 'english';
+            dealer1.Dealer_Lead_System__c = 'salesforce';
+            dealer1.Gender__c = '0=Male';
+            dealer1.ZipCode__c = '200235';
+            dealer1.Type = '0=Company';
+            dealer1.Status__c = '0=contac1';
+            dealer1.Dealer_Active__c=true;
+            dealer1.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
+            dealer1.Dealer_Region__c = 'EAST';
+            dealer1.Dealer_nd_code__c='456';
+            dealer1.Dealer_Rollout_Status__c='Done';
+            dealer1.Market__c='MY';
+            dealer1.MD__c = 'MY';
+            insert dealer1;
+            
+            Account perAcc= new Account();
+            perAcc.Allow_Data_Sharing__c = 'yes'; 
+            perAcc.Province__c = 'jiangsu'; 
+            perAcc.City__c = 'nanjing';
+            perAcc.Preferred_Language__c = 'english';
+            perAcc.Dealer_Lead_System__c = 'salesforce';
+            perAcc.LastName = 'Customer';
+            perAcc.Gender__c = '0=Male';
+            perAcc.ZipCode__c = '2002351';
+            perAcc.Type = '0=Company';
+            perAcc.Phone = '01233214'; 
+            perAcc.Status__c = '0=Customer';
+            perAcc.RecordTypeId =Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            perAcc.Dealer_Lead_Gate_Keeper__c = user1.Id;
+            perAcc.Area_Code__c = '030';
+            perAcc.Market__c='MY';
+            perAcc.MD__c = 'MY';
+            
+            insert perAcc;
+            
+            Address__c address = new Address__c();
+            address.Address_Type__c = 'Home';
+            address.Province__c = 'test1';
+            address.City__c = 'bangalore';
+            address.District__c = 'test2';
+            address.Block__c = 'test3';
+            address.Address_Line_1__c = 'testaddress1';
+            address.Address_Line_2__c = 'testaddress2';
+            address.Customer__c = perAcc.id;
+            address.TitleOfHonor__c = 'To Person';
+            address.preferred__c = True;
+            address.MD__c = 'MY';
+            address.Market__c='MY';
+            insert address;
+            perAcc.Primary_Address_Reference__c = address.id;
+            update perAcc;
+        }
+            List<Group> groupLst=new List<Group>();
+            groupLst.add(new Group(Name='123'));
+            groupLst.add(new Group(Name='456'));
+            insert groupLst;
+    }    
+    
+    
 static testMethod void testAccAssignment() {
     Profile p1 = [select id, name from profile where Name='System Administrator' limit 1];
    user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
@@ -32,8 +144,8 @@ static testMethod void testAccAssignment() {
     insert user1;
     System.runAs (user1) {
         PermissionSet ps = new PermissionSet();
-            ps.Name = 'Test';
-            ps.Label = 'Test';
+            ps.Name = 'Test2';
+            ps.Label = 'Test2';
             insert ps;
  Set<String> customperms = new Set<String>{Label.MYRetail, Label.MYGeneric, Label.CreateRetailCopy,Label.LeadShareRecordswithDealers,Label.LeadAL};
         List<CustomPermission> lcps = new List<CustomPermission>([SELECT ID From CustomPermission WHERE MasterLabel IN :customperms]);
@@ -41,14 +153,14 @@ static testMethod void testAccAssignment() {
 
           for(CustomPermission cps: lcps){
             SetupEntityAccess sea = new SetupEntityAccess();
-        	sea.ParentId = ps.Id;
-        	sea.SetupEntityId = cps.id;
+            sea.ParentId = ps.Id;
+            sea.SetupEntityId = cps.id;
             lsetupentity.add(sea);
         }
        
       if(!lsetupentity.isEmpty())
         DMLManagerService.insertAsSystem(lsetupentity);
-		
+        
         CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
         cs.DEFAULT_CALLOUT_TIME__c='1000';
         cs.MAX_CALLOUT_TIME__c='5000';
@@ -266,7 +378,7 @@ static testMethod void testAccAssignment() {
      //   lead.CAC_Lead_Status__c ='Assigned';
      
             try{
-        		insert lead;
+                insert lead;
                 lead.CAC_Lead_Status__c ='Purchased';
                 update lead;
                 lead.Purchased_CAC_Date__c=system.today();
@@ -274,27 +386,27 @@ static testMethod void testAccAssignment() {
             catch(DMLexception ex)
             {
                 Boolean expectedExceptionThrown =  ex.getMessage().contains('Script-thrown exception') ? true : false;
-				System.assertEquals(expectedExceptionThrown, false);
+                System.assertEquals(expectedExceptionThrown, false);
 //OR
 //System.assertEquals(expectedExceptionThrown, true);
          //   system.assertEquals(ex.getMessage(), ex.getMessage());
              }
             
              acclink = new Account_Link__c(); 
-    		acclink.RecordTypeId = retailpersonRecordTypeId;
-    		acclink.Name = 'testaccounlink';
-    		acclink.fromRole__c = perAcc.Id;
+            acclink.RecordTypeId = retailpersonRecordTypeId;
+            acclink.Name = 'testaccounlink';
+            acclink.fromRole__c = perAcc.Id;
             acclink.toRole__c = dealer1.Id;
-    		acclink.Retail_PersonBirthdate__c=system.today();
-    		acclink.Retail_Special_Care__c='testing';
-    		acclink.Retail_Individual_Home_Phone__c='045878956';
-    		acclink.Retail_Work_Phone__c='0455862358';
-    		acclink.Retail_Mobile__c='076-789-1452';
-    		acclink.Retail_Email__c='asdfg@gmail.com';
-    		acclink.Retail_Gender__c='female';
-    		acclink.Retail_Occupation__c='Business';
-    		acclink.Retail_Preferred_Language__c='english';
-    		acclink.Retail_Preferred_Contact_Method__c='phone';
+            acclink.Retail_PersonBirthdate__c=system.today();
+            acclink.Retail_Special_Care__c='testing';
+            acclink.Retail_Individual_Home_Phone__c='045878956';
+            acclink.Retail_Work_Phone__c='0455862358';
+            acclink.Retail_Mobile__c='076-789-1452';
+            acclink.Retail_Email__c='asdfg@gmail.com';
+            acclink.Retail_Gender__c='female';
+            acclink.Retail_Occupation__c='Business';
+            acclink.Retail_Preferred_Language__c='english';
+            acclink.Retail_Preferred_Contact_Method__c='phone';
            // acclink.Market__c='MY';
             insert acclink;
          Lead__c lead1 = new Lead__c();
@@ -341,4 +453,48 @@ static testMethod void testAccAssignment() {
           
         }     
         }
+    
+    
+    static testMethod void testIntegrationSection() {
+        Trigger__c leadtrigger=new Trigger__c(name='TriggerLeadMY',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='MY',Trigger_Handler__c='LeadTriggerHandlerMY',Trigger_Name__c='TriggerLead',update__c=true);
+        insert leadtrigger;
+        
+        User user_Obj = TestUtils.IntegrationAPIUser();
+        
+            
+        Account perAcc = [select id from Account where lastname = 'Customer' and phone = '01233214' limit 1];
+        Account dealer = [select id,Dealer_Rollout_Status__c from Account where name = 'test dealer' and dealer_nd_code__c = '123'];
+        Account dealer1 = [select id,Dealer_Rollout_Status__c from Account where name = 'test dealer' and dealer_nd_code__c = '456'];
+        
+        System.runAs (user_Obj)
+        {
+            TriggerUtil.userCreate = false;
+            test.starttest();       
+            
+            Lead__c lead = new Lead__c();
+            lead.Contact__c = perAcc.Id;
+            
+            lead.CAC_Lead_Status__c = 'Qualified';
+            lead.Lead_Type__c = 'New Car';
+            lead.Relation_With_The_Leads__c = 'testR';
+            lead.Lead_Desired_Service__c = 'Trade-In';
+            lead.Purchase_Time__c = '0 - 3 months';
+            lead.Interested_Vehicle_Brand__c = 'testI';
+            lead.Trade_In_MB_Vehicle_Model__c = 'benz';
+            lead.Trade_In_Vehicle_Brand__c = 'c230';
+            lead.Trade_In_Vehicle_Class__c = 'C-CLASS';
+            lead.Trade_In_Other_Vehicle_Model__c = 'testT';
+            lead.Interested_Vehicle_Brand__c = 'Smart';
+            lead.md__c='MY';
+            lead.market__c='MY';
+            lead.Received_Date_Time__c=system.today();
+            lead.Accepted_Date_Time__c=system.today();
+            lead.RecordTypeId=salesRecordTypeId;
+            lead.Assigned_Dealer__c = dealer.Id;
+            lead.isTestRunning__c = true;
+            lead.StouchLeadID__c = 'Test';
+            insert lead;
+            test.stoptest(); 
+        }
+    }
 }

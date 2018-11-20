@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <auraComponent>newsDetailsReport</auraComponent>
+    <description>As MPC, I can run a report to show me all news content – headers, creator, start date, expiration date, list of files and size of the files – Exclude body content</description>
+    <label>Report on News</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom83: Pencil</motif>
+</CustomTab>

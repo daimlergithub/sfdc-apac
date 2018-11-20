@@ -63,7 +63,7 @@ static testMethod void testTriggerTaskHelperIN1() {
             Status = 'Started', 
             StartDate = System.today(), 
             EndDate = System.today(),
-            IsActive=true,
+            IsActive=false,
             RecordTypeId = parentCampRecordTypeId
         );
         insert top1;

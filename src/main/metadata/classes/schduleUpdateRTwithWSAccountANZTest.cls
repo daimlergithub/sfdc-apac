@@ -1,10 +1,19 @@
 @istest
 public class schduleUpdateRTwithWSAccountANZTest {
       public static Account dealer;
+	  public static User usr;
       public static Address__c address;
       public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
       public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-      Public Static testmethod void testMethod1()
+      public Static testmethod void testMethod1()
+      { 
+        Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+		usr = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                          EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                          LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='AU',
+                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert usr;
+         System.runAs(usr)
       {     
           
         //inserting person account
@@ -95,13 +104,14 @@ public class schduleUpdateRTwithWSAccountANZTest {
         address.Block__c='test3';
         address.Address_Line_1__c='testaddress1';
         address.Address_Line_2__c='testaddress2';
-        address.ZipCode__c = '327031';
+        address.ZipCode__c = '3271';
         address.Customer__c = a.id;
         address.TitleOfHonor__c ='To Person';  
         address.preferred__c=True;
         address.Opt_In_Hardcopy__c=True;
         address.MD__c='AU';   
-        address.Country__c='India';
+        address.State_City__c = 'VIC';
+        address.Country__c='Australia';
         insert address;
          
           //creating custom setting 
@@ -129,4 +139,5 @@ public class schduleUpdateRTwithWSAccountANZTest {
           Test.stopTest(); 
         
     }
+}
 }

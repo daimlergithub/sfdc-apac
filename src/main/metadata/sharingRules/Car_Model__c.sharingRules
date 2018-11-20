@@ -15,12 +15,89 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>Car_Model_ANZ</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Car Model ANZ</label>
+        <sharedTo>
+            <group>MBANZ_users</group>
+        </sharedTo>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Car_Model_ANZ_Data_Steward</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Car Model ANZ Data Steward</label>
+        <sharedTo>
+            <group>MB_ANZ_Data_Stewards</group>
+        </sharedTo>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Car_Model_AU</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Car Model AU</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Car_Model_NZ</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Car Model NZ</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>Car_Model_Share_India</fullName>
         <accessLevel>Read</accessLevel>
         <description>to share car model records with India</description>
         <label>Car Model Share India</label>
         <sharedTo>
             <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Car_Model_Share_to_MPC_and_FS_Users_India</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Car Model Share to MPC and FS Users India</label>
+        <sharedTo>
+            <roleAndSubordinates>MBIndia</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
             <field>Market__c</field>
@@ -152,4 +229,116 @@
             <value>TH</value>
         </criteriaItems>
     </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>TR_Permission</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>TR Permission</label>
+        <sharedTo>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>FM_CarModel_Readable_to_Argentina_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FM_CarModel_Readable_to_Argentina_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBAR</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBAR</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FM_CarModel_Readable_to_Columbia_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FM_CarModel_Readable_to_Columbia_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBCO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBCO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FM_CarModel_Readable_to_Egypt_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FM_CarModel_Readable_to_Egypt_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBEG</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBEG</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FM_CarModel_Readable_to_Hungary_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FM_CarModel_Readable_to_Hungary_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBHU</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBHU</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FM_CarModel_Readable_to_Indonesia_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FM_CarModel_Readable_to_Indonesia_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBID</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBID</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FM_CarModel_Readable_to_Romania_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FM_CarModel_Readable_to_Romania_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBRO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBRO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FM_CarModel_Readable_to_Singapore_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FM_CarModel_Readable_to_Singapore_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBSG</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBSG</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FM_CarModel_Readable_to_Slovakia_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FM_CarModel_Readable_to_Slovakia_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBSK</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBSK</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FM_CarModel_Readable_to_Vietnam_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FM_CarModel_Readable_to_Vietnam_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBVN</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>MBVN</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
 </SharingRules>

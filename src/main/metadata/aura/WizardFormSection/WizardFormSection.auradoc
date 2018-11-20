@@ -1,0 +1,11 @@
+<aura:documentation>
+	<aura:description>
+      <p><code>c:WizardFormSection</code> component to display fields and sections on Opportunity page(LeadDetailsWizard.cmp)</p>
+      <p>This Component uses lightning Cards to display Market specific fields from the Factory model</p>.
+      <br/>Component is responsive and size in <code>lightning:layout</code> 
+      controls the responsiveness based on the devices.<br/> 
+    </aura:description>  
+        <!--<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		Example Description
+	</aura:example> -->
+</aura:documentation>

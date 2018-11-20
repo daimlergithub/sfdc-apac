@@ -1,0 +1,144 @@
+<!-- File Name   : TradeInVehicle -->
+<!-- Description : TradeInVehicle Lightning component for adding TradeIn Vehicles -->
+<!-- Copyright   : Daimler -->
+<!-- @author     : Infosys -->
+<!-- Author Modification & Ver.Date : Harshit & 31/08/2018 -->
+<aura:component controller="TradeInLCCtrl" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" access="global" >
+    
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>   
+    <aura:attribute name="vehType" type="string" default="Trade In"/>
+    <aura:attribute name="TradeInVeh" type="string"/>
+    <aura:attribute name="YearOfManuf" type="string"/>
+    <aura:attribute name="Mileage" type="string"/>
+    <aura:attribute name="Trim" type="string"/>
+    <aura:attribute name="TVehId" type="Id"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="saveDraftValues" type="Object"/>
+    <aura:attribute name="recId" type="Id" default="{! v.recordId}" />
+    <aura:attribute name="recordTypeId" type="Id"/>
+    <aura:attribute name="showError" type="boolean" default="false"/>
+    <!--Design attributes-->
+    <aura:attribute name="displayType" type="String" default="Card" access="global"/>
+    <aura:attribute name="objectName" type="string"/>
+    <!-- DataTABLE-->
+    <aura:attribute name="tradeInVehiclesList" type="Lead_Details__c[]" />
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="fieldList" type="String[]" default="Trade_In_Vehicle__c,Year_of_Manufacture__c,Mileage__c,Trim__c"/>    
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="isNewVisible" type="boolean" default="true"/>
+    <aura:attribute name="selectedRow" type="string" />
+    
+    
+    <aura:attribute name="OppId" type="Id"/>
+	<!-- EVENT -->
+    <aura:handler event="c:SaveVehiclePicker" action="{!c.getId}"/>
+    <center>
+        <lightning:notificationsLibrary aura:id="notifLib" />
+    </center>    
+    <lightning:card variant="Narrow" title="Trade-In Vehicle Information" iconName="standard:record" >
+        <aura:set attribute="actions"> 
+            <aura:if isTrue="{!v.isNewVisible}"> 
+                 <lightning:buttonIcon  variant="border-filled" alternativeText="Add Trade-In Vehicle" iconName="utility:add" onclick="{!c.handleNew}" /> 
+               <!-- <lightning:button variant="neutral" label="New" title="New" onclick="{!c.handleNew}" /> -->
+            </aura:if>
+        </aura:set>
+        <aura:if isTrue="{!v.isOpen}">            
+            <!--###### MODAL BOX Start######--> 
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- ###### MODAL BOX HEADER Start ######-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Tradein Vehicle</h2>
+                    </header>
+                    <!--###### MODAL BOX BODY Part Start######-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <lightning:recordEditForm aura:id="TradeinForm" objectApiName="Lead_Details__c" recordTypeId="{! v.recordTypeId}" onsuccess="{!c.handleSuccess}" onsubmit="{!c.handleSubmit}">        
+                            <aura:if isTrue="{! v.showError}">
+                              <center><div class="slds-text-body_small slds-text-color_error">{!v.message} </div> </center>   
+                             </aura:if>
+                            <lightning:layout multipleRows="true" horizontalAlign="space" >
+                                   <lightning:layoutItem padding="around-small" > 
+                                        <lightning:inputField fieldName="Trade_In_Vehicle__c" value="{! v.TradeInVeh}"/>
+                                    </lightning:layoutItem><lightning:layoutItem padding="around-small" >    
+                                        <lightning:inputField fieldName="Year_of_Manufacture__c" value="{! v.YearOfManuf}"/>
+                                    </lightning:layoutItem><lightning:layoutItem padding="around-small" >
+                                        <lightning:inputField fieldName="Mileage__c" value="{! v.Mileage}"/>
+                                    </lightning:layoutItem><lightning:layoutItem padding="around-small" >
+                                        <lightning:inputField fieldName="Trim__c" value="{! v.Trim}"/>
+                                    </lightning:layoutItem>
+                                 <lightning:inputField fieldName="Related_Lead__c" value="{!v.recId}" class="slds-hide"/>
+                                <!--<lightning:inputField fieldName="Type__c" value="{!v.vehType}" class="slds-hide"/> -->
+                                
+                            </lightning:layout>
+                            <lightning:layout horizontalAlign="center" class="slds-m-top_large">
+                                <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.closeModel}" />
+                                <lightning:button variant="brand" label="Submit" title="Submit" type="submit" />
+                            </lightning:layout>
+                        </lightning:recordEditForm>
+                    </div>
+                    <!--###### MODAL BOX FOOTER Part Start ######-->                    
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <!--###### MODAL BOX Part END Here ######-->            
+        </aura:if>   
+        <!-- DataTable view -->
+        <aura:if isTrue="{!v.displayType=='Table'}">        
+            <lightning:datatable data="{! v.tradeInVehiclesList }"
+                                 aura:id="tradeInDataTable"
+                                 columns="{! v.mycolumns }"
+                                 keyField="Id"                              
+                                 hideCheckboxColumn="true"
+                                 onrowaction="{! c.handleRowAction }">
+            </lightning:datatable>
+        </aura:if> 
+      <!-- card layout below -->  
+	  <div class="slds-scrollable" style="height: 200px; width: 380px;">
+       <aura:if isTrue="{!not(v.displayType == 'Table')}"> 
+              <aura:iteration items="{!v.tradeInVehiclesList}" var="add" indexVar="row">                  
+                <ul class="slds-has-dividers_around-space">
+                    <li class="slds-item">
+                         <lightning:tile>  
+                            <div class="slds-col slds-float_right" style="text-align: right;">
+                            <lightning:buttonIcon iconName="utility:edit" class="slds-col--bump-left" variant="bare" alternativeText="{!row}" title="Edit Record" onclick="{!c.editCard}" aura:id="EditCard"/>
+                            </div>
+                            <dl class="slds-dl_horizontal">
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Vehicle Model">Trade In Vehicle:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Vehicle Model">{!add.Trade_In_Vehicle__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Vehicle Brand">Year of Manufacture:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Vehicle Brand">{!add.Year_of_Manufacture__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Vehicle Class">Mileage:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Vehicle Class">{!add.Mileage__c}</p>
+                                </dd>
+                                <dt class="slds-dl_horizontal__label">
+                                    <p class="slds-truncate" title="Mileage Start">Trim:</p>
+                                </dt>
+                                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                    <p class="slds-truncate" title="Mileage Start">{!add.Trim__c}</p>
+                                </dd>                                
+                            </dl>
+                        </lightning:tile>
+                    </li>
+                </ul>
+                &nbsp;
+            </aura:iteration>
+        </aura:if> 
+		</div>
+    </lightning:card>    
+</aura:component>

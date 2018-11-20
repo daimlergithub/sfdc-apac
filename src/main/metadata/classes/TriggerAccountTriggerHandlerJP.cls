@@ -17,7 +17,9 @@ implements TriggerHandlerIf
     list<Account> ListAccNew = (list<Account>)trigger.new;
     string serializedObject;
 	public static boolean firstRun = true;
-	Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();																	 
+	Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();	
+ private static  final User assigneduser=[select id,Market__c,profile.name,Profile.UserLicense.Name,ContactId,Contact.Accountid,Username from User where id =:Userinfo.getUserId()];
+   	
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {	//SN20180723- CDM Release 2
 		Boolean jpSwitchEnabledFlag = false;
@@ -58,6 +60,9 @@ implements TriggerHandlerIf
 			if(!jpSwitchEnabledFlag){
                 AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
             }
+			else if(jpSwitchEnabledFlag){
+                        AccountHelperbase.createAccountLinkExtLinkRecordAfterUCIDGeneration(trigger.New, (Map<Id,Account>)trigger.OldMap, trigger.isUpdate,trigger.isInsert);
+            }							 
             AccountHelperJP.CreateRetailCopy(trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');  
 			//SN20180723- CDM Release 2 added condition			
@@ -116,6 +121,7 @@ implements TriggerHandlerIf
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         List<Account> accountNewList = Trigger.new;
+		String usrName=assigneduser.Username; 
 		
         if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'JP')
         {   
@@ -148,6 +154,16 @@ implements TriggerHandlerIf
 						AccountHelperbase.createAccountLinkExtLinkRecordAfterUCIDGeneration(trigger.New, (Map<Id,Account>)trigger.OldMap, trigger.isUpdate,trigger.isInsert);
 				}
 			}
+			// Added by venky on 2018/08/22 , As per ogi request added below logic to call entityNotifyUpdate method in informatica user.
+			if(usrName.contains(Label.InfomraticaUserLabel))
+            {
+             if(isAfter && isInsert && !System.isFuture())
+             {
+             serializedObject=json.serialize(ListAccNew);
+             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');            
+            AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+             }
+            }
 			
 			if(isafter && isupdate){
 				//SN20180723- CDM Release 2 added condition
@@ -176,7 +192,29 @@ implements TriggerHandlerIf
                     LeadUtil.vrTrigger = false;
                 }
                 AccountHelperJP.deletesharingforSoftDeletedRecords(trigger.new);
+					// Added by venky on 2018/08/22 , As per ogi request added below logic to call entityNotifyUpdate method in informatica user.
+				 if(usrName.contains(Label.InfomraticaUserLabel))
+               {
+                serializedObject=json.serialize(ListAccNew);
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+			//Commented on 10/09/2018 testing is not completed
+			// AccountHelperJP.CreateRetailCopy(trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+            }
             }
         }
+			// Added by venky on 2018/08/22 , As per ogi request added below logic to call entityNotifyUpdate method in informatica user.
+		if(usrName.contains(Label.InfomraticaUserLabel))
+         {
+         if(isAfter && isDelete && !System.isFuture())
+        {
+            serializedObject=json.serialize(ListAccOld);
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
+			//Commented on 10/09/2018 testing is not completed
+			//AccountHelperJP.CreateRetailCopy(trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+            
+        }
+         }
     }
 }
