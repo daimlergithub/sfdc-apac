@@ -6,6 +6,7 @@
 * Copyright     : Diamler
 * @author       : Infosys 
 * Author Modification & Ver.Date : Sarath & 22/08/2018
+* comment added
 ******************************************************************************************************************************************************************/ 
 public interface AccountContactInfo {
     AccountContactDetailsDefinition getFields();
