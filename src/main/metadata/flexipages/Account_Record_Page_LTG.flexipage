@@ -270,7 +270,7 @@
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <flexiPageRegions>
+    <!--<flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>ComponentName</name>
@@ -321,7 +321,7 @@
         <mode>Replace</mode>
         <name>sidebar</name>
         <type>Region</type>
-    </flexiPageRegions>
+    </flexiPageRegions>-->
     <masterLabel>Account Record Page</masterLabel>
     <parentFlexiPage>sfa__Account_rec_L</parentFlexiPage>
     <sobjectType>Account</sobjectType>
