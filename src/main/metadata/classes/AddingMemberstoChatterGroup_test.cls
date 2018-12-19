@@ -19,9 +19,9 @@ public class AddingMemberstoChatterGroup_test{
             //CollaborationGroup Chattergrp = [SELECT Id, Name From CollaborationGroup WHERE Name =: 'All MBJ Users' LIMIT 1];
             system.runAs(u){
             test.StartTest();
-            AddingMemberstoChatterGroup obj = new AddingMemberstoChatterGroup();
+            //AddingMemberstoChatterGroup obj = new AddingMemberstoChatterGroup();
             
-           JobId  = Database.executeBatch(obj,300);
+           //JobId  = Database.executeBatch(obj,300);
            test.StopTest(); 
             }
       //System.abortJob(JobId);      

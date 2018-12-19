@@ -180,7 +180,7 @@
         <name>Facet-e505546c-fd8d-4757-9c53-ba7be1aece38</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <flexiPageRegions>
+    <!--<flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>ComponentName</name>
@@ -205,7 +205,7 @@
         </componentInstances>
         <name>sidebar</name>
         <type>Region</type>
-    </flexiPageRegions>
+    </flexiPageRegions>-->
     <masterLabel>Account Link Record Page</masterLabel>
     <sobjectType>Account_Link__c</sobjectType>
     <template>
