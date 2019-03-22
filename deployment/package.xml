@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>MC Changes 23rd May</fullName>
-    <types>
-        <members>IndividualEmailResultHelperTH</members>
-        <members>IndividualEmailResultHelperTHTest</members>
-        <members>TriggerIndividualEmailResultHandlerTH</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>TriggerIndividualEmailResult</members>
-        <name>ApexTrigger</name>
-    </types>
-    <version>41.0</version>
+  <types>
+    <name>LightningComponentBundle</name>
+    <members>hellowWorld</members>
+  </types>
+  <version>45.0</version>
 </Package>
